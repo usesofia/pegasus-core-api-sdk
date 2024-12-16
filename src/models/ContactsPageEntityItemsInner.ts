@@ -26,6 +26,18 @@ export interface ContactsPageEntityItemsInner {
      */
     id: string;
     /**
+     * Identificador da organização.
+     * @type {string}
+     * @memberof ContactsPageEntityItemsInner
+     */
+    organizationId: string;
+    /**
+     * Identificador do usuário que criou o contato.
+     * @type {string}
+     * @memberof ContactsPageEntityItemsInner
+     */
+    createdByUserId: string;
+    /**
      * Nome do contato.
      * @type {string}
      * @memberof ContactsPageEntityItemsInner
@@ -102,6 +114,8 @@ export type ContactsPageEntityItemsInnerDocumentTypeEnum = typeof ContactsPageEn
  */
 export function instanceOfContactsPageEntityItemsInner(value: object): value is ContactsPageEntityItemsInner {
     if (!('id' in value) || value['id'] === undefined) return false;
+    if (!('organizationId' in value) || value['organizationId'] === undefined) return false;
+    if (!('createdByUserId' in value) || value['createdByUserId'] === undefined) return false;
     if (!('name' in value) || value['name'] === undefined) return false;
     if (!('createdAt' in value) || value['createdAt'] === undefined) return false;
     if (!('updatedAt' in value) || value['updatedAt'] === undefined) return false;
@@ -119,6 +133,8 @@ export function ContactsPageEntityItemsInnerFromJSONTyped(json: any, ignoreDiscr
     return {
         
         'id': json['id'],
+        'organizationId': json['organizationId'],
+        'createdByUserId': json['createdByUserId'],
         'name': json['name'],
         'type': json['type'] == null ? undefined : json['type'],
         'documentType': json['documentType'] == null ? undefined : json['documentType'],
@@ -142,6 +158,8 @@ export function ContactsPageEntityItemsInnerToJSONTyped(value?: ContactsPageEnti
     return {
         
         'id': value['id'],
+        'organizationId': value['organizationId'],
+        'createdByUserId': value['createdByUserId'],
         'name': value['name'],
         'type': value['type'],
         'documentType': value['documentType'],

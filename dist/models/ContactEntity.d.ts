@@ -22,6 +22,18 @@ export interface ContactEntity {
      */
     id: string;
     /**
+     * Identificador da organização.
+     * @type {string}
+     * @memberof ContactEntity
+     */
+    organizationId: string;
+    /**
+     * Identificador do usuário que criou o contato.
+     * @type {string}
+     * @memberof ContactEntity
+     */
+    createdByUserId: string;
+    /**
      * Nome do contato.
      * @type {string}
      * @memberof ContactEntity

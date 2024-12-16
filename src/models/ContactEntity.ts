@@ -26,6 +26,18 @@ export interface ContactEntity {
      */
     id: string;
     /**
+     * Identificador da organização.
+     * @type {string}
+     * @memberof ContactEntity
+     */
+    organizationId: string;
+    /**
+     * Identificador do usuário que criou o contato.
+     * @type {string}
+     * @memberof ContactEntity
+     */
+    createdByUserId: string;
+    /**
      * Nome do contato.
      * @type {string}
      * @memberof ContactEntity
@@ -102,6 +114,8 @@ export type ContactEntityDocumentTypeEnum = typeof ContactEntityDocumentTypeEnum
  */
 export function instanceOfContactEntity(value: object): value is ContactEntity {
     if (!('id' in value) || value['id'] === undefined) return false;
+    if (!('organizationId' in value) || value['organizationId'] === undefined) return false;
+    if (!('createdByUserId' in value) || value['createdByUserId'] === undefined) return false;
     if (!('name' in value) || value['name'] === undefined) return false;
     if (!('createdAt' in value) || value['createdAt'] === undefined) return false;
     if (!('updatedAt' in value) || value['updatedAt'] === undefined) return false;
@@ -119,6 +133,8 @@ export function ContactEntityFromJSONTyped(json: any, ignoreDiscriminator: boole
     return {
         
         'id': json['id'],
+        'organizationId': json['organizationId'],
+        'createdByUserId': json['createdByUserId'],
         'name': json['name'],
         'type': json['type'] == null ? undefined : json['type'],
         'documentType': json['documentType'] == null ? undefined : json['documentType'],
@@ -142,6 +158,8 @@ export function ContactEntityToJSONTyped(value?: ContactEntity | null, ignoreDis
     return {
         
         'id': value['id'],
+        'organizationId': value['organizationId'],
+        'createdByUserId': value['createdByUserId'],
         'name': value['name'],
         'type': value['type'],
         'documentType': value['documentType'],

@@ -41,6 +41,10 @@ exports.ContactsPageEntityItemsInnerDocumentTypeEnum = {
 function instanceOfContactsPageEntityItemsInner(value) {
     if (!('id' in value) || value['id'] === undefined)
         return false;
+    if (!('organizationId' in value) || value['organizationId'] === undefined)
+        return false;
+    if (!('createdByUserId' in value) || value['createdByUserId'] === undefined)
+        return false;
     if (!('name' in value) || value['name'] === undefined)
         return false;
     if (!('createdAt' in value) || value['createdAt'] === undefined)
@@ -58,6 +62,8 @@ function ContactsPageEntityItemsInnerFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'id': json['id'],
+        'organizationId': json['organizationId'],
+        'createdByUserId': json['createdByUserId'],
         'name': json['name'],
         'type': json['type'] == null ? undefined : json['type'],
         'documentType': json['documentType'] == null ? undefined : json['documentType'],
@@ -78,6 +84,8 @@ function ContactsPageEntityItemsInnerToJSONTyped(value, ignoreDiscriminator) {
     }
     return {
         'id': value['id'],
+        'organizationId': value['organizationId'],
+        'createdByUserId': value['createdByUserId'],
         'name': value['name'],
         'type': value['type'],
         'documentType': value['documentType'],

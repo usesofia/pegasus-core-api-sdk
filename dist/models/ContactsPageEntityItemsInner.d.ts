@@ -22,6 +22,18 @@ export interface ContactsPageEntityItemsInner {
      */
     id: string;
     /**
+     * Identificador da organização.
+     * @type {string}
+     * @memberof ContactsPageEntityItemsInner
+     */
+    organizationId: string;
+    /**
+     * Identificador do usuário que criou o contato.
+     * @type {string}
+     * @memberof ContactsPageEntityItemsInner
+     */
+    createdByUserId: string;
+    /**
      * Nome do contato.
      * @type {string}
      * @memberof ContactsPageEntityItemsInner
