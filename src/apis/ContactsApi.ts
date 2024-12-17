@@ -34,26 +34,30 @@ import {
     PartialUpdateContactRequestBodyDtoToJSON,
 } from '../models/index';
 
-export interface CreateRequest {
+export interface CreateContactRequest {
     createContactRequestBodyDto: CreateContactRequestBodyDto;
+    populate?: string;
 }
 
-export interface FindAllRequest {
+export interface FindAllContactsRequest {
+    populate?: string;
     searchTerm?: string;
     pageSize?: number;
     pageIndex?: number;
 }
 
-export interface FindOneRequest {
+export interface FindOneContactRequest {
     id: string;
+    populate?: string;
 }
 
-export interface PartialUpdateRequest {
+export interface PartialUpdateContactRequest {
     id: string;
     partialUpdateContactRequestBodyDto: PartialUpdateContactRequestBodyDto;
+    populate?: string;
 }
 
-export interface RemoveRequest {
+export interface RemoveContactRequest {
     id: string;
 }
 
@@ -65,15 +69,19 @@ export class ContactsApi extends runtime.BaseAPI {
     /**
      * Cria um novo contato.
      */
-    async createRaw(requestParameters: CreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ContactEntity>> {
+    async createContactRaw(requestParameters: CreateContactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ContactEntity>> {
         if (requestParameters['createContactRequestBodyDto'] == null) {
             throw new runtime.RequiredError(
                 'createContactRequestBodyDto',
-                'Required parameter "createContactRequestBodyDto" was null or undefined when calling create().'
+                'Required parameter "createContactRequestBodyDto" was null or undefined when calling createContact().'
             );
         }
 
         const queryParameters: any = {};
+
+        if (requestParameters['populate'] != null) {
+            queryParameters['populate'] = requestParameters['populate'];
+        }
 
         const headerParameters: runtime.HTTPHeaders = {};
 
@@ -93,16 +101,20 @@ export class ContactsApi extends runtime.BaseAPI {
     /**
      * Cria um novo contato.
      */
-    async create(requestParameters: CreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ContactEntity> {
-        const response = await this.createRaw(requestParameters, initOverrides);
+    async createContact(requestParameters: CreateContactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ContactEntity> {
+        const response = await this.createContactRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      * Busca todos os contatos.
      */
-    async findAllRaw(requestParameters: FindAllRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ContactsPageEntity>> {
+    async findAllContactsRaw(requestParameters: FindAllContactsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ContactsPageEntity>> {
         const queryParameters: any = {};
+
+        if (requestParameters['populate'] != null) {
+            queryParameters['populate'] = requestParameters['populate'];
+        }
 
         if (requestParameters['searchTerm'] != null) {
             queryParameters['searchTerm'] = requestParameters['searchTerm'];
@@ -131,23 +143,27 @@ export class ContactsApi extends runtime.BaseAPI {
     /**
      * Busca todos os contatos.
      */
-    async findAll(requestParameters: FindAllRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ContactsPageEntity> {
-        const response = await this.findAllRaw(requestParameters, initOverrides);
+    async findAllContacts(requestParameters: FindAllContactsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ContactsPageEntity> {
+        const response = await this.findAllContactsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      * Busca um contato pelo identificador.
      */
-    async findOneRaw(requestParameters: FindOneRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ContactEntity>> {
+    async findOneContactRaw(requestParameters: FindOneContactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ContactEntity>> {
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
-                'Required parameter "id" was null or undefined when calling findOne().'
+                'Required parameter "id" was null or undefined when calling findOneContact().'
             );
         }
 
         const queryParameters: any = {};
+
+        if (requestParameters['populate'] != null) {
+            queryParameters['populate'] = requestParameters['populate'];
+        }
 
         const headerParameters: runtime.HTTPHeaders = {};
 
@@ -164,30 +180,34 @@ export class ContactsApi extends runtime.BaseAPI {
     /**
      * Busca um contato pelo identificador.
      */
-    async findOne(requestParameters: FindOneRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ContactEntity> {
-        const response = await this.findOneRaw(requestParameters, initOverrides);
+    async findOneContact(requestParameters: FindOneContactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ContactEntity> {
+        const response = await this.findOneContactRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      * Atualiza parcialmente um contato.
      */
-    async partialUpdateRaw(requestParameters: PartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ContactEntity>> {
+    async partialUpdateContactRaw(requestParameters: PartialUpdateContactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ContactEntity>> {
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
-                'Required parameter "id" was null or undefined when calling partialUpdate().'
+                'Required parameter "id" was null or undefined when calling partialUpdateContact().'
             );
         }
 
         if (requestParameters['partialUpdateContactRequestBodyDto'] == null) {
             throw new runtime.RequiredError(
                 'partialUpdateContactRequestBodyDto',
-                'Required parameter "partialUpdateContactRequestBodyDto" was null or undefined when calling partialUpdate().'
+                'Required parameter "partialUpdateContactRequestBodyDto" was null or undefined when calling partialUpdateContact().'
             );
         }
 
         const queryParameters: any = {};
+
+        if (requestParameters['populate'] != null) {
+            queryParameters['populate'] = requestParameters['populate'];
+        }
 
         const headerParameters: runtime.HTTPHeaders = {};
 
@@ -207,19 +227,19 @@ export class ContactsApi extends runtime.BaseAPI {
     /**
      * Atualiza parcialmente um contato.
      */
-    async partialUpdate(requestParameters: PartialUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ContactEntity> {
-        const response = await this.partialUpdateRaw(requestParameters, initOverrides);
+    async partialUpdateContact(requestParameters: PartialUpdateContactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ContactEntity> {
+        const response = await this.partialUpdateContactRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      * Remove um contato.
      */
-    async removeRaw(requestParameters: RemoveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+    async removeContactRaw(requestParameters: RemoveContactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
-                'Required parameter "id" was null or undefined when calling remove().'
+                'Required parameter "id" was null or undefined when calling removeContact().'
             );
         }
 
@@ -240,8 +260,8 @@ export class ContactsApi extends runtime.BaseAPI {
     /**
      * Remove um contato.
      */
-    async remove(requestParameters: RemoveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
-        await this.removeRaw(requestParameters, initOverrides);
+    async removeContact(requestParameters: RemoveContactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+        await this.removeContactRaw(requestParameters, initOverrides);
     }
 
 }

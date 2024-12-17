@@ -30,13 +30,13 @@ export interface ContactsPageEntityItemsInner {
      * @type {string}
      * @memberof ContactsPageEntityItemsInner
      */
-    organizationId: string;
+    organization: string;
     /**
      * Identificador do usuário que criou o contato.
      * @type {string}
      * @memberof ContactsPageEntityItemsInner
      */
-    createdByUserId: string;
+    createdByUser: string;
     /**
      * Nome do contato.
      * @type {string}
@@ -114,8 +114,8 @@ export type ContactsPageEntityItemsInnerDocumentTypeEnum = typeof ContactsPageEn
  */
 export function instanceOfContactsPageEntityItemsInner(value: object): value is ContactsPageEntityItemsInner {
     if (!('id' in value) || value['id'] === undefined) return false;
-    if (!('organizationId' in value) || value['organizationId'] === undefined) return false;
-    if (!('createdByUserId' in value) || value['createdByUserId'] === undefined) return false;
+    if (!('organization' in value) || value['organization'] === undefined) return false;
+    if (!('createdByUser' in value) || value['createdByUser'] === undefined) return false;
     if (!('name' in value) || value['name'] === undefined) return false;
     if (!('createdAt' in value) || value['createdAt'] === undefined) return false;
     if (!('updatedAt' in value) || value['updatedAt'] === undefined) return false;
@@ -133,8 +133,8 @@ export function ContactsPageEntityItemsInnerFromJSONTyped(json: any, ignoreDiscr
     return {
         
         'id': json['id'],
-        'organizationId': json['organizationId'],
-        'createdByUserId': json['createdByUserId'],
+        'organization': json['organization'],
+        'createdByUser': json['createdByUser'],
         'name': json['name'],
         'type': json['type'] == null ? undefined : json['type'],
         'documentType': json['documentType'] == null ? undefined : json['documentType'],
@@ -158,8 +158,8 @@ export function ContactsPageEntityItemsInnerToJSONTyped(value?: ContactsPageEnti
     return {
         
         'id': value['id'],
-        'organizationId': value['organizationId'],
-        'createdByUserId': value['createdByUserId'],
+        'organization': value['organization'],
+        'createdByUser': value['createdByUser'],
         'name': value['name'],
         'type': value['type'],
         'documentType': value['documentType'],
