@@ -21,6 +21,8 @@ src/models/CreateContactRequestBodyDto.ts
 src/models/CreatePostRequestBodyDto.ts
 src/models/CreatePostRequestBodyDtoAuthor.ts
 src/models/CreatePostRequestBodyDtoAuthorOneOf.ts
+src/models/CreatePostRequestBodyDtoTagsInner.ts
+src/models/CreatePostRequestBodyDtoTagsInnerOneOf.ts
 src/models/CreatePostTagRequestBodyDto.ts
 src/models/ExceptionResponseEntity.ts
 src/models/ExceptionResponseEntityErrorsInner.ts

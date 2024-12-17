@@ -20,6 +20,13 @@ import {
     CreatePostRequestBodyDtoAuthorToJSON,
     CreatePostRequestBodyDtoAuthorToJSONTyped,
 } from './CreatePostRequestBodyDtoAuthor';
+import type { CreatePostRequestBodyDtoTagsInner } from './CreatePostRequestBodyDtoTagsInner';
+import {
+    CreatePostRequestBodyDtoTagsInnerFromJSON,
+    CreatePostRequestBodyDtoTagsInnerFromJSONTyped,
+    CreatePostRequestBodyDtoTagsInnerToJSON,
+    CreatePostRequestBodyDtoTagsInnerToJSONTyped,
+} from './CreatePostRequestBodyDtoTagsInner';
 
 /**
  * 
@@ -33,6 +40,12 @@ export interface PartialUpdatePostRequestBodyDto {
      * @memberof PartialUpdatePostRequestBodyDto
      */
     author?: CreatePostRequestBodyDtoAuthor | null;
+    /**
+     * Tags do post.
+     * @type {Array<CreatePostRequestBodyDtoTagsInner>}
+     * @memberof PartialUpdatePostRequestBodyDto
+     */
+    tags?: Array<CreatePostRequestBodyDtoTagsInner>;
     /**
      * Título do post.
      * @type {string}
@@ -77,6 +90,7 @@ export function PartialUpdatePostRequestBodyDtoFromJSONTyped(json: any, ignoreDi
     return {
         
         'author': json['author'] == null ? undefined : CreatePostRequestBodyDtoAuthorFromJSON(json['author']),
+        'tags': json['tags'] == null ? undefined : ((json['tags'] as Array<any>).map(CreatePostRequestBodyDtoTagsInnerFromJSON)),
         'title': json['title'] == null ? undefined : json['title'],
         'content': json['content'] == null ? undefined : json['content'],
         'published': json['published'] == null ? undefined : json['published'],
@@ -96,6 +110,7 @@ export function PartialUpdatePostRequestBodyDtoToJSONTyped(value?: PartialUpdate
     return {
         
         'author': CreatePostRequestBodyDtoAuthorToJSON(value['author']),
+        'tags': value['tags'] == null ? undefined : ((value['tags'] as Array<any>).map(CreatePostRequestBodyDtoTagsInnerToJSON)),
         'title': value['title'],
         'content': value['content'],
         'published': value['published'],

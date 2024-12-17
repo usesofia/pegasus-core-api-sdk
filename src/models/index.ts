@@ -12,6 +12,8 @@ export * from './CreateContactRequestBodyDto';
 export * from './CreatePostRequestBodyDto';
 export * from './CreatePostRequestBodyDtoAuthor';
 export * from './CreatePostRequestBodyDtoAuthorOneOf';
+export * from './CreatePostRequestBodyDtoTagsInner';
+export * from './CreatePostRequestBodyDtoTagsInnerOneOf';
 export * from './CreatePostTagRequestBodyDto';
 export * from './ExceptionResponseEntity';
 export * from './ExceptionResponseEntityErrorsInner';

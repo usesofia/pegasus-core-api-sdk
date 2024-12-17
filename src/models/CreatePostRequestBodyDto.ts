@@ -20,6 +20,13 @@ import {
     CreatePostRequestBodyDtoAuthorToJSON,
     CreatePostRequestBodyDtoAuthorToJSONTyped,
 } from './CreatePostRequestBodyDtoAuthor';
+import type { CreatePostRequestBodyDtoTagsInner } from './CreatePostRequestBodyDtoTagsInner';
+import {
+    CreatePostRequestBodyDtoTagsInnerFromJSON,
+    CreatePostRequestBodyDtoTagsInnerFromJSONTyped,
+    CreatePostRequestBodyDtoTagsInnerToJSON,
+    CreatePostRequestBodyDtoTagsInnerToJSONTyped,
+} from './CreatePostRequestBodyDtoTagsInner';
 
 /**
  * 
@@ -33,6 +40,12 @@ export interface CreatePostRequestBodyDto {
      * @memberof CreatePostRequestBodyDto
      */
     author?: CreatePostRequestBodyDtoAuthor | null;
+    /**
+     * Tags do post.
+     * @type {Array<CreatePostRequestBodyDtoTagsInner>}
+     * @memberof CreatePostRequestBodyDto
+     */
+    tags: Array<CreatePostRequestBodyDtoTagsInner>;
     /**
      * Título do post.
      * @type {string}
@@ -63,6 +76,7 @@ export interface CreatePostRequestBodyDto {
  * Check if a given object implements the CreatePostRequestBodyDto interface.
  */
 export function instanceOfCreatePostRequestBodyDto(value: object): value is CreatePostRequestBodyDto {
+    if (!('tags' in value) || value['tags'] === undefined) return false;
     if (!('title' in value) || value['title'] === undefined) return false;
     if (!('content' in value) || value['content'] === undefined) return false;
     if (!('published' in value) || value['published'] === undefined) return false;
@@ -80,6 +94,7 @@ export function CreatePostRequestBodyDtoFromJSONTyped(json: any, ignoreDiscrimin
     return {
         
         'author': json['author'] == null ? undefined : CreatePostRequestBodyDtoAuthorFromJSON(json['author']),
+        'tags': ((json['tags'] as Array<any>).map(CreatePostRequestBodyDtoTagsInnerFromJSON)),
         'title': json['title'],
         'content': json['content'],
         'published': json['published'],
@@ -99,6 +114,7 @@ export function CreatePostRequestBodyDtoToJSONTyped(value?: CreatePostRequestBod
     return {
         
         'author': CreatePostRequestBodyDtoAuthorToJSON(value['author']),
+        'tags': ((value['tags'] as Array<any>).map(CreatePostRequestBodyDtoTagsInnerToJSON)),
         'title': value['title'],
         'content': value['content'],
         'published': value['published'],
