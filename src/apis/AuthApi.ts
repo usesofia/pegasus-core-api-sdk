@@ -17,19 +17,19 @@ import * as runtime from '../runtime';
 import type {
   AuthUserEntity,
   ExceptionResponseEntity,
-  RefreshClerkUserRequestBodyDto,
+  PubSubMessageBodyDto,
 } from '../models/index';
 import {
     AuthUserEntityFromJSON,
     AuthUserEntityToJSON,
     ExceptionResponseEntityFromJSON,
     ExceptionResponseEntityToJSON,
-    RefreshClerkUserRequestBodyDtoFromJSON,
-    RefreshClerkUserRequestBodyDtoToJSON,
+    PubSubMessageBodyDtoFromJSON,
+    PubSubMessageBodyDtoToJSON,
 } from '../models/index';
 
 export interface RefreshClerkUserOnCacheRequest {
-    refreshClerkUserRequestBodyDto: RefreshClerkUserRequestBodyDto;
+    pubSubMessageBodyDto: PubSubMessageBodyDto;
 }
 
 /**
@@ -42,7 +42,7 @@ export interface AuthApiInterface {
     /**
      * 
      * @summary Atualiza os dados do usuário a partir do token na cache.
-     * @param {RefreshClerkUserRequestBodyDto} refreshClerkUserRequestBodyDto 
+     * @param {PubSubMessageBodyDto} pubSubMessageBodyDto 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof AuthApiInterface
@@ -65,10 +65,10 @@ export class AuthApi extends runtime.BaseAPI implements AuthApiInterface {
      * Atualiza os dados do usuário a partir do token na cache.
      */
     async refreshClerkUserOnCacheRaw(requestParameters: RefreshClerkUserOnCacheRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AuthUserEntity>> {
-        if (requestParameters['refreshClerkUserRequestBodyDto'] == null) {
+        if (requestParameters['pubSubMessageBodyDto'] == null) {
             throw new runtime.RequiredError(
-                'refreshClerkUserRequestBodyDto',
-                'Required parameter "refreshClerkUserRequestBodyDto" was null or undefined when calling refreshClerkUserOnCache().'
+                'pubSubMessageBodyDto',
+                'Required parameter "pubSubMessageBodyDto" was null or undefined when calling refreshClerkUserOnCache().'
             );
         }
 
@@ -83,7 +83,7 @@ export class AuthApi extends runtime.BaseAPI implements AuthApiInterface {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: RefreshClerkUserRequestBodyDtoToJSON(requestParameters['refreshClerkUserRequestBodyDto']),
+            body: PubSubMessageBodyDtoToJSON(requestParameters['pubSubMessageBodyDto']),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => AuthUserEntityFromJSON(jsonValue));

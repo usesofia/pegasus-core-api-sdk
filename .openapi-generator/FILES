@@ -38,7 +38,8 @@ src/models/PostTagsPageEntity.ts
 src/models/PostTagsPageEntityItemsInner.ts
 src/models/PostsPageEntity.ts
 src/models/PostsPageEntityItemsInner.ts
-src/models/RefreshClerkUserRequestBodyDto.ts
+src/models/PubSubMessageBodyDto.ts
+src/models/PubSubMessageBodyDtoMessage.ts
 src/models/UpdatePostTagRequestBodyDto.ts
 src/models/index.ts
 src/runtime.ts

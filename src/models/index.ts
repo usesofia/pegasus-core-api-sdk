@@ -28,5 +28,6 @@ export * from './PostTagsPageEntity';
 export * from './PostTagsPageEntityItemsInner';
 export * from './PostsPageEntity';
 export * from './PostsPageEntityItemsInner';
-export * from './RefreshClerkUserRequestBodyDto';
+export * from './PubSubMessageBodyDto';
+export * from './PubSubMessageBodyDtoMessage';
 export * from './UpdatePostTagRequestBodyDto';
