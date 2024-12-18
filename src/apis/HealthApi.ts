@@ -60,6 +60,20 @@ export interface HealthApiInterface {
      */
     health(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<HealthResponseDto>;
 
+    /**
+     * 
+     * @summary Verifica o status do serviço.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof HealthApiInterface
+     */
+    healthPostRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<HealthResponseDto>>;
+
+    /**
+     * Verifica o status do serviço.
+     */
+    healthPost(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<HealthResponseDto>;
+
 }
 
 /**
@@ -115,6 +129,32 @@ export class HealthApi extends runtime.BaseAPI implements HealthApiInterface {
      */
     async health(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<HealthResponseDto> {
         const response = await this.healthRaw(initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Verifica o status do serviço.
+     */
+    async healthPostRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<HealthResponseDto>> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/`,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => HealthResponseDtoFromJSON(jsonValue));
+    }
+
+    /**
+     * Verifica o status do serviço.
+     */
+    async healthPost(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<HealthResponseDto> {
+        const response = await this.healthPostRaw(initOverrides);
         return await response.value();
     }
 
