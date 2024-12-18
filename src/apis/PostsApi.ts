@@ -62,9 +62,100 @@ export interface RemovePostRequest {
 }
 
 /**
+ * PostsApi - interface
+ * 
+ * @export
+ * @interface PostsApiInterface
+ */
+export interface PostsApiInterface {
+    /**
+     * 
+     * @summary Cria um novo post.
+     * @param {CreatePostRequestBodyDto} createPostRequestBodyDto 
+     * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof PostsApiInterface
+     */
+    createPostRaw(requestParameters: CreatePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostEntity>>;
+
+    /**
+     * Cria um novo post.
+     */
+    createPost(requestParameters: CreatePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostEntity>;
+
+    /**
+     * 
+     * @summary Busca todos os posts.
+     * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
+     * @param {string} [searchTerm] Termo para busca por título do post.
+     * @param {number} [pageSize] Quantidade de itens por página.
+     * @param {number} [pageIndex] Índice da página.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof PostsApiInterface
+     */
+    findAllPostsRaw(requestParameters: FindAllPostsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostsPageEntity>>;
+
+    /**
+     * Busca todos os posts.
+     */
+    findAllPosts(requestParameters: FindAllPostsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostsPageEntity>;
+
+    /**
+     * 
+     * @summary Busca um post pelo identificador.
+     * @param {string} id Identificador do post.
+     * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof PostsApiInterface
+     */
+    findOnePostRaw(requestParameters: FindOnePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostEntity>>;
+
+    /**
+     * Busca um post pelo identificador.
+     */
+    findOnePost(requestParameters: FindOnePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostEntity>;
+
+    /**
+     * 
+     * @summary Atualiza parcialmente um post.
+     * @param {string} id Identificador do post.
+     * @param {PartialUpdatePostRequestBodyDto} partialUpdatePostRequestBodyDto 
+     * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof PostsApiInterface
+     */
+    partialUpdatePostRaw(requestParameters: PartialUpdatePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostEntity>>;
+
+    /**
+     * Atualiza parcialmente um post.
+     */
+    partialUpdatePost(requestParameters: PartialUpdatePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostEntity>;
+
+    /**
+     * 
+     * @summary Remove um post.
+     * @param {string} id Identificador do post.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof PostsApiInterface
+     */
+    removePostRaw(requestParameters: RemovePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
+
+    /**
+     * Remove um post.
+     */
+    removePost(requestParameters: RemovePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+
+}
+
+/**
  * 
  */
-export class PostsApi extends runtime.BaseAPI {
+export class PostsApi extends runtime.BaseAPI implements PostsApiInterface {
 
     /**
      * Cria um novo post.

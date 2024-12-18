@@ -26,9 +26,46 @@ import {
 } from '../models/index';
 
 /**
+ * HealthApi - interface
+ * 
+ * @export
+ * @interface HealthApiInterface
+ */
+export interface HealthApiInterface {
+    /**
+     * 
+     * @summary Gera um erro de teste.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof HealthApiInterface
+     */
+    errorRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
+
+    /**
+     * Gera um erro de teste.
+     */
+    error(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+
+    /**
+     * 
+     * @summary Verifica o status do serviço.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof HealthApiInterface
+     */
+    healthRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<HealthResponseDto>>;
+
+    /**
+     * Verifica o status do serviço.
+     */
+    health(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<HealthResponseDto>;
+
+}
+
+/**
  * 
  */
-export class HealthApi extends runtime.BaseAPI {
+export class HealthApi extends runtime.BaseAPI implements HealthApiInterface {
 
     /**
      * Gera um erro de teste.

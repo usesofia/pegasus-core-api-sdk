@@ -62,9 +62,100 @@ export interface RemovePostTagRequest {
 }
 
 /**
+ * PostTagsApi - interface
+ * 
+ * @export
+ * @interface PostTagsApiInterface
+ */
+export interface PostTagsApiInterface {
+    /**
+     * 
+     * @summary Cria uma nova tag.
+     * @param {CreatePostTagRequestBodyDto} createPostTagRequestBodyDto 
+     * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof PostTagsApiInterface
+     */
+    createPostTagRaw(requestParameters: CreatePostTagRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostTagEntity>>;
+
+    /**
+     * Cria uma nova tag.
+     */
+    createPostTag(requestParameters: CreatePostTagRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostTagEntity>;
+
+    /**
+     * 
+     * @summary Busca todas as tags.
+     * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
+     * @param {string} [searchTerm] Termo para busca por nome da tag.
+     * @param {number} [pageSize] Quantidade de itens por página.
+     * @param {number} [pageIndex] Índice da página.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof PostTagsApiInterface
+     */
+    findAllPostTagsRaw(requestParameters: FindAllPostTagsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostTagsPageEntity>>;
+
+    /**
+     * Busca todas as tags.
+     */
+    findAllPostTags(requestParameters: FindAllPostTagsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostTagsPageEntity>;
+
+    /**
+     * 
+     * @summary Busca uma tag pelo identificador.
+     * @param {string} id Identificador da tag.
+     * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof PostTagsApiInterface
+     */
+    findOnePostTagRaw(requestParameters: FindOnePostTagRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostTagEntity>>;
+
+    /**
+     * Busca uma tag pelo identificador.
+     */
+    findOnePostTag(requestParameters: FindOnePostTagRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostTagEntity>;
+
+    /**
+     * 
+     * @summary Atualiza parcialmente uma tag.
+     * @param {string} id Identificador da tag.
+     * @param {UpdatePostTagRequestBodyDto} updatePostTagRequestBodyDto 
+     * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof PostTagsApiInterface
+     */
+    partialUpdatePostTagRaw(requestParameters: PartialUpdatePostTagRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostTagEntity>>;
+
+    /**
+     * Atualiza parcialmente uma tag.
+     */
+    partialUpdatePostTag(requestParameters: PartialUpdatePostTagRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostTagEntity>;
+
+    /**
+     * 
+     * @summary Remove uma tag.
+     * @param {string} id Identificador da tag.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof PostTagsApiInterface
+     */
+    removePostTagRaw(requestParameters: RemovePostTagRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
+
+    /**
+     * Remove uma tag.
+     */
+    removePostTag(requestParameters: RemovePostTagRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+
+}
+
+/**
  * 
  */
-export class PostTagsApi extends runtime.BaseAPI {
+export class PostTagsApi extends runtime.BaseAPI implements PostTagsApiInterface {
 
     /**
      * Cria uma nova tag.

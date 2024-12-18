@@ -62,9 +62,100 @@ export interface RemoveContactRequest {
 }
 
 /**
+ * ContactsApi - interface
+ * 
+ * @export
+ * @interface ContactsApiInterface
+ */
+export interface ContactsApiInterface {
+    /**
+     * 
+     * @summary Cria um novo contato.
+     * @param {CreateContactRequestBodyDto} createContactRequestBodyDto 
+     * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ContactsApiInterface
+     */
+    createContactRaw(requestParameters: CreateContactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ContactEntity>>;
+
+    /**
+     * Cria um novo contato.
+     */
+    createContact(requestParameters: CreateContactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ContactEntity>;
+
+    /**
+     * 
+     * @summary Busca todos os contatos.
+     * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
+     * @param {string} [searchTerm] Termo para busca por nome do contato.
+     * @param {number} [pageSize] Quantidade de itens por página.
+     * @param {number} [pageIndex] Índice da página.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ContactsApiInterface
+     */
+    findAllContactsRaw(requestParameters: FindAllContactsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ContactsPageEntity>>;
+
+    /**
+     * Busca todos os contatos.
+     */
+    findAllContacts(requestParameters: FindAllContactsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ContactsPageEntity>;
+
+    /**
+     * 
+     * @summary Busca um contato pelo identificador.
+     * @param {string} id Identificador do contato.
+     * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ContactsApiInterface
+     */
+    findOneContactRaw(requestParameters: FindOneContactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ContactEntity>>;
+
+    /**
+     * Busca um contato pelo identificador.
+     */
+    findOneContact(requestParameters: FindOneContactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ContactEntity>;
+
+    /**
+     * 
+     * @summary Atualiza parcialmente um contato.
+     * @param {string} id Identificador do contato.
+     * @param {PartialUpdateContactRequestBodyDto} partialUpdateContactRequestBodyDto 
+     * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ContactsApiInterface
+     */
+    partialUpdateContactRaw(requestParameters: PartialUpdateContactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ContactEntity>>;
+
+    /**
+     * Atualiza parcialmente um contato.
+     */
+    partialUpdateContact(requestParameters: PartialUpdateContactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ContactEntity>;
+
+    /**
+     * 
+     * @summary Remove um contato.
+     * @param {string} id Identificador do contato.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ContactsApiInterface
+     */
+    removeContactRaw(requestParameters: RemoveContactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
+
+    /**
+     * Remove um contato.
+     */
+    removeContact(requestParameters: RemoveContactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+
+}
+
+/**
  * 
  */
-export class ContactsApi extends runtime.BaseAPI {
+export class ContactsApi extends runtime.BaseAPI implements ContactsApiInterface {
 
     /**
      * Cria um novo contato.

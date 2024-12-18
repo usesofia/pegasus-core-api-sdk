@@ -62,9 +62,100 @@ export interface RemoveAuthorRequest {
 }
 
 /**
+ * AuthorsApi - interface
+ * 
+ * @export
+ * @interface AuthorsApiInterface
+ */
+export interface AuthorsApiInterface {
+    /**
+     * 
+     * @summary Cria um novo autor.
+     * @param {CreateAuthorRequestBodyDto} createAuthorRequestBodyDto 
+     * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AuthorsApiInterface
+     */
+    createAuthorRaw(requestParameters: CreateAuthorRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AuthorEntity>>;
+
+    /**
+     * Cria um novo autor.
+     */
+    createAuthor(requestParameters: CreateAuthorRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AuthorEntity>;
+
+    /**
+     * 
+     * @summary Busca todos os autores.
+     * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
+     * @param {string} [searchTerm] Termo para busca por nome ou email do autor.
+     * @param {number} [pageSize] Quantidade de itens por página.
+     * @param {number} [pageIndex] Índice da página.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AuthorsApiInterface
+     */
+    findAllAuthorsRaw(requestParameters: FindAllAuthorsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AuthorsPageEntity>>;
+
+    /**
+     * Busca todos os autores.
+     */
+    findAllAuthors(requestParameters: FindAllAuthorsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AuthorsPageEntity>;
+
+    /**
+     * 
+     * @summary Busca um autor pelo identificador.
+     * @param {string} id Identificador do autor.
+     * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AuthorsApiInterface
+     */
+    findOneAuthorRaw(requestParameters: FindOneAuthorRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AuthorEntity>>;
+
+    /**
+     * Busca um autor pelo identificador.
+     */
+    findOneAuthor(requestParameters: FindOneAuthorRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AuthorEntity>;
+
+    /**
+     * 
+     * @summary Atualiza parcialmente um autor.
+     * @param {string} id Identificador do autor.
+     * @param {PartialUpdateAuthorRequestBodyDto} partialUpdateAuthorRequestBodyDto 
+     * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AuthorsApiInterface
+     */
+    partialUpdateAuthorRaw(requestParameters: PartialUpdateAuthorRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AuthorEntity>>;
+
+    /**
+     * Atualiza parcialmente um autor.
+     */
+    partialUpdateAuthor(requestParameters: PartialUpdateAuthorRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AuthorEntity>;
+
+    /**
+     * 
+     * @summary Remove um autor.
+     * @param {string} id Identificador do autor.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AuthorsApiInterface
+     */
+    removeAuthorRaw(requestParameters: RemoveAuthorRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
+
+    /**
+     * Remove um autor.
+     */
+    removeAuthor(requestParameters: RemoveAuthorRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+
+}
+
+/**
  * 
  */
-export class AuthorsApi extends runtime.BaseAPI {
+export class AuthorsApi extends runtime.BaseAPI implements AuthorsApiInterface {
 
     /**
      * Cria um novo autor.
