@@ -28,7 +28,7 @@ import {
     PubSubMessageBodyDtoToJSON,
 } from '../models/index';
 
-export interface RefreshClerkUserOnCacheRequest {
+export interface RefreshAuthUserOnCacheRequest {
     pubSubMessageBodyDto: PubSubMessageBodyDto;
 }
 
@@ -41,18 +41,18 @@ export interface RefreshClerkUserOnCacheRequest {
 export interface AuthApiInterface {
     /**
      * 
-     * @summary Atualiza os dados do usuário a partir do token na cache.
+     * @summary Atualiza os dados do usuário na cache.
      * @param {PubSubMessageBodyDto} pubSubMessageBodyDto 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof AuthApiInterface
      */
-    refreshClerkUserOnCacheRaw(requestParameters: RefreshClerkUserOnCacheRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AuthUserEntity>>;
+    refreshAuthUserOnCacheRaw(requestParameters: RefreshAuthUserOnCacheRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AuthUserEntity>>;
 
     /**
-     * Atualiza os dados do usuário a partir do token na cache.
+     * Atualiza os dados do usuário na cache.
      */
-    refreshClerkUserOnCache(requestParameters: RefreshClerkUserOnCacheRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AuthUserEntity>;
+    refreshAuthUserOnCache(requestParameters: RefreshAuthUserOnCacheRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AuthUserEntity>;
 
 }
 
@@ -62,13 +62,13 @@ export interface AuthApiInterface {
 export class AuthApi extends runtime.BaseAPI implements AuthApiInterface {
 
     /**
-     * Atualiza os dados do usuário a partir do token na cache.
+     * Atualiza os dados do usuário na cache.
      */
-    async refreshClerkUserOnCacheRaw(requestParameters: RefreshClerkUserOnCacheRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AuthUserEntity>> {
+    async refreshAuthUserOnCacheRaw(requestParameters: RefreshAuthUserOnCacheRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AuthUserEntity>> {
         if (requestParameters['pubSubMessageBodyDto'] == null) {
             throw new runtime.RequiredError(
                 'pubSubMessageBodyDto',
-                'Required parameter "pubSubMessageBodyDto" was null or undefined when calling refreshClerkUserOnCache().'
+                'Required parameter "pubSubMessageBodyDto" was null or undefined when calling refreshAuthUserOnCache().'
             );
         }
 
@@ -79,7 +79,7 @@ export class AuthApi extends runtime.BaseAPI implements AuthApiInterface {
         headerParameters['Content-Type'] = 'application/json';
 
         const response = await this.request({
-            path: `/auth/clerk/users/cache/refresh`,
+            path: `/auth/users/cache/refresh`,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
@@ -90,10 +90,10 @@ export class AuthApi extends runtime.BaseAPI implements AuthApiInterface {
     }
 
     /**
-     * Atualiza os dados do usuário a partir do token na cache.
+     * Atualiza os dados do usuário na cache.
      */
-    async refreshClerkUserOnCache(requestParameters: RefreshClerkUserOnCacheRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AuthUserEntity> {
-        const response = await this.refreshClerkUserOnCacheRaw(requestParameters, initOverrides);
+    async refreshAuthUserOnCache(requestParameters: RefreshAuthUserOnCacheRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AuthUserEntity> {
+        const response = await this.refreshAuthUserOnCacheRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
