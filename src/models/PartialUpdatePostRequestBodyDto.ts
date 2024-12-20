@@ -13,21 +13,6 @@
  */
 
 import { mapValues } from '../runtime';
-import type { CreatePostRequestBodyDtoAuthor } from './CreatePostRequestBodyDtoAuthor';
-import {
-    CreatePostRequestBodyDtoAuthorFromJSON,
-    CreatePostRequestBodyDtoAuthorFromJSONTyped,
-    CreatePostRequestBodyDtoAuthorToJSON,
-    CreatePostRequestBodyDtoAuthorToJSONTyped,
-} from './CreatePostRequestBodyDtoAuthor';
-import type { CreatePostRequestBodyDtoTagsInner } from './CreatePostRequestBodyDtoTagsInner';
-import {
-    CreatePostRequestBodyDtoTagsInnerFromJSON,
-    CreatePostRequestBodyDtoTagsInnerFromJSONTyped,
-    CreatePostRequestBodyDtoTagsInnerToJSON,
-    CreatePostRequestBodyDtoTagsInnerToJSONTyped,
-} from './CreatePostRequestBodyDtoTagsInner';
-
 /**
  * 
  * @export
@@ -35,17 +20,17 @@ import {
  */
 export interface PartialUpdatePostRequestBodyDto {
     /**
-     * 
-     * @type {CreatePostRequestBodyDtoAuthor}
+     * Identificador do autor do post.
+     * @type {string}
      * @memberof PartialUpdatePostRequestBodyDto
      */
-    author?: CreatePostRequestBodyDtoAuthor | null;
+    author?: string;
     /**
-     * Tags do post.
-     * @type {Array<CreatePostRequestBodyDtoTagsInner>}
+     * Identificadores das tags do post.
+     * @type {Array<string>}
      * @memberof PartialUpdatePostRequestBodyDto
      */
-    tags?: Array<CreatePostRequestBodyDtoTagsInner>;
+    tags?: Array<string>;
     /**
      * Título do post.
      * @type {string}
@@ -66,10 +51,10 @@ export interface PartialUpdatePostRequestBodyDto {
     published?: boolean;
     /**
      * Data de publicação do post.
-     * @type {Date}
+     * @type {any}
      * @memberof PartialUpdatePostRequestBodyDto
      */
-    publishedAt?: Date | null;
+    publishedAt?: any | null;
 }
 
 /**
@@ -89,12 +74,12 @@ export function PartialUpdatePostRequestBodyDtoFromJSONTyped(json: any, ignoreDi
     }
     return {
         
-        'author': json['author'] == null ? undefined : CreatePostRequestBodyDtoAuthorFromJSON(json['author']),
-        'tags': json['tags'] == null ? undefined : ((json['tags'] as Array<any>).map(CreatePostRequestBodyDtoTagsInnerFromJSON)),
+        'author': json['author'] == null ? undefined : json['author'],
+        'tags': json['tags'] == null ? undefined : json['tags'],
         'title': json['title'] == null ? undefined : json['title'],
         'content': json['content'] == null ? undefined : json['content'],
         'published': json['published'] == null ? undefined : json['published'],
-        'publishedAt': json['publishedAt'] == null ? undefined : (new Date(json['publishedAt'])),
+        'publishedAt': json['publishedAt'] == null ? undefined : json['publishedAt'],
     };
 }
 
@@ -109,12 +94,12 @@ export function PartialUpdatePostRequestBodyDtoToJSONTyped(value?: PartialUpdate
 
     return {
         
-        'author': CreatePostRequestBodyDtoAuthorToJSON(value['author']),
-        'tags': value['tags'] == null ? undefined : ((value['tags'] as Array<any>).map(CreatePostRequestBodyDtoTagsInnerToJSON)),
+        'author': value['author'],
+        'tags': value['tags'],
         'title': value['title'],
         'content': value['content'],
         'published': value['published'],
-        'publishedAt': value['publishedAt'] == null ? undefined : ((value['publishedAt'] as any).toISOString()),
+        'publishedAt': value['publishedAt'],
     };
 }
 

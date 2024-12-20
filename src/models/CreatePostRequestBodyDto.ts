@@ -13,21 +13,6 @@
  */
 
 import { mapValues } from '../runtime';
-import type { CreatePostRequestBodyDtoAuthor } from './CreatePostRequestBodyDtoAuthor';
-import {
-    CreatePostRequestBodyDtoAuthorFromJSON,
-    CreatePostRequestBodyDtoAuthorFromJSONTyped,
-    CreatePostRequestBodyDtoAuthorToJSON,
-    CreatePostRequestBodyDtoAuthorToJSONTyped,
-} from './CreatePostRequestBodyDtoAuthor';
-import type { CreatePostRequestBodyDtoTagsInner } from './CreatePostRequestBodyDtoTagsInner';
-import {
-    CreatePostRequestBodyDtoTagsInnerFromJSON,
-    CreatePostRequestBodyDtoTagsInnerFromJSONTyped,
-    CreatePostRequestBodyDtoTagsInnerToJSON,
-    CreatePostRequestBodyDtoTagsInnerToJSONTyped,
-} from './CreatePostRequestBodyDtoTagsInner';
-
 /**
  * 
  * @export
@@ -35,17 +20,17 @@ import {
  */
 export interface CreatePostRequestBodyDto {
     /**
-     * 
-     * @type {CreatePostRequestBodyDtoAuthor}
+     * Identificador do autor do post.
+     * @type {string}
      * @memberof CreatePostRequestBodyDto
      */
-    author?: CreatePostRequestBodyDtoAuthor | null;
+    author: string;
     /**
-     * Tags do post.
-     * @type {Array<CreatePostRequestBodyDtoTagsInner>}
+     * Identificadores das tags do post.
+     * @type {Array<string>}
      * @memberof CreatePostRequestBodyDto
      */
-    tags: Array<CreatePostRequestBodyDtoTagsInner>;
+    tags: Array<string>;
     /**
      * Título do post.
      * @type {string}
@@ -66,16 +51,17 @@ export interface CreatePostRequestBodyDto {
     published: boolean;
     /**
      * Data de publicação do post.
-     * @type {Date}
+     * @type {any}
      * @memberof CreatePostRequestBodyDto
      */
-    publishedAt?: Date | null;
+    publishedAt?: any | null;
 }
 
 /**
  * Check if a given object implements the CreatePostRequestBodyDto interface.
  */
 export function instanceOfCreatePostRequestBodyDto(value: object): value is CreatePostRequestBodyDto {
+    if (!('author' in value) || value['author'] === undefined) return false;
     if (!('tags' in value) || value['tags'] === undefined) return false;
     if (!('title' in value) || value['title'] === undefined) return false;
     if (!('content' in value) || value['content'] === undefined) return false;
@@ -93,12 +79,12 @@ export function CreatePostRequestBodyDtoFromJSONTyped(json: any, ignoreDiscrimin
     }
     return {
         
-        'author': json['author'] == null ? undefined : CreatePostRequestBodyDtoAuthorFromJSON(json['author']),
-        'tags': ((json['tags'] as Array<any>).map(CreatePostRequestBodyDtoTagsInnerFromJSON)),
+        'author': json['author'],
+        'tags': json['tags'],
         'title': json['title'],
         'content': json['content'],
         'published': json['published'],
-        'publishedAt': json['publishedAt'] == null ? undefined : (new Date(json['publishedAt'])),
+        'publishedAt': json['publishedAt'] == null ? undefined : json['publishedAt'],
     };
 }
 
@@ -113,12 +99,12 @@ export function CreatePostRequestBodyDtoToJSONTyped(value?: CreatePostRequestBod
 
     return {
         
-        'author': CreatePostRequestBodyDtoAuthorToJSON(value['author']),
-        'tags': ((value['tags'] as Array<any>).map(CreatePostRequestBodyDtoTagsInnerToJSON)),
+        'author': value['author'],
+        'tags': value['tags'],
         'title': value['title'],
         'content': value['content'],
         'published': value['published'],
-        'publishedAt': value['publishedAt'] == null ? undefined : ((value['publishedAt'] as any).toISOString()),
+        'publishedAt': value['publishedAt'],
     };
 }
 

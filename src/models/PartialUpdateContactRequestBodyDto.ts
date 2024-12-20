@@ -26,17 +26,17 @@ export interface PartialUpdateContactRequestBodyDto {
      */
     name?: string;
     /**
-     * Tipo do contato.
+     * 
      * @type {string}
      * @memberof PartialUpdateContactRequestBodyDto
      */
-    type?: PartialUpdateContactRequestBodyDtoTypeEnum | null;
+    type?: PartialUpdateContactRequestBodyDtoTypeEnum;
     /**
-     * Tipo do documento do contato.
+     * 
      * @type {string}
      * @memberof PartialUpdateContactRequestBodyDto
      */
-    documentType?: PartialUpdateContactRequestBodyDtoDocumentTypeEnum | null;
+    documentType?: PartialUpdateContactRequestBodyDtoDocumentTypeEnum;
     /**
      * Documento do contato.
      * @type {string}

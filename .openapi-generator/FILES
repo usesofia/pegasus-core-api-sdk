@@ -21,10 +21,6 @@ src/models/ContactsPageEntityPageInfo.ts
 src/models/CreateAuthorRequestBodyDto.ts
 src/models/CreateContactRequestBodyDto.ts
 src/models/CreatePostRequestBodyDto.ts
-src/models/CreatePostRequestBodyDtoAuthor.ts
-src/models/CreatePostRequestBodyDtoAuthorOneOf.ts
-src/models/CreatePostRequestBodyDtoTagsInner.ts
-src/models/CreatePostRequestBodyDtoTagsInnerOneOf.ts
 src/models/CreatePostTagRequestBodyDto.ts
 src/models/ExceptionResponseEntity.ts
 src/models/ExceptionResponseEntityErrorsInner.ts
@@ -33,6 +29,10 @@ src/models/PartialUpdateAuthorRequestBodyDto.ts
 src/models/PartialUpdateContactRequestBodyDto.ts
 src/models/PartialUpdatePostRequestBodyDto.ts
 src/models/PostEntity.ts
+src/models/PostEntityAuthor.ts
+src/models/PostEntityAuthorOneOf.ts
+src/models/PostEntityTagsInner.ts
+src/models/PostEntityTagsInnerOneOf.ts
 src/models/PostTagEntity.ts
 src/models/PostTagsPageEntity.ts
 src/models/PostTagsPageEntityItemsInner.ts

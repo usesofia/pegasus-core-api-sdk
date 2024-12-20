@@ -13,20 +13,20 @@
  */
 
 import { mapValues } from '../runtime';
-import type { CreatePostRequestBodyDtoAuthor } from './CreatePostRequestBodyDtoAuthor';
+import type { PostEntityTagsInner } from './PostEntityTagsInner';
 import {
-    CreatePostRequestBodyDtoAuthorFromJSON,
-    CreatePostRequestBodyDtoAuthorFromJSONTyped,
-    CreatePostRequestBodyDtoAuthorToJSON,
-    CreatePostRequestBodyDtoAuthorToJSONTyped,
-} from './CreatePostRequestBodyDtoAuthor';
-import type { CreatePostRequestBodyDtoTagsInner } from './CreatePostRequestBodyDtoTagsInner';
+    PostEntityTagsInnerFromJSON,
+    PostEntityTagsInnerFromJSONTyped,
+    PostEntityTagsInnerToJSON,
+    PostEntityTagsInnerToJSONTyped,
+} from './PostEntityTagsInner';
+import type { PostEntityAuthor } from './PostEntityAuthor';
 import {
-    CreatePostRequestBodyDtoTagsInnerFromJSON,
-    CreatePostRequestBodyDtoTagsInnerFromJSONTyped,
-    CreatePostRequestBodyDtoTagsInnerToJSON,
-    CreatePostRequestBodyDtoTagsInnerToJSONTyped,
-} from './CreatePostRequestBodyDtoTagsInner';
+    PostEntityAuthorFromJSON,
+    PostEntityAuthorFromJSONTyped,
+    PostEntityAuthorToJSON,
+    PostEntityAuthorToJSONTyped,
+} from './PostEntityAuthor';
 
 /**
  * 
@@ -54,16 +54,16 @@ export interface PostsPageEntityItemsInner {
     createdByUser: string;
     /**
      * 
-     * @type {CreatePostRequestBodyDtoAuthor}
+     * @type {PostEntityAuthor}
      * @memberof PostsPageEntityItemsInner
      */
-    author?: CreatePostRequestBodyDtoAuthor | null;
+    author?: PostEntityAuthor | null;
     /**
      * Tags do post.
-     * @type {Array<CreatePostRequestBodyDtoTagsInner>}
+     * @type {Array<PostEntityTagsInner>}
      * @memberof PostsPageEntityItemsInner
      */
-    tags: Array<CreatePostRequestBodyDtoTagsInner>;
+    tags: Array<PostEntityTagsInner>;
     /**
      * Título do post.
      * @type {string}
@@ -131,8 +131,8 @@ export function PostsPageEntityItemsInnerFromJSONTyped(json: any, ignoreDiscrimi
         'id': json['id'],
         'organization': json['organization'],
         'createdByUser': json['createdByUser'],
-        'author': json['author'] == null ? undefined : CreatePostRequestBodyDtoAuthorFromJSON(json['author']),
-        'tags': ((json['tags'] as Array<any>).map(CreatePostRequestBodyDtoTagsInnerFromJSON)),
+        'author': json['author'] == null ? undefined : PostEntityAuthorFromJSON(json['author']),
+        'tags': ((json['tags'] as Array<any>).map(PostEntityTagsInnerFromJSON)),
         'title': json['title'],
         'content': json['content'],
         'published': json['published'],
@@ -156,8 +156,8 @@ export function PostsPageEntityItemsInnerToJSONTyped(value?: PostsPageEntityItem
         'id': value['id'],
         'organization': value['organization'],
         'createdByUser': value['createdByUser'],
-        'author': CreatePostRequestBodyDtoAuthorToJSON(value['author']),
-        'tags': ((value['tags'] as Array<any>).map(CreatePostRequestBodyDtoTagsInnerToJSON)),
+        'author': PostEntityAuthorToJSON(value['author']),
+        'tags': ((value['tags'] as Array<any>).map(PostEntityTagsInnerToJSON)),
         'title': value['title'],
         'content': value['content'],
         'published': value['published'],

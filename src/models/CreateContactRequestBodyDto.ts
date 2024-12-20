@@ -30,13 +30,13 @@ export interface CreateContactRequestBodyDto {
      * @type {string}
      * @memberof CreateContactRequestBodyDto
      */
-    type?: CreateContactRequestBodyDtoTypeEnum | null;
+    type?: CreateContactRequestBodyDtoTypeEnum;
     /**
      * Tipo do documento do contato.
      * @type {string}
      * @memberof CreateContactRequestBodyDto
      */
-    documentType?: CreateContactRequestBodyDtoDocumentTypeEnum | null;
+    documentType?: CreateContactRequestBodyDtoDocumentTypeEnum;
     /**
      * Documento do contato.
      * @type {string}
