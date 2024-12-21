@@ -1,7 +1,7 @@
 {
-  "name": "node_pegasus_core_api_sdk",
+  "name": "pegasus-core-api-sdk",
   "version": "0.0.1",
-  "description": "OpenAPI client for node_pegasus_core_api_sdk",
+  "description": "OpenAPI client for pegasus-core-api-sdk",
   "author": "OpenAPI-Generator",
   "repository": {
     "type": "git",
