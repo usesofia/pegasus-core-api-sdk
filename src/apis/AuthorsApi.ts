@@ -179,7 +179,7 @@ export class AuthorsApi extends runtime.BaseAPI implements AuthorsApiInterface {
         headerParameters['Content-Type'] = 'application/json';
 
         const response = await this.request({
-            path: `/authors`,
+            path: `/external/authors`,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
@@ -222,7 +222,7 @@ export class AuthorsApi extends runtime.BaseAPI implements AuthorsApiInterface {
         const headerParameters: runtime.HTTPHeaders = {};
 
         const response = await this.request({
-            path: `/authors`,
+            path: `/external/authors`,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
@@ -259,7 +259,7 @@ export class AuthorsApi extends runtime.BaseAPI implements AuthorsApiInterface {
         const headerParameters: runtime.HTTPHeaders = {};
 
         const response = await this.request({
-            path: `/authors/{id}`.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id']))),
+            path: `/external/authors/{id}`.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id']))),
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
@@ -305,7 +305,7 @@ export class AuthorsApi extends runtime.BaseAPI implements AuthorsApiInterface {
         headerParameters['Content-Type'] = 'application/json';
 
         const response = await this.request({
-            path: `/authors/{id}`.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id']))),
+            path: `/external/authors/{id}`.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id']))),
             method: 'PATCH',
             headers: headerParameters,
             query: queryParameters,
@@ -339,7 +339,7 @@ export class AuthorsApi extends runtime.BaseAPI implements AuthorsApiInterface {
         const headerParameters: runtime.HTTPHeaders = {};
 
         const response = await this.request({
-            path: `/authors/{id}`.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id']))),
+            path: `/external/authors/{id}`.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id']))),
             method: 'DELETE',
             headers: headerParameters,
             query: queryParameters,

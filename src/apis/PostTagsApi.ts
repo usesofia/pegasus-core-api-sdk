@@ -179,7 +179,7 @@ export class PostTagsApi extends runtime.BaseAPI implements PostTagsApiInterface
         headerParameters['Content-Type'] = 'application/json';
 
         const response = await this.request({
-            path: `/post-tags`,
+            path: `/external/post-tags`,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
@@ -222,7 +222,7 @@ export class PostTagsApi extends runtime.BaseAPI implements PostTagsApiInterface
         const headerParameters: runtime.HTTPHeaders = {};
 
         const response = await this.request({
-            path: `/post-tags`,
+            path: `/external/post-tags`,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
@@ -259,7 +259,7 @@ export class PostTagsApi extends runtime.BaseAPI implements PostTagsApiInterface
         const headerParameters: runtime.HTTPHeaders = {};
 
         const response = await this.request({
-            path: `/post-tags/{id}`.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id']))),
+            path: `/external/post-tags/{id}`.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id']))),
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
@@ -305,7 +305,7 @@ export class PostTagsApi extends runtime.BaseAPI implements PostTagsApiInterface
         headerParameters['Content-Type'] = 'application/json';
 
         const response = await this.request({
-            path: `/post-tags/{id}`.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id']))),
+            path: `/external/post-tags/{id}`.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id']))),
             method: 'PATCH',
             headers: headerParameters,
             query: queryParameters,
@@ -339,7 +339,7 @@ export class PostTagsApi extends runtime.BaseAPI implements PostTagsApiInterface
         const headerParameters: runtime.HTTPHeaders = {};
 
         const response = await this.request({
-            path: `/post-tags/{id}`.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id']))),
+            path: `/external/post-tags/{id}`.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id']))),
             method: 'DELETE',
             headers: headerParameters,
             query: queryParameters,

@@ -79,7 +79,7 @@ export class AuthApi extends runtime.BaseAPI implements AuthApiInterface {
         headerParameters['Content-Type'] = 'application/json';
 
         const response = await this.request({
-            path: `/auth/users/cache/refresh`,
+            path: `/internal/auth/users/cache/refresh`,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
