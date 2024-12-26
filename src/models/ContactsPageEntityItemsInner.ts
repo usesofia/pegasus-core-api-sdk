@@ -13,6 +13,14 @@
  */
 
 import { mapValues } from '../runtime';
+import type { CreateContactRequestBodyDtoAddress } from './CreateContactRequestBodyDtoAddress';
+import {
+    CreateContactRequestBodyDtoAddressFromJSON,
+    CreateContactRequestBodyDtoAddressFromJSONTyped,
+    CreateContactRequestBodyDtoAddressToJSON,
+    CreateContactRequestBodyDtoAddressToJSONTyped,
+} from './CreateContactRequestBodyDtoAddress';
+
 /**
  * 
  * @export
@@ -26,7 +34,7 @@ export interface ContactsPageEntityItemsInner {
      */
     id: string;
     /**
-     * Identificador da organização.
+     * Identificador da organização dona do contato.
      * @type {string}
      * @memberof ContactsPageEntityItemsInner
      */
@@ -38,17 +46,23 @@ export interface ContactsPageEntityItemsInner {
      */
     createdByUser: string;
     /**
+     * Identificador da organização que criou o contato.
+     * @type {string}
+     * @memberof ContactsPageEntityItemsInner
+     */
+    createdByOrganization: string;
+    /**
      * Nome do contato.
      * @type {string}
      * @memberof ContactsPageEntityItemsInner
      */
     name: string;
     /**
-     * Tipo do contato.
-     * @type {string}
+     * Tipos do contato.
+     * @type {Array<string>}
      * @memberof ContactsPageEntityItemsInner
      */
-    type?: ContactsPageEntityItemsInnerTypeEnum | null;
+    types: Array<ContactsPageEntityItemsInnerTypesEnum>;
     /**
      * Tipo do documento do contato.
      * @type {string}
@@ -74,6 +88,18 @@ export interface ContactsPageEntityItemsInner {
      */
     phone?: string | null;
     /**
+     * Origem do contato.
+     * @type {string}
+     * @memberof ContactsPageEntityItemsInner
+     */
+    origin?: ContactsPageEntityItemsInnerOriginEnum | null;
+    /**
+     * 
+     * @type {CreateContactRequestBodyDtoAddress}
+     * @memberof ContactsPageEntityItemsInner
+     */
+    address?: CreateContactRequestBodyDtoAddress | null;
+    /**
      * Data de criação do contato.
      * @type {Date}
      * @memberof ContactsPageEntityItemsInner
@@ -91,13 +117,13 @@ export interface ContactsPageEntityItemsInner {
 /**
  * @export
  */
-export const ContactsPageEntityItemsInnerTypeEnum = {
+export const ContactsPageEntityItemsInnerTypesEnum = {
     Customer: 'CUSTOMER',
     Employee: 'EMPLOYEE',
     Supplier: 'SUPPLIER',
     Partner: 'PARTNER'
 } as const;
-export type ContactsPageEntityItemsInnerTypeEnum = typeof ContactsPageEntityItemsInnerTypeEnum[keyof typeof ContactsPageEntityItemsInnerTypeEnum];
+export type ContactsPageEntityItemsInnerTypesEnum = typeof ContactsPageEntityItemsInnerTypesEnum[keyof typeof ContactsPageEntityItemsInnerTypesEnum];
 
 /**
  * @export
@@ -108,6 +134,21 @@ export const ContactsPageEntityItemsInnerDocumentTypeEnum = {
 } as const;
 export type ContactsPageEntityItemsInnerDocumentTypeEnum = typeof ContactsPageEntityItemsInnerDocumentTypeEnum[keyof typeof ContactsPageEntityItemsInnerDocumentTypeEnum];
 
+/**
+ * @export
+ */
+export const ContactsPageEntityItemsInnerOriginEnum = {
+    Indication: 'INDICATION',
+    Ads: 'ADS',
+    OrganicSearch: 'ORGANIC_SEARCH',
+    SocialMedia: 'SOCIAL_MEDIA',
+    Events: 'EVENTS',
+    Partnerships: 'PARTNERSHIPS',
+    PhysicalStore: 'PHYSICAL_STORE',
+    Other: 'OTHER'
+} as const;
+export type ContactsPageEntityItemsInnerOriginEnum = typeof ContactsPageEntityItemsInnerOriginEnum[keyof typeof ContactsPageEntityItemsInnerOriginEnum];
+
 
 /**
  * Check if a given object implements the ContactsPageEntityItemsInner interface.
@@ -116,7 +157,9 @@ export function instanceOfContactsPageEntityItemsInner(value: object): value is 
     if (!('id' in value) || value['id'] === undefined) return false;
     if (!('organization' in value) || value['organization'] === undefined) return false;
     if (!('createdByUser' in value) || value['createdByUser'] === undefined) return false;
+    if (!('createdByOrganization' in value) || value['createdByOrganization'] === undefined) return false;
     if (!('name' in value) || value['name'] === undefined) return false;
+    if (!('types' in value) || value['types'] === undefined) return false;
     if (!('createdAt' in value) || value['createdAt'] === undefined) return false;
     if (!('updatedAt' in value) || value['updatedAt'] === undefined) return false;
     return true;
@@ -135,12 +178,15 @@ export function ContactsPageEntityItemsInnerFromJSONTyped(json: any, ignoreDiscr
         'id': json['id'],
         'organization': json['organization'],
         'createdByUser': json['createdByUser'],
+        'createdByOrganization': json['createdByOrganization'],
         'name': json['name'],
-        'type': json['type'] == null ? undefined : json['type'],
+        'types': json['types'],
         'documentType': json['documentType'] == null ? undefined : json['documentType'],
         'document': json['document'] == null ? undefined : json['document'],
         'email': json['email'] == null ? undefined : json['email'],
         'phone': json['phone'] == null ? undefined : json['phone'],
+        'origin': json['origin'] == null ? undefined : json['origin'],
+        'address': json['address'] == null ? undefined : CreateContactRequestBodyDtoAddressFromJSON(json['address']),
         'createdAt': (new Date(json['createdAt'])),
         'updatedAt': (new Date(json['updatedAt'])),
     };
@@ -160,12 +206,15 @@ export function ContactsPageEntityItemsInnerToJSONTyped(value?: ContactsPageEnti
         'id': value['id'],
         'organization': value['organization'],
         'createdByUser': value['createdByUser'],
+        'createdByOrganization': value['createdByOrganization'],
         'name': value['name'],
-        'type': value['type'],
+        'types': value['types'],
         'documentType': value['documentType'],
         'document': value['document'],
         'email': value['email'],
         'phone': value['phone'],
+        'origin': value['origin'],
+        'address': CreateContactRequestBodyDtoAddressToJSON(value['address']),
         'createdAt': ((value['createdAt']).toISOString()),
         'updatedAt': ((value['updatedAt']).toISOString()),
     };

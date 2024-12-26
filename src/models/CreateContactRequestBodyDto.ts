@@ -13,6 +13,14 @@
  */
 
 import { mapValues } from '../runtime';
+import type { CreateContactRequestBodyDtoAddress } from './CreateContactRequestBodyDtoAddress';
+import {
+    CreateContactRequestBodyDtoAddressFromJSON,
+    CreateContactRequestBodyDtoAddressFromJSONTyped,
+    CreateContactRequestBodyDtoAddressToJSON,
+    CreateContactRequestBodyDtoAddressToJSONTyped,
+} from './CreateContactRequestBodyDtoAddress';
+
 /**
  * 
  * @export
@@ -26,17 +34,17 @@ export interface CreateContactRequestBodyDto {
      */
     name: string;
     /**
-     * Tipo do contato.
-     * @type {string}
+     * Tipos do contato.
+     * @type {Array<string>}
      * @memberof CreateContactRequestBodyDto
      */
-    type?: CreateContactRequestBodyDtoTypeEnum;
+    types: Array<CreateContactRequestBodyDtoTypesEnum>;
     /**
      * Tipo do documento do contato.
      * @type {string}
      * @memberof CreateContactRequestBodyDto
      */
-    documentType?: CreateContactRequestBodyDtoDocumentTypeEnum;
+    documentType?: CreateContactRequestBodyDtoDocumentTypeEnum | null;
     /**
      * Documento do contato.
      * @type {string}
@@ -55,19 +63,31 @@ export interface CreateContactRequestBodyDto {
      * @memberof CreateContactRequestBodyDto
      */
     phone?: string | null;
+    /**
+     * Origem do contato.
+     * @type {string}
+     * @memberof CreateContactRequestBodyDto
+     */
+    origin?: CreateContactRequestBodyDtoOriginEnum | null;
+    /**
+     * 
+     * @type {CreateContactRequestBodyDtoAddress}
+     * @memberof CreateContactRequestBodyDto
+     */
+    address?: CreateContactRequestBodyDtoAddress | null;
 }
 
 
 /**
  * @export
  */
-export const CreateContactRequestBodyDtoTypeEnum = {
+export const CreateContactRequestBodyDtoTypesEnum = {
     Customer: 'CUSTOMER',
     Employee: 'EMPLOYEE',
     Supplier: 'SUPPLIER',
     Partner: 'PARTNER'
 } as const;
-export type CreateContactRequestBodyDtoTypeEnum = typeof CreateContactRequestBodyDtoTypeEnum[keyof typeof CreateContactRequestBodyDtoTypeEnum];
+export type CreateContactRequestBodyDtoTypesEnum = typeof CreateContactRequestBodyDtoTypesEnum[keyof typeof CreateContactRequestBodyDtoTypesEnum];
 
 /**
  * @export
@@ -78,12 +98,28 @@ export const CreateContactRequestBodyDtoDocumentTypeEnum = {
 } as const;
 export type CreateContactRequestBodyDtoDocumentTypeEnum = typeof CreateContactRequestBodyDtoDocumentTypeEnum[keyof typeof CreateContactRequestBodyDtoDocumentTypeEnum];
 
+/**
+ * @export
+ */
+export const CreateContactRequestBodyDtoOriginEnum = {
+    Indication: 'INDICATION',
+    Ads: 'ADS',
+    OrganicSearch: 'ORGANIC_SEARCH',
+    SocialMedia: 'SOCIAL_MEDIA',
+    Events: 'EVENTS',
+    Partnerships: 'PARTNERSHIPS',
+    PhysicalStore: 'PHYSICAL_STORE',
+    Other: 'OTHER'
+} as const;
+export type CreateContactRequestBodyDtoOriginEnum = typeof CreateContactRequestBodyDtoOriginEnum[keyof typeof CreateContactRequestBodyDtoOriginEnum];
+
 
 /**
  * Check if a given object implements the CreateContactRequestBodyDto interface.
  */
 export function instanceOfCreateContactRequestBodyDto(value: object): value is CreateContactRequestBodyDto {
     if (!('name' in value) || value['name'] === undefined) return false;
+    if (!('types' in value) || value['types'] === undefined) return false;
     return true;
 }
 
@@ -98,11 +134,13 @@ export function CreateContactRequestBodyDtoFromJSONTyped(json: any, ignoreDiscri
     return {
         
         'name': json['name'],
-        'type': json['type'] == null ? undefined : json['type'],
+        'types': json['types'],
         'documentType': json['documentType'] == null ? undefined : json['documentType'],
         'document': json['document'] == null ? undefined : json['document'],
         'email': json['email'] == null ? undefined : json['email'],
         'phone': json['phone'] == null ? undefined : json['phone'],
+        'origin': json['origin'] == null ? undefined : json['origin'],
+        'address': json['address'] == null ? undefined : CreateContactRequestBodyDtoAddressFromJSON(json['address']),
     };
 }
 
@@ -118,11 +156,13 @@ export function CreateContactRequestBodyDtoToJSONTyped(value?: CreateContactRequ
     return {
         
         'name': value['name'],
-        'type': value['type'],
+        'types': value['types'],
         'documentType': value['documentType'],
         'document': value['document'],
         'email': value['email'],
         'phone': value['phone'],
+        'origin': value['origin'],
+        'address': CreateContactRequestBodyDtoAddressToJSON(value['address']),
     };
 }
 

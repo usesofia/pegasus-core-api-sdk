@@ -13,6 +13,14 @@
  */
 
 import { mapValues } from '../runtime';
+import type { CreateContactRequestBodyDtoAddress } from './CreateContactRequestBodyDtoAddress';
+import {
+    CreateContactRequestBodyDtoAddressFromJSON,
+    CreateContactRequestBodyDtoAddressFromJSONTyped,
+    CreateContactRequestBodyDtoAddressToJSON,
+    CreateContactRequestBodyDtoAddressToJSONTyped,
+} from './CreateContactRequestBodyDtoAddress';
+
 /**
  * 
  * @export
@@ -26,17 +34,17 @@ export interface PartialUpdateContactRequestBodyDto {
      */
     name?: string;
     /**
-     * 
-     * @type {string}
+     * Tipos do contato.
+     * @type {Array<string>}
      * @memberof PartialUpdateContactRequestBodyDto
      */
-    type?: PartialUpdateContactRequestBodyDtoTypeEnum;
+    types?: Array<PartialUpdateContactRequestBodyDtoTypesEnum>;
     /**
-     * 
+     * Tipo do documento do contato.
      * @type {string}
      * @memberof PartialUpdateContactRequestBodyDto
      */
-    documentType?: PartialUpdateContactRequestBodyDtoDocumentTypeEnum;
+    documentType?: PartialUpdateContactRequestBodyDtoDocumentTypeEnum | null;
     /**
      * Documento do contato.
      * @type {string}
@@ -55,19 +63,31 @@ export interface PartialUpdateContactRequestBodyDto {
      * @memberof PartialUpdateContactRequestBodyDto
      */
     phone?: string | null;
+    /**
+     * Origem do contato.
+     * @type {string}
+     * @memberof PartialUpdateContactRequestBodyDto
+     */
+    origin?: PartialUpdateContactRequestBodyDtoOriginEnum | null;
+    /**
+     * 
+     * @type {CreateContactRequestBodyDtoAddress}
+     * @memberof PartialUpdateContactRequestBodyDto
+     */
+    address?: CreateContactRequestBodyDtoAddress | null;
 }
 
 
 /**
  * @export
  */
-export const PartialUpdateContactRequestBodyDtoTypeEnum = {
+export const PartialUpdateContactRequestBodyDtoTypesEnum = {
     Customer: 'CUSTOMER',
     Employee: 'EMPLOYEE',
     Supplier: 'SUPPLIER',
     Partner: 'PARTNER'
 } as const;
-export type PartialUpdateContactRequestBodyDtoTypeEnum = typeof PartialUpdateContactRequestBodyDtoTypeEnum[keyof typeof PartialUpdateContactRequestBodyDtoTypeEnum];
+export type PartialUpdateContactRequestBodyDtoTypesEnum = typeof PartialUpdateContactRequestBodyDtoTypesEnum[keyof typeof PartialUpdateContactRequestBodyDtoTypesEnum];
 
 /**
  * @export
@@ -77,6 +97,21 @@ export const PartialUpdateContactRequestBodyDtoDocumentTypeEnum = {
     Cpf: 'CPF'
 } as const;
 export type PartialUpdateContactRequestBodyDtoDocumentTypeEnum = typeof PartialUpdateContactRequestBodyDtoDocumentTypeEnum[keyof typeof PartialUpdateContactRequestBodyDtoDocumentTypeEnum];
+
+/**
+ * @export
+ */
+export const PartialUpdateContactRequestBodyDtoOriginEnum = {
+    Indication: 'INDICATION',
+    Ads: 'ADS',
+    OrganicSearch: 'ORGANIC_SEARCH',
+    SocialMedia: 'SOCIAL_MEDIA',
+    Events: 'EVENTS',
+    Partnerships: 'PARTNERSHIPS',
+    PhysicalStore: 'PHYSICAL_STORE',
+    Other: 'OTHER'
+} as const;
+export type PartialUpdateContactRequestBodyDtoOriginEnum = typeof PartialUpdateContactRequestBodyDtoOriginEnum[keyof typeof PartialUpdateContactRequestBodyDtoOriginEnum];
 
 
 /**
@@ -97,11 +132,13 @@ export function PartialUpdateContactRequestBodyDtoFromJSONTyped(json: any, ignor
     return {
         
         'name': json['name'] == null ? undefined : json['name'],
-        'type': json['type'] == null ? undefined : json['type'],
+        'types': json['types'] == null ? undefined : json['types'],
         'documentType': json['documentType'] == null ? undefined : json['documentType'],
         'document': json['document'] == null ? undefined : json['document'],
         'email': json['email'] == null ? undefined : json['email'],
         'phone': json['phone'] == null ? undefined : json['phone'],
+        'origin': json['origin'] == null ? undefined : json['origin'],
+        'address': json['address'] == null ? undefined : CreateContactRequestBodyDtoAddressFromJSON(json['address']),
     };
 }
 
@@ -117,11 +154,13 @@ export function PartialUpdateContactRequestBodyDtoToJSONTyped(value?: PartialUpd
     return {
         
         'name': value['name'],
-        'type': value['type'],
+        'types': value['types'],
         'documentType': value['documentType'],
         'document': value['document'],
         'email': value['email'],
         'phone': value['phone'],
+        'origin': value['origin'],
+        'address': CreateContactRequestBodyDtoAddressToJSON(value['address']),
     };
 }
 

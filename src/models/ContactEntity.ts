@@ -13,6 +13,14 @@
  */
 
 import { mapValues } from '../runtime';
+import type { CreateContactRequestBodyDtoAddress } from './CreateContactRequestBodyDtoAddress';
+import {
+    CreateContactRequestBodyDtoAddressFromJSON,
+    CreateContactRequestBodyDtoAddressFromJSONTyped,
+    CreateContactRequestBodyDtoAddressToJSON,
+    CreateContactRequestBodyDtoAddressToJSONTyped,
+} from './CreateContactRequestBodyDtoAddress';
+
 /**
  * 
  * @export
@@ -26,7 +34,7 @@ export interface ContactEntity {
      */
     id: string;
     /**
-     * Identificador da organização.
+     * Identificador da organização dona do contato.
      * @type {string}
      * @memberof ContactEntity
      */
@@ -38,17 +46,23 @@ export interface ContactEntity {
      */
     createdByUser: string;
     /**
+     * Identificador da organização que criou o contato.
+     * @type {string}
+     * @memberof ContactEntity
+     */
+    createdByOrganization: string;
+    /**
      * Nome do contato.
      * @type {string}
      * @memberof ContactEntity
      */
     name: string;
     /**
-     * Tipo do contato.
-     * @type {string}
+     * Tipos do contato.
+     * @type {Array<string>}
      * @memberof ContactEntity
      */
-    type?: ContactEntityTypeEnum | null;
+    types: Array<ContactEntityTypesEnum>;
     /**
      * Tipo do documento do contato.
      * @type {string}
@@ -74,6 +88,18 @@ export interface ContactEntity {
      */
     phone?: string | null;
     /**
+     * Origem do contato.
+     * @type {string}
+     * @memberof ContactEntity
+     */
+    origin?: ContactEntityOriginEnum | null;
+    /**
+     * 
+     * @type {CreateContactRequestBodyDtoAddress}
+     * @memberof ContactEntity
+     */
+    address?: CreateContactRequestBodyDtoAddress | null;
+    /**
      * Data de criação do contato.
      * @type {Date}
      * @memberof ContactEntity
@@ -91,13 +117,13 @@ export interface ContactEntity {
 /**
  * @export
  */
-export const ContactEntityTypeEnum = {
+export const ContactEntityTypesEnum = {
     Customer: 'CUSTOMER',
     Employee: 'EMPLOYEE',
     Supplier: 'SUPPLIER',
     Partner: 'PARTNER'
 } as const;
-export type ContactEntityTypeEnum = typeof ContactEntityTypeEnum[keyof typeof ContactEntityTypeEnum];
+export type ContactEntityTypesEnum = typeof ContactEntityTypesEnum[keyof typeof ContactEntityTypesEnum];
 
 /**
  * @export
@@ -108,6 +134,21 @@ export const ContactEntityDocumentTypeEnum = {
 } as const;
 export type ContactEntityDocumentTypeEnum = typeof ContactEntityDocumentTypeEnum[keyof typeof ContactEntityDocumentTypeEnum];
 
+/**
+ * @export
+ */
+export const ContactEntityOriginEnum = {
+    Indication: 'INDICATION',
+    Ads: 'ADS',
+    OrganicSearch: 'ORGANIC_SEARCH',
+    SocialMedia: 'SOCIAL_MEDIA',
+    Events: 'EVENTS',
+    Partnerships: 'PARTNERSHIPS',
+    PhysicalStore: 'PHYSICAL_STORE',
+    Other: 'OTHER'
+} as const;
+export type ContactEntityOriginEnum = typeof ContactEntityOriginEnum[keyof typeof ContactEntityOriginEnum];
+
 
 /**
  * Check if a given object implements the ContactEntity interface.
@@ -116,7 +157,9 @@ export function instanceOfContactEntity(value: object): value is ContactEntity {
     if (!('id' in value) || value['id'] === undefined) return false;
     if (!('organization' in value) || value['organization'] === undefined) return false;
     if (!('createdByUser' in value) || value['createdByUser'] === undefined) return false;
+    if (!('createdByOrganization' in value) || value['createdByOrganization'] === undefined) return false;
     if (!('name' in value) || value['name'] === undefined) return false;
+    if (!('types' in value) || value['types'] === undefined) return false;
     if (!('createdAt' in value) || value['createdAt'] === undefined) return false;
     if (!('updatedAt' in value) || value['updatedAt'] === undefined) return false;
     return true;
@@ -135,12 +178,15 @@ export function ContactEntityFromJSONTyped(json: any, ignoreDiscriminator: boole
         'id': json['id'],
         'organization': json['organization'],
         'createdByUser': json['createdByUser'],
+        'createdByOrganization': json['createdByOrganization'],
         'name': json['name'],
-        'type': json['type'] == null ? undefined : json['type'],
+        'types': json['types'],
         'documentType': json['documentType'] == null ? undefined : json['documentType'],
         'document': json['document'] == null ? undefined : json['document'],
         'email': json['email'] == null ? undefined : json['email'],
         'phone': json['phone'] == null ? undefined : json['phone'],
+        'origin': json['origin'] == null ? undefined : json['origin'],
+        'address': json['address'] == null ? undefined : CreateContactRequestBodyDtoAddressFromJSON(json['address']),
         'createdAt': (new Date(json['createdAt'])),
         'updatedAt': (new Date(json['updatedAt'])),
     };
@@ -160,12 +206,15 @@ export function ContactEntityToJSONTyped(value?: ContactEntity | null, ignoreDis
         'id': value['id'],
         'organization': value['organization'],
         'createdByUser': value['createdByUser'],
+        'createdByOrganization': value['createdByOrganization'],
         'name': value['name'],
-        'type': value['type'],
+        'types': value['types'],
         'documentType': value['documentType'],
         'document': value['document'],
         'email': value['email'],
         'phone': value['phone'],
+        'origin': value['origin'],
+        'address': CreateContactRequestBodyDtoAddressToJSON(value['address']),
         'createdAt': ((value['createdAt']).toISOString()),
         'updatedAt': ((value['updatedAt']).toISOString()),
     };
