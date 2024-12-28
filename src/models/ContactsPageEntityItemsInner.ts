@@ -52,6 +52,12 @@ export interface ContactsPageEntityItemsInner {
      */
     createdByOrganization: string;
     /**
+     * Identificador do canal que criou o contato.
+     * @type {string}
+     * @memberof ContactsPageEntityItemsInner
+     */
+    createdByChannel: ContactsPageEntityItemsInnerCreatedByChannelEnum;
+    /**
      * Nome do contato.
      * @type {string}
      * @memberof ContactsPageEntityItemsInner
@@ -117,6 +123,15 @@ export interface ContactsPageEntityItemsInner {
 /**
  * @export
  */
+export const ContactsPageEntityItemsInnerCreatedByChannelEnum = {
+    WebApp: 'WEB_APP',
+    Whatsapp: 'WHATSAPP'
+} as const;
+export type ContactsPageEntityItemsInnerCreatedByChannelEnum = typeof ContactsPageEntityItemsInnerCreatedByChannelEnum[keyof typeof ContactsPageEntityItemsInnerCreatedByChannelEnum];
+
+/**
+ * @export
+ */
 export const ContactsPageEntityItemsInnerTypesEnum = {
     Customer: 'CUSTOMER',
     Employee: 'EMPLOYEE',
@@ -158,6 +173,7 @@ export function instanceOfContactsPageEntityItemsInner(value: object): value is 
     if (!('organization' in value) || value['organization'] === undefined) return false;
     if (!('createdByUser' in value) || value['createdByUser'] === undefined) return false;
     if (!('createdByOrganization' in value) || value['createdByOrganization'] === undefined) return false;
+    if (!('createdByChannel' in value) || value['createdByChannel'] === undefined) return false;
     if (!('name' in value) || value['name'] === undefined) return false;
     if (!('types' in value) || value['types'] === undefined) return false;
     if (!('createdAt' in value) || value['createdAt'] === undefined) return false;
@@ -179,6 +195,7 @@ export function ContactsPageEntityItemsInnerFromJSONTyped(json: any, ignoreDiscr
         'organization': json['organization'],
         'createdByUser': json['createdByUser'],
         'createdByOrganization': json['createdByOrganization'],
+        'createdByChannel': json['createdByChannel'],
         'name': json['name'],
         'types': json['types'],
         'documentType': json['documentType'] == null ? undefined : json['documentType'],
@@ -207,6 +224,7 @@ export function ContactsPageEntityItemsInnerToJSONTyped(value?: ContactsPageEnti
         'organization': value['organization'],
         'createdByUser': value['createdByUser'],
         'createdByOrganization': value['createdByOrganization'],
+        'createdByChannel': value['createdByChannel'],
         'name': value['name'],
         'types': value['types'],
         'documentType': value['documentType'],

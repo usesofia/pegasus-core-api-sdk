@@ -28,6 +28,12 @@ import {
  */
 export interface CreateContactRequestBodyDto {
     /**
+     * Identificador do canal que criou o contato.
+     * @type {string}
+     * @memberof CreateContactRequestBodyDto
+     */
+    createdByChannel: CreateContactRequestBodyDtoCreatedByChannelEnum;
+    /**
      * Nome do contato.
      * @type {string}
      * @memberof CreateContactRequestBodyDto
@@ -81,6 +87,15 @@ export interface CreateContactRequestBodyDto {
 /**
  * @export
  */
+export const CreateContactRequestBodyDtoCreatedByChannelEnum = {
+    WebApp: 'WEB_APP',
+    Whatsapp: 'WHATSAPP'
+} as const;
+export type CreateContactRequestBodyDtoCreatedByChannelEnum = typeof CreateContactRequestBodyDtoCreatedByChannelEnum[keyof typeof CreateContactRequestBodyDtoCreatedByChannelEnum];
+
+/**
+ * @export
+ */
 export const CreateContactRequestBodyDtoTypesEnum = {
     Customer: 'CUSTOMER',
     Employee: 'EMPLOYEE',
@@ -118,6 +133,7 @@ export type CreateContactRequestBodyDtoOriginEnum = typeof CreateContactRequestB
  * Check if a given object implements the CreateContactRequestBodyDto interface.
  */
 export function instanceOfCreateContactRequestBodyDto(value: object): value is CreateContactRequestBodyDto {
+    if (!('createdByChannel' in value) || value['createdByChannel'] === undefined) return false;
     if (!('name' in value) || value['name'] === undefined) return false;
     if (!('types' in value) || value['types'] === undefined) return false;
     return true;
@@ -133,6 +149,7 @@ export function CreateContactRequestBodyDtoFromJSONTyped(json: any, ignoreDiscri
     }
     return {
         
+        'createdByChannel': json['createdByChannel'],
         'name': json['name'],
         'types': json['types'],
         'documentType': json['documentType'] == null ? undefined : json['documentType'],
@@ -155,6 +172,7 @@ export function CreateContactRequestBodyDtoToJSONTyped(value?: CreateContactRequ
 
     return {
         
+        'createdByChannel': value['createdByChannel'],
         'name': value['name'],
         'types': value['types'],
         'documentType': value['documentType'],
