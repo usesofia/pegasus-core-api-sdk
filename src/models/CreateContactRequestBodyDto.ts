@@ -28,12 +28,6 @@ import {
  */
 export interface CreateContactRequestBodyDto {
     /**
-     * Identificador do canal que criou o contato.
-     * @type {string}
-     * @memberof CreateContactRequestBodyDto
-     */
-    createdByChannel: CreateContactRequestBodyDtoCreatedByChannelEnum;
-    /**
      * Nome do contato.
      * @type {string}
      * @memberof CreateContactRequestBodyDto
@@ -81,17 +75,14 @@ export interface CreateContactRequestBodyDto {
      * @memberof CreateContactRequestBodyDto
      */
     address?: CreateContactRequestBodyDtoAddress | null;
+    /**
+     * Canal de origem da operação
+     * @type {string}
+     * @memberof CreateContactRequestBodyDto
+     */
+    channel: CreateContactRequestBodyDtoChannelEnum;
 }
 
-
-/**
- * @export
- */
-export const CreateContactRequestBodyDtoCreatedByChannelEnum = {
-    WebApp: 'WEB_APP',
-    Whatsapp: 'WHATSAPP'
-} as const;
-export type CreateContactRequestBodyDtoCreatedByChannelEnum = typeof CreateContactRequestBodyDtoCreatedByChannelEnum[keyof typeof CreateContactRequestBodyDtoCreatedByChannelEnum];
 
 /**
  * @export
@@ -128,14 +119,23 @@ export const CreateContactRequestBodyDtoOriginEnum = {
 } as const;
 export type CreateContactRequestBodyDtoOriginEnum = typeof CreateContactRequestBodyDtoOriginEnum[keyof typeof CreateContactRequestBodyDtoOriginEnum];
 
+/**
+ * @export
+ */
+export const CreateContactRequestBodyDtoChannelEnum = {
+    WebApp: 'WEB_APP',
+    Whatsapp: 'WHATSAPP'
+} as const;
+export type CreateContactRequestBodyDtoChannelEnum = typeof CreateContactRequestBodyDtoChannelEnum[keyof typeof CreateContactRequestBodyDtoChannelEnum];
+
 
 /**
  * Check if a given object implements the CreateContactRequestBodyDto interface.
  */
 export function instanceOfCreateContactRequestBodyDto(value: object): value is CreateContactRequestBodyDto {
-    if (!('createdByChannel' in value) || value['createdByChannel'] === undefined) return false;
     if (!('name' in value) || value['name'] === undefined) return false;
     if (!('types' in value) || value['types'] === undefined) return false;
+    if (!('channel' in value) || value['channel'] === undefined) return false;
     return true;
 }
 
@@ -149,7 +149,6 @@ export function CreateContactRequestBodyDtoFromJSONTyped(json: any, ignoreDiscri
     }
     return {
         
-        'createdByChannel': json['createdByChannel'],
         'name': json['name'],
         'types': json['types'],
         'documentType': json['documentType'] == null ? undefined : json['documentType'],
@@ -158,6 +157,7 @@ export function CreateContactRequestBodyDtoFromJSONTyped(json: any, ignoreDiscri
         'phone': json['phone'] == null ? undefined : json['phone'],
         'origin': json['origin'] == null ? undefined : json['origin'],
         'address': json['address'] == null ? undefined : CreateContactRequestBodyDtoAddressFromJSON(json['address']),
+        'channel': json['channel'],
     };
 }
 
@@ -172,7 +172,6 @@ export function CreateContactRequestBodyDtoToJSONTyped(value?: CreateContactRequ
 
     return {
         
-        'createdByChannel': value['createdByChannel'],
         'name': value['name'],
         'types': value['types'],
         'documentType': value['documentType'],
@@ -181,6 +180,7 @@ export function CreateContactRequestBodyDtoToJSONTyped(value?: CreateContactRequ
         'phone': value['phone'],
         'origin': value['origin'],
         'address': CreateContactRequestBodyDtoAddressToJSON(value['address']),
+        'channel': value['channel'],
     };
 }
 

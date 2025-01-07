@@ -38,25 +38,7 @@ export interface ContactsPageEntityItemsInner {
      * @type {string}
      * @memberof ContactsPageEntityItemsInner
      */
-    organization: string;
-    /**
-     * Identificador do usuário que criou o contato.
-     * @type {string}
-     * @memberof ContactsPageEntityItemsInner
-     */
-    createdByUser: string;
-    /**
-     * Identificador da organização que criou o contato.
-     * @type {string}
-     * @memberof ContactsPageEntityItemsInner
-     */
-    createdByOrganization: string;
-    /**
-     * Identificador do canal que criou o contato.
-     * @type {string}
-     * @memberof ContactsPageEntityItemsInner
-     */
-    createdByChannel: ContactsPageEntityItemsInnerCreatedByChannelEnum;
+    ownerOrganization: string;
     /**
      * Nome do contato.
      * @type {string}
@@ -123,15 +105,6 @@ export interface ContactsPageEntityItemsInner {
 /**
  * @export
  */
-export const ContactsPageEntityItemsInnerCreatedByChannelEnum = {
-    WebApp: 'WEB_APP',
-    Whatsapp: 'WHATSAPP'
-} as const;
-export type ContactsPageEntityItemsInnerCreatedByChannelEnum = typeof ContactsPageEntityItemsInnerCreatedByChannelEnum[keyof typeof ContactsPageEntityItemsInnerCreatedByChannelEnum];
-
-/**
- * @export
- */
 export const ContactsPageEntityItemsInnerTypesEnum = {
     Customer: 'CUSTOMER',
     Employee: 'EMPLOYEE',
@@ -170,10 +143,7 @@ export type ContactsPageEntityItemsInnerOriginEnum = typeof ContactsPageEntityIt
  */
 export function instanceOfContactsPageEntityItemsInner(value: object): value is ContactsPageEntityItemsInner {
     if (!('id' in value) || value['id'] === undefined) return false;
-    if (!('organization' in value) || value['organization'] === undefined) return false;
-    if (!('createdByUser' in value) || value['createdByUser'] === undefined) return false;
-    if (!('createdByOrganization' in value) || value['createdByOrganization'] === undefined) return false;
-    if (!('createdByChannel' in value) || value['createdByChannel'] === undefined) return false;
+    if (!('ownerOrganization' in value) || value['ownerOrganization'] === undefined) return false;
     if (!('name' in value) || value['name'] === undefined) return false;
     if (!('types' in value) || value['types'] === undefined) return false;
     if (!('createdAt' in value) || value['createdAt'] === undefined) return false;
@@ -192,10 +162,7 @@ export function ContactsPageEntityItemsInnerFromJSONTyped(json: any, ignoreDiscr
     return {
         
         'id': json['id'],
-        'organization': json['organization'],
-        'createdByUser': json['createdByUser'],
-        'createdByOrganization': json['createdByOrganization'],
-        'createdByChannel': json['createdByChannel'],
+        'ownerOrganization': json['ownerOrganization'],
         'name': json['name'],
         'types': json['types'],
         'documentType': json['documentType'] == null ? undefined : json['documentType'],
@@ -221,10 +188,7 @@ export function ContactsPageEntityItemsInnerToJSONTyped(value?: ContactsPageEnti
     return {
         
         'id': value['id'],
-        'organization': value['organization'],
-        'createdByUser': value['createdByUser'],
-        'createdByOrganization': value['createdByOrganization'],
-        'createdByChannel': value['createdByChannel'],
+        'ownerOrganization': value['ownerOrganization'],
         'name': value['name'],
         'types': value['types'],
         'documentType': value['documentType'],

@@ -75,6 +75,12 @@ export interface PartialUpdateContactRequestBodyDto {
      * @memberof PartialUpdateContactRequestBodyDto
      */
     address?: CreateContactRequestBodyDtoAddress | null;
+    /**
+     * Canal de origem da operação
+     * @type {string}
+     * @memberof PartialUpdateContactRequestBodyDto
+     */
+    channel: PartialUpdateContactRequestBodyDtoChannelEnum;
 }
 
 
@@ -113,11 +119,21 @@ export const PartialUpdateContactRequestBodyDtoOriginEnum = {
 } as const;
 export type PartialUpdateContactRequestBodyDtoOriginEnum = typeof PartialUpdateContactRequestBodyDtoOriginEnum[keyof typeof PartialUpdateContactRequestBodyDtoOriginEnum];
 
+/**
+ * @export
+ */
+export const PartialUpdateContactRequestBodyDtoChannelEnum = {
+    WebApp: 'WEB_APP',
+    Whatsapp: 'WHATSAPP'
+} as const;
+export type PartialUpdateContactRequestBodyDtoChannelEnum = typeof PartialUpdateContactRequestBodyDtoChannelEnum[keyof typeof PartialUpdateContactRequestBodyDtoChannelEnum];
+
 
 /**
  * Check if a given object implements the PartialUpdateContactRequestBodyDto interface.
  */
 export function instanceOfPartialUpdateContactRequestBodyDto(value: object): value is PartialUpdateContactRequestBodyDto {
+    if (!('channel' in value) || value['channel'] === undefined) return false;
     return true;
 }
 
@@ -139,6 +155,7 @@ export function PartialUpdateContactRequestBodyDtoFromJSONTyped(json: any, ignor
         'phone': json['phone'] == null ? undefined : json['phone'],
         'origin': json['origin'] == null ? undefined : json['origin'],
         'address': json['address'] == null ? undefined : CreateContactRequestBodyDtoAddressFromJSON(json['address']),
+        'channel': json['channel'],
     };
 }
 
@@ -161,6 +178,7 @@ export function PartialUpdateContactRequestBodyDtoToJSONTyped(value?: PartialUpd
         'phone': value['phone'],
         'origin': value['origin'],
         'address': CreateContactRequestBodyDtoAddressToJSON(value['address']),
+        'channel': value['channel'],
     };
 }
 

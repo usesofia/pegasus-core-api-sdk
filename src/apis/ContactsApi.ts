@@ -20,6 +20,7 @@ import type {
   CreateContactRequestBodyDto,
   ExceptionResponseEntity,
   PartialUpdateContactRequestBodyDto,
+  RemoveContactRequestBodyDto,
 } from '../models/index';
 import {
     ContactEntityFromJSON,
@@ -32,6 +33,8 @@ import {
     ExceptionResponseEntityToJSON,
     PartialUpdateContactRequestBodyDtoFromJSON,
     PartialUpdateContactRequestBodyDtoToJSON,
+    RemoveContactRequestBodyDtoFromJSON,
+    RemoveContactRequestBodyDtoToJSON,
 } from '../models/index';
 
 export interface CreateContactRequest {
@@ -59,6 +62,7 @@ export interface PartialUpdateContactRequest {
 
 export interface RemoveContactRequest {
     id: string;
+    removeContactRequestBodyDto: RemoveContactRequestBodyDto;
 }
 
 /**
@@ -139,6 +143,7 @@ export interface ContactsApiInterface {
      * 
      * @summary Remove um contato.
      * @param {string} id Identificador do contato.
+     * @param {RemoveContactRequestBodyDto} removeContactRequestBodyDto 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ContactsApiInterface
@@ -334,15 +339,25 @@ export class ContactsApi extends runtime.BaseAPI implements ContactsApiInterface
             );
         }
 
+        if (requestParameters['removeContactRequestBodyDto'] == null) {
+            throw new runtime.RequiredError(
+                'removeContactRequestBodyDto',
+                'Required parameter "removeContactRequestBodyDto" was null or undefined when calling removeContact().'
+            );
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
 
         const response = await this.request({
             path: `/external/contacts/{id}`.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id']))),
             method: 'DELETE',
             headers: headerParameters,
             query: queryParameters,
+            body: RemoveContactRequestBodyDtoToJSON(requestParameters['removeContactRequestBodyDto']),
         }, initOverrides);
 
         return new runtime.VoidApiResponse(response);
