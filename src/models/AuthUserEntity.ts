@@ -62,7 +62,7 @@ export interface AuthUserEntity {
      * @type {AuthUserEntityOrganization}
      * @memberof AuthUserEntity
      */
-    organization: AuthUserEntityOrganization;
+    organization?: AuthUserEntityOrganization | null;
 }
 
 /**
@@ -74,7 +74,6 @@ export function instanceOfAuthUserEntity(value: object): value is AuthUserEntity
     if (!('primaryPhoneNumber' in value) || value['primaryPhoneNumber'] === undefined) return false;
     if (!('firstName' in value) || value['firstName'] === undefined) return false;
     if (!('lastName' in value) || value['lastName'] === undefined) return false;
-    if (!('organization' in value) || value['organization'] === undefined) return false;
     return true;
 }
 
@@ -93,7 +92,7 @@ export function AuthUserEntityFromJSONTyped(json: any, ignoreDiscriminator: bool
         'primaryPhoneNumber': json['primaryPhoneNumber'],
         'firstName': json['firstName'],
         'lastName': json['lastName'],
-        'organization': AuthUserEntityOrganizationFromJSON(json['organization']),
+        'organization': json['organization'] == null ? undefined : AuthUserEntityOrganizationFromJSON(json['organization']),
     };
 }
 

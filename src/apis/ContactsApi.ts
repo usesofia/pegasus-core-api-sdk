@@ -49,7 +49,7 @@ export interface FindAllContactsRequest {
     pageIndex?: number;
 }
 
-export interface FindOneContactRequest {
+export interface FindByIdContactRequest {
     id: string;
     populate?: string;
 }
@@ -115,12 +115,12 @@ export interface ContactsApiInterface {
      * @throws {RequiredError}
      * @memberof ContactsApiInterface
      */
-    findOneContactRaw(requestParameters: FindOneContactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ContactEntity>>;
+    findByIdContactRaw(requestParameters: FindByIdContactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ContactEntity>>;
 
     /**
      * Busca um contato pelo identificador.
      */
-    findOneContact(requestParameters: FindOneContactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ContactEntity>;
+    findByIdContact(requestParameters: FindByIdContactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ContactEntity>;
 
     /**
      * 
@@ -247,11 +247,11 @@ export class ContactsApi extends runtime.BaseAPI implements ContactsApiInterface
     /**
      * Busca um contato pelo identificador.
      */
-    async findOneContactRaw(requestParameters: FindOneContactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ContactEntity>> {
+    async findByIdContactRaw(requestParameters: FindByIdContactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ContactEntity>> {
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
-                'Required parameter "id" was null or undefined when calling findOneContact().'
+                'Required parameter "id" was null or undefined when calling findByIdContact().'
             );
         }
 
@@ -276,8 +276,8 @@ export class ContactsApi extends runtime.BaseAPI implements ContactsApiInterface
     /**
      * Busca um contato pelo identificador.
      */
-    async findOneContact(requestParameters: FindOneContactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ContactEntity> {
-        const response = await this.findOneContactRaw(requestParameters, initOverrides);
+    async findByIdContact(requestParameters: FindByIdContactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ContactEntity> {
+        const response = await this.findByIdContactRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

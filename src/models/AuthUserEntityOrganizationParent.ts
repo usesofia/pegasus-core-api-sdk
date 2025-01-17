@@ -43,6 +43,12 @@ export interface AuthUserEntityOrganizationParent {
      * @memberof AuthUserEntityOrganizationParent
      */
     sharedSubcategories: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof AuthUserEntityOrganizationParent
+     */
+    sharedTags: boolean;
 }
 
 /**
@@ -53,6 +59,7 @@ export function instanceOfAuthUserEntityOrganizationParent(value: object): value
     if (!('name' in value) || value['name'] === undefined) return false;
     if (!('sharedContacts' in value) || value['sharedContacts'] === undefined) return false;
     if (!('sharedSubcategories' in value) || value['sharedSubcategories'] === undefined) return false;
+    if (!('sharedTags' in value) || value['sharedTags'] === undefined) return false;
     return true;
 }
 
@@ -70,6 +77,7 @@ export function AuthUserEntityOrganizationParentFromJSONTyped(json: any, ignoreD
         'name': json['name'],
         'sharedContacts': json['sharedContacts'],
         'sharedSubcategories': json['sharedSubcategories'],
+        'sharedTags': json['sharedTags'],
     };
 }
 
@@ -88,6 +96,7 @@ export function AuthUserEntityOrganizationParentToJSONTyped(value?: AuthUserEnti
         'name': value['name'],
         'sharedContacts': value['sharedContacts'],
         'sharedSubcategories': value['sharedSubcategories'],
+        'sharedTags': value['sharedTags'],
     };
 }
 
