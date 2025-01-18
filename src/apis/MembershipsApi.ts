@@ -18,6 +18,9 @@ import type {
   CreateInviteRequestBodyDto,
   ExceptionResponseEntity,
   InviteEntity,
+  MemberEntity,
+  PartialUpdateMemberRequestBodyDto,
+  RemoveMemberRequestBodyDto,
   RevokeInviteRequestBodyDto,
 } from '../models/index';
 import {
@@ -27,12 +30,28 @@ import {
     ExceptionResponseEntityToJSON,
     InviteEntityFromJSON,
     InviteEntityToJSON,
+    MemberEntityFromJSON,
+    MemberEntityToJSON,
+    PartialUpdateMemberRequestBodyDtoFromJSON,
+    PartialUpdateMemberRequestBodyDtoToJSON,
+    RemoveMemberRequestBodyDtoFromJSON,
+    RemoveMemberRequestBodyDtoToJSON,
     RevokeInviteRequestBodyDtoFromJSON,
     RevokeInviteRequestBodyDtoToJSON,
 } from '../models/index';
 
 export interface CreateInviteRequest {
     createInviteRequestBodyDto: CreateInviteRequestBodyDto;
+}
+
+export interface PartialUpdateMemberRequest {
+    id: string;
+    partialUpdateMemberRequestBodyDto: PartialUpdateMemberRequestBodyDto;
+}
+
+export interface RemoveMemberRequest {
+    id: string;
+    removeMemberRequestBodyDto: RemoveMemberRequestBodyDto;
 }
 
 export interface RevokeInviteRequest {
@@ -75,6 +94,52 @@ export interface MembershipsApiInterface {
      * List all organization invites.
      */
     findAllInvites(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<InviteEntity>>;
+
+    /**
+     * 
+     * @summary List all organization members.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MembershipsApiInterface
+     */
+    findAllMembersRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<MemberEntity>>>;
+
+    /**
+     * List all organization members.
+     */
+    findAllMembers(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<MemberEntity>>;
+
+    /**
+     * 
+     * @summary Atualiza parcialmente um membro da organização.
+     * @param {string} id Id do usuário membro a ser atualizado.
+     * @param {PartialUpdateMemberRequestBodyDto} partialUpdateMemberRequestBodyDto 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MembershipsApiInterface
+     */
+    partialUpdateMemberRaw(requestParameters: PartialUpdateMemberRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<MemberEntity>>;
+
+    /**
+     * Atualiza parcialmente um membro da organização.
+     */
+    partialUpdateMember(requestParameters: PartialUpdateMemberRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<MemberEntity>;
+
+    /**
+     * 
+     * @summary Remove um membro da organização.
+     * @param {string} id Id do usuário membro a ser removido.
+     * @param {RemoveMemberRequestBodyDto} removeMemberRequestBodyDto 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MembershipsApiInterface
+     */
+    removeMemberRaw(requestParameters: RemoveMemberRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
+
+    /**
+     * Remove um membro da organização.
+     */
+    removeMember(requestParameters: RemoveMemberRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
 
     /**
      * 
@@ -159,6 +224,117 @@ export class MembershipsApi extends runtime.BaseAPI implements MembershipsApiInt
     async findAllInvites(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<InviteEntity>> {
         const response = await this.findAllInvitesRaw(initOverrides);
         return await response.value();
+    }
+
+    /**
+     * List all organization members.
+     */
+    async findAllMembersRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<MemberEntity>>> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/external/memberships/members`,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(MemberEntityFromJSON));
+    }
+
+    /**
+     * List all organization members.
+     */
+    async findAllMembers(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<MemberEntity>> {
+        const response = await this.findAllMembersRaw(initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Atualiza parcialmente um membro da organização.
+     */
+    async partialUpdateMemberRaw(requestParameters: PartialUpdateMemberRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<MemberEntity>> {
+        if (requestParameters['id'] == null) {
+            throw new runtime.RequiredError(
+                'id',
+                'Required parameter "id" was null or undefined when calling partialUpdateMember().'
+            );
+        }
+
+        if (requestParameters['partialUpdateMemberRequestBodyDto'] == null) {
+            throw new runtime.RequiredError(
+                'partialUpdateMemberRequestBodyDto',
+                'Required parameter "partialUpdateMemberRequestBodyDto" was null or undefined when calling partialUpdateMember().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        const response = await this.request({
+            path: `/external/memberships/members/{id}`.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id']))),
+            method: 'PATCH',
+            headers: headerParameters,
+            query: queryParameters,
+            body: PartialUpdateMemberRequestBodyDtoToJSON(requestParameters['partialUpdateMemberRequestBodyDto']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => MemberEntityFromJSON(jsonValue));
+    }
+
+    /**
+     * Atualiza parcialmente um membro da organização.
+     */
+    async partialUpdateMember(requestParameters: PartialUpdateMemberRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<MemberEntity> {
+        const response = await this.partialUpdateMemberRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Remove um membro da organização.
+     */
+    async removeMemberRaw(requestParameters: RemoveMemberRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        if (requestParameters['id'] == null) {
+            throw new runtime.RequiredError(
+                'id',
+                'Required parameter "id" was null or undefined when calling removeMember().'
+            );
+        }
+
+        if (requestParameters['removeMemberRequestBodyDto'] == null) {
+            throw new runtime.RequiredError(
+                'removeMemberRequestBodyDto',
+                'Required parameter "removeMemberRequestBodyDto" was null or undefined when calling removeMember().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        const response = await this.request({
+            path: `/external/memberships/members/{id}`.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id']))),
+            method: 'DELETE',
+            headers: headerParameters,
+            query: queryParameters,
+            body: RemoveMemberRequestBodyDtoToJSON(requestParameters['removeMemberRequestBodyDto']),
+        }, initOverrides);
+
+        return new runtime.VoidApiResponse(response);
+    }
+
+    /**
+     * Remove um membro da organização.
+     */
+    async removeMember(requestParameters: RemoveMemberRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+        await this.removeMemberRaw(requestParameters, initOverrides);
     }
 
     /**
