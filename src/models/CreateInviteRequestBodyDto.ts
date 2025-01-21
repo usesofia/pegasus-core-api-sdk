@@ -44,8 +44,8 @@ export interface CreateInviteRequestBodyDto {
  * @export
  */
 export const CreateInviteRequestBodyDtoRoleEnum = {
-    Admin: 'org:admin',
-    Member: 'org:member'
+    OrgAdmin: 'org:admin',
+    OrgMember: 'org:member'
 } as const;
 export type CreateInviteRequestBodyDtoRoleEnum = typeof CreateInviteRequestBodyDtoRoleEnum[keyof typeof CreateInviteRequestBodyDtoRoleEnum];
 

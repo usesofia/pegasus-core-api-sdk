@@ -62,8 +62,8 @@ export interface InviteEntity {
  * @export
  */
 export const InviteEntityRoleEnum = {
-    Admin: 'org:admin',
-    Member: 'org:member'
+    OrgAdmin: 'org:admin',
+    OrgMember: 'org:member'
 } as const;
 export type InviteEntityRoleEnum = typeof InviteEntityRoleEnum[keyof typeof InviteEntityRoleEnum];
 

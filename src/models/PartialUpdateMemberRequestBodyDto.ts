@@ -38,8 +38,8 @@ export interface PartialUpdateMemberRequestBodyDto {
  * @export
  */
 export const PartialUpdateMemberRequestBodyDtoRoleEnum = {
-    Admin: 'org:admin',
-    Member: 'org:member'
+    OrgAdmin: 'org:admin',
+    OrgMember: 'org:member'
 } as const;
 export type PartialUpdateMemberRequestBodyDtoRoleEnum = typeof PartialUpdateMemberRequestBodyDtoRoleEnum[keyof typeof PartialUpdateMemberRequestBodyDtoRoleEnum];
 

@@ -77,8 +77,8 @@ export interface AuthUserEntityOrganization {
  * @export
  */
 export const AuthUserEntityOrganizationRoleEnum = {
-    Admin: 'org:admin',
-    Member: 'org:member'
+    OrgAdmin: 'org:admin',
+    OrgMember: 'org:member'
 } as const;
 export type AuthUserEntityOrganizationRoleEnum = typeof AuthUserEntityOrganizationRoleEnum[keyof typeof AuthUserEntityOrganizationRoleEnum];
 

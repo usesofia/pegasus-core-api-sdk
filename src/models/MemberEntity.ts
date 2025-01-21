@@ -80,8 +80,8 @@ export interface MemberEntity {
  * @export
  */
 export const MemberEntityRoleEnum = {
-    Admin: 'org:admin',
-    Member: 'org:member'
+    OrgAdmin: 'org:admin',
+    OrgMember: 'org:member'
 } as const;
 export type MemberEntityRoleEnum = typeof MemberEntityRoleEnum[keyof typeof MemberEntityRoleEnum];
 
