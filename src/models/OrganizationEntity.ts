@@ -13,6 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
+import type { CreateOrganizationRequestBodyDtoPopulatedChildrenInner } from './CreateOrganizationRequestBodyDtoPopulatedChildrenInner';
+import {
+    CreateOrganizationRequestBodyDtoPopulatedChildrenInnerFromJSON,
+    CreateOrganizationRequestBodyDtoPopulatedChildrenInnerFromJSONTyped,
+    CreateOrganizationRequestBodyDtoPopulatedChildrenInnerToJSON,
+    CreateOrganizationRequestBodyDtoPopulatedChildrenInnerToJSONTyped,
+} from './CreateOrganizationRequestBodyDtoPopulatedChildrenInner';
 import type { CreateOrganizationRequestBodyDtoGroupSettings } from './CreateOrganizationRequestBodyDtoGroupSettings';
 import {
     CreateOrganizationRequestBodyDtoGroupSettingsFromJSON,
@@ -20,20 +27,13 @@ import {
     CreateOrganizationRequestBodyDtoGroupSettingsToJSON,
     CreateOrganizationRequestBodyDtoGroupSettingsToJSONTyped,
 } from './CreateOrganizationRequestBodyDtoGroupSettings';
-import type { OrganizationEntityParent } from './OrganizationEntityParent';
+import type { CreateOrganizationRequestBodyDtoPopulatedParent } from './CreateOrganizationRequestBodyDtoPopulatedParent';
 import {
-    OrganizationEntityParentFromJSON,
-    OrganizationEntityParentFromJSONTyped,
-    OrganizationEntityParentToJSON,
-    OrganizationEntityParentToJSONTyped,
-} from './OrganizationEntityParent';
-import type { CreateOrganizationRequestBodyDtoChildrenInner } from './CreateOrganizationRequestBodyDtoChildrenInner';
-import {
-    CreateOrganizationRequestBodyDtoChildrenInnerFromJSON,
-    CreateOrganizationRequestBodyDtoChildrenInnerFromJSONTyped,
-    CreateOrganizationRequestBodyDtoChildrenInnerToJSON,
-    CreateOrganizationRequestBodyDtoChildrenInnerToJSONTyped,
-} from './CreateOrganizationRequestBodyDtoChildrenInner';
+    CreateOrganizationRequestBodyDtoPopulatedParentFromJSON,
+    CreateOrganizationRequestBodyDtoPopulatedParentFromJSONTyped,
+    CreateOrganizationRequestBodyDtoPopulatedParentToJSON,
+    CreateOrganizationRequestBodyDtoPopulatedParentToJSONTyped,
+} from './CreateOrganizationRequestBodyDtoPopulatedParent';
 
 /**
  * 
@@ -78,17 +78,29 @@ export interface OrganizationEntity {
      */
     imageUrl?: string;
     /**
-     * 
-     * @type {OrganizationEntityParent}
+     * Identificador da organização pai.
+     * @type {string}
      * @memberof OrganizationEntity
      */
-    parent?: OrganizationEntityParent | null;
+    parent?: string | null;
+    /**
+     * 
+     * @type {CreateOrganizationRequestBodyDtoPopulatedParent}
+     * @memberof OrganizationEntity
+     */
+    populatedParent?: CreateOrganizationRequestBodyDtoPopulatedParent | null;
+    /**
+     * Identificadores das organizações filhas.
+     * @type {Array<string>}
+     * @memberof OrganizationEntity
+     */
+    children?: Array<string> | null;
     /**
      * Organizações filhas.
-     * @type {Array<CreateOrganizationRequestBodyDtoChildrenInner>}
+     * @type {Array<CreateOrganizationRequestBodyDtoPopulatedChildrenInner>}
      * @memberof OrganizationEntity
      */
-    children?: Array<CreateOrganizationRequestBodyDtoChildrenInner> | null;
+    populatedChildren?: Array<CreateOrganizationRequestBodyDtoPopulatedChildrenInner> | null;
     /**
      * Data de criação da organização.
      * @type {Date}
@@ -149,8 +161,10 @@ export function OrganizationEntityFromJSONTyped(json: any, ignoreDiscriminator: 
         'type': json['type'],
         'document': json['document'] == null ? undefined : json['document'],
         'imageUrl': json['imageUrl'] == null ? undefined : json['imageUrl'],
-        'parent': json['parent'] == null ? undefined : OrganizationEntityParentFromJSON(json['parent']),
-        'children': json['children'] == null ? undefined : ((json['children'] as Array<any>).map(CreateOrganizationRequestBodyDtoChildrenInnerFromJSON)),
+        'parent': json['parent'] == null ? undefined : json['parent'],
+        'populatedParent': json['populatedParent'] == null ? undefined : CreateOrganizationRequestBodyDtoPopulatedParentFromJSON(json['populatedParent']),
+        'children': json['children'] == null ? undefined : json['children'],
+        'populatedChildren': json['populatedChildren'] == null ? undefined : ((json['populatedChildren'] as Array<any>).map(CreateOrganizationRequestBodyDtoPopulatedChildrenInnerFromJSON)),
         'createdAt': (new Date(json['createdAt'])),
         'updatedAt': (new Date(json['updatedAt'])),
         'groupSettings': json['groupSettings'] == null ? undefined : CreateOrganizationRequestBodyDtoGroupSettingsFromJSON(json['groupSettings']),
@@ -174,8 +188,10 @@ export function OrganizationEntityToJSONTyped(value?: OrganizationEntity | null,
         'type': value['type'],
         'document': value['document'],
         'imageUrl': value['imageUrl'],
-        'parent': OrganizationEntityParentToJSON(value['parent']),
-        'children': value['children'] == null ? undefined : ((value['children'] as Array<any>).map(CreateOrganizationRequestBodyDtoChildrenInnerToJSON)),
+        'parent': value['parent'],
+        'populatedParent': CreateOrganizationRequestBodyDtoPopulatedParentToJSON(value['populatedParent']),
+        'children': value['children'],
+        'populatedChildren': value['populatedChildren'] == null ? undefined : ((value['populatedChildren'] as Array<any>).map(CreateOrganizationRequestBodyDtoPopulatedChildrenInnerToJSON)),
         'createdAt': ((value['createdAt']).toISOString()),
         'updatedAt': ((value['updatedAt']).toISOString()),
         'groupSettings': CreateOrganizationRequestBodyDtoGroupSettingsToJSON(value['groupSettings']),

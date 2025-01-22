@@ -13,6 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
+import type { CreateOrganizationRequestBodyDtoPopulatedChildrenInner } from './CreateOrganizationRequestBodyDtoPopulatedChildrenInner';
+import {
+    CreateOrganizationRequestBodyDtoPopulatedChildrenInnerFromJSON,
+    CreateOrganizationRequestBodyDtoPopulatedChildrenInnerFromJSONTyped,
+    CreateOrganizationRequestBodyDtoPopulatedChildrenInnerToJSON,
+    CreateOrganizationRequestBodyDtoPopulatedChildrenInnerToJSONTyped,
+} from './CreateOrganizationRequestBodyDtoPopulatedChildrenInner';
 import type { CreateOrganizationRequestBodyDtoGroupSettings } from './CreateOrganizationRequestBodyDtoGroupSettings';
 import {
     CreateOrganizationRequestBodyDtoGroupSettingsFromJSON,
@@ -20,13 +27,13 @@ import {
     CreateOrganizationRequestBodyDtoGroupSettingsToJSON,
     CreateOrganizationRequestBodyDtoGroupSettingsToJSONTyped,
 } from './CreateOrganizationRequestBodyDtoGroupSettings';
-import type { CreateOrganizationRequestBodyDtoChildrenInner } from './CreateOrganizationRequestBodyDtoChildrenInner';
+import type { CreateOrganizationRequestBodyDtoPopulatedParent } from './CreateOrganizationRequestBodyDtoPopulatedParent';
 import {
-    CreateOrganizationRequestBodyDtoChildrenInnerFromJSON,
-    CreateOrganizationRequestBodyDtoChildrenInnerFromJSONTyped,
-    CreateOrganizationRequestBodyDtoChildrenInnerToJSON,
-    CreateOrganizationRequestBodyDtoChildrenInnerToJSONTyped,
-} from './CreateOrganizationRequestBodyDtoChildrenInner';
+    CreateOrganizationRequestBodyDtoPopulatedParentFromJSON,
+    CreateOrganizationRequestBodyDtoPopulatedParentFromJSONTyped,
+    CreateOrganizationRequestBodyDtoPopulatedParentToJSON,
+    CreateOrganizationRequestBodyDtoPopulatedParentToJSONTyped,
+} from './CreateOrganizationRequestBodyDtoPopulatedParent';
 
 /**
  * 
@@ -63,13 +70,25 @@ export interface CreateOrganizationRequestBodyDto {
      * @type {string}
      * @memberof CreateOrganizationRequestBodyDto
      */
-    parent?: string;
+    parent?: string | null;
     /**
-     * Organizações filhas.
-     * @type {Array<CreateOrganizationRequestBodyDtoChildrenInner>}
+     * 
+     * @type {CreateOrganizationRequestBodyDtoPopulatedParent}
      * @memberof CreateOrganizationRequestBodyDto
      */
-    children?: Array<CreateOrganizationRequestBodyDtoChildrenInner> | null;
+    populatedParent?: CreateOrganizationRequestBodyDtoPopulatedParent | null;
+    /**
+     * Identificadores das organizações filhas.
+     * @type {Array<string>}
+     * @memberof CreateOrganizationRequestBodyDto
+     */
+    children?: Array<string> | null;
+    /**
+     * Organizações filhas.
+     * @type {Array<CreateOrganizationRequestBodyDtoPopulatedChildrenInner>}
+     * @memberof CreateOrganizationRequestBodyDto
+     */
+    populatedChildren?: Array<CreateOrganizationRequestBodyDtoPopulatedChildrenInner> | null;
     /**
      * 
      * @type {CreateOrganizationRequestBodyDtoGroupSettings}
@@ -120,7 +139,9 @@ export function CreateOrganizationRequestBodyDtoFromJSONTyped(json: any, ignoreD
         'type': json['type'],
         'document': json['document'] == null ? undefined : json['document'],
         'parent': json['parent'] == null ? undefined : json['parent'],
-        'children': json['children'] == null ? undefined : ((json['children'] as Array<any>).map(CreateOrganizationRequestBodyDtoChildrenInnerFromJSON)),
+        'populatedParent': json['populatedParent'] == null ? undefined : CreateOrganizationRequestBodyDtoPopulatedParentFromJSON(json['populatedParent']),
+        'children': json['children'] == null ? undefined : json['children'],
+        'populatedChildren': json['populatedChildren'] == null ? undefined : ((json['populatedChildren'] as Array<any>).map(CreateOrganizationRequestBodyDtoPopulatedChildrenInnerFromJSON)),
         'groupSettings': json['groupSettings'] == null ? undefined : CreateOrganizationRequestBodyDtoGroupSettingsFromJSON(json['groupSettings']),
         'imageInBase64': json['imageInBase64'] == null ? undefined : json['imageInBase64'],
     };
@@ -142,7 +163,9 @@ export function CreateOrganizationRequestBodyDtoToJSONTyped(value?: CreateOrgani
         'type': value['type'],
         'document': value['document'],
         'parent': value['parent'],
-        'children': value['children'] == null ? undefined : ((value['children'] as Array<any>).map(CreateOrganizationRequestBodyDtoChildrenInnerToJSON)),
+        'populatedParent': CreateOrganizationRequestBodyDtoPopulatedParentToJSON(value['populatedParent']),
+        'children': value['children'],
+        'populatedChildren': value['populatedChildren'] == null ? undefined : ((value['populatedChildren'] as Array<any>).map(CreateOrganizationRequestBodyDtoPopulatedChildrenInnerToJSON)),
         'groupSettings': CreateOrganizationRequestBodyDtoGroupSettingsToJSON(value['groupSettings']),
         'imageInBase64': value['imageInBase64'],
     };

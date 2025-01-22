@@ -13,6 +13,21 @@
  */
 
 import { mapValues } from '../runtime';
+import type { NormalizedSubcategoriesPageEntityItemsInnerPopulatedCategory } from './NormalizedSubcategoriesPageEntityItemsInnerPopulatedCategory';
+import {
+    NormalizedSubcategoriesPageEntityItemsInnerPopulatedCategoryFromJSON,
+    NormalizedSubcategoriesPageEntityItemsInnerPopulatedCategoryFromJSONTyped,
+    NormalizedSubcategoriesPageEntityItemsInnerPopulatedCategoryToJSON,
+    NormalizedSubcategoriesPageEntityItemsInnerPopulatedCategoryToJSONTyped,
+} from './NormalizedSubcategoriesPageEntityItemsInnerPopulatedCategory';
+import type { ExternalCreateSubcategoryRequestBodyDtoPopulatedNormalizedSubcategory } from './ExternalCreateSubcategoryRequestBodyDtoPopulatedNormalizedSubcategory';
+import {
+    ExternalCreateSubcategoryRequestBodyDtoPopulatedNormalizedSubcategoryFromJSON,
+    ExternalCreateSubcategoryRequestBodyDtoPopulatedNormalizedSubcategoryFromJSONTyped,
+    ExternalCreateSubcategoryRequestBodyDtoPopulatedNormalizedSubcategoryToJSON,
+    ExternalCreateSubcategoryRequestBodyDtoPopulatedNormalizedSubcategoryToJSONTyped,
+} from './ExternalCreateSubcategoryRequestBodyDtoPopulatedNormalizedSubcategory';
+
 /**
  * 
  * @export
@@ -45,10 +60,22 @@ export interface PartialUpdateSubcategoryRequestBodyDto {
     category?: string;
     /**
      * 
+     * @type {NormalizedSubcategoriesPageEntityItemsInnerPopulatedCategory}
+     * @memberof PartialUpdateSubcategoryRequestBodyDto
+     */
+    populatedCategory?: NormalizedSubcategoriesPageEntityItemsInnerPopulatedCategory | null;
+    /**
+     * 
      * @type {string}
      * @memberof PartialUpdateSubcategoryRequestBodyDto
      */
     normalizedSubcategory?: string | null;
+    /**
+     * 
+     * @type {ExternalCreateSubcategoryRequestBodyDtoPopulatedNormalizedSubcategory}
+     * @memberof PartialUpdateSubcategoryRequestBodyDto
+     */
+    populatedNormalizedSubcategory?: ExternalCreateSubcategoryRequestBodyDtoPopulatedNormalizedSubcategory | null;
     /**
      * Canal de origem da operação
      * @type {string}
@@ -90,7 +117,9 @@ export function PartialUpdateSubcategoryRequestBodyDtoFromJSONTyped(json: any, i
         'slug': json['slug'] == null ? undefined : json['slug'],
         'index': json['index'] == null ? undefined : json['index'],
         'category': json['category'] == null ? undefined : json['category'],
+        'populatedCategory': json['populatedCategory'] == null ? undefined : NormalizedSubcategoriesPageEntityItemsInnerPopulatedCategoryFromJSON(json['populatedCategory']),
         'normalizedSubcategory': json['normalizedSubcategory'] == null ? undefined : json['normalizedSubcategory'],
+        'populatedNormalizedSubcategory': json['populatedNormalizedSubcategory'] == null ? undefined : ExternalCreateSubcategoryRequestBodyDtoPopulatedNormalizedSubcategoryFromJSON(json['populatedNormalizedSubcategory']),
         'channel': json['channel'],
     };
 }
@@ -110,7 +139,9 @@ export function PartialUpdateSubcategoryRequestBodyDtoToJSONTyped(value?: Partia
         'slug': value['slug'],
         'index': value['index'],
         'category': value['category'],
+        'populatedCategory': NormalizedSubcategoriesPageEntityItemsInnerPopulatedCategoryToJSON(value['populatedCategory']),
         'normalizedSubcategory': value['normalizedSubcategory'],
+        'populatedNormalizedSubcategory': ExternalCreateSubcategoryRequestBodyDtoPopulatedNormalizedSubcategoryToJSON(value['populatedNormalizedSubcategory']),
         'channel': value['channel'],
     };
 }

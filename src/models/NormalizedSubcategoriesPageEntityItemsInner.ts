@@ -13,13 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
-import type { NormalizedSubcategoriesPageEntityItemsInnerCategory } from './NormalizedSubcategoriesPageEntityItemsInnerCategory';
+import type { NormalizedSubcategoriesPageEntityItemsInnerPopulatedCategory } from './NormalizedSubcategoriesPageEntityItemsInnerPopulatedCategory';
 import {
-    NormalizedSubcategoriesPageEntityItemsInnerCategoryFromJSON,
-    NormalizedSubcategoriesPageEntityItemsInnerCategoryFromJSONTyped,
-    NormalizedSubcategoriesPageEntityItemsInnerCategoryToJSON,
-    NormalizedSubcategoriesPageEntityItemsInnerCategoryToJSONTyped,
-} from './NormalizedSubcategoriesPageEntityItemsInnerCategory';
+    NormalizedSubcategoriesPageEntityItemsInnerPopulatedCategoryFromJSON,
+    NormalizedSubcategoriesPageEntityItemsInnerPopulatedCategoryFromJSONTyped,
+    NormalizedSubcategoriesPageEntityItemsInnerPopulatedCategoryToJSON,
+    NormalizedSubcategoriesPageEntityItemsInnerPopulatedCategoryToJSONTyped,
+} from './NormalizedSubcategoriesPageEntityItemsInnerPopulatedCategory';
 
 /**
  * 
@@ -52,11 +52,17 @@ export interface NormalizedSubcategoriesPageEntityItemsInner {
      */
     index: number;
     /**
-     * 
-     * @type {NormalizedSubcategoriesPageEntityItemsInnerCategory}
+     * Identificador da categoria.
+     * @type {string}
      * @memberof NormalizedSubcategoriesPageEntityItemsInner
      */
-    category: NormalizedSubcategoriesPageEntityItemsInnerCategory;
+    category: string;
+    /**
+     * 
+     * @type {NormalizedSubcategoriesPageEntityItemsInnerPopulatedCategory}
+     * @memberof NormalizedSubcategoriesPageEntityItemsInner
+     */
+    populatedCategory?: NormalizedSubcategoriesPageEntityItemsInnerPopulatedCategory | null;
     /**
      * Indica se a subcategoria é relacionada a faturas.
      * @type {boolean}
@@ -117,7 +123,8 @@ export function NormalizedSubcategoriesPageEntityItemsInnerFromJSONTyped(json: a
         'name': json['name'],
         'slug': json['slug'],
         'index': json['index'],
-        'category': NormalizedSubcategoriesPageEntityItemsInnerCategoryFromJSON(json['category']),
+        'category': json['category'],
+        'populatedCategory': json['populatedCategory'] == null ? undefined : NormalizedSubcategoriesPageEntityItemsInnerPopulatedCategoryFromJSON(json['populatedCategory']),
         'isInvoiceRelated': json['isInvoiceRelated'] == null ? undefined : json['isInvoiceRelated'],
         'isInternalTransferRelated': json['isInternalTransferRelated'] == null ? undefined : json['isInternalTransferRelated'],
         'isAutomaticApplicationRelated': json['isAutomaticApplicationRelated'] == null ? undefined : json['isAutomaticApplicationRelated'],
@@ -141,7 +148,8 @@ export function NormalizedSubcategoriesPageEntityItemsInnerToJSONTyped(value?: N
         'name': value['name'],
         'slug': value['slug'],
         'index': value['index'],
-        'category': NormalizedSubcategoriesPageEntityItemsInnerCategoryToJSON(value['category']),
+        'category': value['category'],
+        'populatedCategory': NormalizedSubcategoriesPageEntityItemsInnerPopulatedCategoryToJSON(value['populatedCategory']),
         'isInvoiceRelated': value['isInvoiceRelated'],
         'isInternalTransferRelated': value['isInternalTransferRelated'],
         'isAutomaticApplicationRelated': value['isAutomaticApplicationRelated'],

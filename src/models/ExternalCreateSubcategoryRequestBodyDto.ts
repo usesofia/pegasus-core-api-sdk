@@ -13,13 +13,20 @@
  */
 
 import { mapValues } from '../runtime';
-import type { ExternalCreateSubcategoryRequestBodyDtoNormalizedSubcategory } from './ExternalCreateSubcategoryRequestBodyDtoNormalizedSubcategory';
+import type { NormalizedSubcategoriesPageEntityItemsInnerPopulatedCategory } from './NormalizedSubcategoriesPageEntityItemsInnerPopulatedCategory';
 import {
-    ExternalCreateSubcategoryRequestBodyDtoNormalizedSubcategoryFromJSON,
-    ExternalCreateSubcategoryRequestBodyDtoNormalizedSubcategoryFromJSONTyped,
-    ExternalCreateSubcategoryRequestBodyDtoNormalizedSubcategoryToJSON,
-    ExternalCreateSubcategoryRequestBodyDtoNormalizedSubcategoryToJSONTyped,
-} from './ExternalCreateSubcategoryRequestBodyDtoNormalizedSubcategory';
+    NormalizedSubcategoriesPageEntityItemsInnerPopulatedCategoryFromJSON,
+    NormalizedSubcategoriesPageEntityItemsInnerPopulatedCategoryFromJSONTyped,
+    NormalizedSubcategoriesPageEntityItemsInnerPopulatedCategoryToJSON,
+    NormalizedSubcategoriesPageEntityItemsInnerPopulatedCategoryToJSONTyped,
+} from './NormalizedSubcategoriesPageEntityItemsInnerPopulatedCategory';
+import type { ExternalCreateSubcategoryRequestBodyDtoPopulatedNormalizedSubcategory } from './ExternalCreateSubcategoryRequestBodyDtoPopulatedNormalizedSubcategory';
+import {
+    ExternalCreateSubcategoryRequestBodyDtoPopulatedNormalizedSubcategoryFromJSON,
+    ExternalCreateSubcategoryRequestBodyDtoPopulatedNormalizedSubcategoryFromJSONTyped,
+    ExternalCreateSubcategoryRequestBodyDtoPopulatedNormalizedSubcategoryToJSON,
+    ExternalCreateSubcategoryRequestBodyDtoPopulatedNormalizedSubcategoryToJSONTyped,
+} from './ExternalCreateSubcategoryRequestBodyDtoPopulatedNormalizedSubcategory';
 
 /**
  * 
@@ -53,10 +60,22 @@ export interface ExternalCreateSubcategoryRequestBodyDto {
     category: string;
     /**
      * 
-     * @type {ExternalCreateSubcategoryRequestBodyDtoNormalizedSubcategory}
+     * @type {NormalizedSubcategoriesPageEntityItemsInnerPopulatedCategory}
      * @memberof ExternalCreateSubcategoryRequestBodyDto
      */
-    normalizedSubcategory?: ExternalCreateSubcategoryRequestBodyDtoNormalizedSubcategory | null;
+    populatedCategory?: NormalizedSubcategoriesPageEntityItemsInnerPopulatedCategory | null;
+    /**
+     * Identificador da subcategoria normalizada.
+     * @type {string}
+     * @memberof ExternalCreateSubcategoryRequestBodyDto
+     */
+    normalizedSubcategory?: string | null;
+    /**
+     * 
+     * @type {ExternalCreateSubcategoryRequestBodyDtoPopulatedNormalizedSubcategory}
+     * @memberof ExternalCreateSubcategoryRequestBodyDto
+     */
+    populatedNormalizedSubcategory?: ExternalCreateSubcategoryRequestBodyDtoPopulatedNormalizedSubcategory | null;
     /**
      * Canal de origem da operação
      * @type {string}
@@ -102,7 +121,9 @@ export function ExternalCreateSubcategoryRequestBodyDtoFromJSONTyped(json: any, 
         'slug': json['slug'],
         'index': json['index'],
         'category': json['category'],
-        'normalizedSubcategory': json['normalizedSubcategory'] == null ? undefined : ExternalCreateSubcategoryRequestBodyDtoNormalizedSubcategoryFromJSON(json['normalizedSubcategory']),
+        'populatedCategory': json['populatedCategory'] == null ? undefined : NormalizedSubcategoriesPageEntityItemsInnerPopulatedCategoryFromJSON(json['populatedCategory']),
+        'normalizedSubcategory': json['normalizedSubcategory'] == null ? undefined : json['normalizedSubcategory'],
+        'populatedNormalizedSubcategory': json['populatedNormalizedSubcategory'] == null ? undefined : ExternalCreateSubcategoryRequestBodyDtoPopulatedNormalizedSubcategoryFromJSON(json['populatedNormalizedSubcategory']),
         'channel': json['channel'],
     };
 }
@@ -122,7 +143,9 @@ export function ExternalCreateSubcategoryRequestBodyDtoToJSONTyped(value?: Exter
         'slug': value['slug'],
         'index': value['index'],
         'category': value['category'],
-        'normalizedSubcategory': ExternalCreateSubcategoryRequestBodyDtoNormalizedSubcategoryToJSON(value['normalizedSubcategory']),
+        'populatedCategory': NormalizedSubcategoriesPageEntityItemsInnerPopulatedCategoryToJSON(value['populatedCategory']),
+        'normalizedSubcategory': value['normalizedSubcategory'],
+        'populatedNormalizedSubcategory': ExternalCreateSubcategoryRequestBodyDtoPopulatedNormalizedSubcategoryToJSON(value['populatedNormalizedSubcategory']),
         'channel': value['channel'],
     };
 }
