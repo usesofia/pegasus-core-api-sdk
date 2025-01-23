@@ -125,6 +125,47 @@ var OrganizationsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Find my organizations of type group where I am admin.
+     */
+    OrganizationsApi.prototype.findMyAdminGroupOrganizationsRaw = function (initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        queryParameters = {};
+                        headerParameters = {};
+                        return [4 /*yield*/, this.request({
+                                path: "/external/organizations/my/admin/type/group",
+                                method: 'GET',
+                                headers: headerParameters,
+                                query: queryParameters,
+                            }, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return jsonValue.map(index_1.OrganizationEntityFromJSON); })];
+                }
+            });
+        });
+    };
+    /**
+     * Find my organizations of type group where I am admin.
+     */
+    OrganizationsApi.prototype.findMyAdminGroupOrganizations = function (initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.findMyAdminGroupOrganizationsRaw(initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [4 /*yield*/, response.value()];
+                    case 2: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
+    /**
      * Find my organization.
      */
     OrganizationsApi.prototype.findMyOrganizationRaw = function (initOverrides) {

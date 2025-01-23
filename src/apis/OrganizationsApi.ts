@@ -66,6 +66,20 @@ export interface OrganizationsApiInterface {
 
     /**
      * 
+     * @summary Find my organizations of type group where I am admin.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof OrganizationsApiInterface
+     */
+    findMyAdminGroupOrganizationsRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<OrganizationEntity>>>;
+
+    /**
+     * Find my organizations of type group where I am admin.
+     */
+    findMyAdminGroupOrganizations(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<OrganizationEntity>>;
+
+    /**
+     * 
      * @summary Find my organization.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -138,6 +152,32 @@ export class OrganizationsApi extends runtime.BaseAPI implements OrganizationsAp
      */
     async createOrganization(requestParameters: CreateOrganizationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<OrganizationEntity> {
         const response = await this.createOrganizationRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Find my organizations of type group where I am admin.
+     */
+    async findMyAdminGroupOrganizationsRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<OrganizationEntity>>> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/external/organizations/my/admin/type/group`,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(OrganizationEntityFromJSON));
+    }
+
+    /**
+     * Find my organizations of type group where I am admin.
+     */
+    async findMyAdminGroupOrganizations(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<OrganizationEntity>> {
+        const response = await this.findMyAdminGroupOrganizationsRaw(initOverrides);
         return await response.value();
     }
 

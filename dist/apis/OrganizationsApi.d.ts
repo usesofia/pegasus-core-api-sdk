@@ -42,6 +42,18 @@ export interface OrganizationsApiInterface {
     createOrganization(requestParameters: CreateOrganizationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<OrganizationEntity>;
     /**
      *
+     * @summary Find my organizations of type group where I am admin.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof OrganizationsApiInterface
+     */
+    findMyAdminGroupOrganizationsRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<OrganizationEntity>>>;
+    /**
+     * Find my organizations of type group where I am admin.
+     */
+    findMyAdminGroupOrganizations(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<OrganizationEntity>>;
+    /**
+     *
      * @summary Find my organization.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -79,6 +91,14 @@ export declare class OrganizationsApi extends runtime.BaseAPI implements Organiz
      * Create a new organization.
      */
     createOrganization(requestParameters: CreateOrganizationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<OrganizationEntity>;
+    /**
+     * Find my organizations of type group where I am admin.
+     */
+    findMyAdminGroupOrganizationsRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<OrganizationEntity>>>;
+    /**
+     * Find my organizations of type group where I am admin.
+     */
+    findMyAdminGroupOrganizations(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<OrganizationEntity>>;
     /**
      * Find my organization.
      */
