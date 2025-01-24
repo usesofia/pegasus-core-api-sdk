@@ -71,6 +71,7 @@ export declare class BaseAPI {
 }
 export declare class ResponseError extends Error {
     response: Response;
+    status: number;
     name: "ResponseError";
     constructor(response: Response, msg?: string);
 }

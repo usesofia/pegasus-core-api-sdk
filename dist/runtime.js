@@ -411,7 +411,8 @@ var ResponseError = /** @class */ (function (_super) {
         console.log({ responseOnResponseError: response });
         _this = _super.call(this, msg) || this;
         _this.name = "ResponseError";
-        _this.response = response;
+        _this.response = response.clone();
+        _this.status = response.status;
         return _this;
     }
     return ResponseError;
