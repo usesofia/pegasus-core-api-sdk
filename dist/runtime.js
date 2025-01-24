@@ -410,6 +410,7 @@ var ResponseError = /** @class */ (function (_super) {
         var _this = _super.call(this, msg) || this;
         _this.response = response;
         _this.name = "ResponseError";
+        _this.response = response;
         return _this;
     }
     return ResponseError;
