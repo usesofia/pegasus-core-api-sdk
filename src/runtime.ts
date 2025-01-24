@@ -139,7 +139,7 @@ export class BaseAPI {
         }
         const status = response.status;
         const json = await response.json();
-        throw new ResponseError(status, json, 'Response returned an error code');
+        throw new ResponseError(status, json);
     }
 
     private async createFetchParams(context: RequestOpts, initOverrides?: RequestInit | InitOverrideFunction) {
@@ -260,9 +260,20 @@ function isFormData(value: any): value is FormData {
 }
 
 export class ResponseError extends Error {
+    public statusCode: number;
+    public message: string;
+    public errors: {
+        fieldPath: string;
+        messages: string[];
+    }[];
+
     override name: "ResponseError" = "ResponseError";
-    constructor(public status: number, public json: any, msg?: string) {
-        super(msg);
+
+    constructor(statusCode: number, json: any) {
+        super(json.message);
+        this.statusCode = statusCode;
+        this.message = json.message;
+        this.errors = json.errors;
     }
 }
 

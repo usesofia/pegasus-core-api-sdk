@@ -70,10 +70,14 @@ export declare class BaseAPI {
     private clone;
 }
 export declare class ResponseError extends Error {
-    status: number;
-    json: any;
+    statusCode: number;
+    message: string;
+    errors: {
+        fieldPath: string;
+        messages: string[];
+    }[];
     name: "ResponseError";
-    constructor(status: number, json: any, msg?: string);
+    constructor(statusCode: number, json: any);
 }
 export declare class FetchError extends Error {
     cause: Error;

@@ -330,7 +330,7 @@ var BaseAPI = /** @class */ (function () {
                         return [4 /*yield*/, response.json()];
                     case 3:
                         json = _b.sent();
-                        throw new ResponseError(status, json, 'Response returned an error code');
+                        throw new ResponseError(status, json);
                 }
             });
         });
@@ -409,11 +409,12 @@ function isFormData(value) {
 }
 var ResponseError = /** @class */ (function (_super) {
     __extends(ResponseError, _super);
-    function ResponseError(status, json, msg) {
-        var _this = _super.call(this, msg) || this;
-        _this.status = status;
-        _this.json = json;
+    function ResponseError(statusCode, json) {
+        var _this = _super.call(this, json.message) || this;
         _this.name = "ResponseError";
+        _this.statusCode = statusCode;
+        _this.message = json.message;
+        _this.errors = json.errors;
         return _this;
     }
     return ResponseError;
