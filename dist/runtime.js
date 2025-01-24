@@ -314,7 +314,7 @@ var BaseAPI = /** @class */ (function () {
     };
     BaseAPI.prototype.request = function (context, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var _a, url, init, response;
+            var _a, url, init, response, status, json;
             return __generator(this, function (_b) {
                 switch (_b.label) {
                     case 0: return [4 /*yield*/, this.createFetchParams(context, initOverrides)];
@@ -323,11 +323,14 @@ var BaseAPI = /** @class */ (function () {
                         return [4 /*yield*/, this.fetchApi(url, init)];
                     case 2:
                         response = _b.sent();
-                        console.log({ response: response });
                         if (response && (response.status >= 200 && response.status < 300)) {
                             return [2 /*return*/, response];
                         }
-                        throw new ResponseError(response, 'Response returned an error code');
+                        status = response.status;
+                        return [4 /*yield*/, response.json()];
+                    case 3:
+                        json = _b.sent();
+                        throw new ResponseError(status, json, 'Response returned an error code');
                 }
             });
         });
@@ -406,13 +409,11 @@ function isFormData(value) {
 }
 var ResponseError = /** @class */ (function (_super) {
     __extends(ResponseError, _super);
-    function ResponseError(response, msg) {
-        var _this = this;
-        console.log({ responseOnResponseError: response });
-        _this = _super.call(this, msg) || this;
+    function ResponseError(status, json, msg) {
+        var _this = _super.call(this, msg) || this;
+        _this.status = status;
+        _this.json = json;
         _this.name = "ResponseError";
-        _this.response = response.clone();
-        _this.status = response.status;
         return _this;
     }
     return ResponseError;

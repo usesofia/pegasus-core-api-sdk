@@ -134,11 +134,12 @@ export class BaseAPI {
     protected async request(context: RequestOpts, initOverrides?: RequestInit | InitOverrideFunction): Promise<Response> {
         const { url, init } = await this.createFetchParams(context, initOverrides);
         const response = await this.fetchApi(url, init);
-        console.log({response});
         if (response && (response.status >= 200 && response.status < 300)) {
             return response;
         }
-        throw new ResponseError(response, 'Response returned an error code');
+        const status = response.status;
+        const json = await response.json();
+        throw new ResponseError(status, json, 'Response returned an error code');
     }
 
     private async createFetchParams(context: RequestOpts, initOverrides?: RequestInit | InitOverrideFunction) {
@@ -259,14 +260,9 @@ function isFormData(value: any): value is FormData {
 }
 
 export class ResponseError extends Error {
-    public response: Response;
-    public status: number;
     override name: "ResponseError" = "ResponseError";
-    constructor(response: Response, msg?: string) {
-        console.log({responseOnResponseError: response});
+    constructor(public status: number, public json: any, msg?: string) {
         super(msg);
-        this.response = response.clone();
-        this.status = response.status;
     }
 }
 
