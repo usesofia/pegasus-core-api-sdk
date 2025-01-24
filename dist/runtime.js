@@ -323,6 +323,7 @@ var BaseAPI = /** @class */ (function () {
                         return [4 /*yield*/, this.fetchApi(url, init)];
                     case 2:
                         response = _b.sent();
+                        console.log({ response: response });
                         if (response && (response.status >= 200 && response.status < 300)) {
                             return [2 /*return*/, response];
                         }
