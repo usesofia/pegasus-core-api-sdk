@@ -259,8 +259,10 @@ function isFormData(value: any): value is FormData {
 }
 
 export class ResponseError extends Error {
+    public response: Response;
     override name: "ResponseError" = "ResponseError";
-    constructor(public response: Response, msg?: string) {
+    constructor(response: Response, msg?: string) {
+        console.log({responseOnResponseError: response});
         super(msg);
         this.response = response;
     }
