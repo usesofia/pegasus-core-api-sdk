@@ -38,7 +38,7 @@ export interface PartialUpdateOrganizationRequestBodyDto {
      * @type {string}
      * @memberof PartialUpdateOrganizationRequestBodyDto
      */
-    imageInBase64?: string;
+    imageInBase64?: string | null;
     /**
      * Canal de origem da operação
      * @type {string}
