@@ -2,7 +2,6 @@
 .npmignore
 README.md
 package.json
-src/apis/AuthApi.ts
 src/apis/CategoriesApi.ts
 src/apis/ContactsApi.ts
 src/apis/HealthApi.ts
@@ -13,10 +12,6 @@ src/apis/SubcategoriesApi.ts
 src/apis/TagsApi.ts
 src/apis/index.ts
 src/index.ts
-src/models/AuthUserEntity.ts
-src/models/AuthUserEntityOrganization.ts
-src/models/AuthUserEntityOrganizationChildrenInner.ts
-src/models/AuthUserEntityOrganizationParent.ts
 src/models/CategoriesPageEntity.ts
 src/models/CategoriesPageEntityItemsInner.ts
 src/models/ContactEntity.ts
@@ -47,8 +42,6 @@ src/models/PartialUpdateMemberRequestBodyDto.ts
 src/models/PartialUpdateOrganizationRequestBodyDto.ts
 src/models/PartialUpdateSubcategoryRequestBodyDto.ts
 src/models/PartialUpdateTagRequestBodyDto.ts
-src/models/PubSubMessageBodyDto.ts
-src/models/PubSubMessageBodyDtoMessage.ts
 src/models/RemoveContactRequestBodyDto.ts
 src/models/RemoveMemberRequestBodyDto.ts
 src/models/RemoveSubcategoryRequestBodyDto.ts
