@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { ContactEntity, ContactsPageEntity, CreateContactRequestBodyDto, PartialUpdateContactRequestBodyDto, RemoveContactRequestBodyDto } from '../models/index';
+import type { ContactEntity, ContactOriginItemEntity, ContactTypeItemEntity, ContactsPageEntity, CreateContactRequestBodyDto, PartialUpdateContactRequestBodyDto, RemoveContactRequestBodyDto } from '../models/index';
 export interface CreateContactRequest {
     createContactRequestBodyDto: CreateContactRequestBodyDto;
     populate?: string;
@@ -55,6 +55,30 @@ export interface ContactsApiInterface {
      * Cria um novo contato.
      */
     createContact(requestParameters: CreateContactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ContactEntity>;
+    /**
+     *
+     * @summary Busca todas as origens de contato.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ContactsApiInterface
+     */
+    findAllContactOriginsRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<ContactOriginItemEntity>>>;
+    /**
+     * Busca todas as origens de contato.
+     */
+    findAllContactOrigins(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<ContactOriginItemEntity>>;
+    /**
+     *
+     * @summary Busca todos os tipos de contato.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ContactsApiInterface
+     */
+    findAllContactTypesRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<ContactTypeItemEntity>>>;
+    /**
+     * Busca todos os tipos de contato.
+     */
+    findAllContactTypes(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<ContactTypeItemEntity>>;
     /**
      *
      * @summary Busca todos os contatos.
@@ -127,6 +151,22 @@ export declare class ContactsApi extends runtime.BaseAPI implements ContactsApiI
      * Cria um novo contato.
      */
     createContact(requestParameters: CreateContactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ContactEntity>;
+    /**
+     * Busca todas as origens de contato.
+     */
+    findAllContactOriginsRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<ContactOriginItemEntity>>>;
+    /**
+     * Busca todas as origens de contato.
+     */
+    findAllContactOrigins(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<ContactOriginItemEntity>>;
+    /**
+     * Busca todos os tipos de contato.
+     */
+    findAllContactTypesRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<ContactTypeItemEntity>>>;
+    /**
+     * Busca todos os tipos de contato.
+     */
+    findAllContactTypes(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<ContactTypeItemEntity>>;
     /**
      * Busca todos os contatos.
      */

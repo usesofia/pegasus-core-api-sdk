@@ -19,6 +19,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 __exportStar(require("./CategoriesPageEntity"), exports);
 __exportStar(require("./CategoriesPageEntityItemsInner"), exports);
 __exportStar(require("./ContactEntity"), exports);
+__exportStar(require("./ContactOriginItemEntity"), exports);
+__exportStar(require("./ContactTypeItemEntity"), exports);
 __exportStar(require("./ContactsPageEntity"), exports);
 __exportStar(require("./ContactsPageEntityItemsInner"), exports);
 __exportStar(require("./ContactsPageEntityPageInfo"), exports);

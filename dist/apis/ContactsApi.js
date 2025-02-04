@@ -125,6 +125,88 @@ var ContactsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Busca todas as origens de contato.
+     */
+    ContactsApi.prototype.findAllContactOriginsRaw = function (initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        queryParameters = {};
+                        headerParameters = {};
+                        return [4 /*yield*/, this.request({
+                                path: "/external/contacts/origins",
+                                method: 'GET',
+                                headers: headerParameters,
+                                query: queryParameters,
+                            }, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return jsonValue.map(index_1.ContactOriginItemEntityFromJSON); })];
+                }
+            });
+        });
+    };
+    /**
+     * Busca todas as origens de contato.
+     */
+    ContactsApi.prototype.findAllContactOrigins = function (initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.findAllContactOriginsRaw(initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [4 /*yield*/, response.value()];
+                    case 2: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
+    /**
+     * Busca todos os tipos de contato.
+     */
+    ContactsApi.prototype.findAllContactTypesRaw = function (initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        queryParameters = {};
+                        headerParameters = {};
+                        return [4 /*yield*/, this.request({
+                                path: "/external/contacts/types",
+                                method: 'GET',
+                                headers: headerParameters,
+                                query: queryParameters,
+                            }, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return jsonValue.map(index_1.ContactTypeItemEntityFromJSON); })];
+                }
+            });
+        });
+    };
+    /**
+     * Busca todos os tipos de contato.
+     */
+    ContactsApi.prototype.findAllContactTypes = function (initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.findAllContactTypesRaw(initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [4 /*yield*/, response.value()];
+                    case 2: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
+    /**
      * Busca todos os contatos.
      */
     ContactsApi.prototype.findAllContactsRaw = function (requestParameters, initOverrides) {

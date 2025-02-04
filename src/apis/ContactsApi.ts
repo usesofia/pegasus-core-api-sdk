@@ -16,6 +16,8 @@
 import * as runtime from '../runtime';
 import type {
   ContactEntity,
+  ContactOriginItemEntity,
+  ContactTypeItemEntity,
   ContactsPageEntity,
   CreateContactRequestBodyDto,
   ExceptionResponseEntity,
@@ -25,6 +27,10 @@ import type {
 import {
     ContactEntityFromJSON,
     ContactEntityToJSON,
+    ContactOriginItemEntityFromJSON,
+    ContactOriginItemEntityToJSON,
+    ContactTypeItemEntityFromJSON,
+    ContactTypeItemEntityToJSON,
     ContactsPageEntityFromJSON,
     ContactsPageEntityToJSON,
     CreateContactRequestBodyDtoFromJSON,
@@ -87,6 +93,34 @@ export interface ContactsApiInterface {
      * Cria um novo contato.
      */
     createContact(requestParameters: CreateContactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ContactEntity>;
+
+    /**
+     * 
+     * @summary Busca todas as origens de contato.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ContactsApiInterface
+     */
+    findAllContactOriginsRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<ContactOriginItemEntity>>>;
+
+    /**
+     * Busca todas as origens de contato.
+     */
+    findAllContactOrigins(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<ContactOriginItemEntity>>;
+
+    /**
+     * 
+     * @summary Busca todos os tipos de contato.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ContactsApiInterface
+     */
+    findAllContactTypesRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<ContactTypeItemEntity>>>;
+
+    /**
+     * Busca todos os tipos de contato.
+     */
+    findAllContactTypes(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<ContactTypeItemEntity>>;
 
     /**
      * 
@@ -199,6 +233,58 @@ export class ContactsApi extends runtime.BaseAPI implements ContactsApiInterface
      */
     async createContact(requestParameters: CreateContactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ContactEntity> {
         const response = await this.createContactRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Busca todas as origens de contato.
+     */
+    async findAllContactOriginsRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<ContactOriginItemEntity>>> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/external/contacts/origins`,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(ContactOriginItemEntityFromJSON));
+    }
+
+    /**
+     * Busca todas as origens de contato.
+     */
+    async findAllContactOrigins(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<ContactOriginItemEntity>> {
+        const response = await this.findAllContactOriginsRaw(initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Busca todos os tipos de contato.
+     */
+    async findAllContactTypesRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<ContactTypeItemEntity>>> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/external/contacts/types`,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(ContactTypeItemEntityFromJSON));
+    }
+
+    /**
+     * Busca todos os tipos de contato.
+     */
+    async findAllContactTypes(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<ContactTypeItemEntity>> {
+        const response = await this.findAllContactTypesRaw(initOverrides);
         return await response.value();
     }
 
