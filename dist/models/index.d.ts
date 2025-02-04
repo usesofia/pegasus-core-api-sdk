@@ -6,6 +6,7 @@ export * from './ContactTypeItemEntity';
 export * from './ContactsPageEntity';
 export * from './ContactsPageEntityItemsInner';
 export * from './ContactsPageEntityPageInfo';
+export * from './CountryItemEntity';
 export * from './CreateContactRequestBodyDto';
 export * from './CreateContactRequestBodyDtoAddress';
 export * from './CreateInviteRequestBodyDto';

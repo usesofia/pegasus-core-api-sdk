@@ -2,6 +2,7 @@
 .npmignore
 README.md
 package.json
+src/apis/AddressesApi.ts
 src/apis/CategoriesApi.ts
 src/apis/ContactsApi.ts
 src/apis/HealthApi.ts
@@ -20,6 +21,7 @@ src/models/ContactTypeItemEntity.ts
 src/models/ContactsPageEntity.ts
 src/models/ContactsPageEntityItemsInner.ts
 src/models/ContactsPageEntityPageInfo.ts
+src/models/CountryItemEntity.ts
 src/models/CreateContactRequestBodyDto.ts
 src/models/CreateContactRequestBodyDtoAddress.ts
 src/models/CreateInviteRequestBodyDto.ts

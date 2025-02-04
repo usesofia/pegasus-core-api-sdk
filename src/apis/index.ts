@@ -1,5 +1,6 @@
 /* tslint:disable */
 /* eslint-disable */
+export * from './AddressesApi';
 export * from './CategoriesApi';
 export * from './ContactsApi';
 export * from './HealthApi';
