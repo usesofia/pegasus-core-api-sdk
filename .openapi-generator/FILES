@@ -22,6 +22,7 @@ src/models/ContactsPageEntity.ts
 src/models/ContactsPageEntityItemsInner.ts
 src/models/ContactsPageEntityPageInfo.ts
 src/models/CountryItemEntity.ts
+src/models/CountryStateItemEntity.ts
 src/models/CreateContactRequestBodyDto.ts
 src/models/CreateContactRequestBodyDtoAddress.ts
 src/models/CreateInviteRequestBodyDto.ts

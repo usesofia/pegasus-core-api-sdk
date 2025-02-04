@@ -16,14 +16,21 @@
 import * as runtime from '../runtime';
 import type {
   CountryItemEntity,
+  CountryStateItemEntity,
   ExceptionResponseEntity,
 } from '../models/index';
 import {
     CountryItemEntityFromJSON,
     CountryItemEntityToJSON,
+    CountryStateItemEntityFromJSON,
+    CountryStateItemEntityToJSON,
     ExceptionResponseEntityFromJSON,
     ExceptionResponseEntityToJSON,
 } from '../models/index';
+
+export interface FindStatesByCountryRequest {
+    countryId: string;
+}
 
 /**
  * AddressesApi - interface
@@ -45,6 +52,21 @@ export interface AddressesApiInterface {
      * Busca todos os países.
      */
     findAllCountries(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<CountryItemEntity>>;
+
+    /**
+     * 
+     * @summary Busca todos os estados de um país.
+     * @param {string} countryId Identificador do país.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AddressesApiInterface
+     */
+    findStatesByCountryRaw(requestParameters: FindStatesByCountryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<CountryStateItemEntity>>>;
+
+    /**
+     * Busca todos os estados de um país.
+     */
+    findStatesByCountry(requestParameters: FindStatesByCountryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<CountryStateItemEntity>>;
 
 }
 
@@ -76,6 +98,39 @@ export class AddressesApi extends runtime.BaseAPI implements AddressesApiInterfa
      */
     async findAllCountries(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<CountryItemEntity>> {
         const response = await this.findAllCountriesRaw(initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Busca todos os estados de um país.
+     */
+    async findStatesByCountryRaw(requestParameters: FindStatesByCountryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<CountryStateItemEntity>>> {
+        if (requestParameters['countryId'] == null) {
+            throw new runtime.RequiredError(
+                'countryId',
+                'Required parameter "countryId" was null or undefined when calling findStatesByCountry().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/external/addresses/countries/{countryId}/states`.replace(`{${"countryId"}}`, encodeURIComponent(String(requestParameters['countryId']))),
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(CountryStateItemEntityFromJSON));
+    }
+
+    /**
+     * Busca todos os estados de um país.
+     */
+    async findStatesByCountry(requestParameters: FindStatesByCountryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<CountryStateItemEntity>> {
+        const response = await this.findStatesByCountryRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

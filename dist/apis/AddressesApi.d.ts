@@ -10,7 +10,10 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { CountryItemEntity } from '../models/index';
+import type { CountryItemEntity, CountryStateItemEntity } from '../models/index';
+export interface FindStatesByCountryRequest {
+    countryId: string;
+}
 /**
  * AddressesApi - interface
  *
@@ -30,6 +33,19 @@ export interface AddressesApiInterface {
      * Busca todos os países.
      */
     findAllCountries(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<CountryItemEntity>>;
+    /**
+     *
+     * @summary Busca todos os estados de um país.
+     * @param {string} countryId Identificador do país.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AddressesApiInterface
+     */
+    findStatesByCountryRaw(requestParameters: FindStatesByCountryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<CountryStateItemEntity>>>;
+    /**
+     * Busca todos os estados de um país.
+     */
+    findStatesByCountry(requestParameters: FindStatesByCountryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<CountryStateItemEntity>>;
 }
 /**
  *
@@ -43,4 +59,12 @@ export declare class AddressesApi extends runtime.BaseAPI implements AddressesAp
      * Busca todos os países.
      */
     findAllCountries(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<CountryItemEntity>>;
+    /**
+     * Busca todos os estados de um país.
+     */
+    findStatesByCountryRaw(requestParameters: FindStatesByCountryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<CountryStateItemEntity>>>;
+    /**
+     * Busca todos os estados de um país.
+     */
+    findStatesByCountry(requestParameters: FindStatesByCountryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<CountryStateItemEntity>>;
 }
