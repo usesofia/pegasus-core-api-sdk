@@ -64,6 +64,18 @@ export interface PartialUpdateContactRequestBodyDto {
      */
     phone?: string | null;
     /**
+     * Chaves pix do contato.
+     * @type {Array<string>}
+     * @memberof PartialUpdateContactRequestBodyDto
+     */
+    pixKeys?: Array<string>;
+    /**
+     * Data de nascimento do contato.
+     * @type {string}
+     * @memberof PartialUpdateContactRequestBodyDto
+     */
+    birthDate?: string | null;
+    /**
      * Origem do contato.
      * @type {string}
      * @memberof PartialUpdateContactRequestBodyDto
@@ -153,6 +165,8 @@ export function PartialUpdateContactRequestBodyDtoFromJSONTyped(json: any, ignor
         'document': json['document'] == null ? undefined : json['document'],
         'email': json['email'] == null ? undefined : json['email'],
         'phone': json['phone'] == null ? undefined : json['phone'],
+        'pixKeys': json['pixKeys'] == null ? undefined : json['pixKeys'],
+        'birthDate': json['birthDate'] == null ? undefined : json['birthDate'],
         'origin': json['origin'] == null ? undefined : json['origin'],
         'address': json['address'] == null ? undefined : CreateContactRequestBodyDtoAddressFromJSON(json['address']),
         'channel': json['channel'],
@@ -176,6 +190,8 @@ export function PartialUpdateContactRequestBodyDtoToJSONTyped(value?: PartialUpd
         'document': value['document'],
         'email': value['email'],
         'phone': value['phone'],
+        'pixKeys': value['pixKeys'],
+        'birthDate': value['birthDate'],
         'origin': value['origin'],
         'address': CreateContactRequestBodyDtoAddressToJSON(value['address']),
         'channel': value['channel'],

@@ -76,6 +76,18 @@ export interface ContactEntity {
      */
     phone?: string | null;
     /**
+     * Chaves pix do contato.
+     * @type {Array<string>}
+     * @memberof ContactEntity
+     */
+    pixKeys: Array<string>;
+    /**
+     * Data de nascimento do contato.
+     * @type {string}
+     * @memberof ContactEntity
+     */
+    birthDate: string | null;
+    /**
      * Origem do contato.
      * @type {string}
      * @memberof ContactEntity
@@ -146,6 +158,8 @@ export function instanceOfContactEntity(value: object): value is ContactEntity {
     if (!('ownerOrganization' in value) || value['ownerOrganization'] === undefined) return false;
     if (!('name' in value) || value['name'] === undefined) return false;
     if (!('types' in value) || value['types'] === undefined) return false;
+    if (!('pixKeys' in value) || value['pixKeys'] === undefined) return false;
+    if (!('birthDate' in value) || value['birthDate'] === undefined) return false;
     if (!('createdAt' in value) || value['createdAt'] === undefined) return false;
     if (!('updatedAt' in value) || value['updatedAt'] === undefined) return false;
     return true;
@@ -169,6 +183,8 @@ export function ContactEntityFromJSONTyped(json: any, ignoreDiscriminator: boole
         'document': json['document'] == null ? undefined : json['document'],
         'email': json['email'] == null ? undefined : json['email'],
         'phone': json['phone'] == null ? undefined : json['phone'],
+        'pixKeys': json['pixKeys'],
+        'birthDate': json['birthDate'],
         'origin': json['origin'] == null ? undefined : json['origin'],
         'address': json['address'] == null ? undefined : CreateContactRequestBodyDtoAddressFromJSON(json['address']),
         'createdAt': (new Date(json['createdAt'])),
@@ -195,6 +211,8 @@ export function ContactEntityToJSONTyped(value?: ContactEntity | null, ignoreDis
         'document': value['document'],
         'email': value['email'],
         'phone': value['phone'],
+        'pixKeys': value['pixKeys'],
+        'birthDate': value['birthDate'],
         'origin': value['origin'],
         'address': CreateContactRequestBodyDtoAddressToJSON(value['address']),
         'createdAt': ((value['createdAt']).toISOString()),

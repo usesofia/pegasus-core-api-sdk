@@ -65,6 +65,18 @@ export interface ContactsPageEntityItemsInner {
      */
     phone?: string | null;
     /**
+     * Chaves pix do contato.
+     * @type {Array<string>}
+     * @memberof ContactsPageEntityItemsInner
+     */
+    pixKeys: Array<string>;
+    /**
+     * Data de nascimento do contato.
+     * @type {string}
+     * @memberof ContactsPageEntityItemsInner
+     */
+    birthDate: string | null;
+    /**
      * Origem do contato.
      * @type {string}
      * @memberof ContactsPageEntityItemsInner

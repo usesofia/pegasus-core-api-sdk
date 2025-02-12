@@ -53,6 +53,18 @@ export interface PartialUpdateContactRequestBodyDto {
      */
     phone?: string | null;
     /**
+     * Chaves pix do contato.
+     * @type {Array<string>}
+     * @memberof PartialUpdateContactRequestBodyDto
+     */
+    pixKeys?: Array<string>;
+    /**
+     * Data de nascimento do contato.
+     * @type {string}
+     * @memberof PartialUpdateContactRequestBodyDto
+     */
+    birthDate?: string | null;
+    /**
      * Origem do contato.
      * @type {string}
      * @memberof PartialUpdateContactRequestBodyDto

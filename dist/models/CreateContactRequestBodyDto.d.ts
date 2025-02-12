@@ -53,6 +53,18 @@ export interface CreateContactRequestBodyDto {
      */
     phone?: string | null;
     /**
+     * Chaves pix do contato.
+     * @type {Array<string>}
+     * @memberof CreateContactRequestBodyDto
+     */
+    pixKeys: Array<string>;
+    /**
+     * Data de nascimento do contato.
+     * @type {string}
+     * @memberof CreateContactRequestBodyDto
+     */
+    birthDate: string | null;
+    /**
      * Origem do contato.
      * @type {string}
      * @memberof CreateContactRequestBodyDto

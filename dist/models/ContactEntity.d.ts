@@ -65,6 +65,18 @@ export interface ContactEntity {
      */
     phone?: string | null;
     /**
+     * Chaves pix do contato.
+     * @type {Array<string>}
+     * @memberof ContactEntity
+     */
+    pixKeys: Array<string>;
+    /**
+     * Data de nascimento do contato.
+     * @type {string}
+     * @memberof ContactEntity
+     */
+    birthDate: string | null;
+    /**
      * Origem do contato.
      * @type {string}
      * @memberof ContactEntity

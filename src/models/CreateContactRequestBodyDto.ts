@@ -64,6 +64,18 @@ export interface CreateContactRequestBodyDto {
      */
     phone?: string | null;
     /**
+     * Chaves pix do contato.
+     * @type {Array<string>}
+     * @memberof CreateContactRequestBodyDto
+     */
+    pixKeys: Array<string>;
+    /**
+     * Data de nascimento do contato.
+     * @type {string}
+     * @memberof CreateContactRequestBodyDto
+     */
+    birthDate: string | null;
+    /**
      * Origem do contato.
      * @type {string}
      * @memberof CreateContactRequestBodyDto
@@ -135,6 +147,8 @@ export type CreateContactRequestBodyDtoChannelEnum = typeof CreateContactRequest
 export function instanceOfCreateContactRequestBodyDto(value: object): value is CreateContactRequestBodyDto {
     if (!('name' in value) || value['name'] === undefined) return false;
     if (!('types' in value) || value['types'] === undefined) return false;
+    if (!('pixKeys' in value) || value['pixKeys'] === undefined) return false;
+    if (!('birthDate' in value) || value['birthDate'] === undefined) return false;
     if (!('channel' in value) || value['channel'] === undefined) return false;
     return true;
 }
@@ -155,6 +169,8 @@ export function CreateContactRequestBodyDtoFromJSONTyped(json: any, ignoreDiscri
         'document': json['document'] == null ? undefined : json['document'],
         'email': json['email'] == null ? undefined : json['email'],
         'phone': json['phone'] == null ? undefined : json['phone'],
+        'pixKeys': json['pixKeys'],
+        'birthDate': json['birthDate'],
         'origin': json['origin'] == null ? undefined : json['origin'],
         'address': json['address'] == null ? undefined : CreateContactRequestBodyDtoAddressFromJSON(json['address']),
         'channel': json['channel'],
@@ -178,6 +194,8 @@ export function CreateContactRequestBodyDtoToJSONTyped(value?: CreateContactRequ
         'document': value['document'],
         'email': value['email'],
         'phone': value['phone'],
+        'pixKeys': value['pixKeys'],
+        'birthDate': value['birthDate'],
         'origin': value['origin'],
         'address': CreateContactRequestBodyDtoAddressToJSON(value['address']),
         'channel': value['channel'],
