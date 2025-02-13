@@ -17,6 +17,12 @@ export interface CreateContactRequest {
 }
 export interface FindAllContactsRequest {
     populate?: string;
+    states?: string;
+    country?: string;
+    birthdayTo?: string;
+    birthdayFrom?: string;
+    origins?: string;
+    types?: string;
     searchTerm?: string;
     pageSize?: number;
     pageIndex?: number;
@@ -83,6 +89,12 @@ export interface ContactsApiInterface {
      *
      * @summary Busca todos os contatos.
      * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
+     * @param {string} [states] Estados a serem buscados.
+     * @param {string} [country] País a serem buscados.
+     * @param {string} [birthdayTo] Data de nascimento final a serem buscadas.
+     * @param {string} [birthdayFrom] Data de nascimento inicial a serem buscadas.
+     * @param {string} [origins] Origens de contato a serem buscadas.
+     * @param {string} [types] Tipos de contato a serem buscados.
      * @param {string} [searchTerm] Termo para busca por nome do contato.
      * @param {number} [pageSize] Quantidade de itens por página.
      * @param {number} [pageIndex] Índice da página.

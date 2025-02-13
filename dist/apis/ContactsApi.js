@@ -219,6 +219,24 @@ var ContactsApi = /** @class */ (function (_super) {
                         if (requestParameters['populate'] != null) {
                             queryParameters['populate'] = requestParameters['populate'];
                         }
+                        if (requestParameters['states'] != null) {
+                            queryParameters['states'] = requestParameters['states'];
+                        }
+                        if (requestParameters['country'] != null) {
+                            queryParameters['country'] = requestParameters['country'];
+                        }
+                        if (requestParameters['birthdayTo'] != null) {
+                            queryParameters['birthdayTo'] = requestParameters['birthdayTo'];
+                        }
+                        if (requestParameters['birthdayFrom'] != null) {
+                            queryParameters['birthdayFrom'] = requestParameters['birthdayFrom'];
+                        }
+                        if (requestParameters['origins'] != null) {
+                            queryParameters['origins'] = requestParameters['origins'];
+                        }
+                        if (requestParameters['types'] != null) {
+                            queryParameters['types'] = requestParameters['types'];
+                        }
                         if (requestParameters['searchTerm'] != null) {
                             queryParameters['searchTerm'] = requestParameters['searchTerm'];
                         }
