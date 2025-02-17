@@ -16,6 +16,8 @@ export interface CreateContactRequest {
     populate?: string;
 }
 export interface FindAllContactsRequest {
+    sortOrder?: string;
+    sortBy?: string;
     populate?: string;
     states?: string;
     country?: string;
@@ -88,6 +90,8 @@ export interface ContactsApiInterface {
     /**
      *
      * @summary Busca todos os contatos.
+     * @param {string} [sortOrder] Ordem de ordenação dos contatos.
+     * @param {string} [sortBy] Campo para ordenação dos contatos.
      * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
      * @param {string} [states] Estados a serem buscados.
      * @param {string} [country] País a serem buscados.

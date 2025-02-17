@@ -49,6 +49,8 @@ export interface CreateContactRequest {
 }
 
 export interface FindAllContactsRequest {
+    sortOrder?: string;
+    sortBy?: string;
     populate?: string;
     states?: string;
     country?: string;
@@ -131,6 +133,8 @@ export interface ContactsApiInterface {
     /**
      * 
      * @summary Busca todos os contatos.
+     * @param {string} [sortOrder] Ordem de ordenação dos contatos.
+     * @param {string} [sortBy] Campo para ordenação dos contatos.
      * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
      * @param {string} [states] Estados a serem buscados.
      * @param {string} [country] País a serem buscados.
@@ -305,6 +309,14 @@ export class ContactsApi extends runtime.BaseAPI implements ContactsApiInterface
      */
     async findAllContactsRaw(requestParameters: FindAllContactsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ContactsPageEntity>> {
         const queryParameters: any = {};
+
+        if (requestParameters['sortOrder'] != null) {
+            queryParameters['sortOrder'] = requestParameters['sortOrder'];
+        }
+
+        if (requestParameters['sortBy'] != null) {
+            queryParameters['sortBy'] = requestParameters['sortBy'];
+        }
 
         if (requestParameters['populate'] != null) {
             queryParameters['populate'] = requestParameters['populate'];
