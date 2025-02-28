@@ -39,16 +39,16 @@ export interface TagsPageEntityItemsInner {
     name: string;
     /**
      * Data de criação da tag.
-     * @type {Date}
+     * @type {any}
      * @memberof TagsPageEntityItemsInner
      */
-    createdAt: Date;
+    createdAt: any | null;
     /**
      * Data de atualização da tag.
-     * @type {Date}
+     * @type {any}
      * @memberof TagsPageEntityItemsInner
      */
-    updatedAt: Date;
+    updatedAt: any | null;
 }
 
 /**
@@ -76,8 +76,8 @@ export function TagsPageEntityItemsInnerFromJSONTyped(json: any, ignoreDiscrimin
         'id': json['id'],
         'ownerOrganization': json['ownerOrganization'],
         'name': json['name'],
-        'createdAt': (new Date(json['createdAt'])),
-        'updatedAt': (new Date(json['updatedAt'])),
+        'createdAt': json['createdAt'],
+        'updatedAt': json['updatedAt'],
     };
 }
 
@@ -95,8 +95,8 @@ export function TagsPageEntityItemsInnerToJSONTyped(value?: TagsPageEntityItemsI
         'id': value['id'],
         'ownerOrganization': value['ownerOrganization'],
         'name': value['name'],
-        'createdAt': ((value['createdAt']).toISOString()),
-        'updatedAt': ((value['updatedAt']).toISOString()),
+        'createdAt': value['createdAt'],
+        'updatedAt': value['updatedAt'],
     };
 }
 

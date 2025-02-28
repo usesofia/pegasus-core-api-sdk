@@ -66,8 +66,6 @@ function instanceOfCreateContactRequestBodyDto(value) {
         return false;
     if (!('pixKeys' in value) || value['pixKeys'] === undefined)
         return false;
-    if (!('birthDate' in value) || value['birthDate'] === undefined)
-        return false;
     if (!('channel' in value) || value['channel'] === undefined)
         return false;
     return true;
@@ -87,7 +85,7 @@ function CreateContactRequestBodyDtoFromJSONTyped(json, ignoreDiscriminator) {
         'email': json['email'] == null ? undefined : json['email'],
         'phone': json['phone'] == null ? undefined : json['phone'],
         'pixKeys': json['pixKeys'],
-        'birthDate': json['birthDate'],
+        'birthDate': json['birthDate'] == null ? undefined : json['birthDate'],
         'origin': json['origin'] == null ? undefined : json['origin'],
         'address': json['address'] == null ? undefined : (0, CreateContactRequestBodyDtoAddress_1.CreateContactRequestBodyDtoAddressFromJSON)(json['address']),
         'channel': json['channel'],

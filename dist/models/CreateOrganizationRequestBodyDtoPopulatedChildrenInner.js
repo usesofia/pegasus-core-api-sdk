@@ -58,8 +58,8 @@ function CreateOrganizationRequestBodyDtoPopulatedChildrenInnerFromJSONTyped(jso
         'type': json['type'],
         'document': json['document'] == null ? undefined : json['document'],
         'imageUrl': json['imageUrl'] == null ? undefined : json['imageUrl'],
-        'createdAt': (new Date(json['createdAt'])),
-        'updatedAt': (new Date(json['updatedAt'])),
+        'createdAt': json['createdAt'],
+        'updatedAt': json['updatedAt'],
     };
 }
 function CreateOrganizationRequestBodyDtoPopulatedChildrenInnerToJSON(json) {
@@ -77,7 +77,7 @@ function CreateOrganizationRequestBodyDtoPopulatedChildrenInnerToJSONTyped(value
         'type': value['type'],
         'document': value['document'],
         'imageUrl': value['imageUrl'],
-        'createdAt': ((value['createdAt']).toISOString()),
-        'updatedAt': ((value['updatedAt']).toISOString()),
+        'createdAt': value['createdAt'],
+        'updatedAt': value['updatedAt'],
     };
 }

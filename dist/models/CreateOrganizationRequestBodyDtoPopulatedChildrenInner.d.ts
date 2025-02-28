@@ -53,16 +53,16 @@ export interface CreateOrganizationRequestBodyDtoPopulatedChildrenInner {
     imageUrl?: string;
     /**
      * Data de criação da organização.
-     * @type {Date}
+     * @type {any}
      * @memberof CreateOrganizationRequestBodyDtoPopulatedChildrenInner
      */
-    createdAt: Date;
+    createdAt: any | null;
     /**
      * Data de atualização da organização.
-     * @type {Date}
+     * @type {any}
      * @memberof CreateOrganizationRequestBodyDtoPopulatedChildrenInner
      */
-    updatedAt: Date;
+    updatedAt: any | null;
 }
 /**
  * @export

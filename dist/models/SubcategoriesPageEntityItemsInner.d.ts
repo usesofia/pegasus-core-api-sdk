@@ -73,16 +73,16 @@ export interface SubcategoriesPageEntityItemsInner {
     populatedNormalizedSubcategory?: ExternalCreateSubcategoryRequestBodyDtoPopulatedNormalizedSubcategory | null;
     /**
      * Data de criação da subcategoria.
-     * @type {Date}
+     * @type {any}
      * @memberof SubcategoriesPageEntityItemsInner
      */
-    createdAt: Date;
+    createdAt: any | null;
     /**
      * Data de atualização da subcategoria.
-     * @type {Date}
+     * @type {any}
      * @memberof SubcategoriesPageEntityItemsInner
      */
-    updatedAt: Date;
+    updatedAt: any | null;
 }
 /**
  * Check if a given object implements the SubcategoriesPageEntityItemsInner interface.

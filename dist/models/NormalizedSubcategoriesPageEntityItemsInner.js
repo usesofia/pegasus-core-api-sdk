@@ -56,8 +56,8 @@ function NormalizedSubcategoriesPageEntityItemsInnerFromJSONTyped(json, ignoreDi
         'isInvoiceRelated': json['isInvoiceRelated'] == null ? undefined : json['isInvoiceRelated'],
         'isInternalTransferRelated': json['isInternalTransferRelated'] == null ? undefined : json['isInternalTransferRelated'],
         'isAutomaticApplicationRelated': json['isAutomaticApplicationRelated'] == null ? undefined : json['isAutomaticApplicationRelated'],
-        'createdAt': (new Date(json['createdAt'])),
-        'updatedAt': (new Date(json['updatedAt'])),
+        'createdAt': json['createdAt'],
+        'updatedAt': json['updatedAt'],
     };
 }
 function NormalizedSubcategoriesPageEntityItemsInnerToJSON(json) {
@@ -78,7 +78,7 @@ function NormalizedSubcategoriesPageEntityItemsInnerToJSONTyped(value, ignoreDis
         'isInvoiceRelated': value['isInvoiceRelated'],
         'isInternalTransferRelated': value['isInternalTransferRelated'],
         'isAutomaticApplicationRelated': value['isAutomaticApplicationRelated'],
-        'createdAt': ((value['createdAt']).toISOString()),
-        'updatedAt': ((value['updatedAt']).toISOString()),
+        'createdAt': value['createdAt'],
+        'updatedAt': value['updatedAt'],
     };
 }

@@ -35,16 +35,16 @@ export interface TagsPageEntityItemsInner {
     name: string;
     /**
      * Data de criação da tag.
-     * @type {Date}
+     * @type {any}
      * @memberof TagsPageEntityItemsInner
      */
-    createdAt: Date;
+    createdAt: any | null;
     /**
      * Data de atualização da tag.
-     * @type {Date}
+     * @type {any}
      * @memberof TagsPageEntityItemsInner
      */
-    updatedAt: Date;
+    updatedAt: any | null;
 }
 /**
  * Check if a given object implements the TagsPageEntityItemsInner interface.

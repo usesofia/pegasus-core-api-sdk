@@ -51,16 +51,16 @@ export interface CategoriesPageEntityItemsInner {
     slug: string;
     /**
      * Data de criação da categoria.
-     * @type {Date}
+     * @type {any}
      * @memberof CategoriesPageEntityItemsInner
      */
-    createdAt: Date;
+    createdAt: any | null;
     /**
      * Data de atualização da categoria.
-     * @type {Date}
+     * @type {any}
      * @memberof CategoriesPageEntityItemsInner
      */
-    updatedAt: Date;
+    updatedAt: any | null;
 }
 
 
@@ -103,8 +103,8 @@ export function CategoriesPageEntityItemsInnerFromJSONTyped(json: any, ignoreDis
         'index': json['index'],
         'name': json['name'],
         'slug': json['slug'],
-        'createdAt': (new Date(json['createdAt'])),
-        'updatedAt': (new Date(json['updatedAt'])),
+        'createdAt': json['createdAt'],
+        'updatedAt': json['updatedAt'],
     };
 }
 
@@ -124,8 +124,8 @@ export function CategoriesPageEntityItemsInnerToJSONTyped(value?: CategoriesPage
         'index': value['index'],
         'name': value['name'],
         'slug': value['slug'],
-        'createdAt': ((value['createdAt']).toISOString()),
-        'updatedAt': ((value['updatedAt']).toISOString()),
+        'createdAt': value['createdAt'],
+        'updatedAt': value['updatedAt'],
     };
 }
 

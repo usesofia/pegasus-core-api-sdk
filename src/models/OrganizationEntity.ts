@@ -103,16 +103,16 @@ export interface OrganizationEntity {
     populatedChildren?: Array<CreateOrganizationRequestBodyDtoPopulatedChildrenInner> | null;
     /**
      * Data de criação da organização.
-     * @type {Date}
+     * @type {any}
      * @memberof OrganizationEntity
      */
-    createdAt: Date;
+    createdAt: any | null;
     /**
      * Data de atualização da organização.
-     * @type {Date}
+     * @type {any}
      * @memberof OrganizationEntity
      */
-    updatedAt: Date;
+    updatedAt: any | null;
     /**
      * 
      * @type {CreateOrganizationRequestBodyDtoGroupSettings}
@@ -165,8 +165,8 @@ export function OrganizationEntityFromJSONTyped(json: any, ignoreDiscriminator: 
         'populatedParent': json['populatedParent'] == null ? undefined : CreateOrganizationRequestBodyDtoPopulatedParentFromJSON(json['populatedParent']),
         'children': json['children'] == null ? undefined : json['children'],
         'populatedChildren': json['populatedChildren'] == null ? undefined : ((json['populatedChildren'] as Array<any>).map(CreateOrganizationRequestBodyDtoPopulatedChildrenInnerFromJSON)),
-        'createdAt': (new Date(json['createdAt'])),
-        'updatedAt': (new Date(json['updatedAt'])),
+        'createdAt': json['createdAt'],
+        'updatedAt': json['updatedAt'],
         'groupSettings': json['groupSettings'] == null ? undefined : CreateOrganizationRequestBodyDtoGroupSettingsFromJSON(json['groupSettings']),
     };
 }
@@ -192,8 +192,8 @@ export function OrganizationEntityToJSONTyped(value?: OrganizationEntity | null,
         'populatedParent': CreateOrganizationRequestBodyDtoPopulatedParentToJSON(value['populatedParent']),
         'children': value['children'],
         'populatedChildren': value['populatedChildren'] == null ? undefined : ((value['populatedChildren'] as Array<any>).map(CreateOrganizationRequestBodyDtoPopulatedChildrenInnerToJSON)),
-        'createdAt': ((value['createdAt']).toISOString()),
-        'updatedAt': ((value['updatedAt']).toISOString()),
+        'createdAt': value['createdAt'],
+        'updatedAt': value['updatedAt'],
         'groupSettings': CreateOrganizationRequestBodyDtoGroupSettingsToJSON(value['groupSettings']),
     };
 }

@@ -59,8 +59,8 @@ function SubcategoryEntityFromJSONTyped(json, ignoreDiscriminator) {
         'populatedCategory': json['populatedCategory'] == null ? undefined : (0, NormalizedSubcategoriesPageEntityItemsInnerPopulatedCategory_1.NormalizedSubcategoriesPageEntityItemsInnerPopulatedCategoryFromJSON)(json['populatedCategory']),
         'normalizedSubcategory': json['normalizedSubcategory'] == null ? undefined : json['normalizedSubcategory'],
         'populatedNormalizedSubcategory': json['populatedNormalizedSubcategory'] == null ? undefined : (0, ExternalCreateSubcategoryRequestBodyDtoPopulatedNormalizedSubcategory_1.ExternalCreateSubcategoryRequestBodyDtoPopulatedNormalizedSubcategoryFromJSON)(json['populatedNormalizedSubcategory']),
-        'createdAt': (new Date(json['createdAt'])),
-        'updatedAt': (new Date(json['updatedAt'])),
+        'createdAt': json['createdAt'],
+        'updatedAt': json['updatedAt'],
     };
 }
 function SubcategoryEntityToJSON(json) {
@@ -81,7 +81,7 @@ function SubcategoryEntityToJSONTyped(value, ignoreDiscriminator) {
         'populatedCategory': (0, NormalizedSubcategoriesPageEntityItemsInnerPopulatedCategory_1.NormalizedSubcategoriesPageEntityItemsInnerPopulatedCategoryToJSON)(value['populatedCategory']),
         'normalizedSubcategory': value['normalizedSubcategory'],
         'populatedNormalizedSubcategory': (0, ExternalCreateSubcategoryRequestBodyDtoPopulatedNormalizedSubcategory_1.ExternalCreateSubcategoryRequestBodyDtoPopulatedNormalizedSubcategoryToJSON)(value['populatedNormalizedSubcategory']),
-        'createdAt': ((value['createdAt']).toISOString()),
-        'updatedAt': ((value['updatedAt']).toISOString()),
+        'createdAt': value['createdAt'],
+        'updatedAt': value['updatedAt'],
     };
 }

@@ -72,10 +72,10 @@ export interface ContactsPageEntityItemsInner {
     pixKeys: Array<string>;
     /**
      * Data de nascimento do contato.
-     * @type {string}
+     * @type {any}
      * @memberof ContactsPageEntityItemsInner
      */
-    birthDate: string | null;
+    birthDate?: any | null;
     /**
      * Origem do contato.
      * @type {string}
@@ -90,16 +90,16 @@ export interface ContactsPageEntityItemsInner {
     address?: CreateContactRequestBodyDtoAddress | null;
     /**
      * Data de criação do contato.
-     * @type {Date}
+     * @type {any}
      * @memberof ContactsPageEntityItemsInner
      */
-    createdAt: Date;
+    createdAt: any | null;
     /**
      * Data de atualização do contato.
-     * @type {Date}
+     * @type {any}
      * @memberof ContactsPageEntityItemsInner
      */
-    updatedAt: Date;
+    updatedAt: any | null;
 }
 /**
  * @export

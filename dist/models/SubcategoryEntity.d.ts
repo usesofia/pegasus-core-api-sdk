@@ -73,16 +73,16 @@ export interface SubcategoryEntity {
     populatedNormalizedSubcategory?: ExternalCreateSubcategoryRequestBodyDtoPopulatedNormalizedSubcategory | null;
     /**
      * Data de criação da subcategoria.
-     * @type {Date}
+     * @type {any}
      * @memberof SubcategoryEntity
      */
-    createdAt: Date;
+    createdAt: any | null;
     /**
      * Data de atualização da subcategoria.
-     * @type {Date}
+     * @type {any}
      * @memberof SubcategoryEntity
      */
-    updatedAt: Date;
+    updatedAt: any | null;
 }
 /**
  * Check if a given object implements the SubcategoryEntity interface.

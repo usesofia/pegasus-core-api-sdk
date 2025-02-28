@@ -90,16 +90,16 @@ export interface SubcategoryEntity {
     populatedNormalizedSubcategory?: ExternalCreateSubcategoryRequestBodyDtoPopulatedNormalizedSubcategory | null;
     /**
      * Data de criação da subcategoria.
-     * @type {Date}
+     * @type {any}
      * @memberof SubcategoryEntity
      */
-    createdAt: Date;
+    createdAt: any | null;
     /**
      * Data de atualização da subcategoria.
-     * @type {Date}
+     * @type {any}
      * @memberof SubcategoryEntity
      */
-    updatedAt: Date;
+    updatedAt: any | null;
 }
 
 /**
@@ -136,8 +136,8 @@ export function SubcategoryEntityFromJSONTyped(json: any, ignoreDiscriminator: b
         'populatedCategory': json['populatedCategory'] == null ? undefined : NormalizedSubcategoriesPageEntityItemsInnerPopulatedCategoryFromJSON(json['populatedCategory']),
         'normalizedSubcategory': json['normalizedSubcategory'] == null ? undefined : json['normalizedSubcategory'],
         'populatedNormalizedSubcategory': json['populatedNormalizedSubcategory'] == null ? undefined : ExternalCreateSubcategoryRequestBodyDtoPopulatedNormalizedSubcategoryFromJSON(json['populatedNormalizedSubcategory']),
-        'createdAt': (new Date(json['createdAt'])),
-        'updatedAt': (new Date(json['updatedAt'])),
+        'createdAt': json['createdAt'],
+        'updatedAt': json['updatedAt'],
     };
 }
 
@@ -161,8 +161,8 @@ export function SubcategoryEntityToJSONTyped(value?: SubcategoryEntity | null, i
         'populatedCategory': NormalizedSubcategoriesPageEntityItemsInnerPopulatedCategoryToJSON(value['populatedCategory']),
         'normalizedSubcategory': value['normalizedSubcategory'],
         'populatedNormalizedSubcategory': ExternalCreateSubcategoryRequestBodyDtoPopulatedNormalizedSubcategoryToJSON(value['populatedNormalizedSubcategory']),
-        'createdAt': ((value['createdAt']).toISOString()),
-        'updatedAt': ((value['updatedAt']).toISOString()),
+        'createdAt': value['createdAt'],
+        'updatedAt': value['updatedAt'],
     };
 }
 

@@ -83,16 +83,16 @@ export interface NormalizedSubcategoriesPageEntityItemsInner {
     isAutomaticApplicationRelated?: boolean | null;
     /**
      * Data de criação da subcategoria.
-     * @type {Date}
+     * @type {any}
      * @memberof NormalizedSubcategoriesPageEntityItemsInner
      */
-    createdAt: Date;
+    createdAt: any | null;
     /**
      * Data de atualização da subcategoria.
-     * @type {Date}
+     * @type {any}
      * @memberof NormalizedSubcategoriesPageEntityItemsInner
      */
-    updatedAt: Date;
+    updatedAt: any | null;
 }
 
 /**
@@ -128,8 +128,8 @@ export function NormalizedSubcategoriesPageEntityItemsInnerFromJSONTyped(json: a
         'isInvoiceRelated': json['isInvoiceRelated'] == null ? undefined : json['isInvoiceRelated'],
         'isInternalTransferRelated': json['isInternalTransferRelated'] == null ? undefined : json['isInternalTransferRelated'],
         'isAutomaticApplicationRelated': json['isAutomaticApplicationRelated'] == null ? undefined : json['isAutomaticApplicationRelated'],
-        'createdAt': (new Date(json['createdAt'])),
-        'updatedAt': (new Date(json['updatedAt'])),
+        'createdAt': json['createdAt'],
+        'updatedAt': json['updatedAt'],
     };
 }
 
@@ -153,8 +153,8 @@ export function NormalizedSubcategoriesPageEntityItemsInnerToJSONTyped(value?: N
         'isInvoiceRelated': value['isInvoiceRelated'],
         'isInternalTransferRelated': value['isInternalTransferRelated'],
         'isAutomaticApplicationRelated': value['isAutomaticApplicationRelated'],
-        'createdAt': ((value['createdAt']).toISOString()),
-        'updatedAt': ((value['updatedAt']).toISOString()),
+        'createdAt': value['createdAt'],
+        'updatedAt': value['updatedAt'],
     };
 }
 

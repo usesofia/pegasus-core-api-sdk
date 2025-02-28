@@ -59,8 +59,8 @@ function CategoriesPageEntityItemsInnerFromJSONTyped(json, ignoreDiscriminator) 
         'index': json['index'],
         'name': json['name'],
         'slug': json['slug'],
-        'createdAt': (new Date(json['createdAt'])),
-        'updatedAt': (new Date(json['updatedAt'])),
+        'createdAt': json['createdAt'],
+        'updatedAt': json['updatedAt'],
     };
 }
 function CategoriesPageEntityItemsInnerToJSON(json) {
@@ -77,7 +77,7 @@ function CategoriesPageEntityItemsInnerToJSONTyped(value, ignoreDiscriminator) {
         'index': value['index'],
         'name': value['name'],
         'slug': value['slug'],
-        'createdAt': ((value['createdAt']).toISOString()),
-        'updatedAt': ((value['updatedAt']).toISOString()),
+        'createdAt': value['createdAt'],
+        'updatedAt': value['updatedAt'],
     };
 }

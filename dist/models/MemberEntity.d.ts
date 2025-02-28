@@ -59,16 +59,16 @@ export interface MemberEntity {
     imageUrl?: string | null;
     /**
      * Data de criação do membro.
-     * @type {Date}
+     * @type {any}
      * @memberof MemberEntity
      */
-    createdAt: Date;
+    createdAt: any | null;
     /**
      * Data de atualização do membro.
-     * @type {Date}
+     * @type {any}
      * @memberof MemberEntity
      */
-    updatedAt: Date;
+    updatedAt: any | null;
 }
 /**
  * @export

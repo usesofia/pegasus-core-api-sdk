@@ -71,10 +71,10 @@ export interface CreateContactRequestBodyDto {
     pixKeys: Array<string>;
     /**
      * Data de nascimento do contato.
-     * @type {string}
+     * @type {any}
      * @memberof CreateContactRequestBodyDto
      */
-    birthDate: string | null;
+    birthDate?: any | null;
     /**
      * Origem do contato.
      * @type {string}
@@ -148,7 +148,6 @@ export function instanceOfCreateContactRequestBodyDto(value: object): value is C
     if (!('name' in value) || value['name'] === undefined) return false;
     if (!('types' in value) || value['types'] === undefined) return false;
     if (!('pixKeys' in value) || value['pixKeys'] === undefined) return false;
-    if (!('birthDate' in value) || value['birthDate'] === undefined) return false;
     if (!('channel' in value) || value['channel'] === undefined) return false;
     return true;
 }
@@ -170,7 +169,7 @@ export function CreateContactRequestBodyDtoFromJSONTyped(json: any, ignoreDiscri
         'email': json['email'] == null ? undefined : json['email'],
         'phone': json['phone'] == null ? undefined : json['phone'],
         'pixKeys': json['pixKeys'],
-        'birthDate': json['birthDate'],
+        'birthDate': json['birthDate'] == null ? undefined : json['birthDate'],
         'origin': json['origin'] == null ? undefined : json['origin'],
         'address': json['address'] == null ? undefined : CreateContactRequestBodyDtoAddressFromJSON(json['address']),
         'channel': json['channel'],

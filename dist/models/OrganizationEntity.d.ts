@@ -80,16 +80,16 @@ export interface OrganizationEntity {
     populatedChildren?: Array<CreateOrganizationRequestBodyDtoPopulatedChildrenInner> | null;
     /**
      * Data de criação da organização.
-     * @type {Date}
+     * @type {any}
      * @memberof OrganizationEntity
      */
-    createdAt: Date;
+    createdAt: any | null;
     /**
      * Data de atualização da organização.
-     * @type {Date}
+     * @type {any}
      * @memberof OrganizationEntity
      */
-    updatedAt: Date;
+    updatedAt: any | null;
     /**
      *
      * @type {CreateOrganizationRequestBodyDtoGroupSettings}

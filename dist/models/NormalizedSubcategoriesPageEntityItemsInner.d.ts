@@ -72,16 +72,16 @@ export interface NormalizedSubcategoriesPageEntityItemsInner {
     isAutomaticApplicationRelated?: boolean | null;
     /**
      * Data de criação da subcategoria.
-     * @type {Date}
+     * @type {any}
      * @memberof NormalizedSubcategoriesPageEntityItemsInner
      */
-    createdAt: Date;
+    createdAt: any | null;
     /**
      * Data de atualização da subcategoria.
-     * @type {Date}
+     * @type {any}
      * @memberof NormalizedSubcategoriesPageEntityItemsInner
      */
-    updatedAt: Date;
+    updatedAt: any | null;
 }
 /**
  * Check if a given object implements the NormalizedSubcategoriesPageEntityItemsInner interface.

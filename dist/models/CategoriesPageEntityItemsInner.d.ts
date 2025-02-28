@@ -47,16 +47,16 @@ export interface CategoriesPageEntityItemsInner {
     slug: string;
     /**
      * Data de criação da categoria.
-     * @type {Date}
+     * @type {any}
      * @memberof CategoriesPageEntityItemsInner
      */
-    createdAt: Date;
+    createdAt: any | null;
     /**
      * Data de atualização da categoria.
-     * @type {Date}
+     * @type {any}
      * @memberof CategoriesPageEntityItemsInner
      */
-    updatedAt: Date;
+    updatedAt: any | null;
 }
 /**
  * @export

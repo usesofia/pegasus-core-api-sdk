@@ -72,10 +72,10 @@ export interface ContactEntity {
     pixKeys: Array<string>;
     /**
      * Data de nascimento do contato.
-     * @type {string}
+     * @type {any}
      * @memberof ContactEntity
      */
-    birthDate: string | null;
+    birthDate?: any | null;
     /**
      * Origem do contato.
      * @type {string}
@@ -90,16 +90,16 @@ export interface ContactEntity {
     address?: CreateContactRequestBodyDtoAddress | null;
     /**
      * Data de criação do contato.
-     * @type {Date}
+     * @type {any}
      * @memberof ContactEntity
      */
-    createdAt: Date;
+    createdAt: any | null;
     /**
      * Data de atualização do contato.
-     * @type {Date}
+     * @type {any}
      * @memberof ContactEntity
      */
-    updatedAt: Date;
+    updatedAt: any | null;
 }
 /**
  * @export

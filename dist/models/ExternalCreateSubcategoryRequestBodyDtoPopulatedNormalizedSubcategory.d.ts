@@ -72,16 +72,16 @@ export interface ExternalCreateSubcategoryRequestBodyDtoPopulatedNormalizedSubca
     isAutomaticApplicationRelated?: boolean | null;
     /**
      * Data de criação da subcategoria.
-     * @type {Date}
+     * @type {any}
      * @memberof ExternalCreateSubcategoryRequestBodyDtoPopulatedNormalizedSubcategory
      */
-    createdAt: Date;
+    createdAt: any | null;
     /**
      * Data de atualização da subcategoria.
-     * @type {Date}
+     * @type {any}
      * @memberof ExternalCreateSubcategoryRequestBodyDtoPopulatedNormalizedSubcategory
      */
-    updatedAt: Date;
+    updatedAt: any | null;
 }
 /**
  * Check if a given object implements the ExternalCreateSubcategoryRequestBodyDtoPopulatedNormalizedSubcategory interface.

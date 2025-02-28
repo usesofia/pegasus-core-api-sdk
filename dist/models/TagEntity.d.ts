@@ -35,16 +35,16 @@ export interface TagEntity {
     name: string;
     /**
      * Data de criação da tag.
-     * @type {Date}
+     * @type {any}
      * @memberof TagEntity
      */
-    createdAt: Date;
+    createdAt: any | null;
     /**
      * Data de atualização da tag.
-     * @type {Date}
+     * @type {any}
      * @memberof TagEntity
      */
-    updatedAt: Date;
+    updatedAt: any | null;
 }
 /**
  * Check if a given object implements the TagEntity interface.

@@ -53,16 +53,16 @@ export interface CreateOrganizationRequestBodyDtoPopulatedParent {
     imageUrl?: string;
     /**
      * Data de criação da organização.
-     * @type {Date}
+     * @type {any}
      * @memberof CreateOrganizationRequestBodyDtoPopulatedParent
      */
-    createdAt: Date;
+    createdAt: any | null;
     /**
      * Data de atualização da organização.
-     * @type {Date}
+     * @type {any}
      * @memberof CreateOrganizationRequestBodyDtoPopulatedParent
      */
-    updatedAt: Date;
+    updatedAt: any | null;
 }
 /**
  * @export

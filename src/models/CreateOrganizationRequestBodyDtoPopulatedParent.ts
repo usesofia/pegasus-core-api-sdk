@@ -57,16 +57,16 @@ export interface CreateOrganizationRequestBodyDtoPopulatedParent {
     imageUrl?: string;
     /**
      * Data de criação da organização.
-     * @type {Date}
+     * @type {any}
      * @memberof CreateOrganizationRequestBodyDtoPopulatedParent
      */
-    createdAt: Date;
+    createdAt: any | null;
     /**
      * Data de atualização da organização.
-     * @type {Date}
+     * @type {any}
      * @memberof CreateOrganizationRequestBodyDtoPopulatedParent
      */
-    updatedAt: Date;
+    updatedAt: any | null;
 }
 
 
@@ -109,8 +109,8 @@ export function CreateOrganizationRequestBodyDtoPopulatedParentFromJSONTyped(jso
         'type': json['type'],
         'document': json['document'] == null ? undefined : json['document'],
         'imageUrl': json['imageUrl'] == null ? undefined : json['imageUrl'],
-        'createdAt': (new Date(json['createdAt'])),
-        'updatedAt': (new Date(json['updatedAt'])),
+        'createdAt': json['createdAt'],
+        'updatedAt': json['updatedAt'],
     };
 }
 
@@ -131,8 +131,8 @@ export function CreateOrganizationRequestBodyDtoPopulatedParentToJSONTyped(value
         'type': value['type'],
         'document': value['document'],
         'imageUrl': value['imageUrl'],
-        'createdAt': ((value['createdAt']).toISOString()),
-        'updatedAt': ((value['updatedAt']).toISOString()),
+        'createdAt': value['createdAt'],
+        'updatedAt': value['updatedAt'],
     };
 }
 

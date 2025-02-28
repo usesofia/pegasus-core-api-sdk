@@ -65,8 +65,8 @@ function OrganizationEntityFromJSONTyped(json, ignoreDiscriminator) {
         'populatedParent': json['populatedParent'] == null ? undefined : (0, CreateOrganizationRequestBodyDtoPopulatedParent_1.CreateOrganizationRequestBodyDtoPopulatedParentFromJSON)(json['populatedParent']),
         'children': json['children'] == null ? undefined : json['children'],
         'populatedChildren': json['populatedChildren'] == null ? undefined : (json['populatedChildren'].map(CreateOrganizationRequestBodyDtoPopulatedChildrenInner_1.CreateOrganizationRequestBodyDtoPopulatedChildrenInnerFromJSON)),
-        'createdAt': (new Date(json['createdAt'])),
-        'updatedAt': (new Date(json['updatedAt'])),
+        'createdAt': json['createdAt'],
+        'updatedAt': json['updatedAt'],
         'groupSettings': json['groupSettings'] == null ? undefined : (0, CreateOrganizationRequestBodyDtoGroupSettings_1.CreateOrganizationRequestBodyDtoGroupSettingsFromJSON)(json['groupSettings']),
     };
 }
@@ -89,8 +89,8 @@ function OrganizationEntityToJSONTyped(value, ignoreDiscriminator) {
         'populatedParent': (0, CreateOrganizationRequestBodyDtoPopulatedParent_1.CreateOrganizationRequestBodyDtoPopulatedParentToJSON)(value['populatedParent']),
         'children': value['children'],
         'populatedChildren': value['populatedChildren'] == null ? undefined : (value['populatedChildren'].map(CreateOrganizationRequestBodyDtoPopulatedChildrenInner_1.CreateOrganizationRequestBodyDtoPopulatedChildrenInnerToJSON)),
-        'createdAt': ((value['createdAt']).toISOString()),
-        'updatedAt': ((value['updatedAt']).toISOString()),
+        'createdAt': value['createdAt'],
+        'updatedAt': value['updatedAt'],
         'groupSettings': (0, CreateOrganizationRequestBodyDtoGroupSettings_1.CreateOrganizationRequestBodyDtoGroupSettingsToJSON)(value['groupSettings']),
     };
 }

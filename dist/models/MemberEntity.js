@@ -59,8 +59,8 @@ function MemberEntityFromJSONTyped(json, ignoreDiscriminator) {
         'firstName': json['firstName'] == null ? undefined : json['firstName'],
         'lastName': json['lastName'] == null ? undefined : json['lastName'],
         'imageUrl': json['imageUrl'] == null ? undefined : json['imageUrl'],
-        'createdAt': (new Date(json['createdAt'])),
-        'updatedAt': (new Date(json['updatedAt'])),
+        'createdAt': json['createdAt'],
+        'updatedAt': json['updatedAt'],
     };
 }
 function MemberEntityToJSON(json) {
@@ -79,7 +79,7 @@ function MemberEntityToJSONTyped(value, ignoreDiscriminator) {
         'firstName': value['firstName'],
         'lastName': value['lastName'],
         'imageUrl': value['imageUrl'],
-        'createdAt': ((value['createdAt']).toISOString()),
-        'updatedAt': ((value['updatedAt']).toISOString()),
+        'createdAt': value['createdAt'],
+        'updatedAt': value['updatedAt'],
     };
 }

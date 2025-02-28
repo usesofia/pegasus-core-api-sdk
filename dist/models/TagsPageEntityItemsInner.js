@@ -45,8 +45,8 @@ function TagsPageEntityItemsInnerFromJSONTyped(json, ignoreDiscriminator) {
         'id': json['id'],
         'ownerOrganization': json['ownerOrganization'],
         'name': json['name'],
-        'createdAt': (new Date(json['createdAt'])),
-        'updatedAt': (new Date(json['updatedAt'])),
+        'createdAt': json['createdAt'],
+        'updatedAt': json['updatedAt'],
     };
 }
 function TagsPageEntityItemsInnerToJSON(json) {
@@ -61,7 +61,7 @@ function TagsPageEntityItemsInnerToJSONTyped(value, ignoreDiscriminator) {
         'id': value['id'],
         'ownerOrganization': value['ownerOrganization'],
         'name': value['name'],
-        'createdAt': ((value['createdAt']).toISOString()),
-        'updatedAt': ((value['updatedAt']).toISOString()),
+        'createdAt': value['createdAt'],
+        'updatedAt': value['updatedAt'],
     };
 }

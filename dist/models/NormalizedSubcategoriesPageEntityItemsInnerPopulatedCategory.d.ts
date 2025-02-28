@@ -47,16 +47,16 @@ export interface NormalizedSubcategoriesPageEntityItemsInnerPopulatedCategory {
     slug: string;
     /**
      * Data de criação da categoria.
-     * @type {Date}
+     * @type {any}
      * @memberof NormalizedSubcategoriesPageEntityItemsInnerPopulatedCategory
      */
-    createdAt: Date;
+    createdAt: any | null;
     /**
      * Data de atualização da categoria.
-     * @type {Date}
+     * @type {any}
      * @memberof NormalizedSubcategoriesPageEntityItemsInnerPopulatedCategory
      */
-    updatedAt: Date;
+    updatedAt: any | null;
 }
 /**
  * @export

@@ -63,16 +63,16 @@ export interface MemberEntity {
     imageUrl?: string | null;
     /**
      * Data de criação do membro.
-     * @type {Date}
+     * @type {any}
      * @memberof MemberEntity
      */
-    createdAt: Date;
+    createdAt: any | null;
     /**
      * Data de atualização do membro.
-     * @type {Date}
+     * @type {any}
      * @memberof MemberEntity
      */
-    updatedAt: Date;
+    updatedAt: any | null;
 }
 
 
@@ -116,8 +116,8 @@ export function MemberEntityFromJSONTyped(json: any, ignoreDiscriminator: boolea
         'firstName': json['firstName'] == null ? undefined : json['firstName'],
         'lastName': json['lastName'] == null ? undefined : json['lastName'],
         'imageUrl': json['imageUrl'] == null ? undefined : json['imageUrl'],
-        'createdAt': (new Date(json['createdAt'])),
-        'updatedAt': (new Date(json['updatedAt'])),
+        'createdAt': json['createdAt'],
+        'updatedAt': json['updatedAt'],
     };
 }
 
@@ -139,8 +139,8 @@ export function MemberEntityToJSONTyped(value?: MemberEntity | null, ignoreDiscr
         'firstName': value['firstName'],
         'lastName': value['lastName'],
         'imageUrl': value['imageUrl'],
-        'createdAt': ((value['createdAt']).toISOString()),
-        'updatedAt': ((value['updatedAt']).toISOString()),
+        'createdAt': value['createdAt'],
+        'updatedAt': value['updatedAt'],
     };
 }
 

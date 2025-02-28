@@ -39,16 +39,16 @@ export interface TagEntity {
     name: string;
     /**
      * Data de criação da tag.
-     * @type {Date}
+     * @type {any}
      * @memberof TagEntity
      */
-    createdAt: Date;
+    createdAt: any | null;
     /**
      * Data de atualização da tag.
-     * @type {Date}
+     * @type {any}
      * @memberof TagEntity
      */
-    updatedAt: Date;
+    updatedAt: any | null;
 }
 
 /**
@@ -76,8 +76,8 @@ export function TagEntityFromJSONTyped(json: any, ignoreDiscriminator: boolean):
         'id': json['id'],
         'ownerOrganization': json['ownerOrganization'],
         'name': json['name'],
-        'createdAt': (new Date(json['createdAt'])),
-        'updatedAt': (new Date(json['updatedAt'])),
+        'createdAt': json['createdAt'],
+        'updatedAt': json['updatedAt'],
     };
 }
 
@@ -95,8 +95,8 @@ export function TagEntityToJSONTyped(value?: TagEntity | null, ignoreDiscriminat
         'id': value['id'],
         'ownerOrganization': value['ownerOrganization'],
         'name': value['name'],
-        'createdAt': ((value['createdAt']).toISOString()),
-        'updatedAt': ((value['updatedAt']).toISOString()),
+        'createdAt': value['createdAt'],
+        'updatedAt': value['updatedAt'],
     };
 }
 

@@ -63,8 +63,6 @@ function instanceOfContactEntity(value) {
         return false;
     if (!('pixKeys' in value) || value['pixKeys'] === undefined)
         return false;
-    if (!('birthDate' in value) || value['birthDate'] === undefined)
-        return false;
     if (!('createdAt' in value) || value['createdAt'] === undefined)
         return false;
     if (!('updatedAt' in value) || value['updatedAt'] === undefined)
@@ -88,11 +86,11 @@ function ContactEntityFromJSONTyped(json, ignoreDiscriminator) {
         'email': json['email'] == null ? undefined : json['email'],
         'phone': json['phone'] == null ? undefined : json['phone'],
         'pixKeys': json['pixKeys'],
-        'birthDate': json['birthDate'],
+        'birthDate': json['birthDate'] == null ? undefined : json['birthDate'],
         'origin': json['origin'] == null ? undefined : json['origin'],
         'address': json['address'] == null ? undefined : (0, CreateContactRequestBodyDtoAddress_1.CreateContactRequestBodyDtoAddressFromJSON)(json['address']),
-        'createdAt': (new Date(json['createdAt'])),
-        'updatedAt': (new Date(json['updatedAt'])),
+        'createdAt': json['createdAt'],
+        'updatedAt': json['updatedAt'],
     };
 }
 function ContactEntityToJSON(json) {
@@ -116,7 +114,7 @@ function ContactEntityToJSONTyped(value, ignoreDiscriminator) {
         'birthDate': value['birthDate'],
         'origin': value['origin'],
         'address': (0, CreateContactRequestBodyDtoAddress_1.CreateContactRequestBodyDtoAddressToJSON)(value['address']),
-        'createdAt': ((value['createdAt']).toISOString()),
-        'updatedAt': ((value['updatedAt']).toISOString()),
+        'createdAt': value['createdAt'],
+        'updatedAt': value['updatedAt'],
     };
 }
