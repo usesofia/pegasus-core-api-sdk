@@ -1,5 +1,10 @@
 /* tslint:disable */
 /* eslint-disable */
+export * from './BankAccountEntity';
+export * from './BankAccountTypeEntity';
+export * from './BankAccountsPageEntity';
+export * from './BankAccountsPageEntityItemsInner';
+export * from './BankInstitutionEntity';
 export * from './CategoriesPageEntity';
 export * from './CategoriesPageEntityItemsInner';
 export * from './ContactEntity';
@@ -10,6 +15,7 @@ export * from './ContactsPageEntityItemsInner';
 export * from './ContactsPageEntityPageInfo';
 export * from './CountryItemEntity';
 export * from './CountryStateItemEntity';
+export * from './CreateBankAccountRequestBodyDto';
 export * from './CreateContactRequestBodyDto';
 export * from './CreateContactRequestBodyDtoAddress';
 export * from './CreateInviteRequestBodyDto';
@@ -29,11 +35,13 @@ export * from './NormalizedSubcategoriesPageEntity';
 export * from './NormalizedSubcategoriesPageEntityItemsInner';
 export * from './NormalizedSubcategoriesPageEntityItemsInnerPopulatedCategory';
 export * from './OrganizationEntity';
+export * from './PartialUpdateBankAccountRequestBodyDto';
 export * from './PartialUpdateContactRequestBodyDto';
 export * from './PartialUpdateMemberRequestBodyDto';
 export * from './PartialUpdateOrganizationRequestBodyDto';
 export * from './PartialUpdateSubcategoryRequestBodyDto';
 export * from './PartialUpdateTagRequestBodyDto';
+export * from './RemoveBankAccountRequestBodyDto';
 export * from './RemoveContactRequestBodyDto';
 export * from './RemoveMemberRequestBodyDto';
 export * from './RemoveSubcategoryRequestBodyDto';

@@ -1,4 +1,6 @@
 export * from './AddressesApi';
+export * from './BankAccountsApi';
+export * from './BankInstitutionsApi';
 export * from './CategoriesApi';
 export * from './ContactsApi';
 export * from './HealthApi';

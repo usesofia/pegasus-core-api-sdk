@@ -3,6 +3,8 @@
 README.md
 package.json
 src/apis/AddressesApi.ts
+src/apis/BankAccountsApi.ts
+src/apis/BankInstitutionsApi.ts
 src/apis/CategoriesApi.ts
 src/apis/ContactsApi.ts
 src/apis/HealthApi.ts
@@ -13,6 +15,11 @@ src/apis/SubcategoriesApi.ts
 src/apis/TagsApi.ts
 src/apis/index.ts
 src/index.ts
+src/models/BankAccountEntity.ts
+src/models/BankAccountTypeEntity.ts
+src/models/BankAccountsPageEntity.ts
+src/models/BankAccountsPageEntityItemsInner.ts
+src/models/BankInstitutionEntity.ts
 src/models/CategoriesPageEntity.ts
 src/models/CategoriesPageEntityItemsInner.ts
 src/models/ContactEntity.ts
@@ -23,6 +30,7 @@ src/models/ContactsPageEntityItemsInner.ts
 src/models/ContactsPageEntityPageInfo.ts
 src/models/CountryItemEntity.ts
 src/models/CountryStateItemEntity.ts
+src/models/CreateBankAccountRequestBodyDto.ts
 src/models/CreateContactRequestBodyDto.ts
 src/models/CreateContactRequestBodyDtoAddress.ts
 src/models/CreateInviteRequestBodyDto.ts
@@ -42,11 +50,13 @@ src/models/NormalizedSubcategoriesPageEntity.ts
 src/models/NormalizedSubcategoriesPageEntityItemsInner.ts
 src/models/NormalizedSubcategoriesPageEntityItemsInnerPopulatedCategory.ts
 src/models/OrganizationEntity.ts
+src/models/PartialUpdateBankAccountRequestBodyDto.ts
 src/models/PartialUpdateContactRequestBodyDto.ts
 src/models/PartialUpdateMemberRequestBodyDto.ts
 src/models/PartialUpdateOrganizationRequestBodyDto.ts
 src/models/PartialUpdateSubcategoryRequestBodyDto.ts
 src/models/PartialUpdateTagRequestBodyDto.ts
+src/models/RemoveBankAccountRequestBodyDto.ts
 src/models/RemoveContactRequestBodyDto.ts
 src/models/RemoveMemberRequestBodyDto.ts
 src/models/RemoveSubcategoryRequestBodyDto.ts
