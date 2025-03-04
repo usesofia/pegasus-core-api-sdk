@@ -12,110 +12,110 @@
 /**
  *
  * @export
- * @interface BankAccountEntity
+ * @interface BankAccountDto
  */
-export interface BankAccountEntity {
+export interface BankAccountDto {
     /**
      * Identificador da conta bancária.
      * @type {string}
-     * @memberof BankAccountEntity
+     * @memberof BankAccountDto
      */
     id: string;
     /**
      * Identificador da organização dona da conta bancária.
      * @type {string}
-     * @memberof BankAccountEntity
+     * @memberof BankAccountDto
      */
     ownerOrganization: string;
     /**
      * Nome da conta bancária.
      * @type {string}
-     * @memberof BankAccountEntity
+     * @memberof BankAccountDto
      */
     name: string;
     /**
      * Tipo da conta bancária.
      * @type {string}
-     * @memberof BankAccountEntity
+     * @memberof BankAccountDto
      */
-    type: BankAccountEntityTypeEnum;
+    type: BankAccountDtoTypeEnum;
     /**
      * Número da conta ou cartão.
      * @type {string}
-     * @memberof BankAccountEntity
+     * @memberof BankAccountDto
      */
     number: string;
     /**
      * Indica se a conta é automática ou manual.
      * @type {boolean}
-     * @memberof BankAccountEntity
+     * @memberof BankAccountDto
      */
     isAutomatic: boolean;
     /**
      * Indica se a conta é a padrão.
      * @type {boolean}
-     * @memberof BankAccountEntity
+     * @memberof BankAccountDto
      */
     isDefault: boolean;
     /**
      * Data do saldo inicial.
      * @type {any}
-     * @memberof BankAccountEntity
+     * @memberof BankAccountDto
      */
     initialBalanceDate?: any | null;
     /**
-     * Valor do saldo inicial.
-     * @type {number}
-     * @memberof BankAccountEntity
+     *
+     * @type {string}
+     * @memberof BankAccountDto
      */
-    initialBalanceAmount?: number | null;
+    initialBalanceAmount?: string | null;
     /**
      * Instituição financeira.
      * @type {string}
-     * @memberof BankAccountEntity
+     * @memberof BankAccountDto
      */
     institution: string;
     /**
      * Indica se a conta está ativa.
      * @type {boolean}
-     * @memberof BankAccountEntity
+     * @memberof BankAccountDto
      */
     active: boolean;
     /**
      * Fornecedor da conta bancária.
      * @type {string}
-     * @memberof BankAccountEntity
+     * @memberof BankAccountDto
      */
-    provider?: BankAccountEntityProviderEnum | null;
+    provider?: BankAccountDtoProviderEnum | null;
     /**
      * Identificador da conta bancária no fornecedor.
      * @type {string}
-     * @memberof BankAccountEntity
+     * @memberof BankAccountDto
      */
     providerAccountId?: string | null;
     /**
      * Identificador do item de conexão do fornecedor.
      * @type {string}
-     * @memberof BankAccountEntity
+     * @memberof BankAccountDto
      */
     providerItemId?: string | null;
     /**
      * Data de criação da conta bancária.
      * @type {any}
-     * @memberof BankAccountEntity
+     * @memberof BankAccountDto
      */
     createdAt: any | null;
     /**
      * Data de atualização da conta bancária.
      * @type {any}
-     * @memberof BankAccountEntity
+     * @memberof BankAccountDto
      */
     updatedAt: any | null;
 }
 /**
  * @export
  */
-export declare const BankAccountEntityTypeEnum: {
+export declare const BankAccountDtoTypeEnum: {
     readonly Money: "MONEY";
     readonly Checking: "CHECKING";
     readonly Savings: "SAVINGS";
@@ -123,20 +123,20 @@ export declare const BankAccountEntityTypeEnum: {
     readonly Application: "APPLICATION";
     readonly Other: "OTHER";
 };
-export type BankAccountEntityTypeEnum = typeof BankAccountEntityTypeEnum[keyof typeof BankAccountEntityTypeEnum];
+export type BankAccountDtoTypeEnum = typeof BankAccountDtoTypeEnum[keyof typeof BankAccountDtoTypeEnum];
 /**
  * @export
  */
-export declare const BankAccountEntityProviderEnum: {
+export declare const BankAccountDtoProviderEnum: {
     readonly Pluggy: "PLUGGY";
     readonly Other: "OTHER";
 };
-export type BankAccountEntityProviderEnum = typeof BankAccountEntityProviderEnum[keyof typeof BankAccountEntityProviderEnum];
+export type BankAccountDtoProviderEnum = typeof BankAccountDtoProviderEnum[keyof typeof BankAccountDtoProviderEnum];
 /**
- * Check if a given object implements the BankAccountEntity interface.
+ * Check if a given object implements the BankAccountDto interface.
  */
-export declare function instanceOfBankAccountEntity(value: object): value is BankAccountEntity;
-export declare function BankAccountEntityFromJSON(json: any): BankAccountEntity;
-export declare function BankAccountEntityFromJSONTyped(json: any, ignoreDiscriminator: boolean): BankAccountEntity;
-export declare function BankAccountEntityToJSON(json: any): BankAccountEntity;
-export declare function BankAccountEntityToJSONTyped(value?: BankAccountEntity | null, ignoreDiscriminator?: boolean): any;
+export declare function instanceOfBankAccountDto(value: object): value is BankAccountDto;
+export declare function BankAccountDtoFromJSON(json: any): BankAccountDto;
+export declare function BankAccountDtoFromJSONTyped(json: any, ignoreDiscriminator: boolean): BankAccountDto;
+export declare function BankAccountDtoToJSON(json: any): BankAccountDto;
+export declare function BankAccountDtoToJSONTyped(value?: BankAccountDto | null, ignoreDiscriminator?: boolean): any;

@@ -13,16 +13,16 @@
  * Do not edit the class manually.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.BankAccountsPageEntityItemsInnerProviderEnum = exports.BankAccountsPageEntityItemsInnerTypeEnum = void 0;
-exports.instanceOfBankAccountsPageEntityItemsInner = instanceOfBankAccountsPageEntityItemsInner;
-exports.BankAccountsPageEntityItemsInnerFromJSON = BankAccountsPageEntityItemsInnerFromJSON;
-exports.BankAccountsPageEntityItemsInnerFromJSONTyped = BankAccountsPageEntityItemsInnerFromJSONTyped;
-exports.BankAccountsPageEntityItemsInnerToJSON = BankAccountsPageEntityItemsInnerToJSON;
-exports.BankAccountsPageEntityItemsInnerToJSONTyped = BankAccountsPageEntityItemsInnerToJSONTyped;
+exports.BankAccountsPageDtoItemsInnerProviderEnum = exports.BankAccountsPageDtoItemsInnerTypeEnum = void 0;
+exports.instanceOfBankAccountsPageDtoItemsInner = instanceOfBankAccountsPageDtoItemsInner;
+exports.BankAccountsPageDtoItemsInnerFromJSON = BankAccountsPageDtoItemsInnerFromJSON;
+exports.BankAccountsPageDtoItemsInnerFromJSONTyped = BankAccountsPageDtoItemsInnerFromJSONTyped;
+exports.BankAccountsPageDtoItemsInnerToJSON = BankAccountsPageDtoItemsInnerToJSON;
+exports.BankAccountsPageDtoItemsInnerToJSONTyped = BankAccountsPageDtoItemsInnerToJSONTyped;
 /**
  * @export
  */
-exports.BankAccountsPageEntityItemsInnerTypeEnum = {
+exports.BankAccountsPageDtoItemsInnerTypeEnum = {
     Money: 'MONEY',
     Checking: 'CHECKING',
     Savings: 'SAVINGS',
@@ -33,14 +33,14 @@ exports.BankAccountsPageEntityItemsInnerTypeEnum = {
 /**
  * @export
  */
-exports.BankAccountsPageEntityItemsInnerProviderEnum = {
+exports.BankAccountsPageDtoItemsInnerProviderEnum = {
     Pluggy: 'PLUGGY',
     Other: 'OTHER'
 };
 /**
- * Check if a given object implements the BankAccountsPageEntityItemsInner interface.
+ * Check if a given object implements the BankAccountsPageDtoItemsInner interface.
  */
-function instanceOfBankAccountsPageEntityItemsInner(value) {
+function instanceOfBankAccountsPageDtoItemsInner(value) {
     if (!('id' in value) || value['id'] === undefined)
         return false;
     if (!('ownerOrganization' in value) || value['ownerOrganization'] === undefined)
@@ -65,10 +65,10 @@ function instanceOfBankAccountsPageEntityItemsInner(value) {
         return false;
     return true;
 }
-function BankAccountsPageEntityItemsInnerFromJSON(json) {
-    return BankAccountsPageEntityItemsInnerFromJSONTyped(json, false);
+function BankAccountsPageDtoItemsInnerFromJSON(json) {
+    return BankAccountsPageDtoItemsInnerFromJSONTyped(json, false);
 }
-function BankAccountsPageEntityItemsInnerFromJSONTyped(json, ignoreDiscriminator) {
+function BankAccountsPageDtoItemsInnerFromJSONTyped(json, ignoreDiscriminator) {
     if (json == null) {
         return json;
     }
@@ -91,10 +91,10 @@ function BankAccountsPageEntityItemsInnerFromJSONTyped(json, ignoreDiscriminator
         'updatedAt': json['updatedAt'],
     };
 }
-function BankAccountsPageEntityItemsInnerToJSON(json) {
-    return BankAccountsPageEntityItemsInnerToJSONTyped(json, false);
+function BankAccountsPageDtoItemsInnerToJSON(json) {
+    return BankAccountsPageDtoItemsInnerToJSONTyped(json, false);
 }
-function BankAccountsPageEntityItemsInnerToJSONTyped(value, ignoreDiscriminator) {
+function BankAccountsPageDtoItemsInnerToJSONTyped(value, ignoreDiscriminator) {
     if (ignoreDiscriminator === void 0) { ignoreDiscriminator = false; }
     if (value == null) {
         return value;

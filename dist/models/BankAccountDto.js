@@ -13,16 +13,16 @@
  * Do not edit the class manually.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.BankAccountEntityProviderEnum = exports.BankAccountEntityTypeEnum = void 0;
-exports.instanceOfBankAccountEntity = instanceOfBankAccountEntity;
-exports.BankAccountEntityFromJSON = BankAccountEntityFromJSON;
-exports.BankAccountEntityFromJSONTyped = BankAccountEntityFromJSONTyped;
-exports.BankAccountEntityToJSON = BankAccountEntityToJSON;
-exports.BankAccountEntityToJSONTyped = BankAccountEntityToJSONTyped;
+exports.BankAccountDtoProviderEnum = exports.BankAccountDtoTypeEnum = void 0;
+exports.instanceOfBankAccountDto = instanceOfBankAccountDto;
+exports.BankAccountDtoFromJSON = BankAccountDtoFromJSON;
+exports.BankAccountDtoFromJSONTyped = BankAccountDtoFromJSONTyped;
+exports.BankAccountDtoToJSON = BankAccountDtoToJSON;
+exports.BankAccountDtoToJSONTyped = BankAccountDtoToJSONTyped;
 /**
  * @export
  */
-exports.BankAccountEntityTypeEnum = {
+exports.BankAccountDtoTypeEnum = {
     Money: 'MONEY',
     Checking: 'CHECKING',
     Savings: 'SAVINGS',
@@ -33,14 +33,14 @@ exports.BankAccountEntityTypeEnum = {
 /**
  * @export
  */
-exports.BankAccountEntityProviderEnum = {
+exports.BankAccountDtoProviderEnum = {
     Pluggy: 'PLUGGY',
     Other: 'OTHER'
 };
 /**
- * Check if a given object implements the BankAccountEntity interface.
+ * Check if a given object implements the BankAccountDto interface.
  */
-function instanceOfBankAccountEntity(value) {
+function instanceOfBankAccountDto(value) {
     if (!('id' in value) || value['id'] === undefined)
         return false;
     if (!('ownerOrganization' in value) || value['ownerOrganization'] === undefined)
@@ -65,10 +65,10 @@ function instanceOfBankAccountEntity(value) {
         return false;
     return true;
 }
-function BankAccountEntityFromJSON(json) {
-    return BankAccountEntityFromJSONTyped(json, false);
+function BankAccountDtoFromJSON(json) {
+    return BankAccountDtoFromJSONTyped(json, false);
 }
-function BankAccountEntityFromJSONTyped(json, ignoreDiscriminator) {
+function BankAccountDtoFromJSONTyped(json, ignoreDiscriminator) {
     if (json == null) {
         return json;
     }
@@ -91,10 +91,10 @@ function BankAccountEntityFromJSONTyped(json, ignoreDiscriminator) {
         'updatedAt': json['updatedAt'],
     };
 }
-function BankAccountEntityToJSON(json) {
-    return BankAccountEntityToJSONTyped(json, false);
+function BankAccountDtoToJSON(json) {
+    return BankAccountDtoToJSONTyped(json, false);
 }
-function BankAccountEntityToJSONTyped(value, ignoreDiscriminator) {
+function BankAccountDtoToJSONTyped(value, ignoreDiscriminator) {
     if (ignoreDiscriminator === void 0) { ignoreDiscriminator = false; }
     if (value == null) {
         return value;

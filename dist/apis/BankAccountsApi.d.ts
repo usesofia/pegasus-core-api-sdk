@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { BankAccountEntity, BankAccountTypeEntity, BankAccountsPageEntity, CreateBankAccountRequestBodyDto, PartialUpdateBankAccountRequestBodyDto, RemoveBankAccountRequestBodyDto } from '../models/index';
+import type { BankAccountDto, BankAccountTypeEntity, BankAccountsPageDto, CreateBankAccountRequestBodyDto, PartialUpdateBankAccountRequestBodyDto, RemoveBankAccountRequestBodyDto } from '../models/index';
 export interface CreateBankAccountRequest {
     createBankAccountRequestBodyDto: CreateBankAccountRequestBodyDto;
     populate?: string;
@@ -58,11 +58,11 @@ export interface BankAccountsApiInterface {
      * @throws {RequiredError}
      * @memberof BankAccountsApiInterface
      */
-    createBankAccountRaw(requestParameters: CreateBankAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankAccountEntity>>;
+    createBankAccountRaw(requestParameters: CreateBankAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankAccountDto>>;
     /**
      * Cria uma nova conta bancária.
      */
-    createBankAccount(requestParameters: CreateBankAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankAccountEntity>;
+    createBankAccount(requestParameters: CreateBankAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankAccountDto>;
     /**
      *
      * @summary Busca todos os tipos de conta bancária.
@@ -94,11 +94,11 @@ export interface BankAccountsApiInterface {
      * @throws {RequiredError}
      * @memberof BankAccountsApiInterface
      */
-    findAllBankAccountsRaw(requestParameters: FindAllBankAccountsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankAccountsPageEntity>>;
+    findAllBankAccountsRaw(requestParameters: FindAllBankAccountsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankAccountsPageDto>>;
     /**
      * Busca todas as contas bancárias.
      */
-    findAllBankAccounts(requestParameters: FindAllBankAccountsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankAccountsPageEntity>;
+    findAllBankAccounts(requestParameters: FindAllBankAccountsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankAccountsPageDto>;
     /**
      *
      * @summary Busca uma conta bancária pelo identificador.
@@ -108,11 +108,11 @@ export interface BankAccountsApiInterface {
      * @throws {RequiredError}
      * @memberof BankAccountsApiInterface
      */
-    findByIdBankAccountRaw(requestParameters: FindByIdBankAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankAccountEntity>>;
+    findByIdBankAccountRaw(requestParameters: FindByIdBankAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankAccountDto>>;
     /**
      * Busca uma conta bancária pelo identificador.
      */
-    findByIdBankAccount(requestParameters: FindByIdBankAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankAccountEntity>;
+    findByIdBankAccount(requestParameters: FindByIdBankAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankAccountDto>;
     /**
      *
      * @summary Atualiza parcialmente uma conta bancária.
@@ -123,11 +123,11 @@ export interface BankAccountsApiInterface {
      * @throws {RequiredError}
      * @memberof BankAccountsApiInterface
      */
-    partialUpdateBankAccountRaw(requestParameters: PartialUpdateBankAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankAccountEntity>>;
+    partialUpdateBankAccountRaw(requestParameters: PartialUpdateBankAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankAccountDto>>;
     /**
      * Atualiza parcialmente uma conta bancária.
      */
-    partialUpdateBankAccount(requestParameters: PartialUpdateBankAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankAccountEntity>;
+    partialUpdateBankAccount(requestParameters: PartialUpdateBankAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankAccountDto>;
     /**
      *
      * @summary Remove uma conta bancária.
@@ -150,11 +150,11 @@ export declare class BankAccountsApi extends runtime.BaseAPI implements BankAcco
     /**
      * Cria uma nova conta bancária.
      */
-    createBankAccountRaw(requestParameters: CreateBankAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankAccountEntity>>;
+    createBankAccountRaw(requestParameters: CreateBankAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankAccountDto>>;
     /**
      * Cria uma nova conta bancária.
      */
-    createBankAccount(requestParameters: CreateBankAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankAccountEntity>;
+    createBankAccount(requestParameters: CreateBankAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankAccountDto>;
     /**
      * Busca todos os tipos de conta bancária.
      */
@@ -166,27 +166,27 @@ export declare class BankAccountsApi extends runtime.BaseAPI implements BankAcco
     /**
      * Busca todas as contas bancárias.
      */
-    findAllBankAccountsRaw(requestParameters: FindAllBankAccountsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankAccountsPageEntity>>;
+    findAllBankAccountsRaw(requestParameters: FindAllBankAccountsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankAccountsPageDto>>;
     /**
      * Busca todas as contas bancárias.
      */
-    findAllBankAccounts(requestParameters?: FindAllBankAccountsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankAccountsPageEntity>;
+    findAllBankAccounts(requestParameters?: FindAllBankAccountsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankAccountsPageDto>;
     /**
      * Busca uma conta bancária pelo identificador.
      */
-    findByIdBankAccountRaw(requestParameters: FindByIdBankAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankAccountEntity>>;
+    findByIdBankAccountRaw(requestParameters: FindByIdBankAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankAccountDto>>;
     /**
      * Busca uma conta bancária pelo identificador.
      */
-    findByIdBankAccount(requestParameters: FindByIdBankAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankAccountEntity>;
+    findByIdBankAccount(requestParameters: FindByIdBankAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankAccountDto>;
     /**
      * Atualiza parcialmente uma conta bancária.
      */
-    partialUpdateBankAccountRaw(requestParameters: PartialUpdateBankAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankAccountEntity>>;
+    partialUpdateBankAccountRaw(requestParameters: PartialUpdateBankAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankAccountDto>>;
     /**
      * Atualiza parcialmente uma conta bancária.
      */
-    partialUpdateBankAccount(requestParameters: PartialUpdateBankAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankAccountEntity>;
+    partialUpdateBankAccount(requestParameters: PartialUpdateBankAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankAccountDto>;
     /**
      * Remove uma conta bancária.
      */

@@ -16,10 +16,10 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
 Object.defineProperty(exports, "__esModule", { value: true });
 /* tslint:disable */
 /* eslint-disable */
-__exportStar(require("./BankAccountEntity"), exports);
+__exportStar(require("./BankAccountDto"), exports);
 __exportStar(require("./BankAccountTypeEntity"), exports);
-__exportStar(require("./BankAccountsPageEntity"), exports);
-__exportStar(require("./BankAccountsPageEntityItemsInner"), exports);
+__exportStar(require("./BankAccountsPageDto"), exports);
+__exportStar(require("./BankAccountsPageDtoItemsInner"), exports);
 __exportStar(require("./BankInstitutionEntity"), exports);
 __exportStar(require("./CategoriesPageEntity"), exports);
 __exportStar(require("./CategoriesPageEntityItemsInner"), exports);

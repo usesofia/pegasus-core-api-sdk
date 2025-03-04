@@ -102,7 +102,7 @@ var BankAccountsApi = /** @class */ (function (_super) {
                             }, initOverrides)];
                     case 1:
                         response = _a.sent();
-                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.BankAccountEntityFromJSON)(jsonValue); })];
+                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.BankAccountDtoFromJSON)(jsonValue); })];
                 }
             });
         });
@@ -220,7 +220,7 @@ var BankAccountsApi = /** @class */ (function (_super) {
                             }, initOverrides)];
                     case 1:
                         response = _a.sent();
-                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.BankAccountsPageEntityFromJSON)(jsonValue); })];
+                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.BankAccountsPageDtoFromJSON)(jsonValue); })];
                 }
             });
         });
@@ -268,7 +268,7 @@ var BankAccountsApi = /** @class */ (function (_super) {
                             }, initOverrides)];
                     case 1:
                         response = _a.sent();
-                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.BankAccountEntityFromJSON)(jsonValue); })];
+                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.BankAccountDtoFromJSON)(jsonValue); })];
                 }
             });
         });
@@ -320,7 +320,7 @@ var BankAccountsApi = /** @class */ (function (_super) {
                             }, initOverrides)];
                     case 1:
                         response = _a.sent();
-                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.BankAccountEntityFromJSON)(jsonValue); })];
+                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.BankAccountDtoFromJSON)(jsonValue); })];
                 }
             });
         });

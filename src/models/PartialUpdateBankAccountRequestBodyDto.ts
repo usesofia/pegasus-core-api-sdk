@@ -44,11 +44,11 @@ export interface PartialUpdateBankAccountRequestBodyDto {
      */
     initialBalanceDate?: any | null;
     /**
-     * Valor do saldo inicial.
-     * @type {number}
+     * 
+     * @type {string}
      * @memberof PartialUpdateBankAccountRequestBodyDto
      */
-    initialBalanceAmount?: number | null;
+    initialBalanceAmount?: string | null;
     /**
      * Instituição financeira.
      * @type {string}

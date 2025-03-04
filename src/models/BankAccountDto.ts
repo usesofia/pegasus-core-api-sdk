@@ -16,103 +16,103 @@ import { mapValues } from '../runtime';
 /**
  * 
  * @export
- * @interface BankAccountEntity
+ * @interface BankAccountDto
  */
-export interface BankAccountEntity {
+export interface BankAccountDto {
     /**
      * Identificador da conta bancária.
      * @type {string}
-     * @memberof BankAccountEntity
+     * @memberof BankAccountDto
      */
     id: string;
     /**
      * Identificador da organização dona da conta bancária.
      * @type {string}
-     * @memberof BankAccountEntity
+     * @memberof BankAccountDto
      */
     ownerOrganization: string;
     /**
      * Nome da conta bancária.
      * @type {string}
-     * @memberof BankAccountEntity
+     * @memberof BankAccountDto
      */
     name: string;
     /**
      * Tipo da conta bancária.
      * @type {string}
-     * @memberof BankAccountEntity
+     * @memberof BankAccountDto
      */
-    type: BankAccountEntityTypeEnum;
+    type: BankAccountDtoTypeEnum;
     /**
      * Número da conta ou cartão.
      * @type {string}
-     * @memberof BankAccountEntity
+     * @memberof BankAccountDto
      */
     number: string;
     /**
      * Indica se a conta é automática ou manual.
      * @type {boolean}
-     * @memberof BankAccountEntity
+     * @memberof BankAccountDto
      */
     isAutomatic: boolean;
     /**
      * Indica se a conta é a padrão.
      * @type {boolean}
-     * @memberof BankAccountEntity
+     * @memberof BankAccountDto
      */
     isDefault: boolean;
     /**
      * Data do saldo inicial.
      * @type {any}
-     * @memberof BankAccountEntity
+     * @memberof BankAccountDto
      */
     initialBalanceDate?: any | null;
     /**
-     * Valor do saldo inicial.
-     * @type {number}
-     * @memberof BankAccountEntity
+     * 
+     * @type {string}
+     * @memberof BankAccountDto
      */
-    initialBalanceAmount?: number | null;
+    initialBalanceAmount?: string | null;
     /**
      * Instituição financeira.
      * @type {string}
-     * @memberof BankAccountEntity
+     * @memberof BankAccountDto
      */
     institution: string;
     /**
      * Indica se a conta está ativa.
      * @type {boolean}
-     * @memberof BankAccountEntity
+     * @memberof BankAccountDto
      */
     active: boolean;
     /**
      * Fornecedor da conta bancária.
      * @type {string}
-     * @memberof BankAccountEntity
+     * @memberof BankAccountDto
      */
-    provider?: BankAccountEntityProviderEnum | null;
+    provider?: BankAccountDtoProviderEnum | null;
     /**
      * Identificador da conta bancária no fornecedor.
      * @type {string}
-     * @memberof BankAccountEntity
+     * @memberof BankAccountDto
      */
     providerAccountId?: string | null;
     /**
      * Identificador do item de conexão do fornecedor.
      * @type {string}
-     * @memberof BankAccountEntity
+     * @memberof BankAccountDto
      */
     providerItemId?: string | null;
     /**
      * Data de criação da conta bancária.
      * @type {any}
-     * @memberof BankAccountEntity
+     * @memberof BankAccountDto
      */
     createdAt: any | null;
     /**
      * Data de atualização da conta bancária.
      * @type {any}
-     * @memberof BankAccountEntity
+     * @memberof BankAccountDto
      */
     updatedAt: any | null;
 }
@@ -121,7 +121,7 @@ export interface BankAccountEntity {
 /**
  * @export
  */
-export const BankAccountEntityTypeEnum = {
+export const BankAccountDtoTypeEnum = {
     Money: 'MONEY',
     Checking: 'CHECKING',
     Savings: 'SAVINGS',
@@ -129,22 +129,22 @@ export const BankAccountEntityTypeEnum = {
     Application: 'APPLICATION',
     Other: 'OTHER'
 } as const;
-export type BankAccountEntityTypeEnum = typeof BankAccountEntityTypeEnum[keyof typeof BankAccountEntityTypeEnum];
+export type BankAccountDtoTypeEnum = typeof BankAccountDtoTypeEnum[keyof typeof BankAccountDtoTypeEnum];
 
 /**
  * @export
  */
-export const BankAccountEntityProviderEnum = {
+export const BankAccountDtoProviderEnum = {
     Pluggy: 'PLUGGY',
     Other: 'OTHER'
 } as const;
-export type BankAccountEntityProviderEnum = typeof BankAccountEntityProviderEnum[keyof typeof BankAccountEntityProviderEnum];
+export type BankAccountDtoProviderEnum = typeof BankAccountDtoProviderEnum[keyof typeof BankAccountDtoProviderEnum];
 
 
 /**
- * Check if a given object implements the BankAccountEntity interface.
+ * Check if a given object implements the BankAccountDto interface.
  */
-export function instanceOfBankAccountEntity(value: object): value is BankAccountEntity {
+export function instanceOfBankAccountDto(value: object): value is BankAccountDto {
     if (!('id' in value) || value['id'] === undefined) return false;
     if (!('ownerOrganization' in value) || value['ownerOrganization'] === undefined) return false;
     if (!('name' in value) || value['name'] === undefined) return false;
@@ -159,11 +159,11 @@ export function instanceOfBankAccountEntity(value: object): value is BankAccount
     return true;
 }
 
-export function BankAccountEntityFromJSON(json: any): BankAccountEntity {
-    return BankAccountEntityFromJSONTyped(json, false);
+export function BankAccountDtoFromJSON(json: any): BankAccountDto {
+    return BankAccountDtoFromJSONTyped(json, false);
 }
 
-export function BankAccountEntityFromJSONTyped(json: any, ignoreDiscriminator: boolean): BankAccountEntity {
+export function BankAccountDtoFromJSONTyped(json: any, ignoreDiscriminator: boolean): BankAccountDto {
     if (json == null) {
         return json;
     }
@@ -188,11 +188,11 @@ export function BankAccountEntityFromJSONTyped(json: any, ignoreDiscriminator: b
     };
 }
 
-export function BankAccountEntityToJSON(json: any): BankAccountEntity {
-    return BankAccountEntityToJSONTyped(json, false);
+export function BankAccountDtoToJSON(json: any): BankAccountDto {
+    return BankAccountDtoToJSONTyped(json, false);
 }
 
-export function BankAccountEntityToJSONTyped(value?: BankAccountEntity | null, ignoreDiscriminator: boolean = false): any {
+export function BankAccountDtoToJSONTyped(value?: BankAccountDto | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

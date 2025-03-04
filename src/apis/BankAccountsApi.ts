@@ -15,21 +15,21 @@
 
 import * as runtime from '../runtime';
 import type {
-  BankAccountEntity,
+  BankAccountDto,
   BankAccountTypeEntity,
-  BankAccountsPageEntity,
+  BankAccountsPageDto,
   CreateBankAccountRequestBodyDto,
   ExceptionResponseEntity,
   PartialUpdateBankAccountRequestBodyDto,
   RemoveBankAccountRequestBodyDto,
 } from '../models/index';
 import {
-    BankAccountEntityFromJSON,
-    BankAccountEntityToJSON,
+    BankAccountDtoFromJSON,
+    BankAccountDtoToJSON,
     BankAccountTypeEntityFromJSON,
     BankAccountTypeEntityToJSON,
-    BankAccountsPageEntityFromJSON,
-    BankAccountsPageEntityToJSON,
+    BankAccountsPageDtoFromJSON,
+    BankAccountsPageDtoToJSON,
     CreateBankAccountRequestBodyDtoFromJSON,
     CreateBankAccountRequestBodyDtoToJSON,
     ExceptionResponseEntityFromJSON,
@@ -92,12 +92,12 @@ export interface BankAccountsApiInterface {
      * @throws {RequiredError}
      * @memberof BankAccountsApiInterface
      */
-    createBankAccountRaw(requestParameters: CreateBankAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankAccountEntity>>;
+    createBankAccountRaw(requestParameters: CreateBankAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankAccountDto>>;
 
     /**
      * Cria uma nova conta bancária.
      */
-    createBankAccount(requestParameters: CreateBankAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankAccountEntity>;
+    createBankAccount(requestParameters: CreateBankAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankAccountDto>;
 
     /**
      * 
@@ -132,12 +132,12 @@ export interface BankAccountsApiInterface {
      * @throws {RequiredError}
      * @memberof BankAccountsApiInterface
      */
-    findAllBankAccountsRaw(requestParameters: FindAllBankAccountsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankAccountsPageEntity>>;
+    findAllBankAccountsRaw(requestParameters: FindAllBankAccountsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankAccountsPageDto>>;
 
     /**
      * Busca todas as contas bancárias.
      */
-    findAllBankAccounts(requestParameters: FindAllBankAccountsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankAccountsPageEntity>;
+    findAllBankAccounts(requestParameters: FindAllBankAccountsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankAccountsPageDto>;
 
     /**
      * 
@@ -148,12 +148,12 @@ export interface BankAccountsApiInterface {
      * @throws {RequiredError}
      * @memberof BankAccountsApiInterface
      */
-    findByIdBankAccountRaw(requestParameters: FindByIdBankAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankAccountEntity>>;
+    findByIdBankAccountRaw(requestParameters: FindByIdBankAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankAccountDto>>;
 
     /**
      * Busca uma conta bancária pelo identificador.
      */
-    findByIdBankAccount(requestParameters: FindByIdBankAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankAccountEntity>;
+    findByIdBankAccount(requestParameters: FindByIdBankAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankAccountDto>;
 
     /**
      * 
@@ -165,12 +165,12 @@ export interface BankAccountsApiInterface {
      * @throws {RequiredError}
      * @memberof BankAccountsApiInterface
      */
-    partialUpdateBankAccountRaw(requestParameters: PartialUpdateBankAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankAccountEntity>>;
+    partialUpdateBankAccountRaw(requestParameters: PartialUpdateBankAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankAccountDto>>;
 
     /**
      * Atualiza parcialmente uma conta bancária.
      */
-    partialUpdateBankAccount(requestParameters: PartialUpdateBankAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankAccountEntity>;
+    partialUpdateBankAccount(requestParameters: PartialUpdateBankAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankAccountDto>;
 
     /**
      * 
@@ -198,7 +198,7 @@ export class BankAccountsApi extends runtime.BaseAPI implements BankAccountsApiI
     /**
      * Cria uma nova conta bancária.
      */
-    async createBankAccountRaw(requestParameters: CreateBankAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankAccountEntity>> {
+    async createBankAccountRaw(requestParameters: CreateBankAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankAccountDto>> {
         if (requestParameters['createBankAccountRequestBodyDto'] == null) {
             throw new runtime.RequiredError(
                 'createBankAccountRequestBodyDto',
@@ -224,13 +224,13 @@ export class BankAccountsApi extends runtime.BaseAPI implements BankAccountsApiI
             body: CreateBankAccountRequestBodyDtoToJSON(requestParameters['createBankAccountRequestBodyDto']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => BankAccountEntityFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => BankAccountDtoFromJSON(jsonValue));
     }
 
     /**
      * Cria uma nova conta bancária.
      */
-    async createBankAccount(requestParameters: CreateBankAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankAccountEntity> {
+    async createBankAccount(requestParameters: CreateBankAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankAccountDto> {
         const response = await this.createBankAccountRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -264,7 +264,7 @@ export class BankAccountsApi extends runtime.BaseAPI implements BankAccountsApiI
     /**
      * Busca todas as contas bancárias.
      */
-    async findAllBankAccountsRaw(requestParameters: FindAllBankAccountsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankAccountsPageEntity>> {
+    async findAllBankAccountsRaw(requestParameters: FindAllBankAccountsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankAccountsPageDto>> {
         const queryParameters: any = {};
 
         if (requestParameters['sortOrder'] != null) {
@@ -324,13 +324,13 @@ export class BankAccountsApi extends runtime.BaseAPI implements BankAccountsApiI
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => BankAccountsPageEntityFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => BankAccountsPageDtoFromJSON(jsonValue));
     }
 
     /**
      * Busca todas as contas bancárias.
      */
-    async findAllBankAccounts(requestParameters: FindAllBankAccountsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankAccountsPageEntity> {
+    async findAllBankAccounts(requestParameters: FindAllBankAccountsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankAccountsPageDto> {
         const response = await this.findAllBankAccountsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -338,7 +338,7 @@ export class BankAccountsApi extends runtime.BaseAPI implements BankAccountsApiI
     /**
      * Busca uma conta bancária pelo identificador.
      */
-    async findByIdBankAccountRaw(requestParameters: FindByIdBankAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankAccountEntity>> {
+    async findByIdBankAccountRaw(requestParameters: FindByIdBankAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankAccountDto>> {
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
@@ -361,13 +361,13 @@ export class BankAccountsApi extends runtime.BaseAPI implements BankAccountsApiI
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => BankAccountEntityFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => BankAccountDtoFromJSON(jsonValue));
     }
 
     /**
      * Busca uma conta bancária pelo identificador.
      */
-    async findByIdBankAccount(requestParameters: FindByIdBankAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankAccountEntity> {
+    async findByIdBankAccount(requestParameters: FindByIdBankAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankAccountDto> {
         const response = await this.findByIdBankAccountRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -375,7 +375,7 @@ export class BankAccountsApi extends runtime.BaseAPI implements BankAccountsApiI
     /**
      * Atualiza parcialmente uma conta bancária.
      */
-    async partialUpdateBankAccountRaw(requestParameters: PartialUpdateBankAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankAccountEntity>> {
+    async partialUpdateBankAccountRaw(requestParameters: PartialUpdateBankAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankAccountDto>> {
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
@@ -408,13 +408,13 @@ export class BankAccountsApi extends runtime.BaseAPI implements BankAccountsApiI
             body: PartialUpdateBankAccountRequestBodyDtoToJSON(requestParameters['partialUpdateBankAccountRequestBodyDto']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => BankAccountEntityFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => BankAccountDtoFromJSON(jsonValue));
     }
 
     /**
      * Atualiza parcialmente uma conta bancária.
      */
-    async partialUpdateBankAccount(requestParameters: PartialUpdateBankAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankAccountEntity> {
+    async partialUpdateBankAccount(requestParameters: PartialUpdateBankAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankAccountDto> {
         const response = await this.partialUpdateBankAccountRaw(requestParameters, initOverrides);
         return await response.value();
     }

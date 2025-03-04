@@ -15,10 +15,10 @@ src/apis/SubcategoriesApi.ts
 src/apis/TagsApi.ts
 src/apis/index.ts
 src/index.ts
-src/models/BankAccountEntity.ts
+src/models/BankAccountDto.ts
 src/models/BankAccountTypeEntity.ts
-src/models/BankAccountsPageEntity.ts
-src/models/BankAccountsPageEntityItemsInner.ts
+src/models/BankAccountsPageDto.ts
+src/models/BankAccountsPageDtoItemsInner.ts
 src/models/BankInstitutionEntity.ts
 src/models/CategoriesPageEntity.ts
 src/models/CategoriesPageEntityItemsInner.ts

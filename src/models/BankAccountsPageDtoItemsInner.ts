@@ -16,103 +16,103 @@ import { mapValues } from '../runtime';
 /**
  * 
  * @export
- * @interface BankAccountsPageEntityItemsInner
+ * @interface BankAccountsPageDtoItemsInner
  */
-export interface BankAccountsPageEntityItemsInner {
+export interface BankAccountsPageDtoItemsInner {
     /**
      * Identificador da conta bancária.
      * @type {string}
-     * @memberof BankAccountsPageEntityItemsInner
+     * @memberof BankAccountsPageDtoItemsInner
      */
     id: string;
     /**
      * Identificador da organização dona da conta bancária.
      * @type {string}
-     * @memberof BankAccountsPageEntityItemsInner
+     * @memberof BankAccountsPageDtoItemsInner
      */
     ownerOrganization: string;
     /**
      * Nome da conta bancária.
      * @type {string}
-     * @memberof BankAccountsPageEntityItemsInner
+     * @memberof BankAccountsPageDtoItemsInner
      */
     name: string;
     /**
      * Tipo da conta bancária.
      * @type {string}
-     * @memberof BankAccountsPageEntityItemsInner
+     * @memberof BankAccountsPageDtoItemsInner
      */
-    type: BankAccountsPageEntityItemsInnerTypeEnum;
+    type: BankAccountsPageDtoItemsInnerTypeEnum;
     /**
      * Número da conta ou cartão.
      * @type {string}
-     * @memberof BankAccountsPageEntityItemsInner
+     * @memberof BankAccountsPageDtoItemsInner
      */
     number: string;
     /**
      * Indica se a conta é automática ou manual.
      * @type {boolean}
-     * @memberof BankAccountsPageEntityItemsInner
+     * @memberof BankAccountsPageDtoItemsInner
      */
     isAutomatic: boolean;
     /**
      * Indica se a conta é a padrão.
      * @type {boolean}
-     * @memberof BankAccountsPageEntityItemsInner
+     * @memberof BankAccountsPageDtoItemsInner
      */
     isDefault: boolean;
     /**
      * Data do saldo inicial.
      * @type {any}
-     * @memberof BankAccountsPageEntityItemsInner
+     * @memberof BankAccountsPageDtoItemsInner
      */
     initialBalanceDate?: any | null;
     /**
-     * Valor do saldo inicial.
-     * @type {number}
-     * @memberof BankAccountsPageEntityItemsInner
+     * 
+     * @type {string}
+     * @memberof BankAccountsPageDtoItemsInner
      */
-    initialBalanceAmount?: number | null;
+    initialBalanceAmount?: string | null;
     /**
      * Instituição financeira.
      * @type {string}
-     * @memberof BankAccountsPageEntityItemsInner
+     * @memberof BankAccountsPageDtoItemsInner
      */
     institution: string;
     /**
      * Indica se a conta está ativa.
      * @type {boolean}
-     * @memberof BankAccountsPageEntityItemsInner
+     * @memberof BankAccountsPageDtoItemsInner
      */
     active: boolean;
     /**
      * Fornecedor da conta bancária.
      * @type {string}
-     * @memberof BankAccountsPageEntityItemsInner
+     * @memberof BankAccountsPageDtoItemsInner
      */
-    provider?: BankAccountsPageEntityItemsInnerProviderEnum | null;
+    provider?: BankAccountsPageDtoItemsInnerProviderEnum | null;
     /**
      * Identificador da conta bancária no fornecedor.
      * @type {string}
-     * @memberof BankAccountsPageEntityItemsInner
+     * @memberof BankAccountsPageDtoItemsInner
      */
     providerAccountId?: string | null;
     /**
      * Identificador do item de conexão do fornecedor.
      * @type {string}
-     * @memberof BankAccountsPageEntityItemsInner
+     * @memberof BankAccountsPageDtoItemsInner
      */
     providerItemId?: string | null;
     /**
      * Data de criação da conta bancária.
      * @type {any}
-     * @memberof BankAccountsPageEntityItemsInner
+     * @memberof BankAccountsPageDtoItemsInner
      */
     createdAt: any | null;
     /**
      * Data de atualização da conta bancária.
      * @type {any}
-     * @memberof BankAccountsPageEntityItemsInner
+     * @memberof BankAccountsPageDtoItemsInner
      */
     updatedAt: any | null;
 }
@@ -121,7 +121,7 @@ export interface BankAccountsPageEntityItemsInner {
 /**
  * @export
  */
-export const BankAccountsPageEntityItemsInnerTypeEnum = {
+export const BankAccountsPageDtoItemsInnerTypeEnum = {
     Money: 'MONEY',
     Checking: 'CHECKING',
     Savings: 'SAVINGS',
@@ -129,22 +129,22 @@ export const BankAccountsPageEntityItemsInnerTypeEnum = {
     Application: 'APPLICATION',
     Other: 'OTHER'
 } as const;
-export type BankAccountsPageEntityItemsInnerTypeEnum = typeof BankAccountsPageEntityItemsInnerTypeEnum[keyof typeof BankAccountsPageEntityItemsInnerTypeEnum];
+export type BankAccountsPageDtoItemsInnerTypeEnum = typeof BankAccountsPageDtoItemsInnerTypeEnum[keyof typeof BankAccountsPageDtoItemsInnerTypeEnum];
 
 /**
  * @export
  */
-export const BankAccountsPageEntityItemsInnerProviderEnum = {
+export const BankAccountsPageDtoItemsInnerProviderEnum = {
     Pluggy: 'PLUGGY',
     Other: 'OTHER'
 } as const;
-export type BankAccountsPageEntityItemsInnerProviderEnum = typeof BankAccountsPageEntityItemsInnerProviderEnum[keyof typeof BankAccountsPageEntityItemsInnerProviderEnum];
+export type BankAccountsPageDtoItemsInnerProviderEnum = typeof BankAccountsPageDtoItemsInnerProviderEnum[keyof typeof BankAccountsPageDtoItemsInnerProviderEnum];
 
 
 /**
- * Check if a given object implements the BankAccountsPageEntityItemsInner interface.
+ * Check if a given object implements the BankAccountsPageDtoItemsInner interface.
  */
-export function instanceOfBankAccountsPageEntityItemsInner(value: object): value is BankAccountsPageEntityItemsInner {
+export function instanceOfBankAccountsPageDtoItemsInner(value: object): value is BankAccountsPageDtoItemsInner {
     if (!('id' in value) || value['id'] === undefined) return false;
     if (!('ownerOrganization' in value) || value['ownerOrganization'] === undefined) return false;
     if (!('name' in value) || value['name'] === undefined) return false;
@@ -159,11 +159,11 @@ export function instanceOfBankAccountsPageEntityItemsInner(value: object): value
     return true;
 }
 
-export function BankAccountsPageEntityItemsInnerFromJSON(json: any): BankAccountsPageEntityItemsInner {
-    return BankAccountsPageEntityItemsInnerFromJSONTyped(json, false);
+export function BankAccountsPageDtoItemsInnerFromJSON(json: any): BankAccountsPageDtoItemsInner {
+    return BankAccountsPageDtoItemsInnerFromJSONTyped(json, false);
 }
 
-export function BankAccountsPageEntityItemsInnerFromJSONTyped(json: any, ignoreDiscriminator: boolean): BankAccountsPageEntityItemsInner {
+export function BankAccountsPageDtoItemsInnerFromJSONTyped(json: any, ignoreDiscriminator: boolean): BankAccountsPageDtoItemsInner {
     if (json == null) {
         return json;
     }
@@ -188,11 +188,11 @@ export function BankAccountsPageEntityItemsInnerFromJSONTyped(json: any, ignoreD
     };
 }
 
-export function BankAccountsPageEntityItemsInnerToJSON(json: any): BankAccountsPageEntityItemsInner {
-    return BankAccountsPageEntityItemsInnerToJSONTyped(json, false);
+export function BankAccountsPageDtoItemsInnerToJSON(json: any): BankAccountsPageDtoItemsInner {
+    return BankAccountsPageDtoItemsInnerToJSONTyped(json, false);
 }
 
-export function BankAccountsPageEntityItemsInnerToJSONTyped(value?: BankAccountsPageEntityItemsInner | null, ignoreDiscriminator: boolean = false): any {
+export function BankAccountsPageDtoItemsInnerToJSONTyped(value?: BankAccountsPageDtoItemsInner | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

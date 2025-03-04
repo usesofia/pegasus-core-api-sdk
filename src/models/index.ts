@@ -1,9 +1,9 @@
 /* tslint:disable */
 /* eslint-disable */
-export * from './BankAccountEntity';
+export * from './BankAccountDto';
 export * from './BankAccountTypeEntity';
-export * from './BankAccountsPageEntity';
-export * from './BankAccountsPageEntityItemsInner';
+export * from './BankAccountsPageDto';
+export * from './BankAccountsPageDtoItemsInner';
 export * from './BankInstitutionEntity';
 export * from './CategoriesPageEntity';
 export * from './CategoriesPageEntityItemsInner';
