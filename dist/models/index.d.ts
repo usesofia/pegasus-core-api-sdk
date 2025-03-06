@@ -3,6 +3,8 @@ export * from './BankAccountTypeEntity';
 export * from './BankAccountsPageDto';
 export * from './BankAccountsPageDtoItemsInner';
 export * from './BankInstitutionEntity';
+export * from './CacheGetResponseDto';
+export * from './CacheSetDto';
 export * from './CategoriesPageEntity';
 export * from './CategoriesPageEntityItemsInner';
 export * from './ContactEntity';

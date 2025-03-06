@@ -3,6 +3,7 @@
 export * from './AddressesApi';
 export * from './BankAccountsApi';
 export * from './BankInstitutionsApi';
+export * from './CacheApi';
 export * from './CategoriesApi';
 export * from './ContactsApi';
 export * from './HealthApi';

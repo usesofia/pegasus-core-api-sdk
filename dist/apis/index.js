@@ -19,6 +19,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 __exportStar(require("./AddressesApi"), exports);
 __exportStar(require("./BankAccountsApi"), exports);
 __exportStar(require("./BankInstitutionsApi"), exports);
+__exportStar(require("./CacheApi"), exports);
 __exportStar(require("./CategoriesApi"), exports);
 __exportStar(require("./ContactsApi"), exports);
 __exportStar(require("./HealthApi"), exports);
