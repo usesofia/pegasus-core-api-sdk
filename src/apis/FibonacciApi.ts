@@ -87,7 +87,7 @@ export class FibonacciApi extends runtime.BaseAPI implements FibonacciApiInterfa
         const headerParameters: runtime.HTTPHeaders = {};
 
         const response = await this.request({
-            path: `/external/queues/generate-fibonacci-sequence`,
+            path: `/internal/queues/generate-fibonacci-sequence`,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
@@ -112,7 +112,7 @@ export class FibonacciApi extends runtime.BaseAPI implements FibonacciApiInterfa
         const headerParameters: runtime.HTTPHeaders = {};
 
         const response = await this.request({
-            path: `/external/fibonacci/start`,
+            path: `/internal/fibonacci/start`,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
@@ -137,7 +137,7 @@ export class FibonacciApi extends runtime.BaseAPI implements FibonacciApiInterfa
         const headerParameters: runtime.HTTPHeaders = {};
 
         const response = await this.request({
-            path: `/external/queues/sum-fibonacci-sequence`,
+            path: `/internal/queues/sum-fibonacci-sequence`,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
