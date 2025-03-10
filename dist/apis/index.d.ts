@@ -4,6 +4,7 @@ export * from './BankInstitutionsApi';
 export * from './CacheApi';
 export * from './CategoriesApi';
 export * from './ContactsApi';
+export * from './FibonacciApi';
 export * from './HealthApi';
 export * from './MembershipsApi';
 export * from './NormalizedSubcategoriesApi';

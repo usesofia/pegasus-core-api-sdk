@@ -8,6 +8,7 @@ src/apis/BankInstitutionsApi.ts
 src/apis/CacheApi.ts
 src/apis/CategoriesApi.ts
 src/apis/ContactsApi.ts
+src/apis/FibonacciApi.ts
 src/apis/HealthApi.ts
 src/apis/MembershipsApi.ts
 src/apis/NormalizedSubcategoriesApi.ts
