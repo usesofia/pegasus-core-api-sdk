@@ -25,8 +25,8 @@ src/models/BankAccountsPageDtoItemsInner.ts
 src/models/BankInstitutionEntity.ts
 src/models/BankTransactionEntity.ts
 src/models/BankTransactionEntityPopulatedBankAccount.ts
-src/models/BankTransactionsPageEntity.ts
-src/models/BankTransactionsPageEntityItemsInner.ts
+src/models/BankTransactionsPageDto.ts
+src/models/BankTransactionsPageDtoItemsInner.ts
 src/models/CacheGetResponseDto.ts
 src/models/CacheSetDto.ts
 src/models/CategoriesPageEntity.ts

@@ -13,12 +13,12 @@
  * Do not edit the class manually.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.BankTransactionsPageEntityItemsInnerStatusEnum = exports.BankTransactionsPageEntityItemsInnerTypeEnum = exports.BankTransactionsPageEntityItemsInnerProviderEnum = void 0;
-exports.instanceOfBankTransactionsPageEntityItemsInner = instanceOfBankTransactionsPageEntityItemsInner;
-exports.BankTransactionsPageEntityItemsInnerFromJSON = BankTransactionsPageEntityItemsInnerFromJSON;
-exports.BankTransactionsPageEntityItemsInnerFromJSONTyped = BankTransactionsPageEntityItemsInnerFromJSONTyped;
-exports.BankTransactionsPageEntityItemsInnerToJSON = BankTransactionsPageEntityItemsInnerToJSON;
-exports.BankTransactionsPageEntityItemsInnerToJSONTyped = BankTransactionsPageEntityItemsInnerToJSONTyped;
+exports.BankTransactionsPageDtoItemsInnerStatusEnum = exports.BankTransactionsPageDtoItemsInnerTypeEnum = exports.BankTransactionsPageDtoItemsInnerProviderEnum = void 0;
+exports.instanceOfBankTransactionsPageDtoItemsInner = instanceOfBankTransactionsPageDtoItemsInner;
+exports.BankTransactionsPageDtoItemsInnerFromJSON = BankTransactionsPageDtoItemsInnerFromJSON;
+exports.BankTransactionsPageDtoItemsInnerFromJSONTyped = BankTransactionsPageDtoItemsInnerFromJSONTyped;
+exports.BankTransactionsPageDtoItemsInnerToJSON = BankTransactionsPageDtoItemsInnerToJSON;
+exports.BankTransactionsPageDtoItemsInnerToJSONTyped = BankTransactionsPageDtoItemsInnerToJSONTyped;
 var CreateOrUpdateBankTransactionRequestBodyDtoCreditCardMetadata_1 = require("./CreateOrUpdateBankTransactionRequestBodyDtoCreditCardMetadata");
 var CreateOrUpdateBankTransactionRequestBodyDtoMerchant_1 = require("./CreateOrUpdateBankTransactionRequestBodyDtoMerchant");
 var BankTransactionEntityPopulatedBankAccount_1 = require("./BankTransactionEntityPopulatedBankAccount");
@@ -26,7 +26,7 @@ var CreateOrUpdateBankTransactionRequestBodyDtoPaymentData_1 = require("./Create
 /**
  * @export
  */
-exports.BankTransactionsPageEntityItemsInnerProviderEnum = {
+exports.BankTransactionsPageDtoItemsInnerProviderEnum = {
     Pluggy: 'PLUGGY',
     Ofx: 'OFX',
     Other: 'OTHER'
@@ -34,21 +34,21 @@ exports.BankTransactionsPageEntityItemsInnerProviderEnum = {
 /**
  * @export
  */
-exports.BankTransactionsPageEntityItemsInnerTypeEnum = {
+exports.BankTransactionsPageDtoItemsInnerTypeEnum = {
     Debit: 'DEBIT',
     Credit: 'CREDIT'
 };
 /**
  * @export
  */
-exports.BankTransactionsPageEntityItemsInnerStatusEnum = {
+exports.BankTransactionsPageDtoItemsInnerStatusEnum = {
     Pending: 'PENDING',
     Posted: 'POSTED'
 };
 /**
- * Check if a given object implements the BankTransactionsPageEntityItemsInner interface.
+ * Check if a given object implements the BankTransactionsPageDtoItemsInner interface.
  */
-function instanceOfBankTransactionsPageEntityItemsInner(value) {
+function instanceOfBankTransactionsPageDtoItemsInner(value) {
     if (!('id' in value) || value['id'] === undefined)
         return false;
     if (!('ownerOrganization' in value) || value['ownerOrganization'] === undefined)
@@ -75,10 +75,10 @@ function instanceOfBankTransactionsPageEntityItemsInner(value) {
         return false;
     return true;
 }
-function BankTransactionsPageEntityItemsInnerFromJSON(json) {
-    return BankTransactionsPageEntityItemsInnerFromJSONTyped(json, false);
+function BankTransactionsPageDtoItemsInnerFromJSON(json) {
+    return BankTransactionsPageDtoItemsInnerFromJSONTyped(json, false);
 }
-function BankTransactionsPageEntityItemsInnerFromJSONTyped(json, ignoreDiscriminator) {
+function BankTransactionsPageDtoItemsInnerFromJSONTyped(json, ignoreDiscriminator) {
     if (json == null) {
         return json;
     }
@@ -111,10 +111,10 @@ function BankTransactionsPageEntityItemsInnerFromJSONTyped(json, ignoreDiscrimin
         'updatedAt': json['updatedAt'],
     };
 }
-function BankTransactionsPageEntityItemsInnerToJSON(json) {
-    return BankTransactionsPageEntityItemsInnerToJSONTyped(json, false);
+function BankTransactionsPageDtoItemsInnerToJSON(json) {
+    return BankTransactionsPageDtoItemsInnerToJSONTyped(json, false);
 }
-function BankTransactionsPageEntityItemsInnerToJSONTyped(value, ignoreDiscriminator) {
+function BankTransactionsPageDtoItemsInnerToJSONTyped(value, ignoreDiscriminator) {
     if (ignoreDiscriminator === void 0) { ignoreDiscriminator = false; }
     if (value == null) {
         return value;

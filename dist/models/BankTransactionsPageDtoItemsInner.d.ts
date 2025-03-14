@@ -16,196 +16,196 @@ import type { CreateOrUpdateBankTransactionRequestBodyDtoPaymentData } from './C
 /**
  *
  * @export
- * @interface BankTransactionsPageEntityItemsInner
+ * @interface BankTransactionsPageDtoItemsInner
  */
-export interface BankTransactionsPageEntityItemsInner {
+export interface BankTransactionsPageDtoItemsInner {
     /**
      * Identificador da movimentação financeira.
      * @type {string}
-     * @memberof BankTransactionsPageEntityItemsInner
+     * @memberof BankTransactionsPageDtoItemsInner
      */
     id: string;
     /**
      * Identificador da organização dona da movimentação financeira.
      * @type {string}
-     * @memberof BankTransactionsPageEntityItemsInner
+     * @memberof BankTransactionsPageDtoItemsInner
      */
     ownerOrganization: string;
     /**
      * Identificador da conta bancária da movimentação financeira.
      * @type {string}
-     * @memberof BankTransactionsPageEntityItemsInner
+     * @memberof BankTransactionsPageDtoItemsInner
      */
     bankAccount: string;
     /**
      *
      * @type {BankTransactionEntityPopulatedBankAccount}
-     * @memberof BankTransactionsPageEntityItemsInner
+     * @memberof BankTransactionsPageDtoItemsInner
      */
     populatedBankAccount?: BankTransactionEntityPopulatedBankAccount | null;
     /**
      * Provedor da movimentação financeira.
      * @type {string}
-     * @memberof BankTransactionsPageEntityItemsInner
+     * @memberof BankTransactionsPageDtoItemsInner
      */
-    provider: BankTransactionsPageEntityItemsInnerProviderEnum;
+    provider: BankTransactionsPageDtoItemsInnerProviderEnum;
     /**
      * Identificador da movimentação financeira no provedor.
      * @type {string}
-     * @memberof BankTransactionsPageEntityItemsInner
+     * @memberof BankTransactionsPageDtoItemsInner
      */
     providerTransactionId: string;
     /**
      * Valor da movimentação financeira em centavos.
-     * @type {number}
-     * @memberof BankTransactionsPageEntityItemsInner
+     * @type {string}
+     * @memberof BankTransactionsPageDtoItemsInner
      */
-    amountInBrl: number;
+    amountInBrl: string;
     /**
      * Data da movimentação financeira.
      * @type {any}
-     * @memberof BankTransactionsPageEntityItemsInner
+     * @memberof BankTransactionsPageDtoItemsInner
      */
     date: any | null;
     /**
      * Tipo da movimentação financeira (entrada ou saída).
      * @type {string}
-     * @memberof BankTransactionsPageEntityItemsInner
+     * @memberof BankTransactionsPageDtoItemsInner
      */
-    type: BankTransactionsPageEntityItemsInnerTypeEnum;
+    type: BankTransactionsPageDtoItemsInnerTypeEnum;
     /**
      * Descrição da movimentação financeira.
      * @type {string}
-     * @memberof BankTransactionsPageEntityItemsInner
+     * @memberof BankTransactionsPageDtoItemsInner
      */
     description?: string | null;
     /**
      * Status da movimentação financeira.
      * @type {string}
-     * @memberof BankTransactionsPageEntityItemsInner
+     * @memberof BankTransactionsPageDtoItemsInner
      */
-    status: BankTransactionsPageEntityItemsInnerStatusEnum;
+    status: BankTransactionsPageDtoItemsInnerStatusEnum;
     /**
      * Indica se a movimentação financeira deve ser ignorada.
      * @type {boolean}
-     * @memberof BankTransactionsPageEntityItemsInner
+     * @memberof BankTransactionsPageDtoItemsInner
      */
     ignored: boolean;
     /**
      * Identificador externo da movimentação financeira.
      * @type {string}
-     * @memberof BankTransactionsPageEntityItemsInner
+     * @memberof BankTransactionsPageDtoItemsInner
      */
     externalId?: string | null;
     /**
      * Valor da movimentação financeira.
      * @type {number}
-     * @memberof BankTransactionsPageEntityItemsInner
+     * @memberof BankTransactionsPageDtoItemsInner
      */
     amount?: number | null;
     /**
      * Valor da movimentação financeira na moeda da conta.
      * @type {number}
-     * @memberof BankTransactionsPageEntityItemsInner
+     * @memberof BankTransactionsPageDtoItemsInner
      */
     amountInAccountCurrency?: number | null;
     /**
      * Saldo após a movimentação financeira.
      * @type {number}
-     * @memberof BankTransactionsPageEntityItemsInner
+     * @memberof BankTransactionsPageDtoItemsInner
      */
     balance?: number | null;
     /**
      * Código da moeda da movimentação financeira.
      * @type {string}
-     * @memberof BankTransactionsPageEntityItemsInner
+     * @memberof BankTransactionsPageDtoItemsInner
      */
     currencyCode?: string | null;
     /**
      * Categoria da movimentação financeira.
      * @type {string}
-     * @memberof BankTransactionsPageEntityItemsInner
+     * @memberof BankTransactionsPageDtoItemsInner
      */
     category?: string | null;
     /**
      * Código do provedor da movimentação financeira.
      * @type {string}
-     * @memberof BankTransactionsPageEntityItemsInner
+     * @memberof BankTransactionsPageDtoItemsInner
      */
     providerCode?: string | null;
     /**
      *
      * @type {CreateOrUpdateBankTransactionRequestBodyDtoPaymentData}
-     * @memberof BankTransactionsPageEntityItemsInner
+     * @memberof BankTransactionsPageDtoItemsInner
      */
     paymentData?: CreateOrUpdateBankTransactionRequestBodyDtoPaymentData | null;
     /**
      *
      * @type {CreateOrUpdateBankTransactionRequestBodyDtoCreditCardMetadata}
-     * @memberof BankTransactionsPageEntityItemsInner
+     * @memberof BankTransactionsPageDtoItemsInner
      */
     creditCardMetadata?: CreateOrUpdateBankTransactionRequestBodyDtoCreditCardMetadata | null;
     /**
      *
      * @type {CreateOrUpdateBankTransactionRequestBodyDtoMerchant}
-     * @memberof BankTransactionsPageEntityItemsInner
+     * @memberof BankTransactionsPageDtoItemsInner
      */
     merchant?: CreateOrUpdateBankTransactionRequestBodyDtoMerchant | null;
     /**
      * Identificador da categoria da movimentação financeira.
      * @type {string}
-     * @memberof BankTransactionsPageEntityItemsInner
+     * @memberof BankTransactionsPageDtoItemsInner
      */
     categoryId?: string | null;
     /**
      * Tipo de operação da movimentação financeira.
      * @type {string}
-     * @memberof BankTransactionsPageEntityItemsInner
+     * @memberof BankTransactionsPageDtoItemsInner
      */
     operationType?: string | null;
     /**
      * Data de criação da movimentação financeira.
      * @type {any}
-     * @memberof BankTransactionsPageEntityItemsInner
+     * @memberof BankTransactionsPageDtoItemsInner
      */
     createdAt: any | null;
     /**
      * Data de atualização da movimentação financeira.
      * @type {any}
-     * @memberof BankTransactionsPageEntityItemsInner
+     * @memberof BankTransactionsPageDtoItemsInner
      */
     updatedAt: any | null;
 }
 /**
  * @export
  */
-export declare const BankTransactionsPageEntityItemsInnerProviderEnum: {
+export declare const BankTransactionsPageDtoItemsInnerProviderEnum: {
     readonly Pluggy: "PLUGGY";
     readonly Ofx: "OFX";
     readonly Other: "OTHER";
 };
-export type BankTransactionsPageEntityItemsInnerProviderEnum = typeof BankTransactionsPageEntityItemsInnerProviderEnum[keyof typeof BankTransactionsPageEntityItemsInnerProviderEnum];
+export type BankTransactionsPageDtoItemsInnerProviderEnum = typeof BankTransactionsPageDtoItemsInnerProviderEnum[keyof typeof BankTransactionsPageDtoItemsInnerProviderEnum];
 /**
  * @export
  */
-export declare const BankTransactionsPageEntityItemsInnerTypeEnum: {
+export declare const BankTransactionsPageDtoItemsInnerTypeEnum: {
     readonly Debit: "DEBIT";
     readonly Credit: "CREDIT";
 };
-export type BankTransactionsPageEntityItemsInnerTypeEnum = typeof BankTransactionsPageEntityItemsInnerTypeEnum[keyof typeof BankTransactionsPageEntityItemsInnerTypeEnum];
+export type BankTransactionsPageDtoItemsInnerTypeEnum = typeof BankTransactionsPageDtoItemsInnerTypeEnum[keyof typeof BankTransactionsPageDtoItemsInnerTypeEnum];
 /**
  * @export
  */
-export declare const BankTransactionsPageEntityItemsInnerStatusEnum: {
+export declare const BankTransactionsPageDtoItemsInnerStatusEnum: {
     readonly Pending: "PENDING";
     readonly Posted: "POSTED";
 };
-export type BankTransactionsPageEntityItemsInnerStatusEnum = typeof BankTransactionsPageEntityItemsInnerStatusEnum[keyof typeof BankTransactionsPageEntityItemsInnerStatusEnum];
+export type BankTransactionsPageDtoItemsInnerStatusEnum = typeof BankTransactionsPageDtoItemsInnerStatusEnum[keyof typeof BankTransactionsPageDtoItemsInnerStatusEnum];
 /**
- * Check if a given object implements the BankTransactionsPageEntityItemsInner interface.
+ * Check if a given object implements the BankTransactionsPageDtoItemsInner interface.
  */
-export declare function instanceOfBankTransactionsPageEntityItemsInner(value: object): value is BankTransactionsPageEntityItemsInner;
-export declare function BankTransactionsPageEntityItemsInnerFromJSON(json: any): BankTransactionsPageEntityItemsInner;
-export declare function BankTransactionsPageEntityItemsInnerFromJSONTyped(json: any, ignoreDiscriminator: boolean): BankTransactionsPageEntityItemsInner;
-export declare function BankTransactionsPageEntityItemsInnerToJSON(json: any): BankTransactionsPageEntityItemsInner;
-export declare function BankTransactionsPageEntityItemsInnerToJSONTyped(value?: BankTransactionsPageEntityItemsInner | null, ignoreDiscriminator?: boolean): any;
+export declare function instanceOfBankTransactionsPageDtoItemsInner(value: object): value is BankTransactionsPageDtoItemsInner;
+export declare function BankTransactionsPageDtoItemsInnerFromJSON(json: any): BankTransactionsPageDtoItemsInner;
+export declare function BankTransactionsPageDtoItemsInnerFromJSONTyped(json: any, ignoreDiscriminator: boolean): BankTransactionsPageDtoItemsInner;
+export declare function BankTransactionsPageDtoItemsInnerToJSON(json: any): BankTransactionsPageDtoItemsInner;
+export declare function BankTransactionsPageDtoItemsInnerToJSONTyped(value?: BankTransactionsPageDtoItemsInner | null, ignoreDiscriminator?: boolean): any;
