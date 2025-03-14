@@ -7,6 +7,8 @@ export * from './BankAccountsPageDtoItemsInner';
 export * from './BankInstitutionEntity';
 export * from './BankTransactionEntity';
 export * from './BankTransactionEntityPopulatedBankAccount';
+export * from './BankTransactionsPageEntity';
+export * from './BankTransactionsPageEntityItemsInner';
 export * from './CacheGetResponseDto';
 export * from './CacheSetDto';
 export * from './CategoriesPageEntity';

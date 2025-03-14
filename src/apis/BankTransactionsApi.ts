@@ -16,6 +16,7 @@
 import * as runtime from '../runtime';
 import type {
   BankTransactionEntity,
+  BankTransactionsPageEntity,
   CreateOrUpdateBankTransactionRequestBodyDto,
   ExceptionResponseEntity,
   PartialUpdateBankTransactionRequestBodyDto,
@@ -23,6 +24,8 @@ import type {
 import {
     BankTransactionEntityFromJSON,
     BankTransactionEntityToJSON,
+    BankTransactionsPageEntityFromJSON,
+    BankTransactionsPageEntityToJSON,
     CreateOrUpdateBankTransactionRequestBodyDtoFromJSON,
     CreateOrUpdateBankTransactionRequestBodyDtoToJSON,
     ExceptionResponseEntityFromJSON,
@@ -96,12 +99,12 @@ export interface BankTransactionsApiInterface {
      * @throws {RequiredError}
      * @memberof BankTransactionsApiInterface
      */
-    findAllBankTransactionsRaw(requestParameters: FindAllBankTransactionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankTransactionEntity>>;
+    findAllBankTransactionsRaw(requestParameters: FindAllBankTransactionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankTransactionsPageEntity>>;
 
     /**
      * Busca todas as movimentações financeiras.
      */
-    findAllBankTransactions(requestParameters: FindAllBankTransactionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankTransactionEntity>;
+    findAllBankTransactions(requestParameters: FindAllBankTransactionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankTransactionsPageEntity>;
 
     /**
      * 
@@ -186,7 +189,7 @@ export class BankTransactionsApi extends runtime.BaseAPI implements BankTransact
     /**
      * Busca todas as movimentações financeiras.
      */
-    async findAllBankTransactionsRaw(requestParameters: FindAllBankTransactionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankTransactionEntity>> {
+    async findAllBankTransactionsRaw(requestParameters: FindAllBankTransactionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankTransactionsPageEntity>> {
         const queryParameters: any = {};
 
         if (requestParameters['populate'] != null) {
@@ -230,13 +233,13 @@ export class BankTransactionsApi extends runtime.BaseAPI implements BankTransact
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => BankTransactionEntityFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => BankTransactionsPageEntityFromJSON(jsonValue));
     }
 
     /**
      * Busca todas as movimentações financeiras.
      */
-    async findAllBankTransactions(requestParameters: FindAllBankTransactionsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankTransactionEntity> {
+    async findAllBankTransactions(requestParameters: FindAllBankTransactionsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankTransactionsPageEntity> {
         const response = await this.findAllBankTransactionsRaw(requestParameters, initOverrides);
         return await response.value();
     }

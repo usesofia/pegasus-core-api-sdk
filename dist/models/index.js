@@ -23,6 +23,8 @@ __exportStar(require("./BankAccountsPageDtoItemsInner"), exports);
 __exportStar(require("./BankInstitutionEntity"), exports);
 __exportStar(require("./BankTransactionEntity"), exports);
 __exportStar(require("./BankTransactionEntityPopulatedBankAccount"), exports);
+__exportStar(require("./BankTransactionsPageEntity"), exports);
+__exportStar(require("./BankTransactionsPageEntityItemsInner"), exports);
 __exportStar(require("./CacheGetResponseDto"), exports);
 __exportStar(require("./CacheSetDto"), exports);
 __exportStar(require("./CategoriesPageEntity"), exports);

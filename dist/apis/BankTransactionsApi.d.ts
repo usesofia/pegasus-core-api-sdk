@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { BankTransactionEntity, CreateOrUpdateBankTransactionRequestBodyDto, PartialUpdateBankTransactionRequestBodyDto } from '../models/index';
+import type { BankTransactionEntity, BankTransactionsPageEntity, CreateOrUpdateBankTransactionRequestBodyDto, PartialUpdateBankTransactionRequestBodyDto } from '../models/index';
 export interface CreateOrUpdateBankTransactionRequest {
     createOrUpdateBankTransactionRequestBodyDto: CreateOrUpdateBankTransactionRequestBodyDto;
     populate?: string;
@@ -70,11 +70,11 @@ export interface BankTransactionsApiInterface {
      * @throws {RequiredError}
      * @memberof BankTransactionsApiInterface
      */
-    findAllBankTransactionsRaw(requestParameters: FindAllBankTransactionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankTransactionEntity>>;
+    findAllBankTransactionsRaw(requestParameters: FindAllBankTransactionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankTransactionsPageEntity>>;
     /**
      * Busca todas as movimentações financeiras.
      */
-    findAllBankTransactions(requestParameters: FindAllBankTransactionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankTransactionEntity>;
+    findAllBankTransactions(requestParameters: FindAllBankTransactionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankTransactionsPageEntity>;
     /**
      *
      * @summary Busca uma movimentação financeira pelo identificador.
@@ -120,11 +120,11 @@ export declare class BankTransactionsApi extends runtime.BaseAPI implements Bank
     /**
      * Busca todas as movimentações financeiras.
      */
-    findAllBankTransactionsRaw(requestParameters: FindAllBankTransactionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankTransactionEntity>>;
+    findAllBankTransactionsRaw(requestParameters: FindAllBankTransactionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankTransactionsPageEntity>>;
     /**
      * Busca todas as movimentações financeiras.
      */
-    findAllBankTransactions(requestParameters?: FindAllBankTransactionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankTransactionEntity>;
+    findAllBankTransactions(requestParameters?: FindAllBankTransactionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankTransactionsPageEntity>;
     /**
      * Busca uma movimentação financeira pelo identificador.
      */
