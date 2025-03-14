@@ -46,10 +46,10 @@ export interface CreateOrUpdateBankTransactionRequestBodyDto {
     providerTransactionId: string;
     /**
      * Valor da movimentação financeira em centavos.
-     * @type {number}
+     * @type {string}
      * @memberof CreateOrUpdateBankTransactionRequestBodyDto
      */
-    amountInBrl: number;
+    amountInBrl: string;
     /**
      * Data da movimentação financeira.
      * @type {any}
