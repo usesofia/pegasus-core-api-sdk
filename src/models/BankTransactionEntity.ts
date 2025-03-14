@@ -13,13 +13,6 @@
  */
 
 import { mapValues } from '../runtime';
-import type { CreateOrUpdateBankTransactionRequestBodyDtoPopulatedBankAccount } from './CreateOrUpdateBankTransactionRequestBodyDtoPopulatedBankAccount';
-import {
-    CreateOrUpdateBankTransactionRequestBodyDtoPopulatedBankAccountFromJSON,
-    CreateOrUpdateBankTransactionRequestBodyDtoPopulatedBankAccountFromJSONTyped,
-    CreateOrUpdateBankTransactionRequestBodyDtoPopulatedBankAccountToJSON,
-    CreateOrUpdateBankTransactionRequestBodyDtoPopulatedBankAccountToJSONTyped,
-} from './CreateOrUpdateBankTransactionRequestBodyDtoPopulatedBankAccount';
 import type { CreateOrUpdateBankTransactionRequestBodyDtoCreditCardMetadata } from './CreateOrUpdateBankTransactionRequestBodyDtoCreditCardMetadata';
 import {
     CreateOrUpdateBankTransactionRequestBodyDtoCreditCardMetadataFromJSON,
@@ -34,6 +27,13 @@ import {
     CreateOrUpdateBankTransactionRequestBodyDtoMerchantToJSON,
     CreateOrUpdateBankTransactionRequestBodyDtoMerchantToJSONTyped,
 } from './CreateOrUpdateBankTransactionRequestBodyDtoMerchant';
+import type { BankTransactionEntityPopulatedBankAccount } from './BankTransactionEntityPopulatedBankAccount';
+import {
+    BankTransactionEntityPopulatedBankAccountFromJSON,
+    BankTransactionEntityPopulatedBankAccountFromJSONTyped,
+    BankTransactionEntityPopulatedBankAccountToJSON,
+    BankTransactionEntityPopulatedBankAccountToJSONTyped,
+} from './BankTransactionEntityPopulatedBankAccount';
 import type { CreateOrUpdateBankTransactionRequestBodyDtoPaymentData } from './CreateOrUpdateBankTransactionRequestBodyDtoPaymentData';
 import {
     CreateOrUpdateBankTransactionRequestBodyDtoPaymentDataFromJSON,
@@ -68,10 +68,10 @@ export interface BankTransactionEntity {
     bankAccount: string;
     /**
      * 
-     * @type {CreateOrUpdateBankTransactionRequestBodyDtoPopulatedBankAccount}
+     * @type {BankTransactionEntityPopulatedBankAccount}
      * @memberof BankTransactionEntity
      */
-    populatedBankAccount?: CreateOrUpdateBankTransactionRequestBodyDtoPopulatedBankAccount | null;
+    populatedBankAccount?: BankTransactionEntityPopulatedBankAccount | null;
     /**
      * Provedor da movimentação financeira.
      * @type {string}
@@ -268,7 +268,7 @@ export function BankTransactionEntityFromJSONTyped(json: any, ignoreDiscriminato
         'id': json['id'],
         'ownerOrganization': json['ownerOrganization'],
         'bankAccount': json['bankAccount'],
-        'populatedBankAccount': json['populatedBankAccount'] == null ? undefined : CreateOrUpdateBankTransactionRequestBodyDtoPopulatedBankAccountFromJSON(json['populatedBankAccount']),
+        'populatedBankAccount': json['populatedBankAccount'] == null ? undefined : BankTransactionEntityPopulatedBankAccountFromJSON(json['populatedBankAccount']),
         'provider': json['provider'],
         'providerTransactionId': json['providerTransactionId'],
         'amountInBrl': json['amountInBrl'],
@@ -308,7 +308,7 @@ export function BankTransactionEntityToJSONTyped(value?: BankTransactionEntity |
         'id': value['id'],
         'ownerOrganization': value['ownerOrganization'],
         'bankAccount': value['bankAccount'],
-        'populatedBankAccount': CreateOrUpdateBankTransactionRequestBodyDtoPopulatedBankAccountToJSON(value['populatedBankAccount']),
+        'populatedBankAccount': BankTransactionEntityPopulatedBankAccountToJSON(value['populatedBankAccount']),
         'provider': value['provider'],
         'providerTransactionId': value['providerTransactionId'],
         'amountInBrl': value['amountInBrl'],

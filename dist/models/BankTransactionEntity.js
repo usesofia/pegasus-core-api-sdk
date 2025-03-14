@@ -19,9 +19,9 @@ exports.BankTransactionEntityFromJSON = BankTransactionEntityFromJSON;
 exports.BankTransactionEntityFromJSONTyped = BankTransactionEntityFromJSONTyped;
 exports.BankTransactionEntityToJSON = BankTransactionEntityToJSON;
 exports.BankTransactionEntityToJSONTyped = BankTransactionEntityToJSONTyped;
-var CreateOrUpdateBankTransactionRequestBodyDtoPopulatedBankAccount_1 = require("./CreateOrUpdateBankTransactionRequestBodyDtoPopulatedBankAccount");
 var CreateOrUpdateBankTransactionRequestBodyDtoCreditCardMetadata_1 = require("./CreateOrUpdateBankTransactionRequestBodyDtoCreditCardMetadata");
 var CreateOrUpdateBankTransactionRequestBodyDtoMerchant_1 = require("./CreateOrUpdateBankTransactionRequestBodyDtoMerchant");
+var BankTransactionEntityPopulatedBankAccount_1 = require("./BankTransactionEntityPopulatedBankAccount");
 var CreateOrUpdateBankTransactionRequestBodyDtoPaymentData_1 = require("./CreateOrUpdateBankTransactionRequestBodyDtoPaymentData");
 /**
  * @export
@@ -86,7 +86,7 @@ function BankTransactionEntityFromJSONTyped(json, ignoreDiscriminator) {
         'id': json['id'],
         'ownerOrganization': json['ownerOrganization'],
         'bankAccount': json['bankAccount'],
-        'populatedBankAccount': json['populatedBankAccount'] == null ? undefined : (0, CreateOrUpdateBankTransactionRequestBodyDtoPopulatedBankAccount_1.CreateOrUpdateBankTransactionRequestBodyDtoPopulatedBankAccountFromJSON)(json['populatedBankAccount']),
+        'populatedBankAccount': json['populatedBankAccount'] == null ? undefined : (0, BankTransactionEntityPopulatedBankAccount_1.BankTransactionEntityPopulatedBankAccountFromJSON)(json['populatedBankAccount']),
         'provider': json['provider'],
         'providerTransactionId': json['providerTransactionId'],
         'amountInBrl': json['amountInBrl'],
@@ -123,7 +123,7 @@ function BankTransactionEntityToJSONTyped(value, ignoreDiscriminator) {
         'id': value['id'],
         'ownerOrganization': value['ownerOrganization'],
         'bankAccount': value['bankAccount'],
-        'populatedBankAccount': (0, CreateOrUpdateBankTransactionRequestBodyDtoPopulatedBankAccount_1.CreateOrUpdateBankTransactionRequestBodyDtoPopulatedBankAccountToJSON)(value['populatedBankAccount']),
+        'populatedBankAccount': (0, BankTransactionEntityPopulatedBankAccount_1.BankTransactionEntityPopulatedBankAccountToJSON)(value['populatedBankAccount']),
         'provider': value['provider'],
         'providerTransactionId': value['providerTransactionId'],
         'amountInBrl': value['amountInBrl'],

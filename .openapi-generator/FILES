@@ -24,6 +24,7 @@ src/models/BankAccountsPageDto.ts
 src/models/BankAccountsPageDtoItemsInner.ts
 src/models/BankInstitutionEntity.ts
 src/models/BankTransactionEntity.ts
+src/models/BankTransactionEntityPopulatedBankAccount.ts
 src/models/CacheGetResponseDto.ts
 src/models/CacheSetDto.ts
 src/models/CategoriesPageEntity.ts
@@ -47,7 +48,6 @@ src/models/CreateOrUpdateBankTransactionRequestBodyDtoPaymentData.ts
 src/models/CreateOrUpdateBankTransactionRequestBodyDtoPaymentDataBoletoMetadata.ts
 src/models/CreateOrUpdateBankTransactionRequestBodyDtoPaymentDataPayer.ts
 src/models/CreateOrUpdateBankTransactionRequestBodyDtoPaymentDataPayerDocumentNumber.ts
-src/models/CreateOrUpdateBankTransactionRequestBodyDtoPopulatedBankAccount.ts
 src/models/CreateOrUpdateBankTransactionRequestBodyDtoRequester.ts
 src/models/CreateOrUpdateBankTransactionRequestBodyDtoRequesterOrganization.ts
 src/models/CreateOrUpdateBankTransactionRequestBodyDtoRequesterOrganizationChildrenInner.ts

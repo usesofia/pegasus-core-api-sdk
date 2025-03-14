@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CreateOrUpdateBankTransactionRequestBodyDtoPopulatedBankAccount } from './CreateOrUpdateBankTransactionRequestBodyDtoPopulatedBankAccount';
 import type { CreateOrUpdateBankTransactionRequestBodyDtoCreditCardMetadata } from './CreateOrUpdateBankTransactionRequestBodyDtoCreditCardMetadata';
 import type { CreateOrUpdateBankTransactionRequestBodyDtoMerchant } from './CreateOrUpdateBankTransactionRequestBodyDtoMerchant';
+import type { BankTransactionEntityPopulatedBankAccount } from './BankTransactionEntityPopulatedBankAccount';
 import type { CreateOrUpdateBankTransactionRequestBodyDtoPaymentData } from './CreateOrUpdateBankTransactionRequestBodyDtoPaymentData';
 /**
  *
@@ -39,10 +39,10 @@ export interface BankTransactionEntity {
     bankAccount: string;
     /**
      *
-     * @type {CreateOrUpdateBankTransactionRequestBodyDtoPopulatedBankAccount}
+     * @type {BankTransactionEntityPopulatedBankAccount}
      * @memberof BankTransactionEntity
      */
-    populatedBankAccount?: CreateOrUpdateBankTransactionRequestBodyDtoPopulatedBankAccount | null;
+    populatedBankAccount?: BankTransactionEntityPopulatedBankAccount | null;
     /**
      * Provedor da movimentação financeira.
      * @type {string}

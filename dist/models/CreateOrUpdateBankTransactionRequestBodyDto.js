@@ -19,7 +19,6 @@ exports.CreateOrUpdateBankTransactionRequestBodyDtoFromJSON = CreateOrUpdateBank
 exports.CreateOrUpdateBankTransactionRequestBodyDtoFromJSONTyped = CreateOrUpdateBankTransactionRequestBodyDtoFromJSONTyped;
 exports.CreateOrUpdateBankTransactionRequestBodyDtoToJSON = CreateOrUpdateBankTransactionRequestBodyDtoToJSON;
 exports.CreateOrUpdateBankTransactionRequestBodyDtoToJSONTyped = CreateOrUpdateBankTransactionRequestBodyDtoToJSONTyped;
-var CreateOrUpdateBankTransactionRequestBodyDtoPopulatedBankAccount_1 = require("./CreateOrUpdateBankTransactionRequestBodyDtoPopulatedBankAccount");
 var CreateOrUpdateBankTransactionRequestBodyDtoCreditCardMetadata_1 = require("./CreateOrUpdateBankTransactionRequestBodyDtoCreditCardMetadata");
 var CreateOrUpdateBankTransactionRequestBodyDtoMerchant_1 = require("./CreateOrUpdateBankTransactionRequestBodyDtoMerchant");
 var CreateOrUpdateBankTransactionRequestBodyDtoPaymentData_1 = require("./CreateOrUpdateBankTransactionRequestBodyDtoPaymentData");
@@ -77,7 +76,6 @@ function CreateOrUpdateBankTransactionRequestBodyDtoFromJSONTyped(json, ignoreDi
     }
     return {
         'bankAccount': json['bankAccount'],
-        'populatedBankAccount': json['populatedBankAccount'] == null ? undefined : (0, CreateOrUpdateBankTransactionRequestBodyDtoPopulatedBankAccount_1.CreateOrUpdateBankTransactionRequestBodyDtoPopulatedBankAccountFromJSON)(json['populatedBankAccount']),
         'provider': json['provider'],
         'providerTransactionId': json['providerTransactionId'],
         'amountInBrl': json['amountInBrl'],
@@ -110,7 +108,6 @@ function CreateOrUpdateBankTransactionRequestBodyDtoToJSONTyped(value, ignoreDis
     }
     return {
         'bankAccount': value['bankAccount'],
-        'populatedBankAccount': (0, CreateOrUpdateBankTransactionRequestBodyDtoPopulatedBankAccount_1.CreateOrUpdateBankTransactionRequestBodyDtoPopulatedBankAccountToJSON)(value['populatedBankAccount']),
         'provider': value['provider'],
         'providerTransactionId': value['providerTransactionId'],
         'amountInBrl': value['amountInBrl'],

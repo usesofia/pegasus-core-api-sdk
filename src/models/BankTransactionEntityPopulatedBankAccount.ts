@@ -16,103 +16,103 @@ import { mapValues } from '../runtime';
 /**
  * Conta bancária da movimentação financeira.
  * @export
- * @interface CreateOrUpdateBankTransactionRequestBodyDtoPopulatedBankAccount
+ * @interface BankTransactionEntityPopulatedBankAccount
  */
-export interface CreateOrUpdateBankTransactionRequestBodyDtoPopulatedBankAccount {
+export interface BankTransactionEntityPopulatedBankAccount {
     /**
      * Identificador da conta bancária.
      * @type {string}
-     * @memberof CreateOrUpdateBankTransactionRequestBodyDtoPopulatedBankAccount
+     * @memberof BankTransactionEntityPopulatedBankAccount
      */
     id: string;
     /**
      * Identificador da organização dona da conta bancária.
      * @type {string}
-     * @memberof CreateOrUpdateBankTransactionRequestBodyDtoPopulatedBankAccount
+     * @memberof BankTransactionEntityPopulatedBankAccount
      */
     ownerOrganization: string;
     /**
      * Nome da conta bancária.
      * @type {string}
-     * @memberof CreateOrUpdateBankTransactionRequestBodyDtoPopulatedBankAccount
+     * @memberof BankTransactionEntityPopulatedBankAccount
      */
     name: string;
     /**
      * Tipo da conta bancária.
      * @type {string}
-     * @memberof CreateOrUpdateBankTransactionRequestBodyDtoPopulatedBankAccount
+     * @memberof BankTransactionEntityPopulatedBankAccount
      */
-    type: CreateOrUpdateBankTransactionRequestBodyDtoPopulatedBankAccountTypeEnum;
+    type: BankTransactionEntityPopulatedBankAccountTypeEnum;
     /**
      * Número da conta ou cartão.
      * @type {string}
-     * @memberof CreateOrUpdateBankTransactionRequestBodyDtoPopulatedBankAccount
+     * @memberof BankTransactionEntityPopulatedBankAccount
      */
     number: string;
     /**
      * Indica se a conta é automática ou manual.
      * @type {boolean}
-     * @memberof CreateOrUpdateBankTransactionRequestBodyDtoPopulatedBankAccount
+     * @memberof BankTransactionEntityPopulatedBankAccount
      */
     isAutomatic: boolean;
     /**
      * Indica se a conta é a padrão.
      * @type {boolean}
-     * @memberof CreateOrUpdateBankTransactionRequestBodyDtoPopulatedBankAccount
+     * @memberof BankTransactionEntityPopulatedBankAccount
      */
     isDefault: boolean;
     /**
      * Data do saldo inicial.
      * @type {any}
-     * @memberof CreateOrUpdateBankTransactionRequestBodyDtoPopulatedBankAccount
+     * @memberof BankTransactionEntityPopulatedBankAccount
      */
     initialBalanceDate?: any | null;
     /**
      * Valor do saldo inicial.
      * @type {number}
-     * @memberof CreateOrUpdateBankTransactionRequestBodyDtoPopulatedBankAccount
+     * @memberof BankTransactionEntityPopulatedBankAccount
      */
     initialBalanceAmount?: number | null;
     /**
      * Instituição financeira.
      * @type {string}
-     * @memberof CreateOrUpdateBankTransactionRequestBodyDtoPopulatedBankAccount
+     * @memberof BankTransactionEntityPopulatedBankAccount
      */
     institution: string;
     /**
      * Indica se a conta está ativa.
      * @type {boolean}
-     * @memberof CreateOrUpdateBankTransactionRequestBodyDtoPopulatedBankAccount
+     * @memberof BankTransactionEntityPopulatedBankAccount
      */
     active: boolean;
     /**
      * Fornecedor da conta bancária.
      * @type {string}
-     * @memberof CreateOrUpdateBankTransactionRequestBodyDtoPopulatedBankAccount
+     * @memberof BankTransactionEntityPopulatedBankAccount
      */
-    provider?: CreateOrUpdateBankTransactionRequestBodyDtoPopulatedBankAccountProviderEnum | null;
+    provider?: BankTransactionEntityPopulatedBankAccountProviderEnum | null;
     /**
      * Identificador da conta bancária no fornecedor.
      * @type {string}
-     * @memberof CreateOrUpdateBankTransactionRequestBodyDtoPopulatedBankAccount
+     * @memberof BankTransactionEntityPopulatedBankAccount
      */
     providerAccountId?: string | null;
     /**
      * Identificador do item de conexão do fornecedor.
      * @type {string}
-     * @memberof CreateOrUpdateBankTransactionRequestBodyDtoPopulatedBankAccount
+     * @memberof BankTransactionEntityPopulatedBankAccount
      */
     providerItemId?: string | null;
     /**
      * Data de criação da conta bancária.
      * @type {any}
-     * @memberof CreateOrUpdateBankTransactionRequestBodyDtoPopulatedBankAccount
+     * @memberof BankTransactionEntityPopulatedBankAccount
      */
     createdAt: any | null;
     /**
      * Data de atualização da conta bancária.
      * @type {any}
-     * @memberof CreateOrUpdateBankTransactionRequestBodyDtoPopulatedBankAccount
+     * @memberof BankTransactionEntityPopulatedBankAccount
      */
     updatedAt: any | null;
 }
@@ -121,7 +121,7 @@ export interface CreateOrUpdateBankTransactionRequestBodyDtoPopulatedBankAccount
 /**
  * @export
  */
-export const CreateOrUpdateBankTransactionRequestBodyDtoPopulatedBankAccountTypeEnum = {
+export const BankTransactionEntityPopulatedBankAccountTypeEnum = {
     Money: 'MONEY',
     Checking: 'CHECKING',
     Savings: 'SAVINGS',
@@ -129,23 +129,23 @@ export const CreateOrUpdateBankTransactionRequestBodyDtoPopulatedBankAccountType
     Application: 'APPLICATION',
     Other: 'OTHER'
 } as const;
-export type CreateOrUpdateBankTransactionRequestBodyDtoPopulatedBankAccountTypeEnum = typeof CreateOrUpdateBankTransactionRequestBodyDtoPopulatedBankAccountTypeEnum[keyof typeof CreateOrUpdateBankTransactionRequestBodyDtoPopulatedBankAccountTypeEnum];
+export type BankTransactionEntityPopulatedBankAccountTypeEnum = typeof BankTransactionEntityPopulatedBankAccountTypeEnum[keyof typeof BankTransactionEntityPopulatedBankAccountTypeEnum];
 
 /**
  * @export
  */
-export const CreateOrUpdateBankTransactionRequestBodyDtoPopulatedBankAccountProviderEnum = {
+export const BankTransactionEntityPopulatedBankAccountProviderEnum = {
     Pluggy: 'PLUGGY',
     Ofx: 'OFX',
     Other: 'OTHER'
 } as const;
-export type CreateOrUpdateBankTransactionRequestBodyDtoPopulatedBankAccountProviderEnum = typeof CreateOrUpdateBankTransactionRequestBodyDtoPopulatedBankAccountProviderEnum[keyof typeof CreateOrUpdateBankTransactionRequestBodyDtoPopulatedBankAccountProviderEnum];
+export type BankTransactionEntityPopulatedBankAccountProviderEnum = typeof BankTransactionEntityPopulatedBankAccountProviderEnum[keyof typeof BankTransactionEntityPopulatedBankAccountProviderEnum];
 
 
 /**
- * Check if a given object implements the CreateOrUpdateBankTransactionRequestBodyDtoPopulatedBankAccount interface.
+ * Check if a given object implements the BankTransactionEntityPopulatedBankAccount interface.
  */
-export function instanceOfCreateOrUpdateBankTransactionRequestBodyDtoPopulatedBankAccount(value: object): value is CreateOrUpdateBankTransactionRequestBodyDtoPopulatedBankAccount {
+export function instanceOfBankTransactionEntityPopulatedBankAccount(value: object): value is BankTransactionEntityPopulatedBankAccount {
     if (!('id' in value) || value['id'] === undefined) return false;
     if (!('ownerOrganization' in value) || value['ownerOrganization'] === undefined) return false;
     if (!('name' in value) || value['name'] === undefined) return false;
@@ -160,11 +160,11 @@ export function instanceOfCreateOrUpdateBankTransactionRequestBodyDtoPopulatedBa
     return true;
 }
 
-export function CreateOrUpdateBankTransactionRequestBodyDtoPopulatedBankAccountFromJSON(json: any): CreateOrUpdateBankTransactionRequestBodyDtoPopulatedBankAccount {
-    return CreateOrUpdateBankTransactionRequestBodyDtoPopulatedBankAccountFromJSONTyped(json, false);
+export function BankTransactionEntityPopulatedBankAccountFromJSON(json: any): BankTransactionEntityPopulatedBankAccount {
+    return BankTransactionEntityPopulatedBankAccountFromJSONTyped(json, false);
 }
 
-export function CreateOrUpdateBankTransactionRequestBodyDtoPopulatedBankAccountFromJSONTyped(json: any, ignoreDiscriminator: boolean): CreateOrUpdateBankTransactionRequestBodyDtoPopulatedBankAccount {
+export function BankTransactionEntityPopulatedBankAccountFromJSONTyped(json: any, ignoreDiscriminator: boolean): BankTransactionEntityPopulatedBankAccount {
     if (json == null) {
         return json;
     }
@@ -189,11 +189,11 @@ export function CreateOrUpdateBankTransactionRequestBodyDtoPopulatedBankAccountF
     };
 }
 
-export function CreateOrUpdateBankTransactionRequestBodyDtoPopulatedBankAccountToJSON(json: any): CreateOrUpdateBankTransactionRequestBodyDtoPopulatedBankAccount {
-    return CreateOrUpdateBankTransactionRequestBodyDtoPopulatedBankAccountToJSONTyped(json, false);
+export function BankTransactionEntityPopulatedBankAccountToJSON(json: any): BankTransactionEntityPopulatedBankAccount {
+    return BankTransactionEntityPopulatedBankAccountToJSONTyped(json, false);
 }
 
-export function CreateOrUpdateBankTransactionRequestBodyDtoPopulatedBankAccountToJSONTyped(value?: CreateOrUpdateBankTransactionRequestBodyDtoPopulatedBankAccount | null, ignoreDiscriminator: boolean = false): any {
+export function BankTransactionEntityPopulatedBankAccountToJSONTyped(value?: BankTransactionEntityPopulatedBankAccount | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

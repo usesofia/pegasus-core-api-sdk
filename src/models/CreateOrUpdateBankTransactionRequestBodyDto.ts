@@ -13,13 +13,6 @@
  */
 
 import { mapValues } from '../runtime';
-import type { CreateOrUpdateBankTransactionRequestBodyDtoPopulatedBankAccount } from './CreateOrUpdateBankTransactionRequestBodyDtoPopulatedBankAccount';
-import {
-    CreateOrUpdateBankTransactionRequestBodyDtoPopulatedBankAccountFromJSON,
-    CreateOrUpdateBankTransactionRequestBodyDtoPopulatedBankAccountFromJSONTyped,
-    CreateOrUpdateBankTransactionRequestBodyDtoPopulatedBankAccountToJSON,
-    CreateOrUpdateBankTransactionRequestBodyDtoPopulatedBankAccountToJSONTyped,
-} from './CreateOrUpdateBankTransactionRequestBodyDtoPopulatedBankAccount';
 import type { CreateOrUpdateBankTransactionRequestBodyDtoCreditCardMetadata } from './CreateOrUpdateBankTransactionRequestBodyDtoCreditCardMetadata';
 import {
     CreateOrUpdateBankTransactionRequestBodyDtoCreditCardMetadataFromJSON,
@@ -61,12 +54,6 @@ export interface CreateOrUpdateBankTransactionRequestBodyDto {
      * @memberof CreateOrUpdateBankTransactionRequestBodyDto
      */
     bankAccount: string;
-    /**
-     * 
-     * @type {CreateOrUpdateBankTransactionRequestBodyDtoPopulatedBankAccount}
-     * @memberof CreateOrUpdateBankTransactionRequestBodyDto
-     */
-    populatedBankAccount?: CreateOrUpdateBankTransactionRequestBodyDtoPopulatedBankAccount | null;
     /**
      * Provedor da movimentação financeira.
      * @type {string}
@@ -245,7 +232,6 @@ export function CreateOrUpdateBankTransactionRequestBodyDtoFromJSONTyped(json: a
     return {
         
         'bankAccount': json['bankAccount'],
-        'populatedBankAccount': json['populatedBankAccount'] == null ? undefined : CreateOrUpdateBankTransactionRequestBodyDtoPopulatedBankAccountFromJSON(json['populatedBankAccount']),
         'provider': json['provider'],
         'providerTransactionId': json['providerTransactionId'],
         'amountInBrl': json['amountInBrl'],
@@ -281,7 +267,6 @@ export function CreateOrUpdateBankTransactionRequestBodyDtoToJSONTyped(value?: C
     return {
         
         'bankAccount': value['bankAccount'],
-        'populatedBankAccount': CreateOrUpdateBankTransactionRequestBodyDtoPopulatedBankAccountToJSON(value['populatedBankAccount']),
         'provider': value['provider'],
         'providerTransactionId': value['providerTransactionId'],
         'amountInBrl': value['amountInBrl'],

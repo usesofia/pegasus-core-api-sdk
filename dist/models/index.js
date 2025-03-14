@@ -22,6 +22,7 @@ __exportStar(require("./BankAccountsPageDto"), exports);
 __exportStar(require("./BankAccountsPageDtoItemsInner"), exports);
 __exportStar(require("./BankInstitutionEntity"), exports);
 __exportStar(require("./BankTransactionEntity"), exports);
+__exportStar(require("./BankTransactionEntityPopulatedBankAccount"), exports);
 __exportStar(require("./CacheGetResponseDto"), exports);
 __exportStar(require("./CacheSetDto"), exports);
 __exportStar(require("./CategoriesPageEntity"), exports);
@@ -45,7 +46,6 @@ __exportStar(require("./CreateOrUpdateBankTransactionRequestBodyDtoPaymentData")
 __exportStar(require("./CreateOrUpdateBankTransactionRequestBodyDtoPaymentDataBoletoMetadata"), exports);
 __exportStar(require("./CreateOrUpdateBankTransactionRequestBodyDtoPaymentDataPayer"), exports);
 __exportStar(require("./CreateOrUpdateBankTransactionRequestBodyDtoPaymentDataPayerDocumentNumber"), exports);
-__exportStar(require("./CreateOrUpdateBankTransactionRequestBodyDtoPopulatedBankAccount"), exports);
 __exportStar(require("./CreateOrUpdateBankTransactionRequestBodyDtoRequester"), exports);
 __exportStar(require("./CreateOrUpdateBankTransactionRequestBodyDtoRequesterOrganization"), exports);
 __exportStar(require("./CreateOrUpdateBankTransactionRequestBodyDtoRequesterOrganizationChildrenInner"), exports);

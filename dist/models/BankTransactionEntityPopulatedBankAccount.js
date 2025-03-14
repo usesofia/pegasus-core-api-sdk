@@ -13,16 +13,16 @@
  * Do not edit the class manually.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.CreateOrUpdateBankTransactionRequestBodyDtoPopulatedBankAccountProviderEnum = exports.CreateOrUpdateBankTransactionRequestBodyDtoPopulatedBankAccountTypeEnum = void 0;
-exports.instanceOfCreateOrUpdateBankTransactionRequestBodyDtoPopulatedBankAccount = instanceOfCreateOrUpdateBankTransactionRequestBodyDtoPopulatedBankAccount;
-exports.CreateOrUpdateBankTransactionRequestBodyDtoPopulatedBankAccountFromJSON = CreateOrUpdateBankTransactionRequestBodyDtoPopulatedBankAccountFromJSON;
-exports.CreateOrUpdateBankTransactionRequestBodyDtoPopulatedBankAccountFromJSONTyped = CreateOrUpdateBankTransactionRequestBodyDtoPopulatedBankAccountFromJSONTyped;
-exports.CreateOrUpdateBankTransactionRequestBodyDtoPopulatedBankAccountToJSON = CreateOrUpdateBankTransactionRequestBodyDtoPopulatedBankAccountToJSON;
-exports.CreateOrUpdateBankTransactionRequestBodyDtoPopulatedBankAccountToJSONTyped = CreateOrUpdateBankTransactionRequestBodyDtoPopulatedBankAccountToJSONTyped;
+exports.BankTransactionEntityPopulatedBankAccountProviderEnum = exports.BankTransactionEntityPopulatedBankAccountTypeEnum = void 0;
+exports.instanceOfBankTransactionEntityPopulatedBankAccount = instanceOfBankTransactionEntityPopulatedBankAccount;
+exports.BankTransactionEntityPopulatedBankAccountFromJSON = BankTransactionEntityPopulatedBankAccountFromJSON;
+exports.BankTransactionEntityPopulatedBankAccountFromJSONTyped = BankTransactionEntityPopulatedBankAccountFromJSONTyped;
+exports.BankTransactionEntityPopulatedBankAccountToJSON = BankTransactionEntityPopulatedBankAccountToJSON;
+exports.BankTransactionEntityPopulatedBankAccountToJSONTyped = BankTransactionEntityPopulatedBankAccountToJSONTyped;
 /**
  * @export
  */
-exports.CreateOrUpdateBankTransactionRequestBodyDtoPopulatedBankAccountTypeEnum = {
+exports.BankTransactionEntityPopulatedBankAccountTypeEnum = {
     Money: 'MONEY',
     Checking: 'CHECKING',
     Savings: 'SAVINGS',
@@ -33,15 +33,15 @@ exports.CreateOrUpdateBankTransactionRequestBodyDtoPopulatedBankAccountTypeEnum 
 /**
  * @export
  */
-exports.CreateOrUpdateBankTransactionRequestBodyDtoPopulatedBankAccountProviderEnum = {
+exports.BankTransactionEntityPopulatedBankAccountProviderEnum = {
     Pluggy: 'PLUGGY',
     Ofx: 'OFX',
     Other: 'OTHER'
 };
 /**
- * Check if a given object implements the CreateOrUpdateBankTransactionRequestBodyDtoPopulatedBankAccount interface.
+ * Check if a given object implements the BankTransactionEntityPopulatedBankAccount interface.
  */
-function instanceOfCreateOrUpdateBankTransactionRequestBodyDtoPopulatedBankAccount(value) {
+function instanceOfBankTransactionEntityPopulatedBankAccount(value) {
     if (!('id' in value) || value['id'] === undefined)
         return false;
     if (!('ownerOrganization' in value) || value['ownerOrganization'] === undefined)
@@ -66,10 +66,10 @@ function instanceOfCreateOrUpdateBankTransactionRequestBodyDtoPopulatedBankAccou
         return false;
     return true;
 }
-function CreateOrUpdateBankTransactionRequestBodyDtoPopulatedBankAccountFromJSON(json) {
-    return CreateOrUpdateBankTransactionRequestBodyDtoPopulatedBankAccountFromJSONTyped(json, false);
+function BankTransactionEntityPopulatedBankAccountFromJSON(json) {
+    return BankTransactionEntityPopulatedBankAccountFromJSONTyped(json, false);
 }
-function CreateOrUpdateBankTransactionRequestBodyDtoPopulatedBankAccountFromJSONTyped(json, ignoreDiscriminator) {
+function BankTransactionEntityPopulatedBankAccountFromJSONTyped(json, ignoreDiscriminator) {
     if (json == null) {
         return json;
     }
@@ -92,10 +92,10 @@ function CreateOrUpdateBankTransactionRequestBodyDtoPopulatedBankAccountFromJSON
         'updatedAt': json['updatedAt'],
     };
 }
-function CreateOrUpdateBankTransactionRequestBodyDtoPopulatedBankAccountToJSON(json) {
-    return CreateOrUpdateBankTransactionRequestBodyDtoPopulatedBankAccountToJSONTyped(json, false);
+function BankTransactionEntityPopulatedBankAccountToJSON(json) {
+    return BankTransactionEntityPopulatedBankAccountToJSONTyped(json, false);
 }
-function CreateOrUpdateBankTransactionRequestBodyDtoPopulatedBankAccountToJSONTyped(value, ignoreDiscriminator) {
+function BankTransactionEntityPopulatedBankAccountToJSONTyped(value, ignoreDiscriminator) {
     if (ignoreDiscriminator === void 0) { ignoreDiscriminator = false; }
     if (value == null) {
         return value;
