@@ -24,7 +24,8 @@ exports.PartialUpdateBankAccountRequestBodyDtoToJSONTyped = PartialUpdateBankAcc
  */
 exports.PartialUpdateBankAccountRequestBodyDtoChannelEnum = {
     WebApp: 'WEB_APP',
-    Whatsapp: 'WHATSAPP'
+    Whatsapp: 'WHATSAPP',
+    System: 'SYSTEM'
 };
 /**
  * Check if a given object implements the PartialUpdateBankAccountRequestBodyDto interface.

@@ -121,6 +121,7 @@ export type CreateContactRequestBodyDtoOriginEnum = typeof CreateContactRequestB
 export declare const CreateContactRequestBodyDtoChannelEnum: {
     readonly WebApp: "WEB_APP";
     readonly Whatsapp: "WHATSAPP";
+    readonly System: "SYSTEM";
 };
 export type CreateContactRequestBodyDtoChannelEnum = typeof CreateContactRequestBodyDtoChannelEnum[keyof typeof CreateContactRequestBodyDtoChannelEnum];
 /**

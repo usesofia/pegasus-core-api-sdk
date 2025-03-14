@@ -129,6 +129,7 @@ export type BankAccountsPageDtoItemsInnerTypeEnum = typeof BankAccountsPageDtoIt
  */
 export declare const BankAccountsPageDtoItemsInnerProviderEnum: {
     readonly Pluggy: "PLUGGY";
+    readonly Ofx: "OFX";
     readonly Other: "OTHER";
 };
 export type BankAccountsPageDtoItemsInnerProviderEnum = typeof BankAccountsPageDtoItemsInnerProviderEnum[keyof typeof BankAccountsPageDtoItemsInnerProviderEnum];

@@ -24,7 +24,8 @@ exports.RemoveSubcategoryRequestBodyDtoToJSONTyped = RemoveSubcategoryRequestBod
  */
 exports.RemoveSubcategoryRequestBodyDtoChannelEnum = {
     WebApp: 'WEB_APP',
-    Whatsapp: 'WHATSAPP'
+    Whatsapp: 'WHATSAPP',
+    System: 'SYSTEM'
 };
 /**
  * Check if a given object implements the RemoveSubcategoryRequestBodyDto interface.

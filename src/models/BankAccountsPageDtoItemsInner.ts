@@ -136,6 +136,7 @@ export type BankAccountsPageDtoItemsInnerTypeEnum = typeof BankAccountsPageDtoIt
  */
 export const BankAccountsPageDtoItemsInnerProviderEnum = {
     Pluggy: 'PLUGGY',
+    Ofx: 'OFX',
     Other: 'OTHER'
 } as const;
 export type BankAccountsPageDtoItemsInnerProviderEnum = typeof BankAccountsPageDtoItemsInnerProviderEnum[keyof typeof BankAccountsPageDtoItemsInnerProviderEnum];

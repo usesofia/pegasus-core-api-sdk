@@ -5,6 +5,7 @@ package.json
 src/apis/AddressesApi.ts
 src/apis/BankAccountsApi.ts
 src/apis/BankInstitutionsApi.ts
+src/apis/BankTransactionsApi.ts
 src/apis/CacheApi.ts
 src/apis/CategoriesApi.ts
 src/apis/ContactsApi.ts
@@ -22,6 +23,7 @@ src/models/BankAccountTypeEntity.ts
 src/models/BankAccountsPageDto.ts
 src/models/BankAccountsPageDtoItemsInner.ts
 src/models/BankInstitutionEntity.ts
+src/models/BankTransactionEntity.ts
 src/models/CacheGetResponseDto.ts
 src/models/CacheSetDto.ts
 src/models/CategoriesPageEntity.ts
@@ -38,6 +40,18 @@ src/models/CreateBankAccountRequestBodyDto.ts
 src/models/CreateContactRequestBodyDto.ts
 src/models/CreateContactRequestBodyDtoAddress.ts
 src/models/CreateInviteRequestBodyDto.ts
+src/models/CreateOrUpdateBankTransactionRequestBodyDto.ts
+src/models/CreateOrUpdateBankTransactionRequestBodyDtoCreditCardMetadata.ts
+src/models/CreateOrUpdateBankTransactionRequestBodyDtoMerchant.ts
+src/models/CreateOrUpdateBankTransactionRequestBodyDtoPaymentData.ts
+src/models/CreateOrUpdateBankTransactionRequestBodyDtoPaymentDataBoletoMetadata.ts
+src/models/CreateOrUpdateBankTransactionRequestBodyDtoPaymentDataPayer.ts
+src/models/CreateOrUpdateBankTransactionRequestBodyDtoPaymentDataPayerDocumentNumber.ts
+src/models/CreateOrUpdateBankTransactionRequestBodyDtoPopulatedBankAccount.ts
+src/models/CreateOrUpdateBankTransactionRequestBodyDtoRequester.ts
+src/models/CreateOrUpdateBankTransactionRequestBodyDtoRequesterOrganization.ts
+src/models/CreateOrUpdateBankTransactionRequestBodyDtoRequesterOrganizationChildrenInner.ts
+src/models/CreateOrUpdateBankTransactionRequestBodyDtoRequesterOrganizationParent.ts
 src/models/CreateOrganizationRequestBodyDto.ts
 src/models/CreateOrganizationRequestBodyDtoGroupSettings.ts
 src/models/CreateOrganizationRequestBodyDtoPopulatedChildrenInner.ts
@@ -55,6 +69,7 @@ src/models/NormalizedSubcategoriesPageEntityItemsInner.ts
 src/models/NormalizedSubcategoriesPageEntityItemsInnerPopulatedCategory.ts
 src/models/OrganizationEntity.ts
 src/models/PartialUpdateBankAccountRequestBodyDto.ts
+src/models/PartialUpdateBankTransactionRequestBodyDto.ts
 src/models/PartialUpdateContactRequestBodyDto.ts
 src/models/PartialUpdateMemberRequestBodyDto.ts
 src/models/PartialUpdateOrganizationRequestBodyDto.ts

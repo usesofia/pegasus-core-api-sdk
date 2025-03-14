@@ -90,7 +90,8 @@ export interface ExternalCreateSubcategoryRequestBodyDto {
  */
 export const ExternalCreateSubcategoryRequestBodyDtoChannelEnum = {
     WebApp: 'WEB_APP',
-    Whatsapp: 'WHATSAPP'
+    Whatsapp: 'WHATSAPP',
+    System: 'SYSTEM'
 } as const;
 export type ExternalCreateSubcategoryRequestBodyDtoChannelEnum = typeof ExternalCreateSubcategoryRequestBodyDtoChannelEnum[keyof typeof ExternalCreateSubcategoryRequestBodyDtoChannelEnum];
 

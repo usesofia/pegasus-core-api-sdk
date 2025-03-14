@@ -35,6 +35,7 @@ exports.CreateBankAccountRequestBodyDtoTypeEnum = {
  */
 exports.CreateBankAccountRequestBodyDtoProviderEnum = {
     Pluggy: 'PLUGGY',
+    Ofx: 'OFX',
     Other: 'OTHER'
 };
 /**
@@ -42,7 +43,8 @@ exports.CreateBankAccountRequestBodyDtoProviderEnum = {
  */
 exports.CreateBankAccountRequestBodyDtoChannelEnum = {
     WebApp: 'WEB_APP',
-    Whatsapp: 'WHATSAPP'
+    Whatsapp: 'WHATSAPP',
+    System: 'SYSTEM'
 };
 /**
  * Check if a given object implements the CreateBankAccountRequestBodyDto interface.

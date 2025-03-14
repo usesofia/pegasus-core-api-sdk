@@ -33,7 +33,8 @@ export interface RemoveTagRequestBodyDto {
  */
 export const RemoveTagRequestBodyDtoChannelEnum = {
     WebApp: 'WEB_APP',
-    Whatsapp: 'WHATSAPP'
+    Whatsapp: 'WHATSAPP',
+    System: 'SYSTEM'
 } as const;
 export type RemoveTagRequestBodyDtoChannelEnum = typeof RemoveTagRequestBodyDtoChannelEnum[keyof typeof RemoveTagRequestBodyDtoChannelEnum];
 

@@ -24,7 +24,8 @@ exports.RemoveMemberRequestBodyDtoToJSONTyped = RemoveMemberRequestBodyDtoToJSON
  */
 exports.RemoveMemberRequestBodyDtoChannelEnum = {
     WebApp: 'WEB_APP',
-    Whatsapp: 'WHATSAPP'
+    Whatsapp: 'WHATSAPP',
+    System: 'SYSTEM'
 };
 /**
  * Check if a given object implements the RemoveMemberRequestBodyDto interface.

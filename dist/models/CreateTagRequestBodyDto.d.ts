@@ -34,6 +34,7 @@ export interface CreateTagRequestBodyDto {
 export declare const CreateTagRequestBodyDtoChannelEnum: {
     readonly WebApp: "WEB_APP";
     readonly Whatsapp: "WHATSAPP";
+    readonly System: "SYSTEM";
 };
 export type CreateTagRequestBodyDtoChannelEnum = typeof CreateTagRequestBodyDtoChannelEnum[keyof typeof CreateTagRequestBodyDtoChannelEnum];
 /**

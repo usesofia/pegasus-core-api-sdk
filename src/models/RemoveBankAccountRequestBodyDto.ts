@@ -33,7 +33,8 @@ export interface RemoveBankAccountRequestBodyDto {
  */
 export const RemoveBankAccountRequestBodyDtoChannelEnum = {
     WebApp: 'WEB_APP',
-    Whatsapp: 'WHATSAPP'
+    Whatsapp: 'WHATSAPP',
+    System: 'SYSTEM'
 } as const;
 export type RemoveBankAccountRequestBodyDtoChannelEnum = typeof RemoveBankAccountRequestBodyDtoChannelEnum[keyof typeof RemoveBankAccountRequestBodyDtoChannelEnum];
 

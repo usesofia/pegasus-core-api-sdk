@@ -136,7 +136,8 @@ export type PartialUpdateContactRequestBodyDtoOriginEnum = typeof PartialUpdateC
  */
 export const PartialUpdateContactRequestBodyDtoChannelEnum = {
     WebApp: 'WEB_APP',
-    Whatsapp: 'WHATSAPP'
+    Whatsapp: 'WHATSAPP',
+    System: 'SYSTEM'
 } as const;
 export type PartialUpdateContactRequestBodyDtoChannelEnum = typeof PartialUpdateContactRequestBodyDtoChannelEnum[keyof typeof PartialUpdateContactRequestBodyDtoChannelEnum];
 

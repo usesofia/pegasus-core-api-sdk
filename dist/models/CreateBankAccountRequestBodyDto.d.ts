@@ -99,6 +99,7 @@ export type CreateBankAccountRequestBodyDtoTypeEnum = typeof CreateBankAccountRe
  */
 export declare const CreateBankAccountRequestBodyDtoProviderEnum: {
     readonly Pluggy: "PLUGGY";
+    readonly Ofx: "OFX";
     readonly Other: "OTHER";
 };
 export type CreateBankAccountRequestBodyDtoProviderEnum = typeof CreateBankAccountRequestBodyDtoProviderEnum[keyof typeof CreateBankAccountRequestBodyDtoProviderEnum];
@@ -108,6 +109,7 @@ export type CreateBankAccountRequestBodyDtoProviderEnum = typeof CreateBankAccou
 export declare const CreateBankAccountRequestBodyDtoChannelEnum: {
     readonly WebApp: "WEB_APP";
     readonly Whatsapp: "WHATSAPP";
+    readonly System: "SYSTEM";
 };
 export type CreateBankAccountRequestBodyDtoChannelEnum = typeof CreateBankAccountRequestBodyDtoChannelEnum[keyof typeof CreateBankAccountRequestBodyDtoChannelEnum];
 /**

@@ -106,6 +106,7 @@ export type CreateBankAccountRequestBodyDtoTypeEnum = typeof CreateBankAccountRe
  */
 export const CreateBankAccountRequestBodyDtoProviderEnum = {
     Pluggy: 'PLUGGY',
+    Ofx: 'OFX',
     Other: 'OTHER'
 } as const;
 export type CreateBankAccountRequestBodyDtoProviderEnum = typeof CreateBankAccountRequestBodyDtoProviderEnum[keyof typeof CreateBankAccountRequestBodyDtoProviderEnum];
@@ -115,7 +116,8 @@ export type CreateBankAccountRequestBodyDtoProviderEnum = typeof CreateBankAccou
  */
 export const CreateBankAccountRequestBodyDtoChannelEnum = {
     WebApp: 'WEB_APP',
-    Whatsapp: 'WHATSAPP'
+    Whatsapp: 'WHATSAPP',
+    System: 'SYSTEM'
 } as const;
 export type CreateBankAccountRequestBodyDtoChannelEnum = typeof CreateBankAccountRequestBodyDtoChannelEnum[keyof typeof CreateBankAccountRequestBodyDtoChannelEnum];
 

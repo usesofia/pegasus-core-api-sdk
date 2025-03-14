@@ -24,7 +24,8 @@ exports.CreateTagRequestBodyDtoToJSONTyped = CreateTagRequestBodyDtoToJSONTyped;
  */
 exports.CreateTagRequestBodyDtoChannelEnum = {
     WebApp: 'WEB_APP',
-    Whatsapp: 'WHATSAPP'
+    Whatsapp: 'WHATSAPP',
+    System: 'SYSTEM'
 };
 /**
  * Check if a given object implements the CreateTagRequestBodyDto interface.

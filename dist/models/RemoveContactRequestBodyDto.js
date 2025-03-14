@@ -24,7 +24,8 @@ exports.RemoveContactRequestBodyDtoToJSONTyped = RemoveContactRequestBodyDtoToJS
  */
 exports.RemoveContactRequestBodyDtoChannelEnum = {
     WebApp: 'WEB_APP',
-    Whatsapp: 'WHATSAPP'
+    Whatsapp: 'WHATSAPP',
+    System: 'SYSTEM'
 };
 /**
  * Check if a given object implements the RemoveContactRequestBodyDto interface.

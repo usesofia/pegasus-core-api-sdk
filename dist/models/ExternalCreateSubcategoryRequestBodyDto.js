@@ -26,7 +26,8 @@ var ExternalCreateSubcategoryRequestBodyDtoPopulatedNormalizedSubcategory_1 = re
  */
 exports.ExternalCreateSubcategoryRequestBodyDtoChannelEnum = {
     WebApp: 'WEB_APP',
-    Whatsapp: 'WHATSAPP'
+    Whatsapp: 'WHATSAPP',
+    System: 'SYSTEM'
 };
 /**
  * Check if a given object implements the ExternalCreateSubcategoryRequestBodyDto interface.

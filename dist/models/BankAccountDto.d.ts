@@ -129,6 +129,7 @@ export type BankAccountDtoTypeEnum = typeof BankAccountDtoTypeEnum[keyof typeof 
  */
 export declare const BankAccountDtoProviderEnum: {
     readonly Pluggy: "PLUGGY";
+    readonly Ofx: "OFX";
     readonly Other: "OTHER";
 };
 export type BankAccountDtoProviderEnum = typeof BankAccountDtoProviderEnum[keyof typeof BankAccountDtoProviderEnum];

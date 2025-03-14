@@ -35,6 +35,7 @@ exports.BankAccountDtoTypeEnum = {
  */
 exports.BankAccountDtoProviderEnum = {
     Pluggy: 'PLUGGY',
+    Ofx: 'OFX',
     Other: 'OTHER'
 };
 /**

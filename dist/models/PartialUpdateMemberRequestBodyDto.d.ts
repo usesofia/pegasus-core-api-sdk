@@ -42,6 +42,7 @@ export type PartialUpdateMemberRequestBodyDtoRoleEnum = typeof PartialUpdateMemb
 export declare const PartialUpdateMemberRequestBodyDtoChannelEnum: {
     readonly WebApp: "WEB_APP";
     readonly Whatsapp: "WHATSAPP";
+    readonly System: "SYSTEM";
 };
 export type PartialUpdateMemberRequestBodyDtoChannelEnum = typeof PartialUpdateMemberRequestBodyDtoChannelEnum[keyof typeof PartialUpdateMemberRequestBodyDtoChannelEnum];
 /**
