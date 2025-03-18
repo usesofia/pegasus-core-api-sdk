@@ -50,6 +50,8 @@ function instanceOfBankTransactionEntityPopulatedBankAccount(value) {
         return false;
     if (!('type' in value) || value['type'] === undefined)
         return false;
+    if (!('considerInAggregateCalculations' in value) || value['considerInAggregateCalculations'] === undefined)
+        return false;
     if (!('number' in value) || value['number'] === undefined)
         return false;
     if (!('isAutomatic' in value) || value['isAutomatic'] === undefined)
@@ -78,6 +80,7 @@ function BankTransactionEntityPopulatedBankAccountFromJSONTyped(json, ignoreDisc
         'ownerOrganization': json['ownerOrganization'],
         'name': json['name'],
         'type': json['type'],
+        'considerInAggregateCalculations': json['considerInAggregateCalculations'],
         'number': json['number'],
         'isAutomatic': json['isAutomatic'],
         'isDefault': json['isDefault'],
@@ -105,6 +108,7 @@ function BankTransactionEntityPopulatedBankAccountToJSONTyped(value, ignoreDiscr
         'ownerOrganization': value['ownerOrganization'],
         'name': value['name'],
         'type': value['type'],
+        'considerInAggregateCalculations': value['considerInAggregateCalculations'],
         'number': value['number'],
         'isAutomatic': value['isAutomatic'],
         'isDefault': value['isDefault'],

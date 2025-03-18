@@ -22,6 +22,12 @@ export interface PartialUpdateBankAccountRequestBodyDto {
      */
     name?: string;
     /**
+     * Indica se a conta deve ser considerada no cálculo agregado.
+     * @type {boolean}
+     * @memberof PartialUpdateBankAccountRequestBodyDto
+     */
+    considerInAggregateCalculations?: boolean;
+    /**
      * Número da conta ou cartão.
      * @type {string}
      * @memberof PartialUpdateBankAccountRequestBodyDto

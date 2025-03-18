@@ -44,6 +44,7 @@ function PartialUpdateBankAccountRequestBodyDtoFromJSONTyped(json, ignoreDiscrim
     }
     return {
         'name': json['name'] == null ? undefined : json['name'],
+        'considerInAggregateCalculations': json['considerInAggregateCalculations'] == null ? undefined : json['considerInAggregateCalculations'],
         'number': json['number'] == null ? undefined : json['number'],
         'isDefault': json['isDefault'] == null ? undefined : json['isDefault'],
         'initialBalanceDate': json['initialBalanceDate'] == null ? undefined : json['initialBalanceDate'],
@@ -63,6 +64,7 @@ function PartialUpdateBankAccountRequestBodyDtoToJSONTyped(value, ignoreDiscrimi
     }
     return {
         'name': value['name'],
+        'considerInAggregateCalculations': value['considerInAggregateCalculations'],
         'number': value['number'],
         'isDefault': value['isDefault'],
         'initialBalanceDate': value['initialBalanceDate'],

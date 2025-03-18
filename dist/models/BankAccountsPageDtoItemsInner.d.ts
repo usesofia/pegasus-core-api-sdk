@@ -40,6 +40,12 @@ export interface BankAccountsPageDtoItemsInner {
      */
     type: BankAccountsPageDtoItemsInnerTypeEnum;
     /**
+     * Indica se a conta deve ser considerada no cálculo agregado.
+     * @type {boolean}
+     * @memberof BankAccountsPageDtoItemsInner
+     */
+    considerInAggregateCalculations: boolean;
+    /**
      * Número da conta ou cartão.
      * @type {string}
      * @memberof BankAccountsPageDtoItemsInner

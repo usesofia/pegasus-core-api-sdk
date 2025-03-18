@@ -28,6 +28,12 @@ export interface CreateBankAccountRequestBodyDto {
      */
     type: CreateBankAccountRequestBodyDtoTypeEnum;
     /**
+     * Indica se a conta deve ser considerada no cálculo agregado.
+     * @type {boolean}
+     * @memberof CreateBankAccountRequestBodyDto
+     */
+    considerInAggregateCalculations?: boolean;
+    /**
      * Número da conta ou cartão.
      * @type {string}
      * @memberof CreateBankAccountRequestBodyDto

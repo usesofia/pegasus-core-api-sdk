@@ -32,6 +32,12 @@ export interface CreateBankAccountRequestBodyDto {
      */
     type: CreateBankAccountRequestBodyDtoTypeEnum;
     /**
+     * Indica se a conta deve ser considerada no cálculo agregado.
+     * @type {boolean}
+     * @memberof CreateBankAccountRequestBodyDto
+     */
+    considerInAggregateCalculations?: boolean;
+    /**
      * Número da conta ou cartão.
      * @type {string}
      * @memberof CreateBankAccountRequestBodyDto
@@ -147,6 +153,7 @@ export function CreateBankAccountRequestBodyDtoFromJSONTyped(json: any, ignoreDi
         
         'name': json['name'],
         'type': json['type'],
+        'considerInAggregateCalculations': json['considerInAggregateCalculations'] == null ? undefined : json['considerInAggregateCalculations'],
         'number': json['number'],
         'isAutomatic': json['isAutomatic'],
         'initialBalanceDate': json['initialBalanceDate'] == null ? undefined : json['initialBalanceDate'],
@@ -172,6 +179,7 @@ export function CreateBankAccountRequestBodyDtoToJSONTyped(value?: CreateBankAcc
         
         'name': value['name'],
         'type': value['type'],
+        'considerInAggregateCalculations': value['considerInAggregateCalculations'],
         'number': value['number'],
         'isAutomatic': value['isAutomatic'],
         'initialBalanceDate': value['initialBalanceDate'],

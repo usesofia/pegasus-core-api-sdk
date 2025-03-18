@@ -44,6 +44,12 @@ export interface BankAccountsPageDtoItemsInner {
      */
     type: BankAccountsPageDtoItemsInnerTypeEnum;
     /**
+     * Indica se a conta deve ser considerada no cálculo agregado.
+     * @type {boolean}
+     * @memberof BankAccountsPageDtoItemsInner
+     */
+    considerInAggregateCalculations: boolean;
+    /**
      * Número da conta ou cartão.
      * @type {string}
      * @memberof BankAccountsPageDtoItemsInner
@@ -150,6 +156,7 @@ export function instanceOfBankAccountsPageDtoItemsInner(value: object): value is
     if (!('ownerOrganization' in value) || value['ownerOrganization'] === undefined) return false;
     if (!('name' in value) || value['name'] === undefined) return false;
     if (!('type' in value) || value['type'] === undefined) return false;
+    if (!('considerInAggregateCalculations' in value) || value['considerInAggregateCalculations'] === undefined) return false;
     if (!('number' in value) || value['number'] === undefined) return false;
     if (!('isAutomatic' in value) || value['isAutomatic'] === undefined) return false;
     if (!('isDefault' in value) || value['isDefault'] === undefined) return false;
@@ -174,6 +181,7 @@ export function BankAccountsPageDtoItemsInnerFromJSONTyped(json: any, ignoreDisc
         'ownerOrganization': json['ownerOrganization'],
         'name': json['name'],
         'type': json['type'],
+        'considerInAggregateCalculations': json['considerInAggregateCalculations'],
         'number': json['number'],
         'isAutomatic': json['isAutomatic'],
         'isDefault': json['isDefault'],
@@ -204,6 +212,7 @@ export function BankAccountsPageDtoItemsInnerToJSONTyped(value?: BankAccountsPag
         'ownerOrganization': value['ownerOrganization'],
         'name': value['name'],
         'type': value['type'],
+        'considerInAggregateCalculations': value['considerInAggregateCalculations'],
         'number': value['number'],
         'isAutomatic': value['isAutomatic'],
         'isDefault': value['isDefault'],
