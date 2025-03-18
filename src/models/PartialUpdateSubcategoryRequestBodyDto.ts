@@ -77,6 +77,12 @@ export interface PartialUpdateSubcategoryRequestBodyDto {
      */
     populatedNormalizedSubcategory?: ExternalCreateSubcategoryRequestBodyDtoPopulatedNormalizedSubcategory | null;
     /**
+     * Indica se a subcategoria deve ser exibida no DRE.
+     * @type {boolean}
+     * @memberof PartialUpdateSubcategoryRequestBodyDto
+     */
+    considerInDre?: boolean;
+    /**
      * Canal de origem da operação
      * @type {string}
      * @memberof PartialUpdateSubcategoryRequestBodyDto
@@ -121,6 +127,7 @@ export function PartialUpdateSubcategoryRequestBodyDtoFromJSONTyped(json: any, i
         'populatedCategory': json['populatedCategory'] == null ? undefined : NormalizedSubcategoriesPageEntityItemsInnerPopulatedCategoryFromJSON(json['populatedCategory']),
         'normalizedSubcategory': json['normalizedSubcategory'] == null ? undefined : json['normalizedSubcategory'],
         'populatedNormalizedSubcategory': json['populatedNormalizedSubcategory'] == null ? undefined : ExternalCreateSubcategoryRequestBodyDtoPopulatedNormalizedSubcategoryFromJSON(json['populatedNormalizedSubcategory']),
+        'considerInDre': json['considerInDre'] == null ? undefined : json['considerInDre'],
         'channel': json['channel'],
     };
 }
@@ -143,6 +150,7 @@ export function PartialUpdateSubcategoryRequestBodyDtoToJSONTyped(value?: Partia
         'populatedCategory': NormalizedSubcategoriesPageEntityItemsInnerPopulatedCategoryToJSON(value['populatedCategory']),
         'normalizedSubcategory': value['normalizedSubcategory'],
         'populatedNormalizedSubcategory': ExternalCreateSubcategoryRequestBodyDtoPopulatedNormalizedSubcategoryToJSON(value['populatedNormalizedSubcategory']),
+        'considerInDre': value['considerInDre'],
         'channel': value['channel'],
     };
 }

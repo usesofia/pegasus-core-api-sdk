@@ -53,23 +53,29 @@ export interface ExternalCreateSubcategoryRequestBodyDtoPopulatedNormalizedSubca
      */
     populatedCategory?: NormalizedSubcategoriesPageEntityItemsInnerPopulatedCategory | null;
     /**
+     * Indica se a subcategoria deve ser exibida no DRE.
+     * @type {boolean}
+     * @memberof ExternalCreateSubcategoryRequestBodyDtoPopulatedNormalizedSubcategory
+     */
+    considerInDre: boolean;
+    /**
      * Indica se a subcategoria é relacionada a faturas.
      * @type {boolean}
      * @memberof ExternalCreateSubcategoryRequestBodyDtoPopulatedNormalizedSubcategory
      */
-    isInvoiceRelated?: boolean | null;
+    isInvoiceRelated: boolean;
     /**
      * Indica se a subcategoria é relacionada a transferências internas.
      * @type {boolean}
      * @memberof ExternalCreateSubcategoryRequestBodyDtoPopulatedNormalizedSubcategory
      */
-    isInternalTransferRelated?: boolean | null;
+    isInternalTransferRelated: boolean;
     /**
      * Indica se a subcategoria é relacionada a transferências automáticas de aplicação.
      * @type {boolean}
      * @memberof ExternalCreateSubcategoryRequestBodyDtoPopulatedNormalizedSubcategory
      */
-    isAutomaticApplicationRelated?: boolean | null;
+    isAutomaticApplicationRelated: boolean;
     /**
      * Data de criação da subcategoria.
      * @type {any}

@@ -33,6 +33,14 @@ function instanceOfExternalCreateSubcategoryRequestBodyDtoPopulatedNormalizedSub
         return false;
     if (!('category' in value) || value['category'] === undefined)
         return false;
+    if (!('considerInDre' in value) || value['considerInDre'] === undefined)
+        return false;
+    if (!('isInvoiceRelated' in value) || value['isInvoiceRelated'] === undefined)
+        return false;
+    if (!('isInternalTransferRelated' in value) || value['isInternalTransferRelated'] === undefined)
+        return false;
+    if (!('isAutomaticApplicationRelated' in value) || value['isAutomaticApplicationRelated'] === undefined)
+        return false;
     if (!('createdAt' in value) || value['createdAt'] === undefined)
         return false;
     if (!('updatedAt' in value) || value['updatedAt'] === undefined)
@@ -53,9 +61,10 @@ function ExternalCreateSubcategoryRequestBodyDtoPopulatedNormalizedSubcategoryFr
         'index': json['index'],
         'category': json['category'],
         'populatedCategory': json['populatedCategory'] == null ? undefined : (0, NormalizedSubcategoriesPageEntityItemsInnerPopulatedCategory_1.NormalizedSubcategoriesPageEntityItemsInnerPopulatedCategoryFromJSON)(json['populatedCategory']),
-        'isInvoiceRelated': json['isInvoiceRelated'] == null ? undefined : json['isInvoiceRelated'],
-        'isInternalTransferRelated': json['isInternalTransferRelated'] == null ? undefined : json['isInternalTransferRelated'],
-        'isAutomaticApplicationRelated': json['isAutomaticApplicationRelated'] == null ? undefined : json['isAutomaticApplicationRelated'],
+        'considerInDre': json['considerInDre'],
+        'isInvoiceRelated': json['isInvoiceRelated'],
+        'isInternalTransferRelated': json['isInternalTransferRelated'],
+        'isAutomaticApplicationRelated': json['isAutomaticApplicationRelated'],
         'createdAt': json['createdAt'],
         'updatedAt': json['updatedAt'],
     };
@@ -75,6 +84,7 @@ function ExternalCreateSubcategoryRequestBodyDtoPopulatedNormalizedSubcategoryTo
         'index': value['index'],
         'category': value['category'],
         'populatedCategory': (0, NormalizedSubcategoriesPageEntityItemsInnerPopulatedCategory_1.NormalizedSubcategoriesPageEntityItemsInnerPopulatedCategoryToJSON)(value['populatedCategory']),
+        'considerInDre': value['considerInDre'],
         'isInvoiceRelated': value['isInvoiceRelated'],
         'isInternalTransferRelated': value['isInternalTransferRelated'],
         'isAutomaticApplicationRelated': value['isAutomaticApplicationRelated'],

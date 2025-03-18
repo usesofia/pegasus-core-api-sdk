@@ -60,6 +60,12 @@ export interface PartialUpdateSubcategoryRequestBodyDto {
      */
     populatedNormalizedSubcategory?: ExternalCreateSubcategoryRequestBodyDtoPopulatedNormalizedSubcategory | null;
     /**
+     * Indica se a subcategoria deve ser exibida no DRE.
+     * @type {boolean}
+     * @memberof PartialUpdateSubcategoryRequestBodyDto
+     */
+    considerInDre?: boolean;
+    /**
      * Canal de origem da operação
      * @type {string}
      * @memberof PartialUpdateSubcategoryRequestBodyDto

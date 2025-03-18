@@ -77,6 +77,12 @@ export interface ExternalCreateSubcategoryRequestBodyDto {
      */
     populatedNormalizedSubcategory?: ExternalCreateSubcategoryRequestBodyDtoPopulatedNormalizedSubcategory | null;
     /**
+     * Indica se a subcategoria deve ser exibida no DRE.
+     * @type {boolean}
+     * @memberof ExternalCreateSubcategoryRequestBodyDto
+     */
+    considerInDre: boolean;
+    /**
      * Canal de origem da operação
      * @type {string}
      * @memberof ExternalCreateSubcategoryRequestBodyDto
@@ -104,6 +110,7 @@ export function instanceOfExternalCreateSubcategoryRequestBodyDto(value: object)
     if (!('slug' in value) || value['slug'] === undefined) return false;
     if (!('index' in value) || value['index'] === undefined) return false;
     if (!('category' in value) || value['category'] === undefined) return false;
+    if (!('considerInDre' in value) || value['considerInDre'] === undefined) return false;
     if (!('channel' in value) || value['channel'] === undefined) return false;
     return true;
 }
@@ -125,6 +132,7 @@ export function ExternalCreateSubcategoryRequestBodyDtoFromJSONTyped(json: any, 
         'populatedCategory': json['populatedCategory'] == null ? undefined : NormalizedSubcategoriesPageEntityItemsInnerPopulatedCategoryFromJSON(json['populatedCategory']),
         'normalizedSubcategory': json['normalizedSubcategory'] == null ? undefined : json['normalizedSubcategory'],
         'populatedNormalizedSubcategory': json['populatedNormalizedSubcategory'] == null ? undefined : ExternalCreateSubcategoryRequestBodyDtoPopulatedNormalizedSubcategoryFromJSON(json['populatedNormalizedSubcategory']),
+        'considerInDre': json['considerInDre'],
         'channel': json['channel'],
     };
 }
@@ -147,6 +155,7 @@ export function ExternalCreateSubcategoryRequestBodyDtoToJSONTyped(value?: Exter
         'populatedCategory': NormalizedSubcategoriesPageEntityItemsInnerPopulatedCategoryToJSON(value['populatedCategory']),
         'normalizedSubcategory': value['normalizedSubcategory'],
         'populatedNormalizedSubcategory': ExternalCreateSubcategoryRequestBodyDtoPopulatedNormalizedSubcategoryToJSON(value['populatedNormalizedSubcategory']),
+        'considerInDre': value['considerInDre'],
         'channel': value['channel'],
     };
 }

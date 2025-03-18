@@ -41,6 +41,8 @@ function instanceOfExternalCreateSubcategoryRequestBodyDto(value) {
         return false;
     if (!('category' in value) || value['category'] === undefined)
         return false;
+    if (!('considerInDre' in value) || value['considerInDre'] === undefined)
+        return false;
     if (!('channel' in value) || value['channel'] === undefined)
         return false;
     return true;
@@ -60,6 +62,7 @@ function ExternalCreateSubcategoryRequestBodyDtoFromJSONTyped(json, ignoreDiscri
         'populatedCategory': json['populatedCategory'] == null ? undefined : (0, NormalizedSubcategoriesPageEntityItemsInnerPopulatedCategory_1.NormalizedSubcategoriesPageEntityItemsInnerPopulatedCategoryFromJSON)(json['populatedCategory']),
         'normalizedSubcategory': json['normalizedSubcategory'] == null ? undefined : json['normalizedSubcategory'],
         'populatedNormalizedSubcategory': json['populatedNormalizedSubcategory'] == null ? undefined : (0, ExternalCreateSubcategoryRequestBodyDtoPopulatedNormalizedSubcategory_1.ExternalCreateSubcategoryRequestBodyDtoPopulatedNormalizedSubcategoryFromJSON)(json['populatedNormalizedSubcategory']),
+        'considerInDre': json['considerInDre'],
         'channel': json['channel'],
     };
 }
@@ -79,6 +82,7 @@ function ExternalCreateSubcategoryRequestBodyDtoToJSONTyped(value, ignoreDiscrim
         'populatedCategory': (0, NormalizedSubcategoriesPageEntityItemsInnerPopulatedCategory_1.NormalizedSubcategoriesPageEntityItemsInnerPopulatedCategoryToJSON)(value['populatedCategory']),
         'normalizedSubcategory': value['normalizedSubcategory'],
         'populatedNormalizedSubcategory': (0, ExternalCreateSubcategoryRequestBodyDtoPopulatedNormalizedSubcategory_1.ExternalCreateSubcategoryRequestBodyDtoPopulatedNormalizedSubcategoryToJSON)(value['populatedNormalizedSubcategory']),
+        'considerInDre': value['considerInDre'],
         'channel': value['channel'],
     };
 }

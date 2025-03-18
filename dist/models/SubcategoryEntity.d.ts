@@ -72,6 +72,30 @@ export interface SubcategoryEntity {
      */
     populatedNormalizedSubcategory?: ExternalCreateSubcategoryRequestBodyDtoPopulatedNormalizedSubcategory | null;
     /**
+     * Indica se a subcategoria deve ser exibida no DRE.
+     * @type {boolean}
+     * @memberof SubcategoryEntity
+     */
+    considerInDre: boolean;
+    /**
+     * Indica se a subcategoria é relacionada a faturas.
+     * @type {boolean}
+     * @memberof SubcategoryEntity
+     */
+    isInvoiceRelated: boolean;
+    /**
+     * Indica se a subcategoria é relacionada a transferências internas.
+     * @type {boolean}
+     * @memberof SubcategoryEntity
+     */
+    isInternalTransferRelated: boolean;
+    /**
+     * Indica se a subcategoria é relacionada a transferências automáticas de aplicação.
+     * @type {boolean}
+     * @memberof SubcategoryEntity
+     */
+    isAutomaticApplicationRelated: boolean;
+    /**
      * Data de criação da subcategoria.
      * @type {any}
      * @memberof SubcategoryEntity

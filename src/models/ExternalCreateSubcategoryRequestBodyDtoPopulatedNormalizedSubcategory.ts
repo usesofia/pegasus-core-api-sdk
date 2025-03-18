@@ -64,23 +64,29 @@ export interface ExternalCreateSubcategoryRequestBodyDtoPopulatedNormalizedSubca
      */
     populatedCategory?: NormalizedSubcategoriesPageEntityItemsInnerPopulatedCategory | null;
     /**
+     * Indica se a subcategoria deve ser exibida no DRE.
+     * @type {boolean}
+     * @memberof ExternalCreateSubcategoryRequestBodyDtoPopulatedNormalizedSubcategory
+     */
+    considerInDre: boolean;
+    /**
      * Indica se a subcategoria é relacionada a faturas.
      * @type {boolean}
      * @memberof ExternalCreateSubcategoryRequestBodyDtoPopulatedNormalizedSubcategory
      */
-    isInvoiceRelated?: boolean | null;
+    isInvoiceRelated: boolean;
     /**
      * Indica se a subcategoria é relacionada a transferências internas.
      * @type {boolean}
      * @memberof ExternalCreateSubcategoryRequestBodyDtoPopulatedNormalizedSubcategory
      */
-    isInternalTransferRelated?: boolean | null;
+    isInternalTransferRelated: boolean;
     /**
      * Indica se a subcategoria é relacionada a transferências automáticas de aplicação.
      * @type {boolean}
      * @memberof ExternalCreateSubcategoryRequestBodyDtoPopulatedNormalizedSubcategory
      */
-    isAutomaticApplicationRelated?: boolean | null;
+    isAutomaticApplicationRelated: boolean;
     /**
      * Data de criação da subcategoria.
      * @type {any}
@@ -104,6 +110,10 @@ export function instanceOfExternalCreateSubcategoryRequestBodyDtoPopulatedNormal
     if (!('slug' in value) || value['slug'] === undefined) return false;
     if (!('index' in value) || value['index'] === undefined) return false;
     if (!('category' in value) || value['category'] === undefined) return false;
+    if (!('considerInDre' in value) || value['considerInDre'] === undefined) return false;
+    if (!('isInvoiceRelated' in value) || value['isInvoiceRelated'] === undefined) return false;
+    if (!('isInternalTransferRelated' in value) || value['isInternalTransferRelated'] === undefined) return false;
+    if (!('isAutomaticApplicationRelated' in value) || value['isAutomaticApplicationRelated'] === undefined) return false;
     if (!('createdAt' in value) || value['createdAt'] === undefined) return false;
     if (!('updatedAt' in value) || value['updatedAt'] === undefined) return false;
     return true;
@@ -125,9 +135,10 @@ export function ExternalCreateSubcategoryRequestBodyDtoPopulatedNormalizedSubcat
         'index': json['index'],
         'category': json['category'],
         'populatedCategory': json['populatedCategory'] == null ? undefined : NormalizedSubcategoriesPageEntityItemsInnerPopulatedCategoryFromJSON(json['populatedCategory']),
-        'isInvoiceRelated': json['isInvoiceRelated'] == null ? undefined : json['isInvoiceRelated'],
-        'isInternalTransferRelated': json['isInternalTransferRelated'] == null ? undefined : json['isInternalTransferRelated'],
-        'isAutomaticApplicationRelated': json['isAutomaticApplicationRelated'] == null ? undefined : json['isAutomaticApplicationRelated'],
+        'considerInDre': json['considerInDre'],
+        'isInvoiceRelated': json['isInvoiceRelated'],
+        'isInternalTransferRelated': json['isInternalTransferRelated'],
+        'isAutomaticApplicationRelated': json['isAutomaticApplicationRelated'],
         'createdAt': json['createdAt'],
         'updatedAt': json['updatedAt'],
     };
@@ -150,6 +161,7 @@ export function ExternalCreateSubcategoryRequestBodyDtoPopulatedNormalizedSubcat
         'index': value['index'],
         'category': value['category'],
         'populatedCategory': NormalizedSubcategoriesPageEntityItemsInnerPopulatedCategoryToJSON(value['populatedCategory']),
+        'considerInDre': value['considerInDre'],
         'isInvoiceRelated': value['isInvoiceRelated'],
         'isInternalTransferRelated': value['isInternalTransferRelated'],
         'isAutomaticApplicationRelated': value['isAutomaticApplicationRelated'],

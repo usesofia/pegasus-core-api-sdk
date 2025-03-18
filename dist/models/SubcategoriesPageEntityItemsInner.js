@@ -36,6 +36,14 @@ function instanceOfSubcategoriesPageEntityItemsInner(value) {
         return false;
     if (!('category' in value) || value['category'] === undefined)
         return false;
+    if (!('considerInDre' in value) || value['considerInDre'] === undefined)
+        return false;
+    if (!('isInvoiceRelated' in value) || value['isInvoiceRelated'] === undefined)
+        return false;
+    if (!('isInternalTransferRelated' in value) || value['isInternalTransferRelated'] === undefined)
+        return false;
+    if (!('isAutomaticApplicationRelated' in value) || value['isAutomaticApplicationRelated'] === undefined)
+        return false;
     if (!('createdAt' in value) || value['createdAt'] === undefined)
         return false;
     if (!('updatedAt' in value) || value['updatedAt'] === undefined)
@@ -59,6 +67,10 @@ function SubcategoriesPageEntityItemsInnerFromJSONTyped(json, ignoreDiscriminato
         'populatedCategory': json['populatedCategory'] == null ? undefined : (0, NormalizedSubcategoriesPageEntityItemsInnerPopulatedCategory_1.NormalizedSubcategoriesPageEntityItemsInnerPopulatedCategoryFromJSON)(json['populatedCategory']),
         'normalizedSubcategory': json['normalizedSubcategory'] == null ? undefined : json['normalizedSubcategory'],
         'populatedNormalizedSubcategory': json['populatedNormalizedSubcategory'] == null ? undefined : (0, ExternalCreateSubcategoryRequestBodyDtoPopulatedNormalizedSubcategory_1.ExternalCreateSubcategoryRequestBodyDtoPopulatedNormalizedSubcategoryFromJSON)(json['populatedNormalizedSubcategory']),
+        'considerInDre': json['considerInDre'],
+        'isInvoiceRelated': json['isInvoiceRelated'],
+        'isInternalTransferRelated': json['isInternalTransferRelated'],
+        'isAutomaticApplicationRelated': json['isAutomaticApplicationRelated'],
         'createdAt': json['createdAt'],
         'updatedAt': json['updatedAt'],
     };
@@ -81,6 +93,10 @@ function SubcategoriesPageEntityItemsInnerToJSONTyped(value, ignoreDiscriminator
         'populatedCategory': (0, NormalizedSubcategoriesPageEntityItemsInnerPopulatedCategory_1.NormalizedSubcategoriesPageEntityItemsInnerPopulatedCategoryToJSON)(value['populatedCategory']),
         'normalizedSubcategory': value['normalizedSubcategory'],
         'populatedNormalizedSubcategory': (0, ExternalCreateSubcategoryRequestBodyDtoPopulatedNormalizedSubcategory_1.ExternalCreateSubcategoryRequestBodyDtoPopulatedNormalizedSubcategoryToJSON)(value['populatedNormalizedSubcategory']),
+        'considerInDre': value['considerInDre'],
+        'isInvoiceRelated': value['isInvoiceRelated'],
+        'isInternalTransferRelated': value['isInternalTransferRelated'],
+        'isAutomaticApplicationRelated': value['isAutomaticApplicationRelated'],
         'createdAt': value['createdAt'],
         'updatedAt': value['updatedAt'],
     };
