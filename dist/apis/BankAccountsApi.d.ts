@@ -29,12 +29,12 @@ export interface FindAllBankAccountsRequest {
     pageSize?: number;
     pageIndex?: number;
 }
-export interface FindByIdBankAccountRequest {
-    id: string;
+export interface FindAllByPluggyItemRequest {
+    itemId: string;
     populate?: string;
 }
-export interface FindByPluggyItemBankAccountsRequest {
-    itemId: string;
+export interface FindByIdBankAccountRequest {
+    id: string;
     populate?: string;
 }
 export interface PartialUpdateBankAccountRequest {
@@ -105,6 +105,20 @@ export interface BankAccountsApiInterface {
     findAllBankAccounts(requestParameters: FindAllBankAccountsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankAccountsPageDto>;
     /**
      *
+     * @summary Busca contas bancárias pelo identificador do item do Pluggy.
+     * @param {string} itemId Identificador do item de conexão do Pluggy.
+     * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof BankAccountsApiInterface
+     */
+    findAllByPluggyItemRaw(requestParameters: FindAllByPluggyItemRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<BankAccountDto>>>;
+    /**
+     * Busca contas bancárias pelo identificador do item do Pluggy.
+     */
+    findAllByPluggyItem(requestParameters: FindAllByPluggyItemRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<BankAccountDto>>;
+    /**
+     *
      * @summary Busca uma conta bancária pelo identificador.
      * @param {string} id Identificador da conta bancária.
      * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
@@ -117,20 +131,6 @@ export interface BankAccountsApiInterface {
      * Busca uma conta bancária pelo identificador.
      */
     findByIdBankAccount(requestParameters: FindByIdBankAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankAccountDto>;
-    /**
-     *
-     * @summary Busca contas bancárias pelo identificador do item do Pluggy.
-     * @param {string} itemId Identificador do item de conexão do Pluggy.
-     * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof BankAccountsApiInterface
-     */
-    findByPluggyItemBankAccountsRaw(requestParameters: FindByPluggyItemBankAccountsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<BankAccountDto>>>;
-    /**
-     * Busca contas bancárias pelo identificador do item do Pluggy.
-     */
-    findByPluggyItemBankAccounts(requestParameters: FindByPluggyItemBankAccountsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<BankAccountDto>>;
     /**
      *
      * @summary Atualiza parcialmente uma conta bancária.
@@ -190,6 +190,14 @@ export declare class BankAccountsApi extends runtime.BaseAPI implements BankAcco
      */
     findAllBankAccounts(requestParameters?: FindAllBankAccountsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankAccountsPageDto>;
     /**
+     * Busca contas bancárias pelo identificador do item do Pluggy.
+     */
+    findAllByPluggyItemRaw(requestParameters: FindAllByPluggyItemRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<BankAccountDto>>>;
+    /**
+     * Busca contas bancárias pelo identificador do item do Pluggy.
+     */
+    findAllByPluggyItem(requestParameters: FindAllByPluggyItemRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<BankAccountDto>>;
+    /**
      * Busca uma conta bancária pelo identificador.
      */
     findByIdBankAccountRaw(requestParameters: FindByIdBankAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankAccountDto>>;
@@ -197,14 +205,6 @@ export declare class BankAccountsApi extends runtime.BaseAPI implements BankAcco
      * Busca uma conta bancária pelo identificador.
      */
     findByIdBankAccount(requestParameters: FindByIdBankAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankAccountDto>;
-    /**
-     * Busca contas bancárias pelo identificador do item do Pluggy.
-     */
-    findByPluggyItemBankAccountsRaw(requestParameters: FindByPluggyItemBankAccountsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<BankAccountDto>>>;
-    /**
-     * Busca contas bancárias pelo identificador do item do Pluggy.
-     */
-    findByPluggyItemBankAccounts(requestParameters: FindByPluggyItemBankAccountsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<BankAccountDto>>;
     /**
      * Atualiza parcialmente uma conta bancária.
      */

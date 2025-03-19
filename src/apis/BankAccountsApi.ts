@@ -60,13 +60,13 @@ export interface FindAllBankAccountsRequest {
     pageIndex?: number;
 }
 
-export interface FindByIdBankAccountRequest {
-    id: string;
+export interface FindAllByPluggyItemRequest {
+    itemId: string;
     populate?: string;
 }
 
-export interface FindByPluggyItemBankAccountsRequest {
-    itemId: string;
+export interface FindByIdBankAccountRequest {
+    id: string;
     populate?: string;
 }
 
@@ -146,6 +146,22 @@ export interface BankAccountsApiInterface {
 
     /**
      * 
+     * @summary Busca contas bancárias pelo identificador do item do Pluggy.
+     * @param {string} itemId Identificador do item de conexão do Pluggy.
+     * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof BankAccountsApiInterface
+     */
+    findAllByPluggyItemRaw(requestParameters: FindAllByPluggyItemRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<BankAccountDto>>>;
+
+    /**
+     * Busca contas bancárias pelo identificador do item do Pluggy.
+     */
+    findAllByPluggyItem(requestParameters: FindAllByPluggyItemRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<BankAccountDto>>;
+
+    /**
+     * 
      * @summary Busca uma conta bancária pelo identificador.
      * @param {string} id Identificador da conta bancária.
      * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
@@ -159,22 +175,6 @@ export interface BankAccountsApiInterface {
      * Busca uma conta bancária pelo identificador.
      */
     findByIdBankAccount(requestParameters: FindByIdBankAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankAccountDto>;
-
-    /**
-     * 
-     * @summary Busca contas bancárias pelo identificador do item do Pluggy.
-     * @param {string} itemId Identificador do item de conexão do Pluggy.
-     * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof BankAccountsApiInterface
-     */
-    findByPluggyItemBankAccountsRaw(requestParameters: FindByPluggyItemBankAccountsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<BankAccountDto>>>;
-
-    /**
-     * Busca contas bancárias pelo identificador do item do Pluggy.
-     */
-    findByPluggyItemBankAccounts(requestParameters: FindByPluggyItemBankAccountsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<BankAccountDto>>;
 
     /**
      * 
@@ -357,6 +357,43 @@ export class BankAccountsApi extends runtime.BaseAPI implements BankAccountsApiI
     }
 
     /**
+     * Busca contas bancárias pelo identificador do item do Pluggy.
+     */
+    async findAllByPluggyItemRaw(requestParameters: FindAllByPluggyItemRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<BankAccountDto>>> {
+        if (requestParameters['itemId'] == null) {
+            throw new runtime.RequiredError(
+                'itemId',
+                'Required parameter "itemId" was null or undefined when calling findAllByPluggyItem().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['populate'] != null) {
+            queryParameters['populate'] = requestParameters['populate'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/internal/bank-accounts/pluggy/{itemId}`.replace(`{${"itemId"}}`, encodeURIComponent(String(requestParameters['itemId']))),
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(BankAccountDtoFromJSON));
+    }
+
+    /**
+     * Busca contas bancárias pelo identificador do item do Pluggy.
+     */
+    async findAllByPluggyItem(requestParameters: FindAllByPluggyItemRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<BankAccountDto>> {
+        const response = await this.findAllByPluggyItemRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
      * Busca uma conta bancária pelo identificador.
      */
     async findByIdBankAccountRaw(requestParameters: FindByIdBankAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankAccountDto>> {
@@ -390,43 +427,6 @@ export class BankAccountsApi extends runtime.BaseAPI implements BankAccountsApiI
      */
     async findByIdBankAccount(requestParameters: FindByIdBankAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankAccountDto> {
         const response = await this.findByIdBankAccountRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Busca contas bancárias pelo identificador do item do Pluggy.
-     */
-    async findByPluggyItemBankAccountsRaw(requestParameters: FindByPluggyItemBankAccountsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<BankAccountDto>>> {
-        if (requestParameters['itemId'] == null) {
-            throw new runtime.RequiredError(
-                'itemId',
-                'Required parameter "itemId" was null or undefined when calling findByPluggyItemBankAccounts().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        if (requestParameters['populate'] != null) {
-            queryParameters['populate'] = requestParameters['populate'];
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        const response = await this.request({
-            path: `/external/bank-accounts/pluggy/{itemId}`.replace(`{${"itemId"}}`, encodeURIComponent(String(requestParameters['itemId']))),
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(BankAccountDtoFromJSON));
-    }
-
-    /**
-     * Busca contas bancárias pelo identificador do item do Pluggy.
-     */
-    async findByPluggyItemBankAccounts(requestParameters: FindByPluggyItemBankAccountsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<BankAccountDto>> {
-        const response = await this.findByPluggyItemBankAccountsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

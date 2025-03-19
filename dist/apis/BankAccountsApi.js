@@ -244,6 +244,53 @@ var BankAccountsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Busca contas bancárias pelo identificador do item do Pluggy.
+     */
+    BankAccountsApi.prototype.findAllByPluggyItemRaw = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (requestParameters['itemId'] == null) {
+                            throw new runtime.RequiredError('itemId', 'Required parameter "itemId" was null or undefined when calling findAllByPluggyItem().');
+                        }
+                        queryParameters = {};
+                        if (requestParameters['populate'] != null) {
+                            queryParameters['populate'] = requestParameters['populate'];
+                        }
+                        headerParameters = {};
+                        return [4 /*yield*/, this.request({
+                                path: "/internal/bank-accounts/pluggy/{itemId}".replace("{".concat("itemId", "}"), encodeURIComponent(String(requestParameters['itemId']))),
+                                method: 'GET',
+                                headers: headerParameters,
+                                query: queryParameters,
+                            }, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return jsonValue.map(index_1.BankAccountDtoFromJSON); })];
+                }
+            });
+        });
+    };
+    /**
+     * Busca contas bancárias pelo identificador do item do Pluggy.
+     */
+    BankAccountsApi.prototype.findAllByPluggyItem = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.findAllByPluggyItemRaw(requestParameters, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [4 /*yield*/, response.value()];
+                    case 2: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
+    /**
      * Busca uma conta bancária pelo identificador.
      */
     BankAccountsApi.prototype.findByIdBankAccountRaw = function (requestParameters, initOverrides) {
@@ -282,53 +329,6 @@ var BankAccountsApi = /** @class */ (function (_super) {
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, this.findByIdBankAccountRaw(requestParameters, initOverrides)];
-                    case 1:
-                        response = _a.sent();
-                        return [4 /*yield*/, response.value()];
-                    case 2: return [2 /*return*/, _a.sent()];
-                }
-            });
-        });
-    };
-    /**
-     * Busca contas bancárias pelo identificador do item do Pluggy.
-     */
-    BankAccountsApi.prototype.findByPluggyItemBankAccountsRaw = function (requestParameters, initOverrides) {
-        return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, response;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        if (requestParameters['itemId'] == null) {
-                            throw new runtime.RequiredError('itemId', 'Required parameter "itemId" was null or undefined when calling findByPluggyItemBankAccounts().');
-                        }
-                        queryParameters = {};
-                        if (requestParameters['populate'] != null) {
-                            queryParameters['populate'] = requestParameters['populate'];
-                        }
-                        headerParameters = {};
-                        return [4 /*yield*/, this.request({
-                                path: "/external/bank-accounts/pluggy/{itemId}".replace("{".concat("itemId", "}"), encodeURIComponent(String(requestParameters['itemId']))),
-                                method: 'GET',
-                                headers: headerParameters,
-                                query: queryParameters,
-                            }, initOverrides)];
-                    case 1:
-                        response = _a.sent();
-                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return jsonValue.map(index_1.BankAccountDtoFromJSON); })];
-                }
-            });
-        });
-    };
-    /**
-     * Busca contas bancárias pelo identificador do item do Pluggy.
-     */
-    BankAccountsApi.prototype.findByPluggyItemBankAccounts = function (requestParameters, initOverrides) {
-        return __awaiter(this, void 0, void 0, function () {
-            var response;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.findByPluggyItemBankAccountsRaw(requestParameters, initOverrides)];
                     case 1:
                         response = _a.sent();
                         return [4 /*yield*/, response.value()];
