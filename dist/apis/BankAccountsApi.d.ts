@@ -33,6 +33,10 @@ export interface FindByIdBankAccountRequest {
     id: string;
     populate?: string;
 }
+export interface FindByPluggyItemBankAccountsRequest {
+    itemId: string;
+    populate?: string;
+}
 export interface PartialUpdateBankAccountRequest {
     id: string;
     partialUpdateBankAccountRequestBodyDto: PartialUpdateBankAccountRequestBodyDto;
@@ -115,6 +119,20 @@ export interface BankAccountsApiInterface {
     findByIdBankAccount(requestParameters: FindByIdBankAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankAccountDto>;
     /**
      *
+     * @summary Busca contas bancárias pelo identificador do item do Pluggy.
+     * @param {string} itemId Identificador do item de conexão do Pluggy.
+     * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof BankAccountsApiInterface
+     */
+    findByPluggyItemBankAccountsRaw(requestParameters: FindByPluggyItemBankAccountsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<BankAccountDto>>>;
+    /**
+     * Busca contas bancárias pelo identificador do item do Pluggy.
+     */
+    findByPluggyItemBankAccounts(requestParameters: FindByPluggyItemBankAccountsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<BankAccountDto>>;
+    /**
+     *
      * @summary Atualiza parcialmente uma conta bancária.
      * @param {string} id Identificador da conta bancária.
      * @param {PartialUpdateBankAccountRequestBodyDto} partialUpdateBankAccountRequestBodyDto
@@ -179,6 +197,14 @@ export declare class BankAccountsApi extends runtime.BaseAPI implements BankAcco
      * Busca uma conta bancária pelo identificador.
      */
     findByIdBankAccount(requestParameters: FindByIdBankAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankAccountDto>;
+    /**
+     * Busca contas bancárias pelo identificador do item do Pluggy.
+     */
+    findByPluggyItemBankAccountsRaw(requestParameters: FindByPluggyItemBankAccountsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<BankAccountDto>>>;
+    /**
+     * Busca contas bancárias pelo identificador do item do Pluggy.
+     */
+    findByPluggyItemBankAccounts(requestParameters: FindByPluggyItemBankAccountsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<BankAccountDto>>;
     /**
      * Atualiza parcialmente uma conta bancária.
      */
