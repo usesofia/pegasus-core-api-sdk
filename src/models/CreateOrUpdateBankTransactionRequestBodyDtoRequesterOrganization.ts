@@ -51,13 +51,13 @@ export interface CreateOrUpdateBankTransactionRequestBodyDtoRequesterOrganizatio
      * @type {string}
      * @memberof CreateOrUpdateBankTransactionRequestBodyDtoRequesterOrganization
      */
-    role: CreateOrUpdateBankTransactionRequestBodyDtoRequesterOrganizationRoleEnum;
+    type: CreateOrUpdateBankTransactionRequestBodyDtoRequesterOrganizationTypeEnum;
     /**
      * 
      * @type {string}
      * @memberof CreateOrUpdateBankTransactionRequestBodyDtoRequesterOrganization
      */
-    type: CreateOrUpdateBankTransactionRequestBodyDtoRequesterOrganizationTypeEnum;
+    role: CreateOrUpdateBankTransactionRequestBodyDtoRequesterOrganizationRoleEnum;
     /**
      * 
      * @type {CreateOrUpdateBankTransactionRequestBodyDtoRequesterOrganizationParent}
@@ -76,20 +76,20 @@ export interface CreateOrUpdateBankTransactionRequestBodyDtoRequesterOrganizatio
 /**
  * @export
  */
-export const CreateOrUpdateBankTransactionRequestBodyDtoRequesterOrganizationRoleEnum = {
-    OrgAdmin: 'org:admin',
-    OrgMember: 'org:member'
-} as const;
-export type CreateOrUpdateBankTransactionRequestBodyDtoRequesterOrganizationRoleEnum = typeof CreateOrUpdateBankTransactionRequestBodyDtoRequesterOrganizationRoleEnum[keyof typeof CreateOrUpdateBankTransactionRequestBodyDtoRequesterOrganizationRoleEnum];
-
-/**
- * @export
- */
 export const CreateOrUpdateBankTransactionRequestBodyDtoRequesterOrganizationTypeEnum = {
     Leaf: 'LEAF',
     Group: 'GROUP'
 } as const;
 export type CreateOrUpdateBankTransactionRequestBodyDtoRequesterOrganizationTypeEnum = typeof CreateOrUpdateBankTransactionRequestBodyDtoRequesterOrganizationTypeEnum[keyof typeof CreateOrUpdateBankTransactionRequestBodyDtoRequesterOrganizationTypeEnum];
+
+/**
+ * @export
+ */
+export const CreateOrUpdateBankTransactionRequestBodyDtoRequesterOrganizationRoleEnum = {
+    OrgAdmin: 'org:admin',
+    OrgMember: 'org:member'
+} as const;
+export type CreateOrUpdateBankTransactionRequestBodyDtoRequesterOrganizationRoleEnum = typeof CreateOrUpdateBankTransactionRequestBodyDtoRequesterOrganizationRoleEnum[keyof typeof CreateOrUpdateBankTransactionRequestBodyDtoRequesterOrganizationRoleEnum];
 
 
 /**
@@ -98,8 +98,8 @@ export type CreateOrUpdateBankTransactionRequestBodyDtoRequesterOrganizationType
 export function instanceOfCreateOrUpdateBankTransactionRequestBodyDtoRequesterOrganization(value: object): value is CreateOrUpdateBankTransactionRequestBodyDtoRequesterOrganization {
     if (!('id' in value) || value['id'] === undefined) return false;
     if (!('name' in value) || value['name'] === undefined) return false;
-    if (!('role' in value) || value['role'] === undefined) return false;
     if (!('type' in value) || value['type'] === undefined) return false;
+    if (!('role' in value) || value['role'] === undefined) return false;
     return true;
 }
 
@@ -115,8 +115,8 @@ export function CreateOrUpdateBankTransactionRequestBodyDtoRequesterOrganization
         
         'id': json['id'],
         'name': json['name'],
-        'role': json['role'],
         'type': json['type'],
+        'role': json['role'],
         'parent': json['parent'] == null ? undefined : CreateOrUpdateBankTransactionRequestBodyDtoRequesterOrganizationParentFromJSON(json['parent']),
         'children': json['children'] == null ? undefined : ((json['children'] as Array<any>).map(CreateOrUpdateBankTransactionRequestBodyDtoRequesterOrganizationChildrenInnerFromJSON)),
     };
@@ -135,8 +135,8 @@ export function CreateOrUpdateBankTransactionRequestBodyDtoRequesterOrganization
         
         'id': value['id'],
         'name': value['name'],
-        'role': value['role'],
         'type': value['type'],
+        'role': value['role'],
         'parent': CreateOrUpdateBankTransactionRequestBodyDtoRequesterOrganizationParentToJSON(value['parent']),
         'children': value['children'] == null ? undefined : ((value['children'] as Array<any>).map(CreateOrUpdateBankTransactionRequestBodyDtoRequesterOrganizationChildrenInnerToJSON)),
     };

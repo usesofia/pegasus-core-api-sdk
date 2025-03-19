@@ -34,13 +34,13 @@ export interface CreateOrUpdateBankTransactionRequestBodyDtoRequesterOrganizatio
      * @type {string}
      * @memberof CreateOrUpdateBankTransactionRequestBodyDtoRequesterOrganization
      */
-    role: CreateOrUpdateBankTransactionRequestBodyDtoRequesterOrganizationRoleEnum;
+    type: CreateOrUpdateBankTransactionRequestBodyDtoRequesterOrganizationTypeEnum;
     /**
      *
      * @type {string}
      * @memberof CreateOrUpdateBankTransactionRequestBodyDtoRequesterOrganization
      */
-    type: CreateOrUpdateBankTransactionRequestBodyDtoRequesterOrganizationTypeEnum;
+    role: CreateOrUpdateBankTransactionRequestBodyDtoRequesterOrganizationRoleEnum;
     /**
      *
      * @type {CreateOrUpdateBankTransactionRequestBodyDtoRequesterOrganizationParent}
@@ -57,19 +57,19 @@ export interface CreateOrUpdateBankTransactionRequestBodyDtoRequesterOrganizatio
 /**
  * @export
  */
-export declare const CreateOrUpdateBankTransactionRequestBodyDtoRequesterOrganizationRoleEnum: {
-    readonly OrgAdmin: "org:admin";
-    readonly OrgMember: "org:member";
-};
-export type CreateOrUpdateBankTransactionRequestBodyDtoRequesterOrganizationRoleEnum = typeof CreateOrUpdateBankTransactionRequestBodyDtoRequesterOrganizationRoleEnum[keyof typeof CreateOrUpdateBankTransactionRequestBodyDtoRequesterOrganizationRoleEnum];
-/**
- * @export
- */
 export declare const CreateOrUpdateBankTransactionRequestBodyDtoRequesterOrganizationTypeEnum: {
     readonly Leaf: "LEAF";
     readonly Group: "GROUP";
 };
 export type CreateOrUpdateBankTransactionRequestBodyDtoRequesterOrganizationTypeEnum = typeof CreateOrUpdateBankTransactionRequestBodyDtoRequesterOrganizationTypeEnum[keyof typeof CreateOrUpdateBankTransactionRequestBodyDtoRequesterOrganizationTypeEnum];
+/**
+ * @export
+ */
+export declare const CreateOrUpdateBankTransactionRequestBodyDtoRequesterOrganizationRoleEnum: {
+    readonly OrgAdmin: "org:admin";
+    readonly OrgMember: "org:member";
+};
+export type CreateOrUpdateBankTransactionRequestBodyDtoRequesterOrganizationRoleEnum = typeof CreateOrUpdateBankTransactionRequestBodyDtoRequesterOrganizationRoleEnum[keyof typeof CreateOrUpdateBankTransactionRequestBodyDtoRequesterOrganizationRoleEnum];
 /**
  * Check if a given object implements the CreateOrUpdateBankTransactionRequestBodyDtoRequesterOrganization interface.
  */

@@ -13,7 +13,7 @@
  * Do not edit the class manually.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.CreateOrUpdateBankTransactionRequestBodyDtoRequesterOrganizationTypeEnum = exports.CreateOrUpdateBankTransactionRequestBodyDtoRequesterOrganizationRoleEnum = void 0;
+exports.CreateOrUpdateBankTransactionRequestBodyDtoRequesterOrganizationRoleEnum = exports.CreateOrUpdateBankTransactionRequestBodyDtoRequesterOrganizationTypeEnum = void 0;
 exports.instanceOfCreateOrUpdateBankTransactionRequestBodyDtoRequesterOrganization = instanceOfCreateOrUpdateBankTransactionRequestBodyDtoRequesterOrganization;
 exports.CreateOrUpdateBankTransactionRequestBodyDtoRequesterOrganizationFromJSON = CreateOrUpdateBankTransactionRequestBodyDtoRequesterOrganizationFromJSON;
 exports.CreateOrUpdateBankTransactionRequestBodyDtoRequesterOrganizationFromJSONTyped = CreateOrUpdateBankTransactionRequestBodyDtoRequesterOrganizationFromJSONTyped;
@@ -24,16 +24,16 @@ var CreateOrUpdateBankTransactionRequestBodyDtoRequesterOrganizationParent_1 = r
 /**
  * @export
  */
-exports.CreateOrUpdateBankTransactionRequestBodyDtoRequesterOrganizationRoleEnum = {
-    OrgAdmin: 'org:admin',
-    OrgMember: 'org:member'
+exports.CreateOrUpdateBankTransactionRequestBodyDtoRequesterOrganizationTypeEnum = {
+    Leaf: 'LEAF',
+    Group: 'GROUP'
 };
 /**
  * @export
  */
-exports.CreateOrUpdateBankTransactionRequestBodyDtoRequesterOrganizationTypeEnum = {
-    Leaf: 'LEAF',
-    Group: 'GROUP'
+exports.CreateOrUpdateBankTransactionRequestBodyDtoRequesterOrganizationRoleEnum = {
+    OrgAdmin: 'org:admin',
+    OrgMember: 'org:member'
 };
 /**
  * Check if a given object implements the CreateOrUpdateBankTransactionRequestBodyDtoRequesterOrganization interface.
@@ -43,9 +43,9 @@ function instanceOfCreateOrUpdateBankTransactionRequestBodyDtoRequesterOrganizat
         return false;
     if (!('name' in value) || value['name'] === undefined)
         return false;
-    if (!('role' in value) || value['role'] === undefined)
-        return false;
     if (!('type' in value) || value['type'] === undefined)
+        return false;
+    if (!('role' in value) || value['role'] === undefined)
         return false;
     return true;
 }
@@ -59,8 +59,8 @@ function CreateOrUpdateBankTransactionRequestBodyDtoRequesterOrganizationFromJSO
     return {
         'id': json['id'],
         'name': json['name'],
-        'role': json['role'],
         'type': json['type'],
+        'role': json['role'],
         'parent': json['parent'] == null ? undefined : (0, CreateOrUpdateBankTransactionRequestBodyDtoRequesterOrganizationParent_1.CreateOrUpdateBankTransactionRequestBodyDtoRequesterOrganizationParentFromJSON)(json['parent']),
         'children': json['children'] == null ? undefined : (json['children'].map(CreateOrUpdateBankTransactionRequestBodyDtoRequesterOrganizationChildrenInner_1.CreateOrUpdateBankTransactionRequestBodyDtoRequesterOrganizationChildrenInnerFromJSON)),
     };
@@ -76,8 +76,8 @@ function CreateOrUpdateBankTransactionRequestBodyDtoRequesterOrganizationToJSONT
     return {
         'id': value['id'],
         'name': value['name'],
-        'role': value['role'],
         'type': value['type'],
+        'role': value['role'],
         'parent': (0, CreateOrUpdateBankTransactionRequestBodyDtoRequesterOrganizationParent_1.CreateOrUpdateBankTransactionRequestBodyDtoRequesterOrganizationParentToJSON)(value['parent']),
         'children': value['children'] == null ? undefined : (value['children'].map(CreateOrUpdateBankTransactionRequestBodyDtoRequesterOrganizationChildrenInner_1.CreateOrUpdateBankTransactionRequestBodyDtoRequesterOrganizationChildrenInnerToJSON)),
     };
