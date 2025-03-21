@@ -6,6 +6,8 @@ export * from './CacheApi';
 export * from './CategoriesApi';
 export * from './ContactsApi';
 export * from './FibonacciApi';
+export * from './FilesApi';
+export * from './FilesUploadApi';
 export * from './HealthApi';
 export * from './MembershipsApi';
 export * from './NormalizedSubcategoriesApi';

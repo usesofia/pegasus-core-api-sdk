@@ -10,6 +10,8 @@ src/apis/CacheApi.ts
 src/apis/CategoriesApi.ts
 src/apis/ContactsApi.ts
 src/apis/FibonacciApi.ts
+src/apis/FilesApi.ts
+src/apis/FilesUploadApi.ts
 src/apis/HealthApi.ts
 src/apis/MembershipsApi.ts
 src/apis/NormalizedSubcategoriesApi.ts
@@ -31,6 +33,7 @@ src/models/CacheGetResponseDto.ts
 src/models/CacheSetDto.ts
 src/models/CategoriesPageEntity.ts
 src/models/CategoriesPageEntityItemsInner.ts
+src/models/ConfirmFileUploadRequestBodyDto.ts
 src/models/ContactEntity.ts
 src/models/ContactOriginItemEntity.ts
 src/models/ContactTypeItemEntity.ts
@@ -42,6 +45,8 @@ src/models/CountryStateItemEntity.ts
 src/models/CreateBankAccountRequestBodyDto.ts
 src/models/CreateContactRequestBodyDto.ts
 src/models/CreateContactRequestBodyDtoAddress.ts
+src/models/CreateFileUpload200Response.ts
+src/models/CreateFileUploadRequestBodyDto.ts
 src/models/CreateInviteRequestBodyDto.ts
 src/models/CreateOrUpdateBankTransactionRequestBodyDto.ts
 src/models/CreateOrUpdateBankTransactionRequestBodyDtoCreditCardMetadata.ts
@@ -79,6 +84,7 @@ src/models/PartialUpdateSubcategoryRequestBodyDto.ts
 src/models/PartialUpdateTagRequestBodyDto.ts
 src/models/RemoveBankAccountRequestBodyDto.ts
 src/models/RemoveContactRequestBodyDto.ts
+src/models/RemoveFileRequestBodyDto.ts
 src/models/RemoveMemberRequestBodyDto.ts
 src/models/RemoveSubcategoryRequestBodyDto.ts
 src/models/RemoveTagRequestBodyDto.ts

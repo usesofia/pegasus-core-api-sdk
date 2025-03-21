@@ -24,6 +24,8 @@ __exportStar(require("./CacheApi"), exports);
 __exportStar(require("./CategoriesApi"), exports);
 __exportStar(require("./ContactsApi"), exports);
 __exportStar(require("./FibonacciApi"), exports);
+__exportStar(require("./FilesApi"), exports);
+__exportStar(require("./FilesUploadApi"), exports);
 __exportStar(require("./HealthApi"), exports);
 __exportStar(require("./MembershipsApi"), exports);
 __exportStar(require("./NormalizedSubcategoriesApi"), exports);

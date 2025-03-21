@@ -1,6 +1,6 @@
 {
   "name": "@usesofia/pegasus-core-api-sdk",
-  "version": "1.0.0",
+  "version": "1.0.8",
   "description": "OpenAPI client for @usesofia/pegasus-core-api-sdk",
   "author": "OpenAPI-Generator",
   "repository": {
