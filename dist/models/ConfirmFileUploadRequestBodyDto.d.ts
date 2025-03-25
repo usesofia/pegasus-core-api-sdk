@@ -34,6 +34,12 @@ export interface ConfirmFileUploadRequestBodyDto {
      */
     deletedAt?: any | null;
     /**
+     * URL assinada do arquivo.
+     * @type {string}
+     * @memberof ConfirmFileUploadRequestBodyDto
+     */
+    signedUrl?: string;
+    /**
      * Canal de origem da operação
      * @type {string}
      * @memberof ConfirmFileUploadRequestBodyDto

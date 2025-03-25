@@ -23,7 +23,8 @@ exports.CreateFileUploadRequestBodyDtoToJSONTyped = CreateFileUploadRequestBodyD
  * @export
  */
 exports.CreateFileUploadRequestBodyDtoFileTypeEnum = {
-    Default: 'DEFAULT'
+    Default: 'DEFAULT',
+    FinancialRecord: 'FINANCIAL_RECORD'
 };
 /**
  * @export
@@ -62,6 +63,7 @@ function CreateFileUploadRequestBodyDtoFromJSONTyped(json, ignoreDiscriminator) 
         'size': json['size'],
         'fileType': json['fileType'],
         'deletedAt': json['deletedAt'] == null ? undefined : json['deletedAt'],
+        'signedUrl': json['signedUrl'] == null ? undefined : json['signedUrl'],
         'channel': json['channel'],
     };
 }
@@ -79,6 +81,7 @@ function CreateFileUploadRequestBodyDtoToJSONTyped(value, ignoreDiscriminator) {
         'size': value['size'],
         'fileType': value['fileType'],
         'deletedAt': value['deletedAt'],
+        'signedUrl': value['signedUrl'],
         'channel': value['channel'],
     };
 }

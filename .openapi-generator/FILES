@@ -12,6 +12,7 @@ src/apis/ContactsApi.ts
 src/apis/FibonacciApi.ts
 src/apis/FilesApi.ts
 src/apis/FilesUploadApi.ts
+src/apis/FinancialRecordsApi.ts
 src/apis/HealthApi.ts
 src/apis/MembershipsApi.ts
 src/apis/NormalizedSubcategoriesApi.ts
@@ -47,7 +48,14 @@ src/models/CreateContactRequestBodyDto.ts
 src/models/CreateContactRequestBodyDtoAddress.ts
 src/models/CreateFileUpload200Response.ts
 src/models/CreateFileUploadRequestBodyDto.ts
+src/models/CreateFinancialRecordRequestBodyDto.ts
+src/models/CreateFinancialRecordRequestBodyDtoPopulatedAccount.ts
+src/models/CreateFinancialRecordRequestBodyDtoPopulatedContact.ts
+src/models/CreateFinancialRecordRequestBodyDtoPopulatedFilesInner.ts
+src/models/CreateFinancialRecordRequestBodyDtoPopulatedSubcategory.ts
 src/models/CreateInviteRequestBodyDto.ts
+src/models/CreateManyFinancialRecordsRequestBodyDto.ts
+src/models/CreateManyFinancialRecordsRequestBodyDtoDataInner.ts
 src/models/CreateOrUpdateBankTransactionRequestBodyDto.ts
 src/models/CreateOrUpdateBankTransactionRequestBodyDtoCreditCardMetadata.ts
 src/models/CreateOrUpdateBankTransactionRequestBodyDtoMerchant.ts
@@ -68,6 +76,9 @@ src/models/ExceptionResponseEntity.ts
 src/models/ExceptionResponseEntityErrorsInner.ts
 src/models/ExternalCreateSubcategoryRequestBodyDto.ts
 src/models/ExternalCreateSubcategoryRequestBodyDtoPopulatedNormalizedSubcategory.ts
+src/models/FinancialRecordDto.ts
+src/models/FinancialRecordsPageDto.ts
+src/models/FinancialRecordsPageDtoItemsInner.ts
 src/models/HealthResponseDto.ts
 src/models/InviteEntity.ts
 src/models/MemberEntity.ts
@@ -78,6 +89,7 @@ src/models/OrganizationEntity.ts
 src/models/PartialUpdateBankAccountRequestBodyDto.ts
 src/models/PartialUpdateBankTransactionRequestBodyDto.ts
 src/models/PartialUpdateContactRequestBodyDto.ts
+src/models/PartialUpdateFinancialRecordRequestBodyDto.ts
 src/models/PartialUpdateMemberRequestBodyDto.ts
 src/models/PartialUpdateOrganizationRequestBodyDto.ts
 src/models/PartialUpdateSubcategoryRequestBodyDto.ts

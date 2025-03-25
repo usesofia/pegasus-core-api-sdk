@@ -46,6 +46,12 @@ export interface CreateFileUploadRequestBodyDto {
      */
     deletedAt?: any | null;
     /**
+     * URL assinada do arquivo.
+     * @type {string}
+     * @memberof CreateFileUploadRequestBodyDto
+     */
+    signedUrl?: string;
+    /**
      * Canal de origem da operação
      * @type {string}
      * @memberof CreateFileUploadRequestBodyDto
@@ -57,6 +63,7 @@ export interface CreateFileUploadRequestBodyDto {
  */
 export declare const CreateFileUploadRequestBodyDtoFileTypeEnum: {
     readonly Default: "DEFAULT";
+    readonly FinancialRecord: "FINANCIAL_RECORD";
 };
 export type CreateFileUploadRequestBodyDtoFileTypeEnum = typeof CreateFileUploadRequestBodyDtoFileTypeEnum[keyof typeof CreateFileUploadRequestBodyDtoFileTypeEnum];
 /**

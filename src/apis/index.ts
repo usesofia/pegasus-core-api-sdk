@@ -10,6 +10,7 @@ export * from './ContactsApi';
 export * from './FibonacciApi';
 export * from './FilesApi';
 export * from './FilesUploadApi';
+export * from './FinancialRecordsApi';
 export * from './HealthApi';
 export * from './MembershipsApi';
 export * from './NormalizedSubcategoriesApi';

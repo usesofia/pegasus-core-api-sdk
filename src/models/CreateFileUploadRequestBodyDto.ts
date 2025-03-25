@@ -50,6 +50,12 @@ export interface CreateFileUploadRequestBodyDto {
      */
     deletedAt?: any | null;
     /**
+     * URL assinada do arquivo.
+     * @type {string}
+     * @memberof CreateFileUploadRequestBodyDto
+     */
+    signedUrl?: string;
+    /**
      * Canal de origem da operação
      * @type {string}
      * @memberof CreateFileUploadRequestBodyDto
@@ -62,7 +68,8 @@ export interface CreateFileUploadRequestBodyDto {
  * @export
  */
 export const CreateFileUploadRequestBodyDtoFileTypeEnum = {
-    Default: 'DEFAULT'
+    Default: 'DEFAULT',
+    FinancialRecord: 'FINANCIAL_RECORD'
 } as const;
 export type CreateFileUploadRequestBodyDtoFileTypeEnum = typeof CreateFileUploadRequestBodyDtoFileTypeEnum[keyof typeof CreateFileUploadRequestBodyDtoFileTypeEnum];
 
@@ -104,6 +111,7 @@ export function CreateFileUploadRequestBodyDtoFromJSONTyped(json: any, ignoreDis
         'size': json['size'],
         'fileType': json['fileType'],
         'deletedAt': json['deletedAt'] == null ? undefined : json['deletedAt'],
+        'signedUrl': json['signedUrl'] == null ? undefined : json['signedUrl'],
         'channel': json['channel'],
     };
 }
@@ -124,6 +132,7 @@ export function CreateFileUploadRequestBodyDtoToJSONTyped(value?: CreateFileUplo
         'size': value['size'],
         'fileType': value['fileType'],
         'deletedAt': value['deletedAt'],
+        'signedUrl': value['signedUrl'],
         'channel': value['channel'],
     };
 }

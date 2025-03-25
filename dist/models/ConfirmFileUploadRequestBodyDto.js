@@ -57,6 +57,7 @@ function ConfirmFileUploadRequestBodyDtoFromJSONTyped(json, ignoreDiscriminator)
         'id': json['id'],
         'status': json['status'],
         'deletedAt': json['deletedAt'] == null ? undefined : json['deletedAt'],
+        'signedUrl': json['signedUrl'] == null ? undefined : json['signedUrl'],
         'channel': json['channel'],
     };
 }
@@ -72,6 +73,7 @@ function ConfirmFileUploadRequestBodyDtoToJSONTyped(value, ignoreDiscriminator) 
         'id': value['id'],
         'status': value['status'],
         'deletedAt': value['deletedAt'],
+        'signedUrl': value['signedUrl'],
         'channel': value['channel'],
     };
 }
