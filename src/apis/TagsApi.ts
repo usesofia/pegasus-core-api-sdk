@@ -44,6 +44,8 @@ export interface CreateTagRequest {
 
 export interface FindAllTagsRequest {
     populate?: string;
+    sortOrder?: string;
+    sortBy?: string;
     searchTerm?: string;
     pageSize?: number;
     pageIndex?: number;
@@ -92,6 +94,8 @@ export interface TagsApiInterface {
      * 
      * @summary Busca todas as tags.
      * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
+     * @param {string} [sortOrder] Ordem de ordenação dos resultados. Valores possíveis: asc ou desc.
+     * @param {string} [sortBy] Campo para ordenação dos resultados. Valores possíveis: name ou createdAt.
      * @param {string} [searchTerm] Termo para busca por nome da tag.
      * @param {number} [pageSize] Quantidade de itens por página.
      * @param {number} [pageIndex] Índice da página.
@@ -210,6 +214,14 @@ export class TagsApi extends runtime.BaseAPI implements TagsApiInterface {
 
         if (requestParameters['populate'] != null) {
             queryParameters['populate'] = requestParameters['populate'];
+        }
+
+        if (requestParameters['sortOrder'] != null) {
+            queryParameters['sortOrder'] = requestParameters['sortOrder'];
+        }
+
+        if (requestParameters['sortBy'] != null) {
+            queryParameters['sortBy'] = requestParameters['sortBy'];
         }
 
         if (requestParameters['searchTerm'] != null) {

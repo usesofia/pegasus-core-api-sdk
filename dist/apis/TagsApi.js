@@ -137,6 +137,12 @@ var TagsApi = /** @class */ (function (_super) {
                         if (requestParameters['populate'] != null) {
                             queryParameters['populate'] = requestParameters['populate'];
                         }
+                        if (requestParameters['sortOrder'] != null) {
+                            queryParameters['sortOrder'] = requestParameters['sortOrder'];
+                        }
+                        if (requestParameters['sortBy'] != null) {
+                            queryParameters['sortBy'] = requestParameters['sortBy'];
+                        }
                         if (requestParameters['searchTerm'] != null) {
                             queryParameters['searchTerm'] = requestParameters['searchTerm'];
                         }
