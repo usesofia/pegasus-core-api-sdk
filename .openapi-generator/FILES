@@ -14,9 +14,11 @@ src/apis/FilesApi.ts
 src/apis/FilesUploadApi.ts
 src/apis/FinancialRecordsApi.ts
 src/apis/HealthApi.ts
+src/apis/InstallmentFinancialRecordsApi.ts
 src/apis/MembershipsApi.ts
 src/apis/NormalizedSubcategoriesApi.ts
 src/apis/OrganizationsApi.ts
+src/apis/ProspectInstallmentFinancialRecordsApi.ts
 src/apis/SubcategoriesApi.ts
 src/apis/TagsApi.ts
 src/apis/index.ts
@@ -53,6 +55,8 @@ src/models/CreateFinancialRecordRequestBodyDtoPopulatedAccount.ts
 src/models/CreateFinancialRecordRequestBodyDtoPopulatedContact.ts
 src/models/CreateFinancialRecordRequestBodyDtoPopulatedFilesInner.ts
 src/models/CreateFinancialRecordRequestBodyDtoPopulatedSubcategory.ts
+src/models/CreateInstallmentFinancialRecordRequestBodyDto.ts
+src/models/CreateInstallmentFinancialRecordRequestBodyDtoPopulatedContact.ts
 src/models/CreateInviteRequestBodyDto.ts
 src/models/CreateManyFinancialRecordsRequestBodyDto.ts
 src/models/CreateManyFinancialRecordsRequestBodyDtoDataInner.ts
@@ -80,6 +84,9 @@ src/models/FinancialRecordDto.ts
 src/models/FinancialRecordsPageDto.ts
 src/models/FinancialRecordsPageDtoItemsInner.ts
 src/models/HealthResponseDto.ts
+src/models/InstallmentFinancialRecordDto.ts
+src/models/InstallmentFinancialRecordsPageDto.ts
+src/models/InstallmentFinancialRecordsPageDtoItemsInner.ts
 src/models/InviteEntity.ts
 src/models/MemberEntity.ts
 src/models/NormalizedSubcategoriesPageEntity.ts
@@ -90,10 +97,13 @@ src/models/PartialUpdateBankAccountRequestBodyDto.ts
 src/models/PartialUpdateBankTransactionRequestBodyDto.ts
 src/models/PartialUpdateContactRequestBodyDto.ts
 src/models/PartialUpdateFinancialRecordRequestBodyDto.ts
+src/models/PartialUpdateInstallmentFinancialRecordRequestBodyDto.ts
 src/models/PartialUpdateMemberRequestBodyDto.ts
 src/models/PartialUpdateOrganizationRequestBodyDto.ts
 src/models/PartialUpdateSubcategoryRequestBodyDto.ts
 src/models/PartialUpdateTagRequestBodyDto.ts
+src/models/ProspectFinancialRecordDto.ts
+src/models/ProspectInstallmentFinancialRecordRequestBodyDto.ts
 src/models/RemoveBankAccountRequestBodyDto.ts
 src/models/RemoveContactRequestBodyDto.ts
 src/models/RemoveFileRequestBodyDto.ts
