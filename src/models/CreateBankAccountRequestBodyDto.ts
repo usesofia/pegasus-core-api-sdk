@@ -50,6 +50,12 @@ export interface CreateBankAccountRequestBodyDto {
      */
     isAutomatic: boolean;
     /**
+     * 
+     * @type {boolean}
+     * @memberof CreateBankAccountRequestBodyDto
+     */
+    isDefault?: boolean;
+    /**
      * Data do saldo inicial.
      * @type {any}
      * @memberof CreateBankAccountRequestBodyDto
@@ -156,6 +162,7 @@ export function CreateBankAccountRequestBodyDtoFromJSONTyped(json: any, ignoreDi
         'considerInAggregateCalculations': json['considerInAggregateCalculations'] == null ? undefined : json['considerInAggregateCalculations'],
         'number': json['number'],
         'isAutomatic': json['isAutomatic'],
+        'isDefault': json['isDefault'] == null ? undefined : json['isDefault'],
         'initialBalanceDate': json['initialBalanceDate'] == null ? undefined : json['initialBalanceDate'],
         'initialBalanceAmount': json['initialBalanceAmount'] == null ? undefined : json['initialBalanceAmount'],
         'institution': json['institution'],
@@ -182,6 +189,7 @@ export function CreateBankAccountRequestBodyDtoToJSONTyped(value?: CreateBankAcc
         'considerInAggregateCalculations': value['considerInAggregateCalculations'],
         'number': value['number'],
         'isAutomatic': value['isAutomatic'],
+        'isDefault': value['isDefault'],
         'initialBalanceDate': value['initialBalanceDate'],
         'initialBalanceAmount': value['initialBalanceAmount'],
         'institution': value['institution'],

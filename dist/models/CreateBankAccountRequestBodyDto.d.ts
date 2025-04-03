@@ -46,6 +46,12 @@ export interface CreateBankAccountRequestBodyDto {
      */
     isAutomatic: boolean;
     /**
+     *
+     * @type {boolean}
+     * @memberof CreateBankAccountRequestBodyDto
+     */
+    isDefault?: boolean;
+    /**
      * Data do saldo inicial.
      * @type {any}
      * @memberof CreateBankAccountRequestBodyDto
