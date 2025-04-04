@@ -68,7 +68,7 @@ export interface CreateBankAccountRequestBodyDto {
      * @type {string}
      * @memberof CreateBankAccountRequestBodyDto
      */
-    institution: string;
+    institution?: string | null;
     /**
      * Fornecedor da conta bancária.
      * @type {string}

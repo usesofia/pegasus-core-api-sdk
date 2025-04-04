@@ -80,7 +80,7 @@ export interface BankTransactionEntityPopulatedBankAccount {
      * @type {string}
      * @memberof BankTransactionEntityPopulatedBankAccount
      */
-    institution: string;
+    institution?: string | null;
     /**
      * Indica se a conta está ativa.
      * @type {boolean}

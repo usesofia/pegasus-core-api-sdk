@@ -72,7 +72,7 @@ export interface CreateBankAccountRequestBodyDto {
      * @type {string}
      * @memberof CreateBankAccountRequestBodyDto
      */
-    institution: string;
+    institution?: string | null;
     /**
      * Fornecedor da conta bancária.
      * @type {string}
@@ -142,7 +142,6 @@ export function instanceOfCreateBankAccountRequestBodyDto(value: object): value 
     if (!('type' in value) || value['type'] === undefined) return false;
     if (!('number' in value) || value['number'] === undefined) return false;
     if (!('isAutomatic' in value) || value['isAutomatic'] === undefined) return false;
-    if (!('institution' in value) || value['institution'] === undefined) return false;
     if (!('channel' in value) || value['channel'] === undefined) return false;
     return true;
 }
@@ -165,7 +164,7 @@ export function CreateBankAccountRequestBodyDtoFromJSONTyped(json: any, ignoreDi
         'isDefault': json['isDefault'] == null ? undefined : json['isDefault'],
         'initialBalanceDate': json['initialBalanceDate'] == null ? undefined : json['initialBalanceDate'],
         'initialBalanceAmount': json['initialBalanceAmount'] == null ? undefined : json['initialBalanceAmount'],
-        'institution': json['institution'],
+        'institution': json['institution'] == null ? undefined : json['institution'],
         'provider': json['provider'] == null ? undefined : json['provider'],
         'providerAccountId': json['providerAccountId'] == null ? undefined : json['providerAccountId'],
         'providerItemId': json['providerItemId'] == null ? undefined : json['providerItemId'],

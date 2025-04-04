@@ -58,8 +58,6 @@ function instanceOfBankTransactionEntityPopulatedBankAccount(value) {
         return false;
     if (!('isDefault' in value) || value['isDefault'] === undefined)
         return false;
-    if (!('institution' in value) || value['institution'] === undefined)
-        return false;
     if (!('active' in value) || value['active'] === undefined)
         return false;
     if (!('createdAt' in value) || value['createdAt'] === undefined)
@@ -86,7 +84,7 @@ function BankTransactionEntityPopulatedBankAccountFromJSONTyped(json, ignoreDisc
         'isDefault': json['isDefault'],
         'initialBalanceDate': json['initialBalanceDate'] == null ? undefined : json['initialBalanceDate'],
         'initialBalanceAmount': json['initialBalanceAmount'] == null ? undefined : json['initialBalanceAmount'],
-        'institution': json['institution'],
+        'institution': json['institution'] == null ? undefined : json['institution'],
         'active': json['active'],
         'provider': json['provider'] == null ? undefined : json['provider'],
         'providerAccountId': json['providerAccountId'] == null ? undefined : json['providerAccountId'],

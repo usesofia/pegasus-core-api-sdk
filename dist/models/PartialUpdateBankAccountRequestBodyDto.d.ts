@@ -56,7 +56,7 @@ export interface PartialUpdateBankAccountRequestBodyDto {
      * @type {string}
      * @memberof PartialUpdateBankAccountRequestBodyDto
      */
-    institution?: string;
+    institution?: string | null;
     /**
      * Indica se a conta está ativa.
      * @type {boolean}

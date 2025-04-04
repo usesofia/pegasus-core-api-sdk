@@ -80,7 +80,7 @@ export interface BankAccountsPageDtoItemsInner {
      * @type {string}
      * @memberof BankAccountsPageDtoItemsInner
      */
-    institution: string;
+    institution?: string | null;
     /**
      * Indica se a conta está ativa.
      * @type {boolean}

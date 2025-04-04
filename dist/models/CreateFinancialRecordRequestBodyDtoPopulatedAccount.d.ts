@@ -80,7 +80,7 @@ export interface CreateFinancialRecordRequestBodyDtoPopulatedAccount {
      * @type {string}
      * @memberof CreateFinancialRecordRequestBodyDtoPopulatedAccount
      */
-    institution: string;
+    institution?: string | null;
     /**
      * Indica se a conta está ativa.
      * @type {boolean}

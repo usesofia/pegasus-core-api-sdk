@@ -80,7 +80,7 @@ export interface BankAccountDto {
      * @type {string}
      * @memberof BankAccountDto
      */
-    institution: string;
+    institution?: string | null;
     /**
      * Indica se a conta está ativa.
      * @type {boolean}

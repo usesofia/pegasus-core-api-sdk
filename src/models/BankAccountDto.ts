@@ -84,7 +84,7 @@ export interface BankAccountDto {
      * @type {string}
      * @memberof BankAccountDto
      */
-    institution: string;
+    institution?: string | null;
     /**
      * Indica se a conta está ativa.
      * @type {boolean}
@@ -160,7 +160,6 @@ export function instanceOfBankAccountDto(value: object): value is BankAccountDto
     if (!('number' in value) || value['number'] === undefined) return false;
     if (!('isAutomatic' in value) || value['isAutomatic'] === undefined) return false;
     if (!('isDefault' in value) || value['isDefault'] === undefined) return false;
-    if (!('institution' in value) || value['institution'] === undefined) return false;
     if (!('active' in value) || value['active'] === undefined) return false;
     if (!('createdAt' in value) || value['createdAt'] === undefined) return false;
     if (!('updatedAt' in value) || value['updatedAt'] === undefined) return false;
@@ -187,7 +186,7 @@ export function BankAccountDtoFromJSONTyped(json: any, ignoreDiscriminator: bool
         'isDefault': json['isDefault'],
         'initialBalanceDate': json['initialBalanceDate'] == null ? undefined : json['initialBalanceDate'],
         'initialBalanceAmount': json['initialBalanceAmount'] == null ? undefined : json['initialBalanceAmount'],
-        'institution': json['institution'],
+        'institution': json['institution'] == null ? undefined : json['institution'],
         'active': json['active'],
         'provider': json['provider'] == null ? undefined : json['provider'],
         'providerAccountId': json['providerAccountId'] == null ? undefined : json['providerAccountId'],

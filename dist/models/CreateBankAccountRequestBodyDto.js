@@ -58,8 +58,6 @@ function instanceOfCreateBankAccountRequestBodyDto(value) {
         return false;
     if (!('isAutomatic' in value) || value['isAutomatic'] === undefined)
         return false;
-    if (!('institution' in value) || value['institution'] === undefined)
-        return false;
     if (!('channel' in value) || value['channel'] === undefined)
         return false;
     return true;
@@ -80,7 +78,7 @@ function CreateBankAccountRequestBodyDtoFromJSONTyped(json, ignoreDiscriminator)
         'isDefault': json['isDefault'] == null ? undefined : json['isDefault'],
         'initialBalanceDate': json['initialBalanceDate'] == null ? undefined : json['initialBalanceDate'],
         'initialBalanceAmount': json['initialBalanceAmount'] == null ? undefined : json['initialBalanceAmount'],
-        'institution': json['institution'],
+        'institution': json['institution'] == null ? undefined : json['institution'],
         'provider': json['provider'] == null ? undefined : json['provider'],
         'providerAccountId': json['providerAccountId'] == null ? undefined : json['providerAccountId'],
         'providerItemId': json['providerItemId'] == null ? undefined : json['providerItemId'],
