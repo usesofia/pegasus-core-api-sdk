@@ -125,6 +125,48 @@ var OrganizationsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Hard remove an organization and all its data.
+     */
+    OrganizationsApi.prototype.externalHardRemoveOrganizationRaw = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (requestParameters['organizationId'] == null) {
+                            throw new runtime.RequiredError('organizationId', 'Required parameter "organizationId" was null or undefined when calling externalHardRemoveOrganization().');
+                        }
+                        queryParameters = {};
+                        headerParameters = {};
+                        return [4 /*yield*/, this.request({
+                                path: "/external/organizations/{organizationId}/hard".replace("{".concat("organizationId", "}"), encodeURIComponent(String(requestParameters['organizationId']))),
+                                method: 'DELETE',
+                                headers: headerParameters,
+                                query: queryParameters,
+                            }, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [2 /*return*/, new runtime.VoidApiResponse(response)];
+                }
+            });
+        });
+    };
+    /**
+     * Hard remove an organization and all its data.
+     */
+    OrganizationsApi.prototype.externalHardRemoveOrganization = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.externalHardRemoveOrganizationRaw(requestParameters, initOverrides)];
+                    case 1:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    /**
      * Find my organizations of type group where I am admin.
      */
     OrganizationsApi.prototype.findMyAdminGroupOrganizationsRaw = function (initOverrides) {
@@ -202,6 +244,48 @@ var OrganizationsApi = /** @class */ (function (_super) {
                         response = _a.sent();
                         return [4 /*yield*/, response.value()];
                     case 2: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
+    /**
+     * Hard remove an organization and all its data (internal endpoint).
+     */
+    OrganizationsApi.prototype.hardRemoveOrganizationInternalRaw = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (requestParameters['organizationId'] == null) {
+                            throw new runtime.RequiredError('organizationId', 'Required parameter "organizationId" was null or undefined when calling hardRemoveOrganizationInternal().');
+                        }
+                        queryParameters = {};
+                        headerParameters = {};
+                        return [4 /*yield*/, this.request({
+                                path: "/internal/organizations/{organizationId}/hard".replace("{".concat("organizationId", "}"), encodeURIComponent(String(requestParameters['organizationId']))),
+                                method: 'DELETE',
+                                headers: headerParameters,
+                                query: queryParameters,
+                            }, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [2 /*return*/, new runtime.VoidApiResponse(response)];
+                }
+            });
+        });
+    };
+    /**
+     * Hard remove an organization and all its data (internal endpoint).
+     */
+    OrganizationsApi.prototype.hardRemoveOrganizationInternal = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.hardRemoveOrganizationInternalRaw(requestParameters, initOverrides)];
+                    case 1:
+                        _a.sent();
+                        return [2 /*return*/];
                 }
             });
         });

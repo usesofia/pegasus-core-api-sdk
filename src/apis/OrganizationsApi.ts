@@ -36,6 +36,14 @@ export interface CreateOrganizationRequest {
     populate?: string;
 }
 
+export interface ExternalHardRemoveOrganizationRequest {
+    organizationId: string;
+}
+
+export interface HardRemoveOrganizationInternalRequest {
+    organizationId: string;
+}
+
 export interface PartialUpdateOrganizationRequest {
     id: string;
     partialUpdateOrganizationRequestBodyDto: PartialUpdateOrganizationRequestBodyDto;
@@ -66,6 +74,21 @@ export interface OrganizationsApiInterface {
 
     /**
      * 
+     * @summary Hard remove an organization and all its data.
+     * @param {string} organizationId Organization ID to be removed.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof OrganizationsApiInterface
+     */
+    externalHardRemoveOrganizationRaw(requestParameters: ExternalHardRemoveOrganizationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
+
+    /**
+     * Hard remove an organization and all its data.
+     */
+    externalHardRemoveOrganization(requestParameters: ExternalHardRemoveOrganizationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+
+    /**
+     * 
      * @summary Find my organizations of type group where I am admin.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -91,6 +114,21 @@ export interface OrganizationsApiInterface {
      * Find my organization.
      */
     findMyOrganization(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<OrganizationEntity>;
+
+    /**
+     * 
+     * @summary Hard remove an organization and all its data (internal endpoint).
+     * @param {string} organizationId Organization ID to be removed.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof OrganizationsApiInterface
+     */
+    hardRemoveOrganizationInternalRaw(requestParameters: HardRemoveOrganizationInternalRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
+
+    /**
+     * Hard remove an organization and all its data (internal endpoint).
+     */
+    hardRemoveOrganizationInternal(requestParameters: HardRemoveOrganizationInternalRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
 
     /**
      * 
@@ -156,6 +194,38 @@ export class OrganizationsApi extends runtime.BaseAPI implements OrganizationsAp
     }
 
     /**
+     * Hard remove an organization and all its data.
+     */
+    async externalHardRemoveOrganizationRaw(requestParameters: ExternalHardRemoveOrganizationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        if (requestParameters['organizationId'] == null) {
+            throw new runtime.RequiredError(
+                'organizationId',
+                'Required parameter "organizationId" was null or undefined when calling externalHardRemoveOrganization().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/external/organizations/{organizationId}/hard`.replace(`{${"organizationId"}}`, encodeURIComponent(String(requestParameters['organizationId']))),
+            method: 'DELETE',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.VoidApiResponse(response);
+    }
+
+    /**
+     * Hard remove an organization and all its data.
+     */
+    async externalHardRemoveOrganization(requestParameters: ExternalHardRemoveOrganizationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+        await this.externalHardRemoveOrganizationRaw(requestParameters, initOverrides);
+    }
+
+    /**
      * Find my organizations of type group where I am admin.
      */
     async findMyAdminGroupOrganizationsRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<OrganizationEntity>>> {
@@ -205,6 +275,38 @@ export class OrganizationsApi extends runtime.BaseAPI implements OrganizationsAp
     async findMyOrganization(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<OrganizationEntity> {
         const response = await this.findMyOrganizationRaw(initOverrides);
         return await response.value();
+    }
+
+    /**
+     * Hard remove an organization and all its data (internal endpoint).
+     */
+    async hardRemoveOrganizationInternalRaw(requestParameters: HardRemoveOrganizationInternalRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        if (requestParameters['organizationId'] == null) {
+            throw new runtime.RequiredError(
+                'organizationId',
+                'Required parameter "organizationId" was null or undefined when calling hardRemoveOrganizationInternal().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/internal/organizations/{organizationId}/hard`.replace(`{${"organizationId"}}`, encodeURIComponent(String(requestParameters['organizationId']))),
+            method: 'DELETE',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.VoidApiResponse(response);
+    }
+
+    /**
+     * Hard remove an organization and all its data (internal endpoint).
+     */
+    async hardRemoveOrganizationInternal(requestParameters: HardRemoveOrganizationInternalRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+        await this.hardRemoveOrganizationInternalRaw(requestParameters, initOverrides);
     }
 
     /**
