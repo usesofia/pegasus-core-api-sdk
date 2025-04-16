@@ -91,6 +91,12 @@ export interface OrganizationEntity {
      */
     updatedAt: any | null;
     /**
+     * Descrição da organização.
+     * @type {string}
+     * @memberof OrganizationEntity
+     */
+    description?: string;
+    /**
      *
      * @type {CreateOrganizationRequestBodyDtoGroupSettings}
      * @memberof OrganizationEntity

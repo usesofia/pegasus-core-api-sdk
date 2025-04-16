@@ -182,6 +182,18 @@ export interface CreateFinancialRecordRequestBodyDto {
      */
     bankStatement?: string;
     /**
+     * Identificador do lançamento financeiro parcelado.
+     * @type {string}
+     * @memberof CreateFinancialRecordRequestBodyDto
+     */
+    installmentFinancialRecord?: string;
+    /**
+     * Identificador do lançamento financeiro recorrente.
+     * @type {string}
+     * @memberof CreateFinancialRecordRequestBodyDto
+     */
+    recurringFinancialRecord?: string;
+    /**
      * Arquivos anexados.
      * @type {Array<CreateFinancialRecordRequestBodyDtoPopulatedFilesInner>}
      * @memberof CreateFinancialRecordRequestBodyDto
@@ -285,6 +297,8 @@ export function CreateFinancialRecordRequestBodyDtoFromJSONTyped(json: any, igno
         'finalAmount': json['finalAmount'],
         'reconciled': json['reconciled'] == null ? undefined : json['reconciled'],
         'bankStatement': json['bankStatement'] == null ? undefined : json['bankStatement'],
+        'installmentFinancialRecord': json['installmentFinancialRecord'] == null ? undefined : json['installmentFinancialRecord'],
+        'recurringFinancialRecord': json['recurringFinancialRecord'] == null ? undefined : json['recurringFinancialRecord'],
         'populatedFiles': json['populatedFiles'] == null ? undefined : ((json['populatedFiles'] as Array<any>).map(CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerFromJSON)),
         'populatedSubcategory': json['populatedSubcategory'] == null ? undefined : CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryFromJSON(json['populatedSubcategory']),
         'populatedContact': json['populatedContact'] == null ? undefined : CreateFinancialRecordRequestBodyDtoPopulatedContactFromJSON(json['populatedContact']),
@@ -326,6 +340,8 @@ export function CreateFinancialRecordRequestBodyDtoToJSONTyped(value?: CreateFin
         'finalAmount': value['finalAmount'],
         'reconciled': value['reconciled'],
         'bankStatement': value['bankStatement'],
+        'installmentFinancialRecord': value['installmentFinancialRecord'],
+        'recurringFinancialRecord': value['recurringFinancialRecord'],
         'populatedFiles': value['populatedFiles'] == null ? undefined : ((value['populatedFiles'] as Array<any>).map(CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerToJSON)),
         'populatedSubcategory': CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryToJSON(value['populatedSubcategory']),
         'populatedContact': CreateFinancialRecordRequestBodyDtoPopulatedContactToJSON(value['populatedContact']),

@@ -159,6 +159,18 @@ export interface FinancialRecordDto {
      */
     bankStatement?: string;
     /**
+     * Identificador do lançamento financeiro parcelado.
+     * @type {string}
+     * @memberof FinancialRecordDto
+     */
+    installmentFinancialRecord?: string;
+    /**
+     * Identificador do lançamento financeiro recorrente.
+     * @type {string}
+     * @memberof FinancialRecordDto
+     */
+    recurringFinancialRecord?: string;
+    /**
      * Data de criação do lançamento.
      * @type {any}
      * @memberof FinancialRecordDto

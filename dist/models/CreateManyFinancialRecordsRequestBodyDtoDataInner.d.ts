@@ -147,6 +147,18 @@ export interface CreateManyFinancialRecordsRequestBodyDtoDataInner {
      */
     bankStatement?: string;
     /**
+     * Identificador do lançamento financeiro parcelado.
+     * @type {string}
+     * @memberof CreateManyFinancialRecordsRequestBodyDtoDataInner
+     */
+    installmentFinancialRecord?: string;
+    /**
+     * Identificador do lançamento financeiro recorrente.
+     * @type {string}
+     * @memberof CreateManyFinancialRecordsRequestBodyDtoDataInner
+     */
+    recurringFinancialRecord?: string;
+    /**
      * Arquivos anexados.
      * @type {Array<CreateFinancialRecordRequestBodyDtoPopulatedFilesInner>}
      * @memberof CreateManyFinancialRecordsRequestBodyDtoDataInner

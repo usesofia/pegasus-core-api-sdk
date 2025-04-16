@@ -147,6 +147,18 @@ export interface PartialUpdateFinancialRecordRequestBodyDto {
      */
     bankStatement?: string;
     /**
+     * Identificador do lançamento financeiro parcelado.
+     * @type {string}
+     * @memberof PartialUpdateFinancialRecordRequestBodyDto
+     */
+    installmentFinancialRecord?: string;
+    /**
+     * Identificador do lançamento financeiro recorrente.
+     * @type {string}
+     * @memberof PartialUpdateFinancialRecordRequestBodyDto
+     */
+    recurringFinancialRecord?: string;
+    /**
      * Arquivos anexados.
      * @type {Array<CreateFinancialRecordRequestBodyDtoPopulatedFilesInner>}
      * @memberof PartialUpdateFinancialRecordRequestBodyDto

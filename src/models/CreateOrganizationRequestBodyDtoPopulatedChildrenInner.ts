@@ -56,6 +56,12 @@ export interface CreateOrganizationRequestBodyDtoPopulatedChildrenInner {
      */
     imageUrl?: string;
     /**
+     * Descrição da organização.
+     * @type {string}
+     * @memberof CreateOrganizationRequestBodyDtoPopulatedChildrenInner
+     */
+    description?: string;
+    /**
      * Data de criação da organização.
      * @type {any}
      * @memberof CreateOrganizationRequestBodyDtoPopulatedChildrenInner
@@ -109,6 +115,7 @@ export function CreateOrganizationRequestBodyDtoPopulatedChildrenInnerFromJSONTy
         'type': json['type'],
         'document': json['document'] == null ? undefined : json['document'],
         'imageUrl': json['imageUrl'] == null ? undefined : json['imageUrl'],
+        'description': json['description'] == null ? undefined : json['description'],
         'createdAt': json['createdAt'],
         'updatedAt': json['updatedAt'],
     };
@@ -131,6 +138,7 @@ export function CreateOrganizationRequestBodyDtoPopulatedChildrenInnerToJSONType
         'type': value['type'],
         'document': value['document'],
         'imageUrl': value['imageUrl'],
+        'description': value['description'],
         'createdAt': value['createdAt'],
         'updatedAt': value['updatedAt'],
     };

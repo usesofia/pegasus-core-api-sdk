@@ -67,6 +67,7 @@ function OrganizationEntityFromJSONTyped(json, ignoreDiscriminator) {
         'populatedChildren': json['populatedChildren'] == null ? undefined : (json['populatedChildren'].map(CreateOrganizationRequestBodyDtoPopulatedChildrenInner_1.CreateOrganizationRequestBodyDtoPopulatedChildrenInnerFromJSON)),
         'createdAt': json['createdAt'],
         'updatedAt': json['updatedAt'],
+        'description': json['description'] == null ? undefined : json['description'],
         'groupSettings': json['groupSettings'] == null ? undefined : (0, CreateOrganizationRequestBodyDtoGroupSettings_1.CreateOrganizationRequestBodyDtoGroupSettingsFromJSON)(json['groupSettings']),
     };
 }
@@ -91,6 +92,7 @@ function OrganizationEntityToJSONTyped(value, ignoreDiscriminator) {
         'populatedChildren': value['populatedChildren'] == null ? undefined : (value['populatedChildren'].map(CreateOrganizationRequestBodyDtoPopulatedChildrenInner_1.CreateOrganizationRequestBodyDtoPopulatedChildrenInnerToJSON)),
         'createdAt': value['createdAt'],
         'updatedAt': value['updatedAt'],
+        'description': value['description'],
         'groupSettings': (0, CreateOrganizationRequestBodyDtoGroupSettings_1.CreateOrganizationRequestBodyDtoGroupSettingsToJSON)(value['groupSettings']),
     };
 }

@@ -114,6 +114,12 @@ export interface OrganizationEntity {
      */
     updatedAt: any | null;
     /**
+     * Descrição da organização.
+     * @type {string}
+     * @memberof OrganizationEntity
+     */
+    description?: string;
+    /**
      * 
      * @type {CreateOrganizationRequestBodyDtoGroupSettings}
      * @memberof OrganizationEntity
@@ -167,6 +173,7 @@ export function OrganizationEntityFromJSONTyped(json: any, ignoreDiscriminator: 
         'populatedChildren': json['populatedChildren'] == null ? undefined : ((json['populatedChildren'] as Array<any>).map(CreateOrganizationRequestBodyDtoPopulatedChildrenInnerFromJSON)),
         'createdAt': json['createdAt'],
         'updatedAt': json['updatedAt'],
+        'description': json['description'] == null ? undefined : json['description'],
         'groupSettings': json['groupSettings'] == null ? undefined : CreateOrganizationRequestBodyDtoGroupSettingsFromJSON(json['groupSettings']),
     };
 }
@@ -194,6 +201,7 @@ export function OrganizationEntityToJSONTyped(value?: OrganizationEntity | null,
         'populatedChildren': value['populatedChildren'] == null ? undefined : ((value['populatedChildren'] as Array<any>).map(CreateOrganizationRequestBodyDtoPopulatedChildrenInnerToJSON)),
         'createdAt': value['createdAt'],
         'updatedAt': value['updatedAt'],
+        'description': value['description'],
         'groupSettings': CreateOrganizationRequestBodyDtoGroupSettingsToJSON(value['groupSettings']),
     };
 }

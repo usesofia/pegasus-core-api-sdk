@@ -52,6 +52,12 @@ export interface CreateOrganizationRequestBodyDtoPopulatedParent {
      */
     imageUrl?: string;
     /**
+     * Descrição da organização.
+     * @type {string}
+     * @memberof CreateOrganizationRequestBodyDtoPopulatedParent
+     */
+    description?: string;
+    /**
      * Data de criação da organização.
      * @type {any}
      * @memberof CreateOrganizationRequestBodyDtoPopulatedParent

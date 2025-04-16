@@ -40,6 +40,10 @@ export interface ExternalHardRemoveOrganizationRequest {
     organizationId: string;
 }
 
+export interface FindOrganizationByIdRequest {
+    organizationId: string;
+}
+
 export interface HardRemoveOrganizationInternalRequest {
     organizationId: string;
 }
@@ -114,6 +118,21 @@ export interface OrganizationsApiInterface {
      * Find my organization.
      */
     findMyOrganization(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<OrganizationEntity>;
+
+    /**
+     * 
+     * @summary Find an organization by ID.
+     * @param {string} organizationId Organization ID to be found.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof OrganizationsApiInterface
+     */
+    findOrganizationByIdRaw(requestParameters: FindOrganizationByIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
+
+    /**
+     * Find an organization by ID.
+     */
+    findOrganizationById(requestParameters: FindOrganizationByIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
 
     /**
      * 
@@ -275,6 +294,38 @@ export class OrganizationsApi extends runtime.BaseAPI implements OrganizationsAp
     async findMyOrganization(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<OrganizationEntity> {
         const response = await this.findMyOrganizationRaw(initOverrides);
         return await response.value();
+    }
+
+    /**
+     * Find an organization by ID.
+     */
+    async findOrganizationByIdRaw(requestParameters: FindOrganizationByIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        if (requestParameters['organizationId'] == null) {
+            throw new runtime.RequiredError(
+                'organizationId',
+                'Required parameter "organizationId" was null or undefined when calling findOrganizationById().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/external/organizations/{organizationId}`.replace(`{${"organizationId"}}`, encodeURIComponent(String(requestParameters['organizationId']))),
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.VoidApiResponse(response);
+    }
+
+    /**
+     * Find an organization by ID.
+     */
+    async findOrganizationById(requestParameters: FindOrganizationByIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+        await this.findOrganizationByIdRaw(requestParameters, initOverrides);
     }
 
     /**

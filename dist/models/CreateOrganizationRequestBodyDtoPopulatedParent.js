@@ -58,6 +58,7 @@ function CreateOrganizationRequestBodyDtoPopulatedParentFromJSONTyped(json, igno
         'type': json['type'],
         'document': json['document'] == null ? undefined : json['document'],
         'imageUrl': json['imageUrl'] == null ? undefined : json['imageUrl'],
+        'description': json['description'] == null ? undefined : json['description'],
         'createdAt': json['createdAt'],
         'updatedAt': json['updatedAt'],
     };
@@ -77,6 +78,7 @@ function CreateOrganizationRequestBodyDtoPopulatedParentToJSONTyped(value, ignor
         'type': value['type'],
         'document': value['document'],
         'imageUrl': value['imageUrl'],
+        'description': value['description'],
         'createdAt': value['createdAt'],
         'updatedAt': value['updatedAt'],
     };

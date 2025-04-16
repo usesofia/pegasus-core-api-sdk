@@ -15,5 +15,7 @@ export * from './MembershipsApi';
 export * from './NormalizedSubcategoriesApi';
 export * from './OrganizationsApi';
 export * from './ProspectInstallmentFinancialRecordsApi';
+export * from './ProspectRecurringFinancialRecordsApi';
+export * from './RecurringFinancialRecordsApi';
 export * from './SubcategoriesApi';
 export * from './TagsApi';

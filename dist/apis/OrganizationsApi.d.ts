@@ -18,6 +18,9 @@ export interface CreateOrganizationRequest {
 export interface ExternalHardRemoveOrganizationRequest {
     organizationId: string;
 }
+export interface FindOrganizationByIdRequest {
+    organizationId: string;
+}
 export interface HardRemoveOrganizationInternalRequest {
     organizationId: string;
 }
@@ -85,6 +88,19 @@ export interface OrganizationsApiInterface {
     findMyOrganization(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<OrganizationEntity>;
     /**
      *
+     * @summary Find an organization by ID.
+     * @param {string} organizationId Organization ID to be found.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof OrganizationsApiInterface
+     */
+    findOrganizationByIdRaw(requestParameters: FindOrganizationByIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
+    /**
+     * Find an organization by ID.
+     */
+    findOrganizationById(requestParameters: FindOrganizationByIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+    /**
+     *
      * @summary Hard remove an organization and all its data (internal endpoint).
      * @param {string} organizationId Organization ID to be removed.
      * @param {*} [options] Override http request option.
@@ -147,6 +163,14 @@ export declare class OrganizationsApi extends runtime.BaseAPI implements Organiz
      * Find my organization.
      */
     findMyOrganization(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<OrganizationEntity>;
+    /**
+     * Find an organization by ID.
+     */
+    findOrganizationByIdRaw(requestParameters: FindOrganizationByIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
+    /**
+     * Find an organization by ID.
+     */
+    findOrganizationById(requestParameters: FindOrganizationByIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
     /**
      * Hard remove an organization and all its data (internal endpoint).
      */

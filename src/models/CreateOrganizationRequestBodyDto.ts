@@ -90,6 +90,12 @@ export interface CreateOrganizationRequestBodyDto {
      */
     populatedChildren?: Array<CreateOrganizationRequestBodyDtoPopulatedChildrenInner> | null;
     /**
+     * Descrição da organização.
+     * @type {string}
+     * @memberof CreateOrganizationRequestBodyDto
+     */
+    description?: string;
+    /**
      * 
      * @type {CreateOrganizationRequestBodyDtoGroupSettings}
      * @memberof CreateOrganizationRequestBodyDto
@@ -142,6 +148,7 @@ export function CreateOrganizationRequestBodyDtoFromJSONTyped(json: any, ignoreD
         'populatedParent': json['populatedParent'] == null ? undefined : CreateOrganizationRequestBodyDtoPopulatedParentFromJSON(json['populatedParent']),
         'children': json['children'] == null ? undefined : json['children'],
         'populatedChildren': json['populatedChildren'] == null ? undefined : ((json['populatedChildren'] as Array<any>).map(CreateOrganizationRequestBodyDtoPopulatedChildrenInnerFromJSON)),
+        'description': json['description'] == null ? undefined : json['description'],
         'groupSettings': json['groupSettings'] == null ? undefined : CreateOrganizationRequestBodyDtoGroupSettingsFromJSON(json['groupSettings']),
         'imageInBase64': json['imageInBase64'] == null ? undefined : json['imageInBase64'],
     };
@@ -166,6 +173,7 @@ export function CreateOrganizationRequestBodyDtoToJSONTyped(value?: CreateOrgani
         'populatedParent': CreateOrganizationRequestBodyDtoPopulatedParentToJSON(value['populatedParent']),
         'children': value['children'],
         'populatedChildren': value['populatedChildren'] == null ? undefined : ((value['populatedChildren'] as Array<any>).map(CreateOrganizationRequestBodyDtoPopulatedChildrenInnerToJSON)),
+        'description': value['description'],
         'groupSettings': CreateOrganizationRequestBodyDtoGroupSettingsToJSON(value['groupSettings']),
         'imageInBase64': value['imageInBase64'],
     };

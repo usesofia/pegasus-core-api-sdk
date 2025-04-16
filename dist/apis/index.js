@@ -33,5 +33,7 @@ __exportStar(require("./MembershipsApi"), exports);
 __exportStar(require("./NormalizedSubcategoriesApi"), exports);
 __exportStar(require("./OrganizationsApi"), exports);
 __exportStar(require("./ProspectInstallmentFinancialRecordsApi"), exports);
+__exportStar(require("./ProspectRecurringFinancialRecordsApi"), exports);
+__exportStar(require("./RecurringFinancialRecordsApi"), exports);
 __exportStar(require("./SubcategoriesApi"), exports);
 __exportStar(require("./TagsApi"), exports);

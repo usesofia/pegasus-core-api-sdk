@@ -67,6 +67,12 @@ export interface CreateOrganizationRequestBodyDto {
      */
     populatedChildren?: Array<CreateOrganizationRequestBodyDtoPopulatedChildrenInner> | null;
     /**
+     * Descrição da organização.
+     * @type {string}
+     * @memberof CreateOrganizationRequestBodyDto
+     */
+    description?: string;
+    /**
      *
      * @type {CreateOrganizationRequestBodyDtoGroupSettings}
      * @memberof CreateOrganizationRequestBodyDto

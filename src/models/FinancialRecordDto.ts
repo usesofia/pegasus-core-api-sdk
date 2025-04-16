@@ -194,6 +194,18 @@ export interface FinancialRecordDto {
      */
     bankStatement?: string;
     /**
+     * Identificador do lançamento financeiro parcelado.
+     * @type {string}
+     * @memberof FinancialRecordDto
+     */
+    installmentFinancialRecord?: string;
+    /**
+     * Identificador do lançamento financeiro recorrente.
+     * @type {string}
+     * @memberof FinancialRecordDto
+     */
+    recurringFinancialRecord?: string;
+    /**
      * Data de criação do lançamento.
      * @type {any}
      * @memberof FinancialRecordDto
@@ -294,6 +306,8 @@ export function FinancialRecordDtoFromJSONTyped(json: any, ignoreDiscriminator: 
         'finalAmount': json['finalAmount'] == null ? undefined : json['finalAmount'],
         'reconciled': json['reconciled'] == null ? undefined : json['reconciled'],
         'bankStatement': json['bankStatement'] == null ? undefined : json['bankStatement'],
+        'installmentFinancialRecord': json['installmentFinancialRecord'] == null ? undefined : json['installmentFinancialRecord'],
+        'recurringFinancialRecord': json['recurringFinancialRecord'] == null ? undefined : json['recurringFinancialRecord'],
         'createdAt': json['createdAt'] == null ? undefined : json['createdAt'],
         'updatedAt': json['updatedAt'] == null ? undefined : json['updatedAt'],
         'populatedFiles': json['populatedFiles'] == null ? undefined : ((json['populatedFiles'] as Array<any>).map(CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerFromJSON)),
@@ -338,6 +352,8 @@ export function FinancialRecordDtoToJSONTyped(value?: FinancialRecordDto | null,
         'finalAmount': value['finalAmount'],
         'reconciled': value['reconciled'],
         'bankStatement': value['bankStatement'],
+        'installmentFinancialRecord': value['installmentFinancialRecord'],
+        'recurringFinancialRecord': value['recurringFinancialRecord'],
         'createdAt': value['createdAt'],
         'updatedAt': value['updatedAt'],
         'populatedFiles': value['populatedFiles'] == null ? undefined : ((value['populatedFiles'] as Array<any>).map(CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerToJSON)),
