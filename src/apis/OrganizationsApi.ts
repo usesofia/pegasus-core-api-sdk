@@ -127,12 +127,12 @@ export interface OrganizationsApiInterface {
      * @throws {RequiredError}
      * @memberof OrganizationsApiInterface
      */
-    findOrganizationByIdRaw(requestParameters: FindOrganizationByIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
+    findOrganizationByIdRaw(requestParameters: FindOrganizationByIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<OrganizationEntity>>;
 
     /**
      * Find an organization by ID.
      */
-    findOrganizationById(requestParameters: FindOrganizationByIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+    findOrganizationById(requestParameters: FindOrganizationByIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<OrganizationEntity>;
 
     /**
      * 
@@ -299,7 +299,7 @@ export class OrganizationsApi extends runtime.BaseAPI implements OrganizationsAp
     /**
      * Find an organization by ID.
      */
-    async findOrganizationByIdRaw(requestParameters: FindOrganizationByIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+    async findOrganizationByIdRaw(requestParameters: FindOrganizationByIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<OrganizationEntity>> {
         if (requestParameters['organizationId'] == null) {
             throw new runtime.RequiredError(
                 'organizationId',
@@ -318,14 +318,15 @@ export class OrganizationsApi extends runtime.BaseAPI implements OrganizationsAp
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.VoidApiResponse(response);
+        return new runtime.JSONApiResponse(response, (jsonValue) => OrganizationEntityFromJSON(jsonValue));
     }
 
     /**
      * Find an organization by ID.
      */
-    async findOrganizationById(requestParameters: FindOrganizationByIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
-        await this.findOrganizationByIdRaw(requestParameters, initOverrides);
+    async findOrganizationById(requestParameters: FindOrganizationByIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<OrganizationEntity> {
+        const response = await this.findOrganizationByIdRaw(requestParameters, initOverrides);
+        return await response.value();
     }
 
     /**

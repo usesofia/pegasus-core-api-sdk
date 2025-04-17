@@ -94,11 +94,11 @@ export interface OrganizationsApiInterface {
      * @throws {RequiredError}
      * @memberof OrganizationsApiInterface
      */
-    findOrganizationByIdRaw(requestParameters: FindOrganizationByIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
+    findOrganizationByIdRaw(requestParameters: FindOrganizationByIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<OrganizationEntity>>;
     /**
      * Find an organization by ID.
      */
-    findOrganizationById(requestParameters: FindOrganizationByIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+    findOrganizationById(requestParameters: FindOrganizationByIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<OrganizationEntity>;
     /**
      *
      * @summary Hard remove an organization and all its data (internal endpoint).
@@ -166,11 +166,11 @@ export declare class OrganizationsApi extends runtime.BaseAPI implements Organiz
     /**
      * Find an organization by ID.
      */
-    findOrganizationByIdRaw(requestParameters: FindOrganizationByIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
+    findOrganizationByIdRaw(requestParameters: FindOrganizationByIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<OrganizationEntity>>;
     /**
      * Find an organization by ID.
      */
-    findOrganizationById(requestParameters: FindOrganizationByIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+    findOrganizationById(requestParameters: FindOrganizationByIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<OrganizationEntity>;
     /**
      * Hard remove an organization and all its data (internal endpoint).
      */
