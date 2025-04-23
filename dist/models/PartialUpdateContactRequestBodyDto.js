@@ -83,7 +83,6 @@ function PartialUpdateContactRequestBodyDtoFromJSONTyped(json, ignoreDiscriminat
         'birthDate': json['birthDate'] == null ? undefined : json['birthDate'],
         'origin': json['origin'] == null ? undefined : json['origin'],
         'address': json['address'] == null ? undefined : (0, CreateContactRequestBodyDtoAddress_1.CreateContactRequestBodyDtoAddressFromJSON)(json['address']),
-        'isNotIdentified': json['isNotIdentified'] == null ? undefined : json['isNotIdentified'],
         'channel': json['channel'],
     };
 }
@@ -106,7 +105,6 @@ function PartialUpdateContactRequestBodyDtoToJSONTyped(value, ignoreDiscriminato
         'birthDate': value['birthDate'],
         'origin': value['origin'],
         'address': (0, CreateContactRequestBodyDtoAddress_1.CreateContactRequestBodyDtoAddressToJSON)(value['address']),
-        'isNotIdentified': value['isNotIdentified'],
         'channel': value['channel'],
     };
 }
