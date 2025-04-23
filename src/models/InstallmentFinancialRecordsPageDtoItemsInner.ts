@@ -83,7 +83,7 @@ export interface InstallmentFinancialRecordsPageDtoItemsInner {
      * @type {string}
      * @memberof InstallmentFinancialRecordsPageDtoItemsInner
      */
-    contact?: string;
+    contact: string;
     /**
      * Descrição do lançamento.
      * @type {string}
@@ -212,6 +212,7 @@ export function instanceOfInstallmentFinancialRecordsPageDtoItemsInner(value: ob
     if (!('direction' in value) || value['direction'] === undefined) return false;
     if (!('frequency' in value) || value['frequency'] === undefined) return false;
     if (!('firstInstallmentDate' in value) || value['firstInstallmentDate'] === undefined) return false;
+    if (!('contact' in value) || value['contact'] === undefined) return false;
     if (!('description' in value) || value['description'] === undefined) return false;
     if (!('subcategory' in value) || value['subcategory'] === undefined) return false;
     if (!('numberOfInstallments' in value) || value['numberOfInstallments'] === undefined) return false;
@@ -233,7 +234,7 @@ export function InstallmentFinancialRecordsPageDtoItemsInnerFromJSONTyped(json: 
         'direction': json['direction'],
         'frequency': json['frequency'],
         'firstInstallmentDate': json['firstInstallmentDate'],
-        'contact': json['contact'] == null ? undefined : json['contact'],
+        'contact': json['contact'],
         'description': json['description'],
         'subcategory': json['subcategory'],
         'amount': json['amount'] == null ? undefined : json['amount'],

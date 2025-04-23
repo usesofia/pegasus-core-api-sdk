@@ -77,6 +77,12 @@ export interface PartialUpdateContactRequestBodyDto {
      */
     address?: CreateContactRequestBodyDtoAddress | null;
     /**
+     * Indica se o contato é o contato não identificado.
+     * @type {boolean}
+     * @memberof PartialUpdateContactRequestBodyDto
+     */
+    isNotIdentified?: boolean;
+    /**
      * Canal de origem da operação
      * @type {string}
      * @memberof PartialUpdateContactRequestBodyDto

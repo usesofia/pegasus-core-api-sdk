@@ -19,6 +19,7 @@ export interface FindAllContactsRequest {
     sortOrder?: string;
     sortBy?: string;
     populate?: string;
+    considerNotIdentified?: boolean;
     states?: string;
     country?: string;
     birthdayTo?: string;
@@ -93,6 +94,7 @@ export interface ContactsApiInterface {
      * @param {string} [sortOrder] Ordem de ordenação dos contatos.
      * @param {string} [sortBy] Campo para ordenação dos contatos.
      * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
+     * @param {boolean} [considerNotIdentified] Considerar ou não o contato não identificado.
      * @param {string} [states] Estados a serem buscados.
      * @param {string} [country] País a serem buscados.
      * @param {string} [birthdayTo] Data de nascimento final a serem buscadas.

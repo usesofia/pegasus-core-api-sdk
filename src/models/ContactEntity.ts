@@ -100,6 +100,12 @@ export interface ContactEntity {
      */
     address?: CreateContactRequestBodyDtoAddress | null;
     /**
+     * Indica se o contato é o contato não identificado.
+     * @type {boolean}
+     * @memberof ContactEntity
+     */
+    isNotIdentified: boolean;
+    /**
      * Data de criação do contato.
      * @type {any}
      * @memberof ContactEntity
@@ -159,6 +165,7 @@ export function instanceOfContactEntity(value: object): value is ContactEntity {
     if (!('name' in value) || value['name'] === undefined) return false;
     if (!('types' in value) || value['types'] === undefined) return false;
     if (!('pixKeys' in value) || value['pixKeys'] === undefined) return false;
+    if (!('isNotIdentified' in value) || value['isNotIdentified'] === undefined) return false;
     if (!('createdAt' in value) || value['createdAt'] === undefined) return false;
     if (!('updatedAt' in value) || value['updatedAt'] === undefined) return false;
     return true;
@@ -186,6 +193,7 @@ export function ContactEntityFromJSONTyped(json: any, ignoreDiscriminator: boole
         'birthDate': json['birthDate'] == null ? undefined : json['birthDate'],
         'origin': json['origin'] == null ? undefined : json['origin'],
         'address': json['address'] == null ? undefined : CreateContactRequestBodyDtoAddressFromJSON(json['address']),
+        'isNotIdentified': json['isNotIdentified'],
         'createdAt': json['createdAt'],
         'updatedAt': json['updatedAt'],
     };
@@ -214,6 +222,7 @@ export function ContactEntityToJSONTyped(value?: ContactEntity | null, ignoreDis
         'birthDate': value['birthDate'],
         'origin': value['origin'],
         'address': CreateContactRequestBodyDtoAddressToJSON(value['address']),
+        'isNotIdentified': value['isNotIdentified'],
         'createdAt': value['createdAt'],
         'updatedAt': value['updatedAt'],
     };

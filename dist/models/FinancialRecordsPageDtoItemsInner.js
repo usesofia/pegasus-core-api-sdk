@@ -43,6 +43,8 @@ function instanceOfFinancialRecordsPageDtoItemsInner(value) {
         return false;
     if (!('dueDate' in value) || value['dueDate'] === undefined)
         return false;
+    if (!('contact' in value) || value['contact'] === undefined)
+        return false;
     if (!('description' in value) || value['description'] === undefined)
         return false;
     if (!('subcategory' in value) || value['subcategory'] === undefined)
@@ -61,7 +63,7 @@ function FinancialRecordsPageDtoItemsInnerFromJSONTyped(json, ignoreDiscriminato
         'ownerOrganization': json['ownerOrganization'],
         'direction': json['direction'],
         'dueDate': json['dueDate'],
-        'contact': json['contact'] == null ? undefined : json['contact'],
+        'contact': json['contact'],
         'description': json['description'],
         'subcategory': json['subcategory'],
         'amount': json['amount'] == null ? undefined : json['amount'],

@@ -49,7 +49,7 @@ export interface FinancialRecordDto {
      * @type {string}
      * @memberof FinancialRecordDto
      */
-    contact?: string;
+    contact: string;
     /**
      * Descrição do lançamento.
      * @type {string}

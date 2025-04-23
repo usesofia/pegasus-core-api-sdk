@@ -54,7 +54,7 @@ export interface RecurringFinancialRecordsPageEntityItemsInner {
      * @type {string}
      * @memberof RecurringFinancialRecordsPageEntityItemsInner
      */
-    contact?: string;
+    contact: string;
     /**
      * Identificador da subcategoria.
      * @type {string}

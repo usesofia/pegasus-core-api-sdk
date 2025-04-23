@@ -225,6 +225,9 @@ var ContactsApi = /** @class */ (function (_super) {
                         if (requestParameters['populate'] != null) {
                             queryParameters['populate'] = requestParameters['populate'];
                         }
+                        if (requestParameters['considerNotIdentified'] != null) {
+                            queryParameters['considerNotIdentified'] = requestParameters['considerNotIdentified'];
+                        }
                         if (requestParameters['states'] != null) {
                             queryParameters['states'] = requestParameters['states'];
                         }

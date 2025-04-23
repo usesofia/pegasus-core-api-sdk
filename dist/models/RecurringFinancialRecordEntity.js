@@ -52,6 +52,8 @@ function instanceOfRecurringFinancialRecordEntity(value) {
         return false;
     if (!('description' in value) || value['description'] === undefined)
         return false;
+    if (!('contact' in value) || value['contact'] === undefined)
+        return false;
     if (!('subcategory' in value) || value['subcategory'] === undefined)
         return false;
     if (!('amount' in value) || value['amount'] === undefined)
@@ -75,7 +77,7 @@ function RecurringFinancialRecordEntityFromJSONTyped(json, ignoreDiscriminator) 
         'direction': json['direction'],
         'firstOccurrenceDate': json['firstOccurrenceDate'],
         'description': json['description'],
-        'contact': json['contact'] == null ? undefined : json['contact'],
+        'contact': json['contact'],
         'subcategory': json['subcategory'],
         'amount': json['amount'],
         'tags': json['tags'] == null ? undefined : json['tags'],

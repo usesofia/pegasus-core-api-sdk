@@ -83,7 +83,7 @@ export interface RecurringFinancialRecordsPageEntityItemsInner {
      * @type {string}
      * @memberof RecurringFinancialRecordsPageEntityItemsInner
      */
-    contact?: string;
+    contact: string;
     /**
      * Identificador da subcategoria.
      * @type {string}
@@ -212,6 +212,7 @@ export function instanceOfRecurringFinancialRecordsPageEntityItemsInner(value: o
     if (!('direction' in value) || value['direction'] === undefined) return false;
     if (!('firstOccurrenceDate' in value) || value['firstOccurrenceDate'] === undefined) return false;
     if (!('description' in value) || value['description'] === undefined) return false;
+    if (!('contact' in value) || value['contact'] === undefined) return false;
     if (!('subcategory' in value) || value['subcategory'] === undefined) return false;
     if (!('amount' in value) || value['amount'] === undefined) return false;
     if (!('frequency' in value) || value['frequency'] === undefined) return false;
@@ -234,7 +235,7 @@ export function RecurringFinancialRecordsPageEntityItemsInnerFromJSONTyped(json:
         'direction': json['direction'],
         'firstOccurrenceDate': json['firstOccurrenceDate'],
         'description': json['description'],
-        'contact': json['contact'] == null ? undefined : json['contact'],
+        'contact': json['contact'],
         'subcategory': json['subcategory'],
         'amount': json['amount'],
         'tags': json['tags'] == null ? undefined : json['tags'],

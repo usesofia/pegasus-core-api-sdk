@@ -54,7 +54,7 @@ export interface InstallmentFinancialRecordsPageDtoItemsInner {
      * @type {string}
      * @memberof InstallmentFinancialRecordsPageDtoItemsInner
      */
-    contact?: string;
+    contact: string;
     /**
      * Descrição do lançamento.
      * @type {string}

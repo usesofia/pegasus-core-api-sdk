@@ -84,7 +84,7 @@ export interface FinancialRecordDto {
      * @type {string}
      * @memberof FinancialRecordDto
      */
-    contact?: string;
+    contact: string;
     /**
      * Descrição do lançamento.
      * @type {string}
@@ -268,6 +268,7 @@ export function instanceOfFinancialRecordDto(value: object): value is FinancialR
     if (!('ownerOrganization' in value) || value['ownerOrganization'] === undefined) return false;
     if (!('direction' in value) || value['direction'] === undefined) return false;
     if (!('dueDate' in value) || value['dueDate'] === undefined) return false;
+    if (!('contact' in value) || value['contact'] === undefined) return false;
     if (!('description' in value) || value['description'] === undefined) return false;
     if (!('subcategory' in value) || value['subcategory'] === undefined) return false;
     return true;
@@ -287,7 +288,7 @@ export function FinancialRecordDtoFromJSONTyped(json: any, ignoreDiscriminator: 
         'ownerOrganization': json['ownerOrganization'],
         'direction': json['direction'],
         'dueDate': json['dueDate'],
-        'contact': json['contact'] == null ? undefined : json['contact'],
+        'contact': json['contact'],
         'description': json['description'],
         'subcategory': json['subcategory'],
         'amount': json['amount'] == null ? undefined : json['amount'],

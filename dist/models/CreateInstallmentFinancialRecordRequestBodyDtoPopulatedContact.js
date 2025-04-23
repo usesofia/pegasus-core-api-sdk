@@ -63,6 +63,8 @@ function instanceOfCreateInstallmentFinancialRecordRequestBodyDtoPopulatedContac
         return false;
     if (!('pixKeys' in value) || value['pixKeys'] === undefined)
         return false;
+    if (!('isNotIdentified' in value) || value['isNotIdentified'] === undefined)
+        return false;
     if (!('createdAt' in value) || value['createdAt'] === undefined)
         return false;
     if (!('updatedAt' in value) || value['updatedAt'] === undefined)
@@ -89,6 +91,7 @@ function CreateInstallmentFinancialRecordRequestBodyDtoPopulatedContactFromJSONT
         'birthDate': json['birthDate'] == null ? undefined : json['birthDate'],
         'origin': json['origin'] == null ? undefined : json['origin'],
         'address': json['address'] == null ? undefined : (0, CreateContactRequestBodyDtoAddress_1.CreateContactRequestBodyDtoAddressFromJSON)(json['address']),
+        'isNotIdentified': json['isNotIdentified'],
         'createdAt': json['createdAt'],
         'updatedAt': json['updatedAt'],
     };
@@ -114,6 +117,7 @@ function CreateInstallmentFinancialRecordRequestBodyDtoPopulatedContactToJSONTyp
         'birthDate': value['birthDate'],
         'origin': value['origin'],
         'address': (0, CreateContactRequestBodyDtoAddress_1.CreateContactRequestBodyDtoAddressToJSON)(value['address']),
+        'isNotIdentified': value['isNotIdentified'],
         'createdAt': value['createdAt'],
         'updatedAt': value['updatedAt'],
     };

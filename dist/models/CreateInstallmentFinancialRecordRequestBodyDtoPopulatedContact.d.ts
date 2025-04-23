@@ -89,6 +89,12 @@ export interface CreateInstallmentFinancialRecordRequestBodyDtoPopulatedContact 
      */
     address?: CreateContactRequestBodyDtoAddress | null;
     /**
+     * Indica se o contato é o contato não identificado.
+     * @type {boolean}
+     * @memberof CreateInstallmentFinancialRecordRequestBodyDtoPopulatedContact
+     */
+    isNotIdentified: boolean;
+    /**
      * Data de criação do contato.
      * @type {any}
      * @memberof CreateInstallmentFinancialRecordRequestBodyDtoPopulatedContact

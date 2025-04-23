@@ -89,6 +89,12 @@ export interface ContactsPageEntityItemsInner {
      */
     address?: CreateContactRequestBodyDtoAddress | null;
     /**
+     * Indica se o contato é o contato não identificado.
+     * @type {boolean}
+     * @memberof ContactsPageEntityItemsInner
+     */
+    isNotIdentified: boolean;
+    /**
      * Data de criação do contato.
      * @type {any}
      * @memberof ContactsPageEntityItemsInner

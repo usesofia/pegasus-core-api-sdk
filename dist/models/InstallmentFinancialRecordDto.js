@@ -52,6 +52,8 @@ function instanceOfInstallmentFinancialRecordDto(value) {
         return false;
     if (!('firstInstallmentDate' in value) || value['firstInstallmentDate'] === undefined)
         return false;
+    if (!('contact' in value) || value['contact'] === undefined)
+        return false;
     if (!('description' in value) || value['description'] === undefined)
         return false;
     if (!('subcategory' in value) || value['subcategory'] === undefined)
@@ -73,7 +75,7 @@ function InstallmentFinancialRecordDtoFromJSONTyped(json, ignoreDiscriminator) {
         'direction': json['direction'],
         'frequency': json['frequency'],
         'firstInstallmentDate': json['firstInstallmentDate'],
-        'contact': json['contact'] == null ? undefined : json['contact'],
+        'contact': json['contact'],
         'description': json['description'],
         'subcategory': json['subcategory'],
         'amount': json['amount'] == null ? undefined : json['amount'],

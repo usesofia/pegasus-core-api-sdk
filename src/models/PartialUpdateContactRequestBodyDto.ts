@@ -88,6 +88,12 @@ export interface PartialUpdateContactRequestBodyDto {
      */
     address?: CreateContactRequestBodyDtoAddress | null;
     /**
+     * Indica se o contato é o contato não identificado.
+     * @type {boolean}
+     * @memberof PartialUpdateContactRequestBodyDto
+     */
+    isNotIdentified?: boolean;
+    /**
      * Canal de origem da operação
      * @type {string}
      * @memberof PartialUpdateContactRequestBodyDto
@@ -170,6 +176,7 @@ export function PartialUpdateContactRequestBodyDtoFromJSONTyped(json: any, ignor
         'birthDate': json['birthDate'] == null ? undefined : json['birthDate'],
         'origin': json['origin'] == null ? undefined : json['origin'],
         'address': json['address'] == null ? undefined : CreateContactRequestBodyDtoAddressFromJSON(json['address']),
+        'isNotIdentified': json['isNotIdentified'] == null ? undefined : json['isNotIdentified'],
         'channel': json['channel'],
     };
 }
@@ -195,6 +202,7 @@ export function PartialUpdateContactRequestBodyDtoToJSONTyped(value?: PartialUpd
         'birthDate': value['birthDate'],
         'origin': value['origin'],
         'address': CreateContactRequestBodyDtoAddressToJSON(value['address']),
+        'isNotIdentified': value['isNotIdentified'],
         'channel': value['channel'],
     };
 }

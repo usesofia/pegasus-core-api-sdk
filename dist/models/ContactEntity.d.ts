@@ -89,6 +89,12 @@ export interface ContactEntity {
      */
     address?: CreateContactRequestBodyDtoAddress | null;
     /**
+     * Indica se o contato é o contato não identificado.
+     * @type {boolean}
+     * @memberof ContactEntity
+     */
+    isNotIdentified: boolean;
+    /**
      * Data de criação do contato.
      * @type {any}
      * @memberof ContactEntity

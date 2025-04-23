@@ -49,7 +49,7 @@ export interface FinancialRecordsPageDtoItemsInner {
      * @type {string}
      * @memberof FinancialRecordsPageDtoItemsInner
      */
-    contact?: string;
+    contact: string;
     /**
      * Descrição do lançamento.
      * @type {string}
