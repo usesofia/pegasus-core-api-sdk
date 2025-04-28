@@ -13,20 +13,20 @@
  */
 
 import { mapValues } from '../runtime';
-import type { NormalizedSubcategoriesPageEntityItemsInnerPopulatedCategory } from './NormalizedSubcategoriesPageEntityItemsInnerPopulatedCategory';
+import type { CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedNormalizedSubcategory } from './CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedNormalizedSubcategory';
 import {
-    NormalizedSubcategoriesPageEntityItemsInnerPopulatedCategoryFromJSON,
-    NormalizedSubcategoriesPageEntityItemsInnerPopulatedCategoryFromJSONTyped,
-    NormalizedSubcategoriesPageEntityItemsInnerPopulatedCategoryToJSON,
-    NormalizedSubcategoriesPageEntityItemsInnerPopulatedCategoryToJSONTyped,
-} from './NormalizedSubcategoriesPageEntityItemsInnerPopulatedCategory';
-import type { ExternalCreateSubcategoryRequestBodyDtoPopulatedNormalizedSubcategory } from './ExternalCreateSubcategoryRequestBodyDtoPopulatedNormalizedSubcategory';
+    CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedNormalizedSubcategoryFromJSON,
+    CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedNormalizedSubcategoryFromJSONTyped,
+    CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedNormalizedSubcategoryToJSON,
+    CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedNormalizedSubcategoryToJSONTyped,
+} from './CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedNormalizedSubcategory';
+import type { CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedCategory } from './CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedCategory';
 import {
-    ExternalCreateSubcategoryRequestBodyDtoPopulatedNormalizedSubcategoryFromJSON,
-    ExternalCreateSubcategoryRequestBodyDtoPopulatedNormalizedSubcategoryFromJSONTyped,
-    ExternalCreateSubcategoryRequestBodyDtoPopulatedNormalizedSubcategoryToJSON,
-    ExternalCreateSubcategoryRequestBodyDtoPopulatedNormalizedSubcategoryToJSONTyped,
-} from './ExternalCreateSubcategoryRequestBodyDtoPopulatedNormalizedSubcategory';
+    CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedCategoryFromJSON,
+    CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedCategoryFromJSONTyped,
+    CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedCategoryToJSON,
+    CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedCategoryToJSONTyped,
+} from './CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedCategory';
 
 /**
  * 
@@ -72,10 +72,10 @@ export interface SubcategoryEntity {
     category: string;
     /**
      * 
-     * @type {NormalizedSubcategoriesPageEntityItemsInnerPopulatedCategory}
+     * @type {CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedCategory}
      * @memberof SubcategoryEntity
      */
-    populatedCategory?: NormalizedSubcategoriesPageEntityItemsInnerPopulatedCategory | null;
+    populatedCategory?: CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedCategory | null;
     /**
      * Identificador da subcategoria normalizada.
      * @type {string}
@@ -84,10 +84,10 @@ export interface SubcategoryEntity {
     normalizedSubcategory?: string | null;
     /**
      * 
-     * @type {ExternalCreateSubcategoryRequestBodyDtoPopulatedNormalizedSubcategory}
+     * @type {CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedNormalizedSubcategory}
      * @memberof SubcategoryEntity
      */
-    populatedNormalizedSubcategory?: ExternalCreateSubcategoryRequestBodyDtoPopulatedNormalizedSubcategory | null;
+    populatedNormalizedSubcategory?: CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedNormalizedSubcategory | null;
     /**
      * Indica se a subcategoria deve ser exibida no DRE.
      * @type {boolean}
@@ -95,23 +95,17 @@ export interface SubcategoryEntity {
      */
     considerInDre: boolean;
     /**
-     * Indica se a subcategoria é relacionada a faturas.
-     * @type {boolean}
+     * Descrição da subcategoria.
+     * @type {string}
      * @memberof SubcategoryEntity
      */
-    isInvoiceRelated: boolean;
+    description: string;
     /**
-     * Indica se a subcategoria é relacionada a transferências internas.
+     * Indica se a subcategoria está ativa.
      * @type {boolean}
      * @memberof SubcategoryEntity
      */
-    isInternalTransferRelated: boolean;
-    /**
-     * Indica se a subcategoria é relacionada a transferências automáticas de aplicação.
-     * @type {boolean}
-     * @memberof SubcategoryEntity
-     */
-    isAutomaticApplicationRelated: boolean;
+    active?: boolean;
     /**
      * Data de criação da subcategoria.
      * @type {any}
@@ -137,9 +131,7 @@ export function instanceOfSubcategoryEntity(value: object): value is Subcategory
     if (!('index' in value) || value['index'] === undefined) return false;
     if (!('category' in value) || value['category'] === undefined) return false;
     if (!('considerInDre' in value) || value['considerInDre'] === undefined) return false;
-    if (!('isInvoiceRelated' in value) || value['isInvoiceRelated'] === undefined) return false;
-    if (!('isInternalTransferRelated' in value) || value['isInternalTransferRelated'] === undefined) return false;
-    if (!('isAutomaticApplicationRelated' in value) || value['isAutomaticApplicationRelated'] === undefined) return false;
+    if (!('description' in value) || value['description'] === undefined) return false;
     if (!('createdAt' in value) || value['createdAt'] === undefined) return false;
     if (!('updatedAt' in value) || value['updatedAt'] === undefined) return false;
     return true;
@@ -161,13 +153,12 @@ export function SubcategoryEntityFromJSONTyped(json: any, ignoreDiscriminator: b
         'slug': json['slug'],
         'index': json['index'],
         'category': json['category'],
-        'populatedCategory': json['populatedCategory'] == null ? undefined : NormalizedSubcategoriesPageEntityItemsInnerPopulatedCategoryFromJSON(json['populatedCategory']),
+        'populatedCategory': json['populatedCategory'] == null ? undefined : CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedCategoryFromJSON(json['populatedCategory']),
         'normalizedSubcategory': json['normalizedSubcategory'] == null ? undefined : json['normalizedSubcategory'],
-        'populatedNormalizedSubcategory': json['populatedNormalizedSubcategory'] == null ? undefined : ExternalCreateSubcategoryRequestBodyDtoPopulatedNormalizedSubcategoryFromJSON(json['populatedNormalizedSubcategory']),
+        'populatedNormalizedSubcategory': json['populatedNormalizedSubcategory'] == null ? undefined : CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedNormalizedSubcategoryFromJSON(json['populatedNormalizedSubcategory']),
         'considerInDre': json['considerInDre'],
-        'isInvoiceRelated': json['isInvoiceRelated'],
-        'isInternalTransferRelated': json['isInternalTransferRelated'],
-        'isAutomaticApplicationRelated': json['isAutomaticApplicationRelated'],
+        'description': json['description'],
+        'active': json['active'] == null ? undefined : json['active'],
         'createdAt': json['createdAt'],
         'updatedAt': json['updatedAt'],
     };
@@ -190,13 +181,12 @@ export function SubcategoryEntityToJSONTyped(value?: SubcategoryEntity | null, i
         'slug': value['slug'],
         'index': value['index'],
         'category': value['category'],
-        'populatedCategory': NormalizedSubcategoriesPageEntityItemsInnerPopulatedCategoryToJSON(value['populatedCategory']),
+        'populatedCategory': CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedCategoryToJSON(value['populatedCategory']),
         'normalizedSubcategory': value['normalizedSubcategory'],
-        'populatedNormalizedSubcategory': ExternalCreateSubcategoryRequestBodyDtoPopulatedNormalizedSubcategoryToJSON(value['populatedNormalizedSubcategory']),
+        'populatedNormalizedSubcategory': CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedNormalizedSubcategoryToJSON(value['populatedNormalizedSubcategory']),
         'considerInDre': value['considerInDre'],
-        'isInvoiceRelated': value['isInvoiceRelated'],
-        'isInternalTransferRelated': value['isInternalTransferRelated'],
-        'isAutomaticApplicationRelated': value['isAutomaticApplicationRelated'],
+        'description': value['description'],
+        'active': value['active'],
         'createdAt': value['createdAt'],
         'updatedAt': value['updatedAt'],
     };

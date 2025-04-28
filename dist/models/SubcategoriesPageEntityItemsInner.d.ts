@@ -9,8 +9,8 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { NormalizedSubcategoriesPageEntityItemsInnerPopulatedCategory } from './NormalizedSubcategoriesPageEntityItemsInnerPopulatedCategory';
-import type { ExternalCreateSubcategoryRequestBodyDtoPopulatedNormalizedSubcategory } from './ExternalCreateSubcategoryRequestBodyDtoPopulatedNormalizedSubcategory';
+import type { CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedNormalizedSubcategory } from './CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedNormalizedSubcategory';
+import type { CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedCategory } from './CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedCategory';
 /**
  *
  * @export
@@ -55,10 +55,10 @@ export interface SubcategoriesPageEntityItemsInner {
     category: string;
     /**
      *
-     * @type {NormalizedSubcategoriesPageEntityItemsInnerPopulatedCategory}
+     * @type {CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedCategory}
      * @memberof SubcategoriesPageEntityItemsInner
      */
-    populatedCategory?: NormalizedSubcategoriesPageEntityItemsInnerPopulatedCategory | null;
+    populatedCategory?: CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedCategory | null;
     /**
      * Identificador da subcategoria normalizada.
      * @type {string}
@@ -67,10 +67,10 @@ export interface SubcategoriesPageEntityItemsInner {
     normalizedSubcategory?: string | null;
     /**
      *
-     * @type {ExternalCreateSubcategoryRequestBodyDtoPopulatedNormalizedSubcategory}
+     * @type {CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedNormalizedSubcategory}
      * @memberof SubcategoriesPageEntityItemsInner
      */
-    populatedNormalizedSubcategory?: ExternalCreateSubcategoryRequestBodyDtoPopulatedNormalizedSubcategory | null;
+    populatedNormalizedSubcategory?: CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedNormalizedSubcategory | null;
     /**
      * Indica se a subcategoria deve ser exibida no DRE.
      * @type {boolean}
@@ -78,23 +78,17 @@ export interface SubcategoriesPageEntityItemsInner {
      */
     considerInDre: boolean;
     /**
-     * Indica se a subcategoria é relacionada a faturas.
-     * @type {boolean}
+     * Descrição da subcategoria.
+     * @type {string}
      * @memberof SubcategoriesPageEntityItemsInner
      */
-    isInvoiceRelated: boolean;
+    description: string;
     /**
-     * Indica se a subcategoria é relacionada a transferências internas.
+     * Indica se a subcategoria está ativa.
      * @type {boolean}
      * @memberof SubcategoriesPageEntityItemsInner
      */
-    isInternalTransferRelated: boolean;
-    /**
-     * Indica se a subcategoria é relacionada a transferências automáticas de aplicação.
-     * @type {boolean}
-     * @memberof SubcategoriesPageEntityItemsInner
-     */
-    isAutomaticApplicationRelated: boolean;
+    active?: boolean;
     /**
      * Data de criação da subcategoria.
      * @type {any}

@@ -40,12 +40,6 @@ export interface CreateFileUploadRequestBodyDto {
      */
     fileType: CreateFileUploadRequestBodyDtoFileTypeEnum;
     /**
-     * Data de exclusão do arquivo.
-     * @type {any}
-     * @memberof CreateFileUploadRequestBodyDto
-     */
-    deletedAt?: any | null;
-    /**
      * URL assinada do arquivo.
      * @type {string}
      * @memberof CreateFileUploadRequestBodyDto

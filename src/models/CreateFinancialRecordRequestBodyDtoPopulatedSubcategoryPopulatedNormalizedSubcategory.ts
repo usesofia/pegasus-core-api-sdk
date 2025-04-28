@@ -22,77 +22,77 @@ import {
 } from './CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedCategory';
 
 /**
- * 
+ * Subcategoria normalizada.
  * @export
- * @interface NormalizedSubcategoriesPageEntityItemsInner
+ * @interface CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedNormalizedSubcategory
  */
-export interface NormalizedSubcategoriesPageEntityItemsInner {
+export interface CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedNormalizedSubcategory {
     /**
      * Identificador da subcategoria normalizada.
      * @type {string}
-     * @memberof NormalizedSubcategoriesPageEntityItemsInner
+     * @memberof CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedNormalizedSubcategory
      */
     id: string;
     /**
      * Nome da subcategoria.
      * @type {string}
-     * @memberof NormalizedSubcategoriesPageEntityItemsInner
+     * @memberof CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedNormalizedSubcategory
      */
     name: string;
     /**
      * Slug da subcategoria.
      * @type {string}
-     * @memberof NormalizedSubcategoriesPageEntityItemsInner
+     * @memberof CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedNormalizedSubcategory
      */
     slug: string;
     /**
      * Índice da subcategoria.
      * @type {number}
-     * @memberof NormalizedSubcategoriesPageEntityItemsInner
+     * @memberof CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedNormalizedSubcategory
      */
     index: number;
     /**
      * Identificador da categoria.
      * @type {string}
-     * @memberof NormalizedSubcategoriesPageEntityItemsInner
+     * @memberof CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedNormalizedSubcategory
      */
     category: string;
     /**
      * 
      * @type {CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedCategory}
-     * @memberof NormalizedSubcategoriesPageEntityItemsInner
+     * @memberof CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedNormalizedSubcategory
      */
     populatedCategory?: CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedCategory | null;
     /**
      * Indica se a subcategoria deve ser exibida no DRE.
      * @type {boolean}
-     * @memberof NormalizedSubcategoriesPageEntityItemsInner
+     * @memberof CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedNormalizedSubcategory
      */
     considerInDre: boolean;
     /**
      * Descrição da subcategoria.
      * @type {string}
-     * @memberof NormalizedSubcategoriesPageEntityItemsInner
+     * @memberof CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedNormalizedSubcategory
      */
     description: string;
     /**
      * Data de criação da subcategoria.
      * @type {any}
-     * @memberof NormalizedSubcategoriesPageEntityItemsInner
+     * @memberof CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedNormalizedSubcategory
      */
     createdAt: any | null;
     /**
      * Data de atualização da subcategoria.
      * @type {any}
-     * @memberof NormalizedSubcategoriesPageEntityItemsInner
+     * @memberof CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedNormalizedSubcategory
      */
     updatedAt: any | null;
 }
 
 /**
- * Check if a given object implements the NormalizedSubcategoriesPageEntityItemsInner interface.
+ * Check if a given object implements the CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedNormalizedSubcategory interface.
  */
-export function instanceOfNormalizedSubcategoriesPageEntityItemsInner(value: object): value is NormalizedSubcategoriesPageEntityItemsInner {
+export function instanceOfCreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedNormalizedSubcategory(value: object): value is CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedNormalizedSubcategory {
     if (!('id' in value) || value['id'] === undefined) return false;
     if (!('name' in value) || value['name'] === undefined) return false;
     if (!('slug' in value) || value['slug'] === undefined) return false;
@@ -105,11 +105,11 @@ export function instanceOfNormalizedSubcategoriesPageEntityItemsInner(value: obj
     return true;
 }
 
-export function NormalizedSubcategoriesPageEntityItemsInnerFromJSON(json: any): NormalizedSubcategoriesPageEntityItemsInner {
-    return NormalizedSubcategoriesPageEntityItemsInnerFromJSONTyped(json, false);
+export function CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedNormalizedSubcategoryFromJSON(json: any): CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedNormalizedSubcategory {
+    return CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedNormalizedSubcategoryFromJSONTyped(json, false);
 }
 
-export function NormalizedSubcategoriesPageEntityItemsInnerFromJSONTyped(json: any, ignoreDiscriminator: boolean): NormalizedSubcategoriesPageEntityItemsInner {
+export function CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedNormalizedSubcategoryFromJSONTyped(json: any, ignoreDiscriminator: boolean): CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedNormalizedSubcategory {
     if (json == null) {
         return json;
     }
@@ -128,11 +128,11 @@ export function NormalizedSubcategoriesPageEntityItemsInnerFromJSONTyped(json: a
     };
 }
 
-export function NormalizedSubcategoriesPageEntityItemsInnerToJSON(json: any): NormalizedSubcategoriesPageEntityItemsInner {
-    return NormalizedSubcategoriesPageEntityItemsInnerToJSONTyped(json, false);
+export function CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedNormalizedSubcategoryToJSON(json: any): CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedNormalizedSubcategory {
+    return CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedNormalizedSubcategoryToJSONTyped(json, false);
 }
 
-export function NormalizedSubcategoriesPageEntityItemsInnerToJSONTyped(value?: NormalizedSubcategoriesPageEntityItemsInner | null, ignoreDiscriminator: boolean = false): any {
+export function CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedNormalizedSubcategoryToJSONTyped(value?: CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedNormalizedSubcategory | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

@@ -20,6 +20,13 @@ import {
     CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerToJSON,
     CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerToJSONTyped,
 } from './CreateFinancialRecordRequestBodyDtoPopulatedFilesInner';
+import type { CreateFinancialRecordRequestBodyDtoPopulatedTagsInner } from './CreateFinancialRecordRequestBodyDtoPopulatedTagsInner';
+import {
+    CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerFromJSON,
+    CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerFromJSONTyped,
+    CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerToJSON,
+    CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerToJSONTyped,
+} from './CreateFinancialRecordRequestBodyDtoPopulatedTagsInner';
 import type { CreateRecurringFinancialRecordRequestBodyDtoPopulatedSubcategory } from './CreateRecurringFinancialRecordRequestBodyDtoPopulatedSubcategory';
 import {
     CreateRecurringFinancialRecordRequestBodyDtoPopulatedSubcategoryFromJSON,
@@ -34,13 +41,6 @@ import {
     CreateFinancialRecordRequestBodyDtoPopulatedContactToJSON,
     CreateFinancialRecordRequestBodyDtoPopulatedContactToJSONTyped,
 } from './CreateFinancialRecordRequestBodyDtoPopulatedContact';
-import type { TagsPageEntityItemsInner } from './TagsPageEntityItemsInner';
-import {
-    TagsPageEntityItemsInnerFromJSON,
-    TagsPageEntityItemsInnerFromJSONTyped,
-    TagsPageEntityItemsInnerToJSON,
-    TagsPageEntityItemsInnerToJSONTyped,
-} from './TagsPageEntityItemsInner';
 
 /**
  * 
@@ -140,10 +140,10 @@ export interface ProspectRecurringFinancialRecordRequestBodyDto {
     populatedContact?: CreateFinancialRecordRequestBodyDtoPopulatedContact | null;
     /**
      * Tags relacionadas.
-     * @type {Array<TagsPageEntityItemsInner>}
+     * @type {Array<CreateFinancialRecordRequestBodyDtoPopulatedTagsInner>}
      * @memberof ProspectRecurringFinancialRecordRequestBodyDto
      */
-    populatedTags?: Array<TagsPageEntityItemsInner> | null;
+    populatedTags?: Array<CreateFinancialRecordRequestBodyDtoPopulatedTagsInner> | null;
     /**
      * 
      * @type {CreateRecurringFinancialRecordRequestBodyDtoPopulatedSubcategory}
@@ -242,7 +242,7 @@ export function ProspectRecurringFinancialRecordRequestBodyDtoFromJSONTyped(json
         'automaticCompletion': json['automaticCompletion'] == null ? undefined : json['automaticCompletion'],
         'isActive': json['isActive'] == null ? undefined : json['isActive'],
         'populatedContact': json['populatedContact'] == null ? undefined : CreateFinancialRecordRequestBodyDtoPopulatedContactFromJSON(json['populatedContact']),
-        'populatedTags': json['populatedTags'] == null ? undefined : ((json['populatedTags'] as Array<any>).map(TagsPageEntityItemsInnerFromJSON)),
+        'populatedTags': json['populatedTags'] == null ? undefined : ((json['populatedTags'] as Array<any>).map(CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerFromJSON)),
         'populatedSubcategory': json['populatedSubcategory'] == null ? undefined : CreateRecurringFinancialRecordRequestBodyDtoPopulatedSubcategoryFromJSON(json['populatedSubcategory']),
         'populatedFiles': json['populatedFiles'] == null ? undefined : ((json['populatedFiles'] as Array<any>).map(CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerFromJSON)),
         'channel': json['channel'],
@@ -276,7 +276,7 @@ export function ProspectRecurringFinancialRecordRequestBodyDtoToJSONTyped(value?
         'automaticCompletion': value['automaticCompletion'],
         'isActive': value['isActive'],
         'populatedContact': CreateFinancialRecordRequestBodyDtoPopulatedContactToJSON(value['populatedContact']),
-        'populatedTags': value['populatedTags'] == null ? undefined : ((value['populatedTags'] as Array<any>).map(TagsPageEntityItemsInnerToJSON)),
+        'populatedTags': value['populatedTags'] == null ? undefined : ((value['populatedTags'] as Array<any>).map(CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerToJSON)),
         'populatedSubcategory': CreateRecurringFinancialRecordRequestBodyDtoPopulatedSubcategoryToJSON(value['populatedSubcategory']),
         'populatedFiles': value['populatedFiles'] == null ? undefined : ((value['populatedFiles'] as Array<any>).map(CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerToJSON)),
         'channel': value['channel'],

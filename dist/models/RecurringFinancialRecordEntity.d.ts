@@ -10,9 +10,9 @@
  * Do not edit the class manually.
  */
 import type { CreateFinancialRecordRequestBodyDtoPopulatedFilesInner } from './CreateFinancialRecordRequestBodyDtoPopulatedFilesInner';
+import type { CreateFinancialRecordRequestBodyDtoPopulatedTagsInner } from './CreateFinancialRecordRequestBodyDtoPopulatedTagsInner';
 import type { CreateRecurringFinancialRecordRequestBodyDtoPopulatedSubcategory } from './CreateRecurringFinancialRecordRequestBodyDtoPopulatedSubcategory';
 import type { CreateFinancialRecordRequestBodyDtoPopulatedContact } from './CreateFinancialRecordRequestBodyDtoPopulatedContact';
-import type { TagsPageEntityItemsInner } from './TagsPageEntityItemsInner';
 /**
  *
  * @export
@@ -135,10 +135,10 @@ export interface RecurringFinancialRecordEntity {
     populatedContact?: CreateFinancialRecordRequestBodyDtoPopulatedContact | null;
     /**
      * Tags relacionadas.
-     * @type {Array<TagsPageEntityItemsInner>}
+     * @type {Array<CreateFinancialRecordRequestBodyDtoPopulatedTagsInner>}
      * @memberof RecurringFinancialRecordEntity
      */
-    populatedTags?: Array<TagsPageEntityItemsInner> | null;
+    populatedTags?: Array<CreateFinancialRecordRequestBodyDtoPopulatedTagsInner> | null;
     /**
      *
      * @type {CreateRecurringFinancialRecordRequestBodyDtoPopulatedSubcategory}

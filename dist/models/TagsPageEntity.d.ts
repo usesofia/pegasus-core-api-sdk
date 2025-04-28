@@ -9,8 +9,8 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import type { CreateFinancialRecordRequestBodyDtoPopulatedTagsInner } from './CreateFinancialRecordRequestBodyDtoPopulatedTagsInner';
 import type { ContactsPageEntityPageInfo } from './ContactsPageEntityPageInfo';
-import type { TagsPageEntityItemsInner } from './TagsPageEntityItemsInner';
 /**
  *
  * @export
@@ -19,10 +19,10 @@ import type { TagsPageEntityItemsInner } from './TagsPageEntityItemsInner';
 export interface TagsPageEntity {
     /**
      *
-     * @type {Array<TagsPageEntityItemsInner>}
+     * @type {Array<CreateFinancialRecordRequestBodyDtoPopulatedTagsInner>}
      * @memberof TagsPageEntity
      */
-    items: Array<TagsPageEntityItemsInner>;
+    items: Array<CreateFinancialRecordRequestBodyDtoPopulatedTagsInner>;
     /**
      *
      * @type {ContactsPageEntityPageInfo}

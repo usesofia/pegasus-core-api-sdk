@@ -13,15 +13,15 @@
  * Do not edit the class manually.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.instanceOfTagsPageEntityItemsInner = instanceOfTagsPageEntityItemsInner;
-exports.TagsPageEntityItemsInnerFromJSON = TagsPageEntityItemsInnerFromJSON;
-exports.TagsPageEntityItemsInnerFromJSONTyped = TagsPageEntityItemsInnerFromJSONTyped;
-exports.TagsPageEntityItemsInnerToJSON = TagsPageEntityItemsInnerToJSON;
-exports.TagsPageEntityItemsInnerToJSONTyped = TagsPageEntityItemsInnerToJSONTyped;
+exports.instanceOfCreateFinancialRecordRequestBodyDtoPopulatedTagsInner = instanceOfCreateFinancialRecordRequestBodyDtoPopulatedTagsInner;
+exports.CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerFromJSON = CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerFromJSON;
+exports.CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerFromJSONTyped = CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerFromJSONTyped;
+exports.CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerToJSON = CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerToJSON;
+exports.CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerToJSONTyped = CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerToJSONTyped;
 /**
- * Check if a given object implements the TagsPageEntityItemsInner interface.
+ * Check if a given object implements the CreateFinancialRecordRequestBodyDtoPopulatedTagsInner interface.
  */
-function instanceOfTagsPageEntityItemsInner(value) {
+function instanceOfCreateFinancialRecordRequestBodyDtoPopulatedTagsInner(value) {
     if (!('id' in value) || value['id'] === undefined)
         return false;
     if (!('ownerOrganization' in value) || value['ownerOrganization'] === undefined)
@@ -34,10 +34,10 @@ function instanceOfTagsPageEntityItemsInner(value) {
         return false;
     return true;
 }
-function TagsPageEntityItemsInnerFromJSON(json) {
-    return TagsPageEntityItemsInnerFromJSONTyped(json, false);
+function CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerFromJSON(json) {
+    return CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerFromJSONTyped(json, false);
 }
-function TagsPageEntityItemsInnerFromJSONTyped(json, ignoreDiscriminator) {
+function CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerFromJSONTyped(json, ignoreDiscriminator) {
     if (json == null) {
         return json;
     }
@@ -49,10 +49,10 @@ function TagsPageEntityItemsInnerFromJSONTyped(json, ignoreDiscriminator) {
         'updatedAt': json['updatedAt'],
     };
 }
-function TagsPageEntityItemsInnerToJSON(json) {
-    return TagsPageEntityItemsInnerToJSONTyped(json, false);
+function CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerToJSON(json) {
+    return CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerToJSONTyped(json, false);
 }
-function TagsPageEntityItemsInnerToJSONTyped(value, ignoreDiscriminator) {
+function CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerToJSONTyped(value, ignoreDiscriminator) {
     if (ignoreDiscriminator === void 0) { ignoreDiscriminator = false; }
     if (value == null) {
         return value;

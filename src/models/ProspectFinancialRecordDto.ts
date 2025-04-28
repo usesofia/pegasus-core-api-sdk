@@ -27,6 +27,13 @@ import {
     CreateFinancialRecordRequestBodyDtoPopulatedAccountToJSON,
     CreateFinancialRecordRequestBodyDtoPopulatedAccountToJSONTyped,
 } from './CreateFinancialRecordRequestBodyDtoPopulatedAccount';
+import type { CreateFinancialRecordRequestBodyDtoPopulatedTagsInner } from './CreateFinancialRecordRequestBodyDtoPopulatedTagsInner';
+import {
+    CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerFromJSON,
+    CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerFromJSONTyped,
+    CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerToJSON,
+    CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerToJSONTyped,
+} from './CreateFinancialRecordRequestBodyDtoPopulatedTagsInner';
 import type { CreateFinancialRecordRequestBodyDtoPopulatedSubcategory } from './CreateFinancialRecordRequestBodyDtoPopulatedSubcategory';
 import {
     CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryFromJSON,
@@ -41,13 +48,6 @@ import {
     CreateFinancialRecordRequestBodyDtoPopulatedContactToJSON,
     CreateFinancialRecordRequestBodyDtoPopulatedContactToJSONTyped,
 } from './CreateFinancialRecordRequestBodyDtoPopulatedContact';
-import type { TagsPageEntityItemsInner } from './TagsPageEntityItemsInner';
-import {
-    TagsPageEntityItemsInnerFromJSON,
-    TagsPageEntityItemsInnerFromJSONTyped,
-    TagsPageEntityItemsInnerToJSON,
-    TagsPageEntityItemsInnerToJSONTyped,
-} from './TagsPageEntityItemsInner';
 
 /**
  * 
@@ -213,10 +213,10 @@ export interface ProspectFinancialRecordDto {
     populatedContact?: CreateFinancialRecordRequestBodyDtoPopulatedContact | null;
     /**
      * Tags relacionadas.
-     * @type {Array<TagsPageEntityItemsInner>}
+     * @type {Array<CreateFinancialRecordRequestBodyDtoPopulatedTagsInner>}
      * @memberof ProspectFinancialRecordDto
      */
-    populatedTags?: Array<TagsPageEntityItemsInner>;
+    populatedTags?: Array<CreateFinancialRecordRequestBodyDtoPopulatedTagsInner>;
     /**
      * 
      * @type {CreateFinancialRecordRequestBodyDtoPopulatedAccount}
@@ -283,7 +283,7 @@ export function ProspectFinancialRecordDtoFromJSONTyped(json: any, ignoreDiscrim
         'populatedFiles': json['populatedFiles'] == null ? undefined : ((json['populatedFiles'] as Array<any>).map(CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerFromJSON)),
         'populatedSubcategory': json['populatedSubcategory'] == null ? undefined : CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryFromJSON(json['populatedSubcategory']),
         'populatedContact': json['populatedContact'] == null ? undefined : CreateFinancialRecordRequestBodyDtoPopulatedContactFromJSON(json['populatedContact']),
-        'populatedTags': json['populatedTags'] == null ? undefined : ((json['populatedTags'] as Array<any>).map(TagsPageEntityItemsInnerFromJSON)),
+        'populatedTags': json['populatedTags'] == null ? undefined : ((json['populatedTags'] as Array<any>).map(CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerFromJSON)),
         'populatedAccount': json['populatedAccount'] == null ? undefined : CreateFinancialRecordRequestBodyDtoPopulatedAccountFromJSON(json['populatedAccount']),
     };
 }
@@ -325,7 +325,7 @@ export function ProspectFinancialRecordDtoToJSONTyped(value?: ProspectFinancialR
         'populatedFiles': value['populatedFiles'] == null ? undefined : ((value['populatedFiles'] as Array<any>).map(CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerToJSON)),
         'populatedSubcategory': CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryToJSON(value['populatedSubcategory']),
         'populatedContact': CreateFinancialRecordRequestBodyDtoPopulatedContactToJSON(value['populatedContact']),
-        'populatedTags': value['populatedTags'] == null ? undefined : ((value['populatedTags'] as Array<any>).map(TagsPageEntityItemsInnerToJSON)),
+        'populatedTags': value['populatedTags'] == null ? undefined : ((value['populatedTags'] as Array<any>).map(CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerToJSON)),
         'populatedAccount': CreateFinancialRecordRequestBodyDtoPopulatedAccountToJSON(value['populatedAccount']),
     };
 }

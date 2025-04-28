@@ -11,9 +11,9 @@
  */
 import type { CreateFinancialRecordRequestBodyDtoPopulatedFilesInner } from './CreateFinancialRecordRequestBodyDtoPopulatedFilesInner';
 import type { CreateFinancialRecordRequestBodyDtoPopulatedAccount } from './CreateFinancialRecordRequestBodyDtoPopulatedAccount';
+import type { CreateFinancialRecordRequestBodyDtoPopulatedTagsInner } from './CreateFinancialRecordRequestBodyDtoPopulatedTagsInner';
 import type { CreateFinancialRecordRequestBodyDtoPopulatedSubcategory } from './CreateFinancialRecordRequestBodyDtoPopulatedSubcategory';
 import type { CreateFinancialRecordRequestBodyDtoPopulatedContact } from './CreateFinancialRecordRequestBodyDtoPopulatedContact';
-import type { TagsPageEntityItemsInner } from './TagsPageEntityItemsInner';
 /**
  *
  * @export
@@ -178,10 +178,10 @@ export interface CreateFinancialRecordRequestBodyDto {
     populatedContact?: CreateFinancialRecordRequestBodyDtoPopulatedContact | null;
     /**
      * Tags relacionadas.
-     * @type {Array<TagsPageEntityItemsInner>}
+     * @type {Array<CreateFinancialRecordRequestBodyDtoPopulatedTagsInner>}
      * @memberof CreateFinancialRecordRequestBodyDto
      */
-    populatedTags?: Array<TagsPageEntityItemsInner>;
+    populatedTags?: Array<CreateFinancialRecordRequestBodyDtoPopulatedTagsInner>;
     /**
      *
      * @type {CreateFinancialRecordRequestBodyDtoPopulatedAccount}

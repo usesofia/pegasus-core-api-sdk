@@ -10,9 +10,9 @@
  * Do not edit the class manually.
  */
 import type { CreateFinancialRecordRequestBodyDtoPopulatedFilesInner } from './CreateFinancialRecordRequestBodyDtoPopulatedFilesInner';
+import type { CreateFinancialRecordRequestBodyDtoPopulatedTagsInner } from './CreateFinancialRecordRequestBodyDtoPopulatedTagsInner';
 import type { CreateInstallmentFinancialRecordRequestBodyDtoPopulatedContact } from './CreateInstallmentFinancialRecordRequestBodyDtoPopulatedContact';
 import type { CreateFinancialRecordRequestBodyDtoPopulatedSubcategory } from './CreateFinancialRecordRequestBodyDtoPopulatedSubcategory';
-import type { TagsPageEntityItemsInner } from './TagsPageEntityItemsInner';
 /**
  *
  * @export
@@ -99,10 +99,10 @@ export interface CreateInstallmentFinancialRecordRequestBodyDto {
     populatedContact?: CreateInstallmentFinancialRecordRequestBodyDtoPopulatedContact | null;
     /**
      * Tags relacionadas.
-     * @type {Array<TagsPageEntityItemsInner>}
+     * @type {Array<CreateFinancialRecordRequestBodyDtoPopulatedTagsInner>}
      * @memberof CreateInstallmentFinancialRecordRequestBodyDto
      */
-    populatedTags?: Array<TagsPageEntityItemsInner> | null;
+    populatedTags?: Array<CreateFinancialRecordRequestBodyDtoPopulatedTagsInner> | null;
     /**
      * Arquivos anexados.
      * @type {Array<CreateFinancialRecordRequestBodyDtoPopulatedFilesInner>}

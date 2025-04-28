@@ -57,6 +57,9 @@ src/models/CreateFinancialRecordRequestBodyDtoPopulatedAccount.ts
 src/models/CreateFinancialRecordRequestBodyDtoPopulatedContact.ts
 src/models/CreateFinancialRecordRequestBodyDtoPopulatedFilesInner.ts
 src/models/CreateFinancialRecordRequestBodyDtoPopulatedSubcategory.ts
+src/models/CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedCategory.ts
+src/models/CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedNormalizedSubcategory.ts
+src/models/CreateFinancialRecordRequestBodyDtoPopulatedTagsInner.ts
 src/models/CreateInstallmentFinancialRecordRequestBodyDto.ts
 src/models/CreateInstallmentFinancialRecordRequestBodyDtoPopulatedContact.ts
 src/models/CreateInviteRequestBodyDto.ts
@@ -85,7 +88,6 @@ src/models/CreateTagRequestBodyDto.ts
 src/models/ExceptionResponseEntity.ts
 src/models/ExceptionResponseEntityErrorsInner.ts
 src/models/ExternalCreateSubcategoryRequestBodyDto.ts
-src/models/ExternalCreateSubcategoryRequestBodyDtoPopulatedNormalizedSubcategory.ts
 src/models/FinancialRecordDto.ts
 src/models/FinancialRecordsPageDto.ts
 src/models/FinancialRecordsPageDtoItemsInner.ts
@@ -97,7 +99,6 @@ src/models/InviteEntity.ts
 src/models/MemberEntity.ts
 src/models/NormalizedSubcategoriesPageEntity.ts
 src/models/NormalizedSubcategoriesPageEntityItemsInner.ts
-src/models/NormalizedSubcategoriesPageEntityItemsInnerPopulatedCategory.ts
 src/models/OrganizationEntity.ts
 src/models/PartialUpdateBankAccountRequestBodyDto.ts
 src/models/PartialUpdateBankTransactionRequestBodyDto.ts
@@ -130,7 +131,6 @@ src/models/SubcategoriesPageEntityItemsInner.ts
 src/models/SubcategoryEntity.ts
 src/models/TagEntity.ts
 src/models/TagsPageEntity.ts
-src/models/TagsPageEntityItemsInner.ts
 src/models/index.ts
 src/runtime.ts
 tsconfig.json

@@ -20,9 +20,9 @@ exports.RecurringFinancialRecordsPageEntityItemsInnerFromJSONTyped = RecurringFi
 exports.RecurringFinancialRecordsPageEntityItemsInnerToJSON = RecurringFinancialRecordsPageEntityItemsInnerToJSON;
 exports.RecurringFinancialRecordsPageEntityItemsInnerToJSONTyped = RecurringFinancialRecordsPageEntityItemsInnerToJSONTyped;
 var CreateFinancialRecordRequestBodyDtoPopulatedFilesInner_1 = require("./CreateFinancialRecordRequestBodyDtoPopulatedFilesInner");
+var CreateFinancialRecordRequestBodyDtoPopulatedTagsInner_1 = require("./CreateFinancialRecordRequestBodyDtoPopulatedTagsInner");
 var CreateRecurringFinancialRecordRequestBodyDtoPopulatedSubcategory_1 = require("./CreateRecurringFinancialRecordRequestBodyDtoPopulatedSubcategory");
 var CreateFinancialRecordRequestBodyDtoPopulatedContact_1 = require("./CreateFinancialRecordRequestBodyDtoPopulatedContact");
-var TagsPageEntityItemsInner_1 = require("./TagsPageEntityItemsInner");
 /**
  * @export
  */
@@ -91,7 +91,7 @@ function RecurringFinancialRecordsPageEntityItemsInnerFromJSONTyped(json, ignore
         'createdAt': json['createdAt'] == null ? undefined : json['createdAt'],
         'updatedAt': json['updatedAt'] == null ? undefined : json['updatedAt'],
         'populatedContact': json['populatedContact'] == null ? undefined : (0, CreateFinancialRecordRequestBodyDtoPopulatedContact_1.CreateFinancialRecordRequestBodyDtoPopulatedContactFromJSON)(json['populatedContact']),
-        'populatedTags': json['populatedTags'] == null ? undefined : (json['populatedTags'].map(TagsPageEntityItemsInner_1.TagsPageEntityItemsInnerFromJSON)),
+        'populatedTags': json['populatedTags'] == null ? undefined : (json['populatedTags'].map(CreateFinancialRecordRequestBodyDtoPopulatedTagsInner_1.CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerFromJSON)),
         'populatedSubcategory': json['populatedSubcategory'] == null ? undefined : (0, CreateRecurringFinancialRecordRequestBodyDtoPopulatedSubcategory_1.CreateRecurringFinancialRecordRequestBodyDtoPopulatedSubcategoryFromJSON)(json['populatedSubcategory']),
         'populatedFiles': json['populatedFiles'] == null ? undefined : (json['populatedFiles'].map(CreateFinancialRecordRequestBodyDtoPopulatedFilesInner_1.CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerFromJSON)),
     };
@@ -124,7 +124,7 @@ function RecurringFinancialRecordsPageEntityItemsInnerToJSONTyped(value, ignoreD
         'createdAt': value['createdAt'],
         'updatedAt': value['updatedAt'],
         'populatedContact': (0, CreateFinancialRecordRequestBodyDtoPopulatedContact_1.CreateFinancialRecordRequestBodyDtoPopulatedContactToJSON)(value['populatedContact']),
-        'populatedTags': value['populatedTags'] == null ? undefined : (value['populatedTags'].map(TagsPageEntityItemsInner_1.TagsPageEntityItemsInnerToJSON)),
+        'populatedTags': value['populatedTags'] == null ? undefined : (value['populatedTags'].map(CreateFinancialRecordRequestBodyDtoPopulatedTagsInner_1.CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerToJSON)),
         'populatedSubcategory': (0, CreateRecurringFinancialRecordRequestBodyDtoPopulatedSubcategory_1.CreateRecurringFinancialRecordRequestBodyDtoPopulatedSubcategoryToJSON)(value['populatedSubcategory']),
         'populatedFiles': value['populatedFiles'] == null ? undefined : (value['populatedFiles'].map(CreateFinancialRecordRequestBodyDtoPopulatedFilesInner_1.CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerToJSON)),
     };

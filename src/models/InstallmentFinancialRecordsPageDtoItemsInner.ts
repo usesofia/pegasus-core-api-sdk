@@ -20,6 +20,13 @@ import {
     CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerToJSON,
     CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerToJSONTyped,
 } from './CreateFinancialRecordRequestBodyDtoPopulatedFilesInner';
+import type { CreateFinancialRecordRequestBodyDtoPopulatedTagsInner } from './CreateFinancialRecordRequestBodyDtoPopulatedTagsInner';
+import {
+    CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerFromJSON,
+    CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerFromJSONTyped,
+    CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerToJSON,
+    CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerToJSONTyped,
+} from './CreateFinancialRecordRequestBodyDtoPopulatedTagsInner';
 import type { CreateInstallmentFinancialRecordRequestBodyDtoPopulatedContact } from './CreateInstallmentFinancialRecordRequestBodyDtoPopulatedContact';
 import {
     CreateInstallmentFinancialRecordRequestBodyDtoPopulatedContactFromJSON,
@@ -34,13 +41,6 @@ import {
     CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryToJSON,
     CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryToJSONTyped,
 } from './CreateFinancialRecordRequestBodyDtoPopulatedSubcategory';
-import type { TagsPageEntityItemsInner } from './TagsPageEntityItemsInner';
-import {
-    TagsPageEntityItemsInnerFromJSON,
-    TagsPageEntityItemsInnerFromJSONTyped,
-    TagsPageEntityItemsInnerToJSON,
-    TagsPageEntityItemsInnerToJSONTyped,
-} from './TagsPageEntityItemsInner';
 
 /**
  * 
@@ -152,10 +152,10 @@ export interface InstallmentFinancialRecordsPageDtoItemsInner {
     populatedContact?: CreateInstallmentFinancialRecordRequestBodyDtoPopulatedContact | null;
     /**
      * Tags relacionadas.
-     * @type {Array<TagsPageEntityItemsInner>}
+     * @type {Array<CreateFinancialRecordRequestBodyDtoPopulatedTagsInner>}
      * @memberof InstallmentFinancialRecordsPageDtoItemsInner
      */
-    populatedTags?: Array<TagsPageEntityItemsInner> | null;
+    populatedTags?: Array<CreateFinancialRecordRequestBodyDtoPopulatedTagsInner> | null;
     /**
      * Arquivos anexados.
      * @type {Array<CreateFinancialRecordRequestBodyDtoPopulatedFilesInner>}
@@ -246,7 +246,7 @@ export function InstallmentFinancialRecordsPageDtoItemsInnerFromJSONTyped(json: 
         'updatedAt': json['updatedAt'] == null ? undefined : json['updatedAt'],
         'populatedSubcategory': json['populatedSubcategory'] == null ? undefined : CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryFromJSON(json['populatedSubcategory']),
         'populatedContact': json['populatedContact'] == null ? undefined : CreateInstallmentFinancialRecordRequestBodyDtoPopulatedContactFromJSON(json['populatedContact']),
-        'populatedTags': json['populatedTags'] == null ? undefined : ((json['populatedTags'] as Array<any>).map(TagsPageEntityItemsInnerFromJSON)),
+        'populatedTags': json['populatedTags'] == null ? undefined : ((json['populatedTags'] as Array<any>).map(CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerFromJSON)),
         'populatedFiles': json['populatedFiles'] == null ? undefined : ((json['populatedFiles'] as Array<any>).map(CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerFromJSON)),
         'finalAmount': json['finalAmount'] == null ? undefined : json['finalAmount'],
         'discount': json['discount'] == null ? undefined : json['discount'],
@@ -282,7 +282,7 @@ export function InstallmentFinancialRecordsPageDtoItemsInnerToJSONTyped(value?: 
         'updatedAt': value['updatedAt'],
         'populatedSubcategory': CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryToJSON(value['populatedSubcategory']),
         'populatedContact': CreateInstallmentFinancialRecordRequestBodyDtoPopulatedContactToJSON(value['populatedContact']),
-        'populatedTags': value['populatedTags'] == null ? undefined : ((value['populatedTags'] as Array<any>).map(TagsPageEntityItemsInnerToJSON)),
+        'populatedTags': value['populatedTags'] == null ? undefined : ((value['populatedTags'] as Array<any>).map(CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerToJSON)),
         'populatedFiles': value['populatedFiles'] == null ? undefined : ((value['populatedFiles'] as Array<any>).map(CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerToJSON)),
         'finalAmount': value['finalAmount'],
         'discount': value['discount'],

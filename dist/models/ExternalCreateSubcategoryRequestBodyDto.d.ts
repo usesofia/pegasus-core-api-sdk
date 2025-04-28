@@ -9,8 +9,8 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { NormalizedSubcategoriesPageEntityItemsInnerPopulatedCategory } from './NormalizedSubcategoriesPageEntityItemsInnerPopulatedCategory';
-import type { ExternalCreateSubcategoryRequestBodyDtoPopulatedNormalizedSubcategory } from './ExternalCreateSubcategoryRequestBodyDtoPopulatedNormalizedSubcategory';
+import type { CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedNormalizedSubcategory } from './CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedNormalizedSubcategory';
+import type { CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedCategory } from './CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedCategory';
 /**
  *
  * @export
@@ -43,10 +43,10 @@ export interface ExternalCreateSubcategoryRequestBodyDto {
     category: string;
     /**
      *
-     * @type {NormalizedSubcategoriesPageEntityItemsInnerPopulatedCategory}
+     * @type {CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedCategory}
      * @memberof ExternalCreateSubcategoryRequestBodyDto
      */
-    populatedCategory?: NormalizedSubcategoriesPageEntityItemsInnerPopulatedCategory | null;
+    populatedCategory?: CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedCategory | null;
     /**
      * Identificador da subcategoria normalizada.
      * @type {string}
@@ -55,16 +55,28 @@ export interface ExternalCreateSubcategoryRequestBodyDto {
     normalizedSubcategory?: string | null;
     /**
      *
-     * @type {ExternalCreateSubcategoryRequestBodyDtoPopulatedNormalizedSubcategory}
+     * @type {CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedNormalizedSubcategory}
      * @memberof ExternalCreateSubcategoryRequestBodyDto
      */
-    populatedNormalizedSubcategory?: ExternalCreateSubcategoryRequestBodyDtoPopulatedNormalizedSubcategory | null;
+    populatedNormalizedSubcategory?: CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedNormalizedSubcategory | null;
     /**
      * Indica se a subcategoria deve ser exibida no DRE.
      * @type {boolean}
      * @memberof ExternalCreateSubcategoryRequestBodyDto
      */
     considerInDre: boolean;
+    /**
+     * Descrição da subcategoria.
+     * @type {string}
+     * @memberof ExternalCreateSubcategoryRequestBodyDto
+     */
+    description: string;
+    /**
+     * Indica se a subcategoria está ativa.
+     * @type {boolean}
+     * @memberof ExternalCreateSubcategoryRequestBodyDto
+     */
+    active?: boolean;
     /**
      * Canal de origem da operação
      * @type {string}

@@ -16,45 +16,45 @@ import { mapValues } from '../runtime';
 /**
  * 
  * @export
- * @interface TagsPageEntityItemsInner
+ * @interface CreateFinancialRecordRequestBodyDtoPopulatedTagsInner
  */
-export interface TagsPageEntityItemsInner {
+export interface CreateFinancialRecordRequestBodyDtoPopulatedTagsInner {
     /**
      * Identificador da tag.
      * @type {string}
-     * @memberof TagsPageEntityItemsInner
+     * @memberof CreateFinancialRecordRequestBodyDtoPopulatedTagsInner
      */
     id: string;
     /**
      * Identificador da organização dona da tag.
      * @type {string}
-     * @memberof TagsPageEntityItemsInner
+     * @memberof CreateFinancialRecordRequestBodyDtoPopulatedTagsInner
      */
     ownerOrganization: string;
     /**
      * Nome da tag.
      * @type {string}
-     * @memberof TagsPageEntityItemsInner
+     * @memberof CreateFinancialRecordRequestBodyDtoPopulatedTagsInner
      */
     name: string;
     /**
      * Data de criação da tag.
      * @type {any}
-     * @memberof TagsPageEntityItemsInner
+     * @memberof CreateFinancialRecordRequestBodyDtoPopulatedTagsInner
      */
     createdAt: any | null;
     /**
      * Data de atualização da tag.
      * @type {any}
-     * @memberof TagsPageEntityItemsInner
+     * @memberof CreateFinancialRecordRequestBodyDtoPopulatedTagsInner
      */
     updatedAt: any | null;
 }
 
 /**
- * Check if a given object implements the TagsPageEntityItemsInner interface.
+ * Check if a given object implements the CreateFinancialRecordRequestBodyDtoPopulatedTagsInner interface.
  */
-export function instanceOfTagsPageEntityItemsInner(value: object): value is TagsPageEntityItemsInner {
+export function instanceOfCreateFinancialRecordRequestBodyDtoPopulatedTagsInner(value: object): value is CreateFinancialRecordRequestBodyDtoPopulatedTagsInner {
     if (!('id' in value) || value['id'] === undefined) return false;
     if (!('ownerOrganization' in value) || value['ownerOrganization'] === undefined) return false;
     if (!('name' in value) || value['name'] === undefined) return false;
@@ -63,11 +63,11 @@ export function instanceOfTagsPageEntityItemsInner(value: object): value is Tags
     return true;
 }
 
-export function TagsPageEntityItemsInnerFromJSON(json: any): TagsPageEntityItemsInner {
-    return TagsPageEntityItemsInnerFromJSONTyped(json, false);
+export function CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerFromJSON(json: any): CreateFinancialRecordRequestBodyDtoPopulatedTagsInner {
+    return CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerFromJSONTyped(json, false);
 }
 
-export function TagsPageEntityItemsInnerFromJSONTyped(json: any, ignoreDiscriminator: boolean): TagsPageEntityItemsInner {
+export function CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerFromJSONTyped(json: any, ignoreDiscriminator: boolean): CreateFinancialRecordRequestBodyDtoPopulatedTagsInner {
     if (json == null) {
         return json;
     }
@@ -81,11 +81,11 @@ export function TagsPageEntityItemsInnerFromJSONTyped(json: any, ignoreDiscrimin
     };
 }
 
-export function TagsPageEntityItemsInnerToJSON(json: any): TagsPageEntityItemsInner {
-    return TagsPageEntityItemsInnerToJSONTyped(json, false);
+export function CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerToJSON(json: any): CreateFinancialRecordRequestBodyDtoPopulatedTagsInner {
+    return CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerToJSONTyped(json, false);
 }
 
-export function TagsPageEntityItemsInnerToJSONTyped(value?: TagsPageEntityItemsInner | null, ignoreDiscriminator: boolean = false): any {
+export function CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerToJSONTyped(value?: CreateFinancialRecordRequestBodyDtoPopulatedTagsInner | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

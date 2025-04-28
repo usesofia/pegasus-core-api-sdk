@@ -9,8 +9,8 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { NormalizedSubcategoriesPageEntityItemsInnerPopulatedCategory } from './NormalizedSubcategoriesPageEntityItemsInnerPopulatedCategory';
-import type { ExternalCreateSubcategoryRequestBodyDtoPopulatedNormalizedSubcategory } from './ExternalCreateSubcategoryRequestBodyDtoPopulatedNormalizedSubcategory';
+import type { CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedNormalizedSubcategory } from './CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedNormalizedSubcategory';
+import type { CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedCategory } from './CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedCategory';
 /**
  * Subcategoria relacionada.
  * @export
@@ -55,10 +55,10 @@ export interface CreateRecurringFinancialRecordRequestBodyDtoPopulatedSubcategor
     category: string;
     /**
      *
-     * @type {NormalizedSubcategoriesPageEntityItemsInnerPopulatedCategory}
+     * @type {CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedCategory}
      * @memberof CreateRecurringFinancialRecordRequestBodyDtoPopulatedSubcategory
      */
-    populatedCategory?: NormalizedSubcategoriesPageEntityItemsInnerPopulatedCategory | null;
+    populatedCategory?: CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedCategory | null;
     /**
      * Identificador da subcategoria normalizada.
      * @type {string}
@@ -67,10 +67,10 @@ export interface CreateRecurringFinancialRecordRequestBodyDtoPopulatedSubcategor
     normalizedSubcategory?: string | null;
     /**
      *
-     * @type {ExternalCreateSubcategoryRequestBodyDtoPopulatedNormalizedSubcategory}
+     * @type {CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedNormalizedSubcategory}
      * @memberof CreateRecurringFinancialRecordRequestBodyDtoPopulatedSubcategory
      */
-    populatedNormalizedSubcategory?: ExternalCreateSubcategoryRequestBodyDtoPopulatedNormalizedSubcategory | null;
+    populatedNormalizedSubcategory?: CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedNormalizedSubcategory | null;
     /**
      * Indica se a subcategoria deve ser exibida no DRE.
      * @type {boolean}
@@ -78,23 +78,17 @@ export interface CreateRecurringFinancialRecordRequestBodyDtoPopulatedSubcategor
      */
     considerInDre: boolean;
     /**
-     * Indica se a subcategoria é relacionada a faturas.
-     * @type {boolean}
+     * Descrição da subcategoria.
+     * @type {string}
      * @memberof CreateRecurringFinancialRecordRequestBodyDtoPopulatedSubcategory
      */
-    isInvoiceRelated: boolean;
+    description: string;
     /**
-     * Indica se a subcategoria é relacionada a transferências internas.
+     * Indica se a subcategoria está ativa.
      * @type {boolean}
      * @memberof CreateRecurringFinancialRecordRequestBodyDtoPopulatedSubcategory
      */
-    isInternalTransferRelated: boolean;
-    /**
-     * Indica se a subcategoria é relacionada a transferências automáticas de aplicação.
-     * @type {boolean}
-     * @memberof CreateRecurringFinancialRecordRequestBodyDtoPopulatedSubcategory
-     */
-    isAutomaticApplicationRelated: boolean;
+    active?: boolean;
     /**
      * Data de criação da subcategoria.
      * @type {any}

@@ -13,6 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
+import type { CreateFinancialRecordRequestBodyDtoPopulatedTagsInner } from './CreateFinancialRecordRequestBodyDtoPopulatedTagsInner';
+import {
+    CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerFromJSON,
+    CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerFromJSONTyped,
+    CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerToJSON,
+    CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerToJSONTyped,
+} from './CreateFinancialRecordRequestBodyDtoPopulatedTagsInner';
 import type { ContactsPageEntityPageInfo } from './ContactsPageEntityPageInfo';
 import {
     ContactsPageEntityPageInfoFromJSON,
@@ -20,13 +27,6 @@ import {
     ContactsPageEntityPageInfoToJSON,
     ContactsPageEntityPageInfoToJSONTyped,
 } from './ContactsPageEntityPageInfo';
-import type { TagsPageEntityItemsInner } from './TagsPageEntityItemsInner';
-import {
-    TagsPageEntityItemsInnerFromJSON,
-    TagsPageEntityItemsInnerFromJSONTyped,
-    TagsPageEntityItemsInnerToJSON,
-    TagsPageEntityItemsInnerToJSONTyped,
-} from './TagsPageEntityItemsInner';
 
 /**
  * 
@@ -36,10 +36,10 @@ import {
 export interface TagsPageEntity {
     /**
      * 
-     * @type {Array<TagsPageEntityItemsInner>}
+     * @type {Array<CreateFinancialRecordRequestBodyDtoPopulatedTagsInner>}
      * @memberof TagsPageEntity
      */
-    items: Array<TagsPageEntityItemsInner>;
+    items: Array<CreateFinancialRecordRequestBodyDtoPopulatedTagsInner>;
     /**
      * 
      * @type {ContactsPageEntityPageInfo}
@@ -67,7 +67,7 @@ export function TagsPageEntityFromJSONTyped(json: any, ignoreDiscriminator: bool
     }
     return {
         
-        'items': ((json['items'] as Array<any>).map(TagsPageEntityItemsInnerFromJSON)),
+        'items': ((json['items'] as Array<any>).map(CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerFromJSON)),
         'pageInfo': ContactsPageEntityPageInfoFromJSON(json['pageInfo']),
     };
 }
@@ -83,7 +83,7 @@ export function TagsPageEntityToJSONTyped(value?: TagsPageEntity | null, ignoreD
 
     return {
         
-        'items': ((value['items'] as Array<any>).map(TagsPageEntityItemsInnerToJSON)),
+        'items': ((value['items'] as Array<any>).map(CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerToJSON)),
         'pageInfo': ContactsPageEntityPageInfoToJSON(value['pageInfo']),
     };
 }

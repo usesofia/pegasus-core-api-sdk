@@ -19,8 +19,8 @@ exports.ExternalCreateSubcategoryRequestBodyDtoFromJSON = ExternalCreateSubcateg
 exports.ExternalCreateSubcategoryRequestBodyDtoFromJSONTyped = ExternalCreateSubcategoryRequestBodyDtoFromJSONTyped;
 exports.ExternalCreateSubcategoryRequestBodyDtoToJSON = ExternalCreateSubcategoryRequestBodyDtoToJSON;
 exports.ExternalCreateSubcategoryRequestBodyDtoToJSONTyped = ExternalCreateSubcategoryRequestBodyDtoToJSONTyped;
-var NormalizedSubcategoriesPageEntityItemsInnerPopulatedCategory_1 = require("./NormalizedSubcategoriesPageEntityItemsInnerPopulatedCategory");
-var ExternalCreateSubcategoryRequestBodyDtoPopulatedNormalizedSubcategory_1 = require("./ExternalCreateSubcategoryRequestBodyDtoPopulatedNormalizedSubcategory");
+var CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedNormalizedSubcategory_1 = require("./CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedNormalizedSubcategory");
+var CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedCategory_1 = require("./CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedCategory");
 /**
  * @export
  */
@@ -43,6 +43,8 @@ function instanceOfExternalCreateSubcategoryRequestBodyDto(value) {
         return false;
     if (!('considerInDre' in value) || value['considerInDre'] === undefined)
         return false;
+    if (!('description' in value) || value['description'] === undefined)
+        return false;
     if (!('channel' in value) || value['channel'] === undefined)
         return false;
     return true;
@@ -59,10 +61,12 @@ function ExternalCreateSubcategoryRequestBodyDtoFromJSONTyped(json, ignoreDiscri
         'slug': json['slug'],
         'index': json['index'],
         'category': json['category'],
-        'populatedCategory': json['populatedCategory'] == null ? undefined : (0, NormalizedSubcategoriesPageEntityItemsInnerPopulatedCategory_1.NormalizedSubcategoriesPageEntityItemsInnerPopulatedCategoryFromJSON)(json['populatedCategory']),
+        'populatedCategory': json['populatedCategory'] == null ? undefined : (0, CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedCategory_1.CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedCategoryFromJSON)(json['populatedCategory']),
         'normalizedSubcategory': json['normalizedSubcategory'] == null ? undefined : json['normalizedSubcategory'],
-        'populatedNormalizedSubcategory': json['populatedNormalizedSubcategory'] == null ? undefined : (0, ExternalCreateSubcategoryRequestBodyDtoPopulatedNormalizedSubcategory_1.ExternalCreateSubcategoryRequestBodyDtoPopulatedNormalizedSubcategoryFromJSON)(json['populatedNormalizedSubcategory']),
+        'populatedNormalizedSubcategory': json['populatedNormalizedSubcategory'] == null ? undefined : (0, CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedNormalizedSubcategory_1.CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedNormalizedSubcategoryFromJSON)(json['populatedNormalizedSubcategory']),
         'considerInDre': json['considerInDre'],
+        'description': json['description'],
+        'active': json['active'] == null ? undefined : json['active'],
         'channel': json['channel'],
     };
 }
@@ -79,10 +83,12 @@ function ExternalCreateSubcategoryRequestBodyDtoToJSONTyped(value, ignoreDiscrim
         'slug': value['slug'],
         'index': value['index'],
         'category': value['category'],
-        'populatedCategory': (0, NormalizedSubcategoriesPageEntityItemsInnerPopulatedCategory_1.NormalizedSubcategoriesPageEntityItemsInnerPopulatedCategoryToJSON)(value['populatedCategory']),
+        'populatedCategory': (0, CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedCategory_1.CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedCategoryToJSON)(value['populatedCategory']),
         'normalizedSubcategory': value['normalizedSubcategory'],
-        'populatedNormalizedSubcategory': (0, ExternalCreateSubcategoryRequestBodyDtoPopulatedNormalizedSubcategory_1.ExternalCreateSubcategoryRequestBodyDtoPopulatedNormalizedSubcategoryToJSON)(value['populatedNormalizedSubcategory']),
+        'populatedNormalizedSubcategory': (0, CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedNormalizedSubcategory_1.CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedNormalizedSubcategoryToJSON)(value['populatedNormalizedSubcategory']),
         'considerInDre': value['considerInDre'],
+        'description': value['description'],
+        'active': value['active'],
         'channel': value['channel'],
     };
 }

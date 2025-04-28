@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { NormalizedSubcategoriesPageEntityItemsInnerPopulatedCategory } from './NormalizedSubcategoriesPageEntityItemsInnerPopulatedCategory';
+import type { CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedCategory } from './CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedCategory';
 /**
  *
  * @export
@@ -48,10 +48,10 @@ export interface NormalizedSubcategoriesPageEntityItemsInner {
     category: string;
     /**
      *
-     * @type {NormalizedSubcategoriesPageEntityItemsInnerPopulatedCategory}
+     * @type {CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedCategory}
      * @memberof NormalizedSubcategoriesPageEntityItemsInner
      */
-    populatedCategory?: NormalizedSubcategoriesPageEntityItemsInnerPopulatedCategory | null;
+    populatedCategory?: CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedCategory | null;
     /**
      * Indica se a subcategoria deve ser exibida no DRE.
      * @type {boolean}
@@ -59,23 +59,11 @@ export interface NormalizedSubcategoriesPageEntityItemsInner {
      */
     considerInDre: boolean;
     /**
-     * Indica se a subcategoria é relacionada a faturas.
-     * @type {boolean}
+     * Descrição da subcategoria.
+     * @type {string}
      * @memberof NormalizedSubcategoriesPageEntityItemsInner
      */
-    isInvoiceRelated: boolean;
-    /**
-     * Indica se a subcategoria é relacionada a transferências internas.
-     * @type {boolean}
-     * @memberof NormalizedSubcategoriesPageEntityItemsInner
-     */
-    isInternalTransferRelated: boolean;
-    /**
-     * Indica se a subcategoria é relacionada a transferências automáticas de aplicação.
-     * @type {boolean}
-     * @memberof NormalizedSubcategoriesPageEntityItemsInner
-     */
-    isAutomaticApplicationRelated: boolean;
+    description: string;
     /**
      * Data de criação da subcategoria.
      * @type {any}

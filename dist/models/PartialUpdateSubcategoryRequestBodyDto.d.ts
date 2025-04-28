@@ -9,8 +9,8 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { NormalizedSubcategoriesPageEntityItemsInnerPopulatedCategory } from './NormalizedSubcategoriesPageEntityItemsInnerPopulatedCategory';
-import type { ExternalCreateSubcategoryRequestBodyDtoPopulatedNormalizedSubcategory } from './ExternalCreateSubcategoryRequestBodyDtoPopulatedNormalizedSubcategory';
+import type { CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedNormalizedSubcategory } from './CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedNormalizedSubcategory';
+import type { CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedCategory } from './CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedCategory';
 /**
  *
  * @export
@@ -43,10 +43,10 @@ export interface PartialUpdateSubcategoryRequestBodyDto {
     category?: string;
     /**
      *
-     * @type {NormalizedSubcategoriesPageEntityItemsInnerPopulatedCategory}
+     * @type {CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedCategory}
      * @memberof PartialUpdateSubcategoryRequestBodyDto
      */
-    populatedCategory?: NormalizedSubcategoriesPageEntityItemsInnerPopulatedCategory | null;
+    populatedCategory?: CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedCategory | null;
     /**
      *
      * @type {string}
@@ -55,16 +55,28 @@ export interface PartialUpdateSubcategoryRequestBodyDto {
     normalizedSubcategory?: string | null;
     /**
      *
-     * @type {ExternalCreateSubcategoryRequestBodyDtoPopulatedNormalizedSubcategory}
+     * @type {CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedNormalizedSubcategory}
      * @memberof PartialUpdateSubcategoryRequestBodyDto
      */
-    populatedNormalizedSubcategory?: ExternalCreateSubcategoryRequestBodyDtoPopulatedNormalizedSubcategory | null;
+    populatedNormalizedSubcategory?: CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedNormalizedSubcategory | null;
     /**
      * Indica se a subcategoria deve ser exibida no DRE.
      * @type {boolean}
      * @memberof PartialUpdateSubcategoryRequestBodyDto
      */
     considerInDre?: boolean;
+    /**
+     * Descrição da subcategoria.
+     * @type {string}
+     * @memberof PartialUpdateSubcategoryRequestBodyDto
+     */
+    description?: string;
+    /**
+     * Indica se a subcategoria está ativa.
+     * @type {boolean}
+     * @memberof PartialUpdateSubcategoryRequestBodyDto
+     */
+    active?: boolean;
     /**
      * Canal de origem da operação
      * @type {string}

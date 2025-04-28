@@ -20,9 +20,9 @@ exports.InstallmentFinancialRecordDtoFromJSONTyped = InstallmentFinancialRecordD
 exports.InstallmentFinancialRecordDtoToJSON = InstallmentFinancialRecordDtoToJSON;
 exports.InstallmentFinancialRecordDtoToJSONTyped = InstallmentFinancialRecordDtoToJSONTyped;
 var CreateFinancialRecordRequestBodyDtoPopulatedFilesInner_1 = require("./CreateFinancialRecordRequestBodyDtoPopulatedFilesInner");
+var CreateFinancialRecordRequestBodyDtoPopulatedTagsInner_1 = require("./CreateFinancialRecordRequestBodyDtoPopulatedTagsInner");
 var CreateInstallmentFinancialRecordRequestBodyDtoPopulatedContact_1 = require("./CreateInstallmentFinancialRecordRequestBodyDtoPopulatedContact");
 var CreateFinancialRecordRequestBodyDtoPopulatedSubcategory_1 = require("./CreateFinancialRecordRequestBodyDtoPopulatedSubcategory");
-var TagsPageEntityItemsInner_1 = require("./TagsPageEntityItemsInner");
 /**
  * @export
  */
@@ -87,7 +87,7 @@ function InstallmentFinancialRecordDtoFromJSONTyped(json, ignoreDiscriminator) {
         'updatedAt': json['updatedAt'] == null ? undefined : json['updatedAt'],
         'populatedSubcategory': json['populatedSubcategory'] == null ? undefined : (0, CreateFinancialRecordRequestBodyDtoPopulatedSubcategory_1.CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryFromJSON)(json['populatedSubcategory']),
         'populatedContact': json['populatedContact'] == null ? undefined : (0, CreateInstallmentFinancialRecordRequestBodyDtoPopulatedContact_1.CreateInstallmentFinancialRecordRequestBodyDtoPopulatedContactFromJSON)(json['populatedContact']),
-        'populatedTags': json['populatedTags'] == null ? undefined : (json['populatedTags'].map(TagsPageEntityItemsInner_1.TagsPageEntityItemsInnerFromJSON)),
+        'populatedTags': json['populatedTags'] == null ? undefined : (json['populatedTags'].map(CreateFinancialRecordRequestBodyDtoPopulatedTagsInner_1.CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerFromJSON)),
         'populatedFiles': json['populatedFiles'] == null ? undefined : (json['populatedFiles'].map(CreateFinancialRecordRequestBodyDtoPopulatedFilesInner_1.CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerFromJSON)),
         'finalAmount': json['finalAmount'] == null ? undefined : json['finalAmount'],
         'discount': json['discount'] == null ? undefined : json['discount'],
@@ -120,7 +120,7 @@ function InstallmentFinancialRecordDtoToJSONTyped(value, ignoreDiscriminator) {
         'updatedAt': value['updatedAt'],
         'populatedSubcategory': (0, CreateFinancialRecordRequestBodyDtoPopulatedSubcategory_1.CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryToJSON)(value['populatedSubcategory']),
         'populatedContact': (0, CreateInstallmentFinancialRecordRequestBodyDtoPopulatedContact_1.CreateInstallmentFinancialRecordRequestBodyDtoPopulatedContactToJSON)(value['populatedContact']),
-        'populatedTags': value['populatedTags'] == null ? undefined : (value['populatedTags'].map(TagsPageEntityItemsInner_1.TagsPageEntityItemsInnerToJSON)),
+        'populatedTags': value['populatedTags'] == null ? undefined : (value['populatedTags'].map(CreateFinancialRecordRequestBodyDtoPopulatedTagsInner_1.CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerToJSON)),
         'populatedFiles': value['populatedFiles'] == null ? undefined : (value['populatedFiles'].map(CreateFinancialRecordRequestBodyDtoPopulatedFilesInner_1.CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerToJSON)),
         'finalAmount': value['finalAmount'],
         'discount': value['discount'],

@@ -13,20 +13,17 @@
  * Do not edit the class manually.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.instanceOfSubcategoryEntity = instanceOfSubcategoryEntity;
-exports.SubcategoryEntityFromJSON = SubcategoryEntityFromJSON;
-exports.SubcategoryEntityFromJSONTyped = SubcategoryEntityFromJSONTyped;
-exports.SubcategoryEntityToJSON = SubcategoryEntityToJSON;
-exports.SubcategoryEntityToJSONTyped = SubcategoryEntityToJSONTyped;
-var CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedNormalizedSubcategory_1 = require("./CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedNormalizedSubcategory");
+exports.instanceOfCreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedNormalizedSubcategory = instanceOfCreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedNormalizedSubcategory;
+exports.CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedNormalizedSubcategoryFromJSON = CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedNormalizedSubcategoryFromJSON;
+exports.CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedNormalizedSubcategoryFromJSONTyped = CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedNormalizedSubcategoryFromJSONTyped;
+exports.CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedNormalizedSubcategoryToJSON = CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedNormalizedSubcategoryToJSON;
+exports.CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedNormalizedSubcategoryToJSONTyped = CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedNormalizedSubcategoryToJSONTyped;
 var CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedCategory_1 = require("./CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedCategory");
 /**
- * Check if a given object implements the SubcategoryEntity interface.
+ * Check if a given object implements the CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedNormalizedSubcategory interface.
  */
-function instanceOfSubcategoryEntity(value) {
+function instanceOfCreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedNormalizedSubcategory(value) {
     if (!('id' in value) || value['id'] === undefined)
-        return false;
-    if (!('ownerOrganization' in value) || value['ownerOrganization'] === undefined)
         return false;
     if (!('name' in value) || value['name'] === undefined)
         return false;
@@ -46,51 +43,43 @@ function instanceOfSubcategoryEntity(value) {
         return false;
     return true;
 }
-function SubcategoryEntityFromJSON(json) {
-    return SubcategoryEntityFromJSONTyped(json, false);
+function CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedNormalizedSubcategoryFromJSON(json) {
+    return CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedNormalizedSubcategoryFromJSONTyped(json, false);
 }
-function SubcategoryEntityFromJSONTyped(json, ignoreDiscriminator) {
+function CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedNormalizedSubcategoryFromJSONTyped(json, ignoreDiscriminator) {
     if (json == null) {
         return json;
     }
     return {
         'id': json['id'],
-        'ownerOrganization': json['ownerOrganization'],
         'name': json['name'],
         'slug': json['slug'],
         'index': json['index'],
         'category': json['category'],
         'populatedCategory': json['populatedCategory'] == null ? undefined : (0, CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedCategory_1.CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedCategoryFromJSON)(json['populatedCategory']),
-        'normalizedSubcategory': json['normalizedSubcategory'] == null ? undefined : json['normalizedSubcategory'],
-        'populatedNormalizedSubcategory': json['populatedNormalizedSubcategory'] == null ? undefined : (0, CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedNormalizedSubcategory_1.CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedNormalizedSubcategoryFromJSON)(json['populatedNormalizedSubcategory']),
         'considerInDre': json['considerInDre'],
         'description': json['description'],
-        'active': json['active'] == null ? undefined : json['active'],
         'createdAt': json['createdAt'],
         'updatedAt': json['updatedAt'],
     };
 }
-function SubcategoryEntityToJSON(json) {
-    return SubcategoryEntityToJSONTyped(json, false);
+function CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedNormalizedSubcategoryToJSON(json) {
+    return CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedNormalizedSubcategoryToJSONTyped(json, false);
 }
-function SubcategoryEntityToJSONTyped(value, ignoreDiscriminator) {
+function CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedNormalizedSubcategoryToJSONTyped(value, ignoreDiscriminator) {
     if (ignoreDiscriminator === void 0) { ignoreDiscriminator = false; }
     if (value == null) {
         return value;
     }
     return {
         'id': value['id'],
-        'ownerOrganization': value['ownerOrganization'],
         'name': value['name'],
         'slug': value['slug'],
         'index': value['index'],
         'category': value['category'],
         'populatedCategory': (0, CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedCategory_1.CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedCategoryToJSON)(value['populatedCategory']),
-        'normalizedSubcategory': value['normalizedSubcategory'],
-        'populatedNormalizedSubcategory': (0, CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedNormalizedSubcategory_1.CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedNormalizedSubcategoryToJSON)(value['populatedNormalizedSubcategory']),
         'considerInDre': value['considerInDre'],
         'description': value['description'],
-        'active': value['active'],
         'createdAt': value['createdAt'],
         'updatedAt': value['updatedAt'],
     };

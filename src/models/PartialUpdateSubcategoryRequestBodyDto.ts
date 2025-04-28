@@ -13,20 +13,20 @@
  */
 
 import { mapValues } from '../runtime';
-import type { NormalizedSubcategoriesPageEntityItemsInnerPopulatedCategory } from './NormalizedSubcategoriesPageEntityItemsInnerPopulatedCategory';
+import type { CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedNormalizedSubcategory } from './CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedNormalizedSubcategory';
 import {
-    NormalizedSubcategoriesPageEntityItemsInnerPopulatedCategoryFromJSON,
-    NormalizedSubcategoriesPageEntityItemsInnerPopulatedCategoryFromJSONTyped,
-    NormalizedSubcategoriesPageEntityItemsInnerPopulatedCategoryToJSON,
-    NormalizedSubcategoriesPageEntityItemsInnerPopulatedCategoryToJSONTyped,
-} from './NormalizedSubcategoriesPageEntityItemsInnerPopulatedCategory';
-import type { ExternalCreateSubcategoryRequestBodyDtoPopulatedNormalizedSubcategory } from './ExternalCreateSubcategoryRequestBodyDtoPopulatedNormalizedSubcategory';
+    CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedNormalizedSubcategoryFromJSON,
+    CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedNormalizedSubcategoryFromJSONTyped,
+    CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedNormalizedSubcategoryToJSON,
+    CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedNormalizedSubcategoryToJSONTyped,
+} from './CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedNormalizedSubcategory';
+import type { CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedCategory } from './CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedCategory';
 import {
-    ExternalCreateSubcategoryRequestBodyDtoPopulatedNormalizedSubcategoryFromJSON,
-    ExternalCreateSubcategoryRequestBodyDtoPopulatedNormalizedSubcategoryFromJSONTyped,
-    ExternalCreateSubcategoryRequestBodyDtoPopulatedNormalizedSubcategoryToJSON,
-    ExternalCreateSubcategoryRequestBodyDtoPopulatedNormalizedSubcategoryToJSONTyped,
-} from './ExternalCreateSubcategoryRequestBodyDtoPopulatedNormalizedSubcategory';
+    CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedCategoryFromJSON,
+    CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedCategoryFromJSONTyped,
+    CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedCategoryToJSON,
+    CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedCategoryToJSONTyped,
+} from './CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedCategory';
 
 /**
  * 
@@ -60,10 +60,10 @@ export interface PartialUpdateSubcategoryRequestBodyDto {
     category?: string;
     /**
      * 
-     * @type {NormalizedSubcategoriesPageEntityItemsInnerPopulatedCategory}
+     * @type {CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedCategory}
      * @memberof PartialUpdateSubcategoryRequestBodyDto
      */
-    populatedCategory?: NormalizedSubcategoriesPageEntityItemsInnerPopulatedCategory | null;
+    populatedCategory?: CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedCategory | null;
     /**
      * 
      * @type {string}
@@ -72,16 +72,28 @@ export interface PartialUpdateSubcategoryRequestBodyDto {
     normalizedSubcategory?: string | null;
     /**
      * 
-     * @type {ExternalCreateSubcategoryRequestBodyDtoPopulatedNormalizedSubcategory}
+     * @type {CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedNormalizedSubcategory}
      * @memberof PartialUpdateSubcategoryRequestBodyDto
      */
-    populatedNormalizedSubcategory?: ExternalCreateSubcategoryRequestBodyDtoPopulatedNormalizedSubcategory | null;
+    populatedNormalizedSubcategory?: CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedNormalizedSubcategory | null;
     /**
      * Indica se a subcategoria deve ser exibida no DRE.
      * @type {boolean}
      * @memberof PartialUpdateSubcategoryRequestBodyDto
      */
     considerInDre?: boolean;
+    /**
+     * Descrição da subcategoria.
+     * @type {string}
+     * @memberof PartialUpdateSubcategoryRequestBodyDto
+     */
+    description?: string;
+    /**
+     * Indica se a subcategoria está ativa.
+     * @type {boolean}
+     * @memberof PartialUpdateSubcategoryRequestBodyDto
+     */
+    active?: boolean;
     /**
      * Canal de origem da operação
      * @type {string}
@@ -124,10 +136,12 @@ export function PartialUpdateSubcategoryRequestBodyDtoFromJSONTyped(json: any, i
         'slug': json['slug'] == null ? undefined : json['slug'],
         'index': json['index'] == null ? undefined : json['index'],
         'category': json['category'] == null ? undefined : json['category'],
-        'populatedCategory': json['populatedCategory'] == null ? undefined : NormalizedSubcategoriesPageEntityItemsInnerPopulatedCategoryFromJSON(json['populatedCategory']),
+        'populatedCategory': json['populatedCategory'] == null ? undefined : CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedCategoryFromJSON(json['populatedCategory']),
         'normalizedSubcategory': json['normalizedSubcategory'] == null ? undefined : json['normalizedSubcategory'],
-        'populatedNormalizedSubcategory': json['populatedNormalizedSubcategory'] == null ? undefined : ExternalCreateSubcategoryRequestBodyDtoPopulatedNormalizedSubcategoryFromJSON(json['populatedNormalizedSubcategory']),
+        'populatedNormalizedSubcategory': json['populatedNormalizedSubcategory'] == null ? undefined : CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedNormalizedSubcategoryFromJSON(json['populatedNormalizedSubcategory']),
         'considerInDre': json['considerInDre'] == null ? undefined : json['considerInDre'],
+        'description': json['description'] == null ? undefined : json['description'],
+        'active': json['active'] == null ? undefined : json['active'],
         'channel': json['channel'],
     };
 }
@@ -147,10 +161,12 @@ export function PartialUpdateSubcategoryRequestBodyDtoToJSONTyped(value?: Partia
         'slug': value['slug'],
         'index': value['index'],
         'category': value['category'],
-        'populatedCategory': NormalizedSubcategoriesPageEntityItemsInnerPopulatedCategoryToJSON(value['populatedCategory']),
+        'populatedCategory': CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedCategoryToJSON(value['populatedCategory']),
         'normalizedSubcategory': value['normalizedSubcategory'],
-        'populatedNormalizedSubcategory': ExternalCreateSubcategoryRequestBodyDtoPopulatedNormalizedSubcategoryToJSON(value['populatedNormalizedSubcategory']),
+        'populatedNormalizedSubcategory': CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedNormalizedSubcategoryToJSON(value['populatedNormalizedSubcategory']),
         'considerInDre': value['considerInDre'],
+        'description': value['description'],
+        'active': value['active'],
         'channel': value['channel'],
     };
 }

@@ -62,7 +62,6 @@ function CreateFileUploadRequestBodyDtoFromJSONTyped(json, ignoreDiscriminator) 
         'mimeType': json['mimeType'],
         'size': json['size'],
         'fileType': json['fileType'],
-        'deletedAt': json['deletedAt'] == null ? undefined : json['deletedAt'],
         'signedUrl': json['signedUrl'] == null ? undefined : json['signedUrl'],
         'channel': json['channel'],
     };
@@ -80,7 +79,6 @@ function CreateFileUploadRequestBodyDtoToJSONTyped(value, ignoreDiscriminator) {
         'mimeType': value['mimeType'],
         'size': value['size'],
         'fileType': value['fileType'],
-        'deletedAt': value['deletedAt'],
         'signedUrl': value['signedUrl'],
         'channel': value['channel'],
     };

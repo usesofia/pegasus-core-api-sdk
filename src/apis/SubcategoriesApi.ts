@@ -43,6 +43,9 @@ export interface CreateSubcategoryRequest {
 }
 
 export interface FindAllSubcategoriesRequest {
+    active?: boolean;
+    sortOrder?: string;
+    sortBy?: string;
     populate?: string;
     categoryId?: string;
     searchTerm?: string;
@@ -92,6 +95,9 @@ export interface SubcategoriesApiInterface {
     /**
      * 
      * @summary Busca todas as subcategorias.
+     * @param {boolean} [active] Filtra subcategorias ativas ou inativas.
+     * @param {string} [sortOrder] Ordem de ordenação das subcategorias.
+     * @param {string} [sortBy] Campo para ordenar as subcategorias.
      * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
      * @param {string} [categoryId] ID da categoria para filtrar subcategorias.
      * @param {string} [searchTerm] Termo para busca por nome da subcategoria.
@@ -209,6 +215,18 @@ export class SubcategoriesApi extends runtime.BaseAPI implements SubcategoriesAp
      */
     async findAllSubcategoriesRaw(requestParameters: FindAllSubcategoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SubcategoriesPageEntity>> {
         const queryParameters: any = {};
+
+        if (requestParameters['active'] != null) {
+            queryParameters['active'] = requestParameters['active'];
+        }
+
+        if (requestParameters['sortOrder'] != null) {
+            queryParameters['sortOrder'] = requestParameters['sortOrder'];
+        }
+
+        if (requestParameters['sortBy'] != null) {
+            queryParameters['sortBy'] = requestParameters['sortBy'];
+        }
 
         if (requestParameters['populate'] != null) {
             queryParameters['populate'] = requestParameters['populate'];

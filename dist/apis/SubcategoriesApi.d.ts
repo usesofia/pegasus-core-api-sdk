@@ -16,6 +16,9 @@ export interface CreateSubcategoryRequest {
     populate?: string;
 }
 export interface FindAllSubcategoriesRequest {
+    active?: boolean;
+    sortOrder?: string;
+    sortBy?: string;
     populate?: string;
     categoryId?: string;
     searchTerm?: string;
@@ -59,6 +62,9 @@ export interface SubcategoriesApiInterface {
     /**
      *
      * @summary Busca todas as subcategorias.
+     * @param {boolean} [active] Filtra subcategorias ativas ou inativas.
+     * @param {string} [sortOrder] Ordem de ordenação das subcategorias.
+     * @param {string} [sortBy] Campo para ordenar as subcategorias.
      * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
      * @param {string} [categoryId] ID da categoria para filtrar subcategorias.
      * @param {string} [searchTerm] Termo para busca por nome da subcategoria.

@@ -44,12 +44,6 @@ export interface CreateFileUploadRequestBodyDto {
      */
     fileType: CreateFileUploadRequestBodyDtoFileTypeEnum;
     /**
-     * Data de exclusão do arquivo.
-     * @type {any}
-     * @memberof CreateFileUploadRequestBodyDto
-     */
-    deletedAt?: any | null;
-    /**
      * URL assinada do arquivo.
      * @type {string}
      * @memberof CreateFileUploadRequestBodyDto
@@ -110,7 +104,6 @@ export function CreateFileUploadRequestBodyDtoFromJSONTyped(json: any, ignoreDis
         'mimeType': json['mimeType'],
         'size': json['size'],
         'fileType': json['fileType'],
-        'deletedAt': json['deletedAt'] == null ? undefined : json['deletedAt'],
         'signedUrl': json['signedUrl'] == null ? undefined : json['signedUrl'],
         'channel': json['channel'],
     };
@@ -131,7 +124,6 @@ export function CreateFileUploadRequestBodyDtoToJSONTyped(value?: CreateFileUplo
         'mimeType': value['mimeType'],
         'size': value['size'],
         'fileType': value['fileType'],
-        'deletedAt': value['deletedAt'],
         'signedUrl': value['signedUrl'],
         'channel': value['channel'],
     };

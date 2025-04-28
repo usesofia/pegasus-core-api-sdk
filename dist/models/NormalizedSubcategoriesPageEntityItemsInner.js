@@ -18,7 +18,7 @@ exports.NormalizedSubcategoriesPageEntityItemsInnerFromJSON = NormalizedSubcateg
 exports.NormalizedSubcategoriesPageEntityItemsInnerFromJSONTyped = NormalizedSubcategoriesPageEntityItemsInnerFromJSONTyped;
 exports.NormalizedSubcategoriesPageEntityItemsInnerToJSON = NormalizedSubcategoriesPageEntityItemsInnerToJSON;
 exports.NormalizedSubcategoriesPageEntityItemsInnerToJSONTyped = NormalizedSubcategoriesPageEntityItemsInnerToJSONTyped;
-var NormalizedSubcategoriesPageEntityItemsInnerPopulatedCategory_1 = require("./NormalizedSubcategoriesPageEntityItemsInnerPopulatedCategory");
+var CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedCategory_1 = require("./CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedCategory");
 /**
  * Check if a given object implements the NormalizedSubcategoriesPageEntityItemsInner interface.
  */
@@ -35,11 +35,7 @@ function instanceOfNormalizedSubcategoriesPageEntityItemsInner(value) {
         return false;
     if (!('considerInDre' in value) || value['considerInDre'] === undefined)
         return false;
-    if (!('isInvoiceRelated' in value) || value['isInvoiceRelated'] === undefined)
-        return false;
-    if (!('isInternalTransferRelated' in value) || value['isInternalTransferRelated'] === undefined)
-        return false;
-    if (!('isAutomaticApplicationRelated' in value) || value['isAutomaticApplicationRelated'] === undefined)
+    if (!('description' in value) || value['description'] === undefined)
         return false;
     if (!('createdAt' in value) || value['createdAt'] === undefined)
         return false;
@@ -60,11 +56,9 @@ function NormalizedSubcategoriesPageEntityItemsInnerFromJSONTyped(json, ignoreDi
         'slug': json['slug'],
         'index': json['index'],
         'category': json['category'],
-        'populatedCategory': json['populatedCategory'] == null ? undefined : (0, NormalizedSubcategoriesPageEntityItemsInnerPopulatedCategory_1.NormalizedSubcategoriesPageEntityItemsInnerPopulatedCategoryFromJSON)(json['populatedCategory']),
+        'populatedCategory': json['populatedCategory'] == null ? undefined : (0, CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedCategory_1.CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedCategoryFromJSON)(json['populatedCategory']),
         'considerInDre': json['considerInDre'],
-        'isInvoiceRelated': json['isInvoiceRelated'],
-        'isInternalTransferRelated': json['isInternalTransferRelated'],
-        'isAutomaticApplicationRelated': json['isAutomaticApplicationRelated'],
+        'description': json['description'],
         'createdAt': json['createdAt'],
         'updatedAt': json['updatedAt'],
     };
@@ -83,11 +77,9 @@ function NormalizedSubcategoriesPageEntityItemsInnerToJSONTyped(value, ignoreDis
         'slug': value['slug'],
         'index': value['index'],
         'category': value['category'],
-        'populatedCategory': (0, NormalizedSubcategoriesPageEntityItemsInnerPopulatedCategory_1.NormalizedSubcategoriesPageEntityItemsInnerPopulatedCategoryToJSON)(value['populatedCategory']),
+        'populatedCategory': (0, CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedCategory_1.CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedCategoryToJSON)(value['populatedCategory']),
         'considerInDre': value['considerInDre'],
-        'isInvoiceRelated': value['isInvoiceRelated'],
-        'isInternalTransferRelated': value['isInternalTransferRelated'],
-        'isAutomaticApplicationRelated': value['isAutomaticApplicationRelated'],
+        'description': value['description'],
         'createdAt': value['createdAt'],
         'updatedAt': value['updatedAt'],
     };
