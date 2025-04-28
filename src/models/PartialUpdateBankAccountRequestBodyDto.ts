@@ -26,11 +26,11 @@ export interface PartialUpdateBankAccountRequestBodyDto {
      */
     name?: string;
     /**
-     * Indica se a conta deve ser considerada no cálculo agregado.
+     * Indica se a conta deve ser considerada nos cálculos de fluxo de caixa.
      * @type {boolean}
      * @memberof PartialUpdateBankAccountRequestBodyDto
      */
-    considerInAggregateCalculations?: boolean;
+    considerInCashFlow?: boolean;
     /**
      * Número da conta ou cartão.
      * @type {string}
@@ -106,7 +106,7 @@ export function PartialUpdateBankAccountRequestBodyDtoFromJSONTyped(json: any, i
     return {
         
         'name': json['name'] == null ? undefined : json['name'],
-        'considerInAggregateCalculations': json['considerInAggregateCalculations'] == null ? undefined : json['considerInAggregateCalculations'],
+        'considerInCashFlow': json['considerInCashFlow'] == null ? undefined : json['considerInCashFlow'],
         'number': json['number'] == null ? undefined : json['number'],
         'isDefault': json['isDefault'] == null ? undefined : json['isDefault'],
         'initialBalanceDate': json['initialBalanceDate'] == null ? undefined : json['initialBalanceDate'],
@@ -129,7 +129,7 @@ export function PartialUpdateBankAccountRequestBodyDtoToJSONTyped(value?: Partia
     return {
         
         'name': value['name'],
-        'considerInAggregateCalculations': value['considerInAggregateCalculations'],
+        'considerInCashFlow': value['considerInCashFlow'],
         'number': value['number'],
         'isDefault': value['isDefault'],
         'initialBalanceDate': value['initialBalanceDate'],

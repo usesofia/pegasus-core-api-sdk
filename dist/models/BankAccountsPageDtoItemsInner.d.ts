@@ -40,11 +40,11 @@ export interface BankAccountsPageDtoItemsInner {
      */
     type: BankAccountsPageDtoItemsInnerTypeEnum;
     /**
-     * Indica se a conta deve ser considerada no cálculo agregado.
+     * Indica se a conta deve ser considerada nos cálculos de fluxo de caixa.
      * @type {boolean}
      * @memberof BankAccountsPageDtoItemsInner
      */
-    considerInAggregateCalculations: boolean;
+    considerInCashFlow: boolean;
     /**
      * Número da conta ou cartão.
      * @type {string}

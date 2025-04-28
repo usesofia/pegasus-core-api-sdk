@@ -50,7 +50,7 @@ function instanceOfCreateFinancialRecordRequestBodyDtoPopulatedAccount(value) {
         return false;
     if (!('type' in value) || value['type'] === undefined)
         return false;
-    if (!('considerInAggregateCalculations' in value) || value['considerInAggregateCalculations'] === undefined)
+    if (!('considerInCashFlow' in value) || value['considerInCashFlow'] === undefined)
         return false;
     if (!('number' in value) || value['number'] === undefined)
         return false;
@@ -78,7 +78,7 @@ function CreateFinancialRecordRequestBodyDtoPopulatedAccountFromJSONTyped(json, 
         'ownerOrganization': json['ownerOrganization'],
         'name': json['name'],
         'type': json['type'],
-        'considerInAggregateCalculations': json['considerInAggregateCalculations'],
+        'considerInCashFlow': json['considerInCashFlow'],
         'number': json['number'],
         'isAutomatic': json['isAutomatic'],
         'isDefault': json['isDefault'],
@@ -106,7 +106,7 @@ function CreateFinancialRecordRequestBodyDtoPopulatedAccountToJSONTyped(value, i
         'ownerOrganization': value['ownerOrganization'],
         'name': value['name'],
         'type': value['type'],
-        'considerInAggregateCalculations': value['considerInAggregateCalculations'],
+        'considerInCashFlow': value['considerInCashFlow'],
         'number': value['number'],
         'isAutomatic': value['isAutomatic'],
         'isDefault': value['isDefault'],

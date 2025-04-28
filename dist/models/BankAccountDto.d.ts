@@ -40,11 +40,11 @@ export interface BankAccountDto {
      */
     type: BankAccountDtoTypeEnum;
     /**
-     * Indica se a conta deve ser considerada no cálculo agregado.
+     * Indica se a conta deve ser considerada nos cálculos de fluxo de caixa.
      * @type {boolean}
      * @memberof BankAccountDto
      */
-    considerInAggregateCalculations: boolean;
+    considerInCashFlow: boolean;
     /**
      * Número da conta ou cartão.
      * @type {string}

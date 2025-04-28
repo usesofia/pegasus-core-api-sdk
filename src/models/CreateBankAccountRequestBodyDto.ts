@@ -32,11 +32,11 @@ export interface CreateBankAccountRequestBodyDto {
      */
     type: CreateBankAccountRequestBodyDtoTypeEnum;
     /**
-     * Indica se a conta deve ser considerada no cálculo agregado.
+     * Indica se a conta deve ser considerada nos cálculos de fluxo de caixa.
      * @type {boolean}
      * @memberof CreateBankAccountRequestBodyDto
      */
-    considerInAggregateCalculations?: boolean;
+    considerInCashFlow?: boolean;
     /**
      * Número da conta ou cartão.
      * @type {string}
@@ -158,7 +158,7 @@ export function CreateBankAccountRequestBodyDtoFromJSONTyped(json: any, ignoreDi
         
         'name': json['name'],
         'type': json['type'],
-        'considerInAggregateCalculations': json['considerInAggregateCalculations'] == null ? undefined : json['considerInAggregateCalculations'],
+        'considerInCashFlow': json['considerInCashFlow'] == null ? undefined : json['considerInCashFlow'],
         'number': json['number'],
         'isAutomatic': json['isAutomatic'],
         'isDefault': json['isDefault'] == null ? undefined : json['isDefault'],
@@ -185,7 +185,7 @@ export function CreateBankAccountRequestBodyDtoToJSONTyped(value?: CreateBankAcc
         
         'name': value['name'],
         'type': value['type'],
-        'considerInAggregateCalculations': value['considerInAggregateCalculations'],
+        'considerInCashFlow': value['considerInCashFlow'],
         'number': value['number'],
         'isAutomatic': value['isAutomatic'],
         'isDefault': value['isDefault'],

@@ -44,11 +44,11 @@ export interface BankAccountDto {
      */
     type: BankAccountDtoTypeEnum;
     /**
-     * Indica se a conta deve ser considerada no cálculo agregado.
+     * Indica se a conta deve ser considerada nos cálculos de fluxo de caixa.
      * @type {boolean}
      * @memberof BankAccountDto
      */
-    considerInAggregateCalculations: boolean;
+    considerInCashFlow: boolean;
     /**
      * Número da conta ou cartão.
      * @type {string}
@@ -156,7 +156,7 @@ export function instanceOfBankAccountDto(value: object): value is BankAccountDto
     if (!('ownerOrganization' in value) || value['ownerOrganization'] === undefined) return false;
     if (!('name' in value) || value['name'] === undefined) return false;
     if (!('type' in value) || value['type'] === undefined) return false;
-    if (!('considerInAggregateCalculations' in value) || value['considerInAggregateCalculations'] === undefined) return false;
+    if (!('considerInCashFlow' in value) || value['considerInCashFlow'] === undefined) return false;
     if (!('number' in value) || value['number'] === undefined) return false;
     if (!('isAutomatic' in value) || value['isAutomatic'] === undefined) return false;
     if (!('isDefault' in value) || value['isDefault'] === undefined) return false;
@@ -180,7 +180,7 @@ export function BankAccountDtoFromJSONTyped(json: any, ignoreDiscriminator: bool
         'ownerOrganization': json['ownerOrganization'],
         'name': json['name'],
         'type': json['type'],
-        'considerInAggregateCalculations': json['considerInAggregateCalculations'],
+        'considerInCashFlow': json['considerInCashFlow'],
         'number': json['number'],
         'isAutomatic': json['isAutomatic'],
         'isDefault': json['isDefault'],
@@ -211,7 +211,7 @@ export function BankAccountDtoToJSONTyped(value?: BankAccountDto | null, ignoreD
         'ownerOrganization': value['ownerOrganization'],
         'name': value['name'],
         'type': value['type'],
-        'considerInAggregateCalculations': value['considerInAggregateCalculations'],
+        'considerInCashFlow': value['considerInCashFlow'],
         'number': value['number'],
         'isAutomatic': value['isAutomatic'],
         'isDefault': value['isDefault'],
