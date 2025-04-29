@@ -107,7 +107,7 @@ export interface PartialUpdateRecurringFinancialRecordRequestBodyDto {
      * @type {number}
      * @memberof PartialUpdateRecurringFinancialRecordRequestBodyDto
      */
-    repetitionMonth?: number;
+    repetitionMonth?: number | null;
     /**
      * Indica se o lançamento será apenas em dias úteis.
      * @type {boolean}

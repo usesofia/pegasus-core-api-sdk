@@ -67,6 +67,24 @@ export interface BankTransactionEntity {
      */
     bankAccount: string;
     /**
+     * Nome da conta bancária da movimentação financeira.
+     * @type {string}
+     * @memberof BankTransactionEntity
+     */
+    bankAccountName: string;
+    /**
+     * Número da conta bancária da movimentação financeira.
+     * @type {string}
+     * @memberof BankTransactionEntity
+     */
+    bankAccountNumber: string;
+    /**
+     * Nome da instituição bancária da movimentação financeira.
+     * @type {string}
+     * @memberof BankTransactionEntity
+     */
+    bankAccountInstitutionName: string;
+    /**
      * 
      * @type {BankTransactionEntityPopulatedBankAccount}
      * @memberof BankTransactionEntity
@@ -91,17 +109,35 @@ export interface BankTransactionEntity {
      */
     amountInBrl: number;
     /**
+     * Variações do valor da movimentação financeira em centavos.
+     * @type {string}
+     * @memberof BankTransactionEntity
+     */
+    amountInBrlVariations: string;
+    /**
      * Data da movimentação financeira.
      * @type {any}
      * @memberof BankTransactionEntity
      */
     date: any | null;
     /**
+     * Variações da data da movimentação financeira.
+     * @type {string}
+     * @memberof BankTransactionEntity
+     */
+    dateVariations: string;
+    /**
      * Tipo da movimentação financeira (entrada ou saída).
      * @type {string}
      * @memberof BankTransactionEntity
      */
     type: BankTransactionEntityTypeEnum;
+    /**
+     * Variações do tipo da movimentação financeira.
+     * @type {string}
+     * @memberof BankTransactionEntity
+     */
+    typeVariations: string;
     /**
      * Descrição da movimentação financeira.
      * @type {string}
@@ -243,11 +279,17 @@ export function instanceOfBankTransactionEntity(value: object): value is BankTra
     if (!('id' in value) || value['id'] === undefined) return false;
     if (!('ownerOrganization' in value) || value['ownerOrganization'] === undefined) return false;
     if (!('bankAccount' in value) || value['bankAccount'] === undefined) return false;
+    if (!('bankAccountName' in value) || value['bankAccountName'] === undefined) return false;
+    if (!('bankAccountNumber' in value) || value['bankAccountNumber'] === undefined) return false;
+    if (!('bankAccountInstitutionName' in value) || value['bankAccountInstitutionName'] === undefined) return false;
     if (!('provider' in value) || value['provider'] === undefined) return false;
     if (!('providerTransactionId' in value) || value['providerTransactionId'] === undefined) return false;
     if (!('amountInBrl' in value) || value['amountInBrl'] === undefined) return false;
+    if (!('amountInBrlVariations' in value) || value['amountInBrlVariations'] === undefined) return false;
     if (!('date' in value) || value['date'] === undefined) return false;
+    if (!('dateVariations' in value) || value['dateVariations'] === undefined) return false;
     if (!('type' in value) || value['type'] === undefined) return false;
+    if (!('typeVariations' in value) || value['typeVariations'] === undefined) return false;
     if (!('status' in value) || value['status'] === undefined) return false;
     if (!('ignored' in value) || value['ignored'] === undefined) return false;
     if (!('createdAt' in value) || value['createdAt'] === undefined) return false;
@@ -268,12 +310,18 @@ export function BankTransactionEntityFromJSONTyped(json: any, ignoreDiscriminato
         'id': json['id'],
         'ownerOrganization': json['ownerOrganization'],
         'bankAccount': json['bankAccount'],
+        'bankAccountName': json['bankAccountName'],
+        'bankAccountNumber': json['bankAccountNumber'],
+        'bankAccountInstitutionName': json['bankAccountInstitutionName'],
         'populatedBankAccount': json['populatedBankAccount'] == null ? undefined : BankTransactionEntityPopulatedBankAccountFromJSON(json['populatedBankAccount']),
         'provider': json['provider'],
         'providerTransactionId': json['providerTransactionId'],
         'amountInBrl': json['amountInBrl'],
+        'amountInBrlVariations': json['amountInBrlVariations'],
         'date': json['date'],
+        'dateVariations': json['dateVariations'],
         'type': json['type'],
+        'typeVariations': json['typeVariations'],
         'description': json['description'] == null ? undefined : json['description'],
         'status': json['status'],
         'ignored': json['ignored'],
@@ -308,12 +356,18 @@ export function BankTransactionEntityToJSONTyped(value?: BankTransactionEntity |
         'id': value['id'],
         'ownerOrganization': value['ownerOrganization'],
         'bankAccount': value['bankAccount'],
+        'bankAccountName': value['bankAccountName'],
+        'bankAccountNumber': value['bankAccountNumber'],
+        'bankAccountInstitutionName': value['bankAccountInstitutionName'],
         'populatedBankAccount': BankTransactionEntityPopulatedBankAccountToJSON(value['populatedBankAccount']),
         'provider': value['provider'],
         'providerTransactionId': value['providerTransactionId'],
         'amountInBrl': value['amountInBrl'],
+        'amountInBrlVariations': value['amountInBrlVariations'],
         'date': value['date'],
+        'dateVariations': value['dateVariations'],
         'type': value['type'],
+        'typeVariations': value['typeVariations'],
         'description': value['description'],
         'status': value['status'],
         'ignored': value['ignored'],

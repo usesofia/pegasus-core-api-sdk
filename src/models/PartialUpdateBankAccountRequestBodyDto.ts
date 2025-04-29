@@ -26,17 +26,17 @@ export interface PartialUpdateBankAccountRequestBodyDto {
      */
     name?: string;
     /**
-     * Indica se a conta deve ser considerada nos cálculos de fluxo de caixa.
-     * @type {boolean}
-     * @memberof PartialUpdateBankAccountRequestBodyDto
-     */
-    considerInCashFlow?: boolean;
-    /**
      * Número da conta ou cartão.
      * @type {string}
      * @memberof PartialUpdateBankAccountRequestBodyDto
      */
     number?: string;
+    /**
+     * Indica se a conta deve ser considerada nos cálculos de fluxo de caixa.
+     * @type {boolean}
+     * @memberof PartialUpdateBankAccountRequestBodyDto
+     */
+    considerInCashFlow?: boolean;
     /**
      * Indica se a conta é a padrão.
      * @type {boolean}
@@ -106,8 +106,8 @@ export function PartialUpdateBankAccountRequestBodyDtoFromJSONTyped(json: any, i
     return {
         
         'name': json['name'] == null ? undefined : json['name'],
-        'considerInCashFlow': json['considerInCashFlow'] == null ? undefined : json['considerInCashFlow'],
         'number': json['number'] == null ? undefined : json['number'],
+        'considerInCashFlow': json['considerInCashFlow'] == null ? undefined : json['considerInCashFlow'],
         'isDefault': json['isDefault'] == null ? undefined : json['isDefault'],
         'initialBalanceDate': json['initialBalanceDate'] == null ? undefined : json['initialBalanceDate'],
         'initialBalanceAmount': json['initialBalanceAmount'] == null ? undefined : json['initialBalanceAmount'],
@@ -129,8 +129,8 @@ export function PartialUpdateBankAccountRequestBodyDtoToJSONTyped(value?: Partia
     return {
         
         'name': value['name'],
-        'considerInCashFlow': value['considerInCashFlow'],
         'number': value['number'],
+        'considerInCashFlow': value['considerInCashFlow'],
         'isDefault': value['isDefault'],
         'initialBalanceDate': value['initialBalanceDate'],
         'initialBalanceAmount': value['initialBalanceAmount'],

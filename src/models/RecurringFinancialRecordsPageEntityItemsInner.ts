@@ -125,7 +125,7 @@ export interface RecurringFinancialRecordsPageEntityItemsInner {
      * @type {number}
      * @memberof RecurringFinancialRecordsPageEntityItemsInner
      */
-    repetitionMonth?: number;
+    repetitionMonth?: number | null;
     /**
      * Indica se o lançamento será apenas em dias úteis.
      * @type {boolean}

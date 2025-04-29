@@ -85,19 +85,19 @@ export interface CreateManyFinancialRecordsRequestBodyDtoDataInner {
      * @type {string}
      * @memberof CreateManyFinancialRecordsRequestBodyDtoDataInner
      */
-    pixKey?: string;
+    pixKey?: string | null;
     /**
      * Código do boleto.
      * @type {string}
      * @memberof CreateManyFinancialRecordsRequestBodyDtoDataInner
      */
-    boletoCode?: string;
+    boletoCode?: string | null;
     /**
      * Número da nota fiscal.
      * @type {string}
      * @memberof CreateManyFinancialRecordsRequestBodyDtoDataInner
      */
-    invoiceNumber?: string;
+    invoiceNumber?: string | null;
     /**
      * Indica se o lançamento foi concluído.
      * @type {boolean}
@@ -115,19 +115,19 @@ export interface CreateManyFinancialRecordsRequestBodyDtoDataInner {
      * @type {string}
      * @memberof CreateManyFinancialRecordsRequestBodyDtoDataInner
      */
-    account?: string;
+    account?: string | null;
     /**
      * Valor do desconto.
      * @type {number}
      * @memberof CreateManyFinancialRecordsRequestBodyDtoDataInner
      */
-    discount?: number;
+    discount?: number | null;
     /**
      * Valor de multas e juros.
      * @type {number}
      * @memberof CreateManyFinancialRecordsRequestBodyDtoDataInner
      */
-    finesAndInterest?: number;
+    finesAndInterest?: number | null;
     /**
      * Valor final do lançamento.
      * @type {number}
@@ -145,25 +145,25 @@ export interface CreateManyFinancialRecordsRequestBodyDtoDataInner {
      * @type {string}
      * @memberof CreateManyFinancialRecordsRequestBodyDtoDataInner
      */
-    bankStatement?: string;
+    bankStatement?: string | null;
     /**
      * Identificador do lançamento financeiro parcelado.
      * @type {string}
      * @memberof CreateManyFinancialRecordsRequestBodyDtoDataInner
      */
-    installmentFinancialRecord?: string;
+    installmentFinancialRecord?: string | null;
     /**
      * Identificador do lançamento financeiro recorrente.
      * @type {string}
      * @memberof CreateManyFinancialRecordsRequestBodyDtoDataInner
      */
-    recurringFinancialRecord?: string;
+    recurringFinancialRecord?: string | null;
     /**
      * Arquivos anexados.
      * @type {Array<CreateFinancialRecordRequestBodyDtoPopulatedFilesInner>}
      * @memberof CreateManyFinancialRecordsRequestBodyDtoDataInner
      */
-    populatedFiles?: Array<CreateFinancialRecordRequestBodyDtoPopulatedFilesInner>;
+    populatedFiles?: Array<CreateFinancialRecordRequestBodyDtoPopulatedFilesInner> | null;
     /**
      *
      * @type {CreateFinancialRecordRequestBodyDtoPopulatedSubcategory}
@@ -181,7 +181,7 @@ export interface CreateManyFinancialRecordsRequestBodyDtoDataInner {
      * @type {Array<CreateFinancialRecordRequestBodyDtoPopulatedTagsInner>}
      * @memberof CreateManyFinancialRecordsRequestBodyDtoDataInner
      */
-    populatedTags?: Array<CreateFinancialRecordRequestBodyDtoPopulatedTagsInner>;
+    populatedTags?: Array<CreateFinancialRecordRequestBodyDtoPopulatedTagsInner> | null;
     /**
      *
      * @type {CreateFinancialRecordRequestBodyDtoPopulatedAccount}

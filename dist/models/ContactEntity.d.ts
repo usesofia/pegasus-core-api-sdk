@@ -51,19 +51,19 @@ export interface ContactEntity {
      * @type {string}
      * @memberof ContactEntity
      */
-    document?: string | null;
+    document: string | null;
     /**
      * Email do contato.
      * @type {string}
      * @memberof ContactEntity
      */
-    email?: string | null;
+    email: string | null;
     /**
      * Telefone do contato.
      * @type {string}
      * @memberof ContactEntity
      */
-    phone?: string | null;
+    phone: string | null;
     /**
      * Chaves pix do contato.
      * @type {Array<string>}

@@ -32,17 +32,17 @@ export interface CreateBankAccountRequestBodyDto {
      */
     type: CreateBankAccountRequestBodyDtoTypeEnum;
     /**
-     * Indica se a conta deve ser considerada nos cálculos de fluxo de caixa.
-     * @type {boolean}
-     * @memberof CreateBankAccountRequestBodyDto
-     */
-    considerInCashFlow?: boolean;
-    /**
      * Número da conta ou cartão.
      * @type {string}
      * @memberof CreateBankAccountRequestBodyDto
      */
     number: string;
+    /**
+     * Indica se a conta deve ser considerada nos cálculos de fluxo de caixa.
+     * @type {boolean}
+     * @memberof CreateBankAccountRequestBodyDto
+     */
+    considerInCashFlow?: boolean;
     /**
      * Indica se a conta é automática ou manual.
      * @type {boolean}
@@ -158,8 +158,8 @@ export function CreateBankAccountRequestBodyDtoFromJSONTyped(json: any, ignoreDi
         
         'name': json['name'],
         'type': json['type'],
-        'considerInCashFlow': json['considerInCashFlow'] == null ? undefined : json['considerInCashFlow'],
         'number': json['number'],
+        'considerInCashFlow': json['considerInCashFlow'] == null ? undefined : json['considerInCashFlow'],
         'isAutomatic': json['isAutomatic'],
         'isDefault': json['isDefault'] == null ? undefined : json['isDefault'],
         'initialBalanceDate': json['initialBalanceDate'] == null ? undefined : json['initialBalanceDate'],
@@ -185,8 +185,8 @@ export function CreateBankAccountRequestBodyDtoToJSONTyped(value?: CreateBankAcc
         
         'name': value['name'],
         'type': value['type'],
-        'considerInCashFlow': value['considerInCashFlow'],
         'number': value['number'],
+        'considerInCashFlow': value['considerInCashFlow'],
         'isAutomatic': value['isAutomatic'],
         'isDefault': value['isDefault'],
         'initialBalanceDate': value['initialBalanceDate'],

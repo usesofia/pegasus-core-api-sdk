@@ -84,7 +84,7 @@ export interface ProspectRecurringFinancialRecordRequestBodyDto {
      * @type {number}
      * @memberof ProspectRecurringFinancialRecordRequestBodyDto
      */
-    repetitionMonth?: number;
+    repetitionMonth?: number | null;
     /**
      * Indica se o lançamento será apenas em dias úteis.
      * @type {boolean}

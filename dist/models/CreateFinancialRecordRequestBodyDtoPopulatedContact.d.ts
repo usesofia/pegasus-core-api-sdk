@@ -51,19 +51,19 @@ export interface CreateFinancialRecordRequestBodyDtoPopulatedContact {
      * @type {string}
      * @memberof CreateFinancialRecordRequestBodyDtoPopulatedContact
      */
-    document?: string | null;
+    document: string | null;
     /**
      * Email do contato.
      * @type {string}
      * @memberof CreateFinancialRecordRequestBodyDtoPopulatedContact
      */
-    email?: string | null;
+    email: string | null;
     /**
      * Telefone do contato.
      * @type {string}
      * @memberof CreateFinancialRecordRequestBodyDtoPopulatedContact
      */
-    phone?: string | null;
+    phone: string | null;
     /**
      * Chaves pix do contato.
      * @type {Array<string>}

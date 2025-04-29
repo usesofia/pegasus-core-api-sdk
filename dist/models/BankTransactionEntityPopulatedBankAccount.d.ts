@@ -40,17 +40,17 @@ export interface BankTransactionEntityPopulatedBankAccount {
      */
     type: BankTransactionEntityPopulatedBankAccountTypeEnum;
     /**
-     * Indica se a conta deve ser considerada nos cálculos de fluxo de caixa.
-     * @type {boolean}
-     * @memberof BankTransactionEntityPopulatedBankAccount
-     */
-    considerInCashFlow: boolean;
-    /**
      * Número da conta ou cartão.
      * @type {string}
      * @memberof BankTransactionEntityPopulatedBankAccount
      */
     number: string;
+    /**
+     * Indica se a conta deve ser considerada nos cálculos de fluxo de caixa.
+     * @type {boolean}
+     * @memberof BankTransactionEntityPopulatedBankAccount
+     */
+    considerInCashFlow: boolean;
     /**
      * Indica se a conta é automática ou manual.
      * @type {boolean}
@@ -81,6 +81,12 @@ export interface BankTransactionEntityPopulatedBankAccount {
      * @memberof BankTransactionEntityPopulatedBankAccount
      */
     institution?: string | null;
+    /**
+     * Nome da instituição financeira.
+     * @type {string}
+     * @memberof BankTransactionEntityPopulatedBankAccount
+     */
+    institutionName?: string | null;
     /**
      * Indica se a conta está ativa.
      * @type {boolean}

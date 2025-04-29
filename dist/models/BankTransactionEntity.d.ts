@@ -38,6 +38,24 @@ export interface BankTransactionEntity {
      */
     bankAccount: string;
     /**
+     * Nome da conta bancária da movimentação financeira.
+     * @type {string}
+     * @memberof BankTransactionEntity
+     */
+    bankAccountName: string;
+    /**
+     * Número da conta bancária da movimentação financeira.
+     * @type {string}
+     * @memberof BankTransactionEntity
+     */
+    bankAccountNumber: string;
+    /**
+     * Nome da instituição bancária da movimentação financeira.
+     * @type {string}
+     * @memberof BankTransactionEntity
+     */
+    bankAccountInstitutionName: string;
+    /**
      *
      * @type {BankTransactionEntityPopulatedBankAccount}
      * @memberof BankTransactionEntity
@@ -62,17 +80,35 @@ export interface BankTransactionEntity {
      */
     amountInBrl: number;
     /**
+     * Variações do valor da movimentação financeira em centavos.
+     * @type {string}
+     * @memberof BankTransactionEntity
+     */
+    amountInBrlVariations: string;
+    /**
      * Data da movimentação financeira.
      * @type {any}
      * @memberof BankTransactionEntity
      */
     date: any | null;
     /**
+     * Variações da data da movimentação financeira.
+     * @type {string}
+     * @memberof BankTransactionEntity
+     */
+    dateVariations: string;
+    /**
      * Tipo da movimentação financeira (entrada ou saída).
      * @type {string}
      * @memberof BankTransactionEntity
      */
     type: BankTransactionEntityTypeEnum;
+    /**
+     * Variações do tipo da movimentação financeira.
+     * @type {string}
+     * @memberof BankTransactionEntity
+     */
+    typeVariations: string;
     /**
      * Descrição da movimentação financeira.
      * @type {string}

@@ -28,17 +28,17 @@ export interface CreateBankAccountRequestBodyDto {
      */
     type: CreateBankAccountRequestBodyDtoTypeEnum;
     /**
-     * Indica se a conta deve ser considerada nos cálculos de fluxo de caixa.
-     * @type {boolean}
-     * @memberof CreateBankAccountRequestBodyDto
-     */
-    considerInCashFlow?: boolean;
-    /**
      * Número da conta ou cartão.
      * @type {string}
      * @memberof CreateBankAccountRequestBodyDto
      */
     number: string;
+    /**
+     * Indica se a conta deve ser considerada nos cálculos de fluxo de caixa.
+     * @type {boolean}
+     * @memberof CreateBankAccountRequestBodyDto
+     */
+    considerInCashFlow?: boolean;
     /**
      * Indica se a conta é automática ou manual.
      * @type {boolean}

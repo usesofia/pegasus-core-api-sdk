@@ -22,17 +22,17 @@ export interface PartialUpdateBankAccountRequestBodyDto {
      */
     name?: string;
     /**
-     * Indica se a conta deve ser considerada nos cálculos de fluxo de caixa.
-     * @type {boolean}
-     * @memberof PartialUpdateBankAccountRequestBodyDto
-     */
-    considerInCashFlow?: boolean;
-    /**
      * Número da conta ou cartão.
      * @type {string}
      * @memberof PartialUpdateBankAccountRequestBodyDto
      */
     number?: string;
+    /**
+     * Indica se a conta deve ser considerada nos cálculos de fluxo de caixa.
+     * @type {boolean}
+     * @memberof PartialUpdateBankAccountRequestBodyDto
+     */
+    considerInCashFlow?: boolean;
     /**
      * Indica se a conta é a padrão.
      * @type {boolean}

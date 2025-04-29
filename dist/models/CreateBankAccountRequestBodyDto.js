@@ -72,8 +72,8 @@ function CreateBankAccountRequestBodyDtoFromJSONTyped(json, ignoreDiscriminator)
     return {
         'name': json['name'],
         'type': json['type'],
-        'considerInCashFlow': json['considerInCashFlow'] == null ? undefined : json['considerInCashFlow'],
         'number': json['number'],
+        'considerInCashFlow': json['considerInCashFlow'] == null ? undefined : json['considerInCashFlow'],
         'isAutomatic': json['isAutomatic'],
         'isDefault': json['isDefault'] == null ? undefined : json['isDefault'],
         'initialBalanceDate': json['initialBalanceDate'] == null ? undefined : json['initialBalanceDate'],
@@ -96,8 +96,8 @@ function CreateBankAccountRequestBodyDtoToJSONTyped(value, ignoreDiscriminator) 
     return {
         'name': value['name'],
         'type': value['type'],
-        'considerInCashFlow': value['considerInCashFlow'],
         'number': value['number'],
+        'considerInCashFlow': value['considerInCashFlow'],
         'isAutomatic': value['isAutomatic'],
         'isDefault': value['isDefault'],
         'initialBalanceDate': value['initialBalanceDate'],

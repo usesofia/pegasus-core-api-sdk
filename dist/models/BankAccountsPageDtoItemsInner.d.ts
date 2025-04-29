@@ -40,17 +40,17 @@ export interface BankAccountsPageDtoItemsInner {
      */
     type: BankAccountsPageDtoItemsInnerTypeEnum;
     /**
-     * Indica se a conta deve ser considerada nos cálculos de fluxo de caixa.
-     * @type {boolean}
-     * @memberof BankAccountsPageDtoItemsInner
-     */
-    considerInCashFlow: boolean;
-    /**
      * Número da conta ou cartão.
      * @type {string}
      * @memberof BankAccountsPageDtoItemsInner
      */
     number: string;
+    /**
+     * Indica se a conta deve ser considerada nos cálculos de fluxo de caixa.
+     * @type {boolean}
+     * @memberof BankAccountsPageDtoItemsInner
+     */
+    considerInCashFlow: boolean;
     /**
      * Indica se a conta é automática ou manual.
      * @type {boolean}
@@ -81,6 +81,12 @@ export interface BankAccountsPageDtoItemsInner {
      * @memberof BankAccountsPageDtoItemsInner
      */
     institution?: string | null;
+    /**
+     * Nome da instituição financeira.
+     * @type {string}
+     * @memberof BankAccountsPageDtoItemsInner
+     */
+    institutionName?: string | null;
     /**
      * Indica se a conta está ativa.
      * @type {boolean}

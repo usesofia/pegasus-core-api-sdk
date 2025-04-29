@@ -61,6 +61,12 @@ function instanceOfCreateFinancialRecordRequestBodyDtoPopulatedContact(value) {
         return false;
     if (!('types' in value) || value['types'] === undefined)
         return false;
+    if (!('document' in value) || value['document'] === undefined)
+        return false;
+    if (!('email' in value) || value['email'] === undefined)
+        return false;
+    if (!('phone' in value) || value['phone'] === undefined)
+        return false;
     if (!('pixKeys' in value) || value['pixKeys'] === undefined)
         return false;
     if (!('isNotIdentified' in value) || value['isNotIdentified'] === undefined)
@@ -84,9 +90,9 @@ function CreateFinancialRecordRequestBodyDtoPopulatedContactFromJSONTyped(json, 
         'name': json['name'],
         'types': json['types'],
         'documentType': json['documentType'] == null ? undefined : json['documentType'],
-        'document': json['document'] == null ? undefined : json['document'],
-        'email': json['email'] == null ? undefined : json['email'],
-        'phone': json['phone'] == null ? undefined : json['phone'],
+        'document': json['document'],
+        'email': json['email'],
+        'phone': json['phone'],
         'pixKeys': json['pixKeys'],
         'birthDate': json['birthDate'] == null ? undefined : json['birthDate'],
         'origin': json['origin'] == null ? undefined : json['origin'],

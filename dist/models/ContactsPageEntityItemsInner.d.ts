@@ -51,19 +51,19 @@ export interface ContactsPageEntityItemsInner {
      * @type {string}
      * @memberof ContactsPageEntityItemsInner
      */
-    document?: string | null;
+    document: string | null;
     /**
      * Email do contato.
      * @type {string}
      * @memberof ContactsPageEntityItemsInner
      */
-    email?: string | null;
+    email: string | null;
     /**
      * Telefone do contato.
      * @type {string}
      * @memberof ContactsPageEntityItemsInner
      */
-    phone?: string | null;
+    phone: string | null;
     /**
      * Chaves pix do contato.
      * @type {Array<string>}

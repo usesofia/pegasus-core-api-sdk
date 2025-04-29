@@ -62,19 +62,19 @@ export interface CreateInstallmentFinancialRecordRequestBodyDtoPopulatedContact 
      * @type {string}
      * @memberof CreateInstallmentFinancialRecordRequestBodyDtoPopulatedContact
      */
-    document?: string | null;
+    document: string | null;
     /**
      * Email do contato.
      * @type {string}
      * @memberof CreateInstallmentFinancialRecordRequestBodyDtoPopulatedContact
      */
-    email?: string | null;
+    email: string | null;
     /**
      * Telefone do contato.
      * @type {string}
      * @memberof CreateInstallmentFinancialRecordRequestBodyDtoPopulatedContact
      */
-    phone?: string | null;
+    phone: string | null;
     /**
      * Chaves pix do contato.
      * @type {Array<string>}
@@ -164,6 +164,9 @@ export function instanceOfCreateInstallmentFinancialRecordRequestBodyDtoPopulate
     if (!('ownerOrganization' in value) || value['ownerOrganization'] === undefined) return false;
     if (!('name' in value) || value['name'] === undefined) return false;
     if (!('types' in value) || value['types'] === undefined) return false;
+    if (!('document' in value) || value['document'] === undefined) return false;
+    if (!('email' in value) || value['email'] === undefined) return false;
+    if (!('phone' in value) || value['phone'] === undefined) return false;
     if (!('pixKeys' in value) || value['pixKeys'] === undefined) return false;
     if (!('isNotIdentified' in value) || value['isNotIdentified'] === undefined) return false;
     if (!('createdAt' in value) || value['createdAt'] === undefined) return false;
@@ -186,9 +189,9 @@ export function CreateInstallmentFinancialRecordRequestBodyDtoPopulatedContactFr
         'name': json['name'],
         'types': json['types'],
         'documentType': json['documentType'] == null ? undefined : json['documentType'],
-        'document': json['document'] == null ? undefined : json['document'],
-        'email': json['email'] == null ? undefined : json['email'],
-        'phone': json['phone'] == null ? undefined : json['phone'],
+        'document': json['document'],
+        'email': json['email'],
+        'phone': json['phone'],
         'pixKeys': json['pixKeys'],
         'birthDate': json['birthDate'] == null ? undefined : json['birthDate'],
         'origin': json['origin'] == null ? undefined : json['origin'],

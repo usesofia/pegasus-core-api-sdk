@@ -132,19 +132,19 @@ export interface FinancialRecordsPageDtoItemsInner {
      * @type {string}
      * @memberof FinancialRecordsPageDtoItemsInner
      */
-    pixKey?: string;
+    pixKey?: string | null;
     /**
      * Código do boleto.
      * @type {string}
      * @memberof FinancialRecordsPageDtoItemsInner
      */
-    boletoCode?: string;
+    boletoCode?: string | null;
     /**
      * Número da nota fiscal.
      * @type {string}
      * @memberof FinancialRecordsPageDtoItemsInner
      */
-    invoiceNumber?: string;
+    invoiceNumber?: string | null;
     /**
      * Indica se o lançamento foi concluído.
      * @type {boolean}
@@ -162,7 +162,7 @@ export interface FinancialRecordsPageDtoItemsInner {
      * @type {string}
      * @memberof FinancialRecordsPageDtoItemsInner
      */
-    account?: string;
+    account?: string | null;
     /**
      * 
      * @type {string}
@@ -192,19 +192,19 @@ export interface FinancialRecordsPageDtoItemsInner {
      * @type {string}
      * @memberof FinancialRecordsPageDtoItemsInner
      */
-    bankStatement?: string;
+    bankStatement?: string | null;
     /**
      * Identificador do lançamento financeiro parcelado.
      * @type {string}
      * @memberof FinancialRecordsPageDtoItemsInner
      */
-    installmentFinancialRecord?: string;
+    installmentFinancialRecord?: string | null;
     /**
      * Identificador do lançamento financeiro recorrente.
      * @type {string}
      * @memberof FinancialRecordsPageDtoItemsInner
      */
-    recurringFinancialRecord?: string;
+    recurringFinancialRecord?: string | null;
     /**
      * Data de criação do lançamento.
      * @type {any}
@@ -222,7 +222,7 @@ export interface FinancialRecordsPageDtoItemsInner {
      * @type {Array<CreateFinancialRecordRequestBodyDtoPopulatedFilesInner>}
      * @memberof FinancialRecordsPageDtoItemsInner
      */
-    populatedFiles?: Array<CreateFinancialRecordRequestBodyDtoPopulatedFilesInner>;
+    populatedFiles?: Array<CreateFinancialRecordRequestBodyDtoPopulatedFilesInner> | null;
     /**
      * 
      * @type {CreateFinancialRecordRequestBodyDtoPopulatedSubcategory}
@@ -240,7 +240,7 @@ export interface FinancialRecordsPageDtoItemsInner {
      * @type {Array<CreateFinancialRecordRequestBodyDtoPopulatedTagsInner>}
      * @memberof FinancialRecordsPageDtoItemsInner
      */
-    populatedTags?: Array<CreateFinancialRecordRequestBodyDtoPopulatedTagsInner>;
+    populatedTags?: Array<CreateFinancialRecordRequestBodyDtoPopulatedTagsInner> | null;
     /**
      * 
      * @type {CreateFinancialRecordRequestBodyDtoPopulatedAccount}

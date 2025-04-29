@@ -120,19 +120,19 @@ export interface PartialUpdateFinancialRecordRequestBodyDto {
      * @type {string}
      * @memberof PartialUpdateFinancialRecordRequestBodyDto
      */
-    pixKey?: string;
+    pixKey?: string | null;
     /**
      * Código do boleto.
      * @type {string}
      * @memberof PartialUpdateFinancialRecordRequestBodyDto
      */
-    boletoCode?: string;
+    boletoCode?: string | null;
     /**
      * Número da nota fiscal.
      * @type {string}
      * @memberof PartialUpdateFinancialRecordRequestBodyDto
      */
-    invoiceNumber?: string;
+    invoiceNumber?: string | null;
     /**
      * Indica se o lançamento foi concluído.
      * @type {boolean}
@@ -150,19 +150,19 @@ export interface PartialUpdateFinancialRecordRequestBodyDto {
      * @type {string}
      * @memberof PartialUpdateFinancialRecordRequestBodyDto
      */
-    account?: string;
+    account?: string | null;
     /**
      * Valor do desconto.
      * @type {number}
      * @memberof PartialUpdateFinancialRecordRequestBodyDto
      */
-    discount?: number;
+    discount?: number | null;
     /**
      * Valor de multas e juros.
      * @type {number}
      * @memberof PartialUpdateFinancialRecordRequestBodyDto
      */
-    finesAndInterest?: number;
+    finesAndInterest?: number | null;
     /**
      * Valor final do lançamento.
      * @type {number}
@@ -180,25 +180,25 @@ export interface PartialUpdateFinancialRecordRequestBodyDto {
      * @type {string}
      * @memberof PartialUpdateFinancialRecordRequestBodyDto
      */
-    bankStatement?: string;
+    bankStatement?: string | null;
     /**
      * Identificador do lançamento financeiro parcelado.
      * @type {string}
      * @memberof PartialUpdateFinancialRecordRequestBodyDto
      */
-    installmentFinancialRecord?: string;
+    installmentFinancialRecord?: string | null;
     /**
      * Identificador do lançamento financeiro recorrente.
      * @type {string}
      * @memberof PartialUpdateFinancialRecordRequestBodyDto
      */
-    recurringFinancialRecord?: string;
+    recurringFinancialRecord?: string | null;
     /**
      * Arquivos anexados.
      * @type {Array<CreateFinancialRecordRequestBodyDtoPopulatedFilesInner>}
      * @memberof PartialUpdateFinancialRecordRequestBodyDto
      */
-    populatedFiles?: Array<CreateFinancialRecordRequestBodyDtoPopulatedFilesInner>;
+    populatedFiles?: Array<CreateFinancialRecordRequestBodyDtoPopulatedFilesInner> | null;
     /**
      * 
      * @type {CreateFinancialRecordRequestBodyDtoPopulatedSubcategory}
@@ -216,7 +216,7 @@ export interface PartialUpdateFinancialRecordRequestBodyDto {
      * @type {Array<CreateFinancialRecordRequestBodyDtoPopulatedTagsInner>}
      * @memberof PartialUpdateFinancialRecordRequestBodyDto
      */
-    populatedTags?: Array<CreateFinancialRecordRequestBodyDtoPopulatedTagsInner>;
+    populatedTags?: Array<CreateFinancialRecordRequestBodyDtoPopulatedTagsInner> | null;
     /**
      * 
      * @type {CreateFinancialRecordRequestBodyDtoPopulatedAccount}

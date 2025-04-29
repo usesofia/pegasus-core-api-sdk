@@ -50,9 +50,9 @@ function instanceOfCreateFinancialRecordRequestBodyDtoPopulatedAccount(value) {
         return false;
     if (!('type' in value) || value['type'] === undefined)
         return false;
-    if (!('considerInCashFlow' in value) || value['considerInCashFlow'] === undefined)
-        return false;
     if (!('number' in value) || value['number'] === undefined)
+        return false;
+    if (!('considerInCashFlow' in value) || value['considerInCashFlow'] === undefined)
         return false;
     if (!('isAutomatic' in value) || value['isAutomatic'] === undefined)
         return false;
@@ -78,13 +78,14 @@ function CreateFinancialRecordRequestBodyDtoPopulatedAccountFromJSONTyped(json, 
         'ownerOrganization': json['ownerOrganization'],
         'name': json['name'],
         'type': json['type'],
-        'considerInCashFlow': json['considerInCashFlow'],
         'number': json['number'],
+        'considerInCashFlow': json['considerInCashFlow'],
         'isAutomatic': json['isAutomatic'],
         'isDefault': json['isDefault'],
         'initialBalanceDate': json['initialBalanceDate'] == null ? undefined : json['initialBalanceDate'],
         'initialBalanceAmount': json['initialBalanceAmount'] == null ? undefined : json['initialBalanceAmount'],
         'institution': json['institution'] == null ? undefined : json['institution'],
+        'institutionName': json['institutionName'] == null ? undefined : json['institutionName'],
         'active': json['active'],
         'provider': json['provider'] == null ? undefined : json['provider'],
         'providerAccountId': json['providerAccountId'] == null ? undefined : json['providerAccountId'],
@@ -106,13 +107,14 @@ function CreateFinancialRecordRequestBodyDtoPopulatedAccountToJSONTyped(value, i
         'ownerOrganization': value['ownerOrganization'],
         'name': value['name'],
         'type': value['type'],
-        'considerInCashFlow': value['considerInCashFlow'],
         'number': value['number'],
+        'considerInCashFlow': value['considerInCashFlow'],
         'isAutomatic': value['isAutomatic'],
         'isDefault': value['isDefault'],
         'initialBalanceDate': value['initialBalanceDate'],
         'initialBalanceAmount': value['initialBalanceAmount'],
         'institution': value['institution'],
+        'institutionName': value['institutionName'],
         'active': value['active'],
         'provider': value['provider'],
         'providerAccountId': value['providerAccountId'],

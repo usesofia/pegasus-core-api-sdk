@@ -85,19 +85,19 @@ export interface ProspectFinancialRecordDto {
      * @type {string}
      * @memberof ProspectFinancialRecordDto
      */
-    pixKey?: string;
+    pixKey?: string | null;
     /**
      * Código do boleto.
      * @type {string}
      * @memberof ProspectFinancialRecordDto
      */
-    boletoCode?: string;
+    boletoCode?: string | null;
     /**
      * Número da nota fiscal.
      * @type {string}
      * @memberof ProspectFinancialRecordDto
      */
-    invoiceNumber?: string;
+    invoiceNumber?: string | null;
     /**
      * Indica se o lançamento foi concluído.
      * @type {boolean}
@@ -115,7 +115,7 @@ export interface ProspectFinancialRecordDto {
      * @type {string}
      * @memberof ProspectFinancialRecordDto
      */
-    account?: string;
+    account?: string | null;
     /**
      *
      * @type {string}
@@ -145,25 +145,25 @@ export interface ProspectFinancialRecordDto {
      * @type {string}
      * @memberof ProspectFinancialRecordDto
      */
-    bankStatement?: string;
+    bankStatement?: string | null;
     /**
      * Identificador do lançamento financeiro parcelado.
      * @type {string}
      * @memberof ProspectFinancialRecordDto
      */
-    installmentFinancialRecord?: string;
+    installmentFinancialRecord?: string | null;
     /**
      * Identificador do lançamento financeiro recorrente.
      * @type {string}
      * @memberof ProspectFinancialRecordDto
      */
-    recurringFinancialRecord?: string;
+    recurringFinancialRecord?: string | null;
     /**
      * Arquivos anexados.
      * @type {Array<CreateFinancialRecordRequestBodyDtoPopulatedFilesInner>}
      * @memberof ProspectFinancialRecordDto
      */
-    populatedFiles?: Array<CreateFinancialRecordRequestBodyDtoPopulatedFilesInner>;
+    populatedFiles?: Array<CreateFinancialRecordRequestBodyDtoPopulatedFilesInner> | null;
     /**
      *
      * @type {CreateFinancialRecordRequestBodyDtoPopulatedSubcategory}
@@ -181,7 +181,7 @@ export interface ProspectFinancialRecordDto {
      * @type {Array<CreateFinancialRecordRequestBodyDtoPopulatedTagsInner>}
      * @memberof ProspectFinancialRecordDto
      */
-    populatedTags?: Array<CreateFinancialRecordRequestBodyDtoPopulatedTagsInner>;
+    populatedTags?: Array<CreateFinancialRecordRequestBodyDtoPopulatedTagsInner> | null;
     /**
      *
      * @type {CreateFinancialRecordRequestBodyDtoPopulatedAccount}

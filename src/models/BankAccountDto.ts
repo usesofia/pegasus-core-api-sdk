@@ -44,17 +44,17 @@ export interface BankAccountDto {
      */
     type: BankAccountDtoTypeEnum;
     /**
-     * Indica se a conta deve ser considerada nos cálculos de fluxo de caixa.
-     * @type {boolean}
-     * @memberof BankAccountDto
-     */
-    considerInCashFlow: boolean;
-    /**
      * Número da conta ou cartão.
      * @type {string}
      * @memberof BankAccountDto
      */
     number: string;
+    /**
+     * Indica se a conta deve ser considerada nos cálculos de fluxo de caixa.
+     * @type {boolean}
+     * @memberof BankAccountDto
+     */
+    considerInCashFlow: boolean;
     /**
      * Indica se a conta é automática ou manual.
      * @type {boolean}
@@ -85,6 +85,12 @@ export interface BankAccountDto {
      * @memberof BankAccountDto
      */
     institution?: string | null;
+    /**
+     * Nome da instituição financeira.
+     * @type {string}
+     * @memberof BankAccountDto
+     */
+    institutionName?: string | null;
     /**
      * Indica se a conta está ativa.
      * @type {boolean}
@@ -156,8 +162,8 @@ export function instanceOfBankAccountDto(value: object): value is BankAccountDto
     if (!('ownerOrganization' in value) || value['ownerOrganization'] === undefined) return false;
     if (!('name' in value) || value['name'] === undefined) return false;
     if (!('type' in value) || value['type'] === undefined) return false;
-    if (!('considerInCashFlow' in value) || value['considerInCashFlow'] === undefined) return false;
     if (!('number' in value) || value['number'] === undefined) return false;
+    if (!('considerInCashFlow' in value) || value['considerInCashFlow'] === undefined) return false;
     if (!('isAutomatic' in value) || value['isAutomatic'] === undefined) return false;
     if (!('isDefault' in value) || value['isDefault'] === undefined) return false;
     if (!('active' in value) || value['active'] === undefined) return false;
@@ -180,13 +186,14 @@ export function BankAccountDtoFromJSONTyped(json: any, ignoreDiscriminator: bool
         'ownerOrganization': json['ownerOrganization'],
         'name': json['name'],
         'type': json['type'],
-        'considerInCashFlow': json['considerInCashFlow'],
         'number': json['number'],
+        'considerInCashFlow': json['considerInCashFlow'],
         'isAutomatic': json['isAutomatic'],
         'isDefault': json['isDefault'],
         'initialBalanceDate': json['initialBalanceDate'] == null ? undefined : json['initialBalanceDate'],
         'initialBalanceAmount': json['initialBalanceAmount'] == null ? undefined : json['initialBalanceAmount'],
         'institution': json['institution'] == null ? undefined : json['institution'],
+        'institutionName': json['institutionName'] == null ? undefined : json['institutionName'],
         'active': json['active'],
         'provider': json['provider'] == null ? undefined : json['provider'],
         'providerAccountId': json['providerAccountId'] == null ? undefined : json['providerAccountId'],
@@ -211,13 +218,14 @@ export function BankAccountDtoToJSONTyped(value?: BankAccountDto | null, ignoreD
         'ownerOrganization': value['ownerOrganization'],
         'name': value['name'],
         'type': value['type'],
-        'considerInCashFlow': value['considerInCashFlow'],
         'number': value['number'],
+        'considerInCashFlow': value['considerInCashFlow'],
         'isAutomatic': value['isAutomatic'],
         'isDefault': value['isDefault'],
         'initialBalanceDate': value['initialBalanceDate'],
         'initialBalanceAmount': value['initialBalanceAmount'],
         'institution': value['institution'],
+        'institutionName': value['institutionName'],
         'active': value['active'],
         'provider': value['provider'],
         'providerAccountId': value['providerAccountId'],

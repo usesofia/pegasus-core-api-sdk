@@ -40,17 +40,17 @@ export interface BankAccountDto {
      */
     type: BankAccountDtoTypeEnum;
     /**
-     * Indica se a conta deve ser considerada nos cálculos de fluxo de caixa.
-     * @type {boolean}
-     * @memberof BankAccountDto
-     */
-    considerInCashFlow: boolean;
-    /**
      * Número da conta ou cartão.
      * @type {string}
      * @memberof BankAccountDto
      */
     number: string;
+    /**
+     * Indica se a conta deve ser considerada nos cálculos de fluxo de caixa.
+     * @type {boolean}
+     * @memberof BankAccountDto
+     */
+    considerInCashFlow: boolean;
     /**
      * Indica se a conta é automática ou manual.
      * @type {boolean}
@@ -81,6 +81,12 @@ export interface BankAccountDto {
      * @memberof BankAccountDto
      */
     institution?: string | null;
+    /**
+     * Nome da instituição financeira.
+     * @type {string}
+     * @memberof BankAccountDto
+     */
+    institutionName?: string | null;
     /**
      * Indica se a conta está ativa.
      * @type {boolean}
