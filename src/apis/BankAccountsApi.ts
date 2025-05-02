@@ -55,7 +55,8 @@ export interface FindAllBankAccountsRequest {
     isDefault?: boolean;
     isAutomatic?: boolean;
     type?: string;
-    searchTerm?: string;
+    semanticSearchTermInBase64?: string;
+    textSearchTerm?: string;
     pageSize?: number;
     pageIndex?: number;
 }
@@ -79,6 +80,23 @@ export interface PartialUpdateBankAccountRequest {
 export interface RemoveBankAccountRequest {
     id: string;
     removeBankAccountRequestBodyDto: RemoveBankAccountRequestBodyDto;
+}
+
+export interface SystemFindAllBankAccountsRequest {
+    ownerOrganizationId: string;
+    sortOrder?: string;
+    sortBy?: string;
+    populate?: string;
+    providerAccountId?: string;
+    provider?: string;
+    active?: boolean;
+    isDefault?: boolean;
+    isAutomatic?: boolean;
+    type?: string;
+    semanticSearchTermInBase64?: string;
+    textSearchTerm?: string;
+    pageSize?: number;
+    pageIndex?: number;
 }
 
 /**
@@ -130,7 +148,8 @@ export interface BankAccountsApiInterface {
      * @param {boolean} [isDefault] Indica se a conta é a padrão.
      * @param {boolean} [isAutomatic] Indica se a conta é automática ou manual.
      * @param {string} [type] Tipo de conta bancária a ser buscada.
-     * @param {string} [searchTerm] Termo para busca por nome da conta bancária.
+     * @param {string} [semanticSearchTermInBase64] Termo para busca semântica da conta bancária em base64.
+     * @param {string} [textSearchTerm] Termo para busca textual da conta bancária.
      * @param {number} [pageSize] Quantidade de itens por página.
      * @param {number} [pageIndex] Índice da página.
      * @param {*} [options] Override http request option.
@@ -208,6 +227,34 @@ export interface BankAccountsApiInterface {
      * Remove uma conta bancária.
      */
     removeBankAccount(requestParameters: RemoveBankAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+
+    /**
+     * 
+     * @summary Busca todas as contas bancárias.
+     * @param {string} ownerOrganizationId Identificador da organização proprietária das contas bancárias.
+     * @param {string} [sortOrder] Ordem de ordenação das contas bancárias.
+     * @param {string} [sortBy] Campo para ordenação das contas bancárias.
+     * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
+     * @param {string} [providerAccountId] Identificador da conta bancária no fornecedor.
+     * @param {string} [provider] Fornecedor da conta bancária.
+     * @param {boolean} [active] Indica se a conta está ativa.
+     * @param {boolean} [isDefault] Indica se a conta é a padrão.
+     * @param {boolean} [isAutomatic] Indica se a conta é automática ou manual.
+     * @param {string} [type] Tipo de conta bancária a ser buscada.
+     * @param {string} [semanticSearchTermInBase64] Termo para busca semântica da conta bancária em base64.
+     * @param {string} [textSearchTerm] Termo para busca textual da conta bancária.
+     * @param {number} [pageSize] Quantidade de itens por página.
+     * @param {number} [pageIndex] Índice da página.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof BankAccountsApiInterface
+     */
+    systemFindAllBankAccountsRaw(requestParameters: SystemFindAllBankAccountsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankAccountsPageDto>>;
+
+    /**
+     * Busca todas as contas bancárias.
+     */
+    systemFindAllBankAccounts(requestParameters: SystemFindAllBankAccountsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankAccountsPageDto>;
 
 }
 
@@ -324,8 +371,12 @@ export class BankAccountsApi extends runtime.BaseAPI implements BankAccountsApiI
             queryParameters['type'] = requestParameters['type'];
         }
 
-        if (requestParameters['searchTerm'] != null) {
-            queryParameters['searchTerm'] = requestParameters['searchTerm'];
+        if (requestParameters['semanticSearchTermInBase64'] != null) {
+            queryParameters['semanticSearchTermInBase64'] = requestParameters['semanticSearchTermInBase64'];
+        }
+
+        if (requestParameters['textSearchTerm'] != null) {
+            queryParameters['textSearchTerm'] = requestParameters['textSearchTerm'];
         }
 
         if (requestParameters['pageSize'] != null) {
@@ -517,6 +568,95 @@ export class BankAccountsApi extends runtime.BaseAPI implements BankAccountsApiI
      */
     async removeBankAccount(requestParameters: RemoveBankAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.removeBankAccountRaw(requestParameters, initOverrides);
+    }
+
+    /**
+     * Busca todas as contas bancárias.
+     */
+    async systemFindAllBankAccountsRaw(requestParameters: SystemFindAllBankAccountsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankAccountsPageDto>> {
+        if (requestParameters['ownerOrganizationId'] == null) {
+            throw new runtime.RequiredError(
+                'ownerOrganizationId',
+                'Required parameter "ownerOrganizationId" was null or undefined when calling systemFindAllBankAccounts().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['sortOrder'] != null) {
+            queryParameters['sortOrder'] = requestParameters['sortOrder'];
+        }
+
+        if (requestParameters['sortBy'] != null) {
+            queryParameters['sortBy'] = requestParameters['sortBy'];
+        }
+
+        if (requestParameters['ownerOrganizationId'] != null) {
+            queryParameters['ownerOrganizationId'] = requestParameters['ownerOrganizationId'];
+        }
+
+        if (requestParameters['populate'] != null) {
+            queryParameters['populate'] = requestParameters['populate'];
+        }
+
+        if (requestParameters['providerAccountId'] != null) {
+            queryParameters['providerAccountId'] = requestParameters['providerAccountId'];
+        }
+
+        if (requestParameters['provider'] != null) {
+            queryParameters['provider'] = requestParameters['provider'];
+        }
+
+        if (requestParameters['active'] != null) {
+            queryParameters['active'] = requestParameters['active'];
+        }
+
+        if (requestParameters['isDefault'] != null) {
+            queryParameters['isDefault'] = requestParameters['isDefault'];
+        }
+
+        if (requestParameters['isAutomatic'] != null) {
+            queryParameters['isAutomatic'] = requestParameters['isAutomatic'];
+        }
+
+        if (requestParameters['type'] != null) {
+            queryParameters['type'] = requestParameters['type'];
+        }
+
+        if (requestParameters['semanticSearchTermInBase64'] != null) {
+            queryParameters['semanticSearchTermInBase64'] = requestParameters['semanticSearchTermInBase64'];
+        }
+
+        if (requestParameters['textSearchTerm'] != null) {
+            queryParameters['textSearchTerm'] = requestParameters['textSearchTerm'];
+        }
+
+        if (requestParameters['pageSize'] != null) {
+            queryParameters['pageSize'] = requestParameters['pageSize'];
+        }
+
+        if (requestParameters['pageIndex'] != null) {
+            queryParameters['pageIndex'] = requestParameters['pageIndex'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/internal/bank-accounts`,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => BankAccountsPageDtoFromJSON(jsonValue));
+    }
+
+    /**
+     * Busca todas as contas bancárias.
+     */
+    async systemFindAllBankAccounts(requestParameters: SystemFindAllBankAccountsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankAccountsPageDto> {
+        const response = await this.systemFindAllBankAccountsRaw(requestParameters, initOverrides);
+        return await response.value();
     }
 
 }

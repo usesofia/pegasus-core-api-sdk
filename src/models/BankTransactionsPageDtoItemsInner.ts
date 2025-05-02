@@ -229,6 +229,12 @@ export interface BankTransactionsPageDtoItemsInner {
      */
     operationType?: string | null;
     /**
+     * Pontuação de busca da movimentação financeira.
+     * @type {number}
+     * @memberof BankTransactionsPageDtoItemsInner
+     */
+    searchScore?: number | null;
+    /**
      * Data de criação da movimentação financeira.
      * @type {any}
      * @memberof BankTransactionsPageDtoItemsInner
@@ -337,6 +343,7 @@ export function BankTransactionsPageDtoItemsInnerFromJSONTyped(json: any, ignore
         'merchant': json['merchant'] == null ? undefined : CreateOrUpdateBankTransactionRequestBodyDtoMerchantFromJSON(json['merchant']),
         'categoryId': json['categoryId'] == null ? undefined : json['categoryId'],
         'operationType': json['operationType'] == null ? undefined : json['operationType'],
+        'searchScore': json['searchScore'] == null ? undefined : json['searchScore'],
         'createdAt': json['createdAt'],
         'updatedAt': json['updatedAt'],
     };
@@ -383,6 +390,7 @@ export function BankTransactionsPageDtoItemsInnerToJSONTyped(value?: BankTransac
         'merchant': CreateOrUpdateBankTransactionRequestBodyDtoMerchantToJSON(value['merchant']),
         'categoryId': value['categoryId'],
         'operationType': value['operationType'],
+        'searchScore': value['searchScore'],
         'createdAt': value['createdAt'],
         'updatedAt': value['updatedAt'],
     };

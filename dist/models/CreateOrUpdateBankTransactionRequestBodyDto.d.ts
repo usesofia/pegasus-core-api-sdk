@@ -140,6 +140,12 @@ export interface CreateOrUpdateBankTransactionRequestBodyDto {
      */
     operationType?: string | null;
     /**
+     * Pontuação de busca da movimentação financeira.
+     * @type {number}
+     * @memberof CreateOrUpdateBankTransactionRequestBodyDto
+     */
+    searchScore?: number | null;
+    /**
      *
      * @type {CreateOrUpdateBankTransactionRequestBodyDtoRequester}
      * @memberof CreateOrUpdateBankTransactionRequestBodyDto

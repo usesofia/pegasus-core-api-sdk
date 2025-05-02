@@ -46,6 +46,7 @@ function CreateTagRequestBodyDtoFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'name': json['name'],
+        'searchScore': json['searchScore'] == null ? undefined : json['searchScore'],
         'channel': json['channel'],
     };
 }
@@ -59,6 +60,7 @@ function CreateTagRequestBodyDtoToJSONTyped(value, ignoreDiscriminator) {
     }
     return {
         'name': value['name'],
+        'searchScore': value['searchScore'],
         'channel': value['channel'],
     };
 }

@@ -90,6 +90,7 @@ function BankTransactionEntityPopulatedBankAccountFromJSONTyped(json, ignoreDisc
         'provider': json['provider'] == null ? undefined : json['provider'],
         'providerAccountId': json['providerAccountId'] == null ? undefined : json['providerAccountId'],
         'providerItemId': json['providerItemId'] == null ? undefined : json['providerItemId'],
+        'searchScore': json['searchScore'] == null ? undefined : json['searchScore'],
         'createdAt': json['createdAt'],
         'updatedAt': json['updatedAt'],
     };
@@ -119,6 +120,7 @@ function BankTransactionEntityPopulatedBankAccountToJSONTyped(value, ignoreDiscr
         'provider': value['provider'],
         'providerAccountId': value['providerAccountId'],
         'providerItemId': value['providerItemId'],
+        'searchScore': value['searchScore'],
         'createdAt': value['createdAt'],
         'updatedAt': value['updatedAt'],
     };

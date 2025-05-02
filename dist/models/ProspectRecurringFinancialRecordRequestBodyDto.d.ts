@@ -128,6 +128,12 @@ export interface ProspectRecurringFinancialRecordRequestBodyDto {
      */
     populatedFiles?: Array<CreateFinancialRecordRequestBodyDtoPopulatedFilesInner> | null;
     /**
+     *
+     * @type {number}
+     * @memberof ProspectRecurringFinancialRecordRequestBodyDto
+     */
+    searchScore?: number;
+    /**
      * Canal de origem da operação
      * @type {string}
      * @memberof ProspectRecurringFinancialRecordRequestBodyDto

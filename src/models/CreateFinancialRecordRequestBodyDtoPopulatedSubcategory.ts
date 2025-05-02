@@ -107,6 +107,12 @@ export interface CreateFinancialRecordRequestBodyDtoPopulatedSubcategory {
      */
     active?: boolean;
     /**
+     * Pontuação de busca da subcategoria.
+     * @type {number}
+     * @memberof CreateFinancialRecordRequestBodyDtoPopulatedSubcategory
+     */
+    searchScore?: number | null;
+    /**
      * Data de criação da subcategoria.
      * @type {any}
      * @memberof CreateFinancialRecordRequestBodyDtoPopulatedSubcategory
@@ -159,6 +165,7 @@ export function CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryFromJSONT
         'considerInDre': json['considerInDre'],
         'description': json['description'],
         'active': json['active'] == null ? undefined : json['active'],
+        'searchScore': json['searchScore'] == null ? undefined : json['searchScore'],
         'createdAt': json['createdAt'],
         'updatedAt': json['updatedAt'],
     };
@@ -187,6 +194,7 @@ export function CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryToJSONTyp
         'considerInDre': value['considerInDre'],
         'description': value['description'],
         'active': value['active'],
+        'searchScore': value['searchScore'],
         'createdAt': value['createdAt'],
         'updatedAt': value['updatedAt'],
     };

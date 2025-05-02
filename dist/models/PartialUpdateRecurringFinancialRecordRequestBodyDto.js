@@ -79,6 +79,7 @@ function PartialUpdateRecurringFinancialRecordRequestBodyDtoFromJSONTyped(json, 
         'populatedTags': json['populatedTags'] == null ? undefined : (json['populatedTags'].map(CreateFinancialRecordRequestBodyDtoPopulatedTagsInner_1.CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerFromJSON)),
         'populatedSubcategory': json['populatedSubcategory'] == null ? undefined : (0, CreateRecurringFinancialRecordRequestBodyDtoPopulatedSubcategory_1.CreateRecurringFinancialRecordRequestBodyDtoPopulatedSubcategoryFromJSON)(json['populatedSubcategory']),
         'populatedFiles': json['populatedFiles'] == null ? undefined : (json['populatedFiles'].map(CreateFinancialRecordRequestBodyDtoPopulatedFilesInner_1.CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerFromJSON)),
+        'searchScore': json['searchScore'] == null ? undefined : json['searchScore'],
         'channel': json['channel'],
     };
 }
@@ -108,6 +109,7 @@ function PartialUpdateRecurringFinancialRecordRequestBodyDtoToJSONTyped(value, i
         'populatedTags': value['populatedTags'] == null ? undefined : (value['populatedTags'].map(CreateFinancialRecordRequestBodyDtoPopulatedTagsInner_1.CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerToJSON)),
         'populatedSubcategory': (0, CreateRecurringFinancialRecordRequestBodyDtoPopulatedSubcategory_1.CreateRecurringFinancialRecordRequestBodyDtoPopulatedSubcategoryToJSON)(value['populatedSubcategory']),
         'populatedFiles': value['populatedFiles'] == null ? undefined : (value['populatedFiles'].map(CreateFinancialRecordRequestBodyDtoPopulatedFilesInner_1.CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerToJSON)),
+        'searchScore': value['searchScore'],
         'channel': value['channel'],
     };
 }

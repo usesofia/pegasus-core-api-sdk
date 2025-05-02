@@ -88,6 +88,12 @@ export interface PartialUpdateContactRequestBodyDto {
      */
     address?: CreateContactRequestBodyDtoAddress | null;
     /**
+     * Pontuação de busca do contato.
+     * @type {number}
+     * @memberof PartialUpdateContactRequestBodyDto
+     */
+    searchScore?: number | null;
+    /**
      * Canal de origem da operação
      * @type {string}
      * @memberof PartialUpdateContactRequestBodyDto
@@ -170,6 +176,7 @@ export function PartialUpdateContactRequestBodyDtoFromJSONTyped(json: any, ignor
         'birthDate': json['birthDate'] == null ? undefined : json['birthDate'],
         'origin': json['origin'] == null ? undefined : json['origin'],
         'address': json['address'] == null ? undefined : CreateContactRequestBodyDtoAddressFromJSON(json['address']),
+        'searchScore': json['searchScore'] == null ? undefined : json['searchScore'],
         'channel': json['channel'],
     };
 }
@@ -195,6 +202,7 @@ export function PartialUpdateContactRequestBodyDtoToJSONTyped(value?: PartialUpd
         'birthDate': value['birthDate'],
         'origin': value['origin'],
         'address': CreateContactRequestBodyDtoAddressToJSON(value['address']),
+        'searchScore': value['searchScore'],
         'channel': value['channel'],
     };
 }

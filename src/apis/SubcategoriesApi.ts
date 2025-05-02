@@ -48,7 +48,8 @@ export interface FindAllSubcategoriesRequest {
     sortBy?: string;
     populate?: string;
     categoryId?: string;
-    searchTerm?: string;
+    semanticSearchTermInBase64?: string;
+    textSearchTerm?: string;
     pageSize?: number;
     pageIndex?: number;
 }
@@ -67,6 +68,19 @@ export interface PartialUpdateSubcategoryRequest {
 export interface RemoveSubcategoryRequest {
     id: string;
     removeSubcategoryRequestBodyDto: RemoveSubcategoryRequestBodyDto;
+}
+
+export interface SystemFindAllSubcategoriesRequest {
+    ownerOrganizationId: string;
+    active?: boolean;
+    sortOrder?: string;
+    sortBy?: string;
+    populate?: string;
+    categoryId?: string;
+    semanticSearchTermInBase64?: string;
+    textSearchTerm?: string;
+    pageSize?: number;
+    pageIndex?: number;
 }
 
 /**
@@ -100,7 +114,8 @@ export interface SubcategoriesApiInterface {
      * @param {string} [sortBy] Campo para ordenar as subcategorias.
      * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
      * @param {string} [categoryId] ID da categoria para filtrar subcategorias.
-     * @param {string} [searchTerm] Termo para busca por nome da subcategoria.
+     * @param {string} [semanticSearchTermInBase64] Termo para busca semântica codificado em base64.
+     * @param {string} [textSearchTerm] Termo para busca textual por nome, descrição ou slug da subcategoria.
      * @param {number} [pageSize] Quantidade de itens por página.
      * @param {number} [pageIndex] Índice da página.
      * @param {*} [options] Override http request option.
@@ -162,6 +177,30 @@ export interface SubcategoriesApiInterface {
      * Remove uma subcategoria.
      */
     removeSubcategory(requestParameters: RemoveSubcategoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+
+    /**
+     * 
+     * @summary Busca todas as subcategorias pelo sistema.
+     * @param {string} ownerOrganizationId Identificador da organização proprietária das subcategorias.
+     * @param {boolean} [active] Filtra subcategorias ativas ou inativas.
+     * @param {string} [sortOrder] Ordem de ordenação das subcategorias.
+     * @param {string} [sortBy] Campo para ordenar as subcategorias.
+     * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
+     * @param {string} [categoryId] ID da categoria para filtrar subcategorias.
+     * @param {string} [semanticSearchTermInBase64] Termo para busca semântica codificado em base64.
+     * @param {string} [textSearchTerm] Termo para busca textual por nome, descrição ou slug da subcategoria.
+     * @param {number} [pageSize] Quantidade de itens por página.
+     * @param {number} [pageIndex] Índice da página.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SubcategoriesApiInterface
+     */
+    systemFindAllSubcategoriesRaw(requestParameters: SystemFindAllSubcategoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SubcategoriesPageEntity>>;
+
+    /**
+     * Busca todas as subcategorias pelo sistema.
+     */
+    systemFindAllSubcategories(requestParameters: SystemFindAllSubcategoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SubcategoriesPageEntity>;
 
 }
 
@@ -236,8 +275,12 @@ export class SubcategoriesApi extends runtime.BaseAPI implements SubcategoriesAp
             queryParameters['categoryId'] = requestParameters['categoryId'];
         }
 
-        if (requestParameters['searchTerm'] != null) {
-            queryParameters['searchTerm'] = requestParameters['searchTerm'];
+        if (requestParameters['semanticSearchTermInBase64'] != null) {
+            queryParameters['semanticSearchTermInBase64'] = requestParameters['semanticSearchTermInBase64'];
+        }
+
+        if (requestParameters['textSearchTerm'] != null) {
+            queryParameters['textSearchTerm'] = requestParameters['textSearchTerm'];
         }
 
         if (requestParameters['pageSize'] != null) {
@@ -392,6 +435,79 @@ export class SubcategoriesApi extends runtime.BaseAPI implements SubcategoriesAp
      */
     async removeSubcategory(requestParameters: RemoveSubcategoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.removeSubcategoryRaw(requestParameters, initOverrides);
+    }
+
+    /**
+     * Busca todas as subcategorias pelo sistema.
+     */
+    async systemFindAllSubcategoriesRaw(requestParameters: SystemFindAllSubcategoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SubcategoriesPageEntity>> {
+        if (requestParameters['ownerOrganizationId'] == null) {
+            throw new runtime.RequiredError(
+                'ownerOrganizationId',
+                'Required parameter "ownerOrganizationId" was null or undefined when calling systemFindAllSubcategories().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['ownerOrganizationId'] != null) {
+            queryParameters['ownerOrganizationId'] = requestParameters['ownerOrganizationId'];
+        }
+
+        if (requestParameters['active'] != null) {
+            queryParameters['active'] = requestParameters['active'];
+        }
+
+        if (requestParameters['sortOrder'] != null) {
+            queryParameters['sortOrder'] = requestParameters['sortOrder'];
+        }
+
+        if (requestParameters['sortBy'] != null) {
+            queryParameters['sortBy'] = requestParameters['sortBy'];
+        }
+
+        if (requestParameters['populate'] != null) {
+            queryParameters['populate'] = requestParameters['populate'];
+        }
+
+        if (requestParameters['categoryId'] != null) {
+            queryParameters['categoryId'] = requestParameters['categoryId'];
+        }
+
+        if (requestParameters['semanticSearchTermInBase64'] != null) {
+            queryParameters['semanticSearchTermInBase64'] = requestParameters['semanticSearchTermInBase64'];
+        }
+
+        if (requestParameters['textSearchTerm'] != null) {
+            queryParameters['textSearchTerm'] = requestParameters['textSearchTerm'];
+        }
+
+        if (requestParameters['pageSize'] != null) {
+            queryParameters['pageSize'] = requestParameters['pageSize'];
+        }
+
+        if (requestParameters['pageIndex'] != null) {
+            queryParameters['pageIndex'] = requestParameters['pageIndex'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/internal/subcategories`,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => SubcategoriesPageEntityFromJSON(jsonValue));
+    }
+
+    /**
+     * Busca todas as subcategorias pelo sistema.
+     */
+    async systemFindAllSubcategories(requestParameters: SystemFindAllSubcategoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SubcategoriesPageEntity> {
+        const response = await this.systemFindAllSubcategoriesRaw(requestParameters, initOverrides);
+        return await response.value();
     }
 
 }

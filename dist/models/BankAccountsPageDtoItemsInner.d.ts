@@ -112,6 +112,12 @@ export interface BankAccountsPageDtoItemsInner {
      */
     providerItemId?: string | null;
     /**
+     * Pontuação de busca.
+     * @type {number}
+     * @memberof BankAccountsPageDtoItemsInner
+     */
+    searchScore?: number | null;
+    /**
      * Data de criação da conta bancária.
      * @type {any}
      * @memberof BankAccountsPageDtoItemsInner

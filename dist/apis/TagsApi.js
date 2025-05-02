@@ -143,8 +143,8 @@ var TagsApi = /** @class */ (function (_super) {
                         if (requestParameters['sortBy'] != null) {
                             queryParameters['sortBy'] = requestParameters['sortBy'];
                         }
-                        if (requestParameters['searchTerm'] != null) {
-                            queryParameters['searchTerm'] = requestParameters['searchTerm'];
+                        if (requestParameters['textSearchTerm'] != null) {
+                            queryParameters['textSearchTerm'] = requestParameters['textSearchTerm'];
                         }
                         if (requestParameters['pageSize'] != null) {
                             queryParameters['pageSize'] = requestParameters['pageSize'];

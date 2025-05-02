@@ -115,6 +115,12 @@ export interface CreateInstallmentFinancialRecordRequestBodyDto {
      */
     numberOfInstallments: number;
     /**
+     * Pontuação de busca do lançamento.
+     * @type {number}
+     * @memberof CreateInstallmentFinancialRecordRequestBodyDto
+     */
+    searchScore?: number | null;
+    /**
      * 
      * @type {CreateFinancialRecordRequestBodyDtoPopulatedSubcategory}
      * @memberof CreateInstallmentFinancialRecordRequestBodyDto
@@ -213,6 +219,7 @@ export function CreateInstallmentFinancialRecordRequestBodyDtoFromJSONTyped(json
         'competenceDate': json['competenceDate'] == null ? undefined : json['competenceDate'],
         'files': json['files'] == null ? undefined : json['files'],
         'numberOfInstallments': json['numberOfInstallments'],
+        'searchScore': json['searchScore'] == null ? undefined : json['searchScore'],
         'populatedSubcategory': json['populatedSubcategory'] == null ? undefined : CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryFromJSON(json['populatedSubcategory']),
         'populatedContact': json['populatedContact'] == null ? undefined : CreateInstallmentFinancialRecordRequestBodyDtoPopulatedContactFromJSON(json['populatedContact']),
         'populatedTags': json['populatedTags'] == null ? undefined : ((json['populatedTags'] as Array<any>).map(CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerFromJSON)),
@@ -243,6 +250,7 @@ export function CreateInstallmentFinancialRecordRequestBodyDtoToJSONTyped(value?
         'competenceDate': value['competenceDate'],
         'files': value['files'],
         'numberOfInstallments': value['numberOfInstallments'],
+        'searchScore': value['searchScore'],
         'populatedSubcategory': CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryToJSON(value['populatedSubcategory']),
         'populatedContact': CreateInstallmentFinancialRecordRequestBodyDtoPopulatedContactToJSON(value['populatedContact']),
         'populatedTags': value['populatedTags'] == null ? undefined : ((value['populatedTags'] as Array<any>).map(CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerToJSON)),

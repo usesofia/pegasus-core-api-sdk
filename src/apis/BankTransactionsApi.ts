@@ -45,7 +45,8 @@ export interface FindAllBankTransactionsRequest {
     dateTo?: Date;
     dateFrom?: Date;
     bankAccount?: string;
-    searchTerm?: string;
+    semanticSearchTermInBase64?: string;
+    textSearchTerm?: string;
     pageSize?: number;
     pageIndex?: number;
 }
@@ -59,6 +60,21 @@ export interface PartialUpdateBankTransactionRequest {
     id: string;
     partialUpdateBankTransactionRequestBodyDto: PartialUpdateBankTransactionRequestBodyDto;
     populate?: string;
+}
+
+export interface SystemFindAllBankTransactionsRequest {
+    ownerOrganizationId: string;
+    sortOrder?: string;
+    sortBy?: string;
+    populate?: string;
+    type?: SystemFindAllBankTransactionsTypeEnum;
+    dateTo?: Date;
+    dateFrom?: Date;
+    bankAccount?: string;
+    semanticSearchTermInBase64?: string;
+    textSearchTerm?: string;
+    pageSize?: number;
+    pageIndex?: number;
 }
 
 /**
@@ -92,7 +108,8 @@ export interface BankTransactionsApiInterface {
      * @param {Date} [dateTo] Data final para filtrar.
      * @param {Date} [dateFrom] Data inicial para filtrar.
      * @param {string} [bankAccount] ID da conta bancária para filtrar.
-     * @param {string} [searchTerm] Termo para busca por descrição.
+     * @param {string} [semanticSearchTermInBase64] Termo para busca semântica em base64.
+     * @param {string} [textSearchTerm] Termo para busca textual.
      * @param {number} [pageSize] Quantidade de itens por página.
      * @param {number} [pageIndex] Índice da página.
      * @param {*} [options] Override http request option.
@@ -138,6 +155,32 @@ export interface BankTransactionsApiInterface {
      * Atualiza parcialmente uma movimentação financeira.
      */
     partialUpdateBankTransaction(requestParameters: PartialUpdateBankTransactionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankTransactionEntity>;
+
+    /**
+     * 
+     * @summary Busca todas as movimentações financeiras pelo sistema.
+     * @param {string} ownerOrganizationId Identificador da organização proprietária das movimentações financeiras.
+     * @param {string} [sortOrder] Ordem de ordenação das movimentações financeiras.
+     * @param {string} [sortBy] Campo para ordenação das movimentações financeiras.
+     * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
+     * @param {'DEBIT' | 'CREDIT'} [type] Tipo da movimentação.
+     * @param {Date} [dateTo] Data final para filtrar.
+     * @param {Date} [dateFrom] Data inicial para filtrar.
+     * @param {string} [bankAccount] ID da conta bancária para filtrar.
+     * @param {string} [semanticSearchTermInBase64] Termo para busca semântica em base64.
+     * @param {string} [textSearchTerm] Termo para busca textual.
+     * @param {number} [pageSize] Quantidade de itens por página.
+     * @param {number} [pageIndex] Índice da página.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof BankTransactionsApiInterface
+     */
+    systemFindAllBankTransactionsRaw(requestParameters: SystemFindAllBankTransactionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankTransactionsPageDto>>;
+
+    /**
+     * Busca todas as movimentações financeiras pelo sistema.
+     */
+    systemFindAllBankTransactions(requestParameters: SystemFindAllBankTransactionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankTransactionsPageDto>;
 
 }
 
@@ -212,8 +255,12 @@ export class BankTransactionsApi extends runtime.BaseAPI implements BankTransact
             queryParameters['bankAccount'] = requestParameters['bankAccount'];
         }
 
-        if (requestParameters['searchTerm'] != null) {
-            queryParameters['searchTerm'] = requestParameters['searchTerm'];
+        if (requestParameters['semanticSearchTermInBase64'] != null) {
+            queryParameters['semanticSearchTermInBase64'] = requestParameters['semanticSearchTermInBase64'];
+        }
+
+        if (requestParameters['textSearchTerm'] != null) {
+            queryParameters['textSearchTerm'] = requestParameters['textSearchTerm'];
         }
 
         if (requestParameters['pageSize'] != null) {
@@ -328,6 +375,87 @@ export class BankTransactionsApi extends runtime.BaseAPI implements BankTransact
         return await response.value();
     }
 
+    /**
+     * Busca todas as movimentações financeiras pelo sistema.
+     */
+    async systemFindAllBankTransactionsRaw(requestParameters: SystemFindAllBankTransactionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankTransactionsPageDto>> {
+        if (requestParameters['ownerOrganizationId'] == null) {
+            throw new runtime.RequiredError(
+                'ownerOrganizationId',
+                'Required parameter "ownerOrganizationId" was null or undefined when calling systemFindAllBankTransactions().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['sortOrder'] != null) {
+            queryParameters['sortOrder'] = requestParameters['sortOrder'];
+        }
+
+        if (requestParameters['sortBy'] != null) {
+            queryParameters['sortBy'] = requestParameters['sortBy'];
+        }
+
+        if (requestParameters['ownerOrganizationId'] != null) {
+            queryParameters['ownerOrganizationId'] = requestParameters['ownerOrganizationId'];
+        }
+
+        if (requestParameters['populate'] != null) {
+            queryParameters['populate'] = requestParameters['populate'];
+        }
+
+        if (requestParameters['type'] != null) {
+            queryParameters['type'] = requestParameters['type'];
+        }
+
+        if (requestParameters['dateTo'] != null) {
+            queryParameters['dateTo'] = (requestParameters['dateTo'] as any).toISOString();
+        }
+
+        if (requestParameters['dateFrom'] != null) {
+            queryParameters['dateFrom'] = (requestParameters['dateFrom'] as any).toISOString();
+        }
+
+        if (requestParameters['bankAccount'] != null) {
+            queryParameters['bankAccount'] = requestParameters['bankAccount'];
+        }
+
+        if (requestParameters['semanticSearchTermInBase64'] != null) {
+            queryParameters['semanticSearchTermInBase64'] = requestParameters['semanticSearchTermInBase64'];
+        }
+
+        if (requestParameters['textSearchTerm'] != null) {
+            queryParameters['textSearchTerm'] = requestParameters['textSearchTerm'];
+        }
+
+        if (requestParameters['pageSize'] != null) {
+            queryParameters['pageSize'] = requestParameters['pageSize'];
+        }
+
+        if (requestParameters['pageIndex'] != null) {
+            queryParameters['pageIndex'] = requestParameters['pageIndex'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/internal/bank-transactions`,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => BankTransactionsPageDtoFromJSON(jsonValue));
+    }
+
+    /**
+     * Busca todas as movimentações financeiras pelo sistema.
+     */
+    async systemFindAllBankTransactions(requestParameters: SystemFindAllBankTransactionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankTransactionsPageDto> {
+        const response = await this.systemFindAllBankTransactionsRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
 }
 
 /**
@@ -338,3 +466,11 @@ export const FindAllBankTransactionsTypeEnum = {
     Credit: 'CREDIT'
 } as const;
 export type FindAllBankTransactionsTypeEnum = typeof FindAllBankTransactionsTypeEnum[keyof typeof FindAllBankTransactionsTypeEnum];
+/**
+ * @export
+ */
+export const SystemFindAllBankTransactionsTypeEnum = {
+    Debit: 'DEBIT',
+    Credit: 'CREDIT'
+} as const;
+export type SystemFindAllBankTransactionsTypeEnum = typeof SystemFindAllBankTransactionsTypeEnum[keyof typeof SystemFindAllBankTransactionsTypeEnum];

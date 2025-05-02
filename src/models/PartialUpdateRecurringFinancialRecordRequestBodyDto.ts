@@ -151,6 +151,12 @@ export interface PartialUpdateRecurringFinancialRecordRequestBodyDto {
      */
     populatedFiles?: Array<CreateFinancialRecordRequestBodyDtoPopulatedFilesInner> | null;
     /**
+     * 
+     * @type {number}
+     * @memberof PartialUpdateRecurringFinancialRecordRequestBodyDto
+     */
+    searchScore?: number;
+    /**
      * Canal de origem da operação
      * @type {string}
      * @memberof PartialUpdateRecurringFinancialRecordRequestBodyDto
@@ -224,6 +230,7 @@ export function PartialUpdateRecurringFinancialRecordRequestBodyDtoFromJSONTyped
         'populatedTags': json['populatedTags'] == null ? undefined : ((json['populatedTags'] as Array<any>).map(CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerFromJSON)),
         'populatedSubcategory': json['populatedSubcategory'] == null ? undefined : CreateRecurringFinancialRecordRequestBodyDtoPopulatedSubcategoryFromJSON(json['populatedSubcategory']),
         'populatedFiles': json['populatedFiles'] == null ? undefined : ((json['populatedFiles'] as Array<any>).map(CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerFromJSON)),
+        'searchScore': json['searchScore'] == null ? undefined : json['searchScore'],
         'channel': json['channel'],
     };
 }
@@ -256,6 +263,7 @@ export function PartialUpdateRecurringFinancialRecordRequestBodyDtoToJSONTyped(v
         'populatedTags': value['populatedTags'] == null ? undefined : ((value['populatedTags'] as Array<any>).map(CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerToJSON)),
         'populatedSubcategory': CreateRecurringFinancialRecordRequestBodyDtoPopulatedSubcategoryToJSON(value['populatedSubcategory']),
         'populatedFiles': value['populatedFiles'] == null ? undefined : ((value['populatedFiles'] as Array<any>).map(CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerToJSON)),
+        'searchScore': value['searchScore'],
         'channel': value['channel'],
     };
 }

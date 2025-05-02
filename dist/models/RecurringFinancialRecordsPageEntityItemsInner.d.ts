@@ -151,6 +151,12 @@ export interface RecurringFinancialRecordsPageEntityItemsInner {
      * @memberof RecurringFinancialRecordsPageEntityItemsInner
      */
     populatedFiles?: Array<CreateFinancialRecordRequestBodyDtoPopulatedFilesInner> | null;
+    /**
+     *
+     * @type {number}
+     * @memberof RecurringFinancialRecordsPageEntityItemsInner
+     */
+    searchScore?: number;
 }
 /**
  * @export

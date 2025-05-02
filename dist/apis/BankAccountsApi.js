@@ -202,8 +202,11 @@ var BankAccountsApi = /** @class */ (function (_super) {
                         if (requestParameters['type'] != null) {
                             queryParameters['type'] = requestParameters['type'];
                         }
-                        if (requestParameters['searchTerm'] != null) {
-                            queryParameters['searchTerm'] = requestParameters['searchTerm'];
+                        if (requestParameters['semanticSearchTermInBase64'] != null) {
+                            queryParameters['semanticSearchTermInBase64'] = requestParameters['semanticSearchTermInBase64'];
+                        }
+                        if (requestParameters['textSearchTerm'] != null) {
+                            queryParameters['textSearchTerm'] = requestParameters['textSearchTerm'];
                         }
                         if (requestParameters['pageSize'] != null) {
                             queryParameters['pageSize'] = requestParameters['pageSize'];
@@ -432,6 +435,92 @@ var BankAccountsApi = /** @class */ (function (_super) {
                     case 1:
                         _a.sent();
                         return [2 /*return*/];
+                }
+            });
+        });
+    };
+    /**
+     * Busca todas as contas bancárias.
+     */
+    BankAccountsApi.prototype.systemFindAllBankAccountsRaw = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (requestParameters['ownerOrganizationId'] == null) {
+                            throw new runtime.RequiredError('ownerOrganizationId', 'Required parameter "ownerOrganizationId" was null or undefined when calling systemFindAllBankAccounts().');
+                        }
+                        queryParameters = {};
+                        if (requestParameters['sortOrder'] != null) {
+                            queryParameters['sortOrder'] = requestParameters['sortOrder'];
+                        }
+                        if (requestParameters['sortBy'] != null) {
+                            queryParameters['sortBy'] = requestParameters['sortBy'];
+                        }
+                        if (requestParameters['ownerOrganizationId'] != null) {
+                            queryParameters['ownerOrganizationId'] = requestParameters['ownerOrganizationId'];
+                        }
+                        if (requestParameters['populate'] != null) {
+                            queryParameters['populate'] = requestParameters['populate'];
+                        }
+                        if (requestParameters['providerAccountId'] != null) {
+                            queryParameters['providerAccountId'] = requestParameters['providerAccountId'];
+                        }
+                        if (requestParameters['provider'] != null) {
+                            queryParameters['provider'] = requestParameters['provider'];
+                        }
+                        if (requestParameters['active'] != null) {
+                            queryParameters['active'] = requestParameters['active'];
+                        }
+                        if (requestParameters['isDefault'] != null) {
+                            queryParameters['isDefault'] = requestParameters['isDefault'];
+                        }
+                        if (requestParameters['isAutomatic'] != null) {
+                            queryParameters['isAutomatic'] = requestParameters['isAutomatic'];
+                        }
+                        if (requestParameters['type'] != null) {
+                            queryParameters['type'] = requestParameters['type'];
+                        }
+                        if (requestParameters['semanticSearchTermInBase64'] != null) {
+                            queryParameters['semanticSearchTermInBase64'] = requestParameters['semanticSearchTermInBase64'];
+                        }
+                        if (requestParameters['textSearchTerm'] != null) {
+                            queryParameters['textSearchTerm'] = requestParameters['textSearchTerm'];
+                        }
+                        if (requestParameters['pageSize'] != null) {
+                            queryParameters['pageSize'] = requestParameters['pageSize'];
+                        }
+                        if (requestParameters['pageIndex'] != null) {
+                            queryParameters['pageIndex'] = requestParameters['pageIndex'];
+                        }
+                        headerParameters = {};
+                        return [4 /*yield*/, this.request({
+                                path: "/internal/bank-accounts",
+                                method: 'GET',
+                                headers: headerParameters,
+                                query: queryParameters,
+                            }, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.BankAccountsPageDtoFromJSON)(jsonValue); })];
+                }
+            });
+        });
+    };
+    /**
+     * Busca todas as contas bancárias.
+     */
+    BankAccountsApi.prototype.systemFindAllBankAccounts = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.systemFindAllBankAccountsRaw(requestParameters, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [4 /*yield*/, response.value()];
+                    case 2: return [2 /*return*/, _a.sent()];
                 }
             });
         });

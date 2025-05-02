@@ -212,6 +212,12 @@ export interface FinancialRecordsPageDtoItemsInner {
      * @memberof FinancialRecordsPageDtoItemsInner
      */
     populatedAccount?: CreateFinancialRecordRequestBodyDtoPopulatedAccount | null;
+    /**
+     * Pontuação de busca do lançamento.
+     * @type {number}
+     * @memberof FinancialRecordsPageDtoItemsInner
+     */
+    searchScore?: number | null;
 }
 /**
  * @export

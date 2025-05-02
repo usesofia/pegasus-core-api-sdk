@@ -95,6 +95,7 @@ function CreateOrUpdateBankTransactionRequestBodyDtoFromJSONTyped(json, ignoreDi
         'merchant': json['merchant'] == null ? undefined : (0, CreateOrUpdateBankTransactionRequestBodyDtoMerchant_1.CreateOrUpdateBankTransactionRequestBodyDtoMerchantFromJSON)(json['merchant']),
         'categoryId': json['categoryId'] == null ? undefined : json['categoryId'],
         'operationType': json['operationType'] == null ? undefined : json['operationType'],
+        'searchScore': json['searchScore'] == null ? undefined : json['searchScore'],
         'requester': (0, CreateOrUpdateBankTransactionRequestBodyDtoRequester_1.CreateOrUpdateBankTransactionRequestBodyDtoRequesterFromJSON)(json['requester']),
     };
 }
@@ -127,6 +128,7 @@ function CreateOrUpdateBankTransactionRequestBodyDtoToJSONTyped(value, ignoreDis
         'merchant': (0, CreateOrUpdateBankTransactionRequestBodyDtoMerchant_1.CreateOrUpdateBankTransactionRequestBodyDtoMerchantToJSON)(value['merchant']),
         'categoryId': value['categoryId'],
         'operationType': value['operationType'],
+        'searchScore': value['searchScore'],
         'requester': (0, CreateOrUpdateBankTransactionRequestBodyDtoRequester_1.CreateOrUpdateBankTransactionRequestBodyDtoRequesterToJSON)(value['requester']),
     };
 }

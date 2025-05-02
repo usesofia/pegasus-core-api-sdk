@@ -77,6 +77,12 @@ export interface CreateContactRequestBodyDto {
      */
     address?: CreateContactRequestBodyDtoAddress | null;
     /**
+     * Pontuação de busca do contato.
+     * @type {number}
+     * @memberof CreateContactRequestBodyDto
+     */
+    searchScore?: number | null;
+    /**
      * Canal de origem da operação
      * @type {string}
      * @memberof CreateContactRequestBodyDto

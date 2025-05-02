@@ -64,6 +64,12 @@ export interface PartialUpdateBankAccountRequestBodyDto {
      */
     active?: boolean;
     /**
+     * Pontuação de busca.
+     * @type {number}
+     * @memberof PartialUpdateBankAccountRequestBodyDto
+     */
+    searchScore?: number | null;
+    /**
      * Canal de origem da operação
      * @type {string}
      * @memberof PartialUpdateBankAccountRequestBodyDto

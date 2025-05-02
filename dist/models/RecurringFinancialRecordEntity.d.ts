@@ -151,6 +151,12 @@ export interface RecurringFinancialRecordEntity {
      * @memberof RecurringFinancialRecordEntity
      */
     populatedFiles?: Array<CreateFinancialRecordRequestBodyDtoPopulatedFilesInner> | null;
+    /**
+     *
+     * @type {number}
+     * @memberof RecurringFinancialRecordEntity
+     */
+    searchScore?: number;
 }
 /**
  * @export

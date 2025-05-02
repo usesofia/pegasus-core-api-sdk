@@ -67,6 +67,7 @@ function ExternalCreateSubcategoryRequestBodyDtoFromJSONTyped(json, ignoreDiscri
         'considerInDre': json['considerInDre'],
         'description': json['description'],
         'active': json['active'] == null ? undefined : json['active'],
+        'searchScore': json['searchScore'] == null ? undefined : json['searchScore'],
         'channel': json['channel'],
     };
 }
@@ -89,6 +90,7 @@ function ExternalCreateSubcategoryRequestBodyDtoToJSONTyped(value, ignoreDiscrim
         'considerInDre': value['considerInDre'],
         'description': value['description'],
         'active': value['active'],
+        'searchScore': value['searchScore'],
         'channel': value['channel'],
     };
 }

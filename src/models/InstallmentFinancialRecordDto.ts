@@ -139,6 +139,12 @@ export interface InstallmentFinancialRecordDto {
      */
     updatedAt?: any | null;
     /**
+     * Pontuação de busca do lançamento.
+     * @type {number}
+     * @memberof InstallmentFinancialRecordDto
+     */
+    searchScore?: number | null;
+    /**
      * 
      * @type {CreateFinancialRecordRequestBodyDtoPopulatedSubcategory}
      * @memberof InstallmentFinancialRecordDto
@@ -244,6 +250,7 @@ export function InstallmentFinancialRecordDtoFromJSONTyped(json: any, ignoreDisc
         'numberOfInstallments': json['numberOfInstallments'],
         'createdAt': json['createdAt'] == null ? undefined : json['createdAt'],
         'updatedAt': json['updatedAt'] == null ? undefined : json['updatedAt'],
+        'searchScore': json['searchScore'] == null ? undefined : json['searchScore'],
         'populatedSubcategory': json['populatedSubcategory'] == null ? undefined : CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryFromJSON(json['populatedSubcategory']),
         'populatedContact': json['populatedContact'] == null ? undefined : CreateInstallmentFinancialRecordRequestBodyDtoPopulatedContactFromJSON(json['populatedContact']),
         'populatedTags': json['populatedTags'] == null ? undefined : ((json['populatedTags'] as Array<any>).map(CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerFromJSON)),
@@ -280,6 +287,7 @@ export function InstallmentFinancialRecordDtoToJSONTyped(value?: InstallmentFina
         'numberOfInstallments': value['numberOfInstallments'],
         'createdAt': value['createdAt'],
         'updatedAt': value['updatedAt'],
+        'searchScore': value['searchScore'],
         'populatedSubcategory': CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryToJSON(value['populatedSubcategory']),
         'populatedContact': CreateInstallmentFinancialRecordRequestBodyDtoPopulatedContactToJSON(value['populatedContact']),
         'populatedTags': value['populatedTags'] == null ? undefined : ((value['populatedTags'] as Array<any>).map(CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerToJSON)),

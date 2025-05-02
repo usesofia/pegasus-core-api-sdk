@@ -112,6 +112,12 @@ export interface BankTransactionEntityPopulatedBankAccount {
      */
     providerItemId?: string | null;
     /**
+     * Pontuação de busca.
+     * @type {number}
+     * @memberof BankTransactionEntityPopulatedBankAccount
+     */
+    searchScore?: number | null;
+    /**
      * Data de criação da conta bancária.
      * @type {any}
      * @memberof BankTransactionEntityPopulatedBankAccount

@@ -90,6 +90,12 @@ export interface SubcategoryEntity {
      */
     active?: boolean;
     /**
+     * Pontuação de busca da subcategoria.
+     * @type {number}
+     * @memberof SubcategoryEntity
+     */
+    searchScore?: number | null;
+    /**
      * Data de criação da subcategoria.
      * @type {any}
      * @memberof SubcategoryEntity

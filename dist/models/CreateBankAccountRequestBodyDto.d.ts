@@ -70,6 +70,12 @@ export interface CreateBankAccountRequestBodyDto {
      */
     institution?: string | null;
     /**
+     * Nome da instituição financeira.
+     * @type {string}
+     * @memberof CreateBankAccountRequestBodyDto
+     */
+    institutionName?: string | null;
+    /**
      * Fornecedor da conta bancária.
      * @type {string}
      * @memberof CreateBankAccountRequestBodyDto
@@ -87,6 +93,12 @@ export interface CreateBankAccountRequestBodyDto {
      * @memberof CreateBankAccountRequestBodyDto
      */
     providerItemId?: string | null;
+    /**
+     * Pontuação de busca.
+     * @type {number}
+     * @memberof CreateBankAccountRequestBodyDto
+     */
+    searchScore?: number | null;
     /**
      * Canal de origem da operação
      * @type {string}

@@ -64,7 +64,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.FindAllBankTransactionsTypeEnum = exports.BankTransactionsApi = void 0;
+exports.SystemFindAllBankTransactionsTypeEnum = exports.FindAllBankTransactionsTypeEnum = exports.BankTransactionsApi = void 0;
 var runtime = require("../runtime");
 var index_1 = require("../models/index");
 /**
@@ -149,8 +149,11 @@ var BankTransactionsApi = /** @class */ (function (_super) {
                         if (requestParameters['bankAccount'] != null) {
                             queryParameters['bankAccount'] = requestParameters['bankAccount'];
                         }
-                        if (requestParameters['searchTerm'] != null) {
-                            queryParameters['searchTerm'] = requestParameters['searchTerm'];
+                        if (requestParameters['semanticSearchTermInBase64'] != null) {
+                            queryParameters['semanticSearchTermInBase64'] = requestParameters['semanticSearchTermInBase64'];
+                        }
+                        if (requestParameters['textSearchTerm'] != null) {
+                            queryParameters['textSearchTerm'] = requestParameters['textSearchTerm'];
                         }
                         if (requestParameters['pageSize'] != null) {
                             queryParameters['pageSize'] = requestParameters['pageSize'];
@@ -289,6 +292,86 @@ var BankTransactionsApi = /** @class */ (function (_super) {
             });
         });
     };
+    /**
+     * Busca todas as movimentações financeiras pelo sistema.
+     */
+    BankTransactionsApi.prototype.systemFindAllBankTransactionsRaw = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (requestParameters['ownerOrganizationId'] == null) {
+                            throw new runtime.RequiredError('ownerOrganizationId', 'Required parameter "ownerOrganizationId" was null or undefined when calling systemFindAllBankTransactions().');
+                        }
+                        queryParameters = {};
+                        if (requestParameters['sortOrder'] != null) {
+                            queryParameters['sortOrder'] = requestParameters['sortOrder'];
+                        }
+                        if (requestParameters['sortBy'] != null) {
+                            queryParameters['sortBy'] = requestParameters['sortBy'];
+                        }
+                        if (requestParameters['ownerOrganizationId'] != null) {
+                            queryParameters['ownerOrganizationId'] = requestParameters['ownerOrganizationId'];
+                        }
+                        if (requestParameters['populate'] != null) {
+                            queryParameters['populate'] = requestParameters['populate'];
+                        }
+                        if (requestParameters['type'] != null) {
+                            queryParameters['type'] = requestParameters['type'];
+                        }
+                        if (requestParameters['dateTo'] != null) {
+                            queryParameters['dateTo'] = requestParameters['dateTo'].toISOString();
+                        }
+                        if (requestParameters['dateFrom'] != null) {
+                            queryParameters['dateFrom'] = requestParameters['dateFrom'].toISOString();
+                        }
+                        if (requestParameters['bankAccount'] != null) {
+                            queryParameters['bankAccount'] = requestParameters['bankAccount'];
+                        }
+                        if (requestParameters['semanticSearchTermInBase64'] != null) {
+                            queryParameters['semanticSearchTermInBase64'] = requestParameters['semanticSearchTermInBase64'];
+                        }
+                        if (requestParameters['textSearchTerm'] != null) {
+                            queryParameters['textSearchTerm'] = requestParameters['textSearchTerm'];
+                        }
+                        if (requestParameters['pageSize'] != null) {
+                            queryParameters['pageSize'] = requestParameters['pageSize'];
+                        }
+                        if (requestParameters['pageIndex'] != null) {
+                            queryParameters['pageIndex'] = requestParameters['pageIndex'];
+                        }
+                        headerParameters = {};
+                        return [4 /*yield*/, this.request({
+                                path: "/internal/bank-transactions",
+                                method: 'GET',
+                                headers: headerParameters,
+                                query: queryParameters,
+                            }, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.BankTransactionsPageDtoFromJSON)(jsonValue); })];
+                }
+            });
+        });
+    };
+    /**
+     * Busca todas as movimentações financeiras pelo sistema.
+     */
+    BankTransactionsApi.prototype.systemFindAllBankTransactions = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.systemFindAllBankTransactionsRaw(requestParameters, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [4 /*yield*/, response.value()];
+                    case 2: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
     return BankTransactionsApi;
 }(runtime.BaseAPI));
 exports.BankTransactionsApi = BankTransactionsApi;
@@ -296,6 +379,13 @@ exports.BankTransactionsApi = BankTransactionsApi;
  * @export
  */
 exports.FindAllBankTransactionsTypeEnum = {
+    Debit: 'DEBIT',
+    Credit: 'CREDIT'
+};
+/**
+ * @export
+ */
+exports.SystemFindAllBankTransactionsTypeEnum = {
     Debit: 'DEBIT',
     Credit: 'CREDIT'
 };

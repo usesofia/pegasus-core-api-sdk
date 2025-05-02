@@ -47,6 +47,7 @@ function TagEntityFromJSONTyped(json, ignoreDiscriminator) {
         'name': json['name'],
         'createdAt': json['createdAt'],
         'updatedAt': json['updatedAt'],
+        'searchScore': json['searchScore'] == null ? undefined : json['searchScore'],
     };
 }
 function TagEntityToJSON(json) {
@@ -63,5 +64,6 @@ function TagEntityToJSONTyped(value, ignoreDiscriminator) {
         'name': value['name'],
         'createdAt': value['createdAt'],
         'updatedAt': value['updatedAt'],
+        'searchScore': value['searchScore'],
     };
 }

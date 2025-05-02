@@ -49,6 +49,12 @@ export interface TagEntity {
      * @memberof TagEntity
      */
     updatedAt: any | null;
+    /**
+     * Score da busca textual.
+     * @type {number}
+     * @memberof TagEntity
+     */
+    searchScore?: number;
 }
 
 /**
@@ -78,6 +84,7 @@ export function TagEntityFromJSONTyped(json: any, ignoreDiscriminator: boolean):
         'name': json['name'],
         'createdAt': json['createdAt'],
         'updatedAt': json['updatedAt'],
+        'searchScore': json['searchScore'] == null ? undefined : json['searchScore'],
     };
 }
 
@@ -97,6 +104,7 @@ export function TagEntityToJSONTyped(value?: TagEntity | null, ignoreDiscriminat
         'name': value['name'],
         'createdAt': value['createdAt'],
         'updatedAt': value['updatedAt'],
+        'searchScore': value['searchScore'],
     };
 }
 

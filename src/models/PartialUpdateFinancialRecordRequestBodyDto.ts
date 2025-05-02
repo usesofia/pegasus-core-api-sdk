@@ -224,6 +224,12 @@ export interface PartialUpdateFinancialRecordRequestBodyDto {
      */
     populatedAccount?: CreateFinancialRecordRequestBodyDtoPopulatedAccount | null;
     /**
+     * Pontuação de busca do lançamento.
+     * @type {number}
+     * @memberof PartialUpdateFinancialRecordRequestBodyDto
+     */
+    searchScore?: number | null;
+    /**
      * Canal de origem da operação
      * @type {string}
      * @memberof PartialUpdateFinancialRecordRequestBodyDto
@@ -298,6 +304,7 @@ export function PartialUpdateFinancialRecordRequestBodyDtoFromJSONTyped(json: an
         'populatedContact': json['populatedContact'] == null ? undefined : CreateFinancialRecordRequestBodyDtoPopulatedContactFromJSON(json['populatedContact']),
         'populatedTags': json['populatedTags'] == null ? undefined : ((json['populatedTags'] as Array<any>).map(CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerFromJSON)),
         'populatedAccount': json['populatedAccount'] == null ? undefined : CreateFinancialRecordRequestBodyDtoPopulatedAccountFromJSON(json['populatedAccount']),
+        'searchScore': json['searchScore'] == null ? undefined : json['searchScore'],
         'channel': json['channel'],
     };
 }
@@ -341,6 +348,7 @@ export function PartialUpdateFinancialRecordRequestBodyDtoToJSONTyped(value?: Pa
         'populatedContact': CreateFinancialRecordRequestBodyDtoPopulatedContactToJSON(value['populatedContact']),
         'populatedTags': value['populatedTags'] == null ? undefined : ((value['populatedTags'] as Array<any>).map(CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerToJSON)),
         'populatedAccount': CreateFinancialRecordRequestBodyDtoPopulatedAccountToJSON(value['populatedAccount']),
+        'searchScore': value['searchScore'],
         'channel': value['channel'],
     };
 }

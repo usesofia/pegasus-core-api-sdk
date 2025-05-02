@@ -27,7 +27,6 @@ import {
 
 export interface FindAllCategoriesRequest {
     populate?: string;
-    searchTerm?: string;
     pageSize?: number;
     pageIndex?: number;
 }
@@ -43,7 +42,6 @@ export interface CategoriesApiInterface {
      * 
      * @summary Busca todas as categorias.
      * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
-     * @param {string} [searchTerm] Termo para busca por nome da categoria.
      * @param {number} [pageSize] Quantidade de itens por página.
      * @param {number} [pageIndex] Índice da página.
      * @param {*} [options] Override http request option.
@@ -72,10 +70,6 @@ export class CategoriesApi extends runtime.BaseAPI implements CategoriesApiInter
 
         if (requestParameters['populate'] != null) {
             queryParameters['populate'] = requestParameters['populate'];
-        }
-
-        if (requestParameters['searchTerm'] != null) {
-            queryParameters['searchTerm'] = requestParameters['searchTerm'];
         }
 
         if (requestParameters['pageSize'] != null) {

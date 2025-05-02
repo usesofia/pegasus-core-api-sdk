@@ -22,6 +22,12 @@ export interface PartialUpdateTagRequestBodyDto {
      */
     name?: string;
     /**
+     * Score da busca textual.
+     * @type {number}
+     * @memberof PartialUpdateTagRequestBodyDto
+     */
+    searchScore?: number;
+    /**
      * Canal de origem da operação
      * @type {string}
      * @memberof PartialUpdateTagRequestBodyDto

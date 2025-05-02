@@ -122,6 +122,12 @@ export interface PartialUpdateRecurringFinancialRecordRequestBodyDto {
      */
     populatedFiles?: Array<CreateFinancialRecordRequestBodyDtoPopulatedFilesInner> | null;
     /**
+     *
+     * @type {number}
+     * @memberof PartialUpdateRecurringFinancialRecordRequestBodyDto
+     */
+    searchScore?: number;
+    /**
      * Canal de origem da operação
      * @type {string}
      * @memberof PartialUpdateRecurringFinancialRecordRequestBodyDto

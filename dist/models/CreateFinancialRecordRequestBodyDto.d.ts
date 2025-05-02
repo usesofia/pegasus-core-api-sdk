@@ -189,6 +189,12 @@ export interface CreateFinancialRecordRequestBodyDto {
      */
     populatedAccount?: CreateFinancialRecordRequestBodyDtoPopulatedAccount | null;
     /**
+     * Pontuação de busca do lançamento.
+     * @type {number}
+     * @memberof CreateFinancialRecordRequestBodyDto
+     */
+    searchScore?: number | null;
+    /**
      * Canal de origem da operação
      * @type {string}
      * @memberof CreateFinancialRecordRequestBodyDto

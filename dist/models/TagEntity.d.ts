@@ -45,6 +45,12 @@ export interface TagEntity {
      * @memberof TagEntity
      */
     updatedAt: any | null;
+    /**
+     * Score da busca textual.
+     * @type {number}
+     * @memberof TagEntity
+     */
+    searchScore?: number;
 }
 /**
  * Check if a given object implements the TagEntity interface.

@@ -200,6 +200,12 @@ export interface BankTransactionsPageDtoItemsInner {
      */
     operationType?: string | null;
     /**
+     * Pontuação de busca da movimentação financeira.
+     * @type {number}
+     * @memberof BankTransactionsPageDtoItemsInner
+     */
+    searchScore?: number | null;
+    /**
      * Data de criação da movimentação financeira.
      * @type {any}
      * @memberof BankTransactionsPageDtoItemsInner

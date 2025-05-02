@@ -98,6 +98,7 @@ function ContactsPageEntityItemsInnerFromJSONTyped(json, ignoreDiscriminator) {
         'origin': json['origin'] == null ? undefined : json['origin'],
         'address': json['address'] == null ? undefined : (0, CreateContactRequestBodyDtoAddress_1.CreateContactRequestBodyDtoAddressFromJSON)(json['address']),
         'isNotIdentified': json['isNotIdentified'],
+        'searchScore': json['searchScore'] == null ? undefined : json['searchScore'],
         'createdAt': json['createdAt'],
         'updatedAt': json['updatedAt'],
     };
@@ -124,6 +125,7 @@ function ContactsPageEntityItemsInnerToJSONTyped(value, ignoreDiscriminator) {
         'origin': value['origin'],
         'address': (0, CreateContactRequestBodyDtoAddress_1.CreateContactRequestBodyDtoAddressToJSON)(value['address']),
         'isNotIdentified': value['isNotIdentified'],
+        'searchScore': value['searchScore'],
         'createdAt': value['createdAt'],
         'updatedAt': value['updatedAt'],
     };

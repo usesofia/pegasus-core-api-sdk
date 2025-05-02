@@ -95,6 +95,12 @@ export interface PartialUpdateSubcategoryRequestBodyDto {
      */
     active?: boolean;
     /**
+     * Pontuação de busca da subcategoria.
+     * @type {number}
+     * @memberof PartialUpdateSubcategoryRequestBodyDto
+     */
+    searchScore?: number | null;
+    /**
      * Canal de origem da operação
      * @type {string}
      * @memberof PartialUpdateSubcategoryRequestBodyDto
@@ -142,6 +148,7 @@ export function PartialUpdateSubcategoryRequestBodyDtoFromJSONTyped(json: any, i
         'considerInDre': json['considerInDre'] == null ? undefined : json['considerInDre'],
         'description': json['description'] == null ? undefined : json['description'],
         'active': json['active'] == null ? undefined : json['active'],
+        'searchScore': json['searchScore'] == null ? undefined : json['searchScore'],
         'channel': json['channel'],
     };
 }
@@ -167,6 +174,7 @@ export function PartialUpdateSubcategoryRequestBodyDtoToJSONTyped(value?: Partia
         'considerInDre': value['considerInDre'],
         'description': value['description'],
         'active': value['active'],
+        'searchScore': value['searchScore'],
         'channel': value['channel'],
     };
 }

@@ -26,7 +26,8 @@ export interface FindAllContactsRequest {
     birthdayFrom?: string;
     origins?: string;
     types?: string;
-    searchTerm?: string;
+    semanticSearchTermInBase64?: string;
+    textSearchTerm?: string;
     pageSize?: number;
     pageIndex?: number;
 }
@@ -42,6 +43,23 @@ export interface PartialUpdateContactRequest {
 export interface RemoveContactRequest {
     id: string;
     removeContactRequestBodyDto: RemoveContactRequestBodyDto;
+}
+export interface SystemFindAllContactsRequest {
+    ownerOrganizationId: string;
+    sortOrder?: string;
+    sortBy?: string;
+    populate?: string;
+    considerNotIdentified?: boolean;
+    states?: string;
+    country?: string;
+    birthdayTo?: string;
+    birthdayFrom?: string;
+    origins?: string;
+    types?: string;
+    semanticSearchTermInBase64?: string;
+    textSearchTerm?: string;
+    pageSize?: number;
+    pageIndex?: number;
 }
 /**
  * ContactsApi - interface
@@ -101,7 +119,8 @@ export interface ContactsApiInterface {
      * @param {string} [birthdayFrom] Data de nascimento inicial a serem buscadas.
      * @param {string} [origins] Origens de contato a serem buscadas.
      * @param {string} [types] Tipos de contato a serem buscados.
-     * @param {string} [searchTerm] Termo para busca por nome do contato.
+     * @param {string} [semanticSearchTermInBase64] Termo para busca semântica.
+     * @param {string} [textSearchTerm] Termo para busca textual.
      * @param {number} [pageSize] Quantidade de itens por página.
      * @param {number} [pageIndex] Índice da página.
      * @param {*} [options] Override http request option.
@@ -156,6 +175,33 @@ export interface ContactsApiInterface {
      * Remove um contato.
      */
     removeContact(requestParameters: RemoveContactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+    /**
+     *
+     * @summary Busca todos os contatos pelo sistema.
+     * @param {string} ownerOrganizationId Identificador da organização proprietária dos contatos.
+     * @param {string} [sortOrder] Ordem de ordenação dos contatos.
+     * @param {string} [sortBy] Campo para ordenação dos contatos.
+     * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
+     * @param {boolean} [considerNotIdentified] Considerar ou não o contato não identificado.
+     * @param {string} [states] Estados a serem buscados.
+     * @param {string} [country] País a serem buscados.
+     * @param {string} [birthdayTo] Data de nascimento final a serem buscadas.
+     * @param {string} [birthdayFrom] Data de nascimento inicial a serem buscadas.
+     * @param {string} [origins] Origens de contato a serem buscadas.
+     * @param {string} [types] Tipos de contato a serem buscados.
+     * @param {string} [semanticSearchTermInBase64] Termo para busca semântica.
+     * @param {string} [textSearchTerm] Termo para busca textual.
+     * @param {number} [pageSize] Quantidade de itens por página.
+     * @param {number} [pageIndex] Índice da página.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ContactsApiInterface
+     */
+    systemFindAllContactsRaw(requestParameters: SystemFindAllContactsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ContactsPageEntity>>;
+    /**
+     * Busca todos os contatos pelo sistema.
+     */
+    systemFindAllContacts(requestParameters: SystemFindAllContactsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ContactsPageEntity>;
 }
 /**
  *
@@ -217,4 +263,12 @@ export declare class ContactsApi extends runtime.BaseAPI implements ContactsApiI
      * Remove um contato.
      */
     removeContact(requestParameters: RemoveContactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+    /**
+     * Busca todos os contatos pelo sistema.
+     */
+    systemFindAllContactsRaw(requestParameters: SystemFindAllContactsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ContactsPageEntity>>;
+    /**
+     * Busca todos os contatos pelo sistema.
+     */
+    systemFindAllContacts(requestParameters: SystemFindAllContactsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ContactsPageEntity>;
 }

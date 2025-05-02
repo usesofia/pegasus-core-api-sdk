@@ -90,6 +90,12 @@ export interface CreateFinancialRecordRequestBodyDtoPopulatedSubcategory {
      */
     active?: boolean;
     /**
+     * Pontuação de busca da subcategoria.
+     * @type {number}
+     * @memberof CreateFinancialRecordRequestBodyDtoPopulatedSubcategory
+     */
+    searchScore?: number | null;
+    /**
      * Data de criação da subcategoria.
      * @type {any}
      * @memberof CreateFinancialRecordRequestBodyDtoPopulatedSubcategory

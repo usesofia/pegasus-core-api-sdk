@@ -77,6 +77,12 @@ export interface PartialUpdateContactRequestBodyDto {
      */
     address?: CreateContactRequestBodyDtoAddress | null;
     /**
+     * Pontuação de busca do contato.
+     * @type {number}
+     * @memberof PartialUpdateContactRequestBodyDto
+     */
+    searchScore?: number | null;
+    /**
      * Canal de origem da operação
      * @type {string}
      * @memberof PartialUpdateContactRequestBodyDto

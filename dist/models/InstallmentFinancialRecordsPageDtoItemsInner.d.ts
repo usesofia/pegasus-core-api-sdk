@@ -110,6 +110,12 @@ export interface InstallmentFinancialRecordsPageDtoItemsInner {
      */
     updatedAt?: any | null;
     /**
+     * Pontuação de busca do lançamento.
+     * @type {number}
+     * @memberof InstallmentFinancialRecordsPageDtoItemsInner
+     */
+    searchScore?: number | null;
+    /**
      *
      * @type {CreateFinancialRecordRequestBodyDtoPopulatedSubcategory}
      * @memberof InstallmentFinancialRecordsPageDtoItemsInner

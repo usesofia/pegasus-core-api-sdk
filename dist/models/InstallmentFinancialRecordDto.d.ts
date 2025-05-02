@@ -110,6 +110,12 @@ export interface InstallmentFinancialRecordDto {
      */
     updatedAt?: any | null;
     /**
+     * Pontuação de busca do lançamento.
+     * @type {number}
+     * @memberof InstallmentFinancialRecordDto
+     */
+    searchScore?: number | null;
+    /**
      *
      * @type {CreateFinancialRecordRequestBodyDtoPopulatedSubcategory}
      * @memberof InstallmentFinancialRecordDto

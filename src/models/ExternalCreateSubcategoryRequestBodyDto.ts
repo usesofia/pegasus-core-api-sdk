@@ -95,6 +95,12 @@ export interface ExternalCreateSubcategoryRequestBodyDto {
      */
     active?: boolean;
     /**
+     * Pontuação de busca da subcategoria.
+     * @type {number}
+     * @memberof ExternalCreateSubcategoryRequestBodyDto
+     */
+    searchScore?: number | null;
+    /**
      * Canal de origem da operação
      * @type {string}
      * @memberof ExternalCreateSubcategoryRequestBodyDto
@@ -148,6 +154,7 @@ export function ExternalCreateSubcategoryRequestBodyDtoFromJSONTyped(json: any, 
         'considerInDre': json['considerInDre'],
         'description': json['description'],
         'active': json['active'] == null ? undefined : json['active'],
+        'searchScore': json['searchScore'] == null ? undefined : json['searchScore'],
         'channel': json['channel'],
     };
 }
@@ -173,6 +180,7 @@ export function ExternalCreateSubcategoryRequestBodyDtoToJSONTyped(value?: Exter
         'considerInDre': value['considerInDre'],
         'description': value['description'],
         'active': value['active'],
+        'searchScore': value['searchScore'],
         'channel': value['channel'],
     };
 }

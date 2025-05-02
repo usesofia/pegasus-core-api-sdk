@@ -45,6 +45,12 @@ export interface CreateFinancialRecordRequestBodyDtoPopulatedTagsInner {
      * @memberof CreateFinancialRecordRequestBodyDtoPopulatedTagsInner
      */
     updatedAt: any | null;
+    /**
+     * Score da busca textual.
+     * @type {number}
+     * @memberof CreateFinancialRecordRequestBodyDtoPopulatedTagsInner
+     */
+    searchScore?: number;
 }
 /**
  * Check if a given object implements the CreateFinancialRecordRequestBodyDtoPopulatedTagsInner interface.

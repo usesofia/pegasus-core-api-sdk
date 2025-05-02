@@ -86,6 +86,12 @@ export interface PartialUpdateInstallmentFinancialRecordRequestBodyDto {
      */
     numberOfInstallments?: number;
     /**
+     * Pontuação de busca do lançamento.
+     * @type {number}
+     * @memberof PartialUpdateInstallmentFinancialRecordRequestBodyDto
+     */
+    searchScore?: number | null;
+    /**
      *
      * @type {CreateFinancialRecordRequestBodyDtoPopulatedSubcategory}
      * @memberof PartialUpdateInstallmentFinancialRecordRequestBodyDto

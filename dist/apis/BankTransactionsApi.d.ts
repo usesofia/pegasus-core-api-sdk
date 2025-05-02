@@ -21,7 +21,8 @@ export interface FindAllBankTransactionsRequest {
     dateTo?: Date;
     dateFrom?: Date;
     bankAccount?: string;
-    searchTerm?: string;
+    semanticSearchTermInBase64?: string;
+    textSearchTerm?: string;
     pageSize?: number;
     pageIndex?: number;
 }
@@ -33,6 +34,20 @@ export interface PartialUpdateBankTransactionRequest {
     id: string;
     partialUpdateBankTransactionRequestBodyDto: PartialUpdateBankTransactionRequestBodyDto;
     populate?: string;
+}
+export interface SystemFindAllBankTransactionsRequest {
+    ownerOrganizationId: string;
+    sortOrder?: string;
+    sortBy?: string;
+    populate?: string;
+    type?: SystemFindAllBankTransactionsTypeEnum;
+    dateTo?: Date;
+    dateFrom?: Date;
+    bankAccount?: string;
+    semanticSearchTermInBase64?: string;
+    textSearchTerm?: string;
+    pageSize?: number;
+    pageIndex?: number;
 }
 /**
  * BankTransactionsApi - interface
@@ -63,7 +78,8 @@ export interface BankTransactionsApiInterface {
      * @param {Date} [dateTo] Data final para filtrar.
      * @param {Date} [dateFrom] Data inicial para filtrar.
      * @param {string} [bankAccount] ID da conta bancária para filtrar.
-     * @param {string} [searchTerm] Termo para busca por descrição.
+     * @param {string} [semanticSearchTermInBase64] Termo para busca semântica em base64.
+     * @param {string} [textSearchTerm] Termo para busca textual.
      * @param {number} [pageSize] Quantidade de itens por página.
      * @param {number} [pageIndex] Índice da página.
      * @param {*} [options] Override http request option.
@@ -104,6 +120,30 @@ export interface BankTransactionsApiInterface {
      * Atualiza parcialmente uma movimentação financeira.
      */
     partialUpdateBankTransaction(requestParameters: PartialUpdateBankTransactionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankTransactionEntity>;
+    /**
+     *
+     * @summary Busca todas as movimentações financeiras pelo sistema.
+     * @param {string} ownerOrganizationId Identificador da organização proprietária das movimentações financeiras.
+     * @param {string} [sortOrder] Ordem de ordenação das movimentações financeiras.
+     * @param {string} [sortBy] Campo para ordenação das movimentações financeiras.
+     * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
+     * @param {'DEBIT' | 'CREDIT'} [type] Tipo da movimentação.
+     * @param {Date} [dateTo] Data final para filtrar.
+     * @param {Date} [dateFrom] Data inicial para filtrar.
+     * @param {string} [bankAccount] ID da conta bancária para filtrar.
+     * @param {string} [semanticSearchTermInBase64] Termo para busca semântica em base64.
+     * @param {string} [textSearchTerm] Termo para busca textual.
+     * @param {number} [pageSize] Quantidade de itens por página.
+     * @param {number} [pageIndex] Índice da página.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof BankTransactionsApiInterface
+     */
+    systemFindAllBankTransactionsRaw(requestParameters: SystemFindAllBankTransactionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankTransactionsPageDto>>;
+    /**
+     * Busca todas as movimentações financeiras pelo sistema.
+     */
+    systemFindAllBankTransactions(requestParameters: SystemFindAllBankTransactionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankTransactionsPageDto>;
 }
 /**
  *
@@ -141,6 +181,14 @@ export declare class BankTransactionsApi extends runtime.BaseAPI implements Bank
      * Atualiza parcialmente uma movimentação financeira.
      */
     partialUpdateBankTransaction(requestParameters: PartialUpdateBankTransactionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankTransactionEntity>;
+    /**
+     * Busca todas as movimentações financeiras pelo sistema.
+     */
+    systemFindAllBankTransactionsRaw(requestParameters: SystemFindAllBankTransactionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankTransactionsPageDto>>;
+    /**
+     * Busca todas as movimentações financeiras pelo sistema.
+     */
+    systemFindAllBankTransactions(requestParameters: SystemFindAllBankTransactionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankTransactionsPageDto>;
 }
 /**
  * @export
@@ -150,3 +198,11 @@ export declare const FindAllBankTransactionsTypeEnum: {
     readonly Credit: "CREDIT";
 };
 export type FindAllBankTransactionsTypeEnum = typeof FindAllBankTransactionsTypeEnum[keyof typeof FindAllBankTransactionsTypeEnum];
+/**
+ * @export
+ */
+export declare const SystemFindAllBankTransactionsTypeEnum: {
+    readonly Debit: "DEBIT";
+    readonly Credit: "CREDIT";
+};
+export type SystemFindAllBankTransactionsTypeEnum = typeof SystemFindAllBankTransactionsTypeEnum[keyof typeof SystemFindAllBankTransactionsTypeEnum];

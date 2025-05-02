@@ -106,6 +106,12 @@ export interface ContactEntity {
      */
     isNotIdentified: boolean;
     /**
+     * Pontuação de busca do contato.
+     * @type {number}
+     * @memberof ContactEntity
+     */
+    searchScore?: number | null;
+    /**
      * Data de criação do contato.
      * @type {any}
      * @memberof ContactEntity
@@ -197,6 +203,7 @@ export function ContactEntityFromJSONTyped(json: any, ignoreDiscriminator: boole
         'origin': json['origin'] == null ? undefined : json['origin'],
         'address': json['address'] == null ? undefined : CreateContactRequestBodyDtoAddressFromJSON(json['address']),
         'isNotIdentified': json['isNotIdentified'],
+        'searchScore': json['searchScore'] == null ? undefined : json['searchScore'],
         'createdAt': json['createdAt'],
         'updatedAt': json['updatedAt'],
     };
@@ -226,6 +233,7 @@ export function ContactEntityToJSONTyped(value?: ContactEntity | null, ignoreDis
         'origin': value['origin'],
         'address': CreateContactRequestBodyDtoAddressToJSON(value['address']),
         'isNotIdentified': value['isNotIdentified'],
+        'searchScore': value['searchScore'],
         'createdAt': value['createdAt'],
         'updatedAt': value['updatedAt'],
     };

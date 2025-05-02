@@ -68,6 +68,12 @@ export interface PartialUpdateBankAccountRequestBodyDto {
      */
     active?: boolean;
     /**
+     * Pontuação de busca.
+     * @type {number}
+     * @memberof PartialUpdateBankAccountRequestBodyDto
+     */
+    searchScore?: number | null;
+    /**
      * Canal de origem da operação
      * @type {string}
      * @memberof PartialUpdateBankAccountRequestBodyDto
@@ -113,6 +119,7 @@ export function PartialUpdateBankAccountRequestBodyDtoFromJSONTyped(json: any, i
         'initialBalanceAmount': json['initialBalanceAmount'] == null ? undefined : json['initialBalanceAmount'],
         'institution': json['institution'] == null ? undefined : json['institution'],
         'active': json['active'] == null ? undefined : json['active'],
+        'searchScore': json['searchScore'] == null ? undefined : json['searchScore'],
         'channel': json['channel'],
     };
 }
@@ -136,6 +143,7 @@ export function PartialUpdateBankAccountRequestBodyDtoToJSONTyped(value?: Partia
         'initialBalanceAmount': value['initialBalanceAmount'],
         'institution': value['institution'],
         'active': value['active'],
+        'searchScore': value['searchScore'],
         'channel': value['channel'],
     };
 }

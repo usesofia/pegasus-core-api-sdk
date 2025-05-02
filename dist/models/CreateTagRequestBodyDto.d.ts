@@ -22,6 +22,12 @@ export interface CreateTagRequestBodyDto {
      */
     name: string;
     /**
+     * Score da busca textual.
+     * @type {number}
+     * @memberof CreateTagRequestBodyDto
+     */
+    searchScore?: number;
+    /**
      * Canal de origem da operação
      * @type {string}
      * @memberof CreateTagRequestBodyDto

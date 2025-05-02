@@ -85,6 +85,7 @@ function CreateManyFinancialRecordsRequestBodyDtoDataInnerFromJSONTyped(json, ig
         'populatedContact': json['populatedContact'] == null ? undefined : (0, CreateFinancialRecordRequestBodyDtoPopulatedContact_1.CreateFinancialRecordRequestBodyDtoPopulatedContactFromJSON)(json['populatedContact']),
         'populatedTags': json['populatedTags'] == null ? undefined : (json['populatedTags'].map(CreateFinancialRecordRequestBodyDtoPopulatedTagsInner_1.CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerFromJSON)),
         'populatedAccount': json['populatedAccount'] == null ? undefined : (0, CreateFinancialRecordRequestBodyDtoPopulatedAccount_1.CreateFinancialRecordRequestBodyDtoPopulatedAccountFromJSON)(json['populatedAccount']),
+        'searchScore': json['searchScore'] == null ? undefined : json['searchScore'],
     };
 }
 function CreateManyFinancialRecordsRequestBodyDtoDataInnerToJSON(json) {
@@ -124,5 +125,6 @@ function CreateManyFinancialRecordsRequestBodyDtoDataInnerToJSONTyped(value, ign
         'populatedContact': (0, CreateFinancialRecordRequestBodyDtoPopulatedContact_1.CreateFinancialRecordRequestBodyDtoPopulatedContactToJSON)(value['populatedContact']),
         'populatedTags': value['populatedTags'] == null ? undefined : (value['populatedTags'].map(CreateFinancialRecordRequestBodyDtoPopulatedTagsInner_1.CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerToJSON)),
         'populatedAccount': (0, CreateFinancialRecordRequestBodyDtoPopulatedAccount_1.CreateFinancialRecordRequestBodyDtoPopulatedAccountToJSON)(value['populatedAccount']),
+        'searchScore': value['searchScore'],
     };
 }

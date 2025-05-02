@@ -14,7 +14,6 @@ import type { NormalizedSubcategoriesPageEntity } from '../models/index';
 export interface FindAllNormalizedSubcategoriesRequest {
     populate?: string;
     categoryId?: string;
-    searchTerm?: string;
     pageSize?: number;
     pageIndex?: number;
 }
@@ -30,7 +29,6 @@ export interface NormalizedSubcategoriesApiInterface {
      * @summary Busca todas as subcategorias normalizadas.
      * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
      * @param {string} [categoryId] ID da categoria para filtrar subcategorias.
-     * @param {string} [searchTerm] Termo para busca por nome da subcategoria.
      * @param {number} [pageSize] Quantidade de itens por página.
      * @param {number} [pageIndex] Índice da página.
      * @param {*} [options] Override http request option.

@@ -90,6 +90,12 @@ export interface SubcategoriesPageEntityItemsInner {
      */
     active?: boolean;
     /**
+     * Pontuação de busca da subcategoria.
+     * @type {number}
+     * @memberof SubcategoriesPageEntityItemsInner
+     */
+    searchScore?: number | null;
+    /**
      * Data de criação da subcategoria.
      * @type {any}
      * @memberof SubcategoriesPageEntityItemsInner

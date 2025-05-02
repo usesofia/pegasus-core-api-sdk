@@ -115,6 +115,12 @@ export interface PartialUpdateInstallmentFinancialRecordRequestBodyDto {
      */
     numberOfInstallments?: number;
     /**
+     * Pontuação de busca do lançamento.
+     * @type {number}
+     * @memberof PartialUpdateInstallmentFinancialRecordRequestBodyDto
+     */
+    searchScore?: number | null;
+    /**
      * 
      * @type {CreateFinancialRecordRequestBodyDtoPopulatedSubcategory}
      * @memberof PartialUpdateInstallmentFinancialRecordRequestBodyDto
@@ -206,6 +212,7 @@ export function PartialUpdateInstallmentFinancialRecordRequestBodyDtoFromJSONTyp
         'competenceDate': json['competenceDate'] == null ? undefined : json['competenceDate'],
         'files': json['files'] == null ? undefined : json['files'],
         'numberOfInstallments': json['numberOfInstallments'] == null ? undefined : json['numberOfInstallments'],
+        'searchScore': json['searchScore'] == null ? undefined : json['searchScore'],
         'populatedSubcategory': json['populatedSubcategory'] == null ? undefined : CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryFromJSON(json['populatedSubcategory']),
         'populatedContact': json['populatedContact'] == null ? undefined : CreateInstallmentFinancialRecordRequestBodyDtoPopulatedContactFromJSON(json['populatedContact']),
         'populatedTags': json['populatedTags'] == null ? undefined : ((json['populatedTags'] as Array<any>).map(CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerFromJSON)),
@@ -236,6 +243,7 @@ export function PartialUpdateInstallmentFinancialRecordRequestBodyDtoToJSONTyped
         'competenceDate': value['competenceDate'],
         'files': value['files'],
         'numberOfInstallments': value['numberOfInstallments'],
+        'searchScore': value['searchScore'],
         'populatedSubcategory': CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryToJSON(value['populatedSubcategory']),
         'populatedContact': CreateInstallmentFinancialRecordRequestBodyDtoPopulatedContactToJSON(value['populatedContact']),
         'populatedTags': value['populatedTags'] == null ? undefined : ((value['populatedTags'] as Array<any>).map(CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerToJSON)),

@@ -78,6 +78,12 @@ export interface ExternalCreateSubcategoryRequestBodyDto {
      */
     active?: boolean;
     /**
+     * Pontuação de busca da subcategoria.
+     * @type {number}
+     * @memberof ExternalCreateSubcategoryRequestBodyDto
+     */
+    searchScore?: number | null;
+    /**
      * Canal de origem da operação
      * @type {string}
      * @memberof ExternalCreateSubcategoryRequestBodyDto

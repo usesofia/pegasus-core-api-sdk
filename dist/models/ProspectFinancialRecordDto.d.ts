@@ -188,6 +188,12 @@ export interface ProspectFinancialRecordDto {
      * @memberof ProspectFinancialRecordDto
      */
     populatedAccount?: CreateFinancialRecordRequestBodyDtoPopulatedAccount | null;
+    /**
+     * Pontuação de busca do lançamento.
+     * @type {number}
+     * @memberof ProspectFinancialRecordDto
+     */
+    searchScore?: number | null;
 }
 /**
  * @export

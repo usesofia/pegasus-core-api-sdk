@@ -246,8 +246,11 @@ var ContactsApi = /** @class */ (function (_super) {
                         if (requestParameters['types'] != null) {
                             queryParameters['types'] = requestParameters['types'];
                         }
-                        if (requestParameters['searchTerm'] != null) {
-                            queryParameters['searchTerm'] = requestParameters['searchTerm'];
+                        if (requestParameters['semanticSearchTermInBase64'] != null) {
+                            queryParameters['semanticSearchTermInBase64'] = requestParameters['semanticSearchTermInBase64'];
+                        }
+                        if (requestParameters['textSearchTerm'] != null) {
+                            queryParameters['textSearchTerm'] = requestParameters['textSearchTerm'];
                         }
                         if (requestParameters['pageSize'] != null) {
                             queryParameters['pageSize'] = requestParameters['pageSize'];
@@ -429,6 +432,95 @@ var ContactsApi = /** @class */ (function (_super) {
                     case 1:
                         _a.sent();
                         return [2 /*return*/];
+                }
+            });
+        });
+    };
+    /**
+     * Busca todos os contatos pelo sistema.
+     */
+    ContactsApi.prototype.systemFindAllContactsRaw = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (requestParameters['ownerOrganizationId'] == null) {
+                            throw new runtime.RequiredError('ownerOrganizationId', 'Required parameter "ownerOrganizationId" was null or undefined when calling systemFindAllContacts().');
+                        }
+                        queryParameters = {};
+                        if (requestParameters['ownerOrganizationId'] != null) {
+                            queryParameters['ownerOrganizationId'] = requestParameters['ownerOrganizationId'];
+                        }
+                        if (requestParameters['sortOrder'] != null) {
+                            queryParameters['sortOrder'] = requestParameters['sortOrder'];
+                        }
+                        if (requestParameters['sortBy'] != null) {
+                            queryParameters['sortBy'] = requestParameters['sortBy'];
+                        }
+                        if (requestParameters['populate'] != null) {
+                            queryParameters['populate'] = requestParameters['populate'];
+                        }
+                        if (requestParameters['considerNotIdentified'] != null) {
+                            queryParameters['considerNotIdentified'] = requestParameters['considerNotIdentified'];
+                        }
+                        if (requestParameters['states'] != null) {
+                            queryParameters['states'] = requestParameters['states'];
+                        }
+                        if (requestParameters['country'] != null) {
+                            queryParameters['country'] = requestParameters['country'];
+                        }
+                        if (requestParameters['birthdayTo'] != null) {
+                            queryParameters['birthdayTo'] = requestParameters['birthdayTo'];
+                        }
+                        if (requestParameters['birthdayFrom'] != null) {
+                            queryParameters['birthdayFrom'] = requestParameters['birthdayFrom'];
+                        }
+                        if (requestParameters['origins'] != null) {
+                            queryParameters['origins'] = requestParameters['origins'];
+                        }
+                        if (requestParameters['types'] != null) {
+                            queryParameters['types'] = requestParameters['types'];
+                        }
+                        if (requestParameters['semanticSearchTermInBase64'] != null) {
+                            queryParameters['semanticSearchTermInBase64'] = requestParameters['semanticSearchTermInBase64'];
+                        }
+                        if (requestParameters['textSearchTerm'] != null) {
+                            queryParameters['textSearchTerm'] = requestParameters['textSearchTerm'];
+                        }
+                        if (requestParameters['pageSize'] != null) {
+                            queryParameters['pageSize'] = requestParameters['pageSize'];
+                        }
+                        if (requestParameters['pageIndex'] != null) {
+                            queryParameters['pageIndex'] = requestParameters['pageIndex'];
+                        }
+                        headerParameters = {};
+                        return [4 /*yield*/, this.request({
+                                path: "/internal/contacts",
+                                method: 'GET',
+                                headers: headerParameters,
+                                query: queryParameters,
+                            }, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.ContactsPageEntityFromJSON)(jsonValue); })];
+                }
+            });
+        });
+    };
+    /**
+     * Busca todos os contatos pelo sistema.
+     */
+    ContactsApi.prototype.systemFindAllContacts = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.systemFindAllContactsRaw(requestParameters, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [4 /*yield*/, response.value()];
+                    case 2: return [2 /*return*/, _a.sent()];
                 }
             });
         });

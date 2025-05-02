@@ -169,6 +169,12 @@ export interface CreateOrUpdateBankTransactionRequestBodyDto {
      */
     operationType?: string | null;
     /**
+     * Pontuação de busca da movimentação financeira.
+     * @type {number}
+     * @memberof CreateOrUpdateBankTransactionRequestBodyDto
+     */
+    searchScore?: number | null;
+    /**
      * 
      * @type {CreateOrUpdateBankTransactionRequestBodyDtoRequester}
      * @memberof CreateOrUpdateBankTransactionRequestBodyDto
@@ -251,6 +257,7 @@ export function CreateOrUpdateBankTransactionRequestBodyDtoFromJSONTyped(json: a
         'merchant': json['merchant'] == null ? undefined : CreateOrUpdateBankTransactionRequestBodyDtoMerchantFromJSON(json['merchant']),
         'categoryId': json['categoryId'] == null ? undefined : json['categoryId'],
         'operationType': json['operationType'] == null ? undefined : json['operationType'],
+        'searchScore': json['searchScore'] == null ? undefined : json['searchScore'],
         'requester': CreateOrUpdateBankTransactionRequestBodyDtoRequesterFromJSON(json['requester']),
     };
 }
@@ -286,6 +293,7 @@ export function CreateOrUpdateBankTransactionRequestBodyDtoToJSONTyped(value?: C
         'merchant': CreateOrUpdateBankTransactionRequestBodyDtoMerchantToJSON(value['merchant']),
         'categoryId': value['categoryId'],
         'operationType': value['operationType'],
+        'searchScore': value['searchScore'],
         'requester': CreateOrUpdateBankTransactionRequestBodyDtoRequesterToJSON(value['requester']),
     };
 }

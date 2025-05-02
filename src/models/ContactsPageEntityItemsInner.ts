@@ -106,6 +106,12 @@ export interface ContactsPageEntityItemsInner {
      */
     isNotIdentified: boolean;
     /**
+     * Pontuação de busca do contato.
+     * @type {number}
+     * @memberof ContactsPageEntityItemsInner
+     */
+    searchScore?: number | null;
+    /**
      * Data de criação do contato.
      * @type {any}
      * @memberof ContactsPageEntityItemsInner
@@ -197,6 +203,7 @@ export function ContactsPageEntityItemsInnerFromJSONTyped(json: any, ignoreDiscr
         'origin': json['origin'] == null ? undefined : json['origin'],
         'address': json['address'] == null ? undefined : CreateContactRequestBodyDtoAddressFromJSON(json['address']),
         'isNotIdentified': json['isNotIdentified'],
+        'searchScore': json['searchScore'] == null ? undefined : json['searchScore'],
         'createdAt': json['createdAt'],
         'updatedAt': json['updatedAt'],
     };
@@ -226,6 +233,7 @@ export function ContactsPageEntityItemsInnerToJSONTyped(value?: ContactsPageEnti
         'origin': value['origin'],
         'address': CreateContactRequestBodyDtoAddressToJSON(value['address']),
         'isNotIdentified': value['isNotIdentified'],
+        'searchScore': value['searchScore'],
         'createdAt': value['createdAt'],
         'updatedAt': value['updatedAt'],
     };

@@ -88,6 +88,12 @@ export interface CreateContactRequestBodyDto {
      */
     address?: CreateContactRequestBodyDtoAddress | null;
     /**
+     * Pontuação de busca do contato.
+     * @type {number}
+     * @memberof CreateContactRequestBodyDto
+     */
+    searchScore?: number | null;
+    /**
      * Canal de origem da operação
      * @type {string}
      * @memberof CreateContactRequestBodyDto
@@ -176,6 +182,7 @@ export function CreateContactRequestBodyDtoFromJSONTyped(json: any, ignoreDiscri
         'birthDate': json['birthDate'] == null ? undefined : json['birthDate'],
         'origin': json['origin'] == null ? undefined : json['origin'],
         'address': json['address'] == null ? undefined : CreateContactRequestBodyDtoAddressFromJSON(json['address']),
+        'searchScore': json['searchScore'] == null ? undefined : json['searchScore'],
         'channel': json['channel'],
     };
 }
@@ -201,6 +208,7 @@ export function CreateContactRequestBodyDtoToJSONTyped(value?: CreateContactRequ
         'birthDate': value['birthDate'],
         'origin': value['origin'],
         'address': CreateContactRequestBodyDtoAddressToJSON(value['address']),
+        'searchScore': value['searchScore'],
         'channel': value['channel'],
     };
 }

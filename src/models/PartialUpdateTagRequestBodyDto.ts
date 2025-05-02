@@ -26,6 +26,12 @@ export interface PartialUpdateTagRequestBodyDto {
      */
     name?: string;
     /**
+     * Score da busca textual.
+     * @type {number}
+     * @memberof PartialUpdateTagRequestBodyDto
+     */
+    searchScore?: number;
+    /**
      * Canal de origem da operação
      * @type {string}
      * @memberof PartialUpdateTagRequestBodyDto
@@ -64,6 +70,7 @@ export function PartialUpdateTagRequestBodyDtoFromJSONTyped(json: any, ignoreDis
     return {
         
         'name': json['name'] == null ? undefined : json['name'],
+        'searchScore': json['searchScore'] == null ? undefined : json['searchScore'],
         'channel': json['channel'],
     };
 }
@@ -80,6 +87,7 @@ export function PartialUpdateTagRequestBodyDtoToJSONTyped(value?: PartialUpdateT
     return {
         
         'name': value['name'],
+        'searchScore': value['searchScore'],
         'channel': value['channel'],
     };
 }

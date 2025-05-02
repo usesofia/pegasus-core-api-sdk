@@ -127,6 +127,12 @@ export interface CreateManyRecurringFinancialRecordsRequestBodyDtoDataInner {
      * @memberof CreateManyRecurringFinancialRecordsRequestBodyDtoDataInner
      */
     populatedFiles?: Array<CreateFinancialRecordRequestBodyDtoPopulatedFilesInner> | null;
+    /**
+     *
+     * @type {number}
+     * @memberof CreateManyRecurringFinancialRecordsRequestBodyDtoDataInner
+     */
+    searchScore?: number;
 }
 /**
  * @export

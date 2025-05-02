@@ -95,6 +95,12 @@ export interface ContactsPageEntityItemsInner {
      */
     isNotIdentified: boolean;
     /**
+     * Pontuação de busca do contato.
+     * @type {number}
+     * @memberof ContactsPageEntityItemsInner
+     */
+    searchScore?: number | null;
+    /**
      * Data de criação do contato.
      * @type {any}
      * @memberof ContactsPageEntityItemsInner

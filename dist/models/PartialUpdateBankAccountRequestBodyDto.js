@@ -51,6 +51,7 @@ function PartialUpdateBankAccountRequestBodyDtoFromJSONTyped(json, ignoreDiscrim
         'initialBalanceAmount': json['initialBalanceAmount'] == null ? undefined : json['initialBalanceAmount'],
         'institution': json['institution'] == null ? undefined : json['institution'],
         'active': json['active'] == null ? undefined : json['active'],
+        'searchScore': json['searchScore'] == null ? undefined : json['searchScore'],
         'channel': json['channel'],
     };
 }
@@ -71,6 +72,7 @@ function PartialUpdateBankAccountRequestBodyDtoToJSONTyped(value, ignoreDiscrimi
         'initialBalanceAmount': value['initialBalanceAmount'],
         'institution': value['institution'],
         'active': value['active'],
+        'searchScore': value['searchScore'],
         'channel': value['channel'],
     };
 }

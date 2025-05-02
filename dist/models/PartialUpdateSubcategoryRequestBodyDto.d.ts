@@ -78,6 +78,12 @@ export interface PartialUpdateSubcategoryRequestBodyDto {
      */
     active?: boolean;
     /**
+     * Pontuação de busca da subcategoria.
+     * @type {number}
+     * @memberof PartialUpdateSubcategoryRequestBodyDto
+     */
+    searchScore?: number | null;
+    /**
      * Canal de origem da operação
      * @type {string}
      * @memberof PartialUpdateSubcategoryRequestBodyDto

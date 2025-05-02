@@ -59,7 +59,8 @@ export interface FindAllContactsRequest {
     birthdayFrom?: string;
     origins?: string;
     types?: string;
-    searchTerm?: string;
+    semanticSearchTermInBase64?: string;
+    textSearchTerm?: string;
     pageSize?: number;
     pageIndex?: number;
 }
@@ -78,6 +79,24 @@ export interface PartialUpdateContactRequest {
 export interface RemoveContactRequest {
     id: string;
     removeContactRequestBodyDto: RemoveContactRequestBodyDto;
+}
+
+export interface SystemFindAllContactsRequest {
+    ownerOrganizationId: string;
+    sortOrder?: string;
+    sortBy?: string;
+    populate?: string;
+    considerNotIdentified?: boolean;
+    states?: string;
+    country?: string;
+    birthdayTo?: string;
+    birthdayFrom?: string;
+    origins?: string;
+    types?: string;
+    semanticSearchTermInBase64?: string;
+    textSearchTerm?: string;
+    pageSize?: number;
+    pageIndex?: number;
 }
 
 /**
@@ -144,7 +163,8 @@ export interface ContactsApiInterface {
      * @param {string} [birthdayFrom] Data de nascimento inicial a serem buscadas.
      * @param {string} [origins] Origens de contato a serem buscadas.
      * @param {string} [types] Tipos de contato a serem buscados.
-     * @param {string} [searchTerm] Termo para busca por nome do contato.
+     * @param {string} [semanticSearchTermInBase64] Termo para busca semântica.
+     * @param {string} [textSearchTerm] Termo para busca textual.
      * @param {number} [pageSize] Quantidade de itens por página.
      * @param {number} [pageIndex] Índice da página.
      * @param {*} [options] Override http request option.
@@ -206,6 +226,35 @@ export interface ContactsApiInterface {
      * Remove um contato.
      */
     removeContact(requestParameters: RemoveContactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+
+    /**
+     * 
+     * @summary Busca todos os contatos pelo sistema.
+     * @param {string} ownerOrganizationId Identificador da organização proprietária dos contatos.
+     * @param {string} [sortOrder] Ordem de ordenação dos contatos.
+     * @param {string} [sortBy] Campo para ordenação dos contatos.
+     * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
+     * @param {boolean} [considerNotIdentified] Considerar ou não o contato não identificado.
+     * @param {string} [states] Estados a serem buscados.
+     * @param {string} [country] País a serem buscados.
+     * @param {string} [birthdayTo] Data de nascimento final a serem buscadas.
+     * @param {string} [birthdayFrom] Data de nascimento inicial a serem buscadas.
+     * @param {string} [origins] Origens de contato a serem buscadas.
+     * @param {string} [types] Tipos de contato a serem buscados.
+     * @param {string} [semanticSearchTermInBase64] Termo para busca semântica.
+     * @param {string} [textSearchTerm] Termo para busca textual.
+     * @param {number} [pageSize] Quantidade de itens por página.
+     * @param {number} [pageIndex] Índice da página.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ContactsApiInterface
+     */
+    systemFindAllContactsRaw(requestParameters: SystemFindAllContactsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ContactsPageEntity>>;
+
+    /**
+     * Busca todos os contatos pelo sistema.
+     */
+    systemFindAllContacts(requestParameters: SystemFindAllContactsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ContactsPageEntity>;
 
 }
 
@@ -352,8 +401,12 @@ export class ContactsApi extends runtime.BaseAPI implements ContactsApiInterface
             queryParameters['types'] = requestParameters['types'];
         }
 
-        if (requestParameters['searchTerm'] != null) {
-            queryParameters['searchTerm'] = requestParameters['searchTerm'];
+        if (requestParameters['semanticSearchTermInBase64'] != null) {
+            queryParameters['semanticSearchTermInBase64'] = requestParameters['semanticSearchTermInBase64'];
+        }
+
+        if (requestParameters['textSearchTerm'] != null) {
+            queryParameters['textSearchTerm'] = requestParameters['textSearchTerm'];
         }
 
         if (requestParameters['pageSize'] != null) {
@@ -508,6 +561,99 @@ export class ContactsApi extends runtime.BaseAPI implements ContactsApiInterface
      */
     async removeContact(requestParameters: RemoveContactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.removeContactRaw(requestParameters, initOverrides);
+    }
+
+    /**
+     * Busca todos os contatos pelo sistema.
+     */
+    async systemFindAllContactsRaw(requestParameters: SystemFindAllContactsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ContactsPageEntity>> {
+        if (requestParameters['ownerOrganizationId'] == null) {
+            throw new runtime.RequiredError(
+                'ownerOrganizationId',
+                'Required parameter "ownerOrganizationId" was null or undefined when calling systemFindAllContacts().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['ownerOrganizationId'] != null) {
+            queryParameters['ownerOrganizationId'] = requestParameters['ownerOrganizationId'];
+        }
+
+        if (requestParameters['sortOrder'] != null) {
+            queryParameters['sortOrder'] = requestParameters['sortOrder'];
+        }
+
+        if (requestParameters['sortBy'] != null) {
+            queryParameters['sortBy'] = requestParameters['sortBy'];
+        }
+
+        if (requestParameters['populate'] != null) {
+            queryParameters['populate'] = requestParameters['populate'];
+        }
+
+        if (requestParameters['considerNotIdentified'] != null) {
+            queryParameters['considerNotIdentified'] = requestParameters['considerNotIdentified'];
+        }
+
+        if (requestParameters['states'] != null) {
+            queryParameters['states'] = requestParameters['states'];
+        }
+
+        if (requestParameters['country'] != null) {
+            queryParameters['country'] = requestParameters['country'];
+        }
+
+        if (requestParameters['birthdayTo'] != null) {
+            queryParameters['birthdayTo'] = requestParameters['birthdayTo'];
+        }
+
+        if (requestParameters['birthdayFrom'] != null) {
+            queryParameters['birthdayFrom'] = requestParameters['birthdayFrom'];
+        }
+
+        if (requestParameters['origins'] != null) {
+            queryParameters['origins'] = requestParameters['origins'];
+        }
+
+        if (requestParameters['types'] != null) {
+            queryParameters['types'] = requestParameters['types'];
+        }
+
+        if (requestParameters['semanticSearchTermInBase64'] != null) {
+            queryParameters['semanticSearchTermInBase64'] = requestParameters['semanticSearchTermInBase64'];
+        }
+
+        if (requestParameters['textSearchTerm'] != null) {
+            queryParameters['textSearchTerm'] = requestParameters['textSearchTerm'];
+        }
+
+        if (requestParameters['pageSize'] != null) {
+            queryParameters['pageSize'] = requestParameters['pageSize'];
+        }
+
+        if (requestParameters['pageIndex'] != null) {
+            queryParameters['pageIndex'] = requestParameters['pageIndex'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/internal/contacts`,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ContactsPageEntityFromJSON(jsonValue));
+    }
+
+    /**
+     * Busca todos os contatos pelo sistema.
+     */
+    async systemFindAllContacts(requestParameters: SystemFindAllContactsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ContactsPageEntity> {
+        const response = await this.systemFindAllContactsRaw(requestParameters, initOverrides);
+        return await response.value();
     }
 
 }

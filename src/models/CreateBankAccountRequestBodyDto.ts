@@ -74,6 +74,12 @@ export interface CreateBankAccountRequestBodyDto {
      */
     institution?: string | null;
     /**
+     * Nome da instituição financeira.
+     * @type {string}
+     * @memberof CreateBankAccountRequestBodyDto
+     */
+    institutionName?: string | null;
+    /**
      * Fornecedor da conta bancária.
      * @type {string}
      * @memberof CreateBankAccountRequestBodyDto
@@ -91,6 +97,12 @@ export interface CreateBankAccountRequestBodyDto {
      * @memberof CreateBankAccountRequestBodyDto
      */
     providerItemId?: string | null;
+    /**
+     * Pontuação de busca.
+     * @type {number}
+     * @memberof CreateBankAccountRequestBodyDto
+     */
+    searchScore?: number | null;
     /**
      * Canal de origem da operação
      * @type {string}
@@ -165,9 +177,11 @@ export function CreateBankAccountRequestBodyDtoFromJSONTyped(json: any, ignoreDi
         'initialBalanceDate': json['initialBalanceDate'] == null ? undefined : json['initialBalanceDate'],
         'initialBalanceAmount': json['initialBalanceAmount'] == null ? undefined : json['initialBalanceAmount'],
         'institution': json['institution'] == null ? undefined : json['institution'],
+        'institutionName': json['institutionName'] == null ? undefined : json['institutionName'],
         'provider': json['provider'] == null ? undefined : json['provider'],
         'providerAccountId': json['providerAccountId'] == null ? undefined : json['providerAccountId'],
         'providerItemId': json['providerItemId'] == null ? undefined : json['providerItemId'],
+        'searchScore': json['searchScore'] == null ? undefined : json['searchScore'],
         'channel': json['channel'],
     };
 }
@@ -192,9 +206,11 @@ export function CreateBankAccountRequestBodyDtoToJSONTyped(value?: CreateBankAcc
         'initialBalanceDate': value['initialBalanceDate'],
         'initialBalanceAmount': value['initialBalanceAmount'],
         'institution': value['institution'],
+        'institutionName': value['institutionName'],
         'provider': value['provider'],
         'providerAccountId': value['providerAccountId'],
         'providerItemId': value['providerItemId'],
+        'searchScore': value['searchScore'],
         'channel': value['channel'],
     };
 }

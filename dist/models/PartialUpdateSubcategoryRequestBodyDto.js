@@ -55,6 +55,7 @@ function PartialUpdateSubcategoryRequestBodyDtoFromJSONTyped(json, ignoreDiscrim
         'considerInDre': json['considerInDre'] == null ? undefined : json['considerInDre'],
         'description': json['description'] == null ? undefined : json['description'],
         'active': json['active'] == null ? undefined : json['active'],
+        'searchScore': json['searchScore'] == null ? undefined : json['searchScore'],
         'channel': json['channel'],
     };
 }
@@ -77,6 +78,7 @@ function PartialUpdateSubcategoryRequestBodyDtoToJSONTyped(value, ignoreDiscrimi
         'considerInDre': value['considerInDre'],
         'description': value['description'],
         'active': value['active'],
+        'searchScore': value['searchScore'],
         'channel': value['channel'],
     };
 }

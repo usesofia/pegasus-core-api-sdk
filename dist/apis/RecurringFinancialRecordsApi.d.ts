@@ -20,7 +20,7 @@ export interface CreateRecurringFinancialRecordRequest {
 }
 export interface FindAllRecurringFinancialRecordsRequest {
     populate?: string;
-    searchTerm?: string;
+    textSearchTerm?: string;
     pageSize?: number;
     pageIndex?: number;
 }
@@ -80,7 +80,7 @@ export interface RecurringFinancialRecordsApiInterface {
      *
      * @summary Busca todos os lançamentos financeiros recorrentes.
      * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
-     * @param {string} [searchTerm] Termo para busca por descrição do lançamento.
+     * @param {string} [textSearchTerm] Termo para busca por descrição do lançamento.
      * @param {number} [pageSize] Quantidade de itens por página.
      * @param {number} [pageIndex] Índice da página.
      * @param {*} [options] Override http request option.

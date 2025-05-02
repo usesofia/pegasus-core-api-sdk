@@ -180,6 +180,12 @@ export interface RecurringFinancialRecordsPageEntityItemsInner {
      * @memberof RecurringFinancialRecordsPageEntityItemsInner
      */
     populatedFiles?: Array<CreateFinancialRecordRequestBodyDtoPopulatedFilesInner> | null;
+    /**
+     * 
+     * @type {number}
+     * @memberof RecurringFinancialRecordsPageEntityItemsInner
+     */
+    searchScore?: number;
 }
 
 
@@ -252,6 +258,7 @@ export function RecurringFinancialRecordsPageEntityItemsInnerFromJSONTyped(json:
         'populatedTags': json['populatedTags'] == null ? undefined : ((json['populatedTags'] as Array<any>).map(CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerFromJSON)),
         'populatedSubcategory': json['populatedSubcategory'] == null ? undefined : CreateRecurringFinancialRecordRequestBodyDtoPopulatedSubcategoryFromJSON(json['populatedSubcategory']),
         'populatedFiles': json['populatedFiles'] == null ? undefined : ((json['populatedFiles'] as Array<any>).map(CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerFromJSON)),
+        'searchScore': json['searchScore'] == null ? undefined : json['searchScore'],
     };
 }
 
@@ -288,6 +295,7 @@ export function RecurringFinancialRecordsPageEntityItemsInnerToJSONTyped(value?:
         'populatedTags': value['populatedTags'] == null ? undefined : ((value['populatedTags'] as Array<any>).map(CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerToJSON)),
         'populatedSubcategory': CreateRecurringFinancialRecordRequestBodyDtoPopulatedSubcategoryToJSON(value['populatedSubcategory']),
         'populatedFiles': value['populatedFiles'] == null ? undefined : ((value['populatedFiles'] as Array<any>).map(CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerToJSON)),
+        'searchScore': value['searchScore'],
     };
 }
 

@@ -112,6 +112,12 @@ export interface CreateFinancialRecordRequestBodyDtoPopulatedAccount {
      */
     providerItemId?: string | null;
     /**
+     * Pontuação de busca.
+     * @type {number}
+     * @memberof CreateFinancialRecordRequestBodyDtoPopulatedAccount
+     */
+    searchScore?: number | null;
+    /**
      * Data de criação da conta bancária.
      * @type {any}
      * @memberof CreateFinancialRecordRequestBodyDtoPopulatedAccount

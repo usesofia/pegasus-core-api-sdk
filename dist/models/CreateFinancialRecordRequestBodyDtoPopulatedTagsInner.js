@@ -47,6 +47,7 @@ function CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerFromJSONTyped(json
         'name': json['name'],
         'createdAt': json['createdAt'],
         'updatedAt': json['updatedAt'],
+        'searchScore': json['searchScore'] == null ? undefined : json['searchScore'],
     };
 }
 function CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerToJSON(json) {
@@ -63,5 +64,6 @@ function CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerToJSONTyped(value,
         'name': value['name'],
         'createdAt': value['createdAt'],
         'updatedAt': value['updatedAt'],
+        'searchScore': value['searchScore'],
     };
 }

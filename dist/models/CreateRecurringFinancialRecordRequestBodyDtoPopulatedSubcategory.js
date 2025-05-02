@@ -66,6 +66,7 @@ function CreateRecurringFinancialRecordRequestBodyDtoPopulatedSubcategoryFromJSO
         'considerInDre': json['considerInDre'],
         'description': json['description'],
         'active': json['active'] == null ? undefined : json['active'],
+        'searchScore': json['searchScore'] == null ? undefined : json['searchScore'],
         'createdAt': json['createdAt'],
         'updatedAt': json['updatedAt'],
     };
@@ -91,6 +92,7 @@ function CreateRecurringFinancialRecordRequestBodyDtoPopulatedSubcategoryToJSONT
         'considerInDre': value['considerInDre'],
         'description': value['description'],
         'active': value['active'],
+        'searchScore': value['searchScore'],
         'createdAt': value['createdAt'],
         'updatedAt': value['updatedAt'],
     };

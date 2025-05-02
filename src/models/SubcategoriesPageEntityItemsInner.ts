@@ -107,6 +107,12 @@ export interface SubcategoriesPageEntityItemsInner {
      */
     active?: boolean;
     /**
+     * Pontuação de busca da subcategoria.
+     * @type {number}
+     * @memberof SubcategoriesPageEntityItemsInner
+     */
+    searchScore?: number | null;
+    /**
      * Data de criação da subcategoria.
      * @type {any}
      * @memberof SubcategoriesPageEntityItemsInner
@@ -159,6 +165,7 @@ export function SubcategoriesPageEntityItemsInnerFromJSONTyped(json: any, ignore
         'considerInDre': json['considerInDre'],
         'description': json['description'],
         'active': json['active'] == null ? undefined : json['active'],
+        'searchScore': json['searchScore'] == null ? undefined : json['searchScore'],
         'createdAt': json['createdAt'],
         'updatedAt': json['updatedAt'],
     };
@@ -187,6 +194,7 @@ export function SubcategoriesPageEntityItemsInnerToJSONTyped(value?: Subcategori
         'considerInDre': value['considerInDre'],
         'description': value['description'],
         'active': value['active'],
+        'searchScore': value['searchScore'],
         'createdAt': value['createdAt'],
         'updatedAt': value['updatedAt'],
     };

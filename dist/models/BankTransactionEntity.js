@@ -125,6 +125,7 @@ function BankTransactionEntityFromJSONTyped(json, ignoreDiscriminator) {
         'merchant': json['merchant'] == null ? undefined : (0, CreateOrUpdateBankTransactionRequestBodyDtoMerchant_1.CreateOrUpdateBankTransactionRequestBodyDtoMerchantFromJSON)(json['merchant']),
         'categoryId': json['categoryId'] == null ? undefined : json['categoryId'],
         'operationType': json['operationType'] == null ? undefined : json['operationType'],
+        'searchScore': json['searchScore'] == null ? undefined : json['searchScore'],
         'createdAt': json['createdAt'],
         'updatedAt': json['updatedAt'],
     };
@@ -168,6 +169,7 @@ function BankTransactionEntityToJSONTyped(value, ignoreDiscriminator) {
         'merchant': (0, CreateOrUpdateBankTransactionRequestBodyDtoMerchant_1.CreateOrUpdateBankTransactionRequestBodyDtoMerchantToJSON)(value['merchant']),
         'categoryId': value['categoryId'],
         'operationType': value['operationType'],
+        'searchScore': value['searchScore'],
         'createdAt': value['createdAt'],
         'updatedAt': value['updatedAt'],
     };

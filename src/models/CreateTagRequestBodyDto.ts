@@ -26,6 +26,12 @@ export interface CreateTagRequestBodyDto {
      */
     name: string;
     /**
+     * Score da busca textual.
+     * @type {number}
+     * @memberof CreateTagRequestBodyDto
+     */
+    searchScore?: number;
+    /**
      * Canal de origem da operação
      * @type {string}
      * @memberof CreateTagRequestBodyDto
@@ -65,6 +71,7 @@ export function CreateTagRequestBodyDtoFromJSONTyped(json: any, ignoreDiscrimina
     return {
         
         'name': json['name'],
+        'searchScore': json['searchScore'] == null ? undefined : json['searchScore'],
         'channel': json['channel'],
     };
 }
@@ -81,6 +88,7 @@ export function CreateTagRequestBodyDtoToJSONTyped(value?: CreateTagRequestBodyD
     return {
         
         'name': value['name'],
+        'searchScore': value['searchScore'],
         'channel': value['channel'],
     };
 }

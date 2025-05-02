@@ -189,6 +189,12 @@ export interface PartialUpdateFinancialRecordRequestBodyDto {
      */
     populatedAccount?: CreateFinancialRecordRequestBodyDtoPopulatedAccount | null;
     /**
+     * Pontuação de busca do lançamento.
+     * @type {number}
+     * @memberof PartialUpdateFinancialRecordRequestBodyDto
+     */
+    searchScore?: number | null;
+    /**
      * Canal de origem da operação
      * @type {string}
      * @memberof PartialUpdateFinancialRecordRequestBodyDto

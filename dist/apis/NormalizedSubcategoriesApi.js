@@ -91,9 +91,6 @@ var NormalizedSubcategoriesApi = /** @class */ (function (_super) {
                         if (requestParameters['categoryId'] != null) {
                             queryParameters['categoryId'] = requestParameters['categoryId'];
                         }
-                        if (requestParameters['searchTerm'] != null) {
-                            queryParameters['searchTerm'] = requestParameters['searchTerm'];
-                        }
                         if (requestParameters['pageSize'] != null) {
                             queryParameters['pageSize'] = requestParameters['pageSize'];
                         }

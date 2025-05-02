@@ -116,6 +116,12 @@ export interface BankTransactionEntityPopulatedBankAccount {
      */
     providerItemId?: string | null;
     /**
+     * Pontuação de busca.
+     * @type {number}
+     * @memberof BankTransactionEntityPopulatedBankAccount
+     */
+    searchScore?: number | null;
+    /**
      * Data de criação da conta bancária.
      * @type {any}
      * @memberof BankTransactionEntityPopulatedBankAccount
@@ -198,6 +204,7 @@ export function BankTransactionEntityPopulatedBankAccountFromJSONTyped(json: any
         'provider': json['provider'] == null ? undefined : json['provider'],
         'providerAccountId': json['providerAccountId'] == null ? undefined : json['providerAccountId'],
         'providerItemId': json['providerItemId'] == null ? undefined : json['providerItemId'],
+        'searchScore': json['searchScore'] == null ? undefined : json['searchScore'],
         'createdAt': json['createdAt'],
         'updatedAt': json['updatedAt'],
     };
@@ -230,6 +237,7 @@ export function BankTransactionEntityPopulatedBankAccountToJSONTyped(value?: Ban
         'provider': value['provider'],
         'providerAccountId': value['providerAccountId'],
         'providerItemId': value['providerItemId'],
+        'searchScore': value['searchScore'],
         'createdAt': value['createdAt'],
         'updatedAt': value['updatedAt'],
     };

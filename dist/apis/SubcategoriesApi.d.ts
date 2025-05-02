@@ -21,7 +21,8 @@ export interface FindAllSubcategoriesRequest {
     sortBy?: string;
     populate?: string;
     categoryId?: string;
-    searchTerm?: string;
+    semanticSearchTermInBase64?: string;
+    textSearchTerm?: string;
     pageSize?: number;
     pageIndex?: number;
 }
@@ -37,6 +38,18 @@ export interface PartialUpdateSubcategoryRequest {
 export interface RemoveSubcategoryRequest {
     id: string;
     removeSubcategoryRequestBodyDto: RemoveSubcategoryRequestBodyDto;
+}
+export interface SystemFindAllSubcategoriesRequest {
+    ownerOrganizationId: string;
+    active?: boolean;
+    sortOrder?: string;
+    sortBy?: string;
+    populate?: string;
+    categoryId?: string;
+    semanticSearchTermInBase64?: string;
+    textSearchTerm?: string;
+    pageSize?: number;
+    pageIndex?: number;
 }
 /**
  * SubcategoriesApi - interface
@@ -67,7 +80,8 @@ export interface SubcategoriesApiInterface {
      * @param {string} [sortBy] Campo para ordenar as subcategorias.
      * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
      * @param {string} [categoryId] ID da categoria para filtrar subcategorias.
-     * @param {string} [searchTerm] Termo para busca por nome da subcategoria.
+     * @param {string} [semanticSearchTermInBase64] Termo para busca semântica codificado em base64.
+     * @param {string} [textSearchTerm] Termo para busca textual por nome, descrição ou slug da subcategoria.
      * @param {number} [pageSize] Quantidade de itens por página.
      * @param {number} [pageIndex] Índice da página.
      * @param {*} [options] Override http request option.
@@ -122,6 +136,28 @@ export interface SubcategoriesApiInterface {
      * Remove uma subcategoria.
      */
     removeSubcategory(requestParameters: RemoveSubcategoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+    /**
+     *
+     * @summary Busca todas as subcategorias pelo sistema.
+     * @param {string} ownerOrganizationId Identificador da organização proprietária das subcategorias.
+     * @param {boolean} [active] Filtra subcategorias ativas ou inativas.
+     * @param {string} [sortOrder] Ordem de ordenação das subcategorias.
+     * @param {string} [sortBy] Campo para ordenar as subcategorias.
+     * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
+     * @param {string} [categoryId] ID da categoria para filtrar subcategorias.
+     * @param {string} [semanticSearchTermInBase64] Termo para busca semântica codificado em base64.
+     * @param {string} [textSearchTerm] Termo para busca textual por nome, descrição ou slug da subcategoria.
+     * @param {number} [pageSize] Quantidade de itens por página.
+     * @param {number} [pageIndex] Índice da página.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SubcategoriesApiInterface
+     */
+    systemFindAllSubcategoriesRaw(requestParameters: SystemFindAllSubcategoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SubcategoriesPageEntity>>;
+    /**
+     * Busca todas as subcategorias pelo sistema.
+     */
+    systemFindAllSubcategories(requestParameters: SystemFindAllSubcategoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SubcategoriesPageEntity>;
 }
 /**
  *
@@ -167,4 +203,12 @@ export declare class SubcategoriesApi extends runtime.BaseAPI implements Subcate
      * Remove uma subcategoria.
      */
     removeSubcategory(requestParameters: RemoveSubcategoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+    /**
+     * Busca todas as subcategorias pelo sistema.
+     */
+    systemFindAllSubcategoriesRaw(requestParameters: SystemFindAllSubcategoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SubcategoriesPageEntity>>;
+    /**
+     * Busca todas as subcategorias pelo sistema.
+     */
+    systemFindAllSubcategories(requestParameters: SystemFindAllSubcategoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SubcategoriesPageEntity>;
 }

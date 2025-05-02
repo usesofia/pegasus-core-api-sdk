@@ -200,6 +200,12 @@ export interface BankTransactionEntity {
      */
     operationType?: string | null;
     /**
+     * Pontuação de busca da movimentação financeira.
+     * @type {number}
+     * @memberof BankTransactionEntity
+     */
+    searchScore?: number | null;
+    /**
      * Data de criação da movimentação financeira.
      * @type {any}
      * @memberof BankTransactionEntity

@@ -79,9 +79,11 @@ function CreateBankAccountRequestBodyDtoFromJSONTyped(json, ignoreDiscriminator)
         'initialBalanceDate': json['initialBalanceDate'] == null ? undefined : json['initialBalanceDate'],
         'initialBalanceAmount': json['initialBalanceAmount'] == null ? undefined : json['initialBalanceAmount'],
         'institution': json['institution'] == null ? undefined : json['institution'],
+        'institutionName': json['institutionName'] == null ? undefined : json['institutionName'],
         'provider': json['provider'] == null ? undefined : json['provider'],
         'providerAccountId': json['providerAccountId'] == null ? undefined : json['providerAccountId'],
         'providerItemId': json['providerItemId'] == null ? undefined : json['providerItemId'],
+        'searchScore': json['searchScore'] == null ? undefined : json['searchScore'],
         'channel': json['channel'],
     };
 }
@@ -103,9 +105,11 @@ function CreateBankAccountRequestBodyDtoToJSONTyped(value, ignoreDiscriminator) 
         'initialBalanceDate': value['initialBalanceDate'],
         'initialBalanceAmount': value['initialBalanceAmount'],
         'institution': value['institution'],
+        'institutionName': value['institutionName'],
         'provider': value['provider'],
         'providerAccountId': value['providerAccountId'],
         'providerItemId': value['providerItemId'],
+        'searchScore': value['searchScore'],
         'channel': value['channel'],
     };
 }

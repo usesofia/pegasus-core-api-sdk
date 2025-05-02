@@ -224,6 +224,12 @@ export interface CreateFinancialRecordRequestBodyDto {
      */
     populatedAccount?: CreateFinancialRecordRequestBodyDtoPopulatedAccount | null;
     /**
+     * Pontuação de busca do lançamento.
+     * @type {number}
+     * @memberof CreateFinancialRecordRequestBodyDto
+     */
+    searchScore?: number | null;
+    /**
      * Canal de origem da operação
      * @type {string}
      * @memberof CreateFinancialRecordRequestBodyDto
@@ -304,6 +310,7 @@ export function CreateFinancialRecordRequestBodyDtoFromJSONTyped(json: any, igno
         'populatedContact': json['populatedContact'] == null ? undefined : CreateFinancialRecordRequestBodyDtoPopulatedContactFromJSON(json['populatedContact']),
         'populatedTags': json['populatedTags'] == null ? undefined : ((json['populatedTags'] as Array<any>).map(CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerFromJSON)),
         'populatedAccount': json['populatedAccount'] == null ? undefined : CreateFinancialRecordRequestBodyDtoPopulatedAccountFromJSON(json['populatedAccount']),
+        'searchScore': json['searchScore'] == null ? undefined : json['searchScore'],
         'channel': json['channel'],
     };
 }
@@ -347,6 +354,7 @@ export function CreateFinancialRecordRequestBodyDtoToJSONTyped(value?: CreateFin
         'populatedContact': CreateFinancialRecordRequestBodyDtoPopulatedContactToJSON(value['populatedContact']),
         'populatedTags': value['populatedTags'] == null ? undefined : ((value['populatedTags'] as Array<any>).map(CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerToJSON)),
         'populatedAccount': CreateFinancialRecordRequestBodyDtoPopulatedAccountToJSON(value['populatedAccount']),
+        'searchScore': value['searchScore'],
         'channel': value['channel'],
     };
 }

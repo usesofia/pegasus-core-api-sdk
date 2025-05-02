@@ -86,6 +86,12 @@ export interface ProspectInstallmentFinancialRecordRequestBodyDto {
      */
     numberOfInstallments: number;
     /**
+     * Pontuação de busca do lançamento.
+     * @type {number}
+     * @memberof ProspectInstallmentFinancialRecordRequestBodyDto
+     */
+    searchScore?: number | null;
+    /**
      *
      * @type {CreateFinancialRecordRequestBodyDtoPopulatedSubcategory}
      * @memberof ProspectInstallmentFinancialRecordRequestBodyDto

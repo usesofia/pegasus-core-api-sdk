@@ -223,6 +223,12 @@ export interface CreateManyFinancialRecordsRequestBodyDtoDataInner {
      * @memberof CreateManyFinancialRecordsRequestBodyDtoDataInner
      */
     populatedAccount?: CreateFinancialRecordRequestBodyDtoPopulatedAccount | null;
+    /**
+     * Pontuação de busca do lançamento.
+     * @type {number}
+     * @memberof CreateManyFinancialRecordsRequestBodyDtoDataInner
+     */
+    searchScore?: number | null;
 }
 
 
@@ -287,6 +293,7 @@ export function CreateManyFinancialRecordsRequestBodyDtoDataInnerFromJSONTyped(j
         'populatedContact': json['populatedContact'] == null ? undefined : CreateFinancialRecordRequestBodyDtoPopulatedContactFromJSON(json['populatedContact']),
         'populatedTags': json['populatedTags'] == null ? undefined : ((json['populatedTags'] as Array<any>).map(CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerFromJSON)),
         'populatedAccount': json['populatedAccount'] == null ? undefined : CreateFinancialRecordRequestBodyDtoPopulatedAccountFromJSON(json['populatedAccount']),
+        'searchScore': json['searchScore'] == null ? undefined : json['searchScore'],
     };
 }
 
@@ -329,6 +336,7 @@ export function CreateManyFinancialRecordsRequestBodyDtoDataInnerToJSONTyped(val
         'populatedContact': CreateFinancialRecordRequestBodyDtoPopulatedContactToJSON(value['populatedContact']),
         'populatedTags': value['populatedTags'] == null ? undefined : ((value['populatedTags'] as Array<any>).map(CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerToJSON)),
         'populatedAccount': CreateFinancialRecordRequestBodyDtoPopulatedAccountToJSON(value['populatedAccount']),
+        'searchScore': value['searchScore'],
     };
 }
 

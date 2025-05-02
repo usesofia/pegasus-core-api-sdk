@@ -95,6 +95,12 @@ export interface CreateFinancialRecordRequestBodyDtoPopulatedContact {
      */
     isNotIdentified: boolean;
     /**
+     * Pontuação de busca do contato.
+     * @type {number}
+     * @memberof CreateFinancialRecordRequestBodyDtoPopulatedContact
+     */
+    searchScore?: number | null;
+    /**
      * Data de criação do contato.
      * @type {any}
      * @memberof CreateFinancialRecordRequestBodyDtoPopulatedContact

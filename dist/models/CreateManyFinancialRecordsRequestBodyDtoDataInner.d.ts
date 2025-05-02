@@ -188,6 +188,12 @@ export interface CreateManyFinancialRecordsRequestBodyDtoDataInner {
      * @memberof CreateManyFinancialRecordsRequestBodyDtoDataInner
      */
     populatedAccount?: CreateFinancialRecordRequestBodyDtoPopulatedAccount | null;
+    /**
+     * Pontuação de busca do lançamento.
+     * @type {number}
+     * @memberof CreateManyFinancialRecordsRequestBodyDtoDataInner
+     */
+    searchScore?: number | null;
 }
 /**
  * @export

@@ -35,7 +35,8 @@ export interface FindAllFinancialRecordsRequest {
     dueDateFrom?: string;
     direction?: string;
     populate?: string;
-    searchTerm?: string;
+    semanticSearchTermInBase64?: string;
+    textSearchTerm?: string;
     pageSize?: number;
     pageIndex?: number;
 }
@@ -50,6 +51,31 @@ export interface PartialUpdateFinancialRecordRequest {
 }
 export interface RemoveFinancialRecordRequest {
     id: string;
+}
+export interface SystemFindAllFinancialRecordsRequest {
+    ownerOrganizationId: string;
+    sortOrder?: string;
+    sortBy?: string;
+    account?: string;
+    reconciled?: boolean;
+    completed?: boolean;
+    tags?: Array<string>;
+    createdAtTo?: string;
+    createdAtFrom?: string;
+    cashDateTo?: string;
+    cashDateFrom?: string;
+    competenceDateTo?: string;
+    competenceDateFrom?: string;
+    category?: string;
+    contact?: string;
+    dueDateTo?: string;
+    dueDateFrom?: string;
+    direction?: string;
+    populate?: string;
+    semanticSearchTermInBase64?: string;
+    textSearchTerm?: string;
+    pageSize?: number;
+    pageIndex?: number;
 }
 /**
  * FinancialRecordsApi - interface
@@ -104,7 +130,8 @@ export interface FinancialRecordsApiInterface {
      * @param {string} [dueDateFrom] Data de vencimento inicial.
      * @param {string} [direction] Direção do lançamento financeiro.
      * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
-     * @param {string} [searchTerm] Termo para busca por descrição do lançamento.
+     * @param {string} [semanticSearchTermInBase64] Termo para busca semântica.
+     * @param {string} [textSearchTerm] Termo para busca textual.
      * @param {number} [pageSize] Quantidade de itens por página.
      * @param {number} [pageIndex] Índice da página.
      * @param {*} [options] Override http request option.
@@ -158,6 +185,41 @@ export interface FinancialRecordsApiInterface {
      * Remove um lançamento financeiro.
      */
     removeFinancialRecord(requestParameters: RemoveFinancialRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+    /**
+     *
+     * @summary Busca todos os lançamentos financeiros pelo sistema.
+     * @param {string} ownerOrganizationId Identificador da organização proprietária dos lançamentos financeiros.
+     * @param {string} [sortOrder] Ordem de ordenação dos lançamentos financeiros.
+     * @param {string} [sortBy] Campo para ordenação dos lançamentos financeiros.
+     * @param {string} [account] Conta do lançamento financeiro.
+     * @param {boolean} [reconciled] Indica se o lançamento financeiro foi reconciliado.
+     * @param {boolean} [completed] Indica se o lançamento financeiro foi completado.
+     * @param {Array<string>} [tags] Tags do lançamento financeiro.
+     * @param {string} [createdAtTo] Data de criação final.
+     * @param {string} [createdAtFrom] Data de criação inicial.
+     * @param {string} [cashDateTo] Data de pagamento final.
+     * @param {string} [cashDateFrom] Data de pagamento inicial.
+     * @param {string} [competenceDateTo] Data de competência final.
+     * @param {string} [competenceDateFrom] Data de competência inicial.
+     * @param {string} [category] Categoria do lançamento financeiro.
+     * @param {string} [contact] Contato do lançamento financeiro.
+     * @param {string} [dueDateTo] Data de vencimento final.
+     * @param {string} [dueDateFrom] Data de vencimento inicial.
+     * @param {string} [direction] Direção do lançamento financeiro.
+     * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
+     * @param {string} [semanticSearchTermInBase64] Termo para busca semântica.
+     * @param {string} [textSearchTerm] Termo para busca textual.
+     * @param {number} [pageSize] Quantidade de itens por página.
+     * @param {number} [pageIndex] Índice da página.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof FinancialRecordsApiInterface
+     */
+    systemFindAllFinancialRecordsRaw(requestParameters: SystemFindAllFinancialRecordsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FinancialRecordsPageDto>>;
+    /**
+     * Busca todos os lançamentos financeiros pelo sistema.
+     */
+    systemFindAllFinancialRecords(requestParameters: SystemFindAllFinancialRecordsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialRecordsPageDto>;
 }
 /**
  *
@@ -211,4 +273,12 @@ export declare class FinancialRecordsApi extends runtime.BaseAPI implements Fina
      * Remove um lançamento financeiro.
      */
     removeFinancialRecord(requestParameters: RemoveFinancialRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+    /**
+     * Busca todos os lançamentos financeiros pelo sistema.
+     */
+    systemFindAllFinancialRecordsRaw(requestParameters: SystemFindAllFinancialRecordsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FinancialRecordsPageDto>>;
+    /**
+     * Busca todos os lançamentos financeiros pelo sistema.
+     */
+    systemFindAllFinancialRecords(requestParameters: SystemFindAllFinancialRecordsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialRecordsPageDto>;
 }

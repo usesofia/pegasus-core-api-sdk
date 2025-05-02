@@ -49,6 +49,12 @@ export interface CreateFinancialRecordRequestBodyDtoPopulatedTagsInner {
      * @memberof CreateFinancialRecordRequestBodyDtoPopulatedTagsInner
      */
     updatedAt: any | null;
+    /**
+     * Score da busca textual.
+     * @type {number}
+     * @memberof CreateFinancialRecordRequestBodyDtoPopulatedTagsInner
+     */
+    searchScore?: number;
 }
 
 /**
@@ -78,6 +84,7 @@ export function CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerFromJSONTyp
         'name': json['name'],
         'createdAt': json['createdAt'],
         'updatedAt': json['updatedAt'],
+        'searchScore': json['searchScore'] == null ? undefined : json['searchScore'],
     };
 }
 
@@ -97,6 +104,7 @@ export function CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerToJSONTyped
         'name': value['name'],
         'createdAt': value['createdAt'],
         'updatedAt': value['updatedAt'],
+        'searchScore': value['searchScore'],
     };
 }
 
