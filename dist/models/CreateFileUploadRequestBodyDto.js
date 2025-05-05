@@ -24,7 +24,8 @@ exports.CreateFileUploadRequestBodyDtoToJSONTyped = CreateFileUploadRequestBodyD
  */
 exports.CreateFileUploadRequestBodyDtoFileTypeEnum = {
     Default: 'DEFAULT',
-    FinancialRecord: 'FINANCIAL_RECORD'
+    FinancialRecord: 'FINANCIAL_RECORD',
+    Export: 'EXPORT'
 };
 /**
  * @export

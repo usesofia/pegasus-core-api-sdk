@@ -58,6 +58,7 @@ export interface CreateFileUploadRequestBodyDto {
 export declare const CreateFileUploadRequestBodyDtoFileTypeEnum: {
     readonly Default: "DEFAULT";
     readonly FinancialRecord: "FINANCIAL_RECORD";
+    readonly Export: "EXPORT";
 };
 export type CreateFileUploadRequestBodyDtoFileTypeEnum = typeof CreateFileUploadRequestBodyDtoFileTypeEnum[keyof typeof CreateFileUploadRequestBodyDtoFileTypeEnum];
 /**

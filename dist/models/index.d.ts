@@ -60,6 +60,7 @@ export * from './CreateRecurringFinancialRecordRequestBodyDtoPopulatedSubcategor
 export * from './CreateTagRequestBodyDto';
 export * from './ExceptionResponseEntity';
 export * from './ExceptionResponseEntityErrorsInner';
+export * from './ExportFinancialRecordsDto';
 export * from './ExternalCreateSubcategoryRequestBodyDto';
 export * from './FinancialRecordDto';
 export * from './FinancialRecordsPageDto';
@@ -83,6 +84,7 @@ export * from './PartialUpdateOrganizationRequestBodyDto';
 export * from './PartialUpdateRecurringFinancialRecordRequestBodyDto';
 export * from './PartialUpdateSubcategoryRequestBodyDto';
 export * from './PartialUpdateTagRequestBodyDto';
+export * from './ProcessExportResourceJobRequestBodyDto';
 export * from './ProspectFinancialRecordDto';
 export * from './ProspectInstallmentFinancialRecordRequestBodyDto';
 export * from './ProspectRecurringFinancialRecordRequestBodyDto';

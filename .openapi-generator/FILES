@@ -9,10 +9,12 @@ src/apis/BankTransactionsApi.ts
 src/apis/CacheApi.ts
 src/apis/CategoriesApi.ts
 src/apis/ContactsApi.ts
+src/apis/ExportResourcesApi.ts
 src/apis/FibonacciApi.ts
 src/apis/FilesApi.ts
 src/apis/FilesUploadApi.ts
 src/apis/FinancialRecordsApi.ts
+src/apis/FinancialRecordsExportApi.ts
 src/apis/HealthApi.ts
 src/apis/InstallmentFinancialRecordsApi.ts
 src/apis/MembershipsApi.ts
@@ -87,6 +89,7 @@ src/models/CreateRecurringFinancialRecordRequestBodyDtoPopulatedSubcategory.ts
 src/models/CreateTagRequestBodyDto.ts
 src/models/ExceptionResponseEntity.ts
 src/models/ExceptionResponseEntityErrorsInner.ts
+src/models/ExportFinancialRecordsDto.ts
 src/models/ExternalCreateSubcategoryRequestBodyDto.ts
 src/models/FinancialRecordDto.ts
 src/models/FinancialRecordsPageDto.ts
@@ -110,6 +113,7 @@ src/models/PartialUpdateOrganizationRequestBodyDto.ts
 src/models/PartialUpdateRecurringFinancialRecordRequestBodyDto.ts
 src/models/PartialUpdateSubcategoryRequestBodyDto.ts
 src/models/PartialUpdateTagRequestBodyDto.ts
+src/models/ProcessExportResourceJobRequestBodyDto.ts
 src/models/ProspectFinancialRecordDto.ts
 src/models/ProspectInstallmentFinancialRecordRequestBodyDto.ts
 src/models/ProspectRecurringFinancialRecordRequestBodyDto.ts

@@ -78,6 +78,7 @@ __exportStar(require("./CreateRecurringFinancialRecordRequestBodyDtoPopulatedSub
 __exportStar(require("./CreateTagRequestBodyDto"), exports);
 __exportStar(require("./ExceptionResponseEntity"), exports);
 __exportStar(require("./ExceptionResponseEntityErrorsInner"), exports);
+__exportStar(require("./ExportFinancialRecordsDto"), exports);
 __exportStar(require("./ExternalCreateSubcategoryRequestBodyDto"), exports);
 __exportStar(require("./FinancialRecordDto"), exports);
 __exportStar(require("./FinancialRecordsPageDto"), exports);
@@ -101,6 +102,7 @@ __exportStar(require("./PartialUpdateOrganizationRequestBodyDto"), exports);
 __exportStar(require("./PartialUpdateRecurringFinancialRecordRequestBodyDto"), exports);
 __exportStar(require("./PartialUpdateSubcategoryRequestBodyDto"), exports);
 __exportStar(require("./PartialUpdateTagRequestBodyDto"), exports);
+__exportStar(require("./ProcessExportResourceJobRequestBodyDto"), exports);
 __exportStar(require("./ProspectFinancialRecordDto"), exports);
 __exportStar(require("./ProspectInstallmentFinancialRecordRequestBodyDto"), exports);
 __exportStar(require("./ProspectRecurringFinancialRecordRequestBodyDto"), exports);

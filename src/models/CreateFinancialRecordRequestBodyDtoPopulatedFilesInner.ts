@@ -99,7 +99,8 @@ export interface CreateFinancialRecordRequestBodyDtoPopulatedFilesInner {
  */
 export const CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerFileTypeEnum = {
     Default: 'DEFAULT',
-    FinancialRecord: 'FINANCIAL_RECORD'
+    FinancialRecord: 'FINANCIAL_RECORD',
+    Export: 'EXPORT'
 } as const;
 export type CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerFileTypeEnum = typeof CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerFileTypeEnum[keyof typeof CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerFileTypeEnum];
 
