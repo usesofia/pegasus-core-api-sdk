@@ -26,6 +26,18 @@ export interface PartialUpdateBankTransactionRequestBodyDto {
      */
     ignored?: boolean;
     /**
+     * 
+     * @type {Array<number>}
+     * @memberof PartialUpdateBankTransactionRequestBodyDto
+     */
+    markdownEmbedding?: Array<number>;
+    /**
+     * 
+     * @type {any}
+     * @memberof PartialUpdateBankTransactionRequestBodyDto
+     */
+    markdownEmbeddingUpdatedAt?: any | null;
+    /**
      * Canal de origem da operação
      * @type {string}
      * @memberof PartialUpdateBankTransactionRequestBodyDto
@@ -64,6 +76,8 @@ export function PartialUpdateBankTransactionRequestBodyDtoFromJSONTyped(json: an
     return {
         
         'ignored': json['ignored'] == null ? undefined : json['ignored'],
+        'markdownEmbedding': json['markdownEmbedding'] == null ? undefined : json['markdownEmbedding'],
+        'markdownEmbeddingUpdatedAt': json['markdownEmbeddingUpdatedAt'] == null ? undefined : json['markdownEmbeddingUpdatedAt'],
         'channel': json['channel'],
     };
 }
@@ -80,6 +94,8 @@ export function PartialUpdateBankTransactionRequestBodyDtoToJSONTyped(value?: Pa
     return {
         
         'ignored': value['ignored'],
+        'markdownEmbedding': value['markdownEmbedding'],
+        'markdownEmbeddingUpdatedAt': value['markdownEmbeddingUpdatedAt'],
         'channel': value['channel'],
     };
 }

@@ -44,6 +44,8 @@ function PartialUpdateBankTransactionRequestBodyDtoFromJSONTyped(json, ignoreDis
     }
     return {
         'ignored': json['ignored'] == null ? undefined : json['ignored'],
+        'markdownEmbedding': json['markdownEmbedding'] == null ? undefined : json['markdownEmbedding'],
+        'markdownEmbeddingUpdatedAt': json['markdownEmbeddingUpdatedAt'] == null ? undefined : json['markdownEmbeddingUpdatedAt'],
         'channel': json['channel'],
     };
 }
@@ -57,6 +59,8 @@ function PartialUpdateBankTransactionRequestBodyDtoToJSONTyped(value, ignoreDisc
     }
     return {
         'ignored': value['ignored'],
+        'markdownEmbedding': value['markdownEmbedding'],
+        'markdownEmbeddingUpdatedAt': value['markdownEmbeddingUpdatedAt'],
         'channel': value['channel'],
     };
 }

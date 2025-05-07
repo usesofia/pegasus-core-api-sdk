@@ -22,6 +22,18 @@ export interface PartialUpdateBankTransactionRequestBodyDto {
      */
     ignored?: boolean;
     /**
+     *
+     * @type {Array<number>}
+     * @memberof PartialUpdateBankTransactionRequestBodyDto
+     */
+    markdownEmbedding?: Array<number>;
+    /**
+     *
+     * @type {any}
+     * @memberof PartialUpdateBankTransactionRequestBodyDto
+     */
+    markdownEmbeddingUpdatedAt?: any | null;
+    /**
      * Canal de origem da operação
      * @type {string}
      * @memberof PartialUpdateBankTransactionRequestBodyDto

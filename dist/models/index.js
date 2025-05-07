@@ -27,6 +27,7 @@ __exportStar(require("./BankTransactionsPageDto"), exports);
 __exportStar(require("./BankTransactionsPageDtoItemsInner"), exports);
 __exportStar(require("./CacheGetResponseDto"), exports);
 __exportStar(require("./CacheSetDto"), exports);
+__exportStar(require("./CalculateAndUpdateEmbeddingBodyRequestDto"), exports);
 __exportStar(require("./CategoriesPageEntity"), exports);
 __exportStar(require("./CategoriesPageEntityItemsInner"), exports);
 __exportStar(require("./ConfirmFileUploadRequestBodyDto"), exports);

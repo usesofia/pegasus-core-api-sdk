@@ -5,6 +5,7 @@ export * from './BankTransactionsApi';
 export * from './CacheApi';
 export * from './CategoriesApi';
 export * from './ContactsApi';
+export * from './EmbeddingApi';
 export * from './ExportResourcesApi';
 export * from './FibonacciApi';
 export * from './FilesApi';

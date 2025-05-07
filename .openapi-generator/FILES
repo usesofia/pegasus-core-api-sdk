@@ -9,6 +9,7 @@ src/apis/BankTransactionsApi.ts
 src/apis/CacheApi.ts
 src/apis/CategoriesApi.ts
 src/apis/ContactsApi.ts
+src/apis/EmbeddingApi.ts
 src/apis/ExportResourcesApi.ts
 src/apis/FibonacciApi.ts
 src/apis/FilesApi.ts
@@ -38,6 +39,7 @@ src/models/BankTransactionsPageDto.ts
 src/models/BankTransactionsPageDtoItemsInner.ts
 src/models/CacheGetResponseDto.ts
 src/models/CacheSetDto.ts
+src/models/CalculateAndUpdateEmbeddingBodyRequestDto.ts
 src/models/CategoriesPageEntity.ts
 src/models/CategoriesPageEntityItemsInner.ts
 src/models/ConfirmFileUploadRequestBodyDto.ts

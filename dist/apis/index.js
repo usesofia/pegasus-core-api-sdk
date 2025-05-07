@@ -23,6 +23,7 @@ __exportStar(require("./BankTransactionsApi"), exports);
 __exportStar(require("./CacheApi"), exports);
 __exportStar(require("./CategoriesApi"), exports);
 __exportStar(require("./ContactsApi"), exports);
+__exportStar(require("./EmbeddingApi"), exports);
 __exportStar(require("./ExportResourcesApi"), exports);
 __exportStar(require("./FibonacciApi"), exports);
 __exportStar(require("./FilesApi"), exports);

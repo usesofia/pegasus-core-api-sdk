@@ -9,6 +9,7 @@ export * from './BankTransactionsPageDto';
 export * from './BankTransactionsPageDtoItemsInner';
 export * from './CacheGetResponseDto';
 export * from './CacheSetDto';
+export * from './CalculateAndUpdateEmbeddingBodyRequestDto';
 export * from './CategoriesPageEntity';
 export * from './CategoriesPageEntityItemsInner';
 export * from './ConfirmFileUploadRequestBodyDto';
