@@ -125,6 +125,8 @@ src/models/RecurringFinancialRecordsPageEntityItemsInner.ts
 src/models/RemoveBankAccountRequestBodyDto.ts
 src/models/RemoveContactRequestBodyDto.ts
 src/models/RemoveFileRequestBodyDto.ts
+src/models/RemoveFinancialRecordRequestBodyDto.ts
+src/models/RemoveInstallmentFinancialRecordRequestBodyDto.ts
 src/models/RemoveMemberRequestBodyDto.ts
 src/models/RemoveRecurringFinancialRecordRequestBodyDto.ts
 src/models/RemoveSubcategoryRequestBodyDto.ts

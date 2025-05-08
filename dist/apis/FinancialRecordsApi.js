@@ -383,13 +383,18 @@ var FinancialRecordsApi = /** @class */ (function (_super) {
                         if (requestParameters['id'] == null) {
                             throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling removeFinancialRecord().');
                         }
+                        if (requestParameters['removeFinancialRecordRequestBodyDto'] == null) {
+                            throw new runtime.RequiredError('removeFinancialRecordRequestBodyDto', 'Required parameter "removeFinancialRecordRequestBodyDto" was null or undefined when calling removeFinancialRecord().');
+                        }
                         queryParameters = {};
                         headerParameters = {};
+                        headerParameters['Content-Type'] = 'application/json';
                         return [4 /*yield*/, this.request({
                                 path: "/external/financial-records/{id}".replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id']))),
                                 method: 'DELETE',
                                 headers: headerParameters,
                                 query: queryParameters,
+                                body: (0, index_1.RemoveFinancialRecordRequestBodyDtoToJSON)(requestParameters['removeFinancialRecordRequestBodyDto']),
                             }, initOverrides)];
                     case 1:
                         response = _a.sent();

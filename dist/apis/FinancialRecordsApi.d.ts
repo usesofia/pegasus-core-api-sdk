@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { CreateFinancialRecordRequestBodyDto, CreateManyFinancialRecordsRequestBodyDto, FinancialRecordDto, FinancialRecordsPageDto, PartialUpdateFinancialRecordRequestBodyDto } from '../models/index';
+import type { CreateFinancialRecordRequestBodyDto, CreateManyFinancialRecordsRequestBodyDto, FinancialRecordDto, FinancialRecordsPageDto, PartialUpdateFinancialRecordRequestBodyDto, RemoveFinancialRecordRequestBodyDto } from '../models/index';
 export interface CreateFinancialRecordRequest {
     createFinancialRecordRequestBodyDto: CreateFinancialRecordRequestBodyDto;
     populate?: string;
@@ -51,6 +51,7 @@ export interface PartialUpdateFinancialRecordRequest {
 }
 export interface RemoveFinancialRecordRequest {
     id: string;
+    removeFinancialRecordRequestBodyDto: RemoveFinancialRecordRequestBodyDto;
 }
 export interface SystemFindAllFinancialRecordsRequest {
     ownerOrganizationId: string;
@@ -176,6 +177,7 @@ export interface FinancialRecordsApiInterface {
      *
      * @summary Remove um lançamento financeiro.
      * @param {string} id Identificador do lançamento financeiro.
+     * @param {RemoveFinancialRecordRequestBodyDto} removeFinancialRecordRequestBodyDto
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof FinancialRecordsApiInterface

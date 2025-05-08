@@ -20,6 +20,7 @@ import type {
   InstallmentFinancialRecordDto,
   InstallmentFinancialRecordsPageDto,
   PartialUpdateInstallmentFinancialRecordRequestBodyDto,
+  RemoveInstallmentFinancialRecordRequestBodyDto,
 } from '../models/index';
 import {
     CreateInstallmentFinancialRecordRequestBodyDtoFromJSON,
@@ -32,6 +33,8 @@ import {
     InstallmentFinancialRecordsPageDtoToJSON,
     PartialUpdateInstallmentFinancialRecordRequestBodyDtoFromJSON,
     PartialUpdateInstallmentFinancialRecordRequestBodyDtoToJSON,
+    RemoveInstallmentFinancialRecordRequestBodyDtoFromJSON,
+    RemoveInstallmentFinancialRecordRequestBodyDtoToJSON,
 } from '../models/index';
 
 export interface CreateInstallmentFinancialRecordRequest {
@@ -59,6 +62,7 @@ export interface PartialUpdateInstallmentFinancialRecordRequest {
 
 export interface RemoveInstallmentFinancialRecordRequest {
     id: string;
+    removeInstallmentFinancialRecordRequestBodyDto: RemoveInstallmentFinancialRecordRequestBodyDto;
 }
 
 /**
@@ -139,6 +143,7 @@ export interface InstallmentFinancialRecordsApiInterface {
      * 
      * @summary Remove um lançamento financeiro parcelado.
      * @param {string} id Identificador do lançamento financeiro parcelado.
+     * @param {RemoveInstallmentFinancialRecordRequestBodyDto} removeInstallmentFinancialRecordRequestBodyDto 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof InstallmentFinancialRecordsApiInterface
@@ -334,15 +339,25 @@ export class InstallmentFinancialRecordsApi extends runtime.BaseAPI implements I
             );
         }
 
+        if (requestParameters['removeInstallmentFinancialRecordRequestBodyDto'] == null) {
+            throw new runtime.RequiredError(
+                'removeInstallmentFinancialRecordRequestBodyDto',
+                'Required parameter "removeInstallmentFinancialRecordRequestBodyDto" was null or undefined when calling removeInstallmentFinancialRecord().'
+            );
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
 
         const response = await this.request({
             path: `/external/installment-financial-records/{id}`.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id']))),
             method: 'DELETE',
             headers: headerParameters,
             query: queryParameters,
+            body: RemoveInstallmentFinancialRecordRequestBodyDtoToJSON(requestParameters['removeInstallmentFinancialRecordRequestBodyDto']),
         }, initOverrides);
 
         return new runtime.VoidApiResponse(response);

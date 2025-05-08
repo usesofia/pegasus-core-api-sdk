@@ -21,6 +21,7 @@ import type {
   FinancialRecordDto,
   FinancialRecordsPageDto,
   PartialUpdateFinancialRecordRequestBodyDto,
+  RemoveFinancialRecordRequestBodyDto,
 } from '../models/index';
 import {
     CreateFinancialRecordRequestBodyDtoFromJSON,
@@ -35,6 +36,8 @@ import {
     FinancialRecordsPageDtoToJSON,
     PartialUpdateFinancialRecordRequestBodyDtoFromJSON,
     PartialUpdateFinancialRecordRequestBodyDtoToJSON,
+    RemoveFinancialRecordRequestBodyDtoFromJSON,
+    RemoveFinancialRecordRequestBodyDtoToJSON,
 } from '../models/index';
 
 export interface CreateFinancialRecordRequest {
@@ -82,6 +85,7 @@ export interface PartialUpdateFinancialRecordRequest {
 
 export interface RemoveFinancialRecordRequest {
     id: string;
+    removeFinancialRecordRequestBodyDto: RemoveFinancialRecordRequestBodyDto;
 }
 
 export interface SystemFindAllFinancialRecordsRequest {
@@ -219,6 +223,7 @@ export interface FinancialRecordsApiInterface {
      * 
      * @summary Remove um lançamento financeiro.
      * @param {string} id Identificador do lançamento financeiro.
+     * @param {RemoveFinancialRecordRequestBodyDto} removeFinancialRecordRequestBodyDto 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof FinancialRecordsApiInterface
@@ -551,15 +556,25 @@ export class FinancialRecordsApi extends runtime.BaseAPI implements FinancialRec
             );
         }
 
+        if (requestParameters['removeFinancialRecordRequestBodyDto'] == null) {
+            throw new runtime.RequiredError(
+                'removeFinancialRecordRequestBodyDto',
+                'Required parameter "removeFinancialRecordRequestBodyDto" was null or undefined when calling removeFinancialRecord().'
+            );
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
 
         const response = await this.request({
             path: `/external/financial-records/{id}`.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id']))),
             method: 'DELETE',
             headers: headerParameters,
             query: queryParameters,
+            body: RemoveFinancialRecordRequestBodyDtoToJSON(requestParameters['removeFinancialRecordRequestBodyDto']),
         }, initOverrides);
 
         return new runtime.VoidApiResponse(response);

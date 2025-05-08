@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { CreateInstallmentFinancialRecordRequestBodyDto, InstallmentFinancialRecordDto, InstallmentFinancialRecordsPageDto, PartialUpdateInstallmentFinancialRecordRequestBodyDto } from '../models/index';
+import type { CreateInstallmentFinancialRecordRequestBodyDto, InstallmentFinancialRecordDto, InstallmentFinancialRecordsPageDto, PartialUpdateInstallmentFinancialRecordRequestBodyDto, RemoveInstallmentFinancialRecordRequestBodyDto } from '../models/index';
 export interface CreateInstallmentFinancialRecordRequest {
     createInstallmentFinancialRecordRequestBodyDto: CreateInstallmentFinancialRecordRequestBodyDto;
     populate?: string;
@@ -32,6 +32,7 @@ export interface PartialUpdateInstallmentFinancialRecordRequest {
 }
 export interface RemoveInstallmentFinancialRecordRequest {
     id: string;
+    removeInstallmentFinancialRecordRequestBodyDto: RemoveInstallmentFinancialRecordRequestBodyDto;
 }
 /**
  * InstallmentFinancialRecordsApi - interface
@@ -103,6 +104,7 @@ export interface InstallmentFinancialRecordsApiInterface {
      *
      * @summary Remove um lançamento financeiro parcelado.
      * @param {string} id Identificador do lançamento financeiro parcelado.
+     * @param {RemoveInstallmentFinancialRecordRequestBodyDto} removeInstallmentFinancialRecordRequestBodyDto
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof InstallmentFinancialRecordsApiInterface

@@ -95,6 +95,8 @@ export * from './RecurringFinancialRecordsPageEntityItemsInner';
 export * from './RemoveBankAccountRequestBodyDto';
 export * from './RemoveContactRequestBodyDto';
 export * from './RemoveFileRequestBodyDto';
+export * from './RemoveFinancialRecordRequestBodyDto';
+export * from './RemoveInstallmentFinancialRecordRequestBodyDto';
 export * from './RemoveMemberRequestBodyDto';
 export * from './RemoveRecurringFinancialRecordRequestBodyDto';
 export * from './RemoveSubcategoryRequestBodyDto';

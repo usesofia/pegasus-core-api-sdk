@@ -113,6 +113,8 @@ __exportStar(require("./RecurringFinancialRecordsPageEntityItemsInner"), exports
 __exportStar(require("./RemoveBankAccountRequestBodyDto"), exports);
 __exportStar(require("./RemoveContactRequestBodyDto"), exports);
 __exportStar(require("./RemoveFileRequestBodyDto"), exports);
+__exportStar(require("./RemoveFinancialRecordRequestBodyDto"), exports);
+__exportStar(require("./RemoveInstallmentFinancialRecordRequestBodyDto"), exports);
 __exportStar(require("./RemoveMemberRequestBodyDto"), exports);
 __exportStar(require("./RemoveRecurringFinancialRecordRequestBodyDto"), exports);
 __exportStar(require("./RemoveSubcategoryRequestBodyDto"), exports);
