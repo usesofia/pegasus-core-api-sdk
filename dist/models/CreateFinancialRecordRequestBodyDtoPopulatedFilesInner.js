@@ -25,7 +25,9 @@ exports.CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerToJSONTyped = Crea
 exports.CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerFileTypeEnum = {
     Default: 'DEFAULT',
     FinancialRecord: 'FINANCIAL_RECORD',
-    Export: 'EXPORT'
+    Export: 'EXPORT',
+    InstallmentFinancialRecord: 'INSTALLMENT_FINANCIAL_RECORD',
+    RecurringFinancialRecord: 'RECURRING_FINANCIAL_RECORD'
 };
 /**
  * @export

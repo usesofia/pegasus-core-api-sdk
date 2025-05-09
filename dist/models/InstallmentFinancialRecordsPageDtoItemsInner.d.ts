@@ -138,7 +138,7 @@ export interface InstallmentFinancialRecordsPageDtoItemsInner {
      * @type {Array<CreateFinancialRecordRequestBodyDtoPopulatedFilesInner>}
      * @memberof InstallmentFinancialRecordsPageDtoItemsInner
      */
-    populatedFiles?: Array<CreateFinancialRecordRequestBodyDtoPopulatedFilesInner> | null;
+    populatedFiles?: Array<CreateFinancialRecordRequestBodyDtoPopulatedFilesInner>;
     /**
      *
      * @type {string}

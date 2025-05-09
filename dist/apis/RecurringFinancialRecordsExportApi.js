@@ -64,61 +64,69 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ExportResourcesApi = void 0;
+exports.ExportRecurringFinancialRecordsFormatEnum = exports.RecurringFinancialRecordsExportApi = void 0;
 var runtime = require("../runtime");
 var index_1 = require("../models/index");
 /**
  *
  */
-var ExportResourcesApi = /** @class */ (function (_super) {
-    __extends(ExportResourcesApi, _super);
-    function ExportResourcesApi() {
+var RecurringFinancialRecordsExportApi = /** @class */ (function (_super) {
+    __extends(RecurringFinancialRecordsExportApi, _super);
+    function RecurringFinancialRecordsExportApi() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
-     * Executa a exportação de um recurso.
+     * Solicita a exportação dos lançamentos recorrentes.
      */
-    ExportResourcesApi.prototype.executeExportResourceRaw = function (requestParameters, initOverrides) {
+    RecurringFinancialRecordsExportApi.prototype.exportRecurringFinancialRecordsRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
             var queryParameters, headerParameters, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        if (requestParameters['processExportResourceJobRequestBodyDto'] == null) {
-                            throw new runtime.RequiredError('processExportResourceJobRequestBodyDto', 'Required parameter "processExportResourceJobRequestBodyDto" was null or undefined when calling executeExportResource().');
-                        }
                         queryParameters = {};
+                        if (requestParameters['format'] != null) {
+                            queryParameters['format'] = requestParameters['format'];
+                        }
                         headerParameters = {};
-                        headerParameters['Content-Type'] = 'application/json';
                         return [4 /*yield*/, this.request({
-                                path: "/internal/queues/export-resources",
+                                path: "/external/recurring-financial-records/export",
                                 method: 'POST',
                                 headers: headerParameters,
                                 query: queryParameters,
-                                body: (0, index_1.ProcessExportResourceJobRequestBodyDtoToJSON)(requestParameters['processExportResourceJobRequestBodyDto']),
                             }, initOverrides)];
                     case 1:
                         response = _a.sent();
-                        return [2 /*return*/, new runtime.VoidApiResponse(response)];
+                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.ExportRecurringFinancialRecordsDtoFromJSON)(jsonValue); })];
                 }
             });
         });
     };
     /**
-     * Executa a exportação de um recurso.
+     * Solicita a exportação dos lançamentos recorrentes.
      */
-    ExportResourcesApi.prototype.executeExportResource = function (requestParameters, initOverrides) {
-        return __awaiter(this, void 0, void 0, function () {
+    RecurringFinancialRecordsExportApi.prototype.exportRecurringFinancialRecords = function () {
+        return __awaiter(this, arguments, void 0, function (requestParameters, initOverrides) {
+            var response;
+            if (requestParameters === void 0) { requestParameters = {}; }
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.executeExportResourceRaw(requestParameters, initOverrides)];
+                    case 0: return [4 /*yield*/, this.exportRecurringFinancialRecordsRaw(requestParameters, initOverrides)];
                     case 1:
-                        _a.sent();
-                        return [2 /*return*/];
+                        response = _a.sent();
+                        return [4 /*yield*/, response.value()];
+                    case 2: return [2 /*return*/, _a.sent()];
                 }
             });
         });
     };
-    return ExportResourcesApi;
+    return RecurringFinancialRecordsExportApi;
 }(runtime.BaseAPI));
-exports.ExportResourcesApi = ExportResourcesApi;
+exports.RecurringFinancialRecordsExportApi = RecurringFinancialRecordsExportApi;
+/**
+ * @export
+ */
+exports.ExportRecurringFinancialRecordsFormatEnum = {
+    Csv: 'csv',
+    Xlsx: 'xlsx'
+};

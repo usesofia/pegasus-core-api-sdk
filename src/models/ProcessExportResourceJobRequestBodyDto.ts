@@ -13,13 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
-import type { CreateOrUpdateBankTransactionRequestBodyDtoRequester } from './CreateOrUpdateBankTransactionRequestBodyDtoRequester';
+import type { ProcessExportResourceJobRequestBodyDtoRequester } from './ProcessExportResourceJobRequestBodyDtoRequester';
 import {
-    CreateOrUpdateBankTransactionRequestBodyDtoRequesterFromJSON,
-    CreateOrUpdateBankTransactionRequestBodyDtoRequesterFromJSONTyped,
-    CreateOrUpdateBankTransactionRequestBodyDtoRequesterToJSON,
-    CreateOrUpdateBankTransactionRequestBodyDtoRequesterToJSONTyped,
-} from './CreateOrUpdateBankTransactionRequestBodyDtoRequester';
+    ProcessExportResourceJobRequestBodyDtoRequesterFromJSON,
+    ProcessExportResourceJobRequestBodyDtoRequesterFromJSONTyped,
+    ProcessExportResourceJobRequestBodyDtoRequesterToJSON,
+    ProcessExportResourceJobRequestBodyDtoRequesterToJSONTyped,
+} from './ProcessExportResourceJobRequestBodyDtoRequester';
 
 /**
  * 
@@ -35,10 +35,10 @@ export interface ProcessExportResourceJobRequestBodyDto {
     exportResourceJobRequestId: string;
     /**
      * 
-     * @type {CreateOrUpdateBankTransactionRequestBodyDtoRequester}
+     * @type {ProcessExportResourceJobRequestBodyDtoRequester}
      * @memberof ProcessExportResourceJobRequestBodyDto
      */
-    requester: CreateOrUpdateBankTransactionRequestBodyDtoRequester;
+    requester: ProcessExportResourceJobRequestBodyDtoRequester;
 }
 
 /**
@@ -61,7 +61,7 @@ export function ProcessExportResourceJobRequestBodyDtoFromJSONTyped(json: any, i
     return {
         
         'exportResourceJobRequestId': json['exportResourceJobRequestId'],
-        'requester': CreateOrUpdateBankTransactionRequestBodyDtoRequesterFromJSON(json['requester']),
+        'requester': ProcessExportResourceJobRequestBodyDtoRequesterFromJSON(json['requester']),
     };
 }
 
@@ -77,7 +77,7 @@ export function ProcessExportResourceJobRequestBodyDtoToJSONTyped(value?: Proces
     return {
         
         'exportResourceJobRequestId': value['exportResourceJobRequestId'],
-        'requester': CreateOrUpdateBankTransactionRequestBodyDtoRequesterToJSON(value['requester']),
+        'requester': ProcessExportResourceJobRequestBodyDtoRequesterToJSON(value['requester']),
     };
 }
 

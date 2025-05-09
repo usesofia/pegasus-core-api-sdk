@@ -163,7 +163,7 @@ export interface CreateFinancialRecordRequestBodyDto {
      * @type {Array<CreateFinancialRecordRequestBodyDtoPopulatedFilesInner>}
      * @memberof CreateFinancialRecordRequestBodyDto
      */
-    populatedFiles?: Array<CreateFinancialRecordRequestBodyDtoPopulatedFilesInner> | null;
+    populatedFiles?: Array<CreateFinancialRecordRequestBodyDtoPopulatedFilesInner>;
     /**
      *
      * @type {CreateFinancialRecordRequestBodyDtoPopulatedSubcategory}

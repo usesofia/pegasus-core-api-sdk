@@ -66,10 +66,6 @@ __exportStar(require("./CreateOrUpdateBankTransactionRequestBodyDtoPaymentData")
 __exportStar(require("./CreateOrUpdateBankTransactionRequestBodyDtoPaymentDataBoletoMetadata"), exports);
 __exportStar(require("./CreateOrUpdateBankTransactionRequestBodyDtoPaymentDataPayer"), exports);
 __exportStar(require("./CreateOrUpdateBankTransactionRequestBodyDtoPaymentDataPayerDocumentNumber"), exports);
-__exportStar(require("./CreateOrUpdateBankTransactionRequestBodyDtoRequester"), exports);
-__exportStar(require("./CreateOrUpdateBankTransactionRequestBodyDtoRequesterOrganization"), exports);
-__exportStar(require("./CreateOrUpdateBankTransactionRequestBodyDtoRequesterOrganizationChildrenInner"), exports);
-__exportStar(require("./CreateOrUpdateBankTransactionRequestBodyDtoRequesterOrganizationParent"), exports);
 __exportStar(require("./CreateOrganizationRequestBodyDto"), exports);
 __exportStar(require("./CreateOrganizationRequestBodyDtoGroupSettings"), exports);
 __exportStar(require("./CreateOrganizationRequestBodyDtoPopulatedChildrenInner"), exports);
@@ -79,7 +75,13 @@ __exportStar(require("./CreateRecurringFinancialRecordRequestBodyDtoPopulatedSub
 __exportStar(require("./CreateTagRequestBodyDto"), exports);
 __exportStar(require("./ExceptionResponseEntity"), exports);
 __exportStar(require("./ExceptionResponseEntityErrorsInner"), exports);
+__exportStar(require("./ExportBankAccountsDto"), exports);
+__exportStar(require("./ExportContactsDto"), exports);
 __exportStar(require("./ExportFinancialRecordsDto"), exports);
+__exportStar(require("./ExportInstallmentFinancialRecordsDto"), exports);
+__exportStar(require("./ExportRecurringFinancialRecordsDto"), exports);
+__exportStar(require("./ExportSubcategoriesDto"), exports);
+__exportStar(require("./ExportTagsDto"), exports);
 __exportStar(require("./ExternalCreateSubcategoryRequestBodyDto"), exports);
 __exportStar(require("./FinancialRecordDto"), exports);
 __exportStar(require("./FinancialRecordsPageDto"), exports);
@@ -104,6 +106,10 @@ __exportStar(require("./PartialUpdateRecurringFinancialRecordRequestBodyDto"), e
 __exportStar(require("./PartialUpdateSubcategoryRequestBodyDto"), exports);
 __exportStar(require("./PartialUpdateTagRequestBodyDto"), exports);
 __exportStar(require("./ProcessExportResourceJobRequestBodyDto"), exports);
+__exportStar(require("./ProcessExportResourceJobRequestBodyDtoRequester"), exports);
+__exportStar(require("./ProcessExportResourceJobRequestBodyDtoRequesterOrganization"), exports);
+__exportStar(require("./ProcessExportResourceJobRequestBodyDtoRequesterOrganizationChildrenInner"), exports);
+__exportStar(require("./ProcessExportResourceJobRequestBodyDtoRequesterOrganizationParent"), exports);
 __exportStar(require("./ProspectFinancialRecordDto"), exports);
 __exportStar(require("./ProspectInstallmentFinancialRecordRequestBodyDto"), exports);
 __exportStar(require("./ProspectRecurringFinancialRecordRequestBodyDto"), exports);

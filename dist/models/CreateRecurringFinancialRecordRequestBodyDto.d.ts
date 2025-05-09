@@ -126,7 +126,7 @@ export interface CreateRecurringFinancialRecordRequestBodyDto {
      * @type {Array<CreateFinancialRecordRequestBodyDtoPopulatedFilesInner>}
      * @memberof CreateRecurringFinancialRecordRequestBodyDto
      */
-    populatedFiles?: Array<CreateFinancialRecordRequestBodyDtoPopulatedFilesInner> | null;
+    populatedFiles?: Array<CreateFinancialRecordRequestBodyDtoPopulatedFilesInner>;
     /**
      *
      * @type {number}

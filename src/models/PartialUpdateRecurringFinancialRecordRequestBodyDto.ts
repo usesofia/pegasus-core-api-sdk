@@ -149,7 +149,7 @@ export interface PartialUpdateRecurringFinancialRecordRequestBodyDto {
      * @type {Array<CreateFinancialRecordRequestBodyDtoPopulatedFilesInner>}
      * @memberof PartialUpdateRecurringFinancialRecordRequestBodyDto
      */
-    populatedFiles?: Array<CreateFinancialRecordRequestBodyDtoPopulatedFilesInner> | null;
+    populatedFiles?: Array<CreateFinancialRecordRequestBodyDtoPopulatedFilesInner>;
     /**
      * 
      * @type {number}

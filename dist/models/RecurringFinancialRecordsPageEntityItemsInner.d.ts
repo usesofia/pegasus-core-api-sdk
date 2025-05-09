@@ -150,7 +150,7 @@ export interface RecurringFinancialRecordsPageEntityItemsInner {
      * @type {Array<CreateFinancialRecordRequestBodyDtoPopulatedFilesInner>}
      * @memberof RecurringFinancialRecordsPageEntityItemsInner
      */
-    populatedFiles?: Array<CreateFinancialRecordRequestBodyDtoPopulatedFilesInner> | null;
+    populatedFiles?: Array<CreateFinancialRecordRequestBodyDtoPopulatedFilesInner>;
     /**
      *
      * @type {number}

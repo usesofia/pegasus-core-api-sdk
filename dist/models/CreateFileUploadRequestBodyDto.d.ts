@@ -59,6 +59,8 @@ export declare const CreateFileUploadRequestBodyDtoFileTypeEnum: {
     readonly Default: "DEFAULT";
     readonly FinancialRecord: "FINANCIAL_RECORD";
     readonly Export: "EXPORT";
+    readonly InstallmentFinancialRecord: "INSTALLMENT_FINANCIAL_RECORD";
+    readonly RecurringFinancialRecord: "RECURRING_FINANCIAL_RECORD";
 };
 export type CreateFileUploadRequestBodyDtoFileTypeEnum = typeof CreateFileUploadRequestBodyDtoFileTypeEnum[keyof typeof CreateFileUploadRequestBodyDtoFileTypeEnum];
 /**

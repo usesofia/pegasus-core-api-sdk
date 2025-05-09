@@ -18,7 +18,7 @@ exports.ProcessExportResourceJobRequestBodyDtoFromJSON = ProcessExportResourceJo
 exports.ProcessExportResourceJobRequestBodyDtoFromJSONTyped = ProcessExportResourceJobRequestBodyDtoFromJSONTyped;
 exports.ProcessExportResourceJobRequestBodyDtoToJSON = ProcessExportResourceJobRequestBodyDtoToJSON;
 exports.ProcessExportResourceJobRequestBodyDtoToJSONTyped = ProcessExportResourceJobRequestBodyDtoToJSONTyped;
-var CreateOrUpdateBankTransactionRequestBodyDtoRequester_1 = require("./CreateOrUpdateBankTransactionRequestBodyDtoRequester");
+var ProcessExportResourceJobRequestBodyDtoRequester_1 = require("./ProcessExportResourceJobRequestBodyDtoRequester");
 /**
  * Check if a given object implements the ProcessExportResourceJobRequestBodyDto interface.
  */
@@ -38,7 +38,7 @@ function ProcessExportResourceJobRequestBodyDtoFromJSONTyped(json, ignoreDiscrim
     }
     return {
         'exportResourceJobRequestId': json['exportResourceJobRequestId'],
-        'requester': (0, CreateOrUpdateBankTransactionRequestBodyDtoRequester_1.CreateOrUpdateBankTransactionRequestBodyDtoRequesterFromJSON)(json['requester']),
+        'requester': (0, ProcessExportResourceJobRequestBodyDtoRequester_1.ProcessExportResourceJobRequestBodyDtoRequesterFromJSON)(json['requester']),
     };
 }
 function ProcessExportResourceJobRequestBodyDtoToJSON(json) {
@@ -51,6 +51,6 @@ function ProcessExportResourceJobRequestBodyDtoToJSONTyped(value, ignoreDiscrimi
     }
     return {
         'exportResourceJobRequestId': value['exportResourceJobRequestId'],
-        'requester': (0, CreateOrUpdateBankTransactionRequestBodyDtoRequester_1.CreateOrUpdateBankTransactionRequestBodyDtoRequesterToJSON)(value['requester']),
+        'requester': (0, ProcessExportResourceJobRequestBodyDtoRequester_1.ProcessExportResourceJobRequestBodyDtoRequesterToJSON)(value['requester']),
     };
 }

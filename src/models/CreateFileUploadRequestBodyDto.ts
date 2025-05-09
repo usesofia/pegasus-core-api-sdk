@@ -64,7 +64,9 @@ export interface CreateFileUploadRequestBodyDto {
 export const CreateFileUploadRequestBodyDtoFileTypeEnum = {
     Default: 'DEFAULT',
     FinancialRecord: 'FINANCIAL_RECORD',
-    Export: 'EXPORT'
+    Export: 'EXPORT',
+    InstallmentFinancialRecord: 'INSTALLMENT_FINANCIAL_RECORD',
+    RecurringFinancialRecord: 'RECURRING_FINANCIAL_RECORD'
 } as const;
 export type CreateFileUploadRequestBodyDtoFileTypeEnum = typeof CreateFileUploadRequestBodyDtoFileTypeEnum[keyof typeof CreateFileUploadRequestBodyDtoFileTypeEnum];
 

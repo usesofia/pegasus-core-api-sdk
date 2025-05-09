@@ -21,8 +21,8 @@ exports.CreateOrUpdateBankTransactionRequestBodyDtoToJSON = CreateOrUpdateBankTr
 exports.CreateOrUpdateBankTransactionRequestBodyDtoToJSONTyped = CreateOrUpdateBankTransactionRequestBodyDtoToJSONTyped;
 var CreateOrUpdateBankTransactionRequestBodyDtoCreditCardMetadata_1 = require("./CreateOrUpdateBankTransactionRequestBodyDtoCreditCardMetadata");
 var CreateOrUpdateBankTransactionRequestBodyDtoMerchant_1 = require("./CreateOrUpdateBankTransactionRequestBodyDtoMerchant");
+var ProcessExportResourceJobRequestBodyDtoRequester_1 = require("./ProcessExportResourceJobRequestBodyDtoRequester");
 var CreateOrUpdateBankTransactionRequestBodyDtoPaymentData_1 = require("./CreateOrUpdateBankTransactionRequestBodyDtoPaymentData");
-var CreateOrUpdateBankTransactionRequestBodyDtoRequester_1 = require("./CreateOrUpdateBankTransactionRequestBodyDtoRequester");
 /**
  * @export
  */
@@ -96,7 +96,7 @@ function CreateOrUpdateBankTransactionRequestBodyDtoFromJSONTyped(json, ignoreDi
         'categoryId': json['categoryId'] == null ? undefined : json['categoryId'],
         'operationType': json['operationType'] == null ? undefined : json['operationType'],
         'searchScore': json['searchScore'] == null ? undefined : json['searchScore'],
-        'requester': (0, CreateOrUpdateBankTransactionRequestBodyDtoRequester_1.CreateOrUpdateBankTransactionRequestBodyDtoRequesterFromJSON)(json['requester']),
+        'requester': (0, ProcessExportResourceJobRequestBodyDtoRequester_1.ProcessExportResourceJobRequestBodyDtoRequesterFromJSON)(json['requester']),
     };
 }
 function CreateOrUpdateBankTransactionRequestBodyDtoToJSON(json) {
@@ -129,6 +129,6 @@ function CreateOrUpdateBankTransactionRequestBodyDtoToJSONTyped(value, ignoreDis
         'categoryId': value['categoryId'],
         'operationType': value['operationType'],
         'searchScore': value['searchScore'],
-        'requester': (0, CreateOrUpdateBankTransactionRequestBodyDtoRequester_1.CreateOrUpdateBankTransactionRequestBodyDtoRequesterToJSON)(value['requester']),
+        'requester': (0, ProcessExportResourceJobRequestBodyDtoRequester_1.ProcessExportResourceJobRequestBodyDtoRequesterToJSON)(value['requester']),
     };
 }

@@ -95,6 +95,8 @@ export declare const CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerFileT
     readonly Default: "DEFAULT";
     readonly FinancialRecord: "FINANCIAL_RECORD";
     readonly Export: "EXPORT";
+    readonly InstallmentFinancialRecord: "INSTALLMENT_FINANCIAL_RECORD";
+    readonly RecurringFinancialRecord: "RECURRING_FINANCIAL_RECORD";
 };
 export type CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerFileTypeEnum = typeof CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerFileTypeEnum[keyof typeof CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerFileTypeEnum];
 /**

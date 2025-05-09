@@ -222,7 +222,7 @@ export interface FinancialRecordsPageDtoItemsInner {
      * @type {Array<CreateFinancialRecordRequestBodyDtoPopulatedFilesInner>}
      * @memberof FinancialRecordsPageDtoItemsInner
      */
-    populatedFiles?: Array<CreateFinancialRecordRequestBodyDtoPopulatedFilesInner> | null;
+    populatedFiles?: Array<CreateFinancialRecordRequestBodyDtoPopulatedFilesInner>;
     /**
      * 
      * @type {CreateFinancialRecordRequestBodyDtoPopulatedSubcategory}

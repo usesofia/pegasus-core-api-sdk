@@ -11,8 +11,8 @@
  */
 import type { CreateOrUpdateBankTransactionRequestBodyDtoCreditCardMetadata } from './CreateOrUpdateBankTransactionRequestBodyDtoCreditCardMetadata';
 import type { CreateOrUpdateBankTransactionRequestBodyDtoMerchant } from './CreateOrUpdateBankTransactionRequestBodyDtoMerchant';
+import type { ProcessExportResourceJobRequestBodyDtoRequester } from './ProcessExportResourceJobRequestBodyDtoRequester';
 import type { CreateOrUpdateBankTransactionRequestBodyDtoPaymentData } from './CreateOrUpdateBankTransactionRequestBodyDtoPaymentData';
-import type { CreateOrUpdateBankTransactionRequestBodyDtoRequester } from './CreateOrUpdateBankTransactionRequestBodyDtoRequester';
 /**
  *
  * @export
@@ -147,10 +147,10 @@ export interface CreateOrUpdateBankTransactionRequestBodyDto {
     searchScore?: number | null;
     /**
      *
-     * @type {CreateOrUpdateBankTransactionRequestBodyDtoRequester}
+     * @type {ProcessExportResourceJobRequestBodyDtoRequester}
      * @memberof CreateOrUpdateBankTransactionRequestBodyDto
      */
-    requester: CreateOrUpdateBankTransactionRequestBodyDtoRequester;
+    requester: ProcessExportResourceJobRequestBodyDtoRequester;
 }
 /**
  * @export

@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CreateOrUpdateBankTransactionRequestBodyDtoRequester } from './CreateOrUpdateBankTransactionRequestBodyDtoRequester';
+import type { ProcessExportResourceJobRequestBodyDtoRequester } from './ProcessExportResourceJobRequestBodyDtoRequester';
 /**
  *
  * @export
@@ -24,10 +24,10 @@ export interface ProcessExportResourceJobRequestBodyDto {
     exportResourceJobRequestId: string;
     /**
      *
-     * @type {CreateOrUpdateBankTransactionRequestBodyDtoRequester}
+     * @type {ProcessExportResourceJobRequestBodyDtoRequester}
      * @memberof ProcessExportResourceJobRequestBodyDto
      */
-    requester: CreateOrUpdateBankTransactionRequestBodyDtoRequester;
+    requester: ProcessExportResourceJobRequestBodyDtoRequester;
 }
 /**
  * Check if a given object implements the ProcessExportResourceJobRequestBodyDto interface.

@@ -27,6 +27,13 @@ import {
     CreateOrUpdateBankTransactionRequestBodyDtoMerchantToJSON,
     CreateOrUpdateBankTransactionRequestBodyDtoMerchantToJSONTyped,
 } from './CreateOrUpdateBankTransactionRequestBodyDtoMerchant';
+import type { ProcessExportResourceJobRequestBodyDtoRequester } from './ProcessExportResourceJobRequestBodyDtoRequester';
+import {
+    ProcessExportResourceJobRequestBodyDtoRequesterFromJSON,
+    ProcessExportResourceJobRequestBodyDtoRequesterFromJSONTyped,
+    ProcessExportResourceJobRequestBodyDtoRequesterToJSON,
+    ProcessExportResourceJobRequestBodyDtoRequesterToJSONTyped,
+} from './ProcessExportResourceJobRequestBodyDtoRequester';
 import type { CreateOrUpdateBankTransactionRequestBodyDtoPaymentData } from './CreateOrUpdateBankTransactionRequestBodyDtoPaymentData';
 import {
     CreateOrUpdateBankTransactionRequestBodyDtoPaymentDataFromJSON,
@@ -34,13 +41,6 @@ import {
     CreateOrUpdateBankTransactionRequestBodyDtoPaymentDataToJSON,
     CreateOrUpdateBankTransactionRequestBodyDtoPaymentDataToJSONTyped,
 } from './CreateOrUpdateBankTransactionRequestBodyDtoPaymentData';
-import type { CreateOrUpdateBankTransactionRequestBodyDtoRequester } from './CreateOrUpdateBankTransactionRequestBodyDtoRequester';
-import {
-    CreateOrUpdateBankTransactionRequestBodyDtoRequesterFromJSON,
-    CreateOrUpdateBankTransactionRequestBodyDtoRequesterFromJSONTyped,
-    CreateOrUpdateBankTransactionRequestBodyDtoRequesterToJSON,
-    CreateOrUpdateBankTransactionRequestBodyDtoRequesterToJSONTyped,
-} from './CreateOrUpdateBankTransactionRequestBodyDtoRequester';
 
 /**
  * 
@@ -176,10 +176,10 @@ export interface CreateOrUpdateBankTransactionRequestBodyDto {
     searchScore?: number | null;
     /**
      * 
-     * @type {CreateOrUpdateBankTransactionRequestBodyDtoRequester}
+     * @type {ProcessExportResourceJobRequestBodyDtoRequester}
      * @memberof CreateOrUpdateBankTransactionRequestBodyDto
      */
-    requester: CreateOrUpdateBankTransactionRequestBodyDtoRequester;
+    requester: ProcessExportResourceJobRequestBodyDtoRequester;
 }
 
 
@@ -258,7 +258,7 @@ export function CreateOrUpdateBankTransactionRequestBodyDtoFromJSONTyped(json: a
         'categoryId': json['categoryId'] == null ? undefined : json['categoryId'],
         'operationType': json['operationType'] == null ? undefined : json['operationType'],
         'searchScore': json['searchScore'] == null ? undefined : json['searchScore'],
-        'requester': CreateOrUpdateBankTransactionRequestBodyDtoRequesterFromJSON(json['requester']),
+        'requester': ProcessExportResourceJobRequestBodyDtoRequesterFromJSON(json['requester']),
     };
 }
 
@@ -294,7 +294,7 @@ export function CreateOrUpdateBankTransactionRequestBodyDtoToJSONTyped(value?: C
         'categoryId': value['categoryId'],
         'operationType': value['operationType'],
         'searchScore': value['searchScore'],
-        'requester': CreateOrUpdateBankTransactionRequestBodyDtoRequesterToJSON(value['requester']),
+        'requester': ProcessExportResourceJobRequestBodyDtoRequesterToJSON(value['requester']),
     };
 }
 

@@ -25,47 +25,47 @@ import {
     ProcessExportResourceJobRequestBodyDtoToJSON,
 } from '../models/index';
 
-export interface ExecuteExportResourceRequest {
+export interface ProcessExportResourceJobRequestRequest {
     processExportResourceJobRequestBodyDto: ProcessExportResourceJobRequestBodyDto;
 }
 
 /**
- * ExportResourcesApi - interface
+ * ExportResourceJobRequestsApi - interface
  * 
  * @export
- * @interface ExportResourcesApiInterface
+ * @interface ExportResourceJobRequestsApiInterface
  */
-export interface ExportResourcesApiInterface {
+export interface ExportResourceJobRequestsApiInterface {
     /**
      * 
-     * @summary Executa a exportação de um recurso.
+     * @summary Processa a exportação de um recurso.
      * @param {ProcessExportResourceJobRequestBodyDto} processExportResourceJobRequestBodyDto 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof ExportResourcesApiInterface
+     * @memberof ExportResourceJobRequestsApiInterface
      */
-    executeExportResourceRaw(requestParameters: ExecuteExportResourceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
+    processExportResourceJobRequestRaw(requestParameters: ProcessExportResourceJobRequestRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
 
     /**
-     * Executa a exportação de um recurso.
+     * Processa a exportação de um recurso.
      */
-    executeExportResource(requestParameters: ExecuteExportResourceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+    processExportResourceJobRequest(requestParameters: ProcessExportResourceJobRequestRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
 
 }
 
 /**
  * 
  */
-export class ExportResourcesApi extends runtime.BaseAPI implements ExportResourcesApiInterface {
+export class ExportResourceJobRequestsApi extends runtime.BaseAPI implements ExportResourceJobRequestsApiInterface {
 
     /**
-     * Executa a exportação de um recurso.
+     * Processa a exportação de um recurso.
      */
-    async executeExportResourceRaw(requestParameters: ExecuteExportResourceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+    async processExportResourceJobRequestRaw(requestParameters: ProcessExportResourceJobRequestRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters['processExportResourceJobRequestBodyDto'] == null) {
             throw new runtime.RequiredError(
                 'processExportResourceJobRequestBodyDto',
-                'Required parameter "processExportResourceJobRequestBodyDto" was null or undefined when calling executeExportResource().'
+                'Required parameter "processExportResourceJobRequestBodyDto" was null or undefined when calling processExportResourceJobRequest().'
             );
         }
 
@@ -87,10 +87,10 @@ export class ExportResourcesApi extends runtime.BaseAPI implements ExportResourc
     }
 
     /**
-     * Executa a exportação de um recurso.
+     * Processa a exportação de um recurso.
      */
-    async executeExportResource(requestParameters: ExecuteExportResourceRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
-        await this.executeExportResourceRaw(requestParameters, initOverrides);
+    async processExportResourceJobRequest(requestParameters: ProcessExportResourceJobRequestRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+        await this.processExportResourceJobRequestRaw(requestParameters, initOverrides);
     }
 
 }

@@ -198,7 +198,7 @@ export interface CreateManyFinancialRecordsRequestBodyDtoDataInner {
      * @type {Array<CreateFinancialRecordRequestBodyDtoPopulatedFilesInner>}
      * @memberof CreateManyFinancialRecordsRequestBodyDtoDataInner
      */
-    populatedFiles?: Array<CreateFinancialRecordRequestBodyDtoPopulatedFilesInner> | null;
+    populatedFiles?: Array<CreateFinancialRecordRequestBodyDtoPopulatedFilesInner>;
     /**
      * 
      * @type {CreateFinancialRecordRequestBodyDtoPopulatedSubcategory}
