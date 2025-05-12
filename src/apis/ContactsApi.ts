@@ -70,6 +70,10 @@ export interface FindByIdContactRequest {
     populate?: string;
 }
 
+export interface FindNotIdentifiedContactRequest {
+    organizationId: string;
+}
+
 export interface PartialUpdateContactRequest {
     id: string;
     partialUpdateContactRequestBodyDto: PartialUpdateContactRequestBodyDto;
@@ -193,6 +197,21 @@ export interface ContactsApiInterface {
      * Busca um contato pelo identificador.
      */
     findByIdContact(requestParameters: FindByIdContactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ContactEntity>;
+
+    /**
+     * 
+     * @summary Busca o contato não identificado.
+     * @param {string} organizationId Identificador da organização.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ContactsApiInterface
+     */
+    findNotIdentifiedContactRaw(requestParameters: FindNotIdentifiedContactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ContactEntity>>;
+
+    /**
+     * Busca o contato não identificado.
+     */
+    findNotIdentifiedContact(requestParameters: FindNotIdentifiedContactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ContactEntity>;
 
     /**
      * 
@@ -471,6 +490,39 @@ export class ContactsApi extends runtime.BaseAPI implements ContactsApiInterface
      */
     async findByIdContact(requestParameters: FindByIdContactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ContactEntity> {
         const response = await this.findByIdContactRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Busca o contato não identificado.
+     */
+    async findNotIdentifiedContactRaw(requestParameters: FindNotIdentifiedContactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ContactEntity>> {
+        if (requestParameters['organizationId'] == null) {
+            throw new runtime.RequiredError(
+                'organizationId',
+                'Required parameter "organizationId" was null or undefined when calling findNotIdentifiedContact().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/internal/organizations/{organizationId}/contacts/not-identified`.replace(`{${"organizationId"}}`, encodeURIComponent(String(requestParameters['organizationId']))),
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ContactEntityFromJSON(jsonValue));
+    }
+
+    /**
+     * Busca o contato não identificado.
+     */
+    async findNotIdentifiedContact(requestParameters: FindNotIdentifiedContactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ContactEntity> {
+        const response = await this.findNotIdentifiedContactRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

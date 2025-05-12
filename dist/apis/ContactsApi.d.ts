@@ -35,6 +35,9 @@ export interface FindByIdContactRequest {
     id: string;
     populate?: string;
 }
+export interface FindNotIdentifiedContactRequest {
+    organizationId: string;
+}
 export interface PartialUpdateContactRequest {
     id: string;
     partialUpdateContactRequestBodyDto: PartialUpdateContactRequestBodyDto;
@@ -148,6 +151,19 @@ export interface ContactsApiInterface {
     findByIdContact(requestParameters: FindByIdContactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ContactEntity>;
     /**
      *
+     * @summary Busca o contato não identificado.
+     * @param {string} organizationId Identificador da organização.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ContactsApiInterface
+     */
+    findNotIdentifiedContactRaw(requestParameters: FindNotIdentifiedContactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ContactEntity>>;
+    /**
+     * Busca o contato não identificado.
+     */
+    findNotIdentifiedContact(requestParameters: FindNotIdentifiedContactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ContactEntity>;
+    /**
+     *
      * @summary Atualiza parcialmente um contato.
      * @param {string} id Identificador do contato.
      * @param {PartialUpdateContactRequestBodyDto} partialUpdateContactRequestBodyDto
@@ -247,6 +263,14 @@ export declare class ContactsApi extends runtime.BaseAPI implements ContactsApiI
      * Busca um contato pelo identificador.
      */
     findByIdContact(requestParameters: FindByIdContactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ContactEntity>;
+    /**
+     * Busca o contato não identificado.
+     */
+    findNotIdentifiedContactRaw(requestParameters: FindNotIdentifiedContactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ContactEntity>>;
+    /**
+     * Busca o contato não identificado.
+     */
+    findNotIdentifiedContact(requestParameters: FindNotIdentifiedContactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ContactEntity>;
     /**
      * Atualiza parcialmente um contato.
      */
