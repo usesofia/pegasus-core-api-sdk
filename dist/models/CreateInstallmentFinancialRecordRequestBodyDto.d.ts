@@ -56,11 +56,11 @@ export interface CreateInstallmentFinancialRecordRequestBodyDto {
      */
     subcategory: string;
     /**
-     * Valor do lançamento.
-     * @type {number}
+     *
+     * @type {string}
      * @memberof CreateInstallmentFinancialRecordRequestBodyDto
      */
-    amount: number;
+    amount: string;
     /**
      * Tags relacionadas.
      * @type {Array<string>}

@@ -85,11 +85,11 @@ export interface PartialUpdateInstallmentFinancialRecordRequestBodyDto {
      */
     subcategory?: string;
     /**
-     * Valor do lançamento.
-     * @type {number}
+     * 
+     * @type {string}
      * @memberof PartialUpdateInstallmentFinancialRecordRequestBodyDto
      */
-    amount?: number;
+    amount?: string;
     /**
      * Tags relacionadas.
      * @type {Array<string>}

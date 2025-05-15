@@ -73,11 +73,11 @@ export interface PartialUpdateRecurringFinancialRecordRequestBodyDto {
      */
     subcategory?: string;
     /**
-     * Valor do lançamento.
-     * @type {number}
+     * 
+     * @type {string}
      * @memberof PartialUpdateRecurringFinancialRecordRequestBodyDto
      */
-    amount?: number;
+    amount?: string;
     /**
      * Tags relacionadas.
      * @type {Array<string>}

@@ -50,11 +50,11 @@ export interface CreateRecurringFinancialRecordRequestBodyDto {
      */
     subcategory: string;
     /**
-     * Valor do lançamento.
-     * @type {number}
+     *
+     * @type {string}
      * @memberof CreateRecurringFinancialRecordRequestBodyDto
      */
-    amount: number;
+    amount: string;
     /**
      * Tags relacionadas.
      * @type {Array<string>}

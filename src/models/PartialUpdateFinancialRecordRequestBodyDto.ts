@@ -86,11 +86,11 @@ export interface PartialUpdateFinancialRecordRequestBodyDto {
      */
     subcategory?: string;
     /**
-     * Valor do lançamento.
-     * @type {number}
+     * 
+     * @type {string}
      * @memberof PartialUpdateFinancialRecordRequestBodyDto
      */
-    amount?: number;
+    amount?: string;
     /**
      * Tags relacionadas.
      * @type {Array<string>}
@@ -152,23 +152,23 @@ export interface PartialUpdateFinancialRecordRequestBodyDto {
      */
     account?: string | null;
     /**
-     * Valor do desconto.
-     * @type {number}
+     * 
+     * @type {string}
      * @memberof PartialUpdateFinancialRecordRequestBodyDto
      */
-    discount?: number | null;
+    discount?: string;
     /**
-     * Valor de multas e juros.
-     * @type {number}
+     * 
+     * @type {string}
      * @memberof PartialUpdateFinancialRecordRequestBodyDto
      */
-    finesAndInterest?: number | null;
+    finesAndInterest?: string;
     /**
-     * Valor final do lançamento.
-     * @type {number}
+     * 
+     * @type {string}
      * @memberof PartialUpdateFinancialRecordRequestBodyDto
      */
-    finalAmount?: number;
+    finalAmount?: string;
     /**
      * Indica se foi reconciliado.
      * @type {boolean}

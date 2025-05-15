@@ -86,11 +86,11 @@ export interface CreateFinancialRecordRequestBodyDto {
      */
     subcategory: string;
     /**
-     * Valor do lançamento.
-     * @type {number}
+     * 
+     * @type {string}
      * @memberof CreateFinancialRecordRequestBodyDto
      */
-    amount: number;
+    amount: string;
     /**
      * Tags relacionadas.
      * @type {Array<string>}
@@ -152,23 +152,23 @@ export interface CreateFinancialRecordRequestBodyDto {
      */
     account?: string | null;
     /**
-     * Valor do desconto.
-     * @type {number}
+     * 
+     * @type {string}
      * @memberof CreateFinancialRecordRequestBodyDto
      */
-    discount?: number | null;
+    discount?: string | null;
     /**
-     * Valor de multas e juros.
-     * @type {number}
+     * 
+     * @type {string}
      * @memberof CreateFinancialRecordRequestBodyDto
      */
-    finesAndInterest?: number | null;
+    finesAndInterest?: string | null;
     /**
-     * Valor final do lançamento.
-     * @type {number}
+     * 
+     * @type {string}
      * @memberof CreateFinancialRecordRequestBodyDto
      */
-    finalAmount: number;
+    finalAmount: string;
     /**
      * Indica se foi reconciliado.
      * @type {boolean}

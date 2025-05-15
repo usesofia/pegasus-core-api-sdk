@@ -50,11 +50,11 @@ export interface CreateManyRecurringFinancialRecordsRequestBodyDtoDataInner {
      */
     subcategory: string;
     /**
-     * Valor do lançamento.
-     * @type {number}
+     *
+     * @type {string}
      * @memberof CreateManyRecurringFinancialRecordsRequestBodyDtoDataInner
      */
-    amount: number;
+    amount: string;
     /**
      * Tags relacionadas.
      * @type {Array<string>}
