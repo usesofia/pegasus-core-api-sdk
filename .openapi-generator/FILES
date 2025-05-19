@@ -7,6 +7,7 @@ src/apis/BankAccountsApi.ts
 src/apis/BankAccountsExportApi.ts
 src/apis/BankInstitutionsApi.ts
 src/apis/BankTransactionsApi.ts
+src/apis/BulkRemoveApi.ts
 src/apis/CacheApi.ts
 src/apis/CategoriesApi.ts
 src/apis/ContactsApi.ts
@@ -43,6 +44,7 @@ src/models/BankTransactionEntity.ts
 src/models/BankTransactionEntityPopulatedBankAccount.ts
 src/models/BankTransactionsPageDto.ts
 src/models/BankTransactionsPageDtoItemsInner.ts
+src/models/BulkRemoveJobRequestDto.ts
 src/models/CacheGetResponseDto.ts
 src/models/CacheSetDto.ts
 src/models/CalculateAndUpdateEmbeddingBodyRequestDto.ts
@@ -93,6 +95,7 @@ src/models/CreateRecurringFinancialRecordRequestBodyDtoPopulatedSubcategory.ts
 src/models/CreateTagRequestBodyDto.ts
 src/models/ExceptionResponseEntity.ts
 src/models/ExceptionResponseEntityErrorsInner.ts
+src/models/ExecuteBulkRemoveJobRequestBodyDto.ts
 src/models/ExportBankAccountsDto.ts
 src/models/ExportContactsDto.ts
 src/models/ExportFinancialRecordsDto.ts
