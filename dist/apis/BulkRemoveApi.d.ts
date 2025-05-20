@@ -10,12 +10,12 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { BulkRemoveJobRequestDto, ExecuteBulkRemoveJobRequestBodyDto } from '../models/index';
+import type { BulkRemoveJobRequestResponseDto, ExecuteBulkRemoveJobRequestBodyDto } from '../models/index';
 export interface ProcessBulkRemoveRequest {
     executeBulkRemoveJobRequestBodyDto: ExecuteBulkRemoveJobRequestBodyDto;
 }
 export interface ScheduleBulkRemoveRequest {
-    bulkRemoveJobRequestDto: BulkRemoveJobRequestDto;
+    bulkRemoveJobRequestResponseDto: BulkRemoveJobRequestResponseDto;
 }
 /**
  * BulkRemoveApi - interface
@@ -40,7 +40,7 @@ export interface BulkRemoveApiInterface {
     /**
      *
      * @summary Schedules removal of multiple resources
-     * @param {BulkRemoveJobRequestDto} bulkRemoveJobRequestDto
+     * @param {BulkRemoveJobRequestResponseDto} bulkRemoveJobRequestResponseDto
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof BulkRemoveApiInterface

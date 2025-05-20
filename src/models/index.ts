@@ -9,7 +9,7 @@ export * from './BankTransactionEntity';
 export * from './BankTransactionEntityPopulatedBankAccount';
 export * from './BankTransactionsPageDto';
 export * from './BankTransactionsPageDtoItemsInner';
-export * from './BulkRemoveJobRequestDto';
+export * from './BulkRemoveJobRequestResponseDto';
 export * from './CacheGetResponseDto';
 export * from './CacheSetDto';
 export * from './CalculateAndUpdateEmbeddingBodyRequestDto';

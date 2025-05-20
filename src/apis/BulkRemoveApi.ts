@@ -15,13 +15,13 @@
 
 import * as runtime from '../runtime';
 import type {
-  BulkRemoveJobRequestDto,
+  BulkRemoveJobRequestResponseDto,
   ExceptionResponseEntity,
   ExecuteBulkRemoveJobRequestBodyDto,
 } from '../models/index';
 import {
-    BulkRemoveJobRequestDtoFromJSON,
-    BulkRemoveJobRequestDtoToJSON,
+    BulkRemoveJobRequestResponseDtoFromJSON,
+    BulkRemoveJobRequestResponseDtoToJSON,
     ExceptionResponseEntityFromJSON,
     ExceptionResponseEntityToJSON,
     ExecuteBulkRemoveJobRequestBodyDtoFromJSON,
@@ -33,7 +33,7 @@ export interface ProcessBulkRemoveRequest {
 }
 
 export interface ScheduleBulkRemoveRequest {
-    bulkRemoveJobRequestDto: BulkRemoveJobRequestDto;
+    bulkRemoveJobRequestResponseDto: BulkRemoveJobRequestResponseDto;
 }
 
 /**
@@ -61,7 +61,7 @@ export interface BulkRemoveApiInterface {
     /**
      * 
      * @summary Schedules removal of multiple resources
-     * @param {BulkRemoveJobRequestDto} bulkRemoveJobRequestDto 
+     * @param {BulkRemoveJobRequestResponseDto} bulkRemoveJobRequestResponseDto 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof BulkRemoveApiInterface
@@ -119,10 +119,10 @@ export class BulkRemoveApi extends runtime.BaseAPI implements BulkRemoveApiInter
      * Schedules removal of multiple resources
      */
     async scheduleBulkRemoveRaw(requestParameters: ScheduleBulkRemoveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<string>> {
-        if (requestParameters['bulkRemoveJobRequestDto'] == null) {
+        if (requestParameters['bulkRemoveJobRequestResponseDto'] == null) {
             throw new runtime.RequiredError(
-                'bulkRemoveJobRequestDto',
-                'Required parameter "bulkRemoveJobRequestDto" was null or undefined when calling scheduleBulkRemove().'
+                'bulkRemoveJobRequestResponseDto',
+                'Required parameter "bulkRemoveJobRequestResponseDto" was null or undefined when calling scheduleBulkRemove().'
             );
         }
 
@@ -137,7 +137,7 @@ export class BulkRemoveApi extends runtime.BaseAPI implements BulkRemoveApiInter
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: BulkRemoveJobRequestDtoToJSON(requestParameters['bulkRemoveJobRequestDto']),
+            body: BulkRemoveJobRequestResponseDtoToJSON(requestParameters['bulkRemoveJobRequestResponseDto']),
         }, initOverrides);
 
         if (this.isJsonMime(response.headers.get('content-type'))) {

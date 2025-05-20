@@ -44,7 +44,7 @@ src/models/BankTransactionEntity.ts
 src/models/BankTransactionEntityPopulatedBankAccount.ts
 src/models/BankTransactionsPageDto.ts
 src/models/BankTransactionsPageDtoItemsInner.ts
-src/models/BulkRemoveJobRequestDto.ts
+src/models/BulkRemoveJobRequestResponseDto.ts
 src/models/CacheGetResponseDto.ts
 src/models/CacheSetDto.ts
 src/models/CalculateAndUpdateEmbeddingBodyRequestDto.ts

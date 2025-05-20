@@ -25,7 +25,7 @@ __exportStar(require("./BankTransactionEntity"), exports);
 __exportStar(require("./BankTransactionEntityPopulatedBankAccount"), exports);
 __exportStar(require("./BankTransactionsPageDto"), exports);
 __exportStar(require("./BankTransactionsPageDtoItemsInner"), exports);
-__exportStar(require("./BulkRemoveJobRequestDto"), exports);
+__exportStar(require("./BulkRemoveJobRequestResponseDto"), exports);
 __exportStar(require("./CacheGetResponseDto"), exports);
 __exportStar(require("./CacheSetDto"), exports);
 __exportStar(require("./CalculateAndUpdateEmbeddingBodyRequestDto"), exports);
