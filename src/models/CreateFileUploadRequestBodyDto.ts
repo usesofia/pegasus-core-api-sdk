@@ -66,7 +66,8 @@ export const CreateFileUploadRequestBodyDtoFileTypeEnum = {
     FinancialRecord: 'FINANCIAL_RECORD',
     Export: 'EXPORT',
     InstallmentFinancialRecord: 'INSTALLMENT_FINANCIAL_RECORD',
-    RecurringFinancialRecord: 'RECURRING_FINANCIAL_RECORD'
+    RecurringFinancialRecord: 'RECURRING_FINANCIAL_RECORD',
+    SevenDaysTempFile: 'SEVEN_DAYS_TEMP_FILE'
 } as const;
 export type CreateFileUploadRequestBodyDtoFileTypeEnum = typeof CreateFileUploadRequestBodyDtoFileTypeEnum[keyof typeof CreateFileUploadRequestBodyDtoFileTypeEnum];
 
