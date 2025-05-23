@@ -60,7 +60,7 @@ export interface FindAllFinancialRecordsRequest {
     cashDateFrom?: string;
     competenceDateTo?: string;
     competenceDateFrom?: string;
-    category?: string;
+    subcategory?: string;
     contact?: string;
     dueDateTo?: string;
     dueDateFrom?: string;
@@ -102,7 +102,7 @@ export interface SystemFindAllFinancialRecordsRequest {
     cashDateFrom?: string;
     competenceDateTo?: string;
     competenceDateFrom?: string;
-    category?: string;
+    subcategory?: string;
     contact?: string;
     dueDateTo?: string;
     dueDateFrom?: string;
@@ -165,7 +165,7 @@ export interface FinancialRecordsApiInterface {
      * @param {string} [cashDateFrom] Data de pagamento inicial.
      * @param {string} [competenceDateTo] Data de competência final.
      * @param {string} [competenceDateFrom] Data de competência inicial.
-     * @param {string} [category] Categoria do lançamento financeiro.
+     * @param {string} [subcategory] Subcategoria do lançamento financeiro.
      * @param {string} [contact] Contato do lançamento financeiro.
      * @param {string} [dueDateTo] Data de vencimento final.
      * @param {string} [dueDateFrom] Data de vencimento inicial.
@@ -251,7 +251,7 @@ export interface FinancialRecordsApiInterface {
      * @param {string} [cashDateFrom] Data de pagamento inicial.
      * @param {string} [competenceDateTo] Data de competência final.
      * @param {string} [competenceDateFrom] Data de competência inicial.
-     * @param {string} [category] Categoria do lançamento financeiro.
+     * @param {string} [subcategory] Subcategoria do lançamento financeiro.
      * @param {string} [contact] Contato do lançamento financeiro.
      * @param {string} [dueDateTo] Data de vencimento final.
      * @param {string} [dueDateFrom] Data de vencimento inicial.
@@ -401,8 +401,8 @@ export class FinancialRecordsApi extends runtime.BaseAPI implements FinancialRec
             queryParameters['competenceDateFrom'] = requestParameters['competenceDateFrom'];
         }
 
-        if (requestParameters['category'] != null) {
-            queryParameters['category'] = requestParameters['category'];
+        if (requestParameters['subcategory'] != null) {
+            queryParameters['subcategory'] = requestParameters['subcategory'];
         }
 
         if (requestParameters['contact'] != null) {
@@ -652,8 +652,8 @@ export class FinancialRecordsApi extends runtime.BaseAPI implements FinancialRec
             queryParameters['competenceDateFrom'] = requestParameters['competenceDateFrom'];
         }
 
-        if (requestParameters['category'] != null) {
-            queryParameters['category'] = requestParameters['category'];
+        if (requestParameters['subcategory'] != null) {
+            queryParameters['subcategory'] = requestParameters['subcategory'];
         }
 
         if (requestParameters['contact'] != null) {

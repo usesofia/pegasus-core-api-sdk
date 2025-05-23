@@ -210,8 +210,8 @@ var FinancialRecordsApi = /** @class */ (function (_super) {
                         if (requestParameters['competenceDateFrom'] != null) {
                             queryParameters['competenceDateFrom'] = requestParameters['competenceDateFrom'];
                         }
-                        if (requestParameters['category'] != null) {
-                            queryParameters['category'] = requestParameters['category'];
+                        if (requestParameters['subcategory'] != null) {
+                            queryParameters['subcategory'] = requestParameters['subcategory'];
                         }
                         if (requestParameters['contact'] != null) {
                             queryParameters['contact'] = requestParameters['contact'];
@@ -470,8 +470,8 @@ var FinancialRecordsApi = /** @class */ (function (_super) {
                         if (requestParameters['competenceDateFrom'] != null) {
                             queryParameters['competenceDateFrom'] = requestParameters['competenceDateFrom'];
                         }
-                        if (requestParameters['category'] != null) {
-                            queryParameters['category'] = requestParameters['category'];
+                        if (requestParameters['subcategory'] != null) {
+                            queryParameters['subcategory'] = requestParameters['subcategory'];
                         }
                         if (requestParameters['contact'] != null) {
                             queryParameters['contact'] = requestParameters['contact'];
