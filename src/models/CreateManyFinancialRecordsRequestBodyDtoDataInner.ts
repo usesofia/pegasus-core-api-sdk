@@ -164,11 +164,11 @@ export interface CreateManyFinancialRecordsRequestBodyDtoDataInner {
      */
     finesAndInterest?: number | null;
     /**
-     * Valor final do lançamento.
+     * Valor final do lançamento (calculado automaticamente).
      * @type {number}
      * @memberof CreateManyFinancialRecordsRequestBodyDtoDataInner
      */
-    finalAmount: number;
+    finalAmount?: number;
     /**
      * Indica se foi reconciliado.
      * @type {boolean}
@@ -251,7 +251,6 @@ export function instanceOfCreateManyFinancialRecordsRequestBodyDtoDataInner(valu
     if (!('description' in value) || value['description'] === undefined) return false;
     if (!('subcategory' in value) || value['subcategory'] === undefined) return false;
     if (!('amount' in value) || value['amount'] === undefined) return false;
-    if (!('finalAmount' in value) || value['finalAmount'] === undefined) return false;
     return true;
 }
 
@@ -283,7 +282,7 @@ export function CreateManyFinancialRecordsRequestBodyDtoDataInnerFromJSONTyped(j
         'account': json['account'] == null ? undefined : json['account'],
         'discount': json['discount'] == null ? undefined : json['discount'],
         'finesAndInterest': json['finesAndInterest'] == null ? undefined : json['finesAndInterest'],
-        'finalAmount': json['finalAmount'],
+        'finalAmount': json['finalAmount'] == null ? undefined : json['finalAmount'],
         'reconciled': json['reconciled'] == null ? undefined : json['reconciled'],
         'bankStatement': json['bankStatement'] == null ? undefined : json['bankStatement'],
         'installmentFinancialRecord': json['installmentFinancialRecord'] == null ? undefined : json['installmentFinancialRecord'],

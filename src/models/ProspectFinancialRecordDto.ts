@@ -164,12 +164,6 @@ export interface ProspectFinancialRecordDto {
      */
     finesAndInterest?: string | null;
     /**
-     * 
-     * @type {string}
-     * @memberof ProspectFinancialRecordDto
-     */
-    finalAmount?: string | null;
-    /**
      * Indica se foi reconciliado.
      * @type {boolean}
      * @memberof ProspectFinancialRecordDto
@@ -281,7 +275,6 @@ export function ProspectFinancialRecordDtoFromJSONTyped(json: any, ignoreDiscrim
         'account': json['account'] == null ? undefined : json['account'],
         'discount': json['discount'] == null ? undefined : json['discount'],
         'finesAndInterest': json['finesAndInterest'] == null ? undefined : json['finesAndInterest'],
-        'finalAmount': json['finalAmount'] == null ? undefined : json['finalAmount'],
         'reconciled': json['reconciled'] == null ? undefined : json['reconciled'],
         'bankStatement': json['bankStatement'] == null ? undefined : json['bankStatement'],
         'installmentFinancialRecord': json['installmentFinancialRecord'] == null ? undefined : json['installmentFinancialRecord'],
@@ -324,7 +317,6 @@ export function ProspectFinancialRecordDtoToJSONTyped(value?: ProspectFinancialR
         'account': value['account'],
         'discount': value['discount'],
         'finesAndInterest': value['finesAndInterest'],
-        'finalAmount': value['finalAmount'],
         'reconciled': value['reconciled'],
         'bankStatement': value['bankStatement'],
         'installmentFinancialRecord': value['installmentFinancialRecord'],

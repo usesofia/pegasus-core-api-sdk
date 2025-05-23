@@ -53,8 +53,6 @@ function instanceOfCreateFinancialRecordRequestBodyDto(value) {
         return false;
     if (!('amount' in value) || value['amount'] === undefined)
         return false;
-    if (!('finalAmount' in value) || value['finalAmount'] === undefined)
-        return false;
     if (!('channel' in value) || value['channel'] === undefined)
         return false;
     return true;
@@ -85,7 +83,7 @@ function CreateFinancialRecordRequestBodyDtoFromJSONTyped(json, ignoreDiscrimina
         'account': json['account'] == null ? undefined : json['account'],
         'discount': json['discount'] == null ? undefined : json['discount'],
         'finesAndInterest': json['finesAndInterest'] == null ? undefined : json['finesAndInterest'],
-        'finalAmount': json['finalAmount'],
+        'finalAmount': json['finalAmount'] == null ? undefined : json['finalAmount'],
         'reconciled': json['reconciled'] == null ? undefined : json['reconciled'],
         'bankStatement': json['bankStatement'] == null ? undefined : json['bankStatement'],
         'installmentFinancialRecord': json['installmentFinancialRecord'] == null ? undefined : json['installmentFinancialRecord'],

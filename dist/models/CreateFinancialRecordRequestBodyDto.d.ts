@@ -129,11 +129,11 @@ export interface CreateFinancialRecordRequestBodyDto {
      */
     finesAndInterest?: string | null;
     /**
-     *
-     * @type {string}
+     * Valor final do lançamento (calculado automaticamente).
+     * @type {number}
      * @memberof CreateFinancialRecordRequestBodyDto
      */
-    finalAmount: string;
+    finalAmount?: number;
     /**
      * Indica se foi reconciliado.
      * @type {boolean}

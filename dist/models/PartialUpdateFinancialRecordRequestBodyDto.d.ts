@@ -129,12 +129,6 @@ export interface PartialUpdateFinancialRecordRequestBodyDto {
      */
     finesAndInterest?: string;
     /**
-     *
-     * @type {string}
-     * @memberof PartialUpdateFinancialRecordRequestBodyDto
-     */
-    finalAmount?: string;
-    /**
      * Indica se foi reconciliado.
      * @type {boolean}
      * @memberof PartialUpdateFinancialRecordRequestBodyDto

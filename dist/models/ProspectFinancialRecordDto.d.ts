@@ -129,12 +129,6 @@ export interface ProspectFinancialRecordDto {
      */
     finesAndInterest?: string | null;
     /**
-     *
-     * @type {string}
-     * @memberof ProspectFinancialRecordDto
-     */
-    finalAmount?: string | null;
-    /**
      * Indica se foi reconciliado.
      * @type {boolean}
      * @memberof ProspectFinancialRecordDto
