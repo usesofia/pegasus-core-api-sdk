@@ -7,6 +7,7 @@ export * from './BankTransactionEntity';
 export * from './BankTransactionEntityPopulatedBankAccount';
 export * from './BankTransactionsPageDto';
 export * from './BankTransactionsPageDtoItemsInner';
+export * from './BulkCreateJobRequestResponseDto';
 export * from './BulkRemoveJobRequestResponseDto';
 export * from './CacheGetResponseDto';
 export * from './CacheSetDto';
@@ -58,6 +59,7 @@ export * from './CreateRecurringFinancialRecordRequestBodyDtoPopulatedSubcategor
 export * from './CreateTagRequestBodyDto';
 export * from './ExceptionResponseEntity';
 export * from './ExceptionResponseEntityErrorsInner';
+export * from './ExecuteBulkCreateJobRequestBodyDto';
 export * from './ExecuteBulkRemoveJobRequestBodyDto';
 export * from './ExportBankAccountsDto';
 export * from './ExportContactsDto';
