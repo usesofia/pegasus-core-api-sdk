@@ -39,11 +39,11 @@ export interface FinancialRecordDto {
      */
     direction: FinancialRecordDtoDirectionEnum;
     /**
-     * Data de vencimento.
-     * @type {any}
+     *
+     * @type {string}
      * @memberof FinancialRecordDto
      */
-    dueDate: any | null;
+    dueDate?: string | null;
     /**
      * Identificador do contato relacionado.
      * @type {string}
@@ -75,11 +75,11 @@ export interface FinancialRecordDto {
      */
     tags?: Array<string>;
     /**
-     * Data de competência.
-     * @type {any}
+     *
+     * @type {string}
      * @memberof FinancialRecordDto
      */
-    competenceDate?: any | null;
+    competenceDate?: string | null;
     /**
      * Arquivos anexados.
      * @type {Array<string>}
@@ -117,11 +117,11 @@ export interface FinancialRecordDto {
      */
     completed?: boolean;
     /**
-     * Data de pagamento.
-     * @type {any}
+     *
+     * @type {string}
      * @memberof FinancialRecordDto
      */
-    cashDate?: any | null;
+    cashDate?: string | null;
     /**
      * Identificador da conta.
      * @type {string}

@@ -74,11 +74,11 @@ export interface FinancialRecordsPageDtoItemsInner {
      */
     direction: FinancialRecordsPageDtoItemsInnerDirectionEnum;
     /**
-     * Data de vencimento.
-     * @type {any}
+     * 
+     * @type {string}
      * @memberof FinancialRecordsPageDtoItemsInner
      */
-    dueDate: any | null;
+    dueDate?: string | null;
     /**
      * Identificador do contato relacionado.
      * @type {string}
@@ -110,11 +110,11 @@ export interface FinancialRecordsPageDtoItemsInner {
      */
     tags?: Array<string>;
     /**
-     * Data de competência.
-     * @type {any}
+     * 
+     * @type {string}
      * @memberof FinancialRecordsPageDtoItemsInner
      */
-    competenceDate?: any | null;
+    competenceDate?: string | null;
     /**
      * Arquivos anexados.
      * @type {Array<string>}
@@ -152,11 +152,11 @@ export interface FinancialRecordsPageDtoItemsInner {
      */
     completed?: boolean;
     /**
-     * Data de pagamento.
-     * @type {any}
+     * 
+     * @type {string}
      * @memberof FinancialRecordsPageDtoItemsInner
      */
-    cashDate?: any | null;
+    cashDate?: string | null;
     /**
      * Identificador da conta.
      * @type {string}
@@ -273,7 +273,6 @@ export function instanceOfFinancialRecordsPageDtoItemsInner(value: object): valu
     if (!('id' in value) || value['id'] === undefined) return false;
     if (!('ownerOrganization' in value) || value['ownerOrganization'] === undefined) return false;
     if (!('direction' in value) || value['direction'] === undefined) return false;
-    if (!('dueDate' in value) || value['dueDate'] === undefined) return false;
     if (!('contact' in value) || value['contact'] === undefined) return false;
     if (!('description' in value) || value['description'] === undefined) return false;
     if (!('subcategory' in value) || value['subcategory'] === undefined) return false;
@@ -293,7 +292,7 @@ export function FinancialRecordsPageDtoItemsInnerFromJSONTyped(json: any, ignore
         'id': json['id'],
         'ownerOrganization': json['ownerOrganization'],
         'direction': json['direction'],
-        'dueDate': json['dueDate'],
+        'dueDate': json['dueDate'] == null ? undefined : json['dueDate'],
         'contact': json['contact'],
         'description': json['description'],
         'subcategory': json['subcategory'],
