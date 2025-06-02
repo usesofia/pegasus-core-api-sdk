@@ -190,7 +190,8 @@ export type PartialUpdateRecurringFinancialRecordRequestBodyDtoFrequencyEnum = t
 export const PartialUpdateRecurringFinancialRecordRequestBodyDtoChannelEnum = {
     WebApp: 'WEB_APP',
     Whatsapp: 'WHATSAPP',
-    System: 'SYSTEM'
+    System: 'SYSTEM',
+    Email: 'EMAIL'
 } as const;
 export type PartialUpdateRecurringFinancialRecordRequestBodyDtoChannelEnum = typeof PartialUpdateRecurringFinancialRecordRequestBodyDtoChannelEnum[keyof typeof PartialUpdateRecurringFinancialRecordRequestBodyDtoChannelEnum];
 

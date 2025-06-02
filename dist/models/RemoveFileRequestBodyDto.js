@@ -25,7 +25,8 @@ exports.RemoveFileRequestBodyDtoToJSONTyped = RemoveFileRequestBodyDtoToJSONType
 exports.RemoveFileRequestBodyDtoChannelEnum = {
     WebApp: 'WEB_APP',
     Whatsapp: 'WHATSAPP',
-    System: 'SYSTEM'
+    System: 'SYSTEM',
+    Email: 'EMAIL'
 };
 /**
  * Check if a given object implements the RemoveFileRequestBodyDto interface.

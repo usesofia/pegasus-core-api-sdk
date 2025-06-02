@@ -110,12 +110,6 @@ export interface CreateFinancialRecordRequestBodyDto {
      */
     files?: Array<string>;
     /**
-     * Caixas de entrada relacionadas.
-     * @type {Array<string>}
-     * @memberof CreateFinancialRecordRequestBodyDto
-     */
-    inbox?: Array<string>;
-    /**
      * Chave PIX.
      * @type {string}
      * @memberof CreateFinancialRecordRequestBodyDto
@@ -127,6 +121,12 @@ export interface CreateFinancialRecordRequestBodyDto {
      * @memberof CreateFinancialRecordRequestBodyDto
      */
     boletoCode?: string | null;
+    /**
+     * Código PIX para pagamento/recebimento.
+     * @type {string}
+     * @memberof CreateFinancialRecordRequestBodyDto
+     */
+    pixCode?: string | null;
     /**
      * Número da nota fiscal.
      * @type {string}
@@ -236,6 +236,18 @@ export interface CreateFinancialRecordRequestBodyDto {
      */
     searchScore?: number | null;
     /**
+     * Identificador do registro de inbox que originou o lançamento.
+     * @type {string}
+     * @memberof CreateFinancialRecordRequestBodyDto
+     */
+    inboxRecord?: string;
+    /**
+     * Arquivar o registro de inbox se fornecido.
+     * @type {boolean}
+     * @memberof CreateFinancialRecordRequestBodyDto
+     */
+    archiveInboxRecord?: boolean;
+    /**
      * Canal de origem da operação
      * @type {string}
      * @memberof CreateFinancialRecordRequestBodyDto
@@ -259,7 +271,8 @@ export type CreateFinancialRecordRequestBodyDtoDirectionEnum = typeof CreateFina
 export const CreateFinancialRecordRequestBodyDtoChannelEnum = {
     WebApp: 'WEB_APP',
     Whatsapp: 'WHATSAPP',
-    System: 'SYSTEM'
+    System: 'SYSTEM',
+    Email: 'EMAIL'
 } as const;
 export type CreateFinancialRecordRequestBodyDtoChannelEnum = typeof CreateFinancialRecordRequestBodyDtoChannelEnum[keyof typeof CreateFinancialRecordRequestBodyDtoChannelEnum];
 
@@ -296,9 +309,9 @@ export function CreateFinancialRecordRequestBodyDtoFromJSONTyped(json: any, igno
         'tags': json['tags'] == null ? undefined : json['tags'],
         'competenceDate': json['competenceDate'] == null ? undefined : json['competenceDate'],
         'files': json['files'] == null ? undefined : json['files'],
-        'inbox': json['inbox'] == null ? undefined : json['inbox'],
         'pixKey': json['pixKey'] == null ? undefined : json['pixKey'],
         'boletoCode': json['boletoCode'] == null ? undefined : json['boletoCode'],
+        'pixCode': json['pixCode'] == null ? undefined : json['pixCode'],
         'invoiceNumber': json['invoiceNumber'] == null ? undefined : json['invoiceNumber'],
         'completed': json['completed'] == null ? undefined : json['completed'],
         'cashDate': json['cashDate'] == null ? undefined : json['cashDate'],
@@ -317,6 +330,8 @@ export function CreateFinancialRecordRequestBodyDtoFromJSONTyped(json: any, igno
         'populatedTags': json['populatedTags'] == null ? undefined : ((json['populatedTags'] as Array<any>).map(CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerFromJSON)),
         'populatedAccount': json['populatedAccount'] == null ? undefined : CreateFinancialRecordRequestBodyDtoPopulatedAccountFromJSON(json['populatedAccount']),
         'searchScore': json['searchScore'] == null ? undefined : json['searchScore'],
+        'inboxRecord': json['inboxRecord'] == null ? undefined : json['inboxRecord'],
+        'archiveInboxRecord': json['archiveInboxRecord'] == null ? undefined : json['archiveInboxRecord'],
         'channel': json['channel'],
     };
 }
@@ -341,9 +356,9 @@ export function CreateFinancialRecordRequestBodyDtoToJSONTyped(value?: CreateFin
         'tags': value['tags'],
         'competenceDate': value['competenceDate'],
         'files': value['files'],
-        'inbox': value['inbox'],
         'pixKey': value['pixKey'],
         'boletoCode': value['boletoCode'],
+        'pixCode': value['pixCode'],
         'invoiceNumber': value['invoiceNumber'],
         'completed': value['completed'],
         'cashDate': value['cashDate'],
@@ -362,6 +377,8 @@ export function CreateFinancialRecordRequestBodyDtoToJSONTyped(value?: CreateFin
         'populatedTags': value['populatedTags'] == null ? undefined : ((value['populatedTags'] as Array<any>).map(CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerToJSON)),
         'populatedAccount': CreateFinancialRecordRequestBodyDtoPopulatedAccountToJSON(value['populatedAccount']),
         'searchScore': value['searchScore'],
+        'inboxRecord': value['inboxRecord'],
+        'archiveInboxRecord': value['archiveInboxRecord'],
         'channel': value['channel'],
     };
 }

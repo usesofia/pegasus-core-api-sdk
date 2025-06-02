@@ -44,7 +44,8 @@ exports.ProspectRecurringFinancialRecordRequestBodyDtoFrequencyEnum = {
 exports.ProspectRecurringFinancialRecordRequestBodyDtoChannelEnum = {
     WebApp: 'WEB_APP',
     Whatsapp: 'WHATSAPP',
-    System: 'SYSTEM'
+    System: 'SYSTEM',
+    Email: 'EMAIL'
 };
 /**
  * Check if a given object implements the ProspectRecurringFinancialRecordRequestBodyDto interface.

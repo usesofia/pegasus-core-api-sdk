@@ -191,7 +191,8 @@ export type CreateInstallmentFinancialRecordRequestBodyDtoFrequencyEnum = typeof
 export const CreateInstallmentFinancialRecordRequestBodyDtoChannelEnum = {
     WebApp: 'WEB_APP',
     Whatsapp: 'WHATSAPP',
-    System: 'SYSTEM'
+    System: 'SYSTEM',
+    Email: 'EMAIL'
 } as const;
 export type CreateInstallmentFinancialRecordRequestBodyDtoChannelEnum = typeof CreateInstallmentFinancialRecordRequestBodyDtoChannelEnum[keyof typeof CreateInstallmentFinancialRecordRequestBodyDtoChannelEnum];
 

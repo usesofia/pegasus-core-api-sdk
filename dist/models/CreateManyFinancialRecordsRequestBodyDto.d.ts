@@ -42,6 +42,7 @@ export declare const CreateManyFinancialRecordsRequestBodyDtoChannelEnum: {
     readonly WebApp: "WEB_APP";
     readonly Whatsapp: "WHATSAPP";
     readonly System: "SYSTEM";
+    readonly Email: "EMAIL";
 };
 export type CreateManyFinancialRecordsRequestBodyDtoChannelEnum = typeof CreateManyFinancialRecordsRequestBodyDtoChannelEnum[keyof typeof CreateManyFinancialRecordsRequestBodyDtoChannelEnum];
 /**

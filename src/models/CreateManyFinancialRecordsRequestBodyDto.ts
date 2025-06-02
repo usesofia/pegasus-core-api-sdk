@@ -54,7 +54,8 @@ export interface CreateManyFinancialRecordsRequestBodyDto {
 export const CreateManyFinancialRecordsRequestBodyDtoChannelEnum = {
     WebApp: 'WEB_APP',
     Whatsapp: 'WHATSAPP',
-    System: 'SYSTEM'
+    System: 'SYSTEM',
+    Email: 'EMAIL'
 } as const;
 export type CreateManyFinancialRecordsRequestBodyDtoChannelEnum = typeof CreateManyFinancialRecordsRequestBodyDtoChannelEnum[keyof typeof CreateManyFinancialRecordsRequestBodyDtoChannelEnum];
 

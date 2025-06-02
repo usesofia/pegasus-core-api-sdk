@@ -37,7 +37,8 @@ exports.PartialUpdateFinancialRecordRequestBodyDtoDirectionEnum = {
 exports.PartialUpdateFinancialRecordRequestBodyDtoChannelEnum = {
     WebApp: 'WEB_APP',
     Whatsapp: 'WHATSAPP',
-    System: 'SYSTEM'
+    System: 'SYSTEM',
+    Email: 'EMAIL'
 };
 /**
  * Check if a given object implements the PartialUpdateFinancialRecordRequestBodyDto interface.
@@ -64,9 +65,9 @@ function PartialUpdateFinancialRecordRequestBodyDtoFromJSONTyped(json, ignoreDis
         'tags': json['tags'] == null ? undefined : json['tags'],
         'competenceDate': json['competenceDate'] == null ? undefined : json['competenceDate'],
         'files': json['files'] == null ? undefined : json['files'],
-        'inbox': json['inbox'] == null ? undefined : json['inbox'],
         'pixKey': json['pixKey'] == null ? undefined : json['pixKey'],
         'boletoCode': json['boletoCode'] == null ? undefined : json['boletoCode'],
+        'pixCode': json['pixCode'] == null ? undefined : json['pixCode'],
         'invoiceNumber': json['invoiceNumber'] == null ? undefined : json['invoiceNumber'],
         'completed': json['completed'] == null ? undefined : json['completed'],
         'cashDate': json['cashDate'] == null ? undefined : json['cashDate'],
@@ -84,6 +85,8 @@ function PartialUpdateFinancialRecordRequestBodyDtoFromJSONTyped(json, ignoreDis
         'populatedTags': json['populatedTags'] == null ? undefined : (json['populatedTags'].map(CreateFinancialRecordRequestBodyDtoPopulatedTagsInner_1.CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerFromJSON)),
         'populatedAccount': json['populatedAccount'] == null ? undefined : (0, CreateFinancialRecordRequestBodyDtoPopulatedAccount_1.CreateFinancialRecordRequestBodyDtoPopulatedAccountFromJSON)(json['populatedAccount']),
         'searchScore': json['searchScore'] == null ? undefined : json['searchScore'],
+        'inboxRecord': json['inboxRecord'] == null ? undefined : json['inboxRecord'],
+        'archiveInboxRecord': json['archiveInboxRecord'] == null ? undefined : json['archiveInboxRecord'],
         'channel': json['channel'],
     };
 }
@@ -105,9 +108,9 @@ function PartialUpdateFinancialRecordRequestBodyDtoToJSONTyped(value, ignoreDisc
         'tags': value['tags'],
         'competenceDate': value['competenceDate'],
         'files': value['files'],
-        'inbox': value['inbox'],
         'pixKey': value['pixKey'],
         'boletoCode': value['boletoCode'],
+        'pixCode': value['pixCode'],
         'invoiceNumber': value['invoiceNumber'],
         'completed': value['completed'],
         'cashDate': value['cashDate'],
@@ -125,6 +128,8 @@ function PartialUpdateFinancialRecordRequestBodyDtoToJSONTyped(value, ignoreDisc
         'populatedTags': value['populatedTags'] == null ? undefined : (value['populatedTags'].map(CreateFinancialRecordRequestBodyDtoPopulatedTagsInner_1.CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerToJSON)),
         'populatedAccount': (0, CreateFinancialRecordRequestBodyDtoPopulatedAccount_1.CreateFinancialRecordRequestBodyDtoPopulatedAccountToJSON)(value['populatedAccount']),
         'searchScore': value['searchScore'],
+        'inboxRecord': value['inboxRecord'],
+        'archiveInboxRecord': value['archiveInboxRecord'],
         'channel': value['channel'],
     };
 }

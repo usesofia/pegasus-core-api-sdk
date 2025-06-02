@@ -115,7 +115,8 @@ export interface PartialUpdateSubcategoryRequestBodyDto {
 export const PartialUpdateSubcategoryRequestBodyDtoChannelEnum = {
     WebApp: 'WEB_APP',
     Whatsapp: 'WHATSAPP',
-    System: 'SYSTEM'
+    System: 'SYSTEM',
+    Email: 'EMAIL'
 } as const;
 export type PartialUpdateSubcategoryRequestBodyDtoChannelEnum = typeof PartialUpdateSubcategoryRequestBodyDtoChannelEnum[keyof typeof PartialUpdateSubcategoryRequestBodyDtoChannelEnum];
 

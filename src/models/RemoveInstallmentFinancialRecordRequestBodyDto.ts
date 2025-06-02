@@ -49,7 +49,8 @@ export type RemoveInstallmentFinancialRecordRequestBodyDtoRemoveRelatedFinancial
 export const RemoveInstallmentFinancialRecordRequestBodyDtoChannelEnum = {
     WebApp: 'WEB_APP',
     Whatsapp: 'WHATSAPP',
-    System: 'SYSTEM'
+    System: 'SYSTEM',
+    Email: 'EMAIL'
 } as const;
 export type RemoveInstallmentFinancialRecordRequestBodyDtoChannelEnum = typeof RemoveInstallmentFinancialRecordRequestBodyDtoChannelEnum[keyof typeof RemoveInstallmentFinancialRecordRequestBodyDtoChannelEnum];
 

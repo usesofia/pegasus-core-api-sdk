@@ -75,12 +75,6 @@ export interface PartialUpdateFinancialRecordRequestBodyDto {
      */
     files?: Array<string>;
     /**
-     * Caixas de entrada relacionadas.
-     * @type {Array<string>}
-     * @memberof PartialUpdateFinancialRecordRequestBodyDto
-     */
-    inbox?: Array<string>;
-    /**
      * Chave PIX.
      * @type {string}
      * @memberof PartialUpdateFinancialRecordRequestBodyDto
@@ -92,6 +86,12 @@ export interface PartialUpdateFinancialRecordRequestBodyDto {
      * @memberof PartialUpdateFinancialRecordRequestBodyDto
      */
     boletoCode?: string | null;
+    /**
+     * Código PIX para pagamento/recebimento.
+     * @type {string}
+     * @memberof PartialUpdateFinancialRecordRequestBodyDto
+     */
+    pixCode?: string | null;
     /**
      * Número da nota fiscal.
      * @type {string}
@@ -195,6 +195,18 @@ export interface PartialUpdateFinancialRecordRequestBodyDto {
      */
     searchScore?: number | null;
     /**
+     * Identificador do registro de inbox que originou a atualização.
+     * @type {string}
+     * @memberof PartialUpdateFinancialRecordRequestBodyDto
+     */
+    inboxRecord?: string;
+    /**
+     * Arquivar o registro de inbox se fornecido.
+     * @type {boolean}
+     * @memberof PartialUpdateFinancialRecordRequestBodyDto
+     */
+    archiveInboxRecord?: boolean;
+    /**
      * Canal de origem da operação
      * @type {string}
      * @memberof PartialUpdateFinancialRecordRequestBodyDto
@@ -216,6 +228,7 @@ export declare const PartialUpdateFinancialRecordRequestBodyDtoChannelEnum: {
     readonly WebApp: "WEB_APP";
     readonly Whatsapp: "WHATSAPP";
     readonly System: "SYSTEM";
+    readonly Email: "EMAIL";
 };
 export type PartialUpdateFinancialRecordRequestBodyDtoChannelEnum = typeof PartialUpdateFinancialRecordRequestBodyDtoChannelEnum[keyof typeof PartialUpdateFinancialRecordRequestBodyDtoChannelEnum];
 /**

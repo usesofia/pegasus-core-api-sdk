@@ -87,11 +87,11 @@ export interface FinancialRecordsPageDtoItemsInner {
      */
     files?: Array<string>;
     /**
-     * Caixas de entrada relacionadas.
+     * Ids de registros de inbox relacionados.
      * @type {Array<string>}
      * @memberof FinancialRecordsPageDtoItemsInner
      */
-    inbox?: Array<string>;
+    inboxRecords?: Array<string>;
     /**
      * Chave PIX.
      * @type {string}
@@ -104,6 +104,12 @@ export interface FinancialRecordsPageDtoItemsInner {
      * @memberof FinancialRecordsPageDtoItemsInner
      */
     boletoCode?: string | null;
+    /**
+     * Código PIX para pagamento/recebimento.
+     * @type {string}
+     * @memberof FinancialRecordsPageDtoItemsInner
+     */
+    pixCode?: string | null;
     /**
      * Número da nota fiscal.
      * @type {string}

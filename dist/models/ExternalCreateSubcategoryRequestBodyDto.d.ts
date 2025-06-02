@@ -97,6 +97,7 @@ export declare const ExternalCreateSubcategoryRequestBodyDtoChannelEnum: {
     readonly WebApp: "WEB_APP";
     readonly Whatsapp: "WHATSAPP";
     readonly System: "SYSTEM";
+    readonly Email: "EMAIL";
 };
 export type ExternalCreateSubcategoryRequestBodyDtoChannelEnum = typeof ExternalCreateSubcategoryRequestBodyDtoChannelEnum[keyof typeof ExternalCreateSubcategoryRequestBodyDtoChannelEnum];
 /**

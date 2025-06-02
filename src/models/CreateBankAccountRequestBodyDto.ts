@@ -141,7 +141,8 @@ export type CreateBankAccountRequestBodyDtoProviderEnum = typeof CreateBankAccou
 export const CreateBankAccountRequestBodyDtoChannelEnum = {
     WebApp: 'WEB_APP',
     Whatsapp: 'WHATSAPP',
-    System: 'SYSTEM'
+    System: 'SYSTEM',
+    Email: 'EMAIL'
 } as const;
 export type CreateBankAccountRequestBodyDtoChannelEnum = typeof CreateBankAccountRequestBodyDtoChannelEnum[keyof typeof CreateBankAccountRequestBodyDtoChannelEnum];
 

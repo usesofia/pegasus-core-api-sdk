@@ -26,7 +26,8 @@ var CreateManyFinancialRecordsRequestBodyDtoDataInner_1 = require("./CreateManyF
 exports.CreateManyFinancialRecordsRequestBodyDtoChannelEnum = {
     WebApp: 'WEB_APP',
     Whatsapp: 'WHATSAPP',
-    System: 'SYSTEM'
+    System: 'SYSTEM',
+    Email: 'EMAIL'
 };
 /**
  * Check if a given object implements the CreateManyFinancialRecordsRequestBodyDto interface.

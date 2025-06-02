@@ -49,6 +49,7 @@ export declare const CreateInviteRequestBodyDtoChannelEnum: {
     readonly WebApp: "WEB_APP";
     readonly Whatsapp: "WHATSAPP";
     readonly System: "SYSTEM";
+    readonly Email: "EMAIL";
 };
 export type CreateInviteRequestBodyDtoChannelEnum = typeof CreateInviteRequestBodyDtoChannelEnum[keyof typeof CreateInviteRequestBodyDtoChannelEnum];
 /**

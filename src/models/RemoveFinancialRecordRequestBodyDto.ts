@@ -34,7 +34,8 @@ export interface RemoveFinancialRecordRequestBodyDto {
 export const RemoveFinancialRecordRequestBodyDtoChannelEnum = {
     WebApp: 'WEB_APP',
     Whatsapp: 'WHATSAPP',
-    System: 'SYSTEM'
+    System: 'SYSTEM',
+    Email: 'EMAIL'
 } as const;
 export type RemoveFinancialRecordRequestBodyDtoChannelEnum = typeof RemoveFinancialRecordRequestBodyDtoChannelEnum[keyof typeof RemoveFinancialRecordRequestBodyDtoChannelEnum];
 

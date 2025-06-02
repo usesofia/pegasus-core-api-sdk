@@ -110,12 +110,6 @@ export interface PartialUpdateFinancialRecordRequestBodyDto {
      */
     files?: Array<string>;
     /**
-     * Caixas de entrada relacionadas.
-     * @type {Array<string>}
-     * @memberof PartialUpdateFinancialRecordRequestBodyDto
-     */
-    inbox?: Array<string>;
-    /**
      * Chave PIX.
      * @type {string}
      * @memberof PartialUpdateFinancialRecordRequestBodyDto
@@ -127,6 +121,12 @@ export interface PartialUpdateFinancialRecordRequestBodyDto {
      * @memberof PartialUpdateFinancialRecordRequestBodyDto
      */
     boletoCode?: string | null;
+    /**
+     * Código PIX para pagamento/recebimento.
+     * @type {string}
+     * @memberof PartialUpdateFinancialRecordRequestBodyDto
+     */
+    pixCode?: string | null;
     /**
      * Número da nota fiscal.
      * @type {string}
@@ -230,6 +230,18 @@ export interface PartialUpdateFinancialRecordRequestBodyDto {
      */
     searchScore?: number | null;
     /**
+     * Identificador do registro de inbox que originou a atualização.
+     * @type {string}
+     * @memberof PartialUpdateFinancialRecordRequestBodyDto
+     */
+    inboxRecord?: string;
+    /**
+     * Arquivar o registro de inbox se fornecido.
+     * @type {boolean}
+     * @memberof PartialUpdateFinancialRecordRequestBodyDto
+     */
+    archiveInboxRecord?: boolean;
+    /**
      * Canal de origem da operação
      * @type {string}
      * @memberof PartialUpdateFinancialRecordRequestBodyDto
@@ -253,7 +265,8 @@ export type PartialUpdateFinancialRecordRequestBodyDtoDirectionEnum = typeof Par
 export const PartialUpdateFinancialRecordRequestBodyDtoChannelEnum = {
     WebApp: 'WEB_APP',
     Whatsapp: 'WHATSAPP',
-    System: 'SYSTEM'
+    System: 'SYSTEM',
+    Email: 'EMAIL'
 } as const;
 export type PartialUpdateFinancialRecordRequestBodyDtoChannelEnum = typeof PartialUpdateFinancialRecordRequestBodyDtoChannelEnum[keyof typeof PartialUpdateFinancialRecordRequestBodyDtoChannelEnum];
 
@@ -285,9 +298,9 @@ export function PartialUpdateFinancialRecordRequestBodyDtoFromJSONTyped(json: an
         'tags': json['tags'] == null ? undefined : json['tags'],
         'competenceDate': json['competenceDate'] == null ? undefined : json['competenceDate'],
         'files': json['files'] == null ? undefined : json['files'],
-        'inbox': json['inbox'] == null ? undefined : json['inbox'],
         'pixKey': json['pixKey'] == null ? undefined : json['pixKey'],
         'boletoCode': json['boletoCode'] == null ? undefined : json['boletoCode'],
+        'pixCode': json['pixCode'] == null ? undefined : json['pixCode'],
         'invoiceNumber': json['invoiceNumber'] == null ? undefined : json['invoiceNumber'],
         'completed': json['completed'] == null ? undefined : json['completed'],
         'cashDate': json['cashDate'] == null ? undefined : json['cashDate'],
@@ -305,6 +318,8 @@ export function PartialUpdateFinancialRecordRequestBodyDtoFromJSONTyped(json: an
         'populatedTags': json['populatedTags'] == null ? undefined : ((json['populatedTags'] as Array<any>).map(CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerFromJSON)),
         'populatedAccount': json['populatedAccount'] == null ? undefined : CreateFinancialRecordRequestBodyDtoPopulatedAccountFromJSON(json['populatedAccount']),
         'searchScore': json['searchScore'] == null ? undefined : json['searchScore'],
+        'inboxRecord': json['inboxRecord'] == null ? undefined : json['inboxRecord'],
+        'archiveInboxRecord': json['archiveInboxRecord'] == null ? undefined : json['archiveInboxRecord'],
         'channel': json['channel'],
     };
 }
@@ -329,9 +344,9 @@ export function PartialUpdateFinancialRecordRequestBodyDtoToJSONTyped(value?: Pa
         'tags': value['tags'],
         'competenceDate': value['competenceDate'],
         'files': value['files'],
-        'inbox': value['inbox'],
         'pixKey': value['pixKey'],
         'boletoCode': value['boletoCode'],
+        'pixCode': value['pixCode'],
         'invoiceNumber': value['invoiceNumber'],
         'completed': value['completed'],
         'cashDate': value['cashDate'],
@@ -349,6 +364,8 @@ export function PartialUpdateFinancialRecordRequestBodyDtoToJSONTyped(value?: Pa
         'populatedTags': value['populatedTags'] == null ? undefined : ((value['populatedTags'] as Array<any>).map(CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerToJSON)),
         'populatedAccount': CreateFinancialRecordRequestBodyDtoPopulatedAccountToJSON(value['populatedAccount']),
         'searchScore': value['searchScore'],
+        'inboxRecord': value['inboxRecord'],
+        'archiveInboxRecord': value['archiveInboxRecord'],
         'channel': value['channel'],
     };
 }

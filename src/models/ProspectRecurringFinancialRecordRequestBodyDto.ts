@@ -202,7 +202,8 @@ export type ProspectRecurringFinancialRecordRequestBodyDtoFrequencyEnum = typeof
 export const ProspectRecurringFinancialRecordRequestBodyDtoChannelEnum = {
     WebApp: 'WEB_APP',
     Whatsapp: 'WHATSAPP',
-    System: 'SYSTEM'
+    System: 'SYSTEM',
+    Email: 'EMAIL'
 } as const;
 export type ProspectRecurringFinancialRecordRequestBodyDtoChannelEnum = typeof ProspectRecurringFinancialRecordRequestBodyDtoChannelEnum[keyof typeof ProspectRecurringFinancialRecordRequestBodyDtoChannelEnum];
 

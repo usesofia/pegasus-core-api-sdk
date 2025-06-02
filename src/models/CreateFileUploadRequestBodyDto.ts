@@ -77,7 +77,8 @@ export type CreateFileUploadRequestBodyDtoFileTypeEnum = typeof CreateFileUpload
 export const CreateFileUploadRequestBodyDtoChannelEnum = {
     WebApp: 'WEB_APP',
     Whatsapp: 'WHATSAPP',
-    System: 'SYSTEM'
+    System: 'SYSTEM',
+    Email: 'EMAIL'
 } as const;
 export type CreateFileUploadRequestBodyDtoChannelEnum = typeof CreateFileUploadRequestBodyDtoChannelEnum[keyof typeof CreateFileUploadRequestBodyDtoChannelEnum];
 

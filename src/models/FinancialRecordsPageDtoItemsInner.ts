@@ -122,11 +122,11 @@ export interface FinancialRecordsPageDtoItemsInner {
      */
     files?: Array<string>;
     /**
-     * Caixas de entrada relacionadas.
+     * Ids de registros de inbox relacionados.
      * @type {Array<string>}
      * @memberof FinancialRecordsPageDtoItemsInner
      */
-    inbox?: Array<string>;
+    inboxRecords?: Array<string>;
     /**
      * Chave PIX.
      * @type {string}
@@ -139,6 +139,12 @@ export interface FinancialRecordsPageDtoItemsInner {
      * @memberof FinancialRecordsPageDtoItemsInner
      */
     boletoCode?: string | null;
+    /**
+     * Código PIX para pagamento/recebimento.
+     * @type {string}
+     * @memberof FinancialRecordsPageDtoItemsInner
+     */
+    pixCode?: string | null;
     /**
      * Número da nota fiscal.
      * @type {string}
@@ -306,9 +312,10 @@ export function FinancialRecordsPageDtoItemsInnerFromJSONTyped(json: any, ignore
         'tags': json['tags'] == null ? undefined : json['tags'],
         'competenceDate': json['competenceDate'] == null ? undefined : json['competenceDate'],
         'files': json['files'] == null ? undefined : json['files'],
-        'inbox': json['inbox'] == null ? undefined : json['inbox'],
+        'inboxRecords': json['inboxRecords'] == null ? undefined : json['inboxRecords'],
         'pixKey': json['pixKey'] == null ? undefined : json['pixKey'],
         'boletoCode': json['boletoCode'] == null ? undefined : json['boletoCode'],
+        'pixCode': json['pixCode'] == null ? undefined : json['pixCode'],
         'invoiceNumber': json['invoiceNumber'] == null ? undefined : json['invoiceNumber'],
         'completed': json['completed'] == null ? undefined : json['completed'],
         'cashDate': json['cashDate'] == null ? undefined : json['cashDate'],
@@ -354,9 +361,10 @@ export function FinancialRecordsPageDtoItemsInnerToJSONTyped(value?: FinancialRe
         'tags': value['tags'],
         'competenceDate': value['competenceDate'],
         'files': value['files'],
-        'inbox': value['inbox'],
+        'inboxRecords': value['inboxRecords'],
         'pixKey': value['pixKey'],
         'boletoCode': value['boletoCode'],
+        'pixCode': value['pixCode'],
         'invoiceNumber': value['invoiceNumber'],
         'completed': value['completed'],
         'cashDate': value['cashDate'],

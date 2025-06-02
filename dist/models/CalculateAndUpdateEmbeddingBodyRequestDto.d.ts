@@ -58,6 +58,7 @@ export declare const CalculateAndUpdateEmbeddingBodyRequestDtoChannelEnum: {
     readonly WebApp: "WEB_APP";
     readonly Whatsapp: "WHATSAPP";
     readonly System: "SYSTEM";
+    readonly Email: "EMAIL";
 };
 export type CalculateAndUpdateEmbeddingBodyRequestDtoChannelEnum = typeof CalculateAndUpdateEmbeddingBodyRequestDtoChannelEnum[keyof typeof CalculateAndUpdateEmbeddingBodyRequestDtoChannelEnum];
 /**

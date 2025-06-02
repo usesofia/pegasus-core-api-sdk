@@ -34,7 +34,8 @@ export interface RevokeInviteRequestBodyDto {
 export const RevokeInviteRequestBodyDtoChannelEnum = {
     WebApp: 'WEB_APP',
     Whatsapp: 'WHATSAPP',
-    System: 'SYSTEM'
+    System: 'SYSTEM',
+    Email: 'EMAIL'
 } as const;
 export type RevokeInviteRequestBodyDtoChannelEnum = typeof RevokeInviteRequestBodyDtoChannelEnum[keyof typeof RevokeInviteRequestBodyDtoChannelEnum];
 

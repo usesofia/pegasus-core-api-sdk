@@ -153,6 +153,7 @@ export declare const ProspectInstallmentFinancialRecordRequestBodyDtoChannelEnum
     readonly WebApp: "WEB_APP";
     readonly Whatsapp: "WHATSAPP";
     readonly System: "SYSTEM";
+    readonly Email: "EMAIL";
 };
 export type ProspectInstallmentFinancialRecordRequestBodyDtoChannelEnum = typeof ProspectInstallmentFinancialRecordRequestBodyDtoChannelEnum[keyof typeof ProspectInstallmentFinancialRecordRequestBodyDtoChannelEnum];
 /**

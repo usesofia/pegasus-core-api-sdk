@@ -191,7 +191,8 @@ export type PartialUpdateInstallmentFinancialRecordRequestBodyDtoFrequencyEnum =
 export const PartialUpdateInstallmentFinancialRecordRequestBodyDtoChannelEnum = {
     WebApp: 'WEB_APP',
     Whatsapp: 'WHATSAPP',
-    System: 'SYSTEM'
+    System: 'SYSTEM',
+    Email: 'EMAIL'
 } as const;
 export type PartialUpdateInstallmentFinancialRecordRequestBodyDtoChannelEnum = typeof PartialUpdateInstallmentFinancialRecordRequestBodyDtoChannelEnum[keyof typeof PartialUpdateInstallmentFinancialRecordRequestBodyDtoChannelEnum];
 

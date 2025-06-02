@@ -83,6 +83,7 @@ export declare const PartialUpdateBankAccountRequestBodyDtoChannelEnum: {
     readonly WebApp: "WEB_APP";
     readonly Whatsapp: "WHATSAPP";
     readonly System: "SYSTEM";
+    readonly Email: "EMAIL";
 };
 export type PartialUpdateBankAccountRequestBodyDtoChannelEnum = typeof PartialUpdateBankAccountRequestBodyDtoChannelEnum[keyof typeof PartialUpdateBankAccountRequestBodyDtoChannelEnum];
 /**

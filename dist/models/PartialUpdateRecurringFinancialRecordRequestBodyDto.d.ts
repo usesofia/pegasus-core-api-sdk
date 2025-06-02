@@ -158,6 +158,7 @@ export declare const PartialUpdateRecurringFinancialRecordRequestBodyDtoChannelE
     readonly WebApp: "WEB_APP";
     readonly Whatsapp: "WHATSAPP";
     readonly System: "SYSTEM";
+    readonly Email: "EMAIL";
 };
 export type PartialUpdateRecurringFinancialRecordRequestBodyDtoChannelEnum = typeof PartialUpdateRecurringFinancialRecordRequestBodyDtoChannelEnum[keyof typeof PartialUpdateRecurringFinancialRecordRequestBodyDtoChannelEnum];
 /**

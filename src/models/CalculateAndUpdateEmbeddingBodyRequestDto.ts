@@ -64,7 +64,8 @@ export type CalculateAndUpdateEmbeddingBodyRequestDtoResourceEnum = typeof Calcu
 export const CalculateAndUpdateEmbeddingBodyRequestDtoChannelEnum = {
     WebApp: 'WEB_APP',
     Whatsapp: 'WHATSAPP',
-    System: 'SYSTEM'
+    System: 'SYSTEM',
+    Email: 'EMAIL'
 } as const;
 export type CalculateAndUpdateEmbeddingBodyRequestDtoChannelEnum = typeof CalculateAndUpdateEmbeddingBodyRequestDtoChannelEnum[keyof typeof CalculateAndUpdateEmbeddingBodyRequestDtoChannelEnum];
 

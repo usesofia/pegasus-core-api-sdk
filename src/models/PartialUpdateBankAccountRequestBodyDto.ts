@@ -88,7 +88,8 @@ export interface PartialUpdateBankAccountRequestBodyDto {
 export const PartialUpdateBankAccountRequestBodyDtoChannelEnum = {
     WebApp: 'WEB_APP',
     Whatsapp: 'WHATSAPP',
-    System: 'SYSTEM'
+    System: 'SYSTEM',
+    Email: 'EMAIL'
 } as const;
 export type PartialUpdateBankAccountRequestBodyDtoChannelEnum = typeof PartialUpdateBankAccountRequestBodyDtoChannelEnum[keyof typeof PartialUpdateBankAccountRequestBodyDtoChannelEnum];
 

@@ -17,6 +17,8 @@ export * from './FilesUploadApi';
 export * from './FinancialRecordsApi';
 export * from './FinancialRecordsExportApi';
 export * from './HealthApi';
+export * from './InboxRecordsApi';
+export * from './InboxRecordsAutoExecuteApi';
 export * from './InstallmentFinancialRecordsApi';
 export * from './InstallmentFinancialRecordsExportApi';
 export * from './MembershipsApi';

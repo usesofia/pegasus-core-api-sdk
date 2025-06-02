@@ -75,12 +75,6 @@ export interface CreateFinancialRecordRequestBodyDto {
      */
     files?: Array<string>;
     /**
-     * Caixas de entrada relacionadas.
-     * @type {Array<string>}
-     * @memberof CreateFinancialRecordRequestBodyDto
-     */
-    inbox?: Array<string>;
-    /**
      * Chave PIX.
      * @type {string}
      * @memberof CreateFinancialRecordRequestBodyDto
@@ -92,6 +86,12 @@ export interface CreateFinancialRecordRequestBodyDto {
      * @memberof CreateFinancialRecordRequestBodyDto
      */
     boletoCode?: string | null;
+    /**
+     * Código PIX para pagamento/recebimento.
+     * @type {string}
+     * @memberof CreateFinancialRecordRequestBodyDto
+     */
+    pixCode?: string | null;
     /**
      * Número da nota fiscal.
      * @type {string}
@@ -201,6 +201,18 @@ export interface CreateFinancialRecordRequestBodyDto {
      */
     searchScore?: number | null;
     /**
+     * Identificador do registro de inbox que originou o lançamento.
+     * @type {string}
+     * @memberof CreateFinancialRecordRequestBodyDto
+     */
+    inboxRecord?: string;
+    /**
+     * Arquivar o registro de inbox se fornecido.
+     * @type {boolean}
+     * @memberof CreateFinancialRecordRequestBodyDto
+     */
+    archiveInboxRecord?: boolean;
+    /**
      * Canal de origem da operação
      * @type {string}
      * @memberof CreateFinancialRecordRequestBodyDto
@@ -222,6 +234,7 @@ export declare const CreateFinancialRecordRequestBodyDtoChannelEnum: {
     readonly WebApp: "WEB_APP";
     readonly Whatsapp: "WHATSAPP";
     readonly System: "SYSTEM";
+    readonly Email: "EMAIL";
 };
 export type CreateFinancialRecordRequestBodyDtoChannelEnum = typeof CreateFinancialRecordRequestBodyDtoChannelEnum[keyof typeof CreateFinancialRecordRequestBodyDtoChannelEnum];
 /**

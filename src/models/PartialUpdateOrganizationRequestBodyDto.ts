@@ -58,7 +58,8 @@ export interface PartialUpdateOrganizationRequestBodyDto {
 export const PartialUpdateOrganizationRequestBodyDtoChannelEnum = {
     WebApp: 'WEB_APP',
     Whatsapp: 'WHATSAPP',
-    System: 'SYSTEM'
+    System: 'SYSTEM',
+    Email: 'EMAIL'
 } as const;
 export type PartialUpdateOrganizationRequestBodyDtoChannelEnum = typeof PartialUpdateOrganizationRequestBodyDtoChannelEnum[keyof typeof PartialUpdateOrganizationRequestBodyDtoChannelEnum];
 

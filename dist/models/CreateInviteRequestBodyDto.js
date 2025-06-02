@@ -32,7 +32,8 @@ exports.CreateInviteRequestBodyDtoRoleEnum = {
 exports.CreateInviteRequestBodyDtoChannelEnum = {
     WebApp: 'WEB_APP',
     Whatsapp: 'WHATSAPP',
-    System: 'SYSTEM'
+    System: 'SYSTEM',
+    Email: 'EMAIL'
 };
 /**
  * Check if a given object implements the CreateInviteRequestBodyDto interface.

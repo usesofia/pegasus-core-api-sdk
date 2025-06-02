@@ -191,7 +191,8 @@ export type ProspectInstallmentFinancialRecordRequestBodyDtoFrequencyEnum = type
 export const ProspectInstallmentFinancialRecordRequestBodyDtoChannelEnum = {
     WebApp: 'WEB_APP',
     Whatsapp: 'WHATSAPP',
-    System: 'SYSTEM'
+    System: 'SYSTEM',
+    Email: 'EMAIL'
 } as const;
 export type ProspectInstallmentFinancialRecordRequestBodyDtoChannelEnum = typeof ProspectInstallmentFinancialRecordRequestBodyDtoChannelEnum[keyof typeof ProspectInstallmentFinancialRecordRequestBodyDtoChannelEnum];
 

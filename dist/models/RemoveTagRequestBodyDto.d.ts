@@ -29,6 +29,7 @@ export declare const RemoveTagRequestBodyDtoChannelEnum: {
     readonly WebApp: "WEB_APP";
     readonly Whatsapp: "WHATSAPP";
     readonly System: "SYSTEM";
+    readonly Email: "EMAIL";
 };
 export type RemoveTagRequestBodyDtoChannelEnum = typeof RemoveTagRequestBodyDtoChannelEnum[keyof typeof RemoveTagRequestBodyDtoChannelEnum];
 /**

@@ -35,6 +35,8 @@ __exportStar(require("./FilesUploadApi"), exports);
 __exportStar(require("./FinancialRecordsApi"), exports);
 __exportStar(require("./FinancialRecordsExportApi"), exports);
 __exportStar(require("./HealthApi"), exports);
+__exportStar(require("./InboxRecordsApi"), exports);
+__exportStar(require("./InboxRecordsAutoExecuteApi"), exports);
 __exportStar(require("./InstallmentFinancialRecordsApi"), exports);
 __exportStar(require("./InstallmentFinancialRecordsExportApi"), exports);
 __exportStar(require("./MembershipsApi"), exports);

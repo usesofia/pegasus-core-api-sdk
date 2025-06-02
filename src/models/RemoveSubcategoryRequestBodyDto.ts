@@ -34,7 +34,8 @@ export interface RemoveSubcategoryRequestBodyDto {
 export const RemoveSubcategoryRequestBodyDtoChannelEnum = {
     WebApp: 'WEB_APP',
     Whatsapp: 'WHATSAPP',
-    System: 'SYSTEM'
+    System: 'SYSTEM',
+    Email: 'EMAIL'
 } as const;
 export type RemoveSubcategoryRequestBodyDtoChannelEnum = typeof RemoveSubcategoryRequestBodyDtoChannelEnum[keyof typeof RemoveSubcategoryRequestBodyDtoChannelEnum];
 

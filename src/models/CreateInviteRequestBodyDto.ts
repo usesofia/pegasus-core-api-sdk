@@ -55,7 +55,8 @@ export type CreateInviteRequestBodyDtoRoleEnum = typeof CreateInviteRequestBodyD
 export const CreateInviteRequestBodyDtoChannelEnum = {
     WebApp: 'WEB_APP',
     Whatsapp: 'WHATSAPP',
-    System: 'SYSTEM'
+    System: 'SYSTEM',
+    Email: 'EMAIL'
 } as const;
 export type CreateInviteRequestBodyDtoChannelEnum = typeof CreateInviteRequestBodyDtoChannelEnum[keyof typeof CreateInviteRequestBodyDtoChannelEnum];
 

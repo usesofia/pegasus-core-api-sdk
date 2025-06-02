@@ -75,12 +75,6 @@ export interface CreateManyFinancialRecordsRequestBodyDtoDataInner {
      */
     files?: Array<string>;
     /**
-     * Caixas de entrada relacionadas.
-     * @type {Array<string>}
-     * @memberof CreateManyFinancialRecordsRequestBodyDtoDataInner
-     */
-    inbox?: Array<string>;
-    /**
      * Chave PIX.
      * @type {string}
      * @memberof CreateManyFinancialRecordsRequestBodyDtoDataInner
@@ -92,6 +86,12 @@ export interface CreateManyFinancialRecordsRequestBodyDtoDataInner {
      * @memberof CreateManyFinancialRecordsRequestBodyDtoDataInner
      */
     boletoCode?: string | null;
+    /**
+     * Código PIX para pagamento/recebimento.
+     * @type {string}
+     * @memberof CreateManyFinancialRecordsRequestBodyDtoDataInner
+     */
+    pixCode?: string | null;
     /**
      * Número da nota fiscal.
      * @type {string}
@@ -200,6 +200,18 @@ export interface CreateManyFinancialRecordsRequestBodyDtoDataInner {
      * @memberof CreateManyFinancialRecordsRequestBodyDtoDataInner
      */
     searchScore?: number | null;
+    /**
+     * Identificador do registro de inbox que originou o lançamento.
+     * @type {string}
+     * @memberof CreateManyFinancialRecordsRequestBodyDtoDataInner
+     */
+    inboxRecord?: string;
+    /**
+     * Arquivar o registro de inbox se fornecido.
+     * @type {boolean}
+     * @memberof CreateManyFinancialRecordsRequestBodyDtoDataInner
+     */
+    archiveInboxRecord?: boolean;
 }
 /**
  * @export

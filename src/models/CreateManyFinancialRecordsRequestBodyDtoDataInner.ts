@@ -110,12 +110,6 @@ export interface CreateManyFinancialRecordsRequestBodyDtoDataInner {
      */
     files?: Array<string>;
     /**
-     * Caixas de entrada relacionadas.
-     * @type {Array<string>}
-     * @memberof CreateManyFinancialRecordsRequestBodyDtoDataInner
-     */
-    inbox?: Array<string>;
-    /**
      * Chave PIX.
      * @type {string}
      * @memberof CreateManyFinancialRecordsRequestBodyDtoDataInner
@@ -127,6 +121,12 @@ export interface CreateManyFinancialRecordsRequestBodyDtoDataInner {
      * @memberof CreateManyFinancialRecordsRequestBodyDtoDataInner
      */
     boletoCode?: string | null;
+    /**
+     * Código PIX para pagamento/recebimento.
+     * @type {string}
+     * @memberof CreateManyFinancialRecordsRequestBodyDtoDataInner
+     */
+    pixCode?: string | null;
     /**
      * Número da nota fiscal.
      * @type {string}
@@ -235,6 +235,18 @@ export interface CreateManyFinancialRecordsRequestBodyDtoDataInner {
      * @memberof CreateManyFinancialRecordsRequestBodyDtoDataInner
      */
     searchScore?: number | null;
+    /**
+     * Identificador do registro de inbox que originou o lançamento.
+     * @type {string}
+     * @memberof CreateManyFinancialRecordsRequestBodyDtoDataInner
+     */
+    inboxRecord?: string;
+    /**
+     * Arquivar o registro de inbox se fornecido.
+     * @type {boolean}
+     * @memberof CreateManyFinancialRecordsRequestBodyDtoDataInner
+     */
+    archiveInboxRecord?: boolean;
 }
 
 
@@ -279,9 +291,9 @@ export function CreateManyFinancialRecordsRequestBodyDtoDataInnerFromJSONTyped(j
         'tags': json['tags'] == null ? undefined : json['tags'],
         'competenceDate': json['competenceDate'] == null ? undefined : json['competenceDate'],
         'files': json['files'] == null ? undefined : json['files'],
-        'inbox': json['inbox'] == null ? undefined : json['inbox'],
         'pixKey': json['pixKey'] == null ? undefined : json['pixKey'],
         'boletoCode': json['boletoCode'] == null ? undefined : json['boletoCode'],
+        'pixCode': json['pixCode'] == null ? undefined : json['pixCode'],
         'invoiceNumber': json['invoiceNumber'] == null ? undefined : json['invoiceNumber'],
         'completed': json['completed'] == null ? undefined : json['completed'],
         'cashDate': json['cashDate'] == null ? undefined : json['cashDate'],
@@ -300,6 +312,8 @@ export function CreateManyFinancialRecordsRequestBodyDtoDataInnerFromJSONTyped(j
         'populatedTags': json['populatedTags'] == null ? undefined : ((json['populatedTags'] as Array<any>).map(CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerFromJSON)),
         'populatedAccount': json['populatedAccount'] == null ? undefined : CreateFinancialRecordRequestBodyDtoPopulatedAccountFromJSON(json['populatedAccount']),
         'searchScore': json['searchScore'] == null ? undefined : json['searchScore'],
+        'inboxRecord': json['inboxRecord'] == null ? undefined : json['inboxRecord'],
+        'archiveInboxRecord': json['archiveInboxRecord'] == null ? undefined : json['archiveInboxRecord'],
     };
 }
 
@@ -323,9 +337,9 @@ export function CreateManyFinancialRecordsRequestBodyDtoDataInnerToJSONTyped(val
         'tags': value['tags'],
         'competenceDate': value['competenceDate'],
         'files': value['files'],
-        'inbox': value['inbox'],
         'pixKey': value['pixKey'],
         'boletoCode': value['boletoCode'],
+        'pixCode': value['pixCode'],
         'invoiceNumber': value['invoiceNumber'],
         'completed': value['completed'],
         'cashDate': value['cashDate'],
@@ -344,6 +358,8 @@ export function CreateManyFinancialRecordsRequestBodyDtoDataInnerToJSONTyped(val
         'populatedTags': value['populatedTags'] == null ? undefined : ((value['populatedTags'] as Array<any>).map(CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerToJSON)),
         'populatedAccount': CreateFinancialRecordRequestBodyDtoPopulatedAccountToJSON(value['populatedAccount']),
         'searchScore': value['searchScore'],
+        'inboxRecord': value['inboxRecord'],
+        'archiveInboxRecord': value['archiveInboxRecord'],
     };
 }
 

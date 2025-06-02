@@ -61,6 +61,7 @@ export declare const ConfirmFileUploadRequestBodyDtoChannelEnum: {
     readonly WebApp: "WEB_APP";
     readonly Whatsapp: "WHATSAPP";
     readonly System: "SYSTEM";
+    readonly Email: "EMAIL";
 };
 export type ConfirmFileUploadRequestBodyDtoChannelEnum = typeof ConfirmFileUploadRequestBodyDtoChannelEnum[keyof typeof ConfirmFileUploadRequestBodyDtoChannelEnum];
 /**

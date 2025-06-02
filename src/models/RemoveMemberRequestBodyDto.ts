@@ -34,7 +34,8 @@ export interface RemoveMemberRequestBodyDto {
 export const RemoveMemberRequestBodyDtoChannelEnum = {
     WebApp: 'WEB_APP',
     Whatsapp: 'WHATSAPP',
-    System: 'SYSTEM'
+    System: 'SYSTEM',
+    Email: 'EMAIL'
 } as const;
 export type RemoveMemberRequestBodyDtoChannelEnum = typeof RemoveMemberRequestBodyDtoChannelEnum[keyof typeof RemoveMemberRequestBodyDtoChannelEnum];
 

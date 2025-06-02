@@ -27,7 +27,8 @@ var CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedCategory_1 =
 exports.PartialUpdateSubcategoryRequestBodyDtoChannelEnum = {
     WebApp: 'WEB_APP',
     Whatsapp: 'WHATSAPP',
-    System: 'SYSTEM'
+    System: 'SYSTEM',
+    Email: 'EMAIL'
 };
 /**
  * Check if a given object implements the PartialUpdateSubcategoryRequestBodyDto interface.

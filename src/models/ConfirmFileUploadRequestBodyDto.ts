@@ -67,7 +67,8 @@ export type ConfirmFileUploadRequestBodyDtoStatusEnum = typeof ConfirmFileUpload
 export const ConfirmFileUploadRequestBodyDtoChannelEnum = {
     WebApp: 'WEB_APP',
     Whatsapp: 'WHATSAPP',
-    System: 'SYSTEM'
+    System: 'SYSTEM',
+    Email: 'EMAIL'
 } as const;
 export type ConfirmFileUploadRequestBodyDtoChannelEnum = typeof ConfirmFileUploadRequestBodyDtoChannelEnum[keyof typeof ConfirmFileUploadRequestBodyDtoChannelEnum];
 

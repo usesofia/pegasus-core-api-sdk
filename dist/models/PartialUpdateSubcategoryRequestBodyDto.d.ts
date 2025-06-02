@@ -97,6 +97,7 @@ export declare const PartialUpdateSubcategoryRequestBodyDtoChannelEnum: {
     readonly WebApp: "WEB_APP";
     readonly Whatsapp: "WHATSAPP";
     readonly System: "SYSTEM";
+    readonly Email: "EMAIL";
 };
 export type PartialUpdateSubcategoryRequestBodyDtoChannelEnum = typeof PartialUpdateSubcategoryRequestBodyDtoChannelEnum[keyof typeof PartialUpdateSubcategoryRequestBodyDtoChannelEnum];
 /**

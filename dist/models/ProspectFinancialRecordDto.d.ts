@@ -75,12 +75,6 @@ export interface ProspectFinancialRecordDto {
      */
     files?: Array<string>;
     /**
-     * Caixas de entrada relacionadas.
-     * @type {Array<string>}
-     * @memberof ProspectFinancialRecordDto
-     */
-    inbox?: Array<string>;
-    /**
      * Chave PIX.
      * @type {string}
      * @memberof ProspectFinancialRecordDto
@@ -92,6 +86,12 @@ export interface ProspectFinancialRecordDto {
      * @memberof ProspectFinancialRecordDto
      */
     boletoCode?: string | null;
+    /**
+     * Código PIX para pagamento/recebimento.
+     * @type {string}
+     * @memberof ProspectFinancialRecordDto
+     */
+    pixCode?: string | null;
     /**
      * Número da nota fiscal.
      * @type {string}
@@ -194,6 +194,18 @@ export interface ProspectFinancialRecordDto {
      * @memberof ProspectFinancialRecordDto
      */
     searchScore?: number | null;
+    /**
+     * Identificador do registro de inbox que originou o lançamento.
+     * @type {string}
+     * @memberof ProspectFinancialRecordDto
+     */
+    inboxRecord?: string;
+    /**
+     * Arquivar o registro de inbox se fornecido.
+     * @type {boolean}
+     * @memberof ProspectFinancialRecordDto
+     */
+    archiveInboxRecord?: boolean;
 }
 /**
  * @export
