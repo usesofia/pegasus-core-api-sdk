@@ -153,6 +153,12 @@ export interface CreateFinancialRecordRequestBodyDto {
      */
     installmentFinancialRecord?: string | null;
     /**
+     * Índice da parcela (1, 2, 3, etc.).
+     * @type {number}
+     * @memberof CreateFinancialRecordRequestBodyDto
+     */
+    installmentNumber?: number | null;
+    /**
      * Identificador do lançamento financeiro recorrente.
      * @type {string}
      * @memberof CreateFinancialRecordRequestBodyDto

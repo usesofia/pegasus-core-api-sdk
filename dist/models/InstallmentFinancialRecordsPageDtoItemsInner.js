@@ -21,6 +21,7 @@ exports.InstallmentFinancialRecordsPageDtoItemsInnerToJSON = InstallmentFinancia
 exports.InstallmentFinancialRecordsPageDtoItemsInnerToJSONTyped = InstallmentFinancialRecordsPageDtoItemsInnerToJSONTyped;
 var CreateFinancialRecordRequestBodyDtoPopulatedFilesInner_1 = require("./CreateFinancialRecordRequestBodyDtoPopulatedFilesInner");
 var CreateFinancialRecordRequestBodyDtoPopulatedTagsInner_1 = require("./CreateFinancialRecordRequestBodyDtoPopulatedTagsInner");
+var InstallmentFinancialRecordDtoInstallmentsInner_1 = require("./InstallmentFinancialRecordDtoInstallmentsInner");
 var CreateInstallmentFinancialRecordRequestBodyDtoPopulatedContact_1 = require("./CreateInstallmentFinancialRecordRequestBodyDtoPopulatedContact");
 var CreateFinancialRecordRequestBodyDtoPopulatedSubcategory_1 = require("./CreateFinancialRecordRequestBodyDtoPopulatedSubcategory");
 /**
@@ -60,6 +61,8 @@ function instanceOfInstallmentFinancialRecordsPageDtoItemsInner(value) {
         return false;
     if (!('numberOfInstallments' in value) || value['numberOfInstallments'] === undefined)
         return false;
+    if (!('installments' in value) || value['installments'] === undefined)
+        return false;
     return true;
 }
 function InstallmentFinancialRecordsPageDtoItemsInnerFromJSON(json) {
@@ -83,6 +86,7 @@ function InstallmentFinancialRecordsPageDtoItemsInnerFromJSONTyped(json, ignoreD
         'competenceDate': json['competenceDate'] == null ? undefined : json['competenceDate'],
         'files': json['files'] == null ? undefined : json['files'],
         'numberOfInstallments': json['numberOfInstallments'],
+        'installments': (json['installments'].map(InstallmentFinancialRecordDtoInstallmentsInner_1.InstallmentFinancialRecordDtoInstallmentsInnerFromJSON)),
         'createdAt': json['createdAt'] == null ? undefined : json['createdAt'],
         'updatedAt': json['updatedAt'] == null ? undefined : json['updatedAt'],
         'searchScore': json['searchScore'] == null ? undefined : json['searchScore'],
@@ -117,6 +121,7 @@ function InstallmentFinancialRecordsPageDtoItemsInnerToJSONTyped(value, ignoreDi
         'competenceDate': value['competenceDate'],
         'files': value['files'],
         'numberOfInstallments': value['numberOfInstallments'],
+        'installments': (value['installments'].map(InstallmentFinancialRecordDtoInstallmentsInner_1.InstallmentFinancialRecordDtoInstallmentsInnerToJSON)),
         'createdAt': value['createdAt'],
         'updatedAt': value['updatedAt'],
         'searchScore': value['searchScore'],

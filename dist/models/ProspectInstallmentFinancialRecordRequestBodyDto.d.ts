@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 import type { CreateFinancialRecordRequestBodyDtoPopulatedFilesInner } from './CreateFinancialRecordRequestBodyDtoPopulatedFilesInner';
+import type { PartialUpdateInstallmentFinancialRecordRequestBodyDtoInstallmentsInner } from './PartialUpdateInstallmentFinancialRecordRequestBodyDtoInstallmentsInner';
 import type { CreateFinancialRecordRequestBodyDtoPopulatedTagsInner } from './CreateFinancialRecordRequestBodyDtoPopulatedTagsInner';
 import type { CreateInstallmentFinancialRecordRequestBodyDtoPopulatedContact } from './CreateInstallmentFinancialRecordRequestBodyDtoPopulatedContact';
 import type { CreateFinancialRecordRequestBodyDtoPopulatedSubcategory } from './CreateFinancialRecordRequestBodyDtoPopulatedSubcategory';
@@ -115,6 +116,12 @@ export interface ProspectInstallmentFinancialRecordRequestBodyDto {
      * @memberof ProspectInstallmentFinancialRecordRequestBodyDto
      */
     populatedFiles?: Array<CreateFinancialRecordRequestBodyDtoPopulatedFilesInner>;
+    /**
+     * Parcelas do lançamento.
+     * @type {Array<PartialUpdateInstallmentFinancialRecordRequestBodyDtoInstallmentsInner>}
+     * @memberof ProspectInstallmentFinancialRecordRequestBodyDto
+     */
+    installments: Array<PartialUpdateInstallmentFinancialRecordRequestBodyDtoInstallmentsInner>;
     /**
      * Canal de origem da operação
      * @type {string}

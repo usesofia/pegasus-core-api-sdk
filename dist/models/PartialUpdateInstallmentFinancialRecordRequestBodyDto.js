@@ -20,6 +20,7 @@ exports.PartialUpdateInstallmentFinancialRecordRequestBodyDtoFromJSONTyped = Par
 exports.PartialUpdateInstallmentFinancialRecordRequestBodyDtoToJSON = PartialUpdateInstallmentFinancialRecordRequestBodyDtoToJSON;
 exports.PartialUpdateInstallmentFinancialRecordRequestBodyDtoToJSONTyped = PartialUpdateInstallmentFinancialRecordRequestBodyDtoToJSONTyped;
 var CreateFinancialRecordRequestBodyDtoPopulatedFilesInner_1 = require("./CreateFinancialRecordRequestBodyDtoPopulatedFilesInner");
+var PartialUpdateInstallmentFinancialRecordRequestBodyDtoInstallmentsInner_1 = require("./PartialUpdateInstallmentFinancialRecordRequestBodyDtoInstallmentsInner");
 var CreateFinancialRecordRequestBodyDtoPopulatedTagsInner_1 = require("./CreateFinancialRecordRequestBodyDtoPopulatedTagsInner");
 var CreateInstallmentFinancialRecordRequestBodyDtoPopulatedContact_1 = require("./CreateInstallmentFinancialRecordRequestBodyDtoPopulatedContact");
 var CreateFinancialRecordRequestBodyDtoPopulatedSubcategory_1 = require("./CreateFinancialRecordRequestBodyDtoPopulatedSubcategory");
@@ -73,6 +74,7 @@ function PartialUpdateInstallmentFinancialRecordRequestBodyDtoFromJSONTyped(json
         'competenceDate': json['competenceDate'] == null ? undefined : json['competenceDate'],
         'files': json['files'] == null ? undefined : json['files'],
         'numberOfInstallments': json['numberOfInstallments'] == null ? undefined : json['numberOfInstallments'],
+        'installments': json['installments'] == null ? undefined : (json['installments'].map(PartialUpdateInstallmentFinancialRecordRequestBodyDtoInstallmentsInner_1.PartialUpdateInstallmentFinancialRecordRequestBodyDtoInstallmentsInnerFromJSON)),
         'searchScore': json['searchScore'] == null ? undefined : json['searchScore'],
         'populatedSubcategory': json['populatedSubcategory'] == null ? undefined : (0, CreateFinancialRecordRequestBodyDtoPopulatedSubcategory_1.CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryFromJSON)(json['populatedSubcategory']),
         'populatedContact': json['populatedContact'] == null ? undefined : (0, CreateInstallmentFinancialRecordRequestBodyDtoPopulatedContact_1.CreateInstallmentFinancialRecordRequestBodyDtoPopulatedContactFromJSON)(json['populatedContact']),
@@ -101,6 +103,7 @@ function PartialUpdateInstallmentFinancialRecordRequestBodyDtoToJSONTyped(value,
         'competenceDate': value['competenceDate'],
         'files': value['files'],
         'numberOfInstallments': value['numberOfInstallments'],
+        'installments': value['installments'] == null ? undefined : (value['installments'].map(PartialUpdateInstallmentFinancialRecordRequestBodyDtoInstallmentsInner_1.PartialUpdateInstallmentFinancialRecordRequestBodyDtoInstallmentsInnerToJSON)),
         'searchScore': value['searchScore'],
         'populatedSubcategory': (0, CreateFinancialRecordRequestBodyDtoPopulatedSubcategory_1.CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryToJSON)(value['populatedSubcategory']),
         'populatedContact': (0, CreateInstallmentFinancialRecordRequestBodyDtoPopulatedContact_1.CreateInstallmentFinancialRecordRequestBodyDtoPopulatedContactToJSON)(value['populatedContact']),

@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 import type { CreateFinancialRecordRequestBodyDtoPopulatedFilesInner } from './CreateFinancialRecordRequestBodyDtoPopulatedFilesInner';
+import type { PartialUpdateInstallmentFinancialRecordRequestBodyDtoInstallmentsInner } from './PartialUpdateInstallmentFinancialRecordRequestBodyDtoInstallmentsInner';
 import type { CreateFinancialRecordRequestBodyDtoPopulatedTagsInner } from './CreateFinancialRecordRequestBodyDtoPopulatedTagsInner';
 import type { CreateInstallmentFinancialRecordRequestBodyDtoPopulatedContact } from './CreateInstallmentFinancialRecordRequestBodyDtoPopulatedContact';
 import type { CreateFinancialRecordRequestBodyDtoPopulatedSubcategory } from './CreateFinancialRecordRequestBodyDtoPopulatedSubcategory';
@@ -85,6 +86,12 @@ export interface PartialUpdateInstallmentFinancialRecordRequestBodyDto {
      * @memberof PartialUpdateInstallmentFinancialRecordRequestBodyDto
      */
     numberOfInstallments?: number;
+    /**
+     * Parcelas do lançamento.
+     * @type {Array<PartialUpdateInstallmentFinancialRecordRequestBodyDtoInstallmentsInner>}
+     * @memberof PartialUpdateInstallmentFinancialRecordRequestBodyDto
+     */
+    installments?: Array<PartialUpdateInstallmentFinancialRecordRequestBodyDtoInstallmentsInner>;
     /**
      * Pontuação de busca do lançamento.
      * @type {number}

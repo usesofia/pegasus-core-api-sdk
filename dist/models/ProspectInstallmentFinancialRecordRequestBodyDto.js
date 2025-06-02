@@ -20,6 +20,7 @@ exports.ProspectInstallmentFinancialRecordRequestBodyDtoFromJSONTyped = Prospect
 exports.ProspectInstallmentFinancialRecordRequestBodyDtoToJSON = ProspectInstallmentFinancialRecordRequestBodyDtoToJSON;
 exports.ProspectInstallmentFinancialRecordRequestBodyDtoToJSONTyped = ProspectInstallmentFinancialRecordRequestBodyDtoToJSONTyped;
 var CreateFinancialRecordRequestBodyDtoPopulatedFilesInner_1 = require("./CreateFinancialRecordRequestBodyDtoPopulatedFilesInner");
+var PartialUpdateInstallmentFinancialRecordRequestBodyDtoInstallmentsInner_1 = require("./PartialUpdateInstallmentFinancialRecordRequestBodyDtoInstallmentsInner");
 var CreateFinancialRecordRequestBodyDtoPopulatedTagsInner_1 = require("./CreateFinancialRecordRequestBodyDtoPopulatedTagsInner");
 var CreateInstallmentFinancialRecordRequestBodyDtoPopulatedContact_1 = require("./CreateInstallmentFinancialRecordRequestBodyDtoPopulatedContact");
 var CreateFinancialRecordRequestBodyDtoPopulatedSubcategory_1 = require("./CreateFinancialRecordRequestBodyDtoPopulatedSubcategory");
@@ -64,6 +65,8 @@ function instanceOfProspectInstallmentFinancialRecordRequestBodyDto(value) {
         return false;
     if (!('numberOfInstallments' in value) || value['numberOfInstallments'] === undefined)
         return false;
+    if (!('installments' in value) || value['installments'] === undefined)
+        return false;
     if (!('channel' in value) || value['channel'] === undefined)
         return false;
     return true;
@@ -92,6 +95,7 @@ function ProspectInstallmentFinancialRecordRequestBodyDtoFromJSONTyped(json, ign
         'populatedContact': json['populatedContact'] == null ? undefined : (0, CreateInstallmentFinancialRecordRequestBodyDtoPopulatedContact_1.CreateInstallmentFinancialRecordRequestBodyDtoPopulatedContactFromJSON)(json['populatedContact']),
         'populatedTags': json['populatedTags'] == null ? undefined : (json['populatedTags'].map(CreateFinancialRecordRequestBodyDtoPopulatedTagsInner_1.CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerFromJSON)),
         'populatedFiles': json['populatedFiles'] == null ? undefined : (json['populatedFiles'].map(CreateFinancialRecordRequestBodyDtoPopulatedFilesInner_1.CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerFromJSON)),
+        'installments': (json['installments'].map(PartialUpdateInstallmentFinancialRecordRequestBodyDtoInstallmentsInner_1.PartialUpdateInstallmentFinancialRecordRequestBodyDtoInstallmentsInnerFromJSON)),
         'channel': json['channel'],
     };
 }
@@ -120,6 +124,7 @@ function ProspectInstallmentFinancialRecordRequestBodyDtoToJSONTyped(value, igno
         'populatedContact': (0, CreateInstallmentFinancialRecordRequestBodyDtoPopulatedContact_1.CreateInstallmentFinancialRecordRequestBodyDtoPopulatedContactToJSON)(value['populatedContact']),
         'populatedTags': value['populatedTags'] == null ? undefined : (value['populatedTags'].map(CreateFinancialRecordRequestBodyDtoPopulatedTagsInner_1.CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerToJSON)),
         'populatedFiles': value['populatedFiles'] == null ? undefined : (value['populatedFiles'].map(CreateFinancialRecordRequestBodyDtoPopulatedFilesInner_1.CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerToJSON)),
+        'installments': (value['installments'].map(PartialUpdateInstallmentFinancialRecordRequestBodyDtoInstallmentsInner_1.PartialUpdateInstallmentFinancialRecordRequestBodyDtoInstallmentsInnerToJSON)),
         'channel': value['channel'],
     };
 }

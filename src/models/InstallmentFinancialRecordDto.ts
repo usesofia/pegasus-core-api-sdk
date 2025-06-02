@@ -27,6 +27,13 @@ import {
     CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerToJSON,
     CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerToJSONTyped,
 } from './CreateFinancialRecordRequestBodyDtoPopulatedTagsInner';
+import type { InstallmentFinancialRecordDtoInstallmentsInner } from './InstallmentFinancialRecordDtoInstallmentsInner';
+import {
+    InstallmentFinancialRecordDtoInstallmentsInnerFromJSON,
+    InstallmentFinancialRecordDtoInstallmentsInnerFromJSONTyped,
+    InstallmentFinancialRecordDtoInstallmentsInnerToJSON,
+    InstallmentFinancialRecordDtoInstallmentsInnerToJSONTyped,
+} from './InstallmentFinancialRecordDtoInstallmentsInner';
 import type { CreateInstallmentFinancialRecordRequestBodyDtoPopulatedContact } from './CreateInstallmentFinancialRecordRequestBodyDtoPopulatedContact';
 import {
     CreateInstallmentFinancialRecordRequestBodyDtoPopulatedContactFromJSON,
@@ -127,6 +134,12 @@ export interface InstallmentFinancialRecordDto {
      */
     numberOfInstallments: number;
     /**
+     * Parcelas do lançamento.
+     * @type {Array<InstallmentFinancialRecordDtoInstallmentsInner>}
+     * @memberof InstallmentFinancialRecordDto
+     */
+    installments: Array<InstallmentFinancialRecordDtoInstallmentsInner>;
+    /**
      * Data de criação do lançamento.
      * @type {any}
      * @memberof InstallmentFinancialRecordDto
@@ -222,6 +235,7 @@ export function instanceOfInstallmentFinancialRecordDto(value: object): value is
     if (!('description' in value) || value['description'] === undefined) return false;
     if (!('subcategory' in value) || value['subcategory'] === undefined) return false;
     if (!('numberOfInstallments' in value) || value['numberOfInstallments'] === undefined) return false;
+    if (!('installments' in value) || value['installments'] === undefined) return false;
     return true;
 }
 
@@ -248,6 +262,7 @@ export function InstallmentFinancialRecordDtoFromJSONTyped(json: any, ignoreDisc
         'competenceDate': json['competenceDate'] == null ? undefined : json['competenceDate'],
         'files': json['files'] == null ? undefined : json['files'],
         'numberOfInstallments': json['numberOfInstallments'],
+        'installments': ((json['installments'] as Array<any>).map(InstallmentFinancialRecordDtoInstallmentsInnerFromJSON)),
         'createdAt': json['createdAt'] == null ? undefined : json['createdAt'],
         'updatedAt': json['updatedAt'] == null ? undefined : json['updatedAt'],
         'searchScore': json['searchScore'] == null ? undefined : json['searchScore'],
@@ -285,6 +300,7 @@ export function InstallmentFinancialRecordDtoToJSONTyped(value?: InstallmentFina
         'competenceDate': value['competenceDate'],
         'files': value['files'],
         'numberOfInstallments': value['numberOfInstallments'],
+        'installments': ((value['installments'] as Array<any>).map(InstallmentFinancialRecordDtoInstallmentsInnerToJSON)),
         'createdAt': value['createdAt'],
         'updatedAt': value['updatedAt'],
         'searchScore': value['searchScore'],

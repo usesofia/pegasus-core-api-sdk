@@ -75,6 +75,7 @@ src/models/CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedCateg
 src/models/CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedNormalizedSubcategory.ts
 src/models/CreateFinancialRecordRequestBodyDtoPopulatedTagsInner.ts
 src/models/CreateInstallmentFinancialRecordRequestBodyDto.ts
+src/models/CreateInstallmentFinancialRecordRequestBodyDtoInstallmentsInner.ts
 src/models/CreateInstallmentFinancialRecordRequestBodyDtoPopulatedContact.ts
 src/models/CreateInviteRequestBodyDto.ts
 src/models/CreateManyFinancialRecordsRequestBodyDto.ts
@@ -112,6 +113,7 @@ src/models/FinancialRecordsPageDto.ts
 src/models/FinancialRecordsPageDtoItemsInner.ts
 src/models/HealthResponseDto.ts
 src/models/InstallmentFinancialRecordDto.ts
+src/models/InstallmentFinancialRecordDtoInstallmentsInner.ts
 src/models/InstallmentFinancialRecordsPageDto.ts
 src/models/InstallmentFinancialRecordsPageDtoItemsInner.ts
 src/models/InviteEntity.ts
@@ -124,6 +126,7 @@ src/models/PartialUpdateBankTransactionRequestBodyDto.ts
 src/models/PartialUpdateContactRequestBodyDto.ts
 src/models/PartialUpdateFinancialRecordRequestBodyDto.ts
 src/models/PartialUpdateInstallmentFinancialRecordRequestBodyDto.ts
+src/models/PartialUpdateInstallmentFinancialRecordRequestBodyDtoInstallmentsInner.ts
 src/models/PartialUpdateMemberRequestBodyDto.ts
 src/models/PartialUpdateOrganizationRequestBodyDto.ts
 src/models/PartialUpdateRecurringFinancialRecordRequestBodyDto.ts

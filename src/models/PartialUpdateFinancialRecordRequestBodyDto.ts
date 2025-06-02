@@ -182,6 +182,12 @@ export interface PartialUpdateFinancialRecordRequestBodyDto {
      */
     installmentFinancialRecord?: string | null;
     /**
+     * Índice da parcela (1, 2, 3, etc.).
+     * @type {number}
+     * @memberof PartialUpdateFinancialRecordRequestBodyDto
+     */
+    installmentNumber?: number | null;
+    /**
      * Identificador do lançamento financeiro recorrente.
      * @type {string}
      * @memberof PartialUpdateFinancialRecordRequestBodyDto
@@ -291,6 +297,7 @@ export function PartialUpdateFinancialRecordRequestBodyDtoFromJSONTyped(json: an
         'reconciled': json['reconciled'] == null ? undefined : json['reconciled'],
         'bankStatement': json['bankStatement'] == null ? undefined : json['bankStatement'],
         'installmentFinancialRecord': json['installmentFinancialRecord'] == null ? undefined : json['installmentFinancialRecord'],
+        'installmentNumber': json['installmentNumber'] == null ? undefined : json['installmentNumber'],
         'recurringFinancialRecord': json['recurringFinancialRecord'] == null ? undefined : json['recurringFinancialRecord'],
         'populatedFiles': json['populatedFiles'] == null ? undefined : ((json['populatedFiles'] as Array<any>).map(CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerFromJSON)),
         'populatedSubcategory': json['populatedSubcategory'] == null ? undefined : CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryFromJSON(json['populatedSubcategory']),
@@ -334,6 +341,7 @@ export function PartialUpdateFinancialRecordRequestBodyDtoToJSONTyped(value?: Pa
         'reconciled': value['reconciled'],
         'bankStatement': value['bankStatement'],
         'installmentFinancialRecord': value['installmentFinancialRecord'],
+        'installmentNumber': value['installmentNumber'],
         'recurringFinancialRecord': value['recurringFinancialRecord'],
         'populatedFiles': value['populatedFiles'] == null ? undefined : ((value['populatedFiles'] as Array<any>).map(CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerToJSON)),
         'populatedSubcategory': CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryToJSON(value['populatedSubcategory']),

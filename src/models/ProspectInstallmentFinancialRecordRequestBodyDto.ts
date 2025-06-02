@@ -20,6 +20,13 @@ import {
     CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerToJSON,
     CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerToJSONTyped,
 } from './CreateFinancialRecordRequestBodyDtoPopulatedFilesInner';
+import type { PartialUpdateInstallmentFinancialRecordRequestBodyDtoInstallmentsInner } from './PartialUpdateInstallmentFinancialRecordRequestBodyDtoInstallmentsInner';
+import {
+    PartialUpdateInstallmentFinancialRecordRequestBodyDtoInstallmentsInnerFromJSON,
+    PartialUpdateInstallmentFinancialRecordRequestBodyDtoInstallmentsInnerFromJSONTyped,
+    PartialUpdateInstallmentFinancialRecordRequestBodyDtoInstallmentsInnerToJSON,
+    PartialUpdateInstallmentFinancialRecordRequestBodyDtoInstallmentsInnerToJSONTyped,
+} from './PartialUpdateInstallmentFinancialRecordRequestBodyDtoInstallmentsInner';
 import type { CreateFinancialRecordRequestBodyDtoPopulatedTagsInner } from './CreateFinancialRecordRequestBodyDtoPopulatedTagsInner';
 import {
     CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerFromJSON,
@@ -145,6 +152,12 @@ export interface ProspectInstallmentFinancialRecordRequestBodyDto {
      */
     populatedFiles?: Array<CreateFinancialRecordRequestBodyDtoPopulatedFilesInner>;
     /**
+     * Parcelas do lançamento.
+     * @type {Array<PartialUpdateInstallmentFinancialRecordRequestBodyDtoInstallmentsInner>}
+     * @memberof ProspectInstallmentFinancialRecordRequestBodyDto
+     */
+    installments: Array<PartialUpdateInstallmentFinancialRecordRequestBodyDtoInstallmentsInner>;
+    /**
      * Canal de origem da operação
      * @type {string}
      * @memberof ProspectInstallmentFinancialRecordRequestBodyDto
@@ -194,6 +207,7 @@ export function instanceOfProspectInstallmentFinancialRecordRequestBodyDto(value
     if (!('subcategory' in value) || value['subcategory'] === undefined) return false;
     if (!('amount' in value) || value['amount'] === undefined) return false;
     if (!('numberOfInstallments' in value) || value['numberOfInstallments'] === undefined) return false;
+    if (!('installments' in value) || value['installments'] === undefined) return false;
     if (!('channel' in value) || value['channel'] === undefined) return false;
     return true;
 }
@@ -224,6 +238,7 @@ export function ProspectInstallmentFinancialRecordRequestBodyDtoFromJSONTyped(js
         'populatedContact': json['populatedContact'] == null ? undefined : CreateInstallmentFinancialRecordRequestBodyDtoPopulatedContactFromJSON(json['populatedContact']),
         'populatedTags': json['populatedTags'] == null ? undefined : ((json['populatedTags'] as Array<any>).map(CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerFromJSON)),
         'populatedFiles': json['populatedFiles'] == null ? undefined : ((json['populatedFiles'] as Array<any>).map(CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerFromJSON)),
+        'installments': ((json['installments'] as Array<any>).map(PartialUpdateInstallmentFinancialRecordRequestBodyDtoInstallmentsInnerFromJSON)),
         'channel': json['channel'],
     };
 }
@@ -255,6 +270,7 @@ export function ProspectInstallmentFinancialRecordRequestBodyDtoToJSONTyped(valu
         'populatedContact': CreateInstallmentFinancialRecordRequestBodyDtoPopulatedContactToJSON(value['populatedContact']),
         'populatedTags': value['populatedTags'] == null ? undefined : ((value['populatedTags'] as Array<any>).map(CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerToJSON)),
         'populatedFiles': value['populatedFiles'] == null ? undefined : ((value['populatedFiles'] as Array<any>).map(CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerToJSON)),
+        'installments': ((value['installments'] as Array<any>).map(PartialUpdateInstallmentFinancialRecordRequestBodyDtoInstallmentsInnerToJSON)),
         'channel': value['channel'],
     };
 }

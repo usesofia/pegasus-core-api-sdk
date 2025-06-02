@@ -11,6 +11,7 @@
  */
 import type { CreateFinancialRecordRequestBodyDtoPopulatedFilesInner } from './CreateFinancialRecordRequestBodyDtoPopulatedFilesInner';
 import type { CreateFinancialRecordRequestBodyDtoPopulatedTagsInner } from './CreateFinancialRecordRequestBodyDtoPopulatedTagsInner';
+import type { CreateInstallmentFinancialRecordRequestBodyDtoInstallmentsInner } from './CreateInstallmentFinancialRecordRequestBodyDtoInstallmentsInner';
 import type { CreateInstallmentFinancialRecordRequestBodyDtoPopulatedContact } from './CreateInstallmentFinancialRecordRequestBodyDtoPopulatedContact';
 import type { CreateFinancialRecordRequestBodyDtoPopulatedSubcategory } from './CreateFinancialRecordRequestBodyDtoPopulatedSubcategory';
 /**
@@ -57,10 +58,10 @@ export interface CreateInstallmentFinancialRecordRequestBodyDto {
     subcategory: string;
     /**
      *
-     * @type {string}
+     * @type {number}
      * @memberof CreateInstallmentFinancialRecordRequestBodyDto
      */
-    amount: string;
+    amount: number;
     /**
      * Tags relacionadas.
      * @type {Array<string>}
@@ -115,6 +116,12 @@ export interface CreateInstallmentFinancialRecordRequestBodyDto {
      * @memberof CreateInstallmentFinancialRecordRequestBodyDto
      */
     populatedFiles?: Array<CreateFinancialRecordRequestBodyDtoPopulatedFilesInner>;
+    /**
+     * Parcelas do lançamento.
+     * @type {Array<CreateInstallmentFinancialRecordRequestBodyDtoInstallmentsInner>}
+     * @memberof CreateInstallmentFinancialRecordRequestBodyDto
+     */
+    installments: Array<CreateInstallmentFinancialRecordRequestBodyDtoInstallmentsInner>;
     /**
      * Canal de origem da operação
      * @type {string}

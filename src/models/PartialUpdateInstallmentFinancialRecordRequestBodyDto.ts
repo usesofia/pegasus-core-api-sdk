@@ -20,6 +20,13 @@ import {
     CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerToJSON,
     CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerToJSONTyped,
 } from './CreateFinancialRecordRequestBodyDtoPopulatedFilesInner';
+import type { PartialUpdateInstallmentFinancialRecordRequestBodyDtoInstallmentsInner } from './PartialUpdateInstallmentFinancialRecordRequestBodyDtoInstallmentsInner';
+import {
+    PartialUpdateInstallmentFinancialRecordRequestBodyDtoInstallmentsInnerFromJSON,
+    PartialUpdateInstallmentFinancialRecordRequestBodyDtoInstallmentsInnerFromJSONTyped,
+    PartialUpdateInstallmentFinancialRecordRequestBodyDtoInstallmentsInnerToJSON,
+    PartialUpdateInstallmentFinancialRecordRequestBodyDtoInstallmentsInnerToJSONTyped,
+} from './PartialUpdateInstallmentFinancialRecordRequestBodyDtoInstallmentsInner';
 import type { CreateFinancialRecordRequestBodyDtoPopulatedTagsInner } from './CreateFinancialRecordRequestBodyDtoPopulatedTagsInner';
 import {
     CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerFromJSON,
@@ -114,6 +121,12 @@ export interface PartialUpdateInstallmentFinancialRecordRequestBodyDto {
      * @memberof PartialUpdateInstallmentFinancialRecordRequestBodyDto
      */
     numberOfInstallments?: number;
+    /**
+     * Parcelas do lançamento.
+     * @type {Array<PartialUpdateInstallmentFinancialRecordRequestBodyDtoInstallmentsInner>}
+     * @memberof PartialUpdateInstallmentFinancialRecordRequestBodyDto
+     */
+    installments?: Array<PartialUpdateInstallmentFinancialRecordRequestBodyDtoInstallmentsInner>;
     /**
      * Pontuação de busca do lançamento.
      * @type {number}
@@ -212,6 +225,7 @@ export function PartialUpdateInstallmentFinancialRecordRequestBodyDtoFromJSONTyp
         'competenceDate': json['competenceDate'] == null ? undefined : json['competenceDate'],
         'files': json['files'] == null ? undefined : json['files'],
         'numberOfInstallments': json['numberOfInstallments'] == null ? undefined : json['numberOfInstallments'],
+        'installments': json['installments'] == null ? undefined : ((json['installments'] as Array<any>).map(PartialUpdateInstallmentFinancialRecordRequestBodyDtoInstallmentsInnerFromJSON)),
         'searchScore': json['searchScore'] == null ? undefined : json['searchScore'],
         'populatedSubcategory': json['populatedSubcategory'] == null ? undefined : CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryFromJSON(json['populatedSubcategory']),
         'populatedContact': json['populatedContact'] == null ? undefined : CreateInstallmentFinancialRecordRequestBodyDtoPopulatedContactFromJSON(json['populatedContact']),
@@ -243,6 +257,7 @@ export function PartialUpdateInstallmentFinancialRecordRequestBodyDtoToJSONTyped
         'competenceDate': value['competenceDate'],
         'files': value['files'],
         'numberOfInstallments': value['numberOfInstallments'],
+        'installments': value['installments'] == null ? undefined : ((value['installments'] as Array<any>).map(PartialUpdateInstallmentFinancialRecordRequestBodyDtoInstallmentsInnerToJSON)),
         'searchScore': value['searchScore'],
         'populatedSubcategory': CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryToJSON(value['populatedSubcategory']),
         'populatedContact': CreateInstallmentFinancialRecordRequestBodyDtoPopulatedContactToJSON(value['populatedContact']),

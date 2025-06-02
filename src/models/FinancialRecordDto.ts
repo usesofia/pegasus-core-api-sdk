@@ -200,6 +200,12 @@ export interface FinancialRecordDto {
      */
     installmentFinancialRecord?: string | null;
     /**
+     * Índice da parcela (1, 2, 3, etc.).
+     * @type {number}
+     * @memberof FinancialRecordDto
+     */
+    installmentNumber?: number | null;
+    /**
      * Identificador do lançamento financeiro recorrente.
      * @type {string}
      * @memberof FinancialRecordDto
@@ -313,6 +319,7 @@ export function FinancialRecordDtoFromJSONTyped(json: any, ignoreDiscriminator: 
         'reconciled': json['reconciled'] == null ? undefined : json['reconciled'],
         'bankStatement': json['bankStatement'] == null ? undefined : json['bankStatement'],
         'installmentFinancialRecord': json['installmentFinancialRecord'] == null ? undefined : json['installmentFinancialRecord'],
+        'installmentNumber': json['installmentNumber'] == null ? undefined : json['installmentNumber'],
         'recurringFinancialRecord': json['recurringFinancialRecord'] == null ? undefined : json['recurringFinancialRecord'],
         'createdAt': json['createdAt'] == null ? undefined : json['createdAt'],
         'updatedAt': json['updatedAt'] == null ? undefined : json['updatedAt'],
@@ -360,6 +367,7 @@ export function FinancialRecordDtoToJSONTyped(value?: FinancialRecordDto | null,
         'reconciled': value['reconciled'],
         'bankStatement': value['bankStatement'],
         'installmentFinancialRecord': value['installmentFinancialRecord'],
+        'installmentNumber': value['installmentNumber'],
         'recurringFinancialRecord': value['recurringFinancialRecord'],
         'createdAt': value['createdAt'],
         'updatedAt': value['updatedAt'],

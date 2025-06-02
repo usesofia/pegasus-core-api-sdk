@@ -147,6 +147,12 @@ export interface PartialUpdateFinancialRecordRequestBodyDto {
      */
     installmentFinancialRecord?: string | null;
     /**
+     * Índice da parcela (1, 2, 3, etc.).
+     * @type {number}
+     * @memberof PartialUpdateFinancialRecordRequestBodyDto
+     */
+    installmentNumber?: number | null;
+    /**
      * Identificador do lançamento financeiro recorrente.
      * @type {string}
      * @memberof PartialUpdateFinancialRecordRequestBodyDto

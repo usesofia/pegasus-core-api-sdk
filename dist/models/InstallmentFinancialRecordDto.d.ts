@@ -11,6 +11,7 @@
  */
 import type { CreateFinancialRecordRequestBodyDtoPopulatedFilesInner } from './CreateFinancialRecordRequestBodyDtoPopulatedFilesInner';
 import type { CreateFinancialRecordRequestBodyDtoPopulatedTagsInner } from './CreateFinancialRecordRequestBodyDtoPopulatedTagsInner';
+import type { InstallmentFinancialRecordDtoInstallmentsInner } from './InstallmentFinancialRecordDtoInstallmentsInner';
 import type { CreateInstallmentFinancialRecordRequestBodyDtoPopulatedContact } from './CreateInstallmentFinancialRecordRequestBodyDtoPopulatedContact';
 import type { CreateFinancialRecordRequestBodyDtoPopulatedSubcategory } from './CreateFinancialRecordRequestBodyDtoPopulatedSubcategory';
 /**
@@ -97,6 +98,12 @@ export interface InstallmentFinancialRecordDto {
      * @memberof InstallmentFinancialRecordDto
      */
     numberOfInstallments: number;
+    /**
+     * Parcelas do lançamento.
+     * @type {Array<InstallmentFinancialRecordDtoInstallmentsInner>}
+     * @memberof InstallmentFinancialRecordDto
+     */
+    installments: Array<InstallmentFinancialRecordDtoInstallmentsInner>;
     /**
      * Data de criação do lançamento.
      * @type {any}
