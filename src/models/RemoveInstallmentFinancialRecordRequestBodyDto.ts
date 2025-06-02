@@ -20,6 +20,12 @@ import { mapValues } from '../runtime';
  */
 export interface RemoveInstallmentFinancialRecordRequestBodyDto {
     /**
+     * 
+     * @type {string}
+     * @memberof RemoveInstallmentFinancialRecordRequestBodyDto
+     */
+    removeRelatedFinancialRecordsOption: RemoveInstallmentFinancialRecordRequestBodyDtoRemoveRelatedFinancialRecordsOptionEnum;
+    /**
      * Canal de origem da operação
      * @type {string}
      * @memberof RemoveInstallmentFinancialRecordRequestBodyDto
@@ -27,6 +33,15 @@ export interface RemoveInstallmentFinancialRecordRequestBodyDto {
     channel: RemoveInstallmentFinancialRecordRequestBodyDtoChannelEnum;
 }
 
+
+/**
+ * @export
+ */
+export const RemoveInstallmentFinancialRecordRequestBodyDtoRemoveRelatedFinancialRecordsOptionEnum = {
+    OnlyNotCompleted: 'ONLY_NOT_COMPLETED',
+    None: 'NONE'
+} as const;
+export type RemoveInstallmentFinancialRecordRequestBodyDtoRemoveRelatedFinancialRecordsOptionEnum = typeof RemoveInstallmentFinancialRecordRequestBodyDtoRemoveRelatedFinancialRecordsOptionEnum[keyof typeof RemoveInstallmentFinancialRecordRequestBodyDtoRemoveRelatedFinancialRecordsOptionEnum];
 
 /**
  * @export
@@ -43,6 +58,7 @@ export type RemoveInstallmentFinancialRecordRequestBodyDtoChannelEnum = typeof R
  * Check if a given object implements the RemoveInstallmentFinancialRecordRequestBodyDto interface.
  */
 export function instanceOfRemoveInstallmentFinancialRecordRequestBodyDto(value: object): value is RemoveInstallmentFinancialRecordRequestBodyDto {
+    if (!('removeRelatedFinancialRecordsOption' in value) || value['removeRelatedFinancialRecordsOption'] === undefined) return false;
     if (!('channel' in value) || value['channel'] === undefined) return false;
     return true;
 }
@@ -57,6 +73,7 @@ export function RemoveInstallmentFinancialRecordRequestBodyDtoFromJSONTyped(json
     }
     return {
         
+        'removeRelatedFinancialRecordsOption': json['removeRelatedFinancialRecordsOption'],
         'channel': json['channel'],
     };
 }
@@ -72,6 +89,7 @@ export function RemoveInstallmentFinancialRecordRequestBodyDtoToJSONTyped(value?
 
     return {
         
+        'removeRelatedFinancialRecordsOption': value['removeRelatedFinancialRecordsOption'],
         'channel': value['channel'],
     };
 }

@@ -16,12 +16,26 @@
  */
 export interface RemoveInstallmentFinancialRecordRequestBodyDto {
     /**
+     *
+     * @type {string}
+     * @memberof RemoveInstallmentFinancialRecordRequestBodyDto
+     */
+    removeRelatedFinancialRecordsOption: RemoveInstallmentFinancialRecordRequestBodyDtoRemoveRelatedFinancialRecordsOptionEnum;
+    /**
      * Canal de origem da operação
      * @type {string}
      * @memberof RemoveInstallmentFinancialRecordRequestBodyDto
      */
     channel: RemoveInstallmentFinancialRecordRequestBodyDtoChannelEnum;
 }
+/**
+ * @export
+ */
+export declare const RemoveInstallmentFinancialRecordRequestBodyDtoRemoveRelatedFinancialRecordsOptionEnum: {
+    readonly OnlyNotCompleted: "ONLY_NOT_COMPLETED";
+    readonly None: "NONE";
+};
+export type RemoveInstallmentFinancialRecordRequestBodyDtoRemoveRelatedFinancialRecordsOptionEnum = typeof RemoveInstallmentFinancialRecordRequestBodyDtoRemoveRelatedFinancialRecordsOptionEnum[keyof typeof RemoveInstallmentFinancialRecordRequestBodyDtoRemoveRelatedFinancialRecordsOptionEnum];
 /**
  * @export
  */

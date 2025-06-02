@@ -101,7 +101,7 @@ export interface InstallmentFinancialRecordsApiInterface {
      */
     partialUpdateInstallmentFinancialRecord(requestParameters: PartialUpdateInstallmentFinancialRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<InstallmentFinancialRecordDto>;
     /**
-     *
+     * Remove um lançamento financeiro parcelado com opções para remoção de lançamentos financeiros relacionados.
      * @summary Remove um lançamento financeiro parcelado.
      * @param {string} id Identificador do lançamento financeiro parcelado.
      * @param {RemoveInstallmentFinancialRecordRequestBodyDto} removeInstallmentFinancialRecordRequestBodyDto
@@ -111,6 +111,7 @@ export interface InstallmentFinancialRecordsApiInterface {
      */
     removeInstallmentFinancialRecordRaw(requestParameters: RemoveInstallmentFinancialRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
     /**
+     * Remove um lançamento financeiro parcelado com opções para remoção de lançamentos financeiros relacionados.
      * Remove um lançamento financeiro parcelado.
      */
     removeInstallmentFinancialRecord(requestParameters: RemoveInstallmentFinancialRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
@@ -152,10 +153,12 @@ export declare class InstallmentFinancialRecordsApi extends runtime.BaseAPI impl
      */
     partialUpdateInstallmentFinancialRecord(requestParameters: PartialUpdateInstallmentFinancialRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<InstallmentFinancialRecordDto>;
     /**
+     * Remove um lançamento financeiro parcelado com opções para remoção de lançamentos financeiros relacionados.
      * Remove um lançamento financeiro parcelado.
      */
     removeInstallmentFinancialRecordRaw(requestParameters: RemoveInstallmentFinancialRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
     /**
+     * Remove um lançamento financeiro parcelado com opções para remoção de lançamentos financeiros relacionados.
      * Remove um lançamento financeiro parcelado.
      */
     removeInstallmentFinancialRecord(requestParameters: RemoveInstallmentFinancialRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;

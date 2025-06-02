@@ -278,6 +278,7 @@ var InstallmentFinancialRecordsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Remove um lançamento financeiro parcelado com opções para remoção de lançamentos financeiros relacionados.
      * Remove um lançamento financeiro parcelado.
      */
     InstallmentFinancialRecordsApi.prototype.removeInstallmentFinancialRecordRaw = function (requestParameters, initOverrides) {
@@ -310,6 +311,7 @@ var InstallmentFinancialRecordsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Remove um lançamento financeiro parcelado com opções para remoção de lançamentos financeiros relacionados.
      * Remove um lançamento financeiro parcelado.
      */
     InstallmentFinancialRecordsApi.prototype.removeInstallmentFinancialRecord = function (requestParameters, initOverrides) {

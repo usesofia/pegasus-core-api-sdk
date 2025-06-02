@@ -13,12 +13,19 @@
  * Do not edit the class manually.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.RemoveInstallmentFinancialRecordRequestBodyDtoChannelEnum = void 0;
+exports.RemoveInstallmentFinancialRecordRequestBodyDtoChannelEnum = exports.RemoveInstallmentFinancialRecordRequestBodyDtoRemoveRelatedFinancialRecordsOptionEnum = void 0;
 exports.instanceOfRemoveInstallmentFinancialRecordRequestBodyDto = instanceOfRemoveInstallmentFinancialRecordRequestBodyDto;
 exports.RemoveInstallmentFinancialRecordRequestBodyDtoFromJSON = RemoveInstallmentFinancialRecordRequestBodyDtoFromJSON;
 exports.RemoveInstallmentFinancialRecordRequestBodyDtoFromJSONTyped = RemoveInstallmentFinancialRecordRequestBodyDtoFromJSONTyped;
 exports.RemoveInstallmentFinancialRecordRequestBodyDtoToJSON = RemoveInstallmentFinancialRecordRequestBodyDtoToJSON;
 exports.RemoveInstallmentFinancialRecordRequestBodyDtoToJSONTyped = RemoveInstallmentFinancialRecordRequestBodyDtoToJSONTyped;
+/**
+ * @export
+ */
+exports.RemoveInstallmentFinancialRecordRequestBodyDtoRemoveRelatedFinancialRecordsOptionEnum = {
+    OnlyNotCompleted: 'ONLY_NOT_COMPLETED',
+    None: 'NONE'
+};
 /**
  * @export
  */
@@ -31,6 +38,8 @@ exports.RemoveInstallmentFinancialRecordRequestBodyDtoChannelEnum = {
  * Check if a given object implements the RemoveInstallmentFinancialRecordRequestBodyDto interface.
  */
 function instanceOfRemoveInstallmentFinancialRecordRequestBodyDto(value) {
+    if (!('removeRelatedFinancialRecordsOption' in value) || value['removeRelatedFinancialRecordsOption'] === undefined)
+        return false;
     if (!('channel' in value) || value['channel'] === undefined)
         return false;
     return true;
@@ -43,6 +52,7 @@ function RemoveInstallmentFinancialRecordRequestBodyDtoFromJSONTyped(json, ignor
         return json;
     }
     return {
+        'removeRelatedFinancialRecordsOption': json['removeRelatedFinancialRecordsOption'],
         'channel': json['channel'],
     };
 }
@@ -55,6 +65,7 @@ function RemoveInstallmentFinancialRecordRequestBodyDtoToJSONTyped(value, ignore
         return value;
     }
     return {
+        'removeRelatedFinancialRecordsOption': value['removeRelatedFinancialRecordsOption'],
         'channel': value['channel'],
     };
 }
