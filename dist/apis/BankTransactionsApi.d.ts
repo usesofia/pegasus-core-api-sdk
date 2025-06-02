@@ -10,10 +10,13 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { BankTransactionEntity, BankTransactionsPageDto, CreateOrUpdateBankTransactionRequestBodyDto, PartialUpdateBankTransactionRequestBodyDto } from '../models/index';
+import type { BankTransactionEntity, BankTransactionsPageDto, CreateOrUpdateBankTransactionRequestBodyDto, DispatchOfxImport201Response, ExecuteOfxImportJobRequestBodyDto, OfxImportRequestBodyDto, PartialUpdateBankTransactionRequestBodyDto } from '../models/index';
 export interface CreateOrUpdateBankTransactionRequest {
     createOrUpdateBankTransactionRequestBodyDto: CreateOrUpdateBankTransactionRequestBodyDto;
     populate?: string;
+}
+export interface DispatchOfxImportRequest {
+    ofxImportRequestBodyDto: OfxImportRequestBodyDto;
 }
 export interface FindAllBankTransactionsRequest {
     populate?: string;
@@ -26,7 +29,7 @@ export interface FindAllBankTransactionsRequest {
     pageSize?: number;
     pageIndex?: number;
 }
-export interface FindByIdBankTransactionRequest {
+export interface FindBankTransactionByIdRequest {
     id: string;
     populate?: string;
 }
@@ -34,6 +37,9 @@ export interface PartialUpdateBankTransactionRequest {
     id: string;
     partialUpdateBankTransactionRequestBodyDto: PartialUpdateBankTransactionRequestBodyDto;
     populate?: string;
+}
+export interface ProcessOfxImportRequest {
+    executeOfxImportJobRequestBodyDto: ExecuteOfxImportJobRequestBodyDto;
 }
 export interface SystemFindAllBankTransactionsRequest {
     ownerOrganizationId: string;
@@ -72,6 +78,19 @@ export interface BankTransactionsApiInterface {
     createOrUpdateBankTransaction(requestParameters: CreateOrUpdateBankTransactionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankTransactionEntity>;
     /**
      *
+     * @summary Dispara a importação assíncrona de um arquivo OFX.
+     * @param {OfxImportRequestBodyDto} ofxImportRequestBodyDto
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof BankTransactionsApiInterface
+     */
+    dispatchOfxImportRaw(requestParameters: DispatchOfxImportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DispatchOfxImport201Response>>;
+    /**
+     * Dispara a importação assíncrona de um arquivo OFX.
+     */
+    dispatchOfxImport(requestParameters: DispatchOfxImportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DispatchOfxImport201Response>;
+    /**
+     *
      * @summary Busca todas as movimentações financeiras.
      * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
      * @param {'DEBIT' | 'CREDIT'} [type] Tipo da movimentação.
@@ -93,22 +112,22 @@ export interface BankTransactionsApiInterface {
     findAllBankTransactions(requestParameters: FindAllBankTransactionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankTransactionsPageDto>;
     /**
      *
-     * @summary Busca uma movimentação financeira pelo identificador.
-     * @param {string} id Identificador da movimentação financeira.
+     * @summary Busca uma movimentação financeira por ID.
+     * @param {string} id ID da movimentação financeira.
      * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof BankTransactionsApiInterface
      */
-    findByIdBankTransactionRaw(requestParameters: FindByIdBankTransactionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankTransactionEntity>>;
+    findBankTransactionByIdRaw(requestParameters: FindBankTransactionByIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankTransactionEntity>>;
     /**
-     * Busca uma movimentação financeira pelo identificador.
+     * Busca uma movimentação financeira por ID.
      */
-    findByIdBankTransaction(requestParameters: FindByIdBankTransactionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankTransactionEntity>;
+    findBankTransactionById(requestParameters: FindBankTransactionByIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankTransactionEntity>;
     /**
      *
      * @summary Atualiza parcialmente uma movimentação financeira.
-     * @param {string} id Identificador da movimentação financeira.
+     * @param {string} id ID da movimentação financeira.
      * @param {PartialUpdateBankTransactionRequestBodyDto} partialUpdateBankTransactionRequestBodyDto
      * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
      * @param {*} [options] Override http request option.
@@ -120,6 +139,19 @@ export interface BankTransactionsApiInterface {
      * Atualiza parcialmente uma movimentação financeira.
      */
     partialUpdateBankTransaction(requestParameters: PartialUpdateBankTransactionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankTransactionEntity>;
+    /**
+     *
+     * @summary Processa a importação assíncrona de um arquivo OFX.
+     * @param {ExecuteOfxImportJobRequestBodyDto} executeOfxImportJobRequestBodyDto
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof BankTransactionsApiInterface
+     */
+    processOfxImportRaw(requestParameters: ProcessOfxImportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
+    /**
+     * Processa a importação assíncrona de um arquivo OFX.
+     */
+    processOfxImport(requestParameters: ProcessOfxImportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
     /**
      *
      * @summary Busca todas as movimentações financeiras pelo sistema.
@@ -158,6 +190,14 @@ export declare class BankTransactionsApi extends runtime.BaseAPI implements Bank
      */
     createOrUpdateBankTransaction(requestParameters: CreateOrUpdateBankTransactionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankTransactionEntity>;
     /**
+     * Dispara a importação assíncrona de um arquivo OFX.
+     */
+    dispatchOfxImportRaw(requestParameters: DispatchOfxImportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DispatchOfxImport201Response>>;
+    /**
+     * Dispara a importação assíncrona de um arquivo OFX.
+     */
+    dispatchOfxImport(requestParameters: DispatchOfxImportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DispatchOfxImport201Response>;
+    /**
      * Busca todas as movimentações financeiras.
      */
     findAllBankTransactionsRaw(requestParameters: FindAllBankTransactionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankTransactionsPageDto>>;
@@ -166,13 +206,13 @@ export declare class BankTransactionsApi extends runtime.BaseAPI implements Bank
      */
     findAllBankTransactions(requestParameters?: FindAllBankTransactionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankTransactionsPageDto>;
     /**
-     * Busca uma movimentação financeira pelo identificador.
+     * Busca uma movimentação financeira por ID.
      */
-    findByIdBankTransactionRaw(requestParameters: FindByIdBankTransactionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankTransactionEntity>>;
+    findBankTransactionByIdRaw(requestParameters: FindBankTransactionByIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankTransactionEntity>>;
     /**
-     * Busca uma movimentação financeira pelo identificador.
+     * Busca uma movimentação financeira por ID.
      */
-    findByIdBankTransaction(requestParameters: FindByIdBankTransactionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankTransactionEntity>;
+    findBankTransactionById(requestParameters: FindBankTransactionByIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankTransactionEntity>;
     /**
      * Atualiza parcialmente uma movimentação financeira.
      */
@@ -181,6 +221,14 @@ export declare class BankTransactionsApi extends runtime.BaseAPI implements Bank
      * Atualiza parcialmente uma movimentação financeira.
      */
     partialUpdateBankTransaction(requestParameters: PartialUpdateBankTransactionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankTransactionEntity>;
+    /**
+     * Processa a importação assíncrona de um arquivo OFX.
+     */
+    processOfxImportRaw(requestParameters: ProcessOfxImportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
+    /**
+     * Processa a importação assíncrona de um arquivo OFX.
+     */
+    processOfxImport(requestParameters: ProcessOfxImportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
     /**
      * Busca todas as movimentações financeiras pelo sistema.
      */

@@ -114,10 +114,12 @@ src/models/CreateOrganizationRequestBodyDtoPopulatedParent.ts
 src/models/CreateRecurringFinancialRecordRequestBodyDto.ts
 src/models/CreateRecurringFinancialRecordRequestBodyDtoPopulatedSubcategory.ts
 src/models/CreateTagRequestBodyDto.ts
+src/models/DispatchOfxImport201Response.ts
 src/models/ExceptionResponseEntity.ts
 src/models/ExceptionResponseEntityErrorsInner.ts
 src/models/ExecuteBulkCreateJobRequestBodyDto.ts
 src/models/ExecuteBulkRemoveJobRequestBodyDto.ts
+src/models/ExecuteOfxImportJobRequestBodyDto.ts
 src/models/ExportBankAccountsDto.ts
 src/models/ExportContactsDto.ts
 src/models/ExportFinancialRecordsDto.ts
@@ -157,6 +159,7 @@ src/models/LinkFinancialRecordsRequestBodyDto.ts
 src/models/MemberEntity.ts
 src/models/NormalizedSubcategoriesPageEntity.ts
 src/models/NormalizedSubcategoriesPageEntityItemsInner.ts
+src/models/OfxImportRequestBodyDto.ts
 src/models/OrganizationEntity.ts
 src/models/PartialUpdateBankAccountRequestBodyDto.ts
 src/models/PartialUpdateBankTransactionRequestBodyDto.ts

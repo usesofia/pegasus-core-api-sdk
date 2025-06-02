@@ -125,6 +125,52 @@ var BankTransactionsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Dispara a importação assíncrona de um arquivo OFX.
+     */
+    BankTransactionsApi.prototype.dispatchOfxImportRaw = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (requestParameters['ofxImportRequestBodyDto'] == null) {
+                            throw new runtime.RequiredError('ofxImportRequestBodyDto', 'Required parameter "ofxImportRequestBodyDto" was null or undefined when calling dispatchOfxImport().');
+                        }
+                        queryParameters = {};
+                        headerParameters = {};
+                        headerParameters['Content-Type'] = 'application/json';
+                        return [4 /*yield*/, this.request({
+                                path: "/external/bank-transactions/ofx",
+                                method: 'POST',
+                                headers: headerParameters,
+                                query: queryParameters,
+                                body: (0, index_1.OfxImportRequestBodyDtoToJSON)(requestParameters['ofxImportRequestBodyDto']),
+                            }, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.DispatchOfxImport201ResponseFromJSON)(jsonValue); })];
+                }
+            });
+        });
+    };
+    /**
+     * Dispara a importação assíncrona de um arquivo OFX.
+     */
+    BankTransactionsApi.prototype.dispatchOfxImport = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.dispatchOfxImportRaw(requestParameters, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [4 /*yield*/, response.value()];
+                    case 2: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
+    /**
      * Busca todas as movimentações financeiras.
      */
     BankTransactionsApi.prototype.findAllBankTransactionsRaw = function (requestParameters, initOverrides) {
@@ -194,16 +240,16 @@ var BankTransactionsApi = /** @class */ (function (_super) {
         });
     };
     /**
-     * Busca uma movimentação financeira pelo identificador.
+     * Busca uma movimentação financeira por ID.
      */
-    BankTransactionsApi.prototype.findByIdBankTransactionRaw = function (requestParameters, initOverrides) {
+    BankTransactionsApi.prototype.findBankTransactionByIdRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
             var queryParameters, headerParameters, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         if (requestParameters['id'] == null) {
-                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling findByIdBankTransaction().');
+                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling findBankTransactionById().');
                         }
                         queryParameters = {};
                         if (requestParameters['populate'] != null) {
@@ -224,14 +270,14 @@ var BankTransactionsApi = /** @class */ (function (_super) {
         });
     };
     /**
-     * Busca uma movimentação financeira pelo identificador.
+     * Busca uma movimentação financeira por ID.
      */
-    BankTransactionsApi.prototype.findByIdBankTransaction = function (requestParameters, initOverrides) {
+    BankTransactionsApi.prototype.findBankTransactionById = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
             var response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.findByIdBankTransactionRaw(requestParameters, initOverrides)];
+                    case 0: return [4 /*yield*/, this.findBankTransactionByIdRaw(requestParameters, initOverrides)];
                     case 1:
                         response = _a.sent();
                         return [4 /*yield*/, response.value()];
@@ -288,6 +334,50 @@ var BankTransactionsApi = /** @class */ (function (_super) {
                         response = _a.sent();
                         return [4 /*yield*/, response.value()];
                     case 2: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
+    /**
+     * Processa a importação assíncrona de um arquivo OFX.
+     */
+    BankTransactionsApi.prototype.processOfxImportRaw = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (requestParameters['executeOfxImportJobRequestBodyDto'] == null) {
+                            throw new runtime.RequiredError('executeOfxImportJobRequestBodyDto', 'Required parameter "executeOfxImportJobRequestBodyDto" was null or undefined when calling processOfxImport().');
+                        }
+                        queryParameters = {};
+                        headerParameters = {};
+                        headerParameters['Content-Type'] = 'application/json';
+                        return [4 /*yield*/, this.request({
+                                path: "/internal/queues/ofx-import",
+                                method: 'POST',
+                                headers: headerParameters,
+                                query: queryParameters,
+                                body: (0, index_1.ExecuteOfxImportJobRequestBodyDtoToJSON)(requestParameters['executeOfxImportJobRequestBodyDto']),
+                            }, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [2 /*return*/, new runtime.VoidApiResponse(response)];
+                }
+            });
+        });
+    };
+    /**
+     * Processa a importação assíncrona de um arquivo OFX.
+     */
+    BankTransactionsApi.prototype.processOfxImport = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.processOfxImportRaw(requestParameters, initOverrides)];
+                    case 1:
+                        _a.sent();
+                        return [2 /*return*/];
                 }
             });
         });
