@@ -90,6 +90,7 @@ export * from './ExportRecurringFinancialRecordsDto';
 export * from './ExportSubcategoriesDto';
 export * from './ExportTagsDto';
 export * from './ExternalCreateSubcategoryRequestBodyDto';
+export * from './FileEntity';
 export * from './FinancialRecordDto';
 export * from './FinancialRecordsPageDto';
 export * from './FinancialRecordsPageDtoItemsInner';

@@ -19,6 +19,7 @@ import type {
   CreateFileUpload200Response,
   CreateFileUploadRequestBodyDto,
   ExceptionResponseEntity,
+  FileEntity,
 } from '../models/index';
 import {
     ConfirmFileUploadRequestBodyDtoFromJSON,
@@ -29,6 +30,8 @@ import {
     CreateFileUploadRequestBodyDtoToJSON,
     ExceptionResponseEntityFromJSON,
     ExceptionResponseEntityToJSON,
+    FileEntityFromJSON,
+    FileEntityToJSON,
 } from '../models/index';
 
 export interface ConfirmFileUploadRequest {
@@ -54,12 +57,12 @@ export interface FilesUploadApiInterface {
      * @throws {RequiredError}
      * @memberof FilesUploadApiInterface
      */
-    confirmFileUploadRaw(requestParameters: ConfirmFileUploadRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
+    confirmFileUploadRaw(requestParameters: ConfirmFileUploadRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FileEntity>>;
 
     /**
      * Confirms a file upload
      */
-    confirmFileUpload(requestParameters: ConfirmFileUploadRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+    confirmFileUpload(requestParameters: ConfirmFileUploadRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FileEntity>;
 
     /**
      * 
@@ -86,7 +89,7 @@ export class FilesUploadApi extends runtime.BaseAPI implements FilesUploadApiInt
     /**
      * Confirms a file upload
      */
-    async confirmFileUploadRaw(requestParameters: ConfirmFileUploadRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+    async confirmFileUploadRaw(requestParameters: ConfirmFileUploadRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FileEntity>> {
         if (requestParameters['confirmFileUploadRequestBodyDto'] == null) {
             throw new runtime.RequiredError(
                 'confirmFileUploadRequestBodyDto',
@@ -108,14 +111,15 @@ export class FilesUploadApi extends runtime.BaseAPI implements FilesUploadApiInt
             body: ConfirmFileUploadRequestBodyDtoToJSON(requestParameters['confirmFileUploadRequestBodyDto']),
         }, initOverrides);
 
-        return new runtime.VoidApiResponse(response);
+        return new runtime.JSONApiResponse(response, (jsonValue) => FileEntityFromJSON(jsonValue));
     }
 
     /**
      * Confirms a file upload
      */
-    async confirmFileUpload(requestParameters: ConfirmFileUploadRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
-        await this.confirmFileUploadRaw(requestParameters, initOverrides);
+    async confirmFileUpload(requestParameters: ConfirmFileUploadRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FileEntity> {
+        const response = await this.confirmFileUploadRaw(requestParameters, initOverrides);
+        return await response.value();
     }
 
     /**

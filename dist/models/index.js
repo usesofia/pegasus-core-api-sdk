@@ -106,6 +106,7 @@ __exportStar(require("./ExportRecurringFinancialRecordsDto"), exports);
 __exportStar(require("./ExportSubcategoriesDto"), exports);
 __exportStar(require("./ExportTagsDto"), exports);
 __exportStar(require("./ExternalCreateSubcategoryRequestBodyDto"), exports);
+__exportStar(require("./FileEntity"), exports);
 __exportStar(require("./FinancialRecordDto"), exports);
 __exportStar(require("./FinancialRecordsPageDto"), exports);
 __exportStar(require("./FinancialRecordsPageDtoItemsInner"), exports);

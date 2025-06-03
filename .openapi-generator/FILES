@@ -128,6 +128,7 @@ src/models/ExportRecurringFinancialRecordsDto.ts
 src/models/ExportSubcategoriesDto.ts
 src/models/ExportTagsDto.ts
 src/models/ExternalCreateSubcategoryRequestBodyDto.ts
+src/models/FileEntity.ts
 src/models/FinancialRecordDto.ts
 src/models/FinancialRecordsPageDto.ts
 src/models/FinancialRecordsPageDtoItemsInner.ts

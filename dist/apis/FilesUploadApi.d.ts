@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { ConfirmFileUploadRequestBodyDto, CreateFileUpload200Response, CreateFileUploadRequestBodyDto } from '../models/index';
+import type { ConfirmFileUploadRequestBodyDto, CreateFileUpload200Response, CreateFileUploadRequestBodyDto, FileEntity } from '../models/index';
 export interface ConfirmFileUploadRequest {
     confirmFileUploadRequestBodyDto: ConfirmFileUploadRequestBodyDto;
 }
@@ -32,11 +32,11 @@ export interface FilesUploadApiInterface {
      * @throws {RequiredError}
      * @memberof FilesUploadApiInterface
      */
-    confirmFileUploadRaw(requestParameters: ConfirmFileUploadRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
+    confirmFileUploadRaw(requestParameters: ConfirmFileUploadRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FileEntity>>;
     /**
      * Confirms a file upload
      */
-    confirmFileUpload(requestParameters: ConfirmFileUploadRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+    confirmFileUpload(requestParameters: ConfirmFileUploadRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FileEntity>;
     /**
      *
      * @summary Cria uma nova solicitação de upload de arquivo
@@ -58,11 +58,11 @@ export declare class FilesUploadApi extends runtime.BaseAPI implements FilesUplo
     /**
      * Confirms a file upload
      */
-    confirmFileUploadRaw(requestParameters: ConfirmFileUploadRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
+    confirmFileUploadRaw(requestParameters: ConfirmFileUploadRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FileEntity>>;
     /**
      * Confirms a file upload
      */
-    confirmFileUpload(requestParameters: ConfirmFileUploadRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+    confirmFileUpload(requestParameters: ConfirmFileUploadRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FileEntity>;
     /**
      * Cria uma nova solicitação de upload de arquivo
      */
