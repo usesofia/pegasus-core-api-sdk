@@ -97,6 +97,7 @@ export declare const FileEntityFileTypeEnum: {
     readonly Export: "EXPORT";
     readonly InstallmentFinancialRecord: "INSTALLMENT_FINANCIAL_RECORD";
     readonly RecurringFinancialRecord: "RECURRING_FINANCIAL_RECORD";
+    readonly Ofx: "OFX";
     readonly SevenDaysTempFile: "SEVEN_DAYS_TEMP_FILE";
 };
 export type FileEntityFileTypeEnum = typeof FileEntityFileTypeEnum[keyof typeof FileEntityFileTypeEnum];

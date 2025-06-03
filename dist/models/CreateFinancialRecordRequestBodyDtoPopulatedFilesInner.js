@@ -28,6 +28,7 @@ exports.CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerFileTypeEnum = {
     Export: 'EXPORT',
     InstallmentFinancialRecord: 'INSTALLMENT_FINANCIAL_RECORD',
     RecurringFinancialRecord: 'RECURRING_FINANCIAL_RECORD',
+    Ofx: 'OFX',
     SevenDaysTempFile: 'SEVEN_DAYS_TEMP_FILE'
 };
 /**
