@@ -47,6 +47,7 @@ function PartialUpdateOrganizationRequestBodyDtoFromJSONTyped(json, ignoreDiscri
         'name': json['name'] == null ? undefined : json['name'],
         'slug': json['slug'] == null ? undefined : json['slug'],
         'document': json['document'] == null ? undefined : json['document'],
+        'description': json['description'] == null ? undefined : json['description'],
         'imageInBase64': json['imageInBase64'] == null ? undefined : json['imageInBase64'],
         'channel': json['channel'],
     };
@@ -63,6 +64,7 @@ function PartialUpdateOrganizationRequestBodyDtoToJSONTyped(value, ignoreDiscrim
         'name': value['name'],
         'slug': value['slug'],
         'document': value['document'],
+        'description': value['description'],
         'imageInBase64': value['imageInBase64'],
         'channel': value['channel'],
     };

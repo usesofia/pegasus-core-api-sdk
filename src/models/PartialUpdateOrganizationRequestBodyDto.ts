@@ -38,6 +38,12 @@ export interface PartialUpdateOrganizationRequestBodyDto {
      */
     document?: string;
     /**
+     * Descrição da organização.
+     * @type {string}
+     * @memberof PartialUpdateOrganizationRequestBodyDto
+     */
+    description?: string;
+    /**
      * Imagem do logo em base64.
      * @type {string}
      * @memberof PartialUpdateOrganizationRequestBodyDto
@@ -85,6 +91,7 @@ export function PartialUpdateOrganizationRequestBodyDtoFromJSONTyped(json: any, 
         'name': json['name'] == null ? undefined : json['name'],
         'slug': json['slug'] == null ? undefined : json['slug'],
         'document': json['document'] == null ? undefined : json['document'],
+        'description': json['description'] == null ? undefined : json['description'],
         'imageInBase64': json['imageInBase64'] == null ? undefined : json['imageInBase64'],
         'channel': json['channel'],
     };
@@ -104,6 +111,7 @@ export function PartialUpdateOrganizationRequestBodyDtoToJSONTyped(value?: Parti
         'name': value['name'],
         'slug': value['slug'],
         'document': value['document'],
+        'description': value['description'],
         'imageInBase64': value['imageInBase64'],
         'channel': value['channel'],
     };

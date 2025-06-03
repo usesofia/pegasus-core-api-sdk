@@ -34,6 +34,12 @@ export interface PartialUpdateOrganizationRequestBodyDto {
      */
     document?: string;
     /**
+     * Descrição da organização.
+     * @type {string}
+     * @memberof PartialUpdateOrganizationRequestBodyDto
+     */
+    description?: string;
+    /**
      * Imagem do logo em base64.
      * @type {string}
      * @memberof PartialUpdateOrganizationRequestBodyDto
