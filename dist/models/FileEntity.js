@@ -29,6 +29,7 @@ exports.FileEntityFileTypeEnum = {
     InstallmentFinancialRecord: 'INSTALLMENT_FINANCIAL_RECORD',
     RecurringFinancialRecord: 'RECURRING_FINANCIAL_RECORD',
     Ofx: 'OFX',
+    ExtractFinancialRecordFromFile: 'EXTRACT_FINANCIAL_RECORD_FROM_FILE',
     SevenDaysTempFile: 'SEVEN_DAYS_TEMP_FILE'
 };
 /**

@@ -98,6 +98,7 @@ export declare const CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerFileT
     readonly InstallmentFinancialRecord: "INSTALLMENT_FINANCIAL_RECORD";
     readonly RecurringFinancialRecord: "RECURRING_FINANCIAL_RECORD";
     readonly Ofx: "OFX";
+    readonly ExtractFinancialRecordFromFile: "EXTRACT_FINANCIAL_RECORD_FROM_FILE";
     readonly SevenDaysTempFile: "SEVEN_DAYS_TEMP_FILE";
 };
 export type CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerFileTypeEnum = typeof CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerFileTypeEnum[keyof typeof CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerFileTypeEnum];
