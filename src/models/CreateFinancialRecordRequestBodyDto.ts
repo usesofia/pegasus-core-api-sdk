@@ -62,11 +62,11 @@ export interface CreateFinancialRecordRequestBodyDto {
      */
     direction: CreateFinancialRecordRequestBodyDtoDirectionEnum;
     /**
-     * Data de vencimento.
-     * @type {any}
+     * 
+     * @type {string}
      * @memberof CreateFinancialRecordRequestBodyDto
      */
-    dueDate: any | null;
+    dueDate: string;
     /**
      * Identificador do contato relacionado.
      * @type {string}
@@ -98,11 +98,11 @@ export interface CreateFinancialRecordRequestBodyDto {
      */
     tags?: Array<string>;
     /**
-     * Data de competência.
-     * @type {any}
+     * 
+     * @type {string}
      * @memberof CreateFinancialRecordRequestBodyDto
      */
-    competenceDate?: any | null;
+    competenceDate?: string | null;
     /**
      * Arquivos anexados.
      * @type {Array<string>}
@@ -140,11 +140,11 @@ export interface CreateFinancialRecordRequestBodyDto {
      */
     completed?: boolean;
     /**
-     * Data de pagamento.
-     * @type {any}
+     * 
+     * @type {string}
      * @memberof CreateFinancialRecordRequestBodyDto
      */
-    cashDate?: any | null;
+    cashDate?: string | null;
     /**
      * Identificador da conta.
      * @type {string}

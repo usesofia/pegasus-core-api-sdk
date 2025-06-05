@@ -19,7 +19,7 @@ exports.BankTransactionsPageDtoFromJSONTyped = BankTransactionsPageDtoFromJSONTy
 exports.BankTransactionsPageDtoToJSON = BankTransactionsPageDtoToJSON;
 exports.BankTransactionsPageDtoToJSONTyped = BankTransactionsPageDtoToJSONTyped;
 var BankTransactionsPageDtoItemsInner_1 = require("./BankTransactionsPageDtoItemsInner");
-var ContactsPageEntityPageInfo_1 = require("./ContactsPageEntityPageInfo");
+var ContactsPageDtoPageInfo_1 = require("./ContactsPageDtoPageInfo");
 /**
  * Check if a given object implements the BankTransactionsPageDto interface.
  */
@@ -38,7 +38,7 @@ function BankTransactionsPageDtoFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'pageInfo': (0, ContactsPageEntityPageInfo_1.ContactsPageEntityPageInfoFromJSON)(json['pageInfo']),
+        'pageInfo': (0, ContactsPageDtoPageInfo_1.ContactsPageDtoPageInfoFromJSON)(json['pageInfo']),
         'items': (json['items'].map(BankTransactionsPageDtoItemsInner_1.BankTransactionsPageDtoItemsInnerFromJSON)),
     };
 }
@@ -51,7 +51,7 @@ function BankTransactionsPageDtoToJSONTyped(value, ignoreDiscriminator) {
         return value;
     }
     return {
-        'pageInfo': (0, ContactsPageEntityPageInfo_1.ContactsPageEntityPageInfoToJSON)(value['pageInfo']),
+        'pageInfo': (0, ContactsPageDtoPageInfo_1.ContactsPageDtoPageInfoToJSON)(value['pageInfo']),
         'items': (value['items'].map(BankTransactionsPageDtoItemsInner_1.BankTransactionsPageDtoItemsInnerToJSON)),
     };
 }

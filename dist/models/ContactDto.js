@@ -13,17 +13,17 @@
  * Do not edit the class manually.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ContactEntityOriginEnum = exports.ContactEntityDocumentTypeEnum = exports.ContactEntityTypesEnum = void 0;
-exports.instanceOfContactEntity = instanceOfContactEntity;
-exports.ContactEntityFromJSON = ContactEntityFromJSON;
-exports.ContactEntityFromJSONTyped = ContactEntityFromJSONTyped;
-exports.ContactEntityToJSON = ContactEntityToJSON;
-exports.ContactEntityToJSONTyped = ContactEntityToJSONTyped;
+exports.ContactDtoOriginEnum = exports.ContactDtoDocumentTypeEnum = exports.ContactDtoTypesEnum = void 0;
+exports.instanceOfContactDto = instanceOfContactDto;
+exports.ContactDtoFromJSON = ContactDtoFromJSON;
+exports.ContactDtoFromJSONTyped = ContactDtoFromJSONTyped;
+exports.ContactDtoToJSON = ContactDtoToJSON;
+exports.ContactDtoToJSONTyped = ContactDtoToJSONTyped;
 var CreateContactRequestBodyDtoAddress_1 = require("./CreateContactRequestBodyDtoAddress");
 /**
  * @export
  */
-exports.ContactEntityTypesEnum = {
+exports.ContactDtoTypesEnum = {
     Customer: 'CUSTOMER',
     Employee: 'EMPLOYEE',
     Supplier: 'SUPPLIER',
@@ -32,14 +32,14 @@ exports.ContactEntityTypesEnum = {
 /**
  * @export
  */
-exports.ContactEntityDocumentTypeEnum = {
+exports.ContactDtoDocumentTypeEnum = {
     Cnpj: 'CNPJ',
     Cpf: 'CPF'
 };
 /**
  * @export
  */
-exports.ContactEntityOriginEnum = {
+exports.ContactDtoOriginEnum = {
     Indication: 'INDICATION',
     Ads: 'ADS',
     OrganicSearch: 'ORGANIC_SEARCH',
@@ -50,9 +50,9 @@ exports.ContactEntityOriginEnum = {
     Other: 'OTHER'
 };
 /**
- * Check if a given object implements the ContactEntity interface.
+ * Check if a given object implements the ContactDto interface.
  */
-function instanceOfContactEntity(value) {
+function instanceOfContactDto(value) {
     if (!('id' in value) || value['id'] === undefined)
         return false;
     if (!('ownerOrganization' in value) || value['ownerOrganization'] === undefined)
@@ -77,10 +77,10 @@ function instanceOfContactEntity(value) {
         return false;
     return true;
 }
-function ContactEntityFromJSON(json) {
-    return ContactEntityFromJSONTyped(json, false);
+function ContactDtoFromJSON(json) {
+    return ContactDtoFromJSONTyped(json, false);
 }
-function ContactEntityFromJSONTyped(json, ignoreDiscriminator) {
+function ContactDtoFromJSONTyped(json, ignoreDiscriminator) {
     if (json == null) {
         return json;
     }
@@ -103,10 +103,10 @@ function ContactEntityFromJSONTyped(json, ignoreDiscriminator) {
         'updatedAt': json['updatedAt'],
     };
 }
-function ContactEntityToJSON(json) {
-    return ContactEntityToJSONTyped(json, false);
+function ContactDtoToJSON(json) {
+    return ContactDtoToJSONTyped(json, false);
 }
-function ContactEntityToJSONTyped(value, ignoreDiscriminator) {
+function ContactDtoToJSONTyped(value, ignoreDiscriminator) {
     if (ignoreDiscriminator === void 0) { ignoreDiscriminator = false; }
     if (value == null) {
         return value;

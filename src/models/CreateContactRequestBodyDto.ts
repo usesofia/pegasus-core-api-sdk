@@ -71,10 +71,10 @@ export interface CreateContactRequestBodyDto {
     pixKeys: Array<string>;
     /**
      * Data de nascimento do contato.
-     * @type {any}
+     * @type {string}
      * @memberof CreateContactRequestBodyDto
      */
-    birthDate?: any | null;
+    birthDate?: string | null;
     /**
      * Origem do contato.
      * @type {string}

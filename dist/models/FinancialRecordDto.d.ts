@@ -43,7 +43,7 @@ export interface FinancialRecordDto {
      * @type {string}
      * @memberof FinancialRecordDto
      */
-    dueDate?: string | null;
+    dueDate: string;
     /**
      * Identificador do contato relacionado.
      * @type {string}
@@ -67,7 +67,7 @@ export interface FinancialRecordDto {
      * @type {string}
      * @memberof FinancialRecordDto
      */
-    amount?: string | null;
+    amount: string;
     /**
      * Tags relacionadas.
      * @type {Array<string>}
@@ -151,7 +151,7 @@ export interface FinancialRecordDto {
      * @type {string}
      * @memberof FinancialRecordDto
      */
-    finalAmount?: string | null;
+    finalAmount: string;
     /**
      * Indica se foi reconciliado.
      * @type {boolean}

@@ -99,7 +99,7 @@ var RecurringFinancialRecordsApi = /** @class */ (function (_super) {
                             }, initOverrides)];
                     case 1:
                         response = _a.sent();
-                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return jsonValue.map(index_1.RecurringFinancialRecordEntityFromJSON); })];
+                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return jsonValue.map(index_1.RecurringFinancialRecordDtoFromJSON); })];
                 }
             });
         });
@@ -148,7 +148,7 @@ var RecurringFinancialRecordsApi = /** @class */ (function (_super) {
                             }, initOverrides)];
                     case 1:
                         response = _a.sent();
-                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.RecurringFinancialRecordEntityFromJSON)(jsonValue); })];
+                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.RecurringFinancialRecordDtoFromJSON)(jsonValue); })];
                 }
             });
         });
@@ -201,7 +201,7 @@ var RecurringFinancialRecordsApi = /** @class */ (function (_super) {
                             }, initOverrides)];
                     case 1:
                         response = _a.sent();
-                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.RecurringFinancialRecordsPageEntityFromJSON)(jsonValue); })];
+                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.RecurringFinancialRecordsPageDtoFromJSON)(jsonValue); })];
                 }
             });
         });
@@ -249,7 +249,7 @@ var RecurringFinancialRecordsApi = /** @class */ (function (_super) {
                             }, initOverrides)];
                     case 1:
                         response = _a.sent();
-                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.RecurringFinancialRecordEntityFromJSON)(jsonValue); })];
+                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.RecurringFinancialRecordDtoFromJSON)(jsonValue); })];
                 }
             });
         });
@@ -298,7 +298,7 @@ var RecurringFinancialRecordsApi = /** @class */ (function (_super) {
                             }, initOverrides)];
                     case 1:
                         response = _a.sent();
-                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.RecurringFinancialRecordEntityFromJSON)(jsonValue); })];
+                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.RecurringFinancialRecordDtoFromJSON)(jsonValue); })];
                 }
             });
         });
@@ -347,7 +347,7 @@ var RecurringFinancialRecordsApi = /** @class */ (function (_super) {
                             }, initOverrides)];
                     case 1:
                         response = _a.sent();
-                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.RecurringFinancialRecordEntityFromJSON)(jsonValue); })];
+                        return [2 /*return*/, new runtime.VoidApiResponse(response)];
                 }
             });
         });
@@ -357,14 +357,12 @@ var RecurringFinancialRecordsApi = /** @class */ (function (_super) {
      */
     RecurringFinancialRecordsApi.prototype.removeRecurringFinancialRecord = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, this.removeRecurringFinancialRecordRaw(requestParameters, initOverrides)];
                     case 1:
-                        response = _a.sent();
-                        return [4 /*yield*/, response.value()];
-                    case 2: return [2 /*return*/, _a.sent()];
+                        _a.sent();
+                        return [2 /*return*/];
                 }
             });
         });

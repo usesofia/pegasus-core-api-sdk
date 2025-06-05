@@ -16,170 +16,170 @@ import type { CreateFinancialRecordRequestBodyDtoPopulatedContact } from './Crea
 /**
  *
  * @export
- * @interface RecurringFinancialRecordEntity
+ * @interface RecurringFinancialRecordDto
  */
-export interface RecurringFinancialRecordEntity {
+export interface RecurringFinancialRecordDto {
     /**
      * Identificador do lançamento financeiro recorrente.
      * @type {string}
-     * @memberof RecurringFinancialRecordEntity
+     * @memberof RecurringFinancialRecordDto
      */
     id: string;
     /**
      * Identificador da organização dona do lançamento.
      * @type {string}
-     * @memberof RecurringFinancialRecordEntity
+     * @memberof RecurringFinancialRecordDto
      */
     ownerOrganization: string;
     /**
      * Direção do lançamento (entrada/saída).
      * @type {string}
-     * @memberof RecurringFinancialRecordEntity
+     * @memberof RecurringFinancialRecordDto
      */
-    direction: RecurringFinancialRecordEntityDirectionEnum;
+    direction: RecurringFinancialRecordDtoDirectionEnum;
     /**
-     * Data da primeira ocorrência.
-     * @type {any}
-     * @memberof RecurringFinancialRecordEntity
+     * Data da primeira ocorrência do registro financeiro recorrente. Esta data é obrigatória e deve ser uma string no formato ISO sem hora.
+     * @type {string}
+     * @memberof RecurringFinancialRecordDto
      */
-    firstOccurrenceDate: any | null;
+    firstOccurrenceDate: string;
     /**
      * Descrição do lançamento.
      * @type {string}
-     * @memberof RecurringFinancialRecordEntity
+     * @memberof RecurringFinancialRecordDto
      */
     description: string;
     /**
      * Identificador do contato relacionado.
      * @type {string}
-     * @memberof RecurringFinancialRecordEntity
+     * @memberof RecurringFinancialRecordDto
      */
     contact: string;
     /**
      * Identificador da subcategoria.
      * @type {string}
-     * @memberof RecurringFinancialRecordEntity
+     * @memberof RecurringFinancialRecordDto
      */
     subcategory: string;
     /**
-     * Valor do lançamento.
-     * @type {number}
-     * @memberof RecurringFinancialRecordEntity
+     * Valor do registro financeiro recorrente. Deve ser uma string representando um número.
+     * @type {string}
+     * @memberof RecurringFinancialRecordDto
      */
-    amount: number;
+    amount: string;
     /**
      * Tags relacionadas.
      * @type {Array<string>}
-     * @memberof RecurringFinancialRecordEntity
+     * @memberof RecurringFinancialRecordDto
      */
     tags?: Array<string>;
     /**
      * Arquivos anexados.
      * @type {Array<string>}
-     * @memberof RecurringFinancialRecordEntity
+     * @memberof RecurringFinancialRecordDto
      */
     files?: Array<string>;
     /**
      * Frequência de repetição do lançamento.
      * @type {string}
-     * @memberof RecurringFinancialRecordEntity
+     * @memberof RecurringFinancialRecordDto
      */
-    frequency: RecurringFinancialRecordEntityFrequencyEnum;
+    frequency: RecurringFinancialRecordDtoFrequencyEnum;
     /**
      * Dia de repetição do lançamento.
      * @type {number}
-     * @memberof RecurringFinancialRecordEntity
+     * @memberof RecurringFinancialRecordDto
      */
     repetitionDay: number;
     /**
      * Mês de repetição do lançamento.
      * @type {number}
-     * @memberof RecurringFinancialRecordEntity
+     * @memberof RecurringFinancialRecordDto
      */
     repetitionMonth?: number | null;
     /**
      * Indica se o lançamento será apenas em dias úteis.
      * @type {boolean}
-     * @memberof RecurringFinancialRecordEntity
+     * @memberof RecurringFinancialRecordDto
      */
     onlyBusinessDays?: boolean;
     /**
      * Indica se o lançamento será completado automaticamente.
      * @type {boolean}
-     * @memberof RecurringFinancialRecordEntity
+     * @memberof RecurringFinancialRecordDto
      */
     automaticCompletion?: boolean;
     /**
      * Indica se o lançamento recorrente está ativo.
      * @type {boolean}
-     * @memberof RecurringFinancialRecordEntity
+     * @memberof RecurringFinancialRecordDto
      */
     isActive?: boolean;
     /**
      * Data de criação do lançamento.
      * @type {any}
-     * @memberof RecurringFinancialRecordEntity
+     * @memberof RecurringFinancialRecordDto
      */
     createdAt?: any | null;
     /**
      * Data de atualização do lançamento.
      * @type {any}
-     * @memberof RecurringFinancialRecordEntity
+     * @memberof RecurringFinancialRecordDto
      */
     updatedAt?: any | null;
     /**
      *
      * @type {CreateFinancialRecordRequestBodyDtoPopulatedContact}
-     * @memberof RecurringFinancialRecordEntity
+     * @memberof RecurringFinancialRecordDto
      */
     populatedContact?: CreateFinancialRecordRequestBodyDtoPopulatedContact | null;
     /**
      * Tags relacionadas.
      * @type {Array<CreateFinancialRecordRequestBodyDtoPopulatedTagsInner>}
-     * @memberof RecurringFinancialRecordEntity
+     * @memberof RecurringFinancialRecordDto
      */
     populatedTags?: Array<CreateFinancialRecordRequestBodyDtoPopulatedTagsInner> | null;
     /**
      *
      * @type {CreateRecurringFinancialRecordRequestBodyDtoPopulatedSubcategory}
-     * @memberof RecurringFinancialRecordEntity
+     * @memberof RecurringFinancialRecordDto
      */
     populatedSubcategory?: CreateRecurringFinancialRecordRequestBodyDtoPopulatedSubcategory | null;
     /**
      * Arquivos anexados.
      * @type {Array<CreateFinancialRecordRequestBodyDtoPopulatedFilesInner>}
-     * @memberof RecurringFinancialRecordEntity
+     * @memberof RecurringFinancialRecordDto
      */
     populatedFiles?: Array<CreateFinancialRecordRequestBodyDtoPopulatedFilesInner>;
     /**
      *
      * @type {number}
-     * @memberof RecurringFinancialRecordEntity
+     * @memberof RecurringFinancialRecordDto
      */
     searchScore?: number;
 }
 /**
  * @export
  */
-export declare const RecurringFinancialRecordEntityDirectionEnum: {
+export declare const RecurringFinancialRecordDtoDirectionEnum: {
     readonly Income: "INCOME";
     readonly Outcome: "OUTCOME";
 };
-export type RecurringFinancialRecordEntityDirectionEnum = typeof RecurringFinancialRecordEntityDirectionEnum[keyof typeof RecurringFinancialRecordEntityDirectionEnum];
+export type RecurringFinancialRecordDtoDirectionEnum = typeof RecurringFinancialRecordDtoDirectionEnum[keyof typeof RecurringFinancialRecordDtoDirectionEnum];
 /**
  * @export
  */
-export declare const RecurringFinancialRecordEntityFrequencyEnum: {
+export declare const RecurringFinancialRecordDtoFrequencyEnum: {
     readonly Weekly: "WEEKLY";
     readonly Monthly: "MONTHLY";
     readonly Yearly: "YEARLY";
 };
-export type RecurringFinancialRecordEntityFrequencyEnum = typeof RecurringFinancialRecordEntityFrequencyEnum[keyof typeof RecurringFinancialRecordEntityFrequencyEnum];
+export type RecurringFinancialRecordDtoFrequencyEnum = typeof RecurringFinancialRecordDtoFrequencyEnum[keyof typeof RecurringFinancialRecordDtoFrequencyEnum];
 /**
- * Check if a given object implements the RecurringFinancialRecordEntity interface.
+ * Check if a given object implements the RecurringFinancialRecordDto interface.
  */
-export declare function instanceOfRecurringFinancialRecordEntity(value: object): value is RecurringFinancialRecordEntity;
-export declare function RecurringFinancialRecordEntityFromJSON(json: any): RecurringFinancialRecordEntity;
-export declare function RecurringFinancialRecordEntityFromJSONTyped(json: any, ignoreDiscriminator: boolean): RecurringFinancialRecordEntity;
-export declare function RecurringFinancialRecordEntityToJSON(json: any): RecurringFinancialRecordEntity;
-export declare function RecurringFinancialRecordEntityToJSONTyped(value?: RecurringFinancialRecordEntity | null, ignoreDiscriminator?: boolean): any;
+export declare function instanceOfRecurringFinancialRecordDto(value: object): value is RecurringFinancialRecordDto;
+export declare function RecurringFinancialRecordDtoFromJSON(json: any): RecurringFinancialRecordDto;
+export declare function RecurringFinancialRecordDtoFromJSONTyped(json: any, ignoreDiscriminator: boolean): RecurringFinancialRecordDto;
+export declare function RecurringFinancialRecordDtoToJSON(json: any): RecurringFinancialRecordDto;
+export declare function RecurringFinancialRecordDtoToJSONTyped(value?: RecurringFinancialRecordDto | null, ignoreDiscriminator?: boolean): any;

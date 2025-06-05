@@ -68,11 +68,11 @@ export interface CreateInstallmentFinancialRecordRequestBodyDto {
      */
     frequency: CreateInstallmentFinancialRecordRequestBodyDtoFrequencyEnum;
     /**
-     * Data de vencimento.
-     * @type {any}
+     * Data da primeira parcela do lançamento.
+     * @type {string}
      * @memberof CreateInstallmentFinancialRecordRequestBodyDto
      */
-    firstInstallmentDate: any | null;
+    firstInstallmentDate: string;
     /**
      * Identificador do contato relacionado.
      * @type {string}
@@ -104,11 +104,11 @@ export interface CreateInstallmentFinancialRecordRequestBodyDto {
      */
     tags?: Array<string>;
     /**
-     * Data de competência.
-     * @type {any}
+     * Data de competência do lançamento.
+     * @type {string}
      * @memberof CreateInstallmentFinancialRecordRequestBodyDto
      */
-    competenceDate?: any | null;
+    competenceDate?: string | null;
     /**
      * Arquivos anexados.
      * @type {Array<string>}

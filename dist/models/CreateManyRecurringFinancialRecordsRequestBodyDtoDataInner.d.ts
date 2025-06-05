@@ -26,11 +26,11 @@ export interface CreateManyRecurringFinancialRecordsRequestBodyDtoDataInner {
      */
     direction: CreateManyRecurringFinancialRecordsRequestBodyDtoDataInnerDirectionEnum;
     /**
-     * Data da primeira ocorrência.
-     * @type {any}
+     *
+     * @type {string}
      * @memberof CreateManyRecurringFinancialRecordsRequestBodyDtoDataInner
      */
-    firstOccurrenceDate: any | null;
+    firstOccurrenceDate: string;
     /**
      * Descrição do lançamento.
      * @type {string}

@@ -44,11 +44,11 @@ export interface PartialUpdateBankAccountRequestBodyDto {
      */
     isDefault?: boolean;
     /**
-     * Data do saldo inicial.
-     * @type {any}
+     * Data do saldo inicial da conta bancária.
+     * @type {string}
      * @memberof PartialUpdateBankAccountRequestBodyDto
      */
-    initialBalanceDate?: any | null;
+    initialBalanceDate?: string | null;
     /**
      * 
      * @type {string}

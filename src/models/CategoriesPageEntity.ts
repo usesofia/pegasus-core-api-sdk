@@ -13,6 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
+import type { ContactsPageDtoPageInfo } from './ContactsPageDtoPageInfo';
+import {
+    ContactsPageDtoPageInfoFromJSON,
+    ContactsPageDtoPageInfoFromJSONTyped,
+    ContactsPageDtoPageInfoToJSON,
+    ContactsPageDtoPageInfoToJSONTyped,
+} from './ContactsPageDtoPageInfo';
 import type { CategoriesPageEntityItemsInner } from './CategoriesPageEntityItemsInner';
 import {
     CategoriesPageEntityItemsInnerFromJSON,
@@ -20,13 +27,6 @@ import {
     CategoriesPageEntityItemsInnerToJSON,
     CategoriesPageEntityItemsInnerToJSONTyped,
 } from './CategoriesPageEntityItemsInner';
-import type { ContactsPageEntityPageInfo } from './ContactsPageEntityPageInfo';
-import {
-    ContactsPageEntityPageInfoFromJSON,
-    ContactsPageEntityPageInfoFromJSONTyped,
-    ContactsPageEntityPageInfoToJSON,
-    ContactsPageEntityPageInfoToJSONTyped,
-} from './ContactsPageEntityPageInfo';
 
 /**
  * 
@@ -42,10 +42,10 @@ export interface CategoriesPageEntity {
     items: Array<CategoriesPageEntityItemsInner>;
     /**
      * 
-     * @type {ContactsPageEntityPageInfo}
+     * @type {ContactsPageDtoPageInfo}
      * @memberof CategoriesPageEntity
      */
-    pageInfo: ContactsPageEntityPageInfo;
+    pageInfo: ContactsPageDtoPageInfo;
 }
 
 /**
@@ -68,7 +68,7 @@ export function CategoriesPageEntityFromJSONTyped(json: any, ignoreDiscriminator
     return {
         
         'items': ((json['items'] as Array<any>).map(CategoriesPageEntityItemsInnerFromJSON)),
-        'pageInfo': ContactsPageEntityPageInfoFromJSON(json['pageInfo']),
+        'pageInfo': ContactsPageDtoPageInfoFromJSON(json['pageInfo']),
     };
 }
 
@@ -84,7 +84,7 @@ export function CategoriesPageEntityToJSONTyped(value?: CategoriesPageEntity | n
     return {
         
         'items': ((value['items'] as Array<any>).map(CategoriesPageEntityItemsInnerToJSON)),
-        'pageInfo': ContactsPageEntityPageInfoToJSON(value['pageInfo']),
+        'pageInfo': ContactsPageDtoPageInfoToJSON(value['pageInfo']),
     };
 }
 

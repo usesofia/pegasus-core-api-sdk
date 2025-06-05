@@ -33,11 +33,11 @@ export interface PartialUpdateInstallmentFinancialRecordRequestBodyDto {
      */
     frequency?: PartialUpdateInstallmentFinancialRecordRequestBodyDtoFrequencyEnum;
     /**
-     * Data de vencimento.
-     * @type {any}
+     * Data da primeira parcela do lançamento.
+     * @type {string}
      * @memberof PartialUpdateInstallmentFinancialRecordRequestBodyDto
      */
-    firstInstallmentDate?: any | null;
+    firstInstallmentDate?: string;
     /**
      * Identificador do contato relacionado.
      * @type {string}
@@ -69,11 +69,11 @@ export interface PartialUpdateInstallmentFinancialRecordRequestBodyDto {
      */
     tags?: Array<string>;
     /**
-     * Data de competência.
-     * @type {any}
+     * Data de competência do lançamento.
+     * @type {string}
      * @memberof PartialUpdateInstallmentFinancialRecordRequestBodyDto
      */
-    competenceDate?: any | null;
+    competenceDate?: string;
     /**
      * Arquivos anexados.
      * @type {Array<string>}

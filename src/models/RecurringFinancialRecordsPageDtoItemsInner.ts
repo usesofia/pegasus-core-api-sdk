@@ -45,145 +45,145 @@ import {
 /**
  * 
  * @export
- * @interface RecurringFinancialRecordsPageEntityItemsInner
+ * @interface RecurringFinancialRecordsPageDtoItemsInner
  */
-export interface RecurringFinancialRecordsPageEntityItemsInner {
+export interface RecurringFinancialRecordsPageDtoItemsInner {
     /**
      * Identificador do lançamento financeiro recorrente.
      * @type {string}
-     * @memberof RecurringFinancialRecordsPageEntityItemsInner
+     * @memberof RecurringFinancialRecordsPageDtoItemsInner
      */
     id: string;
     /**
      * Identificador da organização dona do lançamento.
      * @type {string}
-     * @memberof RecurringFinancialRecordsPageEntityItemsInner
+     * @memberof RecurringFinancialRecordsPageDtoItemsInner
      */
     ownerOrganization: string;
     /**
      * Direção do lançamento (entrada/saída).
      * @type {string}
-     * @memberof RecurringFinancialRecordsPageEntityItemsInner
+     * @memberof RecurringFinancialRecordsPageDtoItemsInner
      */
-    direction: RecurringFinancialRecordsPageEntityItemsInnerDirectionEnum;
+    direction: RecurringFinancialRecordsPageDtoItemsInnerDirectionEnum;
     /**
-     * Data da primeira ocorrência.
-     * @type {any}
-     * @memberof RecurringFinancialRecordsPageEntityItemsInner
+     * Data da primeira ocorrência do registro financeiro recorrente. Esta data é obrigatória e deve ser uma string no formato ISO sem hora.
+     * @type {string}
+     * @memberof RecurringFinancialRecordsPageDtoItemsInner
      */
-    firstOccurrenceDate: any | null;
+    firstOccurrenceDate: string;
     /**
      * Descrição do lançamento.
      * @type {string}
-     * @memberof RecurringFinancialRecordsPageEntityItemsInner
+     * @memberof RecurringFinancialRecordsPageDtoItemsInner
      */
     description: string;
     /**
      * Identificador do contato relacionado.
      * @type {string}
-     * @memberof RecurringFinancialRecordsPageEntityItemsInner
+     * @memberof RecurringFinancialRecordsPageDtoItemsInner
      */
     contact: string;
     /**
      * Identificador da subcategoria.
      * @type {string}
-     * @memberof RecurringFinancialRecordsPageEntityItemsInner
+     * @memberof RecurringFinancialRecordsPageDtoItemsInner
      */
     subcategory: string;
     /**
-     * Valor do lançamento.
-     * @type {number}
-     * @memberof RecurringFinancialRecordsPageEntityItemsInner
+     * Valor do registro financeiro recorrente. Deve ser uma string representando um número.
+     * @type {string}
+     * @memberof RecurringFinancialRecordsPageDtoItemsInner
      */
-    amount: number;
+    amount: string;
     /**
      * Tags relacionadas.
      * @type {Array<string>}
-     * @memberof RecurringFinancialRecordsPageEntityItemsInner
+     * @memberof RecurringFinancialRecordsPageDtoItemsInner
      */
     tags?: Array<string>;
     /**
      * Arquivos anexados.
      * @type {Array<string>}
-     * @memberof RecurringFinancialRecordsPageEntityItemsInner
+     * @memberof RecurringFinancialRecordsPageDtoItemsInner
      */
     files?: Array<string>;
     /**
      * Frequência de repetição do lançamento.
      * @type {string}
-     * @memberof RecurringFinancialRecordsPageEntityItemsInner
+     * @memberof RecurringFinancialRecordsPageDtoItemsInner
      */
-    frequency: RecurringFinancialRecordsPageEntityItemsInnerFrequencyEnum;
+    frequency: RecurringFinancialRecordsPageDtoItemsInnerFrequencyEnum;
     /**
      * Dia de repetição do lançamento.
      * @type {number}
-     * @memberof RecurringFinancialRecordsPageEntityItemsInner
+     * @memberof RecurringFinancialRecordsPageDtoItemsInner
      */
     repetitionDay: number;
     /**
      * Mês de repetição do lançamento.
      * @type {number}
-     * @memberof RecurringFinancialRecordsPageEntityItemsInner
+     * @memberof RecurringFinancialRecordsPageDtoItemsInner
      */
     repetitionMonth?: number | null;
     /**
      * Indica se o lançamento será apenas em dias úteis.
      * @type {boolean}
-     * @memberof RecurringFinancialRecordsPageEntityItemsInner
+     * @memberof RecurringFinancialRecordsPageDtoItemsInner
      */
     onlyBusinessDays?: boolean;
     /**
      * Indica se o lançamento será completado automaticamente.
      * @type {boolean}
-     * @memberof RecurringFinancialRecordsPageEntityItemsInner
+     * @memberof RecurringFinancialRecordsPageDtoItemsInner
      */
     automaticCompletion?: boolean;
     /**
      * Indica se o lançamento recorrente está ativo.
      * @type {boolean}
-     * @memberof RecurringFinancialRecordsPageEntityItemsInner
+     * @memberof RecurringFinancialRecordsPageDtoItemsInner
      */
     isActive?: boolean;
     /**
      * Data de criação do lançamento.
      * @type {any}
-     * @memberof RecurringFinancialRecordsPageEntityItemsInner
+     * @memberof RecurringFinancialRecordsPageDtoItemsInner
      */
     createdAt?: any | null;
     /**
      * Data de atualização do lançamento.
      * @type {any}
-     * @memberof RecurringFinancialRecordsPageEntityItemsInner
+     * @memberof RecurringFinancialRecordsPageDtoItemsInner
      */
     updatedAt?: any | null;
     /**
      * 
      * @type {CreateFinancialRecordRequestBodyDtoPopulatedContact}
-     * @memberof RecurringFinancialRecordsPageEntityItemsInner
+     * @memberof RecurringFinancialRecordsPageDtoItemsInner
      */
     populatedContact?: CreateFinancialRecordRequestBodyDtoPopulatedContact | null;
     /**
      * Tags relacionadas.
      * @type {Array<CreateFinancialRecordRequestBodyDtoPopulatedTagsInner>}
-     * @memberof RecurringFinancialRecordsPageEntityItemsInner
+     * @memberof RecurringFinancialRecordsPageDtoItemsInner
      */
     populatedTags?: Array<CreateFinancialRecordRequestBodyDtoPopulatedTagsInner> | null;
     /**
      * 
      * @type {CreateRecurringFinancialRecordRequestBodyDtoPopulatedSubcategory}
-     * @memberof RecurringFinancialRecordsPageEntityItemsInner
+     * @memberof RecurringFinancialRecordsPageDtoItemsInner
      */
     populatedSubcategory?: CreateRecurringFinancialRecordRequestBodyDtoPopulatedSubcategory | null;
     /**
      * Arquivos anexados.
      * @type {Array<CreateFinancialRecordRequestBodyDtoPopulatedFilesInner>}
-     * @memberof RecurringFinancialRecordsPageEntityItemsInner
+     * @memberof RecurringFinancialRecordsPageDtoItemsInner
      */
     populatedFiles?: Array<CreateFinancialRecordRequestBodyDtoPopulatedFilesInner>;
     /**
      * 
      * @type {number}
-     * @memberof RecurringFinancialRecordsPageEntityItemsInner
+     * @memberof RecurringFinancialRecordsPageDtoItemsInner
      */
     searchScore?: number;
 }
@@ -192,27 +192,27 @@ export interface RecurringFinancialRecordsPageEntityItemsInner {
 /**
  * @export
  */
-export const RecurringFinancialRecordsPageEntityItemsInnerDirectionEnum = {
+export const RecurringFinancialRecordsPageDtoItemsInnerDirectionEnum = {
     Income: 'INCOME',
     Outcome: 'OUTCOME'
 } as const;
-export type RecurringFinancialRecordsPageEntityItemsInnerDirectionEnum = typeof RecurringFinancialRecordsPageEntityItemsInnerDirectionEnum[keyof typeof RecurringFinancialRecordsPageEntityItemsInnerDirectionEnum];
+export type RecurringFinancialRecordsPageDtoItemsInnerDirectionEnum = typeof RecurringFinancialRecordsPageDtoItemsInnerDirectionEnum[keyof typeof RecurringFinancialRecordsPageDtoItemsInnerDirectionEnum];
 
 /**
  * @export
  */
-export const RecurringFinancialRecordsPageEntityItemsInnerFrequencyEnum = {
+export const RecurringFinancialRecordsPageDtoItemsInnerFrequencyEnum = {
     Weekly: 'WEEKLY',
     Monthly: 'MONTHLY',
     Yearly: 'YEARLY'
 } as const;
-export type RecurringFinancialRecordsPageEntityItemsInnerFrequencyEnum = typeof RecurringFinancialRecordsPageEntityItemsInnerFrequencyEnum[keyof typeof RecurringFinancialRecordsPageEntityItemsInnerFrequencyEnum];
+export type RecurringFinancialRecordsPageDtoItemsInnerFrequencyEnum = typeof RecurringFinancialRecordsPageDtoItemsInnerFrequencyEnum[keyof typeof RecurringFinancialRecordsPageDtoItemsInnerFrequencyEnum];
 
 
 /**
- * Check if a given object implements the RecurringFinancialRecordsPageEntityItemsInner interface.
+ * Check if a given object implements the RecurringFinancialRecordsPageDtoItemsInner interface.
  */
-export function instanceOfRecurringFinancialRecordsPageEntityItemsInner(value: object): value is RecurringFinancialRecordsPageEntityItemsInner {
+export function instanceOfRecurringFinancialRecordsPageDtoItemsInner(value: object): value is RecurringFinancialRecordsPageDtoItemsInner {
     if (!('id' in value) || value['id'] === undefined) return false;
     if (!('ownerOrganization' in value) || value['ownerOrganization'] === undefined) return false;
     if (!('direction' in value) || value['direction'] === undefined) return false;
@@ -226,11 +226,11 @@ export function instanceOfRecurringFinancialRecordsPageEntityItemsInner(value: o
     return true;
 }
 
-export function RecurringFinancialRecordsPageEntityItemsInnerFromJSON(json: any): RecurringFinancialRecordsPageEntityItemsInner {
-    return RecurringFinancialRecordsPageEntityItemsInnerFromJSONTyped(json, false);
+export function RecurringFinancialRecordsPageDtoItemsInnerFromJSON(json: any): RecurringFinancialRecordsPageDtoItemsInner {
+    return RecurringFinancialRecordsPageDtoItemsInnerFromJSONTyped(json, false);
 }
 
-export function RecurringFinancialRecordsPageEntityItemsInnerFromJSONTyped(json: any, ignoreDiscriminator: boolean): RecurringFinancialRecordsPageEntityItemsInner {
+export function RecurringFinancialRecordsPageDtoItemsInnerFromJSONTyped(json: any, ignoreDiscriminator: boolean): RecurringFinancialRecordsPageDtoItemsInner {
     if (json == null) {
         return json;
     }
@@ -262,11 +262,11 @@ export function RecurringFinancialRecordsPageEntityItemsInnerFromJSONTyped(json:
     };
 }
 
-export function RecurringFinancialRecordsPageEntityItemsInnerToJSON(json: any): RecurringFinancialRecordsPageEntityItemsInner {
-    return RecurringFinancialRecordsPageEntityItemsInnerToJSONTyped(json, false);
+export function RecurringFinancialRecordsPageDtoItemsInnerToJSON(json: any): RecurringFinancialRecordsPageDtoItemsInner {
+    return RecurringFinancialRecordsPageDtoItemsInnerToJSONTyped(json, false);
 }
 
-export function RecurringFinancialRecordsPageEntityItemsInnerToJSONTyped(value?: RecurringFinancialRecordsPageEntityItemsInner | null, ignoreDiscriminator: boolean = false): any {
+export function RecurringFinancialRecordsPageDtoItemsInnerToJSONTyped(value?: RecurringFinancialRecordsPageDtoItemsInner | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

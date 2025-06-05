@@ -18,8 +18,8 @@ exports.TagsPageEntityFromJSON = TagsPageEntityFromJSON;
 exports.TagsPageEntityFromJSONTyped = TagsPageEntityFromJSONTyped;
 exports.TagsPageEntityToJSON = TagsPageEntityToJSON;
 exports.TagsPageEntityToJSONTyped = TagsPageEntityToJSONTyped;
+var ContactsPageDtoPageInfo_1 = require("./ContactsPageDtoPageInfo");
 var CreateFinancialRecordRequestBodyDtoPopulatedTagsInner_1 = require("./CreateFinancialRecordRequestBodyDtoPopulatedTagsInner");
-var ContactsPageEntityPageInfo_1 = require("./ContactsPageEntityPageInfo");
 /**
  * Check if a given object implements the TagsPageEntity interface.
  */
@@ -39,7 +39,7 @@ function TagsPageEntityFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'items': (json['items'].map(CreateFinancialRecordRequestBodyDtoPopulatedTagsInner_1.CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerFromJSON)),
-        'pageInfo': (0, ContactsPageEntityPageInfo_1.ContactsPageEntityPageInfoFromJSON)(json['pageInfo']),
+        'pageInfo': (0, ContactsPageDtoPageInfo_1.ContactsPageDtoPageInfoFromJSON)(json['pageInfo']),
     };
 }
 function TagsPageEntityToJSON(json) {
@@ -52,6 +52,6 @@ function TagsPageEntityToJSONTyped(value, ignoreDiscriminator) {
     }
     return {
         'items': (value['items'].map(CreateFinancialRecordRequestBodyDtoPopulatedTagsInner_1.CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerToJSON)),
-        'pageInfo': (0, ContactsPageEntityPageInfo_1.ContactsPageEntityPageInfoToJSON)(value['pageInfo']),
+        'pageInfo': (0, ContactsPageDtoPageInfo_1.ContactsPageDtoPageInfoToJSON)(value['pageInfo']),
     };
 }

@@ -13,12 +13,12 @@
  * Do not edit the class manually.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.RecurringFinancialRecordsPageEntityItemsInnerFrequencyEnum = exports.RecurringFinancialRecordsPageEntityItemsInnerDirectionEnum = void 0;
-exports.instanceOfRecurringFinancialRecordsPageEntityItemsInner = instanceOfRecurringFinancialRecordsPageEntityItemsInner;
-exports.RecurringFinancialRecordsPageEntityItemsInnerFromJSON = RecurringFinancialRecordsPageEntityItemsInnerFromJSON;
-exports.RecurringFinancialRecordsPageEntityItemsInnerFromJSONTyped = RecurringFinancialRecordsPageEntityItemsInnerFromJSONTyped;
-exports.RecurringFinancialRecordsPageEntityItemsInnerToJSON = RecurringFinancialRecordsPageEntityItemsInnerToJSON;
-exports.RecurringFinancialRecordsPageEntityItemsInnerToJSONTyped = RecurringFinancialRecordsPageEntityItemsInnerToJSONTyped;
+exports.RecurringFinancialRecordDtoFrequencyEnum = exports.RecurringFinancialRecordDtoDirectionEnum = void 0;
+exports.instanceOfRecurringFinancialRecordDto = instanceOfRecurringFinancialRecordDto;
+exports.RecurringFinancialRecordDtoFromJSON = RecurringFinancialRecordDtoFromJSON;
+exports.RecurringFinancialRecordDtoFromJSONTyped = RecurringFinancialRecordDtoFromJSONTyped;
+exports.RecurringFinancialRecordDtoToJSON = RecurringFinancialRecordDtoToJSON;
+exports.RecurringFinancialRecordDtoToJSONTyped = RecurringFinancialRecordDtoToJSONTyped;
 var CreateFinancialRecordRequestBodyDtoPopulatedFilesInner_1 = require("./CreateFinancialRecordRequestBodyDtoPopulatedFilesInner");
 var CreateFinancialRecordRequestBodyDtoPopulatedTagsInner_1 = require("./CreateFinancialRecordRequestBodyDtoPopulatedTagsInner");
 var CreateRecurringFinancialRecordRequestBodyDtoPopulatedSubcategory_1 = require("./CreateRecurringFinancialRecordRequestBodyDtoPopulatedSubcategory");
@@ -26,22 +26,22 @@ var CreateFinancialRecordRequestBodyDtoPopulatedContact_1 = require("./CreateFin
 /**
  * @export
  */
-exports.RecurringFinancialRecordsPageEntityItemsInnerDirectionEnum = {
+exports.RecurringFinancialRecordDtoDirectionEnum = {
     Income: 'INCOME',
     Outcome: 'OUTCOME'
 };
 /**
  * @export
  */
-exports.RecurringFinancialRecordsPageEntityItemsInnerFrequencyEnum = {
+exports.RecurringFinancialRecordDtoFrequencyEnum = {
     Weekly: 'WEEKLY',
     Monthly: 'MONTHLY',
     Yearly: 'YEARLY'
 };
 /**
- * Check if a given object implements the RecurringFinancialRecordsPageEntityItemsInner interface.
+ * Check if a given object implements the RecurringFinancialRecordDto interface.
  */
-function instanceOfRecurringFinancialRecordsPageEntityItemsInner(value) {
+function instanceOfRecurringFinancialRecordDto(value) {
     if (!('id' in value) || value['id'] === undefined)
         return false;
     if (!('ownerOrganization' in value) || value['ownerOrganization'] === undefined)
@@ -64,10 +64,10 @@ function instanceOfRecurringFinancialRecordsPageEntityItemsInner(value) {
         return false;
     return true;
 }
-function RecurringFinancialRecordsPageEntityItemsInnerFromJSON(json) {
-    return RecurringFinancialRecordsPageEntityItemsInnerFromJSONTyped(json, false);
+function RecurringFinancialRecordDtoFromJSON(json) {
+    return RecurringFinancialRecordDtoFromJSONTyped(json, false);
 }
-function RecurringFinancialRecordsPageEntityItemsInnerFromJSONTyped(json, ignoreDiscriminator) {
+function RecurringFinancialRecordDtoFromJSONTyped(json, ignoreDiscriminator) {
     if (json == null) {
         return json;
     }
@@ -97,10 +97,10 @@ function RecurringFinancialRecordsPageEntityItemsInnerFromJSONTyped(json, ignore
         'searchScore': json['searchScore'] == null ? undefined : json['searchScore'],
     };
 }
-function RecurringFinancialRecordsPageEntityItemsInnerToJSON(json) {
-    return RecurringFinancialRecordsPageEntityItemsInnerToJSONTyped(json, false);
+function RecurringFinancialRecordDtoToJSON(json) {
+    return RecurringFinancialRecordDtoToJSONTyped(json, false);
 }
-function RecurringFinancialRecordsPageEntityItemsInnerToJSONTyped(value, ignoreDiscriminator) {
+function RecurringFinancialRecordDtoToJSONTyped(value, ignoreDiscriminator) {
     if (ignoreDiscriminator === void 0) { ignoreDiscriminator = false; }
     if (value == null) {
         return value;

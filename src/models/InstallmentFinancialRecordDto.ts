@@ -80,11 +80,11 @@ export interface InstallmentFinancialRecordDto {
      */
     frequency: InstallmentFinancialRecordDtoFrequencyEnum;
     /**
-     * Data de vencimento.
-     * @type {any}
+     * Data da primeira parcela do lançamento.
+     * @type {string}
      * @memberof InstallmentFinancialRecordDto
      */
-    firstInstallmentDate: any | null;
+    firstInstallmentDate: string;
     /**
      * Identificador do contato relacionado.
      * @type {string}
@@ -116,11 +116,11 @@ export interface InstallmentFinancialRecordDto {
      */
     tags?: Array<string>;
     /**
-     * Data de competência.
-     * @type {any}
+     * Data de competência do lançamento.
+     * @type {string}
      * @memberof InstallmentFinancialRecordDto
      */
-    competenceDate?: any | null;
+    competenceDate?: string | null;
     /**
      * Arquivos anexados.
      * @type {Array<string>}

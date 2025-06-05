@@ -18,8 +18,8 @@ exports.BankAccountsPageDtoFromJSON = BankAccountsPageDtoFromJSON;
 exports.BankAccountsPageDtoFromJSONTyped = BankAccountsPageDtoFromJSONTyped;
 exports.BankAccountsPageDtoToJSON = BankAccountsPageDtoToJSON;
 exports.BankAccountsPageDtoToJSONTyped = BankAccountsPageDtoToJSONTyped;
+var ContactsPageDtoPageInfo_1 = require("./ContactsPageDtoPageInfo");
 var BankAccountsPageDtoItemsInner_1 = require("./BankAccountsPageDtoItemsInner");
-var ContactsPageEntityPageInfo_1 = require("./ContactsPageEntityPageInfo");
 /**
  * Check if a given object implements the BankAccountsPageDto interface.
  */
@@ -39,7 +39,7 @@ function BankAccountsPageDtoFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'items': (json['items'].map(BankAccountsPageDtoItemsInner_1.BankAccountsPageDtoItemsInnerFromJSON)),
-        'pageInfo': (0, ContactsPageEntityPageInfo_1.ContactsPageEntityPageInfoFromJSON)(json['pageInfo']),
+        'pageInfo': (0, ContactsPageDtoPageInfo_1.ContactsPageDtoPageInfoFromJSON)(json['pageInfo']),
     };
 }
 function BankAccountsPageDtoToJSON(json) {
@@ -52,6 +52,6 @@ function BankAccountsPageDtoToJSONTyped(value, ignoreDiscriminator) {
     }
     return {
         'items': (value['items'].map(BankAccountsPageDtoItemsInner_1.BankAccountsPageDtoItemsInnerToJSON)),
-        'pageInfo': (0, ContactsPageEntityPageInfo_1.ContactsPageEntityPageInfoToJSON)(value['pageInfo']),
+        'pageInfo': (0, ContactsPageDtoPageInfo_1.ContactsPageDtoPageInfoToJSON)(value['pageInfo']),
     };
 }

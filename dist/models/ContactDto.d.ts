@@ -13,128 +13,128 @@ import type { CreateContactRequestBodyDtoAddress } from './CreateContactRequestB
 /**
  *
  * @export
- * @interface ContactEntity
+ * @interface ContactDto
  */
-export interface ContactEntity {
+export interface ContactDto {
     /**
      * Identificador do contato.
      * @type {string}
-     * @memberof ContactEntity
+     * @memberof ContactDto
      */
     id: string;
     /**
      * Identificador da organização dona do contato.
      * @type {string}
-     * @memberof ContactEntity
+     * @memberof ContactDto
      */
     ownerOrganization: string;
     /**
      * Nome do contato.
      * @type {string}
-     * @memberof ContactEntity
+     * @memberof ContactDto
      */
     name: string;
     /**
      * Tipos do contato.
      * @type {Array<string>}
-     * @memberof ContactEntity
+     * @memberof ContactDto
      */
-    types: Array<ContactEntityTypesEnum>;
+    types: Array<ContactDtoTypesEnum>;
     /**
      * Tipo do documento do contato.
      * @type {string}
-     * @memberof ContactEntity
+     * @memberof ContactDto
      */
-    documentType?: ContactEntityDocumentTypeEnum | null;
+    documentType?: ContactDtoDocumentTypeEnum | null;
     /**
      * Documento do contato.
      * @type {string}
-     * @memberof ContactEntity
+     * @memberof ContactDto
      */
     document: string | null;
     /**
      * Email do contato.
      * @type {string}
-     * @memberof ContactEntity
+     * @memberof ContactDto
      */
     email: string | null;
     /**
      * Telefone do contato.
      * @type {string}
-     * @memberof ContactEntity
+     * @memberof ContactDto
      */
     phone: string | null;
     /**
      * Chaves pix do contato.
      * @type {Array<string>}
-     * @memberof ContactEntity
+     * @memberof ContactDto
      */
     pixKeys: Array<string>;
     /**
      * Data de nascimento do contato.
-     * @type {any}
-     * @memberof ContactEntity
+     * @type {string}
+     * @memberof ContactDto
      */
-    birthDate?: any | null;
+    birthDate?: string | null;
     /**
      * Origem do contato.
      * @type {string}
-     * @memberof ContactEntity
+     * @memberof ContactDto
      */
-    origin?: ContactEntityOriginEnum | null;
+    origin?: ContactDtoOriginEnum | null;
     /**
      *
      * @type {CreateContactRequestBodyDtoAddress}
-     * @memberof ContactEntity
+     * @memberof ContactDto
      */
     address?: CreateContactRequestBodyDtoAddress | null;
     /**
      * Indica se o contato é o contato não identificado.
      * @type {boolean}
-     * @memberof ContactEntity
+     * @memberof ContactDto
      */
     isNotIdentified: boolean;
     /**
      * Pontuação de busca do contato.
      * @type {number}
-     * @memberof ContactEntity
+     * @memberof ContactDto
      */
     searchScore?: number | null;
     /**
      * Data de criação do contato.
      * @type {any}
-     * @memberof ContactEntity
+     * @memberof ContactDto
      */
     createdAt: any | null;
     /**
      * Data de atualização do contato.
      * @type {any}
-     * @memberof ContactEntity
+     * @memberof ContactDto
      */
     updatedAt: any | null;
 }
 /**
  * @export
  */
-export declare const ContactEntityTypesEnum: {
+export declare const ContactDtoTypesEnum: {
     readonly Customer: "CUSTOMER";
     readonly Employee: "EMPLOYEE";
     readonly Supplier: "SUPPLIER";
     readonly Partner: "PARTNER";
 };
-export type ContactEntityTypesEnum = typeof ContactEntityTypesEnum[keyof typeof ContactEntityTypesEnum];
+export type ContactDtoTypesEnum = typeof ContactDtoTypesEnum[keyof typeof ContactDtoTypesEnum];
 /**
  * @export
  */
-export declare const ContactEntityDocumentTypeEnum: {
+export declare const ContactDtoDocumentTypeEnum: {
     readonly Cnpj: "CNPJ";
     readonly Cpf: "CPF";
 };
-export type ContactEntityDocumentTypeEnum = typeof ContactEntityDocumentTypeEnum[keyof typeof ContactEntityDocumentTypeEnum];
+export type ContactDtoDocumentTypeEnum = typeof ContactDtoDocumentTypeEnum[keyof typeof ContactDtoDocumentTypeEnum];
 /**
  * @export
  */
-export declare const ContactEntityOriginEnum: {
+export declare const ContactDtoOriginEnum: {
     readonly Indication: "INDICATION";
     readonly Ads: "ADS";
     readonly OrganicSearch: "ORGANIC_SEARCH";
@@ -144,12 +144,12 @@ export declare const ContactEntityOriginEnum: {
     readonly PhysicalStore: "PHYSICAL_STORE";
     readonly Other: "OTHER";
 };
-export type ContactEntityOriginEnum = typeof ContactEntityOriginEnum[keyof typeof ContactEntityOriginEnum];
+export type ContactDtoOriginEnum = typeof ContactDtoOriginEnum[keyof typeof ContactDtoOriginEnum];
 /**
- * Check if a given object implements the ContactEntity interface.
+ * Check if a given object implements the ContactDto interface.
  */
-export declare function instanceOfContactEntity(value: object): value is ContactEntity;
-export declare function ContactEntityFromJSON(json: any): ContactEntity;
-export declare function ContactEntityFromJSONTyped(json: any, ignoreDiscriminator: boolean): ContactEntity;
-export declare function ContactEntityToJSON(json: any): ContactEntity;
-export declare function ContactEntityToJSONTyped(value?: ContactEntity | null, ignoreDiscriminator?: boolean): any;
+export declare function instanceOfContactDto(value: object): value is ContactDto;
+export declare function ContactDtoFromJSON(json: any): ContactDto;
+export declare function ContactDtoFromJSONTyped(json: any, ignoreDiscriminator: boolean): ContactDto;
+export declare function ContactDtoToJSON(json: any): ContactDto;
+export declare function ContactDtoToJSONTyped(value?: ContactDto | null, ignoreDiscriminator?: boolean): any;

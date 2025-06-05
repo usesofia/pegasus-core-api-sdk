@@ -9,8 +9,8 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import type { ContactsPageDtoPageInfo } from './ContactsPageDtoPageInfo';
 import type { BankAccountsPageDtoItemsInner } from './BankAccountsPageDtoItemsInner';
-import type { ContactsPageEntityPageInfo } from './ContactsPageEntityPageInfo';
 /**
  *
  * @export
@@ -25,10 +25,10 @@ export interface BankAccountsPageDto {
     items: Array<BankAccountsPageDtoItemsInner>;
     /**
      *
-     * @type {ContactsPageEntityPageInfo}
+     * @type {ContactsPageDtoPageInfo}
      * @memberof BankAccountsPageDto
      */
-    pageInfo: ContactsPageEntityPageInfo;
+    pageInfo: ContactsPageDtoPageInfo;
 }
 /**
  * Check if a given object implements the BankAccountsPageDto interface.

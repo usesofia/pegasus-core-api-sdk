@@ -13,17 +13,17 @@
  * Do not edit the class manually.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ContactsPageEntityItemsInnerOriginEnum = exports.ContactsPageEntityItemsInnerDocumentTypeEnum = exports.ContactsPageEntityItemsInnerTypesEnum = void 0;
-exports.instanceOfContactsPageEntityItemsInner = instanceOfContactsPageEntityItemsInner;
-exports.ContactsPageEntityItemsInnerFromJSON = ContactsPageEntityItemsInnerFromJSON;
-exports.ContactsPageEntityItemsInnerFromJSONTyped = ContactsPageEntityItemsInnerFromJSONTyped;
-exports.ContactsPageEntityItemsInnerToJSON = ContactsPageEntityItemsInnerToJSON;
-exports.ContactsPageEntityItemsInnerToJSONTyped = ContactsPageEntityItemsInnerToJSONTyped;
+exports.ContactsPageDtoItemsInnerOriginEnum = exports.ContactsPageDtoItemsInnerDocumentTypeEnum = exports.ContactsPageDtoItemsInnerTypesEnum = void 0;
+exports.instanceOfContactsPageDtoItemsInner = instanceOfContactsPageDtoItemsInner;
+exports.ContactsPageDtoItemsInnerFromJSON = ContactsPageDtoItemsInnerFromJSON;
+exports.ContactsPageDtoItemsInnerFromJSONTyped = ContactsPageDtoItemsInnerFromJSONTyped;
+exports.ContactsPageDtoItemsInnerToJSON = ContactsPageDtoItemsInnerToJSON;
+exports.ContactsPageDtoItemsInnerToJSONTyped = ContactsPageDtoItemsInnerToJSONTyped;
 var CreateContactRequestBodyDtoAddress_1 = require("./CreateContactRequestBodyDtoAddress");
 /**
  * @export
  */
-exports.ContactsPageEntityItemsInnerTypesEnum = {
+exports.ContactsPageDtoItemsInnerTypesEnum = {
     Customer: 'CUSTOMER',
     Employee: 'EMPLOYEE',
     Supplier: 'SUPPLIER',
@@ -32,14 +32,14 @@ exports.ContactsPageEntityItemsInnerTypesEnum = {
 /**
  * @export
  */
-exports.ContactsPageEntityItemsInnerDocumentTypeEnum = {
+exports.ContactsPageDtoItemsInnerDocumentTypeEnum = {
     Cnpj: 'CNPJ',
     Cpf: 'CPF'
 };
 /**
  * @export
  */
-exports.ContactsPageEntityItemsInnerOriginEnum = {
+exports.ContactsPageDtoItemsInnerOriginEnum = {
     Indication: 'INDICATION',
     Ads: 'ADS',
     OrganicSearch: 'ORGANIC_SEARCH',
@@ -50,9 +50,9 @@ exports.ContactsPageEntityItemsInnerOriginEnum = {
     Other: 'OTHER'
 };
 /**
- * Check if a given object implements the ContactsPageEntityItemsInner interface.
+ * Check if a given object implements the ContactsPageDtoItemsInner interface.
  */
-function instanceOfContactsPageEntityItemsInner(value) {
+function instanceOfContactsPageDtoItemsInner(value) {
     if (!('id' in value) || value['id'] === undefined)
         return false;
     if (!('ownerOrganization' in value) || value['ownerOrganization'] === undefined)
@@ -77,10 +77,10 @@ function instanceOfContactsPageEntityItemsInner(value) {
         return false;
     return true;
 }
-function ContactsPageEntityItemsInnerFromJSON(json) {
-    return ContactsPageEntityItemsInnerFromJSONTyped(json, false);
+function ContactsPageDtoItemsInnerFromJSON(json) {
+    return ContactsPageDtoItemsInnerFromJSONTyped(json, false);
 }
-function ContactsPageEntityItemsInnerFromJSONTyped(json, ignoreDiscriminator) {
+function ContactsPageDtoItemsInnerFromJSONTyped(json, ignoreDiscriminator) {
     if (json == null) {
         return json;
     }
@@ -103,10 +103,10 @@ function ContactsPageEntityItemsInnerFromJSONTyped(json, ignoreDiscriminator) {
         'updatedAt': json['updatedAt'],
     };
 }
-function ContactsPageEntityItemsInnerToJSON(json) {
-    return ContactsPageEntityItemsInnerToJSONTyped(json, false);
+function ContactsPageDtoItemsInnerToJSON(json) {
+    return ContactsPageDtoItemsInnerToJSONTyped(json, false);
 }
-function ContactsPageEntityItemsInnerToJSONTyped(value, ignoreDiscriminator) {
+function ContactsPageDtoItemsInnerToJSONTyped(value, ignoreDiscriminator) {
     if (ignoreDiscriminator === void 0) { ignoreDiscriminator = false; }
     if (value == null) {
         return value;

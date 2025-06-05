@@ -18,8 +18,8 @@ exports.NormalizedSubcategoriesPageEntityFromJSON = NormalizedSubcategoriesPageE
 exports.NormalizedSubcategoriesPageEntityFromJSONTyped = NormalizedSubcategoriesPageEntityFromJSONTyped;
 exports.NormalizedSubcategoriesPageEntityToJSON = NormalizedSubcategoriesPageEntityToJSON;
 exports.NormalizedSubcategoriesPageEntityToJSONTyped = NormalizedSubcategoriesPageEntityToJSONTyped;
+var ContactsPageDtoPageInfo_1 = require("./ContactsPageDtoPageInfo");
 var NormalizedSubcategoriesPageEntityItemsInner_1 = require("./NormalizedSubcategoriesPageEntityItemsInner");
-var ContactsPageEntityPageInfo_1 = require("./ContactsPageEntityPageInfo");
 /**
  * Check if a given object implements the NormalizedSubcategoriesPageEntity interface.
  */
@@ -39,7 +39,7 @@ function NormalizedSubcategoriesPageEntityFromJSONTyped(json, ignoreDiscriminato
     }
     return {
         'items': (json['items'].map(NormalizedSubcategoriesPageEntityItemsInner_1.NormalizedSubcategoriesPageEntityItemsInnerFromJSON)),
-        'pageInfo': (0, ContactsPageEntityPageInfo_1.ContactsPageEntityPageInfoFromJSON)(json['pageInfo']),
+        'pageInfo': (0, ContactsPageDtoPageInfo_1.ContactsPageDtoPageInfoFromJSON)(json['pageInfo']),
     };
 }
 function NormalizedSubcategoriesPageEntityToJSON(json) {
@@ -52,6 +52,6 @@ function NormalizedSubcategoriesPageEntityToJSONTyped(value, ignoreDiscriminator
     }
     return {
         'items': (value['items'].map(NormalizedSubcategoriesPageEntityItemsInner_1.NormalizedSubcategoriesPageEntityItemsInnerToJSON)),
-        'pageInfo': (0, ContactsPageEntityPageInfo_1.ContactsPageEntityPageInfoToJSON)(value['pageInfo']),
+        'pageInfo': (0, ContactsPageDtoPageInfo_1.ContactsPageDtoPageInfoToJSON)(value['pageInfo']),
     };
 }

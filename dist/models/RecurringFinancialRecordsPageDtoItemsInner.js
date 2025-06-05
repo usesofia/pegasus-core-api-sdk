@@ -13,12 +13,12 @@
  * Do not edit the class manually.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.RecurringFinancialRecordEntityFrequencyEnum = exports.RecurringFinancialRecordEntityDirectionEnum = void 0;
-exports.instanceOfRecurringFinancialRecordEntity = instanceOfRecurringFinancialRecordEntity;
-exports.RecurringFinancialRecordEntityFromJSON = RecurringFinancialRecordEntityFromJSON;
-exports.RecurringFinancialRecordEntityFromJSONTyped = RecurringFinancialRecordEntityFromJSONTyped;
-exports.RecurringFinancialRecordEntityToJSON = RecurringFinancialRecordEntityToJSON;
-exports.RecurringFinancialRecordEntityToJSONTyped = RecurringFinancialRecordEntityToJSONTyped;
+exports.RecurringFinancialRecordsPageDtoItemsInnerFrequencyEnum = exports.RecurringFinancialRecordsPageDtoItemsInnerDirectionEnum = void 0;
+exports.instanceOfRecurringFinancialRecordsPageDtoItemsInner = instanceOfRecurringFinancialRecordsPageDtoItemsInner;
+exports.RecurringFinancialRecordsPageDtoItemsInnerFromJSON = RecurringFinancialRecordsPageDtoItemsInnerFromJSON;
+exports.RecurringFinancialRecordsPageDtoItemsInnerFromJSONTyped = RecurringFinancialRecordsPageDtoItemsInnerFromJSONTyped;
+exports.RecurringFinancialRecordsPageDtoItemsInnerToJSON = RecurringFinancialRecordsPageDtoItemsInnerToJSON;
+exports.RecurringFinancialRecordsPageDtoItemsInnerToJSONTyped = RecurringFinancialRecordsPageDtoItemsInnerToJSONTyped;
 var CreateFinancialRecordRequestBodyDtoPopulatedFilesInner_1 = require("./CreateFinancialRecordRequestBodyDtoPopulatedFilesInner");
 var CreateFinancialRecordRequestBodyDtoPopulatedTagsInner_1 = require("./CreateFinancialRecordRequestBodyDtoPopulatedTagsInner");
 var CreateRecurringFinancialRecordRequestBodyDtoPopulatedSubcategory_1 = require("./CreateRecurringFinancialRecordRequestBodyDtoPopulatedSubcategory");
@@ -26,22 +26,22 @@ var CreateFinancialRecordRequestBodyDtoPopulatedContact_1 = require("./CreateFin
 /**
  * @export
  */
-exports.RecurringFinancialRecordEntityDirectionEnum = {
+exports.RecurringFinancialRecordsPageDtoItemsInnerDirectionEnum = {
     Income: 'INCOME',
     Outcome: 'OUTCOME'
 };
 /**
  * @export
  */
-exports.RecurringFinancialRecordEntityFrequencyEnum = {
+exports.RecurringFinancialRecordsPageDtoItemsInnerFrequencyEnum = {
     Weekly: 'WEEKLY',
     Monthly: 'MONTHLY',
     Yearly: 'YEARLY'
 };
 /**
- * Check if a given object implements the RecurringFinancialRecordEntity interface.
+ * Check if a given object implements the RecurringFinancialRecordsPageDtoItemsInner interface.
  */
-function instanceOfRecurringFinancialRecordEntity(value) {
+function instanceOfRecurringFinancialRecordsPageDtoItemsInner(value) {
     if (!('id' in value) || value['id'] === undefined)
         return false;
     if (!('ownerOrganization' in value) || value['ownerOrganization'] === undefined)
@@ -64,10 +64,10 @@ function instanceOfRecurringFinancialRecordEntity(value) {
         return false;
     return true;
 }
-function RecurringFinancialRecordEntityFromJSON(json) {
-    return RecurringFinancialRecordEntityFromJSONTyped(json, false);
+function RecurringFinancialRecordsPageDtoItemsInnerFromJSON(json) {
+    return RecurringFinancialRecordsPageDtoItemsInnerFromJSONTyped(json, false);
 }
-function RecurringFinancialRecordEntityFromJSONTyped(json, ignoreDiscriminator) {
+function RecurringFinancialRecordsPageDtoItemsInnerFromJSONTyped(json, ignoreDiscriminator) {
     if (json == null) {
         return json;
     }
@@ -97,10 +97,10 @@ function RecurringFinancialRecordEntityFromJSONTyped(json, ignoreDiscriminator) 
         'searchScore': json['searchScore'] == null ? undefined : json['searchScore'],
     };
 }
-function RecurringFinancialRecordEntityToJSON(json) {
-    return RecurringFinancialRecordEntityToJSONTyped(json, false);
+function RecurringFinancialRecordsPageDtoItemsInnerToJSON(json) {
+    return RecurringFinancialRecordsPageDtoItemsInnerToJSONTyped(json, false);
 }
-function RecurringFinancialRecordEntityToJSONTyped(value, ignoreDiscriminator) {
+function RecurringFinancialRecordsPageDtoItemsInnerToJSONTyped(value, ignoreDiscriminator) {
     if (ignoreDiscriminator === void 0) { ignoreDiscriminator = false; }
     if (value == null) {
         return value;

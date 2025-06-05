@@ -13,6 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
+import type { ContactsPageDtoPageInfo } from './ContactsPageDtoPageInfo';
+import {
+    ContactsPageDtoPageInfoFromJSON,
+    ContactsPageDtoPageInfoFromJSONTyped,
+    ContactsPageDtoPageInfoToJSON,
+    ContactsPageDtoPageInfoToJSONTyped,
+} from './ContactsPageDtoPageInfo';
 import type { NormalizedSubcategoriesPageEntityItemsInner } from './NormalizedSubcategoriesPageEntityItemsInner';
 import {
     NormalizedSubcategoriesPageEntityItemsInnerFromJSON,
@@ -20,13 +27,6 @@ import {
     NormalizedSubcategoriesPageEntityItemsInnerToJSON,
     NormalizedSubcategoriesPageEntityItemsInnerToJSONTyped,
 } from './NormalizedSubcategoriesPageEntityItemsInner';
-import type { ContactsPageEntityPageInfo } from './ContactsPageEntityPageInfo';
-import {
-    ContactsPageEntityPageInfoFromJSON,
-    ContactsPageEntityPageInfoFromJSONTyped,
-    ContactsPageEntityPageInfoToJSON,
-    ContactsPageEntityPageInfoToJSONTyped,
-} from './ContactsPageEntityPageInfo';
 
 /**
  * 
@@ -42,10 +42,10 @@ export interface NormalizedSubcategoriesPageEntity {
     items: Array<NormalizedSubcategoriesPageEntityItemsInner>;
     /**
      * 
-     * @type {ContactsPageEntityPageInfo}
+     * @type {ContactsPageDtoPageInfo}
      * @memberof NormalizedSubcategoriesPageEntity
      */
-    pageInfo: ContactsPageEntityPageInfo;
+    pageInfo: ContactsPageDtoPageInfo;
 }
 
 /**
@@ -68,7 +68,7 @@ export function NormalizedSubcategoriesPageEntityFromJSONTyped(json: any, ignore
     return {
         
         'items': ((json['items'] as Array<any>).map(NormalizedSubcategoriesPageEntityItemsInnerFromJSON)),
-        'pageInfo': ContactsPageEntityPageInfoFromJSON(json['pageInfo']),
+        'pageInfo': ContactsPageDtoPageInfoFromJSON(json['pageInfo']),
     };
 }
 
@@ -84,7 +84,7 @@ export function NormalizedSubcategoriesPageEntityToJSONTyped(value?: NormalizedS
     return {
         
         'items': ((value['items'] as Array<any>).map(NormalizedSubcategoriesPageEntityItemsInnerToJSON)),
-        'pageInfo': ContactsPageEntityPageInfoToJSON(value['pageInfo']),
+        'pageInfo': ContactsPageDtoPageInfoToJSON(value['pageInfo']),
     };
 }
 

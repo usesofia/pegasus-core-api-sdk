@@ -13,128 +13,128 @@ import type { CreateContactRequestBodyDtoAddress } from './CreateContactRequestB
 /**
  *
  * @export
- * @interface ContactsPageEntityItemsInner
+ * @interface ContactsPageDtoItemsInner
  */
-export interface ContactsPageEntityItemsInner {
+export interface ContactsPageDtoItemsInner {
     /**
      * Identificador do contato.
      * @type {string}
-     * @memberof ContactsPageEntityItemsInner
+     * @memberof ContactsPageDtoItemsInner
      */
     id: string;
     /**
      * Identificador da organização dona do contato.
      * @type {string}
-     * @memberof ContactsPageEntityItemsInner
+     * @memberof ContactsPageDtoItemsInner
      */
     ownerOrganization: string;
     /**
      * Nome do contato.
      * @type {string}
-     * @memberof ContactsPageEntityItemsInner
+     * @memberof ContactsPageDtoItemsInner
      */
     name: string;
     /**
      * Tipos do contato.
      * @type {Array<string>}
-     * @memberof ContactsPageEntityItemsInner
+     * @memberof ContactsPageDtoItemsInner
      */
-    types: Array<ContactsPageEntityItemsInnerTypesEnum>;
+    types: Array<ContactsPageDtoItemsInnerTypesEnum>;
     /**
      * Tipo do documento do contato.
      * @type {string}
-     * @memberof ContactsPageEntityItemsInner
+     * @memberof ContactsPageDtoItemsInner
      */
-    documentType?: ContactsPageEntityItemsInnerDocumentTypeEnum | null;
+    documentType?: ContactsPageDtoItemsInnerDocumentTypeEnum | null;
     /**
      * Documento do contato.
      * @type {string}
-     * @memberof ContactsPageEntityItemsInner
+     * @memberof ContactsPageDtoItemsInner
      */
     document: string | null;
     /**
      * Email do contato.
      * @type {string}
-     * @memberof ContactsPageEntityItemsInner
+     * @memberof ContactsPageDtoItemsInner
      */
     email: string | null;
     /**
      * Telefone do contato.
      * @type {string}
-     * @memberof ContactsPageEntityItemsInner
+     * @memberof ContactsPageDtoItemsInner
      */
     phone: string | null;
     /**
      * Chaves pix do contato.
      * @type {Array<string>}
-     * @memberof ContactsPageEntityItemsInner
+     * @memberof ContactsPageDtoItemsInner
      */
     pixKeys: Array<string>;
     /**
      * Data de nascimento do contato.
-     * @type {any}
-     * @memberof ContactsPageEntityItemsInner
+     * @type {string}
+     * @memberof ContactsPageDtoItemsInner
      */
-    birthDate?: any | null;
+    birthDate?: string | null;
     /**
      * Origem do contato.
      * @type {string}
-     * @memberof ContactsPageEntityItemsInner
+     * @memberof ContactsPageDtoItemsInner
      */
-    origin?: ContactsPageEntityItemsInnerOriginEnum | null;
+    origin?: ContactsPageDtoItemsInnerOriginEnum | null;
     /**
      *
      * @type {CreateContactRequestBodyDtoAddress}
-     * @memberof ContactsPageEntityItemsInner
+     * @memberof ContactsPageDtoItemsInner
      */
     address?: CreateContactRequestBodyDtoAddress | null;
     /**
      * Indica se o contato é o contato não identificado.
      * @type {boolean}
-     * @memberof ContactsPageEntityItemsInner
+     * @memberof ContactsPageDtoItemsInner
      */
     isNotIdentified: boolean;
     /**
      * Pontuação de busca do contato.
      * @type {number}
-     * @memberof ContactsPageEntityItemsInner
+     * @memberof ContactsPageDtoItemsInner
      */
     searchScore?: number | null;
     /**
      * Data de criação do contato.
      * @type {any}
-     * @memberof ContactsPageEntityItemsInner
+     * @memberof ContactsPageDtoItemsInner
      */
     createdAt: any | null;
     /**
      * Data de atualização do contato.
      * @type {any}
-     * @memberof ContactsPageEntityItemsInner
+     * @memberof ContactsPageDtoItemsInner
      */
     updatedAt: any | null;
 }
 /**
  * @export
  */
-export declare const ContactsPageEntityItemsInnerTypesEnum: {
+export declare const ContactsPageDtoItemsInnerTypesEnum: {
     readonly Customer: "CUSTOMER";
     readonly Employee: "EMPLOYEE";
     readonly Supplier: "SUPPLIER";
     readonly Partner: "PARTNER";
 };
-export type ContactsPageEntityItemsInnerTypesEnum = typeof ContactsPageEntityItemsInnerTypesEnum[keyof typeof ContactsPageEntityItemsInnerTypesEnum];
+export type ContactsPageDtoItemsInnerTypesEnum = typeof ContactsPageDtoItemsInnerTypesEnum[keyof typeof ContactsPageDtoItemsInnerTypesEnum];
 /**
  * @export
  */
-export declare const ContactsPageEntityItemsInnerDocumentTypeEnum: {
+export declare const ContactsPageDtoItemsInnerDocumentTypeEnum: {
     readonly Cnpj: "CNPJ";
     readonly Cpf: "CPF";
 };
-export type ContactsPageEntityItemsInnerDocumentTypeEnum = typeof ContactsPageEntityItemsInnerDocumentTypeEnum[keyof typeof ContactsPageEntityItemsInnerDocumentTypeEnum];
+export type ContactsPageDtoItemsInnerDocumentTypeEnum = typeof ContactsPageDtoItemsInnerDocumentTypeEnum[keyof typeof ContactsPageDtoItemsInnerDocumentTypeEnum];
 /**
  * @export
  */
-export declare const ContactsPageEntityItemsInnerOriginEnum: {
+export declare const ContactsPageDtoItemsInnerOriginEnum: {
     readonly Indication: "INDICATION";
     readonly Ads: "ADS";
     readonly OrganicSearch: "ORGANIC_SEARCH";
@@ -144,12 +144,12 @@ export declare const ContactsPageEntityItemsInnerOriginEnum: {
     readonly PhysicalStore: "PHYSICAL_STORE";
     readonly Other: "OTHER";
 };
-export type ContactsPageEntityItemsInnerOriginEnum = typeof ContactsPageEntityItemsInnerOriginEnum[keyof typeof ContactsPageEntityItemsInnerOriginEnum];
+export type ContactsPageDtoItemsInnerOriginEnum = typeof ContactsPageDtoItemsInnerOriginEnum[keyof typeof ContactsPageDtoItemsInnerOriginEnum];
 /**
- * Check if a given object implements the ContactsPageEntityItemsInner interface.
+ * Check if a given object implements the ContactsPageDtoItemsInner interface.
  */
-export declare function instanceOfContactsPageEntityItemsInner(value: object): value is ContactsPageEntityItemsInner;
-export declare function ContactsPageEntityItemsInnerFromJSON(json: any): ContactsPageEntityItemsInner;
-export declare function ContactsPageEntityItemsInnerFromJSONTyped(json: any, ignoreDiscriminator: boolean): ContactsPageEntityItemsInner;
-export declare function ContactsPageEntityItemsInnerToJSON(json: any): ContactsPageEntityItemsInner;
-export declare function ContactsPageEntityItemsInnerToJSONTyped(value?: ContactsPageEntityItemsInner | null, ignoreDiscriminator?: boolean): any;
+export declare function instanceOfContactsPageDtoItemsInner(value: object): value is ContactsPageDtoItemsInner;
+export declare function ContactsPageDtoItemsInnerFromJSON(json: any): ContactsPageDtoItemsInner;
+export declare function ContactsPageDtoItemsInnerFromJSONTyped(json: any, ignoreDiscriminator: boolean): ContactsPageDtoItemsInner;
+export declare function ContactsPageDtoItemsInnerToJSON(json: any): ContactsPageDtoItemsInner;
+export declare function ContactsPageDtoItemsInnerToJSONTyped(value?: ContactsPageDtoItemsInner | null, ignoreDiscriminator?: boolean): any;

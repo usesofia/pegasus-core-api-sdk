@@ -52,11 +52,11 @@ export interface CreateBankAccountRequestBodyDto {
      */
     isDefault?: boolean;
     /**
-     * Data do saldo inicial.
-     * @type {any}
+     * Data do saldo inicial da conta bancária.
+     * @type {string}
      * @memberof CreateBankAccountRequestBodyDto
      */
-    initialBalanceDate?: any | null;
+    initialBalanceDate?: string | null;
     /**
      *
      * @type {string}

@@ -9,8 +9,8 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import type { ContactsPageDtoPageInfo } from './ContactsPageDtoPageInfo';
 import type { CategoriesPageEntityItemsInner } from './CategoriesPageEntityItemsInner';
-import type { ContactsPageEntityPageInfo } from './ContactsPageEntityPageInfo';
 /**
  *
  * @export
@@ -25,10 +25,10 @@ export interface CategoriesPageEntity {
     items: Array<CategoriesPageEntityItemsInner>;
     /**
      *
-     * @type {ContactsPageEntityPageInfo}
+     * @type {ContactsPageDtoPageInfo}
      * @memberof CategoriesPageEntity
      */
-    pageInfo: ContactsPageEntityPageInfo;
+    pageInfo: ContactsPageDtoPageInfo;
 }
 /**
  * Check if a given object implements the CategoriesPageEntity interface.

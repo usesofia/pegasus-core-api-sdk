@@ -41,11 +41,17 @@ function instanceOfFinancialRecordsPageDtoItemsInner(value) {
         return false;
     if (!('direction' in value) || value['direction'] === undefined)
         return false;
+    if (!('dueDate' in value) || value['dueDate'] === undefined)
+        return false;
     if (!('contact' in value) || value['contact'] === undefined)
         return false;
     if (!('description' in value) || value['description'] === undefined)
         return false;
     if (!('subcategory' in value) || value['subcategory'] === undefined)
+        return false;
+    if (!('amount' in value) || value['amount'] === undefined)
+        return false;
+    if (!('finalAmount' in value) || value['finalAmount'] === undefined)
         return false;
     return true;
 }
@@ -60,11 +66,11 @@ function FinancialRecordsPageDtoItemsInnerFromJSONTyped(json, ignoreDiscriminato
         'id': json['id'],
         'ownerOrganization': json['ownerOrganization'],
         'direction': json['direction'],
-        'dueDate': json['dueDate'] == null ? undefined : json['dueDate'],
+        'dueDate': json['dueDate'],
         'contact': json['contact'],
         'description': json['description'],
         'subcategory': json['subcategory'],
-        'amount': json['amount'] == null ? undefined : json['amount'],
+        'amount': json['amount'],
         'tags': json['tags'] == null ? undefined : json['tags'],
         'competenceDate': json['competenceDate'] == null ? undefined : json['competenceDate'],
         'files': json['files'] == null ? undefined : json['files'],
@@ -78,7 +84,7 @@ function FinancialRecordsPageDtoItemsInnerFromJSONTyped(json, ignoreDiscriminato
         'account': json['account'] == null ? undefined : json['account'],
         'discount': json['discount'] == null ? undefined : json['discount'],
         'finesAndInterest': json['finesAndInterest'] == null ? undefined : json['finesAndInterest'],
-        'finalAmount': json['finalAmount'] == null ? undefined : json['finalAmount'],
+        'finalAmount': json['finalAmount'],
         'reconciled': json['reconciled'] == null ? undefined : json['reconciled'],
         'bankStatement': json['bankStatement'] == null ? undefined : json['bankStatement'],
         'installmentFinancialRecord': json['installmentFinancialRecord'] == null ? undefined : json['installmentFinancialRecord'],

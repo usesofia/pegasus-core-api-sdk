@@ -71,10 +71,10 @@ export interface PartialUpdateContactRequestBodyDto {
     pixKeys?: Array<string>;
     /**
      * Data de nascimento do contato.
-     * @type {any}
+     * @type {string}
      * @memberof PartialUpdateContactRequestBodyDto
      */
-    birthDate?: any | null;
+    birthDate?: string | null;
     /**
      * Origem do contato.
      * @type {string}

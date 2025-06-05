@@ -55,11 +55,11 @@ export interface CreateRecurringFinancialRecordRequestBodyDto {
      */
     direction: CreateRecurringFinancialRecordRequestBodyDtoDirectionEnum;
     /**
-     * Data da primeira ocorrência.
-     * @type {any}
+     * 
+     * @type {string}
      * @memberof CreateRecurringFinancialRecordRequestBodyDto
      */
-    firstOccurrenceDate: any | null;
+    firstOccurrenceDate: string;
     /**
      * Descrição do lançamento.
      * @type {string}

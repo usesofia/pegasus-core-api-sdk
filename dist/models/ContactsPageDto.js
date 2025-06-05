@@ -13,45 +13,45 @@
  * Do not edit the class manually.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.instanceOfCategoriesPageEntity = instanceOfCategoriesPageEntity;
-exports.CategoriesPageEntityFromJSON = CategoriesPageEntityFromJSON;
-exports.CategoriesPageEntityFromJSONTyped = CategoriesPageEntityFromJSONTyped;
-exports.CategoriesPageEntityToJSON = CategoriesPageEntityToJSON;
-exports.CategoriesPageEntityToJSONTyped = CategoriesPageEntityToJSONTyped;
+exports.instanceOfContactsPageDto = instanceOfContactsPageDto;
+exports.ContactsPageDtoFromJSON = ContactsPageDtoFromJSON;
+exports.ContactsPageDtoFromJSONTyped = ContactsPageDtoFromJSONTyped;
+exports.ContactsPageDtoToJSON = ContactsPageDtoToJSON;
+exports.ContactsPageDtoToJSONTyped = ContactsPageDtoToJSONTyped;
+var ContactsPageDtoItemsInner_1 = require("./ContactsPageDtoItemsInner");
 var ContactsPageDtoPageInfo_1 = require("./ContactsPageDtoPageInfo");
-var CategoriesPageEntityItemsInner_1 = require("./CategoriesPageEntityItemsInner");
 /**
- * Check if a given object implements the CategoriesPageEntity interface.
+ * Check if a given object implements the ContactsPageDto interface.
  */
-function instanceOfCategoriesPageEntity(value) {
+function instanceOfContactsPageDto(value) {
     if (!('items' in value) || value['items'] === undefined)
         return false;
     if (!('pageInfo' in value) || value['pageInfo'] === undefined)
         return false;
     return true;
 }
-function CategoriesPageEntityFromJSON(json) {
-    return CategoriesPageEntityFromJSONTyped(json, false);
+function ContactsPageDtoFromJSON(json) {
+    return ContactsPageDtoFromJSONTyped(json, false);
 }
-function CategoriesPageEntityFromJSONTyped(json, ignoreDiscriminator) {
+function ContactsPageDtoFromJSONTyped(json, ignoreDiscriminator) {
     if (json == null) {
         return json;
     }
     return {
-        'items': (json['items'].map(CategoriesPageEntityItemsInner_1.CategoriesPageEntityItemsInnerFromJSON)),
+        'items': (json['items'].map(ContactsPageDtoItemsInner_1.ContactsPageDtoItemsInnerFromJSON)),
         'pageInfo': (0, ContactsPageDtoPageInfo_1.ContactsPageDtoPageInfoFromJSON)(json['pageInfo']),
     };
 }
-function CategoriesPageEntityToJSON(json) {
-    return CategoriesPageEntityToJSONTyped(json, false);
+function ContactsPageDtoToJSON(json) {
+    return ContactsPageDtoToJSONTyped(json, false);
 }
-function CategoriesPageEntityToJSONTyped(value, ignoreDiscriminator) {
+function ContactsPageDtoToJSONTyped(value, ignoreDiscriminator) {
     if (ignoreDiscriminator === void 0) { ignoreDiscriminator = false; }
     if (value == null) {
         return value;
     }
     return {
-        'items': (value['items'].map(CategoriesPageEntityItemsInner_1.CategoriesPageEntityItemsInnerToJSON)),
+        'items': (value['items'].map(ContactsPageDtoItemsInner_1.ContactsPageDtoItemsInnerToJSON)),
         'pageInfo': (0, ContactsPageDtoPageInfo_1.ContactsPageDtoPageInfoToJSON)(value['pageInfo']),
     };
 }

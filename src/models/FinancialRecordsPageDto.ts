@@ -13,6 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
+import type { ContactsPageDtoPageInfo } from './ContactsPageDtoPageInfo';
+import {
+    ContactsPageDtoPageInfoFromJSON,
+    ContactsPageDtoPageInfoFromJSONTyped,
+    ContactsPageDtoPageInfoToJSON,
+    ContactsPageDtoPageInfoToJSONTyped,
+} from './ContactsPageDtoPageInfo';
 import type { FinancialRecordsPageDtoItemsInner } from './FinancialRecordsPageDtoItemsInner';
 import {
     FinancialRecordsPageDtoItemsInnerFromJSON,
@@ -20,13 +27,6 @@ import {
     FinancialRecordsPageDtoItemsInnerToJSON,
     FinancialRecordsPageDtoItemsInnerToJSONTyped,
 } from './FinancialRecordsPageDtoItemsInner';
-import type { ContactsPageEntityPageInfo } from './ContactsPageEntityPageInfo';
-import {
-    ContactsPageEntityPageInfoFromJSON,
-    ContactsPageEntityPageInfoFromJSONTyped,
-    ContactsPageEntityPageInfoToJSON,
-    ContactsPageEntityPageInfoToJSONTyped,
-} from './ContactsPageEntityPageInfo';
 
 /**
  * 
@@ -42,10 +42,10 @@ export interface FinancialRecordsPageDto {
     items: Array<FinancialRecordsPageDtoItemsInner>;
     /**
      * 
-     * @type {ContactsPageEntityPageInfo}
+     * @type {ContactsPageDtoPageInfo}
      * @memberof FinancialRecordsPageDto
      */
-    pageInfo: ContactsPageEntityPageInfo;
+    pageInfo: ContactsPageDtoPageInfo;
 }
 
 /**
@@ -68,7 +68,7 @@ export function FinancialRecordsPageDtoFromJSONTyped(json: any, ignoreDiscrimina
     return {
         
         'items': ((json['items'] as Array<any>).map(FinancialRecordsPageDtoItemsInnerFromJSON)),
-        'pageInfo': ContactsPageEntityPageInfoFromJSON(json['pageInfo']),
+        'pageInfo': ContactsPageDtoPageInfoFromJSON(json['pageInfo']),
     };
 }
 
@@ -84,7 +84,7 @@ export function FinancialRecordsPageDtoToJSONTyped(value?: FinancialRecordsPageD
     return {
         
         'items': ((value['items'] as Array<any>).map(FinancialRecordsPageDtoItemsInnerToJSON)),
-        'pageInfo': ContactsPageEntityPageInfoToJSON(value['pageInfo']),
+        'pageInfo': ContactsPageDtoPageInfoToJSON(value['pageInfo']),
     };
 }
 

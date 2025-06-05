@@ -82,6 +82,7 @@ function PartialUpdateRecurringFinancialRecordRequestBodyDtoFromJSONTyped(json, 
         'populatedFiles': json['populatedFiles'] == null ? undefined : (json['populatedFiles'].map(CreateFinancialRecordRequestBodyDtoPopulatedFilesInner_1.CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerFromJSON)),
         'searchScore': json['searchScore'] == null ? undefined : json['searchScore'],
         'channel': json['channel'],
+        'firstOccurrenceDate': json['firstOccurrenceDate'] == null ? undefined : json['firstOccurrenceDate'],
     };
 }
 function PartialUpdateRecurringFinancialRecordRequestBodyDtoToJSON(json) {
@@ -112,5 +113,6 @@ function PartialUpdateRecurringFinancialRecordRequestBodyDtoToJSONTyped(value, i
         'populatedFiles': value['populatedFiles'] == null ? undefined : (value['populatedFiles'].map(CreateFinancialRecordRequestBodyDtoPopulatedFilesInner_1.CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerToJSON)),
         'searchScore': value['searchScore'],
         'channel': value['channel'],
+        'firstOccurrenceDate': value['firstOccurrenceDate'],
     };
 }

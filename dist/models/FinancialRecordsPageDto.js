@@ -18,8 +18,8 @@ exports.FinancialRecordsPageDtoFromJSON = FinancialRecordsPageDtoFromJSON;
 exports.FinancialRecordsPageDtoFromJSONTyped = FinancialRecordsPageDtoFromJSONTyped;
 exports.FinancialRecordsPageDtoToJSON = FinancialRecordsPageDtoToJSON;
 exports.FinancialRecordsPageDtoToJSONTyped = FinancialRecordsPageDtoToJSONTyped;
+var ContactsPageDtoPageInfo_1 = require("./ContactsPageDtoPageInfo");
 var FinancialRecordsPageDtoItemsInner_1 = require("./FinancialRecordsPageDtoItemsInner");
-var ContactsPageEntityPageInfo_1 = require("./ContactsPageEntityPageInfo");
 /**
  * Check if a given object implements the FinancialRecordsPageDto interface.
  */
@@ -39,7 +39,7 @@ function FinancialRecordsPageDtoFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'items': (json['items'].map(FinancialRecordsPageDtoItemsInner_1.FinancialRecordsPageDtoItemsInnerFromJSON)),
-        'pageInfo': (0, ContactsPageEntityPageInfo_1.ContactsPageEntityPageInfoFromJSON)(json['pageInfo']),
+        'pageInfo': (0, ContactsPageDtoPageInfo_1.ContactsPageDtoPageInfoFromJSON)(json['pageInfo']),
     };
 }
 function FinancialRecordsPageDtoToJSON(json) {
@@ -52,6 +52,6 @@ function FinancialRecordsPageDtoToJSONTyped(value, ignoreDiscriminator) {
     }
     return {
         'items': (value['items'].map(FinancialRecordsPageDtoItemsInner_1.FinancialRecordsPageDtoItemsInnerToJSON)),
-        'pageInfo': (0, ContactsPageEntityPageInfo_1.ContactsPageEntityPageInfoToJSON)(value['pageInfo']),
+        'pageInfo': (0, ContactsPageDtoPageInfo_1.ContactsPageDtoPageInfoToJSON)(value['pageInfo']),
     };
 }

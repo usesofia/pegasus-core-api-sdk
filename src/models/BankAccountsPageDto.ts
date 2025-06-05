@@ -13,6 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
+import type { ContactsPageDtoPageInfo } from './ContactsPageDtoPageInfo';
+import {
+    ContactsPageDtoPageInfoFromJSON,
+    ContactsPageDtoPageInfoFromJSONTyped,
+    ContactsPageDtoPageInfoToJSON,
+    ContactsPageDtoPageInfoToJSONTyped,
+} from './ContactsPageDtoPageInfo';
 import type { BankAccountsPageDtoItemsInner } from './BankAccountsPageDtoItemsInner';
 import {
     BankAccountsPageDtoItemsInnerFromJSON,
@@ -20,13 +27,6 @@ import {
     BankAccountsPageDtoItemsInnerToJSON,
     BankAccountsPageDtoItemsInnerToJSONTyped,
 } from './BankAccountsPageDtoItemsInner';
-import type { ContactsPageEntityPageInfo } from './ContactsPageEntityPageInfo';
-import {
-    ContactsPageEntityPageInfoFromJSON,
-    ContactsPageEntityPageInfoFromJSONTyped,
-    ContactsPageEntityPageInfoToJSON,
-    ContactsPageEntityPageInfoToJSONTyped,
-} from './ContactsPageEntityPageInfo';
 
 /**
  * 
@@ -42,10 +42,10 @@ export interface BankAccountsPageDto {
     items: Array<BankAccountsPageDtoItemsInner>;
     /**
      * 
-     * @type {ContactsPageEntityPageInfo}
+     * @type {ContactsPageDtoPageInfo}
      * @memberof BankAccountsPageDto
      */
-    pageInfo: ContactsPageEntityPageInfo;
+    pageInfo: ContactsPageDtoPageInfo;
 }
 
 /**
@@ -68,7 +68,7 @@ export function BankAccountsPageDtoFromJSONTyped(json: any, ignoreDiscriminator:
     return {
         
         'items': ((json['items'] as Array<any>).map(BankAccountsPageDtoItemsInnerFromJSON)),
-        'pageInfo': ContactsPageEntityPageInfoFromJSON(json['pageInfo']),
+        'pageInfo': ContactsPageDtoPageInfoFromJSON(json['pageInfo']),
     };
 }
 
@@ -84,7 +84,7 @@ export function BankAccountsPageDtoToJSONTyped(value?: BankAccountsPageDto | nul
     return {
         
         'items': ((value['items'] as Array<any>).map(BankAccountsPageDtoItemsInnerToJSON)),
-        'pageInfo': ContactsPageEntityPageInfoToJSON(value['pageInfo']),
+        'pageInfo': ContactsPageDtoPageInfoToJSON(value['pageInfo']),
     };
 }
 

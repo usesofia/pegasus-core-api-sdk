@@ -13,6 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
+import type { ContactsPageDtoPageInfo } from './ContactsPageDtoPageInfo';
+import {
+    ContactsPageDtoPageInfoFromJSON,
+    ContactsPageDtoPageInfoFromJSONTyped,
+    ContactsPageDtoPageInfoToJSON,
+    ContactsPageDtoPageInfoToJSONTyped,
+} from './ContactsPageDtoPageInfo';
 import type { InstallmentFinancialRecordsPageDtoItemsInner } from './InstallmentFinancialRecordsPageDtoItemsInner';
 import {
     InstallmentFinancialRecordsPageDtoItemsInnerFromJSON,
@@ -20,13 +27,6 @@ import {
     InstallmentFinancialRecordsPageDtoItemsInnerToJSON,
     InstallmentFinancialRecordsPageDtoItemsInnerToJSONTyped,
 } from './InstallmentFinancialRecordsPageDtoItemsInner';
-import type { ContactsPageEntityPageInfo } from './ContactsPageEntityPageInfo';
-import {
-    ContactsPageEntityPageInfoFromJSON,
-    ContactsPageEntityPageInfoFromJSONTyped,
-    ContactsPageEntityPageInfoToJSON,
-    ContactsPageEntityPageInfoToJSONTyped,
-} from './ContactsPageEntityPageInfo';
 
 /**
  * 
@@ -42,10 +42,10 @@ export interface InstallmentFinancialRecordsPageDto {
     items: Array<InstallmentFinancialRecordsPageDtoItemsInner>;
     /**
      * 
-     * @type {ContactsPageEntityPageInfo}
+     * @type {ContactsPageDtoPageInfo}
      * @memberof InstallmentFinancialRecordsPageDto
      */
-    pageInfo: ContactsPageEntityPageInfo;
+    pageInfo: ContactsPageDtoPageInfo;
 }
 
 /**
@@ -68,7 +68,7 @@ export function InstallmentFinancialRecordsPageDtoFromJSONTyped(json: any, ignor
     return {
         
         'items': ((json['items'] as Array<any>).map(InstallmentFinancialRecordsPageDtoItemsInnerFromJSON)),
-        'pageInfo': ContactsPageEntityPageInfoFromJSON(json['pageInfo']),
+        'pageInfo': ContactsPageDtoPageInfoFromJSON(json['pageInfo']),
     };
 }
 
@@ -84,7 +84,7 @@ export function InstallmentFinancialRecordsPageDtoToJSONTyped(value?: Installmen
     return {
         
         'items': ((value['items'] as Array<any>).map(InstallmentFinancialRecordsPageDtoItemsInnerToJSON)),
-        'pageInfo': ContactsPageEntityPageInfoToJSON(value['pageInfo']),
+        'pageInfo': ContactsPageDtoPageInfoToJSON(value['pageInfo']),
     };
 }
 

@@ -13,13 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
-import type { ContactsPageEntityPageInfo } from './ContactsPageEntityPageInfo';
+import type { ContactsPageDtoPageInfo } from './ContactsPageDtoPageInfo';
 import {
-    ContactsPageEntityPageInfoFromJSON,
-    ContactsPageEntityPageInfoFromJSONTyped,
-    ContactsPageEntityPageInfoToJSON,
-    ContactsPageEntityPageInfoToJSONTyped,
-} from './ContactsPageEntityPageInfo';
+    ContactsPageDtoPageInfoFromJSON,
+    ContactsPageDtoPageInfoFromJSONTyped,
+    ContactsPageDtoPageInfoToJSON,
+    ContactsPageDtoPageInfoToJSONTyped,
+} from './ContactsPageDtoPageInfo';
 import type { SubcategoriesPageEntityItemsInner } from './SubcategoriesPageEntityItemsInner';
 import {
     SubcategoriesPageEntityItemsInnerFromJSON,
@@ -42,10 +42,10 @@ export interface SubcategoriesPageEntity {
     items: Array<SubcategoriesPageEntityItemsInner>;
     /**
      * 
-     * @type {ContactsPageEntityPageInfo}
+     * @type {ContactsPageDtoPageInfo}
      * @memberof SubcategoriesPageEntity
      */
-    pageInfo: ContactsPageEntityPageInfo;
+    pageInfo: ContactsPageDtoPageInfo;
 }
 
 /**
@@ -68,7 +68,7 @@ export function SubcategoriesPageEntityFromJSONTyped(json: any, ignoreDiscrimina
     return {
         
         'items': ((json['items'] as Array<any>).map(SubcategoriesPageEntityItemsInnerFromJSON)),
-        'pageInfo': ContactsPageEntityPageInfoFromJSON(json['pageInfo']),
+        'pageInfo': ContactsPageDtoPageInfoFromJSON(json['pageInfo']),
     };
 }
 
@@ -84,7 +84,7 @@ export function SubcategoriesPageEntityToJSONTyped(value?: SubcategoriesPageEnti
     return {
         
         'items': ((value['items'] as Array<any>).map(SubcategoriesPageEntityItemsInnerToJSON)),
-        'pageInfo': ContactsPageEntityPageInfoToJSON(value['pageInfo']),
+        'pageInfo': ContactsPageDtoPageInfoToJSON(value['pageInfo']),
     };
 }
 

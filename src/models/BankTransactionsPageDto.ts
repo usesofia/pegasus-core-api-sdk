@@ -20,13 +20,13 @@ import {
     BankTransactionsPageDtoItemsInnerToJSON,
     BankTransactionsPageDtoItemsInnerToJSONTyped,
 } from './BankTransactionsPageDtoItemsInner';
-import type { ContactsPageEntityPageInfo } from './ContactsPageEntityPageInfo';
+import type { ContactsPageDtoPageInfo } from './ContactsPageDtoPageInfo';
 import {
-    ContactsPageEntityPageInfoFromJSON,
-    ContactsPageEntityPageInfoFromJSONTyped,
-    ContactsPageEntityPageInfoToJSON,
-    ContactsPageEntityPageInfoToJSONTyped,
-} from './ContactsPageEntityPageInfo';
+    ContactsPageDtoPageInfoFromJSON,
+    ContactsPageDtoPageInfoFromJSONTyped,
+    ContactsPageDtoPageInfoToJSON,
+    ContactsPageDtoPageInfoToJSONTyped,
+} from './ContactsPageDtoPageInfo';
 
 /**
  * 
@@ -36,10 +36,10 @@ import {
 export interface BankTransactionsPageDto {
     /**
      * 
-     * @type {ContactsPageEntityPageInfo}
+     * @type {ContactsPageDtoPageInfo}
      * @memberof BankTransactionsPageDto
      */
-    pageInfo: ContactsPageEntityPageInfo;
+    pageInfo: ContactsPageDtoPageInfo;
     /**
      * 
      * @type {Array<BankTransactionsPageDtoItemsInner>}
@@ -67,7 +67,7 @@ export function BankTransactionsPageDtoFromJSONTyped(json: any, ignoreDiscrimina
     }
     return {
         
-        'pageInfo': ContactsPageEntityPageInfoFromJSON(json['pageInfo']),
+        'pageInfo': ContactsPageDtoPageInfoFromJSON(json['pageInfo']),
         'items': ((json['items'] as Array<any>).map(BankTransactionsPageDtoItemsInnerFromJSON)),
     };
 }
@@ -83,7 +83,7 @@ export function BankTransactionsPageDtoToJSONTyped(value?: BankTransactionsPageD
 
     return {
         
-        'pageInfo': ContactsPageEntityPageInfoToJSON(value['pageInfo']),
+        'pageInfo': ContactsPageDtoPageInfoToJSON(value['pageInfo']),
         'items': ((value['items'] as Array<any>).map(BankTransactionsPageDtoItemsInnerToJSON)),
     };
 }

@@ -68,7 +68,7 @@ export interface CreateFinancialRecordRequestBodyDtoPopulatedAccount {
      */
     isDefault: boolean;
     /**
-     * Data do saldo inicial.
+     * Data do saldo inicial da conta bancária.
      * @type {any}
      * @memberof CreateFinancialRecordRequestBodyDtoPopulatedAccount
      */

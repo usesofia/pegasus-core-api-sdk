@@ -9,8 +9,8 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import type { ContactsPageDtoPageInfo } from './ContactsPageDtoPageInfo';
 import type { NormalizedSubcategoriesPageEntityItemsInner } from './NormalizedSubcategoriesPageEntityItemsInner';
-import type { ContactsPageEntityPageInfo } from './ContactsPageEntityPageInfo';
 /**
  *
  * @export
@@ -25,10 +25,10 @@ export interface NormalizedSubcategoriesPageEntity {
     items: Array<NormalizedSubcategoriesPageEntityItemsInner>;
     /**
      *
-     * @type {ContactsPageEntityPageInfo}
+     * @type {ContactsPageDtoPageInfo}
      * @memberof NormalizedSubcategoriesPageEntity
      */
-    pageInfo: ContactsPageEntityPageInfo;
+    pageInfo: ContactsPageDtoPageInfo;
 }
 /**
  * Check if a given object implements the NormalizedSubcategoriesPageEntity interface.

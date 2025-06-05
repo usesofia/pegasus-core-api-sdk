@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import type { BankTransactionsPageDtoItemsInner } from './BankTransactionsPageDtoItemsInner';
-import type { ContactsPageEntityPageInfo } from './ContactsPageEntityPageInfo';
+import type { ContactsPageDtoPageInfo } from './ContactsPageDtoPageInfo';
 /**
  *
  * @export
@@ -19,10 +19,10 @@ import type { ContactsPageEntityPageInfo } from './ContactsPageEntityPageInfo';
 export interface BankTransactionsPageDto {
     /**
      *
-     * @type {ContactsPageEntityPageInfo}
+     * @type {ContactsPageDtoPageInfo}
      * @memberof BankTransactionsPageDto
      */
-    pageInfo: ContactsPageEntityPageInfo;
+    pageInfo: ContactsPageDtoPageInfo;
     /**
      *
      * @type {Array<BankTransactionsPageDtoItemsInner>}

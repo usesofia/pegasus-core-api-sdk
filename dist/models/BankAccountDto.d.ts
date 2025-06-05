@@ -64,11 +64,11 @@ export interface BankAccountDto {
      */
     isDefault: boolean;
     /**
-     * Data do saldo inicial.
-     * @type {any}
+     * Data do saldo inicial da conta bancária.
+     * @type {string}
      * @memberof BankAccountDto
      */
-    initialBalanceDate?: any | null;
+    initialBalanceDate?: string | null;
     /**
      *
      * @type {string}

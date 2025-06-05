@@ -62,11 +62,11 @@ export interface PartialUpdateFinancialRecordRequestBodyDto {
      */
     direction?: PartialUpdateFinancialRecordRequestBodyDtoDirectionEnum;
     /**
-     * Data de vencimento.
-     * @type {any}
+     * 
+     * @type {string}
      * @memberof PartialUpdateFinancialRecordRequestBodyDto
      */
-    dueDate?: any | null;
+    dueDate?: string;
     /**
      * Identificador do contato relacionado.
      * @type {string}
@@ -98,11 +98,11 @@ export interface PartialUpdateFinancialRecordRequestBodyDto {
      */
     tags?: Array<string>;
     /**
-     * Data de competência.
-     * @type {any}
+     * 
+     * @type {string}
      * @memberof PartialUpdateFinancialRecordRequestBodyDto
      */
-    competenceDate?: any | null;
+    competenceDate?: string;
     /**
      * Arquivos anexados.
      * @type {Array<string>}
@@ -140,11 +140,11 @@ export interface PartialUpdateFinancialRecordRequestBodyDto {
      */
     completed?: boolean;
     /**
-     * Data de pagamento.
-     * @type {any}
+     * 
+     * @type {string}
      * @memberof PartialUpdateFinancialRecordRequestBodyDto
      */
-    cashDate?: any | null;
+    cashDate?: string;
     /**
      * Identificador da conta.
      * @type {string}

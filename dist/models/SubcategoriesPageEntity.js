@@ -18,7 +18,7 @@ exports.SubcategoriesPageEntityFromJSON = SubcategoriesPageEntityFromJSON;
 exports.SubcategoriesPageEntityFromJSONTyped = SubcategoriesPageEntityFromJSONTyped;
 exports.SubcategoriesPageEntityToJSON = SubcategoriesPageEntityToJSON;
 exports.SubcategoriesPageEntityToJSONTyped = SubcategoriesPageEntityToJSONTyped;
-var ContactsPageEntityPageInfo_1 = require("./ContactsPageEntityPageInfo");
+var ContactsPageDtoPageInfo_1 = require("./ContactsPageDtoPageInfo");
 var SubcategoriesPageEntityItemsInner_1 = require("./SubcategoriesPageEntityItemsInner");
 /**
  * Check if a given object implements the SubcategoriesPageEntity interface.
@@ -39,7 +39,7 @@ function SubcategoriesPageEntityFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'items': (json['items'].map(SubcategoriesPageEntityItemsInner_1.SubcategoriesPageEntityItemsInnerFromJSON)),
-        'pageInfo': (0, ContactsPageEntityPageInfo_1.ContactsPageEntityPageInfoFromJSON)(json['pageInfo']),
+        'pageInfo': (0, ContactsPageDtoPageInfo_1.ContactsPageDtoPageInfoFromJSON)(json['pageInfo']),
     };
 }
 function SubcategoriesPageEntityToJSON(json) {
@@ -52,6 +52,6 @@ function SubcategoriesPageEntityToJSONTyped(value, ignoreDiscriminator) {
     }
     return {
         'items': (value['items'].map(SubcategoriesPageEntityItemsInner_1.SubcategoriesPageEntityItemsInnerToJSON)),
-        'pageInfo': (0, ContactsPageEntityPageInfo_1.ContactsPageEntityPageInfoToJSON)(value['pageInfo']),
+        'pageInfo': (0, ContactsPageDtoPageInfo_1.ContactsPageDtoPageInfoToJSON)(value['pageInfo']),
     };
 }

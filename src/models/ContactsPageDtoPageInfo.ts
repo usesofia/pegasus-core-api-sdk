@@ -16,39 +16,39 @@ import { mapValues } from '../runtime';
 /**
  * 
  * @export
- * @interface ContactsPageEntityPageInfo
+ * @interface ContactsPageDtoPageInfo
  */
-export interface ContactsPageEntityPageInfo {
+export interface ContactsPageDtoPageInfo {
     /**
      * 
      * @type {number}
-     * @memberof ContactsPageEntityPageInfo
+     * @memberof ContactsPageDtoPageInfo
      */
     pageIndex: number;
     /**
      * 
      * @type {number}
-     * @memberof ContactsPageEntityPageInfo
+     * @memberof ContactsPageDtoPageInfo
      */
     pageSize: number;
     /**
      * 
      * @type {number}
-     * @memberof ContactsPageEntityPageInfo
+     * @memberof ContactsPageDtoPageInfo
      */
     totalPages: number;
     /**
      * 
      * @type {number}
-     * @memberof ContactsPageEntityPageInfo
+     * @memberof ContactsPageDtoPageInfo
      */
     totalItems: number;
 }
 
 /**
- * Check if a given object implements the ContactsPageEntityPageInfo interface.
+ * Check if a given object implements the ContactsPageDtoPageInfo interface.
  */
-export function instanceOfContactsPageEntityPageInfo(value: object): value is ContactsPageEntityPageInfo {
+export function instanceOfContactsPageDtoPageInfo(value: object): value is ContactsPageDtoPageInfo {
     if (!('pageIndex' in value) || value['pageIndex'] === undefined) return false;
     if (!('pageSize' in value) || value['pageSize'] === undefined) return false;
     if (!('totalPages' in value) || value['totalPages'] === undefined) return false;
@@ -56,11 +56,11 @@ export function instanceOfContactsPageEntityPageInfo(value: object): value is Co
     return true;
 }
 
-export function ContactsPageEntityPageInfoFromJSON(json: any): ContactsPageEntityPageInfo {
-    return ContactsPageEntityPageInfoFromJSONTyped(json, false);
+export function ContactsPageDtoPageInfoFromJSON(json: any): ContactsPageDtoPageInfo {
+    return ContactsPageDtoPageInfoFromJSONTyped(json, false);
 }
 
-export function ContactsPageEntityPageInfoFromJSONTyped(json: any, ignoreDiscriminator: boolean): ContactsPageEntityPageInfo {
+export function ContactsPageDtoPageInfoFromJSONTyped(json: any, ignoreDiscriminator: boolean): ContactsPageDtoPageInfo {
     if (json == null) {
         return json;
     }
@@ -73,11 +73,11 @@ export function ContactsPageEntityPageInfoFromJSONTyped(json: any, ignoreDiscrim
     };
 }
 
-export function ContactsPageEntityPageInfoToJSON(json: any): ContactsPageEntityPageInfo {
-    return ContactsPageEntityPageInfoToJSONTyped(json, false);
+export function ContactsPageDtoPageInfoToJSON(json: any): ContactsPageDtoPageInfo {
+    return ContactsPageDtoPageInfoToJSONTyped(json, false);
 }
 
-export function ContactsPageEntityPageInfoToJSONTyped(value?: ContactsPageEntityPageInfo | null, ignoreDiscriminator: boolean = false): any {
+export function ContactsPageDtoPageInfoToJSONTyped(value?: ContactsPageDtoPageInfo | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

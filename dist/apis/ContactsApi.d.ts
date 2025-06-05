@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { ContactEntity, ContactOriginItemEntity, ContactTypeItemEntity, ContactsPageEntity, CreateContactRequestBodyDto, PartialUpdateContactRequestBodyDto, RemoveContactRequestBodyDto } from '../models/index';
+import type { ContactDto, ContactOriginItemEntity, ContactTypeItemEntity, ContactsPageDto, CreateContactRequestBodyDto, PartialUpdateContactRequestBodyDto, RemoveContactRequestBodyDto } from '../models/index';
 export interface CreateContactRequest {
     createContactRequestBodyDto: CreateContactRequestBodyDto;
     populate?: string;
@@ -80,11 +80,11 @@ export interface ContactsApiInterface {
      * @throws {RequiredError}
      * @memberof ContactsApiInterface
      */
-    createContactRaw(requestParameters: CreateContactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ContactEntity>>;
+    createContactRaw(requestParameters: CreateContactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ContactDto>>;
     /**
      * Cria um novo contato.
      */
-    createContact(requestParameters: CreateContactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ContactEntity>;
+    createContact(requestParameters: CreateContactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ContactDto>;
     /**
      *
      * @summary Busca todas as origens de contato.
@@ -130,11 +130,11 @@ export interface ContactsApiInterface {
      * @throws {RequiredError}
      * @memberof ContactsApiInterface
      */
-    findAllContactsRaw(requestParameters: FindAllContactsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ContactsPageEntity>>;
+    findAllContactsRaw(requestParameters: FindAllContactsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ContactsPageDto>>;
     /**
      * Busca todos os contatos.
      */
-    findAllContacts(requestParameters: FindAllContactsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ContactsPageEntity>;
+    findAllContacts(requestParameters: FindAllContactsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ContactsPageDto>;
     /**
      *
      * @summary Busca um contato pelo identificador.
@@ -144,11 +144,11 @@ export interface ContactsApiInterface {
      * @throws {RequiredError}
      * @memberof ContactsApiInterface
      */
-    findByIdContactRaw(requestParameters: FindByIdContactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ContactEntity>>;
+    findByIdContactRaw(requestParameters: FindByIdContactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ContactDto>>;
     /**
      * Busca um contato pelo identificador.
      */
-    findByIdContact(requestParameters: FindByIdContactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ContactEntity>;
+    findByIdContact(requestParameters: FindByIdContactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ContactDto>;
     /**
      *
      * @summary Busca o contato não identificado.
@@ -157,11 +157,11 @@ export interface ContactsApiInterface {
      * @throws {RequiredError}
      * @memberof ContactsApiInterface
      */
-    findNotIdentifiedContactRaw(requestParameters: FindNotIdentifiedContactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ContactEntity>>;
+    findNotIdentifiedContactRaw(requestParameters: FindNotIdentifiedContactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ContactDto>>;
     /**
      * Busca o contato não identificado.
      */
-    findNotIdentifiedContact(requestParameters: FindNotIdentifiedContactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ContactEntity>;
+    findNotIdentifiedContact(requestParameters: FindNotIdentifiedContactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ContactDto>;
     /**
      *
      * @summary Atualiza parcialmente um contato.
@@ -172,11 +172,11 @@ export interface ContactsApiInterface {
      * @throws {RequiredError}
      * @memberof ContactsApiInterface
      */
-    partialUpdateContactRaw(requestParameters: PartialUpdateContactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ContactEntity>>;
+    partialUpdateContactRaw(requestParameters: PartialUpdateContactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ContactDto>>;
     /**
      * Atualiza parcialmente um contato.
      */
-    partialUpdateContact(requestParameters: PartialUpdateContactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ContactEntity>;
+    partialUpdateContact(requestParameters: PartialUpdateContactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ContactDto>;
     /**
      *
      * @summary Remove um contato.
@@ -213,11 +213,11 @@ export interface ContactsApiInterface {
      * @throws {RequiredError}
      * @memberof ContactsApiInterface
      */
-    systemFindAllContactsRaw(requestParameters: SystemFindAllContactsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ContactsPageEntity>>;
+    systemFindAllContactsRaw(requestParameters: SystemFindAllContactsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ContactsPageDto>>;
     /**
      * Busca todos os contatos pelo sistema.
      */
-    systemFindAllContacts(requestParameters: SystemFindAllContactsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ContactsPageEntity>;
+    systemFindAllContacts(requestParameters: SystemFindAllContactsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ContactsPageDto>;
 }
 /**
  *
@@ -226,11 +226,11 @@ export declare class ContactsApi extends runtime.BaseAPI implements ContactsApiI
     /**
      * Cria um novo contato.
      */
-    createContactRaw(requestParameters: CreateContactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ContactEntity>>;
+    createContactRaw(requestParameters: CreateContactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ContactDto>>;
     /**
      * Cria um novo contato.
      */
-    createContact(requestParameters: CreateContactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ContactEntity>;
+    createContact(requestParameters: CreateContactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ContactDto>;
     /**
      * Busca todas as origens de contato.
      */
@@ -250,35 +250,35 @@ export declare class ContactsApi extends runtime.BaseAPI implements ContactsApiI
     /**
      * Busca todos os contatos.
      */
-    findAllContactsRaw(requestParameters: FindAllContactsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ContactsPageEntity>>;
+    findAllContactsRaw(requestParameters: FindAllContactsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ContactsPageDto>>;
     /**
      * Busca todos os contatos.
      */
-    findAllContacts(requestParameters?: FindAllContactsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ContactsPageEntity>;
+    findAllContacts(requestParameters?: FindAllContactsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ContactsPageDto>;
     /**
      * Busca um contato pelo identificador.
      */
-    findByIdContactRaw(requestParameters: FindByIdContactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ContactEntity>>;
+    findByIdContactRaw(requestParameters: FindByIdContactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ContactDto>>;
     /**
      * Busca um contato pelo identificador.
      */
-    findByIdContact(requestParameters: FindByIdContactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ContactEntity>;
+    findByIdContact(requestParameters: FindByIdContactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ContactDto>;
     /**
      * Busca o contato não identificado.
      */
-    findNotIdentifiedContactRaw(requestParameters: FindNotIdentifiedContactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ContactEntity>>;
+    findNotIdentifiedContactRaw(requestParameters: FindNotIdentifiedContactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ContactDto>>;
     /**
      * Busca o contato não identificado.
      */
-    findNotIdentifiedContact(requestParameters: FindNotIdentifiedContactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ContactEntity>;
+    findNotIdentifiedContact(requestParameters: FindNotIdentifiedContactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ContactDto>;
     /**
      * Atualiza parcialmente um contato.
      */
-    partialUpdateContactRaw(requestParameters: PartialUpdateContactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ContactEntity>>;
+    partialUpdateContactRaw(requestParameters: PartialUpdateContactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ContactDto>>;
     /**
      * Atualiza parcialmente um contato.
      */
-    partialUpdateContact(requestParameters: PartialUpdateContactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ContactEntity>;
+    partialUpdateContact(requestParameters: PartialUpdateContactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ContactDto>;
     /**
      * Remove um contato.
      */
@@ -290,9 +290,9 @@ export declare class ContactsApi extends runtime.BaseAPI implements ContactsApiI
     /**
      * Busca todos os contatos pelo sistema.
      */
-    systemFindAllContactsRaw(requestParameters: SystemFindAllContactsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ContactsPageEntity>>;
+    systemFindAllContactsRaw(requestParameters: SystemFindAllContactsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ContactsPageDto>>;
     /**
      * Busca todos os contatos pelo sistema.
      */
-    systemFindAllContacts(requestParameters: SystemFindAllContactsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ContactsPageEntity>;
+    systemFindAllContacts(requestParameters: SystemFindAllContactsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ContactsPageDto>;
 }

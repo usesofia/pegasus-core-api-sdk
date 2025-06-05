@@ -162,6 +162,12 @@ export interface PartialUpdateRecurringFinancialRecordRequestBodyDto {
      * @memberof PartialUpdateRecurringFinancialRecordRequestBodyDto
      */
     channel: PartialUpdateRecurringFinancialRecordRequestBodyDtoChannelEnum;
+    /**
+     * 
+     * @type {string}
+     * @memberof PartialUpdateRecurringFinancialRecordRequestBodyDto
+     */
+    firstOccurrenceDate?: string;
 }
 
 
@@ -233,6 +239,7 @@ export function PartialUpdateRecurringFinancialRecordRequestBodyDtoFromJSONTyped
         'populatedFiles': json['populatedFiles'] == null ? undefined : ((json['populatedFiles'] as Array<any>).map(CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerFromJSON)),
         'searchScore': json['searchScore'] == null ? undefined : json['searchScore'],
         'channel': json['channel'],
+        'firstOccurrenceDate': json['firstOccurrenceDate'] == null ? undefined : json['firstOccurrenceDate'],
     };
 }
 
@@ -266,6 +273,7 @@ export function PartialUpdateRecurringFinancialRecordRequestBodyDtoToJSONTyped(v
         'populatedFiles': value['populatedFiles'] == null ? undefined : ((value['populatedFiles'] as Array<any>).map(CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerToJSON)),
         'searchScore': value['searchScore'],
         'channel': value['channel'],
+        'firstOccurrenceDate': value['firstOccurrenceDate'],
     };
 }
 

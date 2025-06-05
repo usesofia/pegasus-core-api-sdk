@@ -13,15 +13,15 @@
  * Do not edit the class manually.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.instanceOfContactsPageEntityPageInfo = instanceOfContactsPageEntityPageInfo;
-exports.ContactsPageEntityPageInfoFromJSON = ContactsPageEntityPageInfoFromJSON;
-exports.ContactsPageEntityPageInfoFromJSONTyped = ContactsPageEntityPageInfoFromJSONTyped;
-exports.ContactsPageEntityPageInfoToJSON = ContactsPageEntityPageInfoToJSON;
-exports.ContactsPageEntityPageInfoToJSONTyped = ContactsPageEntityPageInfoToJSONTyped;
+exports.instanceOfContactsPageDtoPageInfo = instanceOfContactsPageDtoPageInfo;
+exports.ContactsPageDtoPageInfoFromJSON = ContactsPageDtoPageInfoFromJSON;
+exports.ContactsPageDtoPageInfoFromJSONTyped = ContactsPageDtoPageInfoFromJSONTyped;
+exports.ContactsPageDtoPageInfoToJSON = ContactsPageDtoPageInfoToJSON;
+exports.ContactsPageDtoPageInfoToJSONTyped = ContactsPageDtoPageInfoToJSONTyped;
 /**
- * Check if a given object implements the ContactsPageEntityPageInfo interface.
+ * Check if a given object implements the ContactsPageDtoPageInfo interface.
  */
-function instanceOfContactsPageEntityPageInfo(value) {
+function instanceOfContactsPageDtoPageInfo(value) {
     if (!('pageIndex' in value) || value['pageIndex'] === undefined)
         return false;
     if (!('pageSize' in value) || value['pageSize'] === undefined)
@@ -32,10 +32,10 @@ function instanceOfContactsPageEntityPageInfo(value) {
         return false;
     return true;
 }
-function ContactsPageEntityPageInfoFromJSON(json) {
-    return ContactsPageEntityPageInfoFromJSONTyped(json, false);
+function ContactsPageDtoPageInfoFromJSON(json) {
+    return ContactsPageDtoPageInfoFromJSONTyped(json, false);
 }
-function ContactsPageEntityPageInfoFromJSONTyped(json, ignoreDiscriminator) {
+function ContactsPageDtoPageInfoFromJSONTyped(json, ignoreDiscriminator) {
     if (json == null) {
         return json;
     }
@@ -46,10 +46,10 @@ function ContactsPageEntityPageInfoFromJSONTyped(json, ignoreDiscriminator) {
         'totalItems': json['totalItems'],
     };
 }
-function ContactsPageEntityPageInfoToJSON(json) {
-    return ContactsPageEntityPageInfoToJSONTyped(json, false);
+function ContactsPageDtoPageInfoToJSON(json) {
+    return ContactsPageDtoPageInfoToJSONTyped(json, false);
 }
-function ContactsPageEntityPageInfoToJSONTyped(value, ignoreDiscriminator) {
+function ContactsPageDtoPageInfoToJSONTyped(value, ignoreDiscriminator) {
     if (ignoreDiscriminator === void 0) { ignoreDiscriminator = false; }
     if (value == null) {
         return value;

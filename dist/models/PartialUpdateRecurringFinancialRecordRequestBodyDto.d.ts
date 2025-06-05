@@ -133,6 +133,12 @@ export interface PartialUpdateRecurringFinancialRecordRequestBodyDto {
      * @memberof PartialUpdateRecurringFinancialRecordRequestBodyDto
      */
     channel: PartialUpdateRecurringFinancialRecordRequestBodyDtoChannelEnum;
+    /**
+     *
+     * @type {string}
+     * @memberof PartialUpdateRecurringFinancialRecordRequestBodyDto
+     */
+    firstOccurrenceDate?: string;
 }
 /**
  * @export
