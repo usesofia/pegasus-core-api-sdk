@@ -109,7 +109,7 @@ export interface PartialUpdateFinancialRecordRequestBodyDto {
      * @type {string}
      * @memberof PartialUpdateFinancialRecordRequestBodyDto
      */
-    cashDate?: string;
+    cashDate?: string | null;
     /**
      * Identificador da conta.
      * @type {string}
