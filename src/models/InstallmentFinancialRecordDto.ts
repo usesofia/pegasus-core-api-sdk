@@ -27,13 +27,13 @@ import {
     CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerToJSON,
     CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerToJSONTyped,
 } from './CreateFinancialRecordRequestBodyDtoPopulatedTagsInner';
-import type { InstallmentFinancialRecordDtoInstallmentsInner } from './InstallmentFinancialRecordDtoInstallmentsInner';
+import type { CreateInstallmentFinancialRecordRequestBodyDtoInstallmentsInner } from './CreateInstallmentFinancialRecordRequestBodyDtoInstallmentsInner';
 import {
-    InstallmentFinancialRecordDtoInstallmentsInnerFromJSON,
-    InstallmentFinancialRecordDtoInstallmentsInnerFromJSONTyped,
-    InstallmentFinancialRecordDtoInstallmentsInnerToJSON,
-    InstallmentFinancialRecordDtoInstallmentsInnerToJSONTyped,
-} from './InstallmentFinancialRecordDtoInstallmentsInner';
+    CreateInstallmentFinancialRecordRequestBodyDtoInstallmentsInnerFromJSON,
+    CreateInstallmentFinancialRecordRequestBodyDtoInstallmentsInnerFromJSONTyped,
+    CreateInstallmentFinancialRecordRequestBodyDtoInstallmentsInnerToJSON,
+    CreateInstallmentFinancialRecordRequestBodyDtoInstallmentsInnerToJSONTyped,
+} from './CreateInstallmentFinancialRecordRequestBodyDtoInstallmentsInner';
 import type { CreateInstallmentFinancialRecordRequestBodyDtoPopulatedContact } from './CreateInstallmentFinancialRecordRequestBodyDtoPopulatedContact';
 import {
     CreateInstallmentFinancialRecordRequestBodyDtoPopulatedContactFromJSON,
@@ -135,10 +135,10 @@ export interface InstallmentFinancialRecordDto {
     numberOfInstallments: number;
     /**
      * Parcelas do lançamento.
-     * @type {Array<InstallmentFinancialRecordDtoInstallmentsInner>}
+     * @type {Array<CreateInstallmentFinancialRecordRequestBodyDtoInstallmentsInner>}
      * @memberof InstallmentFinancialRecordDto
      */
-    installments: Array<InstallmentFinancialRecordDtoInstallmentsInner>;
+    installments: Array<CreateInstallmentFinancialRecordRequestBodyDtoInstallmentsInner>;
     /**
      * Data de criação do lançamento.
      * @type {any}
@@ -262,7 +262,7 @@ export function InstallmentFinancialRecordDtoFromJSONTyped(json: any, ignoreDisc
         'competenceDate': json['competenceDate'] == null ? undefined : json['competenceDate'],
         'files': json['files'] == null ? undefined : json['files'],
         'numberOfInstallments': json['numberOfInstallments'],
-        'installments': ((json['installments'] as Array<any>).map(InstallmentFinancialRecordDtoInstallmentsInnerFromJSON)),
+        'installments': ((json['installments'] as Array<any>).map(CreateInstallmentFinancialRecordRequestBodyDtoInstallmentsInnerFromJSON)),
         'createdAt': json['createdAt'] == null ? undefined : json['createdAt'],
         'updatedAt': json['updatedAt'] == null ? undefined : json['updatedAt'],
         'searchScore': json['searchScore'] == null ? undefined : json['searchScore'],
@@ -300,7 +300,7 @@ export function InstallmentFinancialRecordDtoToJSONTyped(value?: InstallmentFina
         'competenceDate': value['competenceDate'],
         'files': value['files'],
         'numberOfInstallments': value['numberOfInstallments'],
-        'installments': ((value['installments'] as Array<any>).map(InstallmentFinancialRecordDtoInstallmentsInnerToJSON)),
+        'installments': ((value['installments'] as Array<any>).map(CreateInstallmentFinancialRecordRequestBodyDtoInstallmentsInnerToJSON)),
         'createdAt': value['createdAt'],
         'updatedAt': value['updatedAt'],
         'searchScore': value['searchScore'],

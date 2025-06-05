@@ -21,7 +21,7 @@ exports.InstallmentFinancialRecordDtoToJSON = InstallmentFinancialRecordDtoToJSO
 exports.InstallmentFinancialRecordDtoToJSONTyped = InstallmentFinancialRecordDtoToJSONTyped;
 var CreateFinancialRecordRequestBodyDtoPopulatedFilesInner_1 = require("./CreateFinancialRecordRequestBodyDtoPopulatedFilesInner");
 var CreateFinancialRecordRequestBodyDtoPopulatedTagsInner_1 = require("./CreateFinancialRecordRequestBodyDtoPopulatedTagsInner");
-var InstallmentFinancialRecordDtoInstallmentsInner_1 = require("./InstallmentFinancialRecordDtoInstallmentsInner");
+var CreateInstallmentFinancialRecordRequestBodyDtoInstallmentsInner_1 = require("./CreateInstallmentFinancialRecordRequestBodyDtoInstallmentsInner");
 var CreateInstallmentFinancialRecordRequestBodyDtoPopulatedContact_1 = require("./CreateInstallmentFinancialRecordRequestBodyDtoPopulatedContact");
 var CreateFinancialRecordRequestBodyDtoPopulatedSubcategory_1 = require("./CreateFinancialRecordRequestBodyDtoPopulatedSubcategory");
 /**
@@ -86,7 +86,7 @@ function InstallmentFinancialRecordDtoFromJSONTyped(json, ignoreDiscriminator) {
         'competenceDate': json['competenceDate'] == null ? undefined : json['competenceDate'],
         'files': json['files'] == null ? undefined : json['files'],
         'numberOfInstallments': json['numberOfInstallments'],
-        'installments': (json['installments'].map(InstallmentFinancialRecordDtoInstallmentsInner_1.InstallmentFinancialRecordDtoInstallmentsInnerFromJSON)),
+        'installments': (json['installments'].map(CreateInstallmentFinancialRecordRequestBodyDtoInstallmentsInner_1.CreateInstallmentFinancialRecordRequestBodyDtoInstallmentsInnerFromJSON)),
         'createdAt': json['createdAt'] == null ? undefined : json['createdAt'],
         'updatedAt': json['updatedAt'] == null ? undefined : json['updatedAt'],
         'searchScore': json['searchScore'] == null ? undefined : json['searchScore'],
@@ -121,7 +121,7 @@ function InstallmentFinancialRecordDtoToJSONTyped(value, ignoreDiscriminator) {
         'competenceDate': value['competenceDate'],
         'files': value['files'],
         'numberOfInstallments': value['numberOfInstallments'],
-        'installments': (value['installments'].map(InstallmentFinancialRecordDtoInstallmentsInner_1.InstallmentFinancialRecordDtoInstallmentsInnerToJSON)),
+        'installments': (value['installments'].map(CreateInstallmentFinancialRecordRequestBodyDtoInstallmentsInner_1.CreateInstallmentFinancialRecordRequestBodyDtoInstallmentsInnerToJSON)),
         'createdAt': value['createdAt'],
         'updatedAt': value['updatedAt'],
         'searchScore': value['searchScore'],

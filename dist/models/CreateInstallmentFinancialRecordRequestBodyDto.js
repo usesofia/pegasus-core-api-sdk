@@ -66,8 +66,6 @@ function instanceOfCreateInstallmentFinancialRecordRequestBodyDto(value) {
         return false;
     if (!('numberOfInstallments' in value) || value['numberOfInstallments'] === undefined)
         return false;
-    if (!('installments' in value) || value['installments'] === undefined)
-        return false;
     if (!('channel' in value) || value['channel'] === undefined)
         return false;
     return true;
@@ -96,7 +94,7 @@ function CreateInstallmentFinancialRecordRequestBodyDtoFromJSONTyped(json, ignor
         'populatedContact': json['populatedContact'] == null ? undefined : (0, CreateInstallmentFinancialRecordRequestBodyDtoPopulatedContact_1.CreateInstallmentFinancialRecordRequestBodyDtoPopulatedContactFromJSON)(json['populatedContact']),
         'populatedTags': json['populatedTags'] == null ? undefined : (json['populatedTags'].map(CreateFinancialRecordRequestBodyDtoPopulatedTagsInner_1.CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerFromJSON)),
         'populatedFiles': json['populatedFiles'] == null ? undefined : (json['populatedFiles'].map(CreateFinancialRecordRequestBodyDtoPopulatedFilesInner_1.CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerFromJSON)),
-        'installments': (json['installments'].map(CreateInstallmentFinancialRecordRequestBodyDtoInstallmentsInner_1.CreateInstallmentFinancialRecordRequestBodyDtoInstallmentsInnerFromJSON)),
+        'installments': json['installments'] == null ? undefined : (json['installments'].map(CreateInstallmentFinancialRecordRequestBodyDtoInstallmentsInner_1.CreateInstallmentFinancialRecordRequestBodyDtoInstallmentsInnerFromJSON)),
         'channel': json['channel'],
     };
 }
@@ -125,7 +123,7 @@ function CreateInstallmentFinancialRecordRequestBodyDtoToJSONTyped(value, ignore
         'populatedContact': (0, CreateInstallmentFinancialRecordRequestBodyDtoPopulatedContact_1.CreateInstallmentFinancialRecordRequestBodyDtoPopulatedContactToJSON)(value['populatedContact']),
         'populatedTags': value['populatedTags'] == null ? undefined : (value['populatedTags'].map(CreateFinancialRecordRequestBodyDtoPopulatedTagsInner_1.CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerToJSON)),
         'populatedFiles': value['populatedFiles'] == null ? undefined : (value['populatedFiles'].map(CreateFinancialRecordRequestBodyDtoPopulatedFilesInner_1.CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerToJSON)),
-        'installments': (value['installments'].map(CreateInstallmentFinancialRecordRequestBodyDtoInstallmentsInner_1.CreateInstallmentFinancialRecordRequestBodyDtoInstallmentsInnerToJSON)),
+        'installments': value['installments'] == null ? undefined : (value['installments'].map(CreateInstallmentFinancialRecordRequestBodyDtoInstallmentsInner_1.CreateInstallmentFinancialRecordRequestBodyDtoInstallmentsInnerToJSON)),
         'channel': value['channel'],
     };
 }

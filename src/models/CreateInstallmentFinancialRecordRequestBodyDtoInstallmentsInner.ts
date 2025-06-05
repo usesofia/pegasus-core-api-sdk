@@ -27,10 +27,10 @@ export interface CreateInstallmentFinancialRecordRequestBodyDtoInstallmentsInner
     dueDate: string;
     /**
      * Valor da parcela.
-     * @type {number}
+     * @type {string}
      * @memberof CreateInstallmentFinancialRecordRequestBodyDtoInstallmentsInner
      */
-    amount: number;
+    amount: string;
     /**
      * Descrição personalizada da parcela.
      * @type {string}

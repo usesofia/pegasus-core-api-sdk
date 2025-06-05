@@ -121,7 +121,7 @@ export interface CreateInstallmentFinancialRecordRequestBodyDto {
      * @type {Array<CreateInstallmentFinancialRecordRequestBodyDtoInstallmentsInner>}
      * @memberof CreateInstallmentFinancialRecordRequestBodyDto
      */
-    installments: Array<CreateInstallmentFinancialRecordRequestBodyDtoInstallmentsInner>;
+    installments?: Array<CreateInstallmentFinancialRecordRequestBodyDtoInstallmentsInner>;
     /**
      * Canal de origem da operação
      * @type {string}
