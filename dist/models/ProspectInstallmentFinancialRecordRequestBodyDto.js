@@ -13,24 +13,12 @@
  * Do not edit the class manually.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ProspectInstallmentFinancialRecordRequestBodyDtoChannelEnum = exports.ProspectInstallmentFinancialRecordRequestBodyDtoFrequencyEnum = exports.ProspectInstallmentFinancialRecordRequestBodyDtoDirectionEnum = void 0;
+exports.ProspectInstallmentFinancialRecordRequestBodyDtoFrequencyEnum = void 0;
 exports.instanceOfProspectInstallmentFinancialRecordRequestBodyDto = instanceOfProspectInstallmentFinancialRecordRequestBodyDto;
 exports.ProspectInstallmentFinancialRecordRequestBodyDtoFromJSON = ProspectInstallmentFinancialRecordRequestBodyDtoFromJSON;
 exports.ProspectInstallmentFinancialRecordRequestBodyDtoFromJSONTyped = ProspectInstallmentFinancialRecordRequestBodyDtoFromJSONTyped;
 exports.ProspectInstallmentFinancialRecordRequestBodyDtoToJSON = ProspectInstallmentFinancialRecordRequestBodyDtoToJSON;
 exports.ProspectInstallmentFinancialRecordRequestBodyDtoToJSONTyped = ProspectInstallmentFinancialRecordRequestBodyDtoToJSONTyped;
-var CreateFinancialRecordRequestBodyDtoPopulatedFilesInner_1 = require("./CreateFinancialRecordRequestBodyDtoPopulatedFilesInner");
-var PartialUpdateInstallmentFinancialRecordRequestBodyDtoInstallmentsInner_1 = require("./PartialUpdateInstallmentFinancialRecordRequestBodyDtoInstallmentsInner");
-var CreateFinancialRecordRequestBodyDtoPopulatedTagsInner_1 = require("./CreateFinancialRecordRequestBodyDtoPopulatedTagsInner");
-var CreateInstallmentFinancialRecordRequestBodyDtoPopulatedContact_1 = require("./CreateInstallmentFinancialRecordRequestBodyDtoPopulatedContact");
-var CreateFinancialRecordRequestBodyDtoPopulatedSubcategory_1 = require("./CreateFinancialRecordRequestBodyDtoPopulatedSubcategory");
-/**
- * @export
- */
-exports.ProspectInstallmentFinancialRecordRequestBodyDtoDirectionEnum = {
-    Income: 'INCOME',
-    Outcome: 'OUTCOME'
-};
 /**
  * @export
  */
@@ -40,35 +28,16 @@ exports.ProspectInstallmentFinancialRecordRequestBodyDtoFrequencyEnum = {
     Yearly: 'YEARLY'
 };
 /**
- * @export
- */
-exports.ProspectInstallmentFinancialRecordRequestBodyDtoChannelEnum = {
-    WebApp: 'WEB_APP',
-    Whatsapp: 'WHATSAPP',
-    System: 'SYSTEM',
-    Email: 'EMAIL'
-};
-/**
  * Check if a given object implements the ProspectInstallmentFinancialRecordRequestBodyDto interface.
  */
 function instanceOfProspectInstallmentFinancialRecordRequestBodyDto(value) {
-    if (!('direction' in value) || value['direction'] === undefined)
-        return false;
     if (!('frequency' in value) || value['frequency'] === undefined)
         return false;
     if (!('firstInstallmentDate' in value) || value['firstInstallmentDate'] === undefined)
         return false;
-    if (!('description' in value) || value['description'] === undefined)
-        return false;
-    if (!('subcategory' in value) || value['subcategory'] === undefined)
-        return false;
     if (!('amount' in value) || value['amount'] === undefined)
         return false;
     if (!('numberOfInstallments' in value) || value['numberOfInstallments'] === undefined)
-        return false;
-    if (!('installments' in value) || value['installments'] === undefined)
-        return false;
-    if (!('channel' in value) || value['channel'] === undefined)
         return false;
     return true;
 }
@@ -80,24 +49,10 @@ function ProspectInstallmentFinancialRecordRequestBodyDtoFromJSONTyped(json, ign
         return json;
     }
     return {
-        'direction': json['direction'],
         'frequency': json['frequency'],
         'firstInstallmentDate': json['firstInstallmentDate'],
-        'contact': json['contact'] == null ? undefined : json['contact'],
-        'description': json['description'],
-        'subcategory': json['subcategory'],
         'amount': json['amount'],
-        'tags': json['tags'] == null ? undefined : json['tags'],
-        'competenceDate': json['competenceDate'] == null ? undefined : json['competenceDate'],
-        'files': json['files'] == null ? undefined : json['files'],
         'numberOfInstallments': json['numberOfInstallments'],
-        'searchScore': json['searchScore'] == null ? undefined : json['searchScore'],
-        'populatedSubcategory': json['populatedSubcategory'] == null ? undefined : (0, CreateFinancialRecordRequestBodyDtoPopulatedSubcategory_1.CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryFromJSON)(json['populatedSubcategory']),
-        'populatedContact': json['populatedContact'] == null ? undefined : (0, CreateInstallmentFinancialRecordRequestBodyDtoPopulatedContact_1.CreateInstallmentFinancialRecordRequestBodyDtoPopulatedContactFromJSON)(json['populatedContact']),
-        'populatedTags': json['populatedTags'] == null ? undefined : (json['populatedTags'].map(CreateFinancialRecordRequestBodyDtoPopulatedTagsInner_1.CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerFromJSON)),
-        'populatedFiles': json['populatedFiles'] == null ? undefined : (json['populatedFiles'].map(CreateFinancialRecordRequestBodyDtoPopulatedFilesInner_1.CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerFromJSON)),
-        'installments': (json['installments'].map(PartialUpdateInstallmentFinancialRecordRequestBodyDtoInstallmentsInner_1.PartialUpdateInstallmentFinancialRecordRequestBodyDtoInstallmentsInnerFromJSON)),
-        'channel': json['channel'],
     };
 }
 function ProspectInstallmentFinancialRecordRequestBodyDtoToJSON(json) {
@@ -109,23 +64,9 @@ function ProspectInstallmentFinancialRecordRequestBodyDtoToJSONTyped(value, igno
         return value;
     }
     return {
-        'direction': value['direction'],
         'frequency': value['frequency'],
         'firstInstallmentDate': value['firstInstallmentDate'],
-        'contact': value['contact'],
-        'description': value['description'],
-        'subcategory': value['subcategory'],
         'amount': value['amount'],
-        'tags': value['tags'],
-        'competenceDate': value['competenceDate'],
-        'files': value['files'],
         'numberOfInstallments': value['numberOfInstallments'],
-        'searchScore': value['searchScore'],
-        'populatedSubcategory': (0, CreateFinancialRecordRequestBodyDtoPopulatedSubcategory_1.CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryToJSON)(value['populatedSubcategory']),
-        'populatedContact': (0, CreateInstallmentFinancialRecordRequestBodyDtoPopulatedContact_1.CreateInstallmentFinancialRecordRequestBodyDtoPopulatedContactToJSON)(value['populatedContact']),
-        'populatedTags': value['populatedTags'] == null ? undefined : (value['populatedTags'].map(CreateFinancialRecordRequestBodyDtoPopulatedTagsInner_1.CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerToJSON)),
-        'populatedFiles': value['populatedFiles'] == null ? undefined : (value['populatedFiles'].map(CreateFinancialRecordRequestBodyDtoPopulatedFilesInner_1.CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerToJSON)),
-        'installments': (value['installments'].map(PartialUpdateInstallmentFinancialRecordRequestBodyDtoInstallmentsInner_1.PartialUpdateInstallmentFinancialRecordRequestBodyDtoInstallmentsInnerToJSON)),
-        'channel': value['channel'],
     };
 }

@@ -16,14 +16,14 @@
 import * as runtime from '../runtime';
 import type {
   ExceptionResponseEntity,
-  ProspectFinancialRecordDto,
+  InstallmentDefinitionDto,
   ProspectInstallmentFinancialRecordRequestBodyDto,
 } from '../models/index';
 import {
     ExceptionResponseEntityFromJSON,
     ExceptionResponseEntityToJSON,
-    ProspectFinancialRecordDtoFromJSON,
-    ProspectFinancialRecordDtoToJSON,
+    InstallmentDefinitionDtoFromJSON,
+    InstallmentDefinitionDtoToJSON,
     ProspectInstallmentFinancialRecordRequestBodyDtoFromJSON,
     ProspectInstallmentFinancialRecordRequestBodyDtoToJSON,
 } from '../models/index';
@@ -47,12 +47,12 @@ export interface ProspectInstallmentFinancialRecordsApiInterface {
      * @throws {RequiredError}
      * @memberof ProspectInstallmentFinancialRecordsApiInterface
      */
-    prospectInstallmentFinancialRecordRaw(requestParameters: ProspectInstallmentFinancialRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<ProspectFinancialRecordDto>>>;
+    prospectInstallmentFinancialRecordRaw(requestParameters: ProspectInstallmentFinancialRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<InstallmentDefinitionDto>>>;
 
     /**
      * Simula os lançamentos únicos que serão criados para um lançamento financeiro parcelado.
      */
-    prospectInstallmentFinancialRecord(requestParameters: ProspectInstallmentFinancialRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<ProspectFinancialRecordDto>>;
+    prospectInstallmentFinancialRecord(requestParameters: ProspectInstallmentFinancialRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<InstallmentDefinitionDto>>;
 
 }
 
@@ -64,7 +64,7 @@ export class ProspectInstallmentFinancialRecordsApi extends runtime.BaseAPI impl
     /**
      * Simula os lançamentos únicos que serão criados para um lançamento financeiro parcelado.
      */
-    async prospectInstallmentFinancialRecordRaw(requestParameters: ProspectInstallmentFinancialRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<ProspectFinancialRecordDto>>> {
+    async prospectInstallmentFinancialRecordRaw(requestParameters: ProspectInstallmentFinancialRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<InstallmentDefinitionDto>>> {
         if (requestParameters['prospectInstallmentFinancialRecordRequestBodyDto'] == null) {
             throw new runtime.RequiredError(
                 'prospectInstallmentFinancialRecordRequestBodyDto',
@@ -86,13 +86,13 @@ export class ProspectInstallmentFinancialRecordsApi extends runtime.BaseAPI impl
             body: ProspectInstallmentFinancialRecordRequestBodyDtoToJSON(requestParameters['prospectInstallmentFinancialRecordRequestBodyDto']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(ProspectFinancialRecordDtoFromJSON));
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(InstallmentDefinitionDtoFromJSON));
     }
 
     /**
      * Simula os lançamentos únicos que serão criados para um lançamento financeiro parcelado.
      */
-    async prospectInstallmentFinancialRecord(requestParameters: ProspectInstallmentFinancialRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<ProspectFinancialRecordDto>> {
+    async prospectInstallmentFinancialRecord(requestParameters: ProspectInstallmentFinancialRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<InstallmentDefinitionDto>> {
         const response = await this.prospectInstallmentFinancialRecordRaw(requestParameters, initOverrides);
         return await response.value();
     }

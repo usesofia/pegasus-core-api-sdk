@@ -13,54 +13,12 @@
  */
 
 import { mapValues } from '../runtime';
-import type { CreateFinancialRecordRequestBodyDtoPopulatedFilesInner } from './CreateFinancialRecordRequestBodyDtoPopulatedFilesInner';
-import {
-    CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerFromJSON,
-    CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerFromJSONTyped,
-    CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerToJSON,
-    CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerToJSONTyped,
-} from './CreateFinancialRecordRequestBodyDtoPopulatedFilesInner';
-import type { PartialUpdateInstallmentFinancialRecordRequestBodyDtoInstallmentsInner } from './PartialUpdateInstallmentFinancialRecordRequestBodyDtoInstallmentsInner';
-import {
-    PartialUpdateInstallmentFinancialRecordRequestBodyDtoInstallmentsInnerFromJSON,
-    PartialUpdateInstallmentFinancialRecordRequestBodyDtoInstallmentsInnerFromJSONTyped,
-    PartialUpdateInstallmentFinancialRecordRequestBodyDtoInstallmentsInnerToJSON,
-    PartialUpdateInstallmentFinancialRecordRequestBodyDtoInstallmentsInnerToJSONTyped,
-} from './PartialUpdateInstallmentFinancialRecordRequestBodyDtoInstallmentsInner';
-import type { CreateFinancialRecordRequestBodyDtoPopulatedTagsInner } from './CreateFinancialRecordRequestBodyDtoPopulatedTagsInner';
-import {
-    CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerFromJSON,
-    CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerFromJSONTyped,
-    CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerToJSON,
-    CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerToJSONTyped,
-} from './CreateFinancialRecordRequestBodyDtoPopulatedTagsInner';
-import type { CreateInstallmentFinancialRecordRequestBodyDtoPopulatedContact } from './CreateInstallmentFinancialRecordRequestBodyDtoPopulatedContact';
-import {
-    CreateInstallmentFinancialRecordRequestBodyDtoPopulatedContactFromJSON,
-    CreateInstallmentFinancialRecordRequestBodyDtoPopulatedContactFromJSONTyped,
-    CreateInstallmentFinancialRecordRequestBodyDtoPopulatedContactToJSON,
-    CreateInstallmentFinancialRecordRequestBodyDtoPopulatedContactToJSONTyped,
-} from './CreateInstallmentFinancialRecordRequestBodyDtoPopulatedContact';
-import type { CreateFinancialRecordRequestBodyDtoPopulatedSubcategory } from './CreateFinancialRecordRequestBodyDtoPopulatedSubcategory';
-import {
-    CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryFromJSON,
-    CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryFromJSONTyped,
-    CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryToJSON,
-    CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryToJSONTyped,
-} from './CreateFinancialRecordRequestBodyDtoPopulatedSubcategory';
-
 /**
  * 
  * @export
  * @interface ProspectInstallmentFinancialRecordRequestBodyDto
  */
 export interface ProspectInstallmentFinancialRecordRequestBodyDto {
-    /**
-     * Direção do lançamento (entrada/saída).
-     * @type {string}
-     * @memberof ProspectInstallmentFinancialRecordRequestBodyDto
-     */
-    direction: ProspectInstallmentFinancialRecordRequestBodyDtoDirectionEnum;
     /**
      * Frequência do lançamento.
      * @type {string}
@@ -69,111 +27,24 @@ export interface ProspectInstallmentFinancialRecordRequestBodyDto {
     frequency: ProspectInstallmentFinancialRecordRequestBodyDtoFrequencyEnum;
     /**
      * Data de vencimento.
-     * @type {any}
-     * @memberof ProspectInstallmentFinancialRecordRequestBodyDto
-     */
-    firstInstallmentDate: any | null;
-    /**
-     * Identificador do contato relacionado.
      * @type {string}
      * @memberof ProspectInstallmentFinancialRecordRequestBodyDto
      */
-    contact?: string;
-    /**
-     * Descrição do lançamento.
-     * @type {string}
-     * @memberof ProspectInstallmentFinancialRecordRequestBodyDto
-     */
-    description: string;
-    /**
-     * Identificador da subcategoria.
-     * @type {string}
-     * @memberof ProspectInstallmentFinancialRecordRequestBodyDto
-     */
-    subcategory: string;
+    firstInstallmentDate: string;
     /**
      * Valor do lançamento.
-     * @type {number}
+     * @type {string}
      * @memberof ProspectInstallmentFinancialRecordRequestBodyDto
      */
-    amount: number;
-    /**
-     * Tags relacionadas.
-     * @type {Array<string>}
-     * @memberof ProspectInstallmentFinancialRecordRequestBodyDto
-     */
-    tags?: Array<string>;
-    /**
-     * Data de competência.
-     * @type {any}
-     * @memberof ProspectInstallmentFinancialRecordRequestBodyDto
-     */
-    competenceDate?: any | null;
-    /**
-     * Arquivos anexados.
-     * @type {Array<string>}
-     * @memberof ProspectInstallmentFinancialRecordRequestBodyDto
-     */
-    files?: Array<string>;
+    amount: string;
     /**
      * Número de parcelas.
      * @type {number}
      * @memberof ProspectInstallmentFinancialRecordRequestBodyDto
      */
     numberOfInstallments: number;
-    /**
-     * Pontuação de busca do lançamento.
-     * @type {number}
-     * @memberof ProspectInstallmentFinancialRecordRequestBodyDto
-     */
-    searchScore?: number | null;
-    /**
-     * 
-     * @type {CreateFinancialRecordRequestBodyDtoPopulatedSubcategory}
-     * @memberof ProspectInstallmentFinancialRecordRequestBodyDto
-     */
-    populatedSubcategory?: CreateFinancialRecordRequestBodyDtoPopulatedSubcategory | null;
-    /**
-     * 
-     * @type {CreateInstallmentFinancialRecordRequestBodyDtoPopulatedContact}
-     * @memberof ProspectInstallmentFinancialRecordRequestBodyDto
-     */
-    populatedContact?: CreateInstallmentFinancialRecordRequestBodyDtoPopulatedContact | null;
-    /**
-     * Tags relacionadas.
-     * @type {Array<CreateFinancialRecordRequestBodyDtoPopulatedTagsInner>}
-     * @memberof ProspectInstallmentFinancialRecordRequestBodyDto
-     */
-    populatedTags?: Array<CreateFinancialRecordRequestBodyDtoPopulatedTagsInner> | null;
-    /**
-     * Arquivos anexados.
-     * @type {Array<CreateFinancialRecordRequestBodyDtoPopulatedFilesInner>}
-     * @memberof ProspectInstallmentFinancialRecordRequestBodyDto
-     */
-    populatedFiles?: Array<CreateFinancialRecordRequestBodyDtoPopulatedFilesInner>;
-    /**
-     * Parcelas do lançamento.
-     * @type {Array<PartialUpdateInstallmentFinancialRecordRequestBodyDtoInstallmentsInner>}
-     * @memberof ProspectInstallmentFinancialRecordRequestBodyDto
-     */
-    installments: Array<PartialUpdateInstallmentFinancialRecordRequestBodyDtoInstallmentsInner>;
-    /**
-     * Canal de origem da operação
-     * @type {string}
-     * @memberof ProspectInstallmentFinancialRecordRequestBodyDto
-     */
-    channel: ProspectInstallmentFinancialRecordRequestBodyDtoChannelEnum;
 }
 
-
-/**
- * @export
- */
-export const ProspectInstallmentFinancialRecordRequestBodyDtoDirectionEnum = {
-    Income: 'INCOME',
-    Outcome: 'OUTCOME'
-} as const;
-export type ProspectInstallmentFinancialRecordRequestBodyDtoDirectionEnum = typeof ProspectInstallmentFinancialRecordRequestBodyDtoDirectionEnum[keyof typeof ProspectInstallmentFinancialRecordRequestBodyDtoDirectionEnum];
 
 /**
  * @export
@@ -185,31 +56,15 @@ export const ProspectInstallmentFinancialRecordRequestBodyDtoFrequencyEnum = {
 } as const;
 export type ProspectInstallmentFinancialRecordRequestBodyDtoFrequencyEnum = typeof ProspectInstallmentFinancialRecordRequestBodyDtoFrequencyEnum[keyof typeof ProspectInstallmentFinancialRecordRequestBodyDtoFrequencyEnum];
 
-/**
- * @export
- */
-export const ProspectInstallmentFinancialRecordRequestBodyDtoChannelEnum = {
-    WebApp: 'WEB_APP',
-    Whatsapp: 'WHATSAPP',
-    System: 'SYSTEM',
-    Email: 'EMAIL'
-} as const;
-export type ProspectInstallmentFinancialRecordRequestBodyDtoChannelEnum = typeof ProspectInstallmentFinancialRecordRequestBodyDtoChannelEnum[keyof typeof ProspectInstallmentFinancialRecordRequestBodyDtoChannelEnum];
-
 
 /**
  * Check if a given object implements the ProspectInstallmentFinancialRecordRequestBodyDto interface.
  */
 export function instanceOfProspectInstallmentFinancialRecordRequestBodyDto(value: object): value is ProspectInstallmentFinancialRecordRequestBodyDto {
-    if (!('direction' in value) || value['direction'] === undefined) return false;
     if (!('frequency' in value) || value['frequency'] === undefined) return false;
     if (!('firstInstallmentDate' in value) || value['firstInstallmentDate'] === undefined) return false;
-    if (!('description' in value) || value['description'] === undefined) return false;
-    if (!('subcategory' in value) || value['subcategory'] === undefined) return false;
     if (!('amount' in value) || value['amount'] === undefined) return false;
     if (!('numberOfInstallments' in value) || value['numberOfInstallments'] === undefined) return false;
-    if (!('installments' in value) || value['installments'] === undefined) return false;
-    if (!('channel' in value) || value['channel'] === undefined) return false;
     return true;
 }
 
@@ -223,24 +78,10 @@ export function ProspectInstallmentFinancialRecordRequestBodyDtoFromJSONTyped(js
     }
     return {
         
-        'direction': json['direction'],
         'frequency': json['frequency'],
         'firstInstallmentDate': json['firstInstallmentDate'],
-        'contact': json['contact'] == null ? undefined : json['contact'],
-        'description': json['description'],
-        'subcategory': json['subcategory'],
         'amount': json['amount'],
-        'tags': json['tags'] == null ? undefined : json['tags'],
-        'competenceDate': json['competenceDate'] == null ? undefined : json['competenceDate'],
-        'files': json['files'] == null ? undefined : json['files'],
         'numberOfInstallments': json['numberOfInstallments'],
-        'searchScore': json['searchScore'] == null ? undefined : json['searchScore'],
-        'populatedSubcategory': json['populatedSubcategory'] == null ? undefined : CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryFromJSON(json['populatedSubcategory']),
-        'populatedContact': json['populatedContact'] == null ? undefined : CreateInstallmentFinancialRecordRequestBodyDtoPopulatedContactFromJSON(json['populatedContact']),
-        'populatedTags': json['populatedTags'] == null ? undefined : ((json['populatedTags'] as Array<any>).map(CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerFromJSON)),
-        'populatedFiles': json['populatedFiles'] == null ? undefined : ((json['populatedFiles'] as Array<any>).map(CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerFromJSON)),
-        'installments': ((json['installments'] as Array<any>).map(PartialUpdateInstallmentFinancialRecordRequestBodyDtoInstallmentsInnerFromJSON)),
-        'channel': json['channel'],
     };
 }
 
@@ -255,24 +96,10 @@ export function ProspectInstallmentFinancialRecordRequestBodyDtoToJSONTyped(valu
 
     return {
         
-        'direction': value['direction'],
         'frequency': value['frequency'],
         'firstInstallmentDate': value['firstInstallmentDate'],
-        'contact': value['contact'],
-        'description': value['description'],
-        'subcategory': value['subcategory'],
         'amount': value['amount'],
-        'tags': value['tags'],
-        'competenceDate': value['competenceDate'],
-        'files': value['files'],
         'numberOfInstallments': value['numberOfInstallments'],
-        'searchScore': value['searchScore'],
-        'populatedSubcategory': CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryToJSON(value['populatedSubcategory']),
-        'populatedContact': CreateInstallmentFinancialRecordRequestBodyDtoPopulatedContactToJSON(value['populatedContact']),
-        'populatedTags': value['populatedTags'] == null ? undefined : ((value['populatedTags'] as Array<any>).map(CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerToJSON)),
-        'populatedFiles': value['populatedFiles'] == null ? undefined : ((value['populatedFiles'] as Array<any>).map(CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerToJSON)),
-        'installments': ((value['installments'] as Array<any>).map(PartialUpdateInstallmentFinancialRecordRequestBodyDtoInstallmentsInnerToJSON)),
-        'channel': value['channel'],
     };
 }
 

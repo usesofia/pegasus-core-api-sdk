@@ -111,6 +111,7 @@ export * from './InboxRecordEntitySubsequentInboxRecordsInner';
 export * from './InboxRecordEntitySubsequentInboxRecordsInnerBestSuggestedAction';
 export * from './InboxRecordEntitySubsequentInboxRecordsInnerEmailMessageData';
 export * from './InboxRecordEntitySubsequentInboxRecordsInnerWhatsappMessageData';
+export * from './InstallmentDefinitionDto';
 export * from './InstallmentFinancialRecordDto';
 export * from './InstallmentFinancialRecordDtoInstallmentsInner';
 export * from './InstallmentFinancialRecordsPageDto';

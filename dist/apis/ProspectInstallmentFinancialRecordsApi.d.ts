@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { ProspectFinancialRecordDto, ProspectInstallmentFinancialRecordRequestBodyDto } from '../models/index';
+import type { InstallmentDefinitionDto, ProspectInstallmentFinancialRecordRequestBodyDto } from '../models/index';
 export interface ProspectInstallmentFinancialRecordRequest {
     prospectInstallmentFinancialRecordRequestBodyDto: ProspectInstallmentFinancialRecordRequestBodyDto;
 }
@@ -29,11 +29,11 @@ export interface ProspectInstallmentFinancialRecordsApiInterface {
      * @throws {RequiredError}
      * @memberof ProspectInstallmentFinancialRecordsApiInterface
      */
-    prospectInstallmentFinancialRecordRaw(requestParameters: ProspectInstallmentFinancialRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<ProspectFinancialRecordDto>>>;
+    prospectInstallmentFinancialRecordRaw(requestParameters: ProspectInstallmentFinancialRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<InstallmentDefinitionDto>>>;
     /**
      * Simula os lançamentos únicos que serão criados para um lançamento financeiro parcelado.
      */
-    prospectInstallmentFinancialRecord(requestParameters: ProspectInstallmentFinancialRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<ProspectFinancialRecordDto>>;
+    prospectInstallmentFinancialRecord(requestParameters: ProspectInstallmentFinancialRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<InstallmentDefinitionDto>>;
 }
 /**
  *
@@ -42,9 +42,9 @@ export declare class ProspectInstallmentFinancialRecordsApi extends runtime.Base
     /**
      * Simula os lançamentos únicos que serão criados para um lançamento financeiro parcelado.
      */
-    prospectInstallmentFinancialRecordRaw(requestParameters: ProspectInstallmentFinancialRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<ProspectFinancialRecordDto>>>;
+    prospectInstallmentFinancialRecordRaw(requestParameters: ProspectInstallmentFinancialRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<InstallmentDefinitionDto>>>;
     /**
      * Simula os lançamentos únicos que serão criados para um lançamento financeiro parcelado.
      */
-    prospectInstallmentFinancialRecord(requestParameters: ProspectInstallmentFinancialRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<ProspectFinancialRecordDto>>;
+    prospectInstallmentFinancialRecord(requestParameters: ProspectInstallmentFinancialRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<InstallmentDefinitionDto>>;
 }

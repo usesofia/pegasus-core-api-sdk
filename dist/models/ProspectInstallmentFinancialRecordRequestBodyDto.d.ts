@@ -9,23 +9,12 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CreateFinancialRecordRequestBodyDtoPopulatedFilesInner } from './CreateFinancialRecordRequestBodyDtoPopulatedFilesInner';
-import type { PartialUpdateInstallmentFinancialRecordRequestBodyDtoInstallmentsInner } from './PartialUpdateInstallmentFinancialRecordRequestBodyDtoInstallmentsInner';
-import type { CreateFinancialRecordRequestBodyDtoPopulatedTagsInner } from './CreateFinancialRecordRequestBodyDtoPopulatedTagsInner';
-import type { CreateInstallmentFinancialRecordRequestBodyDtoPopulatedContact } from './CreateInstallmentFinancialRecordRequestBodyDtoPopulatedContact';
-import type { CreateFinancialRecordRequestBodyDtoPopulatedSubcategory } from './CreateFinancialRecordRequestBodyDtoPopulatedSubcategory';
 /**
  *
  * @export
  * @interface ProspectInstallmentFinancialRecordRequestBodyDto
  */
 export interface ProspectInstallmentFinancialRecordRequestBodyDto {
-    /**
-     * Direção do lançamento (entrada/saída).
-     * @type {string}
-     * @memberof ProspectInstallmentFinancialRecordRequestBodyDto
-     */
-    direction: ProspectInstallmentFinancialRecordRequestBodyDtoDirectionEnum;
     /**
      * Frequência do lançamento.
      * @type {string}
@@ -34,109 +23,23 @@ export interface ProspectInstallmentFinancialRecordRequestBodyDto {
     frequency: ProspectInstallmentFinancialRecordRequestBodyDtoFrequencyEnum;
     /**
      * Data de vencimento.
-     * @type {any}
-     * @memberof ProspectInstallmentFinancialRecordRequestBodyDto
-     */
-    firstInstallmentDate: any | null;
-    /**
-     * Identificador do contato relacionado.
      * @type {string}
      * @memberof ProspectInstallmentFinancialRecordRequestBodyDto
      */
-    contact?: string;
-    /**
-     * Descrição do lançamento.
-     * @type {string}
-     * @memberof ProspectInstallmentFinancialRecordRequestBodyDto
-     */
-    description: string;
-    /**
-     * Identificador da subcategoria.
-     * @type {string}
-     * @memberof ProspectInstallmentFinancialRecordRequestBodyDto
-     */
-    subcategory: string;
+    firstInstallmentDate: string;
     /**
      * Valor do lançamento.
-     * @type {number}
+     * @type {string}
      * @memberof ProspectInstallmentFinancialRecordRequestBodyDto
      */
-    amount: number;
-    /**
-     * Tags relacionadas.
-     * @type {Array<string>}
-     * @memberof ProspectInstallmentFinancialRecordRequestBodyDto
-     */
-    tags?: Array<string>;
-    /**
-     * Data de competência.
-     * @type {any}
-     * @memberof ProspectInstallmentFinancialRecordRequestBodyDto
-     */
-    competenceDate?: any | null;
-    /**
-     * Arquivos anexados.
-     * @type {Array<string>}
-     * @memberof ProspectInstallmentFinancialRecordRequestBodyDto
-     */
-    files?: Array<string>;
+    amount: string;
     /**
      * Número de parcelas.
      * @type {number}
      * @memberof ProspectInstallmentFinancialRecordRequestBodyDto
      */
     numberOfInstallments: number;
-    /**
-     * Pontuação de busca do lançamento.
-     * @type {number}
-     * @memberof ProspectInstallmentFinancialRecordRequestBodyDto
-     */
-    searchScore?: number | null;
-    /**
-     *
-     * @type {CreateFinancialRecordRequestBodyDtoPopulatedSubcategory}
-     * @memberof ProspectInstallmentFinancialRecordRequestBodyDto
-     */
-    populatedSubcategory?: CreateFinancialRecordRequestBodyDtoPopulatedSubcategory | null;
-    /**
-     *
-     * @type {CreateInstallmentFinancialRecordRequestBodyDtoPopulatedContact}
-     * @memberof ProspectInstallmentFinancialRecordRequestBodyDto
-     */
-    populatedContact?: CreateInstallmentFinancialRecordRequestBodyDtoPopulatedContact | null;
-    /**
-     * Tags relacionadas.
-     * @type {Array<CreateFinancialRecordRequestBodyDtoPopulatedTagsInner>}
-     * @memberof ProspectInstallmentFinancialRecordRequestBodyDto
-     */
-    populatedTags?: Array<CreateFinancialRecordRequestBodyDtoPopulatedTagsInner> | null;
-    /**
-     * Arquivos anexados.
-     * @type {Array<CreateFinancialRecordRequestBodyDtoPopulatedFilesInner>}
-     * @memberof ProspectInstallmentFinancialRecordRequestBodyDto
-     */
-    populatedFiles?: Array<CreateFinancialRecordRequestBodyDtoPopulatedFilesInner>;
-    /**
-     * Parcelas do lançamento.
-     * @type {Array<PartialUpdateInstallmentFinancialRecordRequestBodyDtoInstallmentsInner>}
-     * @memberof ProspectInstallmentFinancialRecordRequestBodyDto
-     */
-    installments: Array<PartialUpdateInstallmentFinancialRecordRequestBodyDtoInstallmentsInner>;
-    /**
-     * Canal de origem da operação
-     * @type {string}
-     * @memberof ProspectInstallmentFinancialRecordRequestBodyDto
-     */
-    channel: ProspectInstallmentFinancialRecordRequestBodyDtoChannelEnum;
 }
-/**
- * @export
- */
-export declare const ProspectInstallmentFinancialRecordRequestBodyDtoDirectionEnum: {
-    readonly Income: "INCOME";
-    readonly Outcome: "OUTCOME";
-};
-export type ProspectInstallmentFinancialRecordRequestBodyDtoDirectionEnum = typeof ProspectInstallmentFinancialRecordRequestBodyDtoDirectionEnum[keyof typeof ProspectInstallmentFinancialRecordRequestBodyDtoDirectionEnum];
 /**
  * @export
  */
@@ -146,16 +49,6 @@ export declare const ProspectInstallmentFinancialRecordRequestBodyDtoFrequencyEn
     readonly Yearly: "YEARLY";
 };
 export type ProspectInstallmentFinancialRecordRequestBodyDtoFrequencyEnum = typeof ProspectInstallmentFinancialRecordRequestBodyDtoFrequencyEnum[keyof typeof ProspectInstallmentFinancialRecordRequestBodyDtoFrequencyEnum];
-/**
- * @export
- */
-export declare const ProspectInstallmentFinancialRecordRequestBodyDtoChannelEnum: {
-    readonly WebApp: "WEB_APP";
-    readonly Whatsapp: "WHATSAPP";
-    readonly System: "SYSTEM";
-    readonly Email: "EMAIL";
-};
-export type ProspectInstallmentFinancialRecordRequestBodyDtoChannelEnum = typeof ProspectInstallmentFinancialRecordRequestBodyDtoChannelEnum[keyof typeof ProspectInstallmentFinancialRecordRequestBodyDtoChannelEnum];
 /**
  * Check if a given object implements the ProspectInstallmentFinancialRecordRequestBodyDto interface.
  */

@@ -129,6 +129,7 @@ __exportStar(require("./InboxRecordEntitySubsequentInboxRecordsInner"), exports)
 __exportStar(require("./InboxRecordEntitySubsequentInboxRecordsInnerBestSuggestedAction"), exports);
 __exportStar(require("./InboxRecordEntitySubsequentInboxRecordsInnerEmailMessageData"), exports);
 __exportStar(require("./InboxRecordEntitySubsequentInboxRecordsInnerWhatsappMessageData"), exports);
+__exportStar(require("./InstallmentDefinitionDto"), exports);
 __exportStar(require("./InstallmentFinancialRecordDto"), exports);
 __exportStar(require("./InstallmentFinancialRecordDtoInstallmentsInner"), exports);
 __exportStar(require("./InstallmentFinancialRecordsPageDto"), exports);

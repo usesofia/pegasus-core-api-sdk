@@ -16,43 +16,43 @@ import { mapValues } from '../runtime';
 /**
  * 
  * @export
- * @interface InstallmentFinancialRecordDtoInstallmentsInner
+ * @interface InstallmentDefinitionDto
  */
-export interface InstallmentFinancialRecordDtoInstallmentsInner {
+export interface InstallmentDefinitionDto {
     /**
      * Data de vencimento da parcela.
      * @type {string}
-     * @memberof InstallmentFinancialRecordDtoInstallmentsInner
+     * @memberof InstallmentDefinitionDto
      */
     dueDate: string;
     /**
      * Valor da parcela.
      * @type {string}
-     * @memberof InstallmentFinancialRecordDtoInstallmentsInner
+     * @memberof InstallmentDefinitionDto
      */
     amount: string;
     /**
      * Descrição personalizada da parcela.
      * @type {string}
-     * @memberof InstallmentFinancialRecordDtoInstallmentsInner
+     * @memberof InstallmentDefinitionDto
      */
     description?: string;
 }
 
 /**
- * Check if a given object implements the InstallmentFinancialRecordDtoInstallmentsInner interface.
+ * Check if a given object implements the InstallmentDefinitionDto interface.
  */
-export function instanceOfInstallmentFinancialRecordDtoInstallmentsInner(value: object): value is InstallmentFinancialRecordDtoInstallmentsInner {
+export function instanceOfInstallmentDefinitionDto(value: object): value is InstallmentDefinitionDto {
     if (!('dueDate' in value) || value['dueDate'] === undefined) return false;
     if (!('amount' in value) || value['amount'] === undefined) return false;
     return true;
 }
 
-export function InstallmentFinancialRecordDtoInstallmentsInnerFromJSON(json: any): InstallmentFinancialRecordDtoInstallmentsInner {
-    return InstallmentFinancialRecordDtoInstallmentsInnerFromJSONTyped(json, false);
+export function InstallmentDefinitionDtoFromJSON(json: any): InstallmentDefinitionDto {
+    return InstallmentDefinitionDtoFromJSONTyped(json, false);
 }
 
-export function InstallmentFinancialRecordDtoInstallmentsInnerFromJSONTyped(json: any, ignoreDiscriminator: boolean): InstallmentFinancialRecordDtoInstallmentsInner {
+export function InstallmentDefinitionDtoFromJSONTyped(json: any, ignoreDiscriminator: boolean): InstallmentDefinitionDto {
     if (json == null) {
         return json;
     }
@@ -64,11 +64,11 @@ export function InstallmentFinancialRecordDtoInstallmentsInnerFromJSONTyped(json
     };
 }
 
-export function InstallmentFinancialRecordDtoInstallmentsInnerToJSON(json: any): InstallmentFinancialRecordDtoInstallmentsInner {
-    return InstallmentFinancialRecordDtoInstallmentsInnerToJSONTyped(json, false);
+export function InstallmentDefinitionDtoToJSON(json: any): InstallmentDefinitionDto {
+    return InstallmentDefinitionDtoToJSONTyped(json, false);
 }
 
-export function InstallmentFinancialRecordDtoInstallmentsInnerToJSONTyped(value?: InstallmentFinancialRecordDtoInstallmentsInner | null, ignoreDiscriminator: boolean = false): any {
+export function InstallmentDefinitionDtoToJSONTyped(value?: InstallmentDefinitionDto | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

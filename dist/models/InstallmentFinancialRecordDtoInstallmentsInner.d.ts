@@ -17,10 +17,10 @@
 export interface InstallmentFinancialRecordDtoInstallmentsInner {
     /**
      * Data de vencimento da parcela.
-     * @type {any}
+     * @type {string}
      * @memberof InstallmentFinancialRecordDtoInstallmentsInner
      */
-    dueDate: any | null;
+    dueDate: string;
     /**
      * Valor da parcela.
      * @type {string}
