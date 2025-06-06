@@ -64,7 +64,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.FinancialRecordsApi = void 0;
+exports.SystemFindAllFinancialRecordsSortByEnum = exports.FindAllFinancialRecordsSortByEnum = exports.FinancialRecordsApi = void 0;
 var runtime = require("../runtime");
 var index_1 = require("../models/index");
 /**
@@ -540,3 +540,31 @@ var FinancialRecordsApi = /** @class */ (function (_super) {
     return FinancialRecordsApi;
 }(runtime.BaseAPI));
 exports.FinancialRecordsApi = FinancialRecordsApi;
+/**
+ * @export
+ */
+exports.FindAllFinancialRecordsSortByEnum = {
+    Direction: 'direction',
+    DueDate: 'dueDate',
+    Contact: 'contact',
+    Description: 'description',
+    Subcategory: 'subcategory',
+    Amount: 'amount',
+    CompetenceDate: 'competenceDate',
+    CashDate: 'cashDate',
+    CreatedAt: 'createdAt'
+};
+/**
+ * @export
+ */
+exports.SystemFindAllFinancialRecordsSortByEnum = {
+    Direction: 'direction',
+    DueDate: 'dueDate',
+    Contact: 'contact',
+    Description: 'description',
+    Subcategory: 'subcategory',
+    Amount: 'amount',
+    CompetenceDate: 'competenceDate',
+    CashDate: 'cashDate',
+    CreatedAt: 'createdAt'
+};

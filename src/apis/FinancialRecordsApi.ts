@@ -51,7 +51,7 @@ export interface CreateManyFinancialRecordsRequest {
 
 export interface FindAllFinancialRecordsRequest {
     sortOrder?: string;
-    sortBy?: string;
+    sortBy?: FindAllFinancialRecordsSortByEnum;
     account?: string;
     reconciled?: boolean;
     completed?: boolean;
@@ -93,7 +93,7 @@ export interface RemoveFinancialRecordRequest {
 export interface SystemFindAllFinancialRecordsRequest {
     ownerOrganizationId: string;
     sortOrder?: string;
-    sortBy?: string;
+    sortBy?: SystemFindAllFinancialRecordsSortByEnum;
     account?: string;
     reconciled?: boolean;
     completed?: boolean;
@@ -158,7 +158,7 @@ export interface FinancialRecordsApiInterface {
      * 
      * @summary Busca todos os lançamentos financeiros.
      * @param {string} [sortOrder] Ordem de ordenação dos lançamentos financeiros.
-     * @param {string} [sortBy] Campo para ordenação dos lançamentos financeiros.
+     * @param {'direction' | 'dueDate' | 'contact' | 'description' | 'subcategory' | 'amount' | 'competenceDate' | 'cashDate' | 'createdAt'} [sortBy] Campo para ordenação dos lançamentos financeiros.
      * @param {string} [account] Conta do lançamento financeiro.
      * @param {boolean} [reconciled] Indica se o lançamento financeiro foi reconciliado.
      * @param {boolean} [completed] Indica se o lançamento financeiro foi completado.
@@ -244,7 +244,7 @@ export interface FinancialRecordsApiInterface {
      * @summary Busca todos os lançamentos financeiros pelo sistema.
      * @param {string} ownerOrganizationId Identificador da organização proprietária dos lançamentos financeiros.
      * @param {string} [sortOrder] Ordem de ordenação dos lançamentos financeiros.
-     * @param {string} [sortBy] Campo para ordenação dos lançamentos financeiros.
+     * @param {'direction' | 'dueDate' | 'contact' | 'description' | 'subcategory' | 'amount' | 'competenceDate' | 'cashDate' | 'createdAt'} [sortBy] Campo para ordenação dos lançamentos financeiros.
      * @param {string} [account] Conta do lançamento financeiro.
      * @param {boolean} [reconciled] Indica se o lançamento financeiro foi reconciliado.
      * @param {boolean} [completed] Indica se o lançamento financeiro foi completado.
@@ -725,3 +725,34 @@ export class FinancialRecordsApi extends runtime.BaseAPI implements FinancialRec
     }
 
 }
+
+/**
+ * @export
+ */
+export const FindAllFinancialRecordsSortByEnum = {
+    Direction: 'direction',
+    DueDate: 'dueDate',
+    Contact: 'contact',
+    Description: 'description',
+    Subcategory: 'subcategory',
+    Amount: 'amount',
+    CompetenceDate: 'competenceDate',
+    CashDate: 'cashDate',
+    CreatedAt: 'createdAt'
+} as const;
+export type FindAllFinancialRecordsSortByEnum = typeof FindAllFinancialRecordsSortByEnum[keyof typeof FindAllFinancialRecordsSortByEnum];
+/**
+ * @export
+ */
+export const SystemFindAllFinancialRecordsSortByEnum = {
+    Direction: 'direction',
+    DueDate: 'dueDate',
+    Contact: 'contact',
+    Description: 'description',
+    Subcategory: 'subcategory',
+    Amount: 'amount',
+    CompetenceDate: 'competenceDate',
+    CashDate: 'cashDate',
+    CreatedAt: 'createdAt'
+} as const;
+export type SystemFindAllFinancialRecordsSortByEnum = typeof SystemFindAllFinancialRecordsSortByEnum[keyof typeof SystemFindAllFinancialRecordsSortByEnum];
