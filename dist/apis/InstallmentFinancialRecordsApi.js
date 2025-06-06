@@ -64,7 +64,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.InstallmentFinancialRecordsApi = void 0;
+exports.FindAllInstallmentFinancialRecordsSortByEnum = exports.FindAllInstallmentFinancialRecordsSortOrderEnum = exports.FindAllInstallmentFinancialRecordsDirectionEnum = exports.FindAllInstallmentFinancialRecordsFrequencyEnum = exports.InstallmentFinancialRecordsApi = void 0;
 var runtime = require("../runtime");
 var index_1 = require("../models/index");
 /**
@@ -134,6 +134,42 @@ var InstallmentFinancialRecordsApi = /** @class */ (function (_super) {
                 switch (_a.label) {
                     case 0:
                         queryParameters = {};
+                        if (requestParameters['completed'] != null) {
+                            queryParameters['completed'] = requestParameters['completed'];
+                        }
+                        if (requestParameters['frequency'] != null) {
+                            queryParameters['frequency'] = requestParameters['frequency'];
+                        }
+                        if (requestParameters['competenceDateTo'] != null) {
+                            queryParameters['competenceDateTo'] = requestParameters['competenceDateTo'].toISOString().substring(0, 10);
+                        }
+                        if (requestParameters['competenceDateFrom'] != null) {
+                            queryParameters['competenceDateFrom'] = requestParameters['competenceDateFrom'].toISOString().substring(0, 10);
+                        }
+                        if (requestParameters['tags'] != null) {
+                            queryParameters['tags'] = requestParameters['tags'];
+                        }
+                        if (requestParameters['subcategory'] != null) {
+                            queryParameters['subcategory'] = requestParameters['subcategory'];
+                        }
+                        if (requestParameters['contact'] != null) {
+                            queryParameters['contact'] = requestParameters['contact'];
+                        }
+                        if (requestParameters['firstInstallmentDateTo'] != null) {
+                            queryParameters['firstInstallmentDateTo'] = requestParameters['firstInstallmentDateTo'].toISOString().substring(0, 10);
+                        }
+                        if (requestParameters['firstInstallmentDateFrom'] != null) {
+                            queryParameters['firstInstallmentDateFrom'] = requestParameters['firstInstallmentDateFrom'].toISOString().substring(0, 10);
+                        }
+                        if (requestParameters['direction'] != null) {
+                            queryParameters['direction'] = requestParameters['direction'];
+                        }
+                        if (requestParameters['sortOrder'] != null) {
+                            queryParameters['sortOrder'] = requestParameters['sortOrder'];
+                        }
+                        if (requestParameters['sortBy'] != null) {
+                            queryParameters['sortBy'] = requestParameters['sortBy'];
+                        }
                         if (requestParameters['populate'] != null) {
                             queryParameters['populate'] = requestParameters['populate'];
                         }
@@ -329,3 +365,40 @@ var InstallmentFinancialRecordsApi = /** @class */ (function (_super) {
     return InstallmentFinancialRecordsApi;
 }(runtime.BaseAPI));
 exports.InstallmentFinancialRecordsApi = InstallmentFinancialRecordsApi;
+/**
+ * @export
+ */
+exports.FindAllInstallmentFinancialRecordsFrequencyEnum = {
+    Monthly: 'MONTHLY',
+    Weekly: 'WEEKLY',
+    Yearly: 'YEARLY'
+};
+/**
+ * @export
+ */
+exports.FindAllInstallmentFinancialRecordsDirectionEnum = {
+    Income: 'INCOME',
+    Expense: 'EXPENSE'
+};
+/**
+ * @export
+ */
+exports.FindAllInstallmentFinancialRecordsSortOrderEnum = {
+    Asc: 'asc',
+    Desc: 'desc'
+};
+/**
+ * @export
+ */
+exports.FindAllInstallmentFinancialRecordsSortByEnum = {
+    Direction: 'direction',
+    FirstInstallmentDate: 'firstInstallmentDate',
+    Contact: 'contact',
+    Description: 'description',
+    Subcategory: 'subcategory',
+    Amount: 'amount',
+    Tags: 'tags',
+    CompetenceDate: 'competenceDate',
+    Frequency: 'frequency',
+    CreatedAt: 'createdAt'
+};

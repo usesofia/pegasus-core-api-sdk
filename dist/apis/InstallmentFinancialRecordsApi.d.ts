@@ -16,6 +16,18 @@ export interface CreateInstallmentFinancialRecordRequest {
     populate?: string;
 }
 export interface FindAllInstallmentFinancialRecordsRequest {
+    completed?: boolean;
+    frequency?: FindAllInstallmentFinancialRecordsFrequencyEnum;
+    competenceDateTo?: Date;
+    competenceDateFrom?: Date;
+    tags?: Array<any>;
+    subcategory?: string;
+    contact?: string;
+    firstInstallmentDateTo?: Date;
+    firstInstallmentDateFrom?: Date;
+    direction?: FindAllInstallmentFinancialRecordsDirectionEnum;
+    sortOrder?: FindAllInstallmentFinancialRecordsSortOrderEnum;
+    sortBy?: FindAllInstallmentFinancialRecordsSortByEnum;
     populate?: string;
     textSearchTerm?: string;
     pageSize?: number;
@@ -58,6 +70,18 @@ export interface InstallmentFinancialRecordsApiInterface {
     /**
      *
      * @summary Busca todos os lançamentos financeiros parcelados.
+     * @param {boolean} [completed] Indica se o lançamento parcelado está completo (todas as parcelas pagas/recebidas).
+     * @param {'MONTHLY' | 'WEEKLY' | 'YEARLY'} [frequency] Frequência do lançamento parcelado.
+     * @param {Date} [competenceDateTo] Data de competência final (formato ISO YYYY-MM-DD).
+     * @param {Date} [competenceDateFrom] Data de competência inicial (formato ISO YYYY-MM-DD).
+     * @param {Array<any>} [tags] Identificadores das tags.
+     * @param {string} [subcategory] Identificador da subcategoria.
+     * @param {string} [contact] Identificador do contato.
+     * @param {Date} [firstInstallmentDateTo] Data final da primeira parcela (formato ISO YYYY-MM-DD).
+     * @param {Date} [firstInstallmentDateFrom] Data inicial da primeira parcela (formato ISO YYYY-MM-DD).
+     * @param {'INCOME' | 'EXPENSE'} [direction] Direção do lançamento (entrada/saída).
+     * @param {'asc' | 'desc'} [sortOrder] Ordem da ordenação.
+     * @param {'direction' | 'firstInstallmentDate' | 'contact' | 'description' | 'subcategory' | 'amount' | 'tags' | 'competenceDate' | 'frequency' | 'createdAt'} [sortBy] Campo para ordenação.
      * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
      * @param {string} [textSearchTerm] Termo para busca por descrição do lançamento parcelado.
      * @param {number} [pageSize] Quantidade de itens por página.
@@ -163,3 +187,44 @@ export declare class InstallmentFinancialRecordsApi extends runtime.BaseAPI impl
      */
     removeInstallmentFinancialRecord(requestParameters: RemoveInstallmentFinancialRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
 }
+/**
+ * @export
+ */
+export declare const FindAllInstallmentFinancialRecordsFrequencyEnum: {
+    readonly Monthly: "MONTHLY";
+    readonly Weekly: "WEEKLY";
+    readonly Yearly: "YEARLY";
+};
+export type FindAllInstallmentFinancialRecordsFrequencyEnum = typeof FindAllInstallmentFinancialRecordsFrequencyEnum[keyof typeof FindAllInstallmentFinancialRecordsFrequencyEnum];
+/**
+ * @export
+ */
+export declare const FindAllInstallmentFinancialRecordsDirectionEnum: {
+    readonly Income: "INCOME";
+    readonly Expense: "EXPENSE";
+};
+export type FindAllInstallmentFinancialRecordsDirectionEnum = typeof FindAllInstallmentFinancialRecordsDirectionEnum[keyof typeof FindAllInstallmentFinancialRecordsDirectionEnum];
+/**
+ * @export
+ */
+export declare const FindAllInstallmentFinancialRecordsSortOrderEnum: {
+    readonly Asc: "asc";
+    readonly Desc: "desc";
+};
+export type FindAllInstallmentFinancialRecordsSortOrderEnum = typeof FindAllInstallmentFinancialRecordsSortOrderEnum[keyof typeof FindAllInstallmentFinancialRecordsSortOrderEnum];
+/**
+ * @export
+ */
+export declare const FindAllInstallmentFinancialRecordsSortByEnum: {
+    readonly Direction: "direction";
+    readonly FirstInstallmentDate: "firstInstallmentDate";
+    readonly Contact: "contact";
+    readonly Description: "description";
+    readonly Subcategory: "subcategory";
+    readonly Amount: "amount";
+    readonly Tags: "tags";
+    readonly CompetenceDate: "competenceDate";
+    readonly Frequency: "frequency";
+    readonly CreatedAt: "createdAt";
+};
+export type FindAllInstallmentFinancialRecordsSortByEnum = typeof FindAllInstallmentFinancialRecordsSortByEnum[keyof typeof FindAllInstallmentFinancialRecordsSortByEnum];

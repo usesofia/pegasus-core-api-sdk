@@ -43,6 +43,18 @@ export interface CreateInstallmentFinancialRecordRequest {
 }
 
 export interface FindAllInstallmentFinancialRecordsRequest {
+    completed?: boolean;
+    frequency?: FindAllInstallmentFinancialRecordsFrequencyEnum;
+    competenceDateTo?: Date;
+    competenceDateFrom?: Date;
+    tags?: Array<any>;
+    subcategory?: string;
+    contact?: string;
+    firstInstallmentDateTo?: Date;
+    firstInstallmentDateFrom?: Date;
+    direction?: FindAllInstallmentFinancialRecordsDirectionEnum;
+    sortOrder?: FindAllInstallmentFinancialRecordsSortOrderEnum;
+    sortBy?: FindAllInstallmentFinancialRecordsSortByEnum;
     populate?: string;
     textSearchTerm?: string;
     pageSize?: number;
@@ -91,6 +103,18 @@ export interface InstallmentFinancialRecordsApiInterface {
     /**
      * 
      * @summary Busca todos os lançamentos financeiros parcelados.
+     * @param {boolean} [completed] Indica se o lançamento parcelado está completo (todas as parcelas pagas/recebidas).
+     * @param {'MONTHLY' | 'WEEKLY' | 'YEARLY'} [frequency] Frequência do lançamento parcelado.
+     * @param {Date} [competenceDateTo] Data de competência final (formato ISO YYYY-MM-DD).
+     * @param {Date} [competenceDateFrom] Data de competência inicial (formato ISO YYYY-MM-DD).
+     * @param {Array<any>} [tags] Identificadores das tags.
+     * @param {string} [subcategory] Identificador da subcategoria.
+     * @param {string} [contact] Identificador do contato.
+     * @param {Date} [firstInstallmentDateTo] Data final da primeira parcela (formato ISO YYYY-MM-DD).
+     * @param {Date} [firstInstallmentDateFrom] Data inicial da primeira parcela (formato ISO YYYY-MM-DD).
+     * @param {'INCOME' | 'EXPENSE'} [direction] Direção do lançamento (entrada/saída).
+     * @param {'asc' | 'desc'} [sortOrder] Ordem da ordenação.
+     * @param {'direction' | 'firstInstallmentDate' | 'contact' | 'description' | 'subcategory' | 'amount' | 'tags' | 'competenceDate' | 'frequency' | 'createdAt'} [sortBy] Campo para ordenação.
      * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
      * @param {string} [textSearchTerm] Termo para busca por descrição do lançamento parcelado.
      * @param {number} [pageSize] Quantidade de itens por página.
@@ -208,6 +232,54 @@ export class InstallmentFinancialRecordsApi extends runtime.BaseAPI implements I
      */
     async findAllInstallmentFinancialRecordsRaw(requestParameters: FindAllInstallmentFinancialRecordsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<InstallmentFinancialRecordsPageDto>> {
         const queryParameters: any = {};
+
+        if (requestParameters['completed'] != null) {
+            queryParameters['completed'] = requestParameters['completed'];
+        }
+
+        if (requestParameters['frequency'] != null) {
+            queryParameters['frequency'] = requestParameters['frequency'];
+        }
+
+        if (requestParameters['competenceDateTo'] != null) {
+            queryParameters['competenceDateTo'] = (requestParameters['competenceDateTo'] as any).toISOString().substring(0,10);
+        }
+
+        if (requestParameters['competenceDateFrom'] != null) {
+            queryParameters['competenceDateFrom'] = (requestParameters['competenceDateFrom'] as any).toISOString().substring(0,10);
+        }
+
+        if (requestParameters['tags'] != null) {
+            queryParameters['tags'] = requestParameters['tags'];
+        }
+
+        if (requestParameters['subcategory'] != null) {
+            queryParameters['subcategory'] = requestParameters['subcategory'];
+        }
+
+        if (requestParameters['contact'] != null) {
+            queryParameters['contact'] = requestParameters['contact'];
+        }
+
+        if (requestParameters['firstInstallmentDateTo'] != null) {
+            queryParameters['firstInstallmentDateTo'] = (requestParameters['firstInstallmentDateTo'] as any).toISOString().substring(0,10);
+        }
+
+        if (requestParameters['firstInstallmentDateFrom'] != null) {
+            queryParameters['firstInstallmentDateFrom'] = (requestParameters['firstInstallmentDateFrom'] as any).toISOString().substring(0,10);
+        }
+
+        if (requestParameters['direction'] != null) {
+            queryParameters['direction'] = requestParameters['direction'];
+        }
+
+        if (requestParameters['sortOrder'] != null) {
+            queryParameters['sortOrder'] = requestParameters['sortOrder'];
+        }
+
+        if (requestParameters['sortBy'] != null) {
+            queryParameters['sortBy'] = requestParameters['sortBy'];
+        }
 
         if (requestParameters['populate'] != null) {
             queryParameters['populate'] = requestParameters['populate'];
@@ -374,3 +446,45 @@ export class InstallmentFinancialRecordsApi extends runtime.BaseAPI implements I
     }
 
 }
+
+/**
+ * @export
+ */
+export const FindAllInstallmentFinancialRecordsFrequencyEnum = {
+    Monthly: 'MONTHLY',
+    Weekly: 'WEEKLY',
+    Yearly: 'YEARLY'
+} as const;
+export type FindAllInstallmentFinancialRecordsFrequencyEnum = typeof FindAllInstallmentFinancialRecordsFrequencyEnum[keyof typeof FindAllInstallmentFinancialRecordsFrequencyEnum];
+/**
+ * @export
+ */
+export const FindAllInstallmentFinancialRecordsDirectionEnum = {
+    Income: 'INCOME',
+    Expense: 'EXPENSE'
+} as const;
+export type FindAllInstallmentFinancialRecordsDirectionEnum = typeof FindAllInstallmentFinancialRecordsDirectionEnum[keyof typeof FindAllInstallmentFinancialRecordsDirectionEnum];
+/**
+ * @export
+ */
+export const FindAllInstallmentFinancialRecordsSortOrderEnum = {
+    Asc: 'asc',
+    Desc: 'desc'
+} as const;
+export type FindAllInstallmentFinancialRecordsSortOrderEnum = typeof FindAllInstallmentFinancialRecordsSortOrderEnum[keyof typeof FindAllInstallmentFinancialRecordsSortOrderEnum];
+/**
+ * @export
+ */
+export const FindAllInstallmentFinancialRecordsSortByEnum = {
+    Direction: 'direction',
+    FirstInstallmentDate: 'firstInstallmentDate',
+    Contact: 'contact',
+    Description: 'description',
+    Subcategory: 'subcategory',
+    Amount: 'amount',
+    Tags: 'tags',
+    CompetenceDate: 'competenceDate',
+    Frequency: 'frequency',
+    CreatedAt: 'createdAt'
+} as const;
+export type FindAllInstallmentFinancialRecordsSortByEnum = typeof FindAllInstallmentFinancialRecordsSortByEnum[keyof typeof FindAllInstallmentFinancialRecordsSortByEnum];

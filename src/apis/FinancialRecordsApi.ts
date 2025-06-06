@@ -50,6 +50,8 @@ export interface CreateManyFinancialRecordsRequest {
 }
 
 export interface FindAllFinancialRecordsRequest {
+    sortOrder?: string;
+    sortBy?: string;
     account?: string;
     reconciled?: boolean;
     completed?: boolean;
@@ -155,6 +157,8 @@ export interface FinancialRecordsApiInterface {
     /**
      * 
      * @summary Busca todos os lançamentos financeiros.
+     * @param {string} [sortOrder] Ordem de ordenação dos lançamentos financeiros.
+     * @param {string} [sortBy] Campo para ordenação dos lançamentos financeiros.
      * @param {string} [account] Conta do lançamento financeiro.
      * @param {boolean} [reconciled] Indica se o lançamento financeiro foi reconciliado.
      * @param {boolean} [completed] Indica se o lançamento financeiro foi completado.
@@ -360,6 +364,14 @@ export class FinancialRecordsApi extends runtime.BaseAPI implements FinancialRec
      */
     async findAllFinancialRecordsRaw(requestParameters: FindAllFinancialRecordsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FinancialRecordsPageDto>> {
         const queryParameters: any = {};
+
+        if (requestParameters['sortOrder'] != null) {
+            queryParameters['sortOrder'] = requestParameters['sortOrder'];
+        }
+
+        if (requestParameters['sortBy'] != null) {
+            queryParameters['sortBy'] = requestParameters['sortBy'];
+        }
 
         if (requestParameters['account'] != null) {
             queryParameters['account'] = requestParameters['account'];

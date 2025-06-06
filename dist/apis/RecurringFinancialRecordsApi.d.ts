@@ -19,6 +19,22 @@ export interface CreateRecurringFinancialRecordRequest {
     populate?: string;
 }
 export interface FindAllRecurringFinancialRecordsRequest {
+    frequency?: FindAllRecurringFinancialRecordsFrequencyEnum;
+    isActive?: boolean;
+    automaticCompletion?: boolean;
+    onlyBusinessDays?: boolean;
+    repetitionMonth?: number;
+    repetitionDay?: number;
+    tags?: Array<any>;
+    amountTo?: string;
+    amountFrom?: string;
+    subcategory?: string;
+    contact?: string;
+    firstOccurrenceDateTo?: Date;
+    firstOccurrenceDateFrom?: Date;
+    direction?: FindAllRecurringFinancialRecordsDirectionEnum;
+    sortOrder?: FindAllRecurringFinancialRecordsSortOrderEnum;
+    sortBy?: FindAllRecurringFinancialRecordsSortByEnum;
     populate?: string;
     textSearchTerm?: string;
     pageSize?: number;
@@ -79,6 +95,22 @@ export interface RecurringFinancialRecordsApiInterface {
     /**
      *
      * @summary Busca todos os lançamentos financeiros recorrentes.
+     * @param {'WEEKLY' | 'MONTHLY' | 'YEARLY'} [frequency] Frequência de repetição do lançamento.
+     * @param {boolean} [isActive] Indica se o lançamento recorrente está ativo.
+     * @param {boolean} [automaticCompletion] Indica se o lançamento será completado automaticamente.
+     * @param {boolean} [onlyBusinessDays] Indica se o lançamento será apenas em dias úteis.
+     * @param {number} [repetitionMonth] Mês de repetição do lançamento.
+     * @param {number} [repetitionDay] Dia de repetição do lançamento.
+     * @param {Array<any>} [tags] Identificadores das tags.
+     * @param {string} [amountTo] Valor máximo do lançamento.
+     * @param {string} [amountFrom] Valor mínimo do lançamento.
+     * @param {string} [subcategory] Identificador da subcategoria.
+     * @param {string} [contact] Identificador do contato.
+     * @param {Date} [firstOccurrenceDateTo] Data final da primeira ocorrência (formato ISO YYYY-MM-DD).
+     * @param {Date} [firstOccurrenceDateFrom] Data inicial da primeira ocorrência (formato ISO YYYY-MM-DD).
+     * @param {'INCOME' | 'EXPENSE'} [direction] Direção do lançamento (entrada/saída).
+     * @param {'asc' | 'desc'} [sortOrder] Ordem da ordenação.
+     * @param {'direction' | 'firstOccurrenceDate' | 'contact' | 'description' | 'subcategory' | 'amount' | 'frequency' | 'isActive' | 'createdAt'} [sortBy] Campo para ordenação.
      * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
      * @param {string} [textSearchTerm] Termo para busca por descrição do lançamento.
      * @param {number} [pageSize] Quantidade de itens por página.
@@ -230,3 +262,43 @@ export declare class RecurringFinancialRecordsApi extends runtime.BaseAPI implem
      */
     startRecurringFinancialRecordsSeeder(requestParameters: StartRecurringFinancialRecordsSeederRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
 }
+/**
+ * @export
+ */
+export declare const FindAllRecurringFinancialRecordsFrequencyEnum: {
+    readonly Weekly: "WEEKLY";
+    readonly Monthly: "MONTHLY";
+    readonly Yearly: "YEARLY";
+};
+export type FindAllRecurringFinancialRecordsFrequencyEnum = typeof FindAllRecurringFinancialRecordsFrequencyEnum[keyof typeof FindAllRecurringFinancialRecordsFrequencyEnum];
+/**
+ * @export
+ */
+export declare const FindAllRecurringFinancialRecordsDirectionEnum: {
+    readonly Income: "INCOME";
+    readonly Expense: "EXPENSE";
+};
+export type FindAllRecurringFinancialRecordsDirectionEnum = typeof FindAllRecurringFinancialRecordsDirectionEnum[keyof typeof FindAllRecurringFinancialRecordsDirectionEnum];
+/**
+ * @export
+ */
+export declare const FindAllRecurringFinancialRecordsSortOrderEnum: {
+    readonly Asc: "asc";
+    readonly Desc: "desc";
+};
+export type FindAllRecurringFinancialRecordsSortOrderEnum = typeof FindAllRecurringFinancialRecordsSortOrderEnum[keyof typeof FindAllRecurringFinancialRecordsSortOrderEnum];
+/**
+ * @export
+ */
+export declare const FindAllRecurringFinancialRecordsSortByEnum: {
+    readonly Direction: "direction";
+    readonly FirstOccurrenceDate: "firstOccurrenceDate";
+    readonly Contact: "contact";
+    readonly Description: "description";
+    readonly Subcategory: "subcategory";
+    readonly Amount: "amount";
+    readonly Frequency: "frequency";
+    readonly IsActive: "isActive";
+    readonly CreatedAt: "createdAt";
+};
+export type FindAllRecurringFinancialRecordsSortByEnum = typeof FindAllRecurringFinancialRecordsSortByEnum[keyof typeof FindAllRecurringFinancialRecordsSortByEnum];

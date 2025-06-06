@@ -64,7 +64,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.RecurringFinancialRecordsApi = void 0;
+exports.FindAllRecurringFinancialRecordsSortByEnum = exports.FindAllRecurringFinancialRecordsSortOrderEnum = exports.FindAllRecurringFinancialRecordsDirectionEnum = exports.FindAllRecurringFinancialRecordsFrequencyEnum = exports.RecurringFinancialRecordsApi = void 0;
 var runtime = require("../runtime");
 var index_1 = require("../models/index");
 /**
@@ -180,6 +180,54 @@ var RecurringFinancialRecordsApi = /** @class */ (function (_super) {
                 switch (_a.label) {
                     case 0:
                         queryParameters = {};
+                        if (requestParameters['frequency'] != null) {
+                            queryParameters['frequency'] = requestParameters['frequency'];
+                        }
+                        if (requestParameters['isActive'] != null) {
+                            queryParameters['isActive'] = requestParameters['isActive'];
+                        }
+                        if (requestParameters['automaticCompletion'] != null) {
+                            queryParameters['automaticCompletion'] = requestParameters['automaticCompletion'];
+                        }
+                        if (requestParameters['onlyBusinessDays'] != null) {
+                            queryParameters['onlyBusinessDays'] = requestParameters['onlyBusinessDays'];
+                        }
+                        if (requestParameters['repetitionMonth'] != null) {
+                            queryParameters['repetitionMonth'] = requestParameters['repetitionMonth'];
+                        }
+                        if (requestParameters['repetitionDay'] != null) {
+                            queryParameters['repetitionDay'] = requestParameters['repetitionDay'];
+                        }
+                        if (requestParameters['tags'] != null) {
+                            queryParameters['tags'] = requestParameters['tags'];
+                        }
+                        if (requestParameters['amountTo'] != null) {
+                            queryParameters['amountTo'] = requestParameters['amountTo'];
+                        }
+                        if (requestParameters['amountFrom'] != null) {
+                            queryParameters['amountFrom'] = requestParameters['amountFrom'];
+                        }
+                        if (requestParameters['subcategory'] != null) {
+                            queryParameters['subcategory'] = requestParameters['subcategory'];
+                        }
+                        if (requestParameters['contact'] != null) {
+                            queryParameters['contact'] = requestParameters['contact'];
+                        }
+                        if (requestParameters['firstOccurrenceDateTo'] != null) {
+                            queryParameters['firstOccurrenceDateTo'] = requestParameters['firstOccurrenceDateTo'].toISOString().substring(0, 10);
+                        }
+                        if (requestParameters['firstOccurrenceDateFrom'] != null) {
+                            queryParameters['firstOccurrenceDateFrom'] = requestParameters['firstOccurrenceDateFrom'].toISOString().substring(0, 10);
+                        }
+                        if (requestParameters['direction'] != null) {
+                            queryParameters['direction'] = requestParameters['direction'];
+                        }
+                        if (requestParameters['sortOrder'] != null) {
+                            queryParameters['sortOrder'] = requestParameters['sortOrder'];
+                        }
+                        if (requestParameters['sortBy'] != null) {
+                            queryParameters['sortBy'] = requestParameters['sortBy'];
+                        }
                         if (requestParameters['populate'] != null) {
                             queryParameters['populate'] = requestParameters['populate'];
                         }
@@ -458,3 +506,39 @@ var RecurringFinancialRecordsApi = /** @class */ (function (_super) {
     return RecurringFinancialRecordsApi;
 }(runtime.BaseAPI));
 exports.RecurringFinancialRecordsApi = RecurringFinancialRecordsApi;
+/**
+ * @export
+ */
+exports.FindAllRecurringFinancialRecordsFrequencyEnum = {
+    Weekly: 'WEEKLY',
+    Monthly: 'MONTHLY',
+    Yearly: 'YEARLY'
+};
+/**
+ * @export
+ */
+exports.FindAllRecurringFinancialRecordsDirectionEnum = {
+    Income: 'INCOME',
+    Expense: 'EXPENSE'
+};
+/**
+ * @export
+ */
+exports.FindAllRecurringFinancialRecordsSortOrderEnum = {
+    Asc: 'asc',
+    Desc: 'desc'
+};
+/**
+ * @export
+ */
+exports.FindAllRecurringFinancialRecordsSortByEnum = {
+    Direction: 'direction',
+    FirstOccurrenceDate: 'firstOccurrenceDate',
+    Contact: 'contact',
+    Description: 'description',
+    Subcategory: 'subcategory',
+    Amount: 'amount',
+    Frequency: 'frequency',
+    IsActive: 'isActive',
+    CreatedAt: 'createdAt'
+};

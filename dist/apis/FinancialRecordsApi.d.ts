@@ -19,6 +19,8 @@ export interface CreateManyFinancialRecordsRequest {
     createManyFinancialRecordsRequestBodyDto: CreateManyFinancialRecordsRequestBodyDto;
 }
 export interface FindAllFinancialRecordsRequest {
+    sortOrder?: string;
+    sortBy?: string;
     account?: string;
     reconciled?: boolean;
     completed?: boolean;
@@ -115,6 +117,8 @@ export interface FinancialRecordsApiInterface {
     /**
      *
      * @summary Busca todos os lançamentos financeiros.
+     * @param {string} [sortOrder] Ordem de ordenação dos lançamentos financeiros.
+     * @param {string} [sortBy] Campo para ordenação dos lançamentos financeiros.
      * @param {string} [account] Conta do lançamento financeiro.
      * @param {boolean} [reconciled] Indica se o lançamento financeiro foi reconciliado.
      * @param {boolean} [completed] Indica se o lançamento financeiro foi completado.
