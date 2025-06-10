@@ -22,6 +22,12 @@ export interface OfxImportRequestBodyDto {
      */
     signedUrl: string;
     /**
+     * Nome do arquivo OFX.
+     * @type {string}
+     * @memberof OfxImportRequestBodyDto
+     */
+    fileName: string;
+    /**
      * ID da conta bancária.
      * @type {string}
      * @memberof OfxImportRequestBodyDto

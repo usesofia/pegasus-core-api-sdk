@@ -30,6 +30,9 @@ exports.CreateFileUploadRequestBodyDtoFileTypeEnum = {
     RecurringFinancialRecord: 'RECURRING_FINANCIAL_RECORD',
     Ofx: 'OFX',
     ExtractFinancialRecordFromFile: 'EXTRACT_FINANCIAL_RECORD_FROM_FILE',
+    ExtractContactFromFile: 'EXTRACT_CONTACT_FROM_FILE',
+    FinancialRecordsBulkCreateExtraction: 'FINANCIAL_RECORDS_BULK_CREATE_EXTRACTION',
+    ContactsBulkCreateExtraction: 'CONTACTS_BULK_CREATE_EXTRACTION',
     SevenDaysTempFile: 'SEVEN_DAYS_TEMP_FILE'
 };
 /**

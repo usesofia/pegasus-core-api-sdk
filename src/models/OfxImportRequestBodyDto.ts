@@ -26,6 +26,12 @@ export interface OfxImportRequestBodyDto {
      */
     signedUrl: string;
     /**
+     * Nome do arquivo OFX.
+     * @type {string}
+     * @memberof OfxImportRequestBodyDto
+     */
+    fileName: string;
+    /**
      * ID da conta bancária.
      * @type {string}
      * @memberof OfxImportRequestBodyDto
@@ -57,6 +63,7 @@ export type OfxImportRequestBodyDtoChannelEnum = typeof OfxImportRequestBodyDtoC
  */
 export function instanceOfOfxImportRequestBodyDto(value: object): value is OfxImportRequestBodyDto {
     if (!('signedUrl' in value) || value['signedUrl'] === undefined) return false;
+    if (!('fileName' in value) || value['fileName'] === undefined) return false;
     if (!('bankAccount' in value) || value['bankAccount'] === undefined) return false;
     if (!('channel' in value) || value['channel'] === undefined) return false;
     return true;
@@ -73,6 +80,7 @@ export function OfxImportRequestBodyDtoFromJSONTyped(json: any, ignoreDiscrimina
     return {
         
         'signedUrl': json['signedUrl'],
+        'fileName': json['fileName'],
         'bankAccount': json['bankAccount'],
         'channel': json['channel'],
     };
@@ -90,6 +98,7 @@ export function OfxImportRequestBodyDtoToJSONTyped(value?: OfxImportRequestBodyD
     return {
         
         'signedUrl': value['signedUrl'],
+        'fileName': value['fileName'],
         'bankAccount': value['bankAccount'],
         'channel': value['channel'],
     };

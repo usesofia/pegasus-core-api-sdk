@@ -25,6 +25,12 @@ export interface CreateInboxRecordRequestBodyDtoBestSuggestedActionInboxRawCreat
      * @memberof CreateInboxRecordRequestBodyDtoBestSuggestedActionInboxRawCreateManyFinancialRecordsRequest
      */
     fileId: string;
+    /**
+     * Número de linhas a serem criadas.
+     * @type {number}
+     * @memberof CreateInboxRecordRequestBodyDtoBestSuggestedActionInboxRawCreateManyFinancialRecordsRequest
+     */
+    nRows: number;
 }
 
 /**
@@ -32,6 +38,7 @@ export interface CreateInboxRecordRequestBodyDtoBestSuggestedActionInboxRawCreat
  */
 export function instanceOfCreateInboxRecordRequestBodyDtoBestSuggestedActionInboxRawCreateManyFinancialRecordsRequest(value: object): value is CreateInboxRecordRequestBodyDtoBestSuggestedActionInboxRawCreateManyFinancialRecordsRequest {
     if (!('fileId' in value) || value['fileId'] === undefined) return false;
+    if (!('nRows' in value) || value['nRows'] === undefined) return false;
     return true;
 }
 
@@ -46,6 +53,7 @@ export function CreateInboxRecordRequestBodyDtoBestSuggestedActionInboxRawCreate
     return {
         
         'fileId': json['fileId'],
+        'nRows': json['nRows'],
     };
 }
 
@@ -61,6 +69,7 @@ export function CreateInboxRecordRequestBodyDtoBestSuggestedActionInboxRawCreate
     return {
         
         'fileId': value['fileId'],
+        'nRows': value['nRows'],
     };
 }
 

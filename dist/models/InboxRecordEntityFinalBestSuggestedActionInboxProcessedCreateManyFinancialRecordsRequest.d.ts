@@ -21,6 +21,12 @@ export interface InboxRecordEntityFinalBestSuggestedActionInboxProcessedCreateMa
      * @memberof InboxRecordEntityFinalBestSuggestedActionInboxProcessedCreateManyFinancialRecordsRequest
      */
     fileId: string;
+    /**
+     * Número de linhas a serem criadas.
+     * @type {number}
+     * @memberof InboxRecordEntityFinalBestSuggestedActionInboxProcessedCreateManyFinancialRecordsRequest
+     */
+    nRows: number;
 }
 /**
  * Check if a given object implements the InboxRecordEntityFinalBestSuggestedActionInboxProcessedCreateManyFinancialRecordsRequest interface.

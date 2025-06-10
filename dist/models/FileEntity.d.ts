@@ -99,6 +99,9 @@ export declare const FileEntityFileTypeEnum: {
     readonly RecurringFinancialRecord: "RECURRING_FINANCIAL_RECORD";
     readonly Ofx: "OFX";
     readonly ExtractFinancialRecordFromFile: "EXTRACT_FINANCIAL_RECORD_FROM_FILE";
+    readonly ExtractContactFromFile: "EXTRACT_CONTACT_FROM_FILE";
+    readonly FinancialRecordsBulkCreateExtraction: "FINANCIAL_RECORDS_BULK_CREATE_EXTRACTION";
+    readonly ContactsBulkCreateExtraction: "CONTACTS_BULK_CREATE_EXTRACTION";
     readonly SevenDaysTempFile: "SEVEN_DAYS_TEMP_FILE";
 };
 export type FileEntityFileTypeEnum = typeof FileEntityFileTypeEnum[keyof typeof FileEntityFileTypeEnum];

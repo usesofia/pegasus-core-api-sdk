@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { BankTransactionEntity, BankTransactionsPageDto, CreateOrUpdateBankTransactionRequestBodyDto, DispatchOfxImport201Response, ExecuteOfxImportJobRequestBodyDto, OfxImportRequestBodyDto, PartialUpdateBankTransactionRequestBodyDto } from '../models/index';
+import type { BankTransactionEntity, BankTransactionsPageDto, CreateOrUpdateBankTransactionRequestBodyDto, ExecuteOfxImportJobRequestBodyDto, OfxImportJobRequestEntity, OfxImportRequestBodyDto, PartialUpdateBankTransactionRequestBodyDto } from '../models/index';
 export interface CreateOrUpdateBankTransactionRequest {
     createOrUpdateBankTransactionRequestBodyDto: CreateOrUpdateBankTransactionRequestBodyDto;
     populate?: string;
@@ -84,11 +84,11 @@ export interface BankTransactionsApiInterface {
      * @throws {RequiredError}
      * @memberof BankTransactionsApiInterface
      */
-    dispatchOfxImportRaw(requestParameters: DispatchOfxImportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DispatchOfxImport201Response>>;
+    dispatchOfxImportRaw(requestParameters: DispatchOfxImportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<OfxImportJobRequestEntity>>;
     /**
      * Dispara a importação assíncrona de um arquivo OFX.
      */
-    dispatchOfxImport(requestParameters: DispatchOfxImportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DispatchOfxImport201Response>;
+    dispatchOfxImport(requestParameters: DispatchOfxImportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<OfxImportJobRequestEntity>;
     /**
      *
      * @summary Busca todas as movimentações financeiras.
@@ -192,11 +192,11 @@ export declare class BankTransactionsApi extends runtime.BaseAPI implements Bank
     /**
      * Dispara a importação assíncrona de um arquivo OFX.
      */
-    dispatchOfxImportRaw(requestParameters: DispatchOfxImportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DispatchOfxImport201Response>>;
+    dispatchOfxImportRaw(requestParameters: DispatchOfxImportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<OfxImportJobRequestEntity>>;
     /**
      * Dispara a importação assíncrona de um arquivo OFX.
      */
-    dispatchOfxImport(requestParameters: DispatchOfxImportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DispatchOfxImport201Response>;
+    dispatchOfxImport(requestParameters: DispatchOfxImportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<OfxImportJobRequestEntity>;
     /**
      * Busca todas as movimentações financeiras.
      */

@@ -34,6 +34,8 @@ exports.OfxImportRequestBodyDtoChannelEnum = {
 function instanceOfOfxImportRequestBodyDto(value) {
     if (!('signedUrl' in value) || value['signedUrl'] === undefined)
         return false;
+    if (!('fileName' in value) || value['fileName'] === undefined)
+        return false;
     if (!('bankAccount' in value) || value['bankAccount'] === undefined)
         return false;
     if (!('channel' in value) || value['channel'] === undefined)
@@ -49,6 +51,7 @@ function OfxImportRequestBodyDtoFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'signedUrl': json['signedUrl'],
+        'fileName': json['fileName'],
         'bankAccount': json['bankAccount'],
         'channel': json['channel'],
     };
@@ -63,6 +66,7 @@ function OfxImportRequestBodyDtoToJSONTyped(value, ignoreDiscriminator) {
     }
     return {
         'signedUrl': value['signedUrl'],
+        'fileName': value['fileName'],
         'bankAccount': value['bankAccount'],
         'channel': value['channel'],
     };

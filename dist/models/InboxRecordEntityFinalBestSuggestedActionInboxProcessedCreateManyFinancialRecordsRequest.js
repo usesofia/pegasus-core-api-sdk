@@ -24,6 +24,8 @@ exports.InboxRecordEntityFinalBestSuggestedActionInboxProcessedCreateManyFinanci
 function instanceOfInboxRecordEntityFinalBestSuggestedActionInboxProcessedCreateManyFinancialRecordsRequest(value) {
     if (!('fileId' in value) || value['fileId'] === undefined)
         return false;
+    if (!('nRows' in value) || value['nRows'] === undefined)
+        return false;
     return true;
 }
 function InboxRecordEntityFinalBestSuggestedActionInboxProcessedCreateManyFinancialRecordsRequestFromJSON(json) {
@@ -35,6 +37,7 @@ function InboxRecordEntityFinalBestSuggestedActionInboxProcessedCreateManyFinanc
     }
     return {
         'fileId': json['fileId'],
+        'nRows': json['nRows'],
     };
 }
 function InboxRecordEntityFinalBestSuggestedActionInboxProcessedCreateManyFinancialRecordsRequestToJSON(json) {
@@ -47,5 +50,6 @@ function InboxRecordEntityFinalBestSuggestedActionInboxProcessedCreateManyFinanc
     }
     return {
         'fileId': value['fileId'],
+        'nRows': value['nRows'],
     };
 }

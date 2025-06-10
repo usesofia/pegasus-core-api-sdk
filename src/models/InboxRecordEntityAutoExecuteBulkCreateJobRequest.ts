@@ -32,6 +32,12 @@ export interface InboxRecordEntityAutoExecuteBulkCreateJobRequest {
      */
     resource: InboxRecordEntityAutoExecuteBulkCreateJobRequestResourceEnum;
     /**
+     * Número de linhas a serem criadas.
+     * @type {number}
+     * @memberof InboxRecordEntityAutoExecuteBulkCreateJobRequest
+     */
+    nRows: number;
+    /**
      * Identificador do arquivo com dados para criação.
      * @type {string}
      * @memberof InboxRecordEntityAutoExecuteBulkCreateJobRequest
@@ -98,6 +104,7 @@ export type InboxRecordEntityAutoExecuteBulkCreateJobRequestResourceEnum = typeo
 export function instanceOfInboxRecordEntityAutoExecuteBulkCreateJobRequest(value: object): value is InboxRecordEntityAutoExecuteBulkCreateJobRequest {
     if (!('id' in value) || value['id'] === undefined) return false;
     if (!('resource' in value) || value['resource'] === undefined) return false;
+    if (!('nRows' in value) || value['nRows'] === undefined) return false;
     if (!('fileId' in value) || value['fileId'] === undefined) return false;
     if (!('requesterUserId' in value) || value['requesterUserId'] === undefined) return false;
     if (!('createdAt' in value) || value['createdAt'] === undefined) return false;
@@ -118,6 +125,7 @@ export function InboxRecordEntityAutoExecuteBulkCreateJobRequestFromJSONTyped(js
         
         'id': json['id'],
         'resource': json['resource'],
+        'nRows': json['nRows'],
         'fileId': json['fileId'],
         'requesterUserId': json['requesterUserId'],
         'inboxRecord': json['inboxRecord'] == null ? undefined : json['inboxRecord'],
@@ -141,6 +149,7 @@ export function InboxRecordEntityAutoExecuteBulkCreateJobRequestToJSONTyped(valu
         
         'id': value['id'],
         'resource': value['resource'],
+        'nRows': value['nRows'],
         'fileId': value['fileId'],
         'requesterUserId': value['requesterUserId'],
         'inboxRecord': value['inboxRecord'],

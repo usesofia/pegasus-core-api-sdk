@@ -40,6 +40,8 @@ function instanceOfInboxRecordEntityAutoExecuteBulkCreateJobRequest(value) {
         return false;
     if (!('resource' in value) || value['resource'] === undefined)
         return false;
+    if (!('nRows' in value) || value['nRows'] === undefined)
+        return false;
     if (!('fileId' in value) || value['fileId'] === undefined)
         return false;
     if (!('requesterUserId' in value) || value['requesterUserId'] === undefined)
@@ -62,6 +64,7 @@ function InboxRecordEntityAutoExecuteBulkCreateJobRequestFromJSONTyped(json, ign
     return {
         'id': json['id'],
         'resource': json['resource'],
+        'nRows': json['nRows'],
         'fileId': json['fileId'],
         'requesterUserId': json['requesterUserId'],
         'inboxRecord': json['inboxRecord'] == null ? undefined : json['inboxRecord'],
@@ -82,6 +85,7 @@ function InboxRecordEntityAutoExecuteBulkCreateJobRequestToJSONTyped(value, igno
     return {
         'id': value['id'],
         'resource': value['resource'],
+        'nRows': value['nRows'],
         'fileId': value['fileId'],
         'requesterUserId': value['requesterUserId'],
         'inboxRecord': value['inboxRecord'],

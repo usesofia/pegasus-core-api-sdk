@@ -21,6 +21,12 @@ export interface CreateInboxRecordRequestBodyDtoBestSuggestedActionInboxRawCreat
      * @memberof CreateInboxRecordRequestBodyDtoBestSuggestedActionInboxRawCreateManyFinancialRecordsRequest
      */
     fileId: string;
+    /**
+     * Número de linhas a serem criadas.
+     * @type {number}
+     * @memberof CreateInboxRecordRequestBodyDtoBestSuggestedActionInboxRawCreateManyFinancialRecordsRequest
+     */
+    nRows: number;
 }
 /**
  * Check if a given object implements the CreateInboxRecordRequestBodyDtoBestSuggestedActionInboxRawCreateManyFinancialRecordsRequest interface.

@@ -92,7 +92,6 @@ __exportStar(require("./CreateOrganizationRequestBodyDtoPopulatedParent"), expor
 __exportStar(require("./CreateRecurringFinancialRecordRequestBodyDto"), exports);
 __exportStar(require("./CreateRecurringFinancialRecordRequestBodyDtoPopulatedSubcategory"), exports);
 __exportStar(require("./CreateTagRequestBodyDto"), exports);
-__exportStar(require("./DispatchOfxImport201Response"), exports);
 __exportStar(require("./ExceptionResponseEntity"), exports);
 __exportStar(require("./ExceptionResponseEntityErrorsInner"), exports);
 __exportStar(require("./ExecuteBulkCreateJobRequestBodyDto"), exports);
@@ -138,6 +137,7 @@ __exportStar(require("./LinkFinancialRecordsRequestBodyDto"), exports);
 __exportStar(require("./MemberEntity"), exports);
 __exportStar(require("./NormalizedSubcategoriesPageEntity"), exports);
 __exportStar(require("./NormalizedSubcategoriesPageEntityItemsInner"), exports);
+__exportStar(require("./OfxImportJobRequestEntity"), exports);
 __exportStar(require("./OfxImportRequestBodyDto"), exports);
 __exportStar(require("./OrganizationEntity"), exports);
 __exportStar(require("./PartialUpdateBankAccountRequestBodyDto"), exports);

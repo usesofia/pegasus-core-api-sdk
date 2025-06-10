@@ -18,9 +18,9 @@ import type {
   BankTransactionEntity,
   BankTransactionsPageDto,
   CreateOrUpdateBankTransactionRequestBodyDto,
-  DispatchOfxImport201Response,
   ExceptionResponseEntity,
   ExecuteOfxImportJobRequestBodyDto,
+  OfxImportJobRequestEntity,
   OfxImportRequestBodyDto,
   PartialUpdateBankTransactionRequestBodyDto,
 } from '../models/index';
@@ -31,12 +31,12 @@ import {
     BankTransactionsPageDtoToJSON,
     CreateOrUpdateBankTransactionRequestBodyDtoFromJSON,
     CreateOrUpdateBankTransactionRequestBodyDtoToJSON,
-    DispatchOfxImport201ResponseFromJSON,
-    DispatchOfxImport201ResponseToJSON,
     ExceptionResponseEntityFromJSON,
     ExceptionResponseEntityToJSON,
     ExecuteOfxImportJobRequestBodyDtoFromJSON,
     ExecuteOfxImportJobRequestBodyDtoToJSON,
+    OfxImportJobRequestEntityFromJSON,
+    OfxImportJobRequestEntityToJSON,
     OfxImportRequestBodyDtoFromJSON,
     OfxImportRequestBodyDtoToJSON,
     PartialUpdateBankTransactionRequestBodyDtoFromJSON,
@@ -125,12 +125,12 @@ export interface BankTransactionsApiInterface {
      * @throws {RequiredError}
      * @memberof BankTransactionsApiInterface
      */
-    dispatchOfxImportRaw(requestParameters: DispatchOfxImportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DispatchOfxImport201Response>>;
+    dispatchOfxImportRaw(requestParameters: DispatchOfxImportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<OfxImportJobRequestEntity>>;
 
     /**
      * Dispara a importação assíncrona de um arquivo OFX.
      */
-    dispatchOfxImport(requestParameters: DispatchOfxImportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DispatchOfxImport201Response>;
+    dispatchOfxImport(requestParameters: DispatchOfxImportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<OfxImportJobRequestEntity>;
 
     /**
      * 
@@ -279,7 +279,7 @@ export class BankTransactionsApi extends runtime.BaseAPI implements BankTransact
     /**
      * Dispara a importação assíncrona de um arquivo OFX.
      */
-    async dispatchOfxImportRaw(requestParameters: DispatchOfxImportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DispatchOfxImport201Response>> {
+    async dispatchOfxImportRaw(requestParameters: DispatchOfxImportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<OfxImportJobRequestEntity>> {
         if (requestParameters['ofxImportRequestBodyDto'] == null) {
             throw new runtime.RequiredError(
                 'ofxImportRequestBodyDto',
@@ -301,13 +301,13 @@ export class BankTransactionsApi extends runtime.BaseAPI implements BankTransact
             body: OfxImportRequestBodyDtoToJSON(requestParameters['ofxImportRequestBodyDto']),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => DispatchOfxImport201ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => OfxImportJobRequestEntityFromJSON(jsonValue));
     }
 
     /**
      * Dispara a importação assíncrona de um arquivo OFX.
      */
-    async dispatchOfxImport(requestParameters: DispatchOfxImportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DispatchOfxImport201Response> {
+    async dispatchOfxImport(requestParameters: DispatchOfxImportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<OfxImportJobRequestEntity> {
         const response = await this.dispatchOfxImportRaw(requestParameters, initOverrides);
         return await response.value();
     }

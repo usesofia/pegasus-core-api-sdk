@@ -24,6 +24,8 @@ exports.CreateInboxRecordRequestBodyDtoBestSuggestedActionInboxRawCreateManyFina
 function instanceOfCreateInboxRecordRequestBodyDtoBestSuggestedActionInboxRawCreateManyFinancialRecordsRequest(value) {
     if (!('fileId' in value) || value['fileId'] === undefined)
         return false;
+    if (!('nRows' in value) || value['nRows'] === undefined)
+        return false;
     return true;
 }
 function CreateInboxRecordRequestBodyDtoBestSuggestedActionInboxRawCreateManyFinancialRecordsRequestFromJSON(json) {
@@ -35,6 +37,7 @@ function CreateInboxRecordRequestBodyDtoBestSuggestedActionInboxRawCreateManyFin
     }
     return {
         'fileId': json['fileId'],
+        'nRows': json['nRows'],
     };
 }
 function CreateInboxRecordRequestBodyDtoBestSuggestedActionInboxRawCreateManyFinancialRecordsRequestToJSON(json) {
@@ -47,5 +50,6 @@ function CreateInboxRecordRequestBodyDtoBestSuggestedActionInboxRawCreateManyFin
     }
     return {
         'fileId': value['fileId'],
+        'nRows': value['nRows'],
     };
 }

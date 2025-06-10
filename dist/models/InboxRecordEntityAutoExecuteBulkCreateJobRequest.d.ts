@@ -28,6 +28,12 @@ export interface InboxRecordEntityAutoExecuteBulkCreateJobRequest {
      */
     resource: InboxRecordEntityAutoExecuteBulkCreateJobRequestResourceEnum;
     /**
+     * Número de linhas a serem criadas.
+     * @type {number}
+     * @memberof InboxRecordEntityAutoExecuteBulkCreateJobRequest
+     */
+    nRows: number;
+    /**
      * Identificador do arquivo com dados para criação.
      * @type {string}
      * @memberof InboxRecordEntityAutoExecuteBulkCreateJobRequest
