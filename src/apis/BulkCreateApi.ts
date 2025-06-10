@@ -15,13 +15,16 @@
 
 import * as runtime from '../runtime';
 import type {
-  BulkCreateJobRequestResponseDto,
+  BulkCreateJobRequestDto,
+  BulkCreateJobRequestEntity,
   ExceptionResponseEntity,
   ExecuteBulkCreateJobRequestBodyDto,
 } from '../models/index';
 import {
-    BulkCreateJobRequestResponseDtoFromJSON,
-    BulkCreateJobRequestResponseDtoToJSON,
+    BulkCreateJobRequestDtoFromJSON,
+    BulkCreateJobRequestDtoToJSON,
+    BulkCreateJobRequestEntityFromJSON,
+    BulkCreateJobRequestEntityToJSON,
     ExceptionResponseEntityFromJSON,
     ExceptionResponseEntityToJSON,
     ExecuteBulkCreateJobRequestBodyDtoFromJSON,
@@ -33,7 +36,7 @@ export interface ProcessBulkCreateRequest {
 }
 
 export interface ScheduleBulkCreateRequest {
-    bulkCreateJobRequestResponseDto: BulkCreateJobRequestResponseDto;
+    bulkCreateJobRequestDto: BulkCreateJobRequestDto;
 }
 
 /**
@@ -61,17 +64,17 @@ export interface BulkCreateApiInterface {
     /**
      * 
      * @summary Schedules creation of multiple resources from a file
-     * @param {BulkCreateJobRequestResponseDto} bulkCreateJobRequestResponseDto 
+     * @param {BulkCreateJobRequestDto} bulkCreateJobRequestDto 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof BulkCreateApiInterface
      */
-    scheduleBulkCreateRaw(requestParameters: ScheduleBulkCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<string>>;
+    scheduleBulkCreateRaw(requestParameters: ScheduleBulkCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BulkCreateJobRequestEntity>>;
 
     /**
      * Schedules creation of multiple resources from a file
      */
-    scheduleBulkCreate(requestParameters: ScheduleBulkCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<string>;
+    scheduleBulkCreate(requestParameters: ScheduleBulkCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BulkCreateJobRequestEntity>;
 
 }
 
@@ -118,11 +121,11 @@ export class BulkCreateApi extends runtime.BaseAPI implements BulkCreateApiInter
     /**
      * Schedules creation of multiple resources from a file
      */
-    async scheduleBulkCreateRaw(requestParameters: ScheduleBulkCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<string>> {
-        if (requestParameters['bulkCreateJobRequestResponseDto'] == null) {
+    async scheduleBulkCreateRaw(requestParameters: ScheduleBulkCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BulkCreateJobRequestEntity>> {
+        if (requestParameters['bulkCreateJobRequestDto'] == null) {
             throw new runtime.RequiredError(
-                'bulkCreateJobRequestResponseDto',
-                'Required parameter "bulkCreateJobRequestResponseDto" was null or undefined when calling scheduleBulkCreate().'
+                'bulkCreateJobRequestDto',
+                'Required parameter "bulkCreateJobRequestDto" was null or undefined when calling scheduleBulkCreate().'
             );
         }
 
@@ -137,20 +140,16 @@ export class BulkCreateApi extends runtime.BaseAPI implements BulkCreateApiInter
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: BulkCreateJobRequestResponseDtoToJSON(requestParameters['bulkCreateJobRequestResponseDto']),
+            body: BulkCreateJobRequestDtoToJSON(requestParameters['bulkCreateJobRequestDto']),
         }, initOverrides);
 
-        if (this.isJsonMime(response.headers.get('content-type'))) {
-            return new runtime.JSONApiResponse<string>(response);
-        } else {
-            return new runtime.TextApiResponse(response) as any;
-        }
+        return new runtime.JSONApiResponse(response, (jsonValue) => BulkCreateJobRequestEntityFromJSON(jsonValue));
     }
 
     /**
      * Schedules creation of multiple resources from a file
      */
-    async scheduleBulkCreate(requestParameters: ScheduleBulkCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<string> {
+    async scheduleBulkCreate(requestParameters: ScheduleBulkCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BulkCreateJobRequestEntity> {
         const response = await this.scheduleBulkCreateRaw(requestParameters, initOverrides);
         return await response.value();
     }

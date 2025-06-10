@@ -10,12 +10,12 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { BulkCreateJobRequestResponseDto, ExecuteBulkCreateJobRequestBodyDto } from '../models/index';
+import type { BulkCreateJobRequestDto, BulkCreateJobRequestEntity, ExecuteBulkCreateJobRequestBodyDto } from '../models/index';
 export interface ProcessBulkCreateRequest {
     executeBulkCreateJobRequestBodyDto: ExecuteBulkCreateJobRequestBodyDto;
 }
 export interface ScheduleBulkCreateRequest {
-    bulkCreateJobRequestResponseDto: BulkCreateJobRequestResponseDto;
+    bulkCreateJobRequestDto: BulkCreateJobRequestDto;
 }
 /**
  * BulkCreateApi - interface
@@ -40,16 +40,16 @@ export interface BulkCreateApiInterface {
     /**
      *
      * @summary Schedules creation of multiple resources from a file
-     * @param {BulkCreateJobRequestResponseDto} bulkCreateJobRequestResponseDto
+     * @param {BulkCreateJobRequestDto} bulkCreateJobRequestDto
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof BulkCreateApiInterface
      */
-    scheduleBulkCreateRaw(requestParameters: ScheduleBulkCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<string>>;
+    scheduleBulkCreateRaw(requestParameters: ScheduleBulkCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BulkCreateJobRequestEntity>>;
     /**
      * Schedules creation of multiple resources from a file
      */
-    scheduleBulkCreate(requestParameters: ScheduleBulkCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<string>;
+    scheduleBulkCreate(requestParameters: ScheduleBulkCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BulkCreateJobRequestEntity>;
 }
 /**
  *
@@ -66,9 +66,9 @@ export declare class BulkCreateApi extends runtime.BaseAPI implements BulkCreate
     /**
      * Schedules creation of multiple resources from a file
      */
-    scheduleBulkCreateRaw(requestParameters: ScheduleBulkCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<string>>;
+    scheduleBulkCreateRaw(requestParameters: ScheduleBulkCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BulkCreateJobRequestEntity>>;
     /**
      * Schedules creation of multiple resources from a file
      */
-    scheduleBulkCreate(requestParameters: ScheduleBulkCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<string>;
+    scheduleBulkCreate(requestParameters: ScheduleBulkCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BulkCreateJobRequestEntity>;
 }

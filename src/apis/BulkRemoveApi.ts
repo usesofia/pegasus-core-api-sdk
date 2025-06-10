@@ -15,13 +15,16 @@
 
 import * as runtime from '../runtime';
 import type {
-  BulkRemoveJobRequestResponseDto,
+  BulkRemoveJobRequestDto,
+  BulkRemoveJobRequestEntity,
   ExceptionResponseEntity,
   ExecuteBulkRemoveJobRequestBodyDto,
 } from '../models/index';
 import {
-    BulkRemoveJobRequestResponseDtoFromJSON,
-    BulkRemoveJobRequestResponseDtoToJSON,
+    BulkRemoveJobRequestDtoFromJSON,
+    BulkRemoveJobRequestDtoToJSON,
+    BulkRemoveJobRequestEntityFromJSON,
+    BulkRemoveJobRequestEntityToJSON,
     ExceptionResponseEntityFromJSON,
     ExceptionResponseEntityToJSON,
     ExecuteBulkRemoveJobRequestBodyDtoFromJSON,
@@ -33,7 +36,7 @@ export interface ProcessBulkRemoveRequest {
 }
 
 export interface ScheduleBulkRemoveRequest {
-    bulkRemoveJobRequestResponseDto: BulkRemoveJobRequestResponseDto;
+    bulkRemoveJobRequestDto: BulkRemoveJobRequestDto;
 }
 
 /**
@@ -61,17 +64,17 @@ export interface BulkRemoveApiInterface {
     /**
      * 
      * @summary Schedules removal of multiple resources
-     * @param {BulkRemoveJobRequestResponseDto} bulkRemoveJobRequestResponseDto 
+     * @param {BulkRemoveJobRequestDto} bulkRemoveJobRequestDto 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof BulkRemoveApiInterface
      */
-    scheduleBulkRemoveRaw(requestParameters: ScheduleBulkRemoveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<string>>;
+    scheduleBulkRemoveRaw(requestParameters: ScheduleBulkRemoveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BulkRemoveJobRequestEntity>>;
 
     /**
      * Schedules removal of multiple resources
      */
-    scheduleBulkRemove(requestParameters: ScheduleBulkRemoveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<string>;
+    scheduleBulkRemove(requestParameters: ScheduleBulkRemoveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BulkRemoveJobRequestEntity>;
 
 }
 
@@ -118,11 +121,11 @@ export class BulkRemoveApi extends runtime.BaseAPI implements BulkRemoveApiInter
     /**
      * Schedules removal of multiple resources
      */
-    async scheduleBulkRemoveRaw(requestParameters: ScheduleBulkRemoveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<string>> {
-        if (requestParameters['bulkRemoveJobRequestResponseDto'] == null) {
+    async scheduleBulkRemoveRaw(requestParameters: ScheduleBulkRemoveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BulkRemoveJobRequestEntity>> {
+        if (requestParameters['bulkRemoveJobRequestDto'] == null) {
             throw new runtime.RequiredError(
-                'bulkRemoveJobRequestResponseDto',
-                'Required parameter "bulkRemoveJobRequestResponseDto" was null or undefined when calling scheduleBulkRemove().'
+                'bulkRemoveJobRequestDto',
+                'Required parameter "bulkRemoveJobRequestDto" was null or undefined when calling scheduleBulkRemove().'
             );
         }
 
@@ -137,20 +140,16 @@ export class BulkRemoveApi extends runtime.BaseAPI implements BulkRemoveApiInter
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: BulkRemoveJobRequestResponseDtoToJSON(requestParameters['bulkRemoveJobRequestResponseDto']),
+            body: BulkRemoveJobRequestDtoToJSON(requestParameters['bulkRemoveJobRequestDto']),
         }, initOverrides);
 
-        if (this.isJsonMime(response.headers.get('content-type'))) {
-            return new runtime.JSONApiResponse<string>(response);
-        } else {
-            return new runtime.TextApiResponse(response) as any;
-        }
+        return new runtime.JSONApiResponse(response, (jsonValue) => BulkRemoveJobRequestEntityFromJSON(jsonValue));
     }
 
     /**
      * Schedules removal of multiple resources
      */
-    async scheduleBulkRemove(requestParameters: ScheduleBulkRemoveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<string> {
+    async scheduleBulkRemove(requestParameters: ScheduleBulkRemoveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BulkRemoveJobRequestEntity> {
         const response = await this.scheduleBulkRemoveRaw(requestParameters, initOverrides);
         return await response.value();
     }

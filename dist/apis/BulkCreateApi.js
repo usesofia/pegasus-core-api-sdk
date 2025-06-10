@@ -128,8 +128,8 @@ var BulkCreateApi = /** @class */ (function (_super) {
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        if (requestParameters['bulkCreateJobRequestResponseDto'] == null) {
-                            throw new runtime.RequiredError('bulkCreateJobRequestResponseDto', 'Required parameter "bulkCreateJobRequestResponseDto" was null or undefined when calling scheduleBulkCreate().');
+                        if (requestParameters['bulkCreateJobRequestDto'] == null) {
+                            throw new runtime.RequiredError('bulkCreateJobRequestDto', 'Required parameter "bulkCreateJobRequestDto" was null or undefined when calling scheduleBulkCreate().');
                         }
                         queryParameters = {};
                         headerParameters = {};
@@ -139,17 +139,11 @@ var BulkCreateApi = /** @class */ (function (_super) {
                                 method: 'POST',
                                 headers: headerParameters,
                                 query: queryParameters,
-                                body: (0, index_1.BulkCreateJobRequestResponseDtoToJSON)(requestParameters['bulkCreateJobRequestResponseDto']),
+                                body: (0, index_1.BulkCreateJobRequestDtoToJSON)(requestParameters['bulkCreateJobRequestDto']),
                             }, initOverrides)];
                     case 1:
                         response = _a.sent();
-                        if (this.isJsonMime(response.headers.get('content-type'))) {
-                            return [2 /*return*/, new runtime.JSONApiResponse(response)];
-                        }
-                        else {
-                            return [2 /*return*/, new runtime.TextApiResponse(response)];
-                        }
-                        return [2 /*return*/];
+                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.BulkCreateJobRequestEntityFromJSON)(jsonValue); })];
                 }
             });
         });

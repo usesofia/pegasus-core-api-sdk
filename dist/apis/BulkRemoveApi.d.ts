@@ -10,12 +10,12 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { BulkRemoveJobRequestResponseDto, ExecuteBulkRemoveJobRequestBodyDto } from '../models/index';
+import type { BulkRemoveJobRequestDto, BulkRemoveJobRequestEntity, ExecuteBulkRemoveJobRequestBodyDto } from '../models/index';
 export interface ProcessBulkRemoveRequest {
     executeBulkRemoveJobRequestBodyDto: ExecuteBulkRemoveJobRequestBodyDto;
 }
 export interface ScheduleBulkRemoveRequest {
-    bulkRemoveJobRequestResponseDto: BulkRemoveJobRequestResponseDto;
+    bulkRemoveJobRequestDto: BulkRemoveJobRequestDto;
 }
 /**
  * BulkRemoveApi - interface
@@ -40,16 +40,16 @@ export interface BulkRemoveApiInterface {
     /**
      *
      * @summary Schedules removal of multiple resources
-     * @param {BulkRemoveJobRequestResponseDto} bulkRemoveJobRequestResponseDto
+     * @param {BulkRemoveJobRequestDto} bulkRemoveJobRequestDto
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof BulkRemoveApiInterface
      */
-    scheduleBulkRemoveRaw(requestParameters: ScheduleBulkRemoveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<string>>;
+    scheduleBulkRemoveRaw(requestParameters: ScheduleBulkRemoveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BulkRemoveJobRequestEntity>>;
     /**
      * Schedules removal of multiple resources
      */
-    scheduleBulkRemove(requestParameters: ScheduleBulkRemoveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<string>;
+    scheduleBulkRemove(requestParameters: ScheduleBulkRemoveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BulkRemoveJobRequestEntity>;
 }
 /**
  *
@@ -66,9 +66,9 @@ export declare class BulkRemoveApi extends runtime.BaseAPI implements BulkRemove
     /**
      * Schedules removal of multiple resources
      */
-    scheduleBulkRemoveRaw(requestParameters: ScheduleBulkRemoveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<string>>;
+    scheduleBulkRemoveRaw(requestParameters: ScheduleBulkRemoveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BulkRemoveJobRequestEntity>>;
     /**
      * Schedules removal of multiple resources
      */
-    scheduleBulkRemove(requestParameters: ScheduleBulkRemoveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<string>;
+    scheduleBulkRemove(requestParameters: ScheduleBulkRemoveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BulkRemoveJobRequestEntity>;
 }

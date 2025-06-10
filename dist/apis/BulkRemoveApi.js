@@ -128,8 +128,8 @@ var BulkRemoveApi = /** @class */ (function (_super) {
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        if (requestParameters['bulkRemoveJobRequestResponseDto'] == null) {
-                            throw new runtime.RequiredError('bulkRemoveJobRequestResponseDto', 'Required parameter "bulkRemoveJobRequestResponseDto" was null or undefined when calling scheduleBulkRemove().');
+                        if (requestParameters['bulkRemoveJobRequestDto'] == null) {
+                            throw new runtime.RequiredError('bulkRemoveJobRequestDto', 'Required parameter "bulkRemoveJobRequestDto" was null or undefined when calling scheduleBulkRemove().');
                         }
                         queryParameters = {};
                         headerParameters = {};
@@ -139,17 +139,11 @@ var BulkRemoveApi = /** @class */ (function (_super) {
                                 method: 'POST',
                                 headers: headerParameters,
                                 query: queryParameters,
-                                body: (0, index_1.BulkRemoveJobRequestResponseDtoToJSON)(requestParameters['bulkRemoveJobRequestResponseDto']),
+                                body: (0, index_1.BulkRemoveJobRequestDtoToJSON)(requestParameters['bulkRemoveJobRequestDto']),
                             }, initOverrides)];
                     case 1:
                         response = _a.sent();
-                        if (this.isJsonMime(response.headers.get('content-type'))) {
-                            return [2 /*return*/, new runtime.JSONApiResponse(response)];
-                        }
-                        else {
-                            return [2 /*return*/, new runtime.TextApiResponse(response)];
-                        }
-                        return [2 /*return*/];
+                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.BulkRemoveJobRequestEntityFromJSON)(jsonValue); })];
                 }
             });
         });
