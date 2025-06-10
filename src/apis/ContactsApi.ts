@@ -87,6 +87,7 @@ export interface RemoveContactRequest {
 
 export interface SystemFindAllContactsRequest {
     ownerOrganizationId: string;
+    readPreference?: SystemFindAllContactsReadPreferenceEnum;
     sortOrder?: string;
     sortBy?: string;
     populate?: string;
@@ -250,6 +251,7 @@ export interface ContactsApiInterface {
      * 
      * @summary Busca todos os contatos pelo sistema.
      * @param {string} ownerOrganizationId Identificador da organização proprietária dos contatos.
+     * @param {'primary' | 'primaryPreferred' | 'secondary' | 'secondaryPreferred' | 'nearest'} [readPreference] Preferência de leitura dos contatos.
      * @param {string} [sortOrder] Ordem de ordenação dos contatos.
      * @param {string} [sortBy] Campo para ordenação dos contatos.
      * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
@@ -628,6 +630,10 @@ export class ContactsApi extends runtime.BaseAPI implements ContactsApiInterface
 
         const queryParameters: any = {};
 
+        if (requestParameters['readPreference'] != null) {
+            queryParameters['readPreference'] = requestParameters['readPreference'];
+        }
+
         if (requestParameters['ownerOrganizationId'] != null) {
             queryParameters['ownerOrganizationId'] = requestParameters['ownerOrganizationId'];
         }
@@ -709,3 +715,15 @@ export class ContactsApi extends runtime.BaseAPI implements ContactsApiInterface
     }
 
 }
+
+/**
+ * @export
+ */
+export const SystemFindAllContactsReadPreferenceEnum = {
+    Primary: 'primary',
+    PrimaryPreferred: 'primaryPreferred',
+    Secondary: 'secondary',
+    SecondaryPreferred: 'secondaryPreferred',
+    Nearest: 'nearest'
+} as const;
+export type SystemFindAllContactsReadPreferenceEnum = typeof SystemFindAllContactsReadPreferenceEnum[keyof typeof SystemFindAllContactsReadPreferenceEnum];

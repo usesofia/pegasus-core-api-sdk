@@ -92,6 +92,7 @@ export interface RemoveFinancialRecordRequest {
 
 export interface SystemFindAllFinancialRecordsRequest {
     ownerOrganizationId: string;
+    readPreference?: SystemFindAllFinancialRecordsReadPreferenceEnum;
     sortOrder?: string;
     sortBy?: SystemFindAllFinancialRecordsSortByEnum;
     account?: string;
@@ -243,6 +244,7 @@ export interface FinancialRecordsApiInterface {
      * 
      * @summary Busca todos os lançamentos financeiros pelo sistema.
      * @param {string} ownerOrganizationId Identificador da organização proprietária dos lançamentos financeiros.
+     * @param {'primary' | 'primaryPreferred' | 'secondary' | 'secondaryPreferred' | 'nearest'} [readPreference] Preferência de leitura dos lançamentos financeiros.
      * @param {string} [sortOrder] Ordem de ordenação dos lançamentos financeiros.
      * @param {'direction' | 'dueDate' | 'contact' | 'description' | 'subcategory' | 'amount' | 'competenceDate' | 'cashDate' | 'createdAt'} [sortBy] Campo para ordenação dos lançamentos financeiros.
      * @param {string} [account] Conta do lançamento financeiro.
@@ -612,6 +614,10 @@ export class FinancialRecordsApi extends runtime.BaseAPI implements FinancialRec
 
         const queryParameters: any = {};
 
+        if (requestParameters['readPreference'] != null) {
+            queryParameters['readPreference'] = requestParameters['readPreference'];
+        }
+
         if (requestParameters['sortOrder'] != null) {
             queryParameters['sortOrder'] = requestParameters['sortOrder'];
         }
@@ -741,6 +747,17 @@ export const FindAllFinancialRecordsSortByEnum = {
     CreatedAt: 'createdAt'
 } as const;
 export type FindAllFinancialRecordsSortByEnum = typeof FindAllFinancialRecordsSortByEnum[keyof typeof FindAllFinancialRecordsSortByEnum];
+/**
+ * @export
+ */
+export const SystemFindAllFinancialRecordsReadPreferenceEnum = {
+    Primary: 'primary',
+    PrimaryPreferred: 'primaryPreferred',
+    Secondary: 'secondary',
+    SecondaryPreferred: 'secondaryPreferred',
+    Nearest: 'nearest'
+} as const;
+export type SystemFindAllFinancialRecordsReadPreferenceEnum = typeof SystemFindAllFinancialRecordsReadPreferenceEnum[keyof typeof SystemFindAllFinancialRecordsReadPreferenceEnum];
 /**
  * @export
  */

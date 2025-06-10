@@ -84,6 +84,7 @@ export interface RemoveBankAccountRequest {
 
 export interface SystemFindAllBankAccountsRequest {
     ownerOrganizationId: string;
+    readPreference?: SystemFindAllBankAccountsReadPreferenceEnum;
     sortOrder?: string;
     sortBy?: string;
     populate?: string;
@@ -232,6 +233,7 @@ export interface BankAccountsApiInterface {
      * 
      * @summary Busca todas as contas bancárias.
      * @param {string} ownerOrganizationId Identificador da organização proprietária das contas bancárias.
+     * @param {'primary' | 'primaryPreferred' | 'secondary' | 'secondaryPreferred' | 'nearest'} [readPreference] Preferência de leitura das contas bancárias.
      * @param {string} [sortOrder] Ordem de ordenação das contas bancárias.
      * @param {string} [sortBy] Campo para ordenação das contas bancárias.
      * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
@@ -583,6 +585,10 @@ export class BankAccountsApi extends runtime.BaseAPI implements BankAccountsApiI
 
         const queryParameters: any = {};
 
+        if (requestParameters['readPreference'] != null) {
+            queryParameters['readPreference'] = requestParameters['readPreference'];
+        }
+
         if (requestParameters['sortOrder'] != null) {
             queryParameters['sortOrder'] = requestParameters['sortOrder'];
         }
@@ -660,3 +666,15 @@ export class BankAccountsApi extends runtime.BaseAPI implements BankAccountsApiI
     }
 
 }
+
+/**
+ * @export
+ */
+export const SystemFindAllBankAccountsReadPreferenceEnum = {
+    Primary: 'primary',
+    PrimaryPreferred: 'primaryPreferred',
+    Secondary: 'secondary',
+    SecondaryPreferred: 'secondaryPreferred',
+    Nearest: 'nearest'
+} as const;
+export type SystemFindAllBankAccountsReadPreferenceEnum = typeof SystemFindAllBankAccountsReadPreferenceEnum[keyof typeof SystemFindAllBankAccountsReadPreferenceEnum];

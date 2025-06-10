@@ -57,6 +57,7 @@ export interface RemoveFinancialRecordRequest {
 }
 export interface SystemFindAllFinancialRecordsRequest {
     ownerOrganizationId: string;
+    readPreference?: SystemFindAllFinancialRecordsReadPreferenceEnum;
     sortOrder?: string;
     sortBy?: SystemFindAllFinancialRecordsSortByEnum;
     account?: string;
@@ -195,6 +196,7 @@ export interface FinancialRecordsApiInterface {
      *
      * @summary Busca todos os lançamentos financeiros pelo sistema.
      * @param {string} ownerOrganizationId Identificador da organização proprietária dos lançamentos financeiros.
+     * @param {'primary' | 'primaryPreferred' | 'secondary' | 'secondaryPreferred' | 'nearest'} [readPreference] Preferência de leitura dos lançamentos financeiros.
      * @param {string} [sortOrder] Ordem de ordenação dos lançamentos financeiros.
      * @param {'direction' | 'dueDate' | 'contact' | 'description' | 'subcategory' | 'amount' | 'competenceDate' | 'cashDate' | 'createdAt'} [sortBy] Campo para ordenação dos lançamentos financeiros.
      * @param {string} [account] Conta do lançamento financeiro.
@@ -303,6 +305,17 @@ export declare const FindAllFinancialRecordsSortByEnum: {
     readonly CreatedAt: "createdAt";
 };
 export type FindAllFinancialRecordsSortByEnum = typeof FindAllFinancialRecordsSortByEnum[keyof typeof FindAllFinancialRecordsSortByEnum];
+/**
+ * @export
+ */
+export declare const SystemFindAllFinancialRecordsReadPreferenceEnum: {
+    readonly Primary: "primary";
+    readonly PrimaryPreferred: "primaryPreferred";
+    readonly Secondary: "secondary";
+    readonly SecondaryPreferred: "secondaryPreferred";
+    readonly Nearest: "nearest";
+};
+export type SystemFindAllFinancialRecordsReadPreferenceEnum = typeof SystemFindAllFinancialRecordsReadPreferenceEnum[keyof typeof SystemFindAllFinancialRecordsReadPreferenceEnum];
 /**
  * @export
  */

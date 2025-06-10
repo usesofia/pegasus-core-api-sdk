@@ -64,7 +64,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.SystemFindAllFinancialRecordsSortByEnum = exports.FindAllFinancialRecordsSortByEnum = exports.FinancialRecordsApi = void 0;
+exports.SystemFindAllFinancialRecordsSortByEnum = exports.SystemFindAllFinancialRecordsReadPreferenceEnum = exports.FindAllFinancialRecordsSortByEnum = exports.FinancialRecordsApi = void 0;
 var runtime = require("../runtime");
 var index_1 = require("../models/index");
 /**
@@ -437,6 +437,9 @@ var FinancialRecordsApi = /** @class */ (function (_super) {
                             throw new runtime.RequiredError('ownerOrganizationId', 'Required parameter "ownerOrganizationId" was null or undefined when calling systemFindAllFinancialRecords().');
                         }
                         queryParameters = {};
+                        if (requestParameters['readPreference'] != null) {
+                            queryParameters['readPreference'] = requestParameters['readPreference'];
+                        }
                         if (requestParameters['sortOrder'] != null) {
                             queryParameters['sortOrder'] = requestParameters['sortOrder'];
                         }
@@ -553,6 +556,16 @@ exports.FindAllFinancialRecordsSortByEnum = {
     CompetenceDate: 'competenceDate',
     CashDate: 'cashDate',
     CreatedAt: 'createdAt'
+};
+/**
+ * @export
+ */
+exports.SystemFindAllFinancialRecordsReadPreferenceEnum = {
+    Primary: 'primary',
+    PrimaryPreferred: 'primaryPreferred',
+    Secondary: 'secondary',
+    SecondaryPreferred: 'secondaryPreferred',
+    Nearest: 'nearest'
 };
 /**
  * @export

@@ -41,6 +41,7 @@ export interface RemoveSubcategoryRequest {
 }
 export interface SystemFindAllSubcategoriesRequest {
     ownerOrganizationId: string;
+    readPreference?: SystemFindAllSubcategoriesReadPreferenceEnum;
     active?: boolean;
     sortOrder?: string;
     sortBy?: string;
@@ -140,6 +141,7 @@ export interface SubcategoriesApiInterface {
      *
      * @summary Busca todas as subcategorias pelo sistema.
      * @param {string} ownerOrganizationId Identificador da organização proprietária das subcategorias.
+     * @param {'primary' | 'primaryPreferred' | 'secondary' | 'secondaryPreferred' | 'nearest'} [readPreference] Preferência de leitura das subcategorias.
      * @param {boolean} [active] Filtra subcategorias ativas ou inativas.
      * @param {string} [sortOrder] Ordem de ordenação das subcategorias.
      * @param {string} [sortBy] Campo para ordenar as subcategorias.
@@ -212,3 +214,14 @@ export declare class SubcategoriesApi extends runtime.BaseAPI implements Subcate
      */
     systemFindAllSubcategories(requestParameters: SystemFindAllSubcategoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SubcategoriesPageEntity>;
 }
+/**
+ * @export
+ */
+export declare const SystemFindAllSubcategoriesReadPreferenceEnum: {
+    readonly Primary: "primary";
+    readonly PrimaryPreferred: "primaryPreferred";
+    readonly Secondary: "secondary";
+    readonly SecondaryPreferred: "secondaryPreferred";
+    readonly Nearest: "nearest";
+};
+export type SystemFindAllSubcategoriesReadPreferenceEnum = typeof SystemFindAllSubcategoriesReadPreferenceEnum[keyof typeof SystemFindAllSubcategoriesReadPreferenceEnum];

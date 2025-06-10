@@ -64,7 +64,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.BankAccountsApi = void 0;
+exports.SystemFindAllBankAccountsReadPreferenceEnum = exports.BankAccountsApi = void 0;
 var runtime = require("../runtime");
 var index_1 = require("../models/index");
 /**
@@ -452,6 +452,9 @@ var BankAccountsApi = /** @class */ (function (_super) {
                             throw new runtime.RequiredError('ownerOrganizationId', 'Required parameter "ownerOrganizationId" was null or undefined when calling systemFindAllBankAccounts().');
                         }
                         queryParameters = {};
+                        if (requestParameters['readPreference'] != null) {
+                            queryParameters['readPreference'] = requestParameters['readPreference'];
+                        }
                         if (requestParameters['sortOrder'] != null) {
                             queryParameters['sortOrder'] = requestParameters['sortOrder'];
                         }
@@ -528,3 +531,13 @@ var BankAccountsApi = /** @class */ (function (_super) {
     return BankAccountsApi;
 }(runtime.BaseAPI));
 exports.BankAccountsApi = BankAccountsApi;
+/**
+ * @export
+ */
+exports.SystemFindAllBankAccountsReadPreferenceEnum = {
+    Primary: 'primary',
+    PrimaryPreferred: 'primaryPreferred',
+    Secondary: 'secondary',
+    SecondaryPreferred: 'secondaryPreferred',
+    Nearest: 'nearest'
+};

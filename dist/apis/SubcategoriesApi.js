@@ -64,7 +64,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.SubcategoriesApi = void 0;
+exports.SystemFindAllSubcategoriesReadPreferenceEnum = exports.SubcategoriesApi = void 0;
 var runtime = require("../runtime");
 var index_1 = require("../models/index");
 /**
@@ -352,6 +352,9 @@ var SubcategoriesApi = /** @class */ (function (_super) {
                             throw new runtime.RequiredError('ownerOrganizationId', 'Required parameter "ownerOrganizationId" was null or undefined when calling systemFindAllSubcategories().');
                         }
                         queryParameters = {};
+                        if (requestParameters['readPreference'] != null) {
+                            queryParameters['readPreference'] = requestParameters['readPreference'];
+                        }
                         if (requestParameters['ownerOrganizationId'] != null) {
                             queryParameters['ownerOrganizationId'] = requestParameters['ownerOrganizationId'];
                         }
@@ -416,3 +419,13 @@ var SubcategoriesApi = /** @class */ (function (_super) {
     return SubcategoriesApi;
 }(runtime.BaseAPI));
 exports.SubcategoriesApi = SubcategoriesApi;
+/**
+ * @export
+ */
+exports.SystemFindAllSubcategoriesReadPreferenceEnum = {
+    Primary: 'primary',
+    PrimaryPreferred: 'primaryPreferred',
+    Secondary: 'secondary',
+    SecondaryPreferred: 'secondaryPreferred',
+    Nearest: 'nearest'
+};

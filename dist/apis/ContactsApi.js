@@ -64,7 +64,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ContactsApi = void 0;
+exports.SystemFindAllContactsReadPreferenceEnum = exports.ContactsApi = void 0;
 var runtime = require("../runtime");
 var index_1 = require("../models/index");
 /**
@@ -493,6 +493,9 @@ var ContactsApi = /** @class */ (function (_super) {
                             throw new runtime.RequiredError('ownerOrganizationId', 'Required parameter "ownerOrganizationId" was null or undefined when calling systemFindAllContacts().');
                         }
                         queryParameters = {};
+                        if (requestParameters['readPreference'] != null) {
+                            queryParameters['readPreference'] = requestParameters['readPreference'];
+                        }
                         if (requestParameters['ownerOrganizationId'] != null) {
                             queryParameters['ownerOrganizationId'] = requestParameters['ownerOrganizationId'];
                         }
@@ -572,3 +575,13 @@ var ContactsApi = /** @class */ (function (_super) {
     return ContactsApi;
 }(runtime.BaseAPI));
 exports.ContactsApi = ContactsApi;
+/**
+ * @export
+ */
+exports.SystemFindAllContactsReadPreferenceEnum = {
+    Primary: 'primary',
+    PrimaryPreferred: 'primaryPreferred',
+    Secondary: 'secondary',
+    SecondaryPreferred: 'secondaryPreferred',
+    Nearest: 'nearest'
+};
