@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { BankTransactionEntity, BankTransactionsPageDto, CreateOrUpdateBankTransactionRequestBodyDto, ExecuteOfxImportJobRequestBodyDto, OfxImportJobRequestEntity, OfxImportRequestBodyDto, PartialUpdateBankTransactionRequestBodyDto } from '../models/index';
+import type { BankTransactionEntity, BankTransactionsPageDto, CreateOrUpdateBankTransactionRequestBodyDto, ExecuteOfxImportJobRequestBodyDto, OfxImportJobRequestEntity, OfxImportJobRequestsPageDto, OfxImportRequestBodyDto, PartialUpdateBankTransactionRequestBodyDto } from '../models/index';
 export interface CreateOrUpdateBankTransactionRequest {
     createOrUpdateBankTransactionRequestBodyDto: CreateOrUpdateBankTransactionRequestBodyDto;
     populate?: string;
@@ -26,6 +26,12 @@ export interface FindAllBankTransactionsRequest {
     bankAccount?: string;
     semanticSearchTermInBase64?: string;
     textSearchTerm?: string;
+    pageSize?: number;
+    pageIndex?: number;
+}
+export interface FindAllOfxImportJobRequestsRequest {
+    sortOrder?: FindAllOfxImportJobRequestsSortOrderEnum;
+    sortBy?: FindAllOfxImportJobRequestsSortByEnum;
     pageSize?: number;
     pageIndex?: number;
 }
@@ -110,6 +116,22 @@ export interface BankTransactionsApiInterface {
      * Busca todas as movimentações financeiras.
      */
     findAllBankTransactions(requestParameters: FindAllBankTransactionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankTransactionsPageDto>;
+    /**
+     *
+     * @summary Lista todas as solicitações de importação de arquivos OFX com suas execuções.
+     * @param {'asc' | 'desc'} [sortOrder] Ordem da ordenação. Valores possíveis: \&#39;asc\&#39;, \&#39;desc\&#39;.
+     * @param {'createdAt' | 'fileName' | 'bankAccountName'} [sortBy] Campo para ordenação. Valores possíveis: \&#39;createdAt\&#39;, \&#39;fileName\&#39;, \&#39;bankAccountName\&#39;.
+     * @param {number} [pageSize] Quantidade de itens por página.
+     * @param {number} [pageIndex] Índice da página.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof BankTransactionsApiInterface
+     */
+    findAllOfxImportJobRequestsRaw(requestParameters: FindAllOfxImportJobRequestsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<OfxImportJobRequestsPageDto>>;
+    /**
+     * Lista todas as solicitações de importação de arquivos OFX com suas execuções.
+     */
+    findAllOfxImportJobRequests(requestParameters: FindAllOfxImportJobRequestsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<OfxImportJobRequestsPageDto>;
     /**
      *
      * @summary Busca uma movimentação financeira por ID.
@@ -206,6 +228,14 @@ export declare class BankTransactionsApi extends runtime.BaseAPI implements Bank
      */
     findAllBankTransactions(requestParameters?: FindAllBankTransactionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankTransactionsPageDto>;
     /**
+     * Lista todas as solicitações de importação de arquivos OFX com suas execuções.
+     */
+    findAllOfxImportJobRequestsRaw(requestParameters: FindAllOfxImportJobRequestsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<OfxImportJobRequestsPageDto>>;
+    /**
+     * Lista todas as solicitações de importação de arquivos OFX com suas execuções.
+     */
+    findAllOfxImportJobRequests(requestParameters?: FindAllOfxImportJobRequestsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<OfxImportJobRequestsPageDto>;
+    /**
      * Busca uma movimentação financeira por ID.
      */
     findBankTransactionByIdRaw(requestParameters: FindBankTransactionByIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankTransactionEntity>>;
@@ -246,6 +276,23 @@ export declare const FindAllBankTransactionsTypeEnum: {
     readonly Credit: "CREDIT";
 };
 export type FindAllBankTransactionsTypeEnum = typeof FindAllBankTransactionsTypeEnum[keyof typeof FindAllBankTransactionsTypeEnum];
+/**
+ * @export
+ */
+export declare const FindAllOfxImportJobRequestsSortOrderEnum: {
+    readonly Asc: "asc";
+    readonly Desc: "desc";
+};
+export type FindAllOfxImportJobRequestsSortOrderEnum = typeof FindAllOfxImportJobRequestsSortOrderEnum[keyof typeof FindAllOfxImportJobRequestsSortOrderEnum];
+/**
+ * @export
+ */
+export declare const FindAllOfxImportJobRequestsSortByEnum: {
+    readonly CreatedAt: "createdAt";
+    readonly FileName: "fileName";
+    readonly BankAccountName: "bankAccountName";
+};
+export type FindAllOfxImportJobRequestsSortByEnum = typeof FindAllOfxImportJobRequestsSortByEnum[keyof typeof FindAllOfxImportJobRequestsSortByEnum];
 /**
  * @export
  */

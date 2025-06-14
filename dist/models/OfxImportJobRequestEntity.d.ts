@@ -52,6 +52,24 @@ export interface OfxImportJobRequestEntity {
      */
     requesterUserId: string;
     /**
+     * Número total de transações no arquivo OFX.
+     * @type {number}
+     * @memberof OfxImportJobRequestEntity
+     */
+    totalTransactions?: number | null;
+    /**
+     * Data da transação mais antiga no arquivo OFX.
+     * @type {any}
+     * @memberof OfxImportJobRequestEntity
+     */
+    periodStartDate?: any | null;
+    /**
+     * Data da transação mais recente no arquivo OFX.
+     * @type {any}
+     * @memberof OfxImportJobRequestEntity
+     */
+    periodEndDate?: any | null;
+    /**
      * Data de criação da solicitação de importação.
      * @type {any}
      * @memberof OfxImportJobRequestEntity

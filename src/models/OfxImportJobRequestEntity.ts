@@ -56,6 +56,24 @@ export interface OfxImportJobRequestEntity {
      */
     requesterUserId: string;
     /**
+     * Número total de transações no arquivo OFX.
+     * @type {number}
+     * @memberof OfxImportJobRequestEntity
+     */
+    totalTransactions?: number | null;
+    /**
+     * Data da transação mais antiga no arquivo OFX.
+     * @type {any}
+     * @memberof OfxImportJobRequestEntity
+     */
+    periodStartDate?: any | null;
+    /**
+     * Data da transação mais recente no arquivo OFX.
+     * @type {any}
+     * @memberof OfxImportJobRequestEntity
+     */
+    periodEndDate?: any | null;
+    /**
      * Data de criação da solicitação de importação.
      * @type {any}
      * @memberof OfxImportJobRequestEntity
@@ -107,6 +125,9 @@ export function OfxImportJobRequestEntityFromJSONTyped(json: any, ignoreDiscrimi
         'fileName': json['fileName'],
         'signedUrl': json['signedUrl'],
         'requesterUserId': json['requesterUserId'],
+        'totalTransactions': json['totalTransactions'] == null ? undefined : json['totalTransactions'],
+        'periodStartDate': json['periodStartDate'] == null ? undefined : json['periodStartDate'],
+        'periodEndDate': json['periodEndDate'] == null ? undefined : json['periodEndDate'],
         'createdAt': json['createdAt'],
         'updatedAt': json['updatedAt'],
         'deletedAt': json['deletedAt'],
@@ -130,6 +151,9 @@ export function OfxImportJobRequestEntityToJSONTyped(value?: OfxImportJobRequest
         'fileName': value['fileName'],
         'signedUrl': value['signedUrl'],
         'requesterUserId': value['requesterUserId'],
+        'totalTransactions': value['totalTransactions'],
+        'periodStartDate': value['periodStartDate'],
+        'periodEndDate': value['periodEndDate'],
         'createdAt': value['createdAt'],
         'updatedAt': value['updatedAt'],
         'deletedAt': value['deletedAt'],

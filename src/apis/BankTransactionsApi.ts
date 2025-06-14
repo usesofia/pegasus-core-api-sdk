@@ -21,6 +21,7 @@ import type {
   ExceptionResponseEntity,
   ExecuteOfxImportJobRequestBodyDto,
   OfxImportJobRequestEntity,
+  OfxImportJobRequestsPageDto,
   OfxImportRequestBodyDto,
   PartialUpdateBankTransactionRequestBodyDto,
 } from '../models/index';
@@ -37,6 +38,8 @@ import {
     ExecuteOfxImportJobRequestBodyDtoToJSON,
     OfxImportJobRequestEntityFromJSON,
     OfxImportJobRequestEntityToJSON,
+    OfxImportJobRequestsPageDtoFromJSON,
+    OfxImportJobRequestsPageDtoToJSON,
     OfxImportRequestBodyDtoFromJSON,
     OfxImportRequestBodyDtoToJSON,
     PartialUpdateBankTransactionRequestBodyDtoFromJSON,
@@ -60,6 +63,13 @@ export interface FindAllBankTransactionsRequest {
     bankAccount?: string;
     semanticSearchTermInBase64?: string;
     textSearchTerm?: string;
+    pageSize?: number;
+    pageIndex?: number;
+}
+
+export interface FindAllOfxImportJobRequestsRequest {
+    sortOrder?: FindAllOfxImportJobRequestsSortOrderEnum;
+    sortBy?: FindAllOfxImportJobRequestsSortByEnum;
     pageSize?: number;
     pageIndex?: number;
 }
@@ -154,6 +164,24 @@ export interface BankTransactionsApiInterface {
      * Busca todas as movimentações financeiras.
      */
     findAllBankTransactions(requestParameters: FindAllBankTransactionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankTransactionsPageDto>;
+
+    /**
+     * 
+     * @summary Lista todas as solicitações de importação de arquivos OFX com suas execuções.
+     * @param {'asc' | 'desc'} [sortOrder] Ordem da ordenação. Valores possíveis: \&#39;asc\&#39;, \&#39;desc\&#39;.
+     * @param {'createdAt' | 'fileName' | 'bankAccountName'} [sortBy] Campo para ordenação. Valores possíveis: \&#39;createdAt\&#39;, \&#39;fileName\&#39;, \&#39;bankAccountName\&#39;.
+     * @param {number} [pageSize] Quantidade de itens por página.
+     * @param {number} [pageIndex] Índice da página.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof BankTransactionsApiInterface
+     */
+    findAllOfxImportJobRequestsRaw(requestParameters: FindAllOfxImportJobRequestsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<OfxImportJobRequestsPageDto>>;
+
+    /**
+     * Lista todas as solicitações de importação de arquivos OFX com suas execuções.
+     */
+    findAllOfxImportJobRequests(requestParameters: FindAllOfxImportJobRequestsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<OfxImportJobRequestsPageDto>;
 
     /**
      * 
@@ -375,6 +403,48 @@ export class BankTransactionsApi extends runtime.BaseAPI implements BankTransact
     }
 
     /**
+     * Lista todas as solicitações de importação de arquivos OFX com suas execuções.
+     */
+    async findAllOfxImportJobRequestsRaw(requestParameters: FindAllOfxImportJobRequestsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<OfxImportJobRequestsPageDto>> {
+        const queryParameters: any = {};
+
+        if (requestParameters['sortOrder'] != null) {
+            queryParameters['sortOrder'] = requestParameters['sortOrder'];
+        }
+
+        if (requestParameters['sortBy'] != null) {
+            queryParameters['sortBy'] = requestParameters['sortBy'];
+        }
+
+        if (requestParameters['pageSize'] != null) {
+            queryParameters['pageSize'] = requestParameters['pageSize'];
+        }
+
+        if (requestParameters['pageIndex'] != null) {
+            queryParameters['pageIndex'] = requestParameters['pageIndex'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/external/bank-transactions/ofx/job-requests`,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => OfxImportJobRequestsPageDtoFromJSON(jsonValue));
+    }
+
+    /**
+     * Lista todas as solicitações de importação de arquivos OFX com suas execuções.
+     */
+    async findAllOfxImportJobRequests(requestParameters: FindAllOfxImportJobRequestsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<OfxImportJobRequestsPageDto> {
+        const response = await this.findAllOfxImportJobRequestsRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
      * Busca uma movimentação financeira por ID.
      */
     async findBankTransactionByIdRaw(requestParameters: FindBankTransactionByIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankTransactionEntity>> {
@@ -584,6 +654,23 @@ export const FindAllBankTransactionsTypeEnum = {
     Credit: 'CREDIT'
 } as const;
 export type FindAllBankTransactionsTypeEnum = typeof FindAllBankTransactionsTypeEnum[keyof typeof FindAllBankTransactionsTypeEnum];
+/**
+ * @export
+ */
+export const FindAllOfxImportJobRequestsSortOrderEnum = {
+    Asc: 'asc',
+    Desc: 'desc'
+} as const;
+export type FindAllOfxImportJobRequestsSortOrderEnum = typeof FindAllOfxImportJobRequestsSortOrderEnum[keyof typeof FindAllOfxImportJobRequestsSortOrderEnum];
+/**
+ * @export
+ */
+export const FindAllOfxImportJobRequestsSortByEnum = {
+    CreatedAt: 'createdAt',
+    FileName: 'fileName',
+    BankAccountName: 'bankAccountName'
+} as const;
+export type FindAllOfxImportJobRequestsSortByEnum = typeof FindAllOfxImportJobRequestsSortByEnum[keyof typeof FindAllOfxImportJobRequestsSortByEnum];
 /**
  * @export
  */

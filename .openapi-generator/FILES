@@ -162,6 +162,10 @@ src/models/MemberEntity.ts
 src/models/NormalizedSubcategoriesPageEntity.ts
 src/models/NormalizedSubcategoriesPageEntityItemsInner.ts
 src/models/OfxImportJobRequestEntity.ts
+src/models/OfxImportJobRequestsPageDto.ts
+src/models/OfxImportJobRequestsPageDtoItemsInner.ts
+src/models/OfxImportJobRequestsPageDtoItemsInnerExecutionsInner.ts
+src/models/OfxImportJobRequestsPageDtoItemsInnerUser.ts
 src/models/OfxImportRequestBodyDto.ts
 src/models/OrganizationEntity.ts
 src/models/PartialUpdateBankAccountRequestBodyDto.ts

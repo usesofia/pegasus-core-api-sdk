@@ -97,6 +97,30 @@ export interface CreateOrUpdateBankTransactionRequestBodyDto {
      */
     status: CreateOrUpdateBankTransactionRequestBodyDtoStatusEnum;
     /**
+     * Identificador da solicitação de importação OFX relacionada.
+     * @type {string}
+     * @memberof CreateOrUpdateBankTransactionRequestBodyDto
+     */
+    ofxJobRequestId?: string | null;
+    /**
+     * Identificador da execução de importação OFX relacionada.
+     * @type {string}
+     * @memberof CreateOrUpdateBankTransactionRequestBodyDto
+     */
+    ofxJobExecutionId?: string | null;
+    /**
+     * Identificador da solicitação de importação Pluggy relacionada.
+     * @type {string}
+     * @memberof CreateOrUpdateBankTransactionRequestBodyDto
+     */
+    pluggyJobRequestId?: string | null;
+    /**
+     * Identificador da execução de importação Pluggy relacionada.
+     * @type {string}
+     * @memberof CreateOrUpdateBankTransactionRequestBodyDto
+     */
+    pluggyJobExecutionId?: string | null;
+    /**
      * Identificador externo da movimentação financeira.
      * @type {string}
      * @memberof CreateOrUpdateBankTransactionRequestBodyDto
@@ -245,6 +269,10 @@ export function CreateOrUpdateBankTransactionRequestBodyDtoFromJSONTyped(json: a
         'type': json['type'],
         'description': json['description'] == null ? undefined : json['description'],
         'status': json['status'],
+        'ofxJobRequestId': json['ofxJobRequestId'] == null ? undefined : json['ofxJobRequestId'],
+        'ofxJobExecutionId': json['ofxJobExecutionId'] == null ? undefined : json['ofxJobExecutionId'],
+        'pluggyJobRequestId': json['pluggyJobRequestId'] == null ? undefined : json['pluggyJobRequestId'],
+        'pluggyJobExecutionId': json['pluggyJobExecutionId'] == null ? undefined : json['pluggyJobExecutionId'],
         'externalId': json['externalId'] == null ? undefined : json['externalId'],
         'amount': json['amount'] == null ? undefined : json['amount'],
         'amountInAccountCurrency': json['amountInAccountCurrency'] == null ? undefined : json['amountInAccountCurrency'],
@@ -281,6 +309,10 @@ export function CreateOrUpdateBankTransactionRequestBodyDtoToJSONTyped(value?: C
         'type': value['type'],
         'description': value['description'],
         'status': value['status'],
+        'ofxJobRequestId': value['ofxJobRequestId'],
+        'ofxJobExecutionId': value['ofxJobExecutionId'],
+        'pluggyJobRequestId': value['pluggyJobRequestId'],
+        'pluggyJobExecutionId': value['pluggyJobExecutionId'],
         'externalId': value['externalId'],
         'amount': value['amount'],
         'amountInAccountCurrency': value['amountInAccountCurrency'],

@@ -64,7 +64,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.SystemFindAllBankTransactionsTypeEnum = exports.FindAllBankTransactionsTypeEnum = exports.BankTransactionsApi = void 0;
+exports.SystemFindAllBankTransactionsTypeEnum = exports.FindAllOfxImportJobRequestsSortByEnum = exports.FindAllOfxImportJobRequestsSortOrderEnum = exports.FindAllBankTransactionsTypeEnum = exports.BankTransactionsApi = void 0;
 var runtime = require("../runtime");
 var index_1 = require("../models/index");
 /**
@@ -231,6 +231,60 @@ var BankTransactionsApi = /** @class */ (function (_super) {
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, this.findAllBankTransactionsRaw(requestParameters, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [4 /*yield*/, response.value()];
+                    case 2: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
+    /**
+     * Lista todas as solicitações de importação de arquivos OFX com suas execuções.
+     */
+    BankTransactionsApi.prototype.findAllOfxImportJobRequestsRaw = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        queryParameters = {};
+                        if (requestParameters['sortOrder'] != null) {
+                            queryParameters['sortOrder'] = requestParameters['sortOrder'];
+                        }
+                        if (requestParameters['sortBy'] != null) {
+                            queryParameters['sortBy'] = requestParameters['sortBy'];
+                        }
+                        if (requestParameters['pageSize'] != null) {
+                            queryParameters['pageSize'] = requestParameters['pageSize'];
+                        }
+                        if (requestParameters['pageIndex'] != null) {
+                            queryParameters['pageIndex'] = requestParameters['pageIndex'];
+                        }
+                        headerParameters = {};
+                        return [4 /*yield*/, this.request({
+                                path: "/external/bank-transactions/ofx/job-requests",
+                                method: 'GET',
+                                headers: headerParameters,
+                                query: queryParameters,
+                            }, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.OfxImportJobRequestsPageDtoFromJSON)(jsonValue); })];
+                }
+            });
+        });
+    };
+    /**
+     * Lista todas as solicitações de importação de arquivos OFX com suas execuções.
+     */
+    BankTransactionsApi.prototype.findAllOfxImportJobRequests = function () {
+        return __awaiter(this, arguments, void 0, function (requestParameters, initOverrides) {
+            var response;
+            if (requestParameters === void 0) { requestParameters = {}; }
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.findAllOfxImportJobRequestsRaw(requestParameters, initOverrides)];
                     case 1:
                         response = _a.sent();
                         return [4 /*yield*/, response.value()];
@@ -471,6 +525,21 @@ exports.BankTransactionsApi = BankTransactionsApi;
 exports.FindAllBankTransactionsTypeEnum = {
     Debit: 'DEBIT',
     Credit: 'CREDIT'
+};
+/**
+ * @export
+ */
+exports.FindAllOfxImportJobRequestsSortOrderEnum = {
+    Asc: 'asc',
+    Desc: 'desc'
+};
+/**
+ * @export
+ */
+exports.FindAllOfxImportJobRequestsSortByEnum = {
+    CreatedAt: 'createdAt',
+    FileName: 'fileName',
+    BankAccountName: 'bankAccountName'
 };
 /**
  * @export

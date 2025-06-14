@@ -68,6 +68,30 @@ export interface CreateOrUpdateBankTransactionRequestBodyDto {
      */
     status: CreateOrUpdateBankTransactionRequestBodyDtoStatusEnum;
     /**
+     * Identificador da solicitação de importação OFX relacionada.
+     * @type {string}
+     * @memberof CreateOrUpdateBankTransactionRequestBodyDto
+     */
+    ofxJobRequestId?: string | null;
+    /**
+     * Identificador da execução de importação OFX relacionada.
+     * @type {string}
+     * @memberof CreateOrUpdateBankTransactionRequestBodyDto
+     */
+    ofxJobExecutionId?: string | null;
+    /**
+     * Identificador da solicitação de importação Pluggy relacionada.
+     * @type {string}
+     * @memberof CreateOrUpdateBankTransactionRequestBodyDto
+     */
+    pluggyJobRequestId?: string | null;
+    /**
+     * Identificador da execução de importação Pluggy relacionada.
+     * @type {string}
+     * @memberof CreateOrUpdateBankTransactionRequestBodyDto
+     */
+    pluggyJobExecutionId?: string | null;
+    /**
      * Identificador externo da movimentação financeira.
      * @type {string}
      * @memberof CreateOrUpdateBankTransactionRequestBodyDto

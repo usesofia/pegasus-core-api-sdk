@@ -128,6 +128,30 @@ export interface BankTransactionEntity {
      */
     ignored: boolean;
     /**
+     * Identificador da solicitação de importação OFX relacionada.
+     * @type {string}
+     * @memberof BankTransactionEntity
+     */
+    ofxJobRequestId?: string | null;
+    /**
+     * Identificador da execução de importação OFX relacionada.
+     * @type {string}
+     * @memberof BankTransactionEntity
+     */
+    ofxJobExecutionId?: string | null;
+    /**
+     * Identificador da solicitação de importação Pluggy relacionada.
+     * @type {string}
+     * @memberof BankTransactionEntity
+     */
+    pluggyJobRequestId?: string | null;
+    /**
+     * Identificador da execução de importação Pluggy relacionada.
+     * @type {string}
+     * @memberof BankTransactionEntity
+     */
+    pluggyJobExecutionId?: string | null;
+    /**
      * Identificador externo da movimentação financeira.
      * @type {string}
      * @memberof BankTransactionEntity

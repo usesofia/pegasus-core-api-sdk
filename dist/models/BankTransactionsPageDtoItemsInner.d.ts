@@ -128,6 +128,30 @@ export interface BankTransactionsPageDtoItemsInner {
      */
     ignored: boolean;
     /**
+     * Identificador da solicitação de importação OFX relacionada.
+     * @type {string}
+     * @memberof BankTransactionsPageDtoItemsInner
+     */
+    ofxJobRequestId?: string | null;
+    /**
+     * Identificador da execução de importação OFX relacionada.
+     * @type {string}
+     * @memberof BankTransactionsPageDtoItemsInner
+     */
+    ofxJobExecutionId?: string | null;
+    /**
+     * Identificador da solicitação de importação Pluggy relacionada.
+     * @type {string}
+     * @memberof BankTransactionsPageDtoItemsInner
+     */
+    pluggyJobRequestId?: string | null;
+    /**
+     * Identificador da execução de importação Pluggy relacionada.
+     * @type {string}
+     * @memberof BankTransactionsPageDtoItemsInner
+     */
+    pluggyJobExecutionId?: string | null;
+    /**
      * Identificador externo da movimentação financeira.
      * @type {string}
      * @memberof BankTransactionsPageDtoItemsInner
