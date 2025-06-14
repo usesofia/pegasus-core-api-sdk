@@ -19,6 +19,7 @@ exports.CreateBankAccountRequestBodyDtoFromJSON = CreateBankAccountRequestBodyDt
 exports.CreateBankAccountRequestBodyDtoFromJSONTyped = CreateBankAccountRequestBodyDtoFromJSONTyped;
 exports.CreateBankAccountRequestBodyDtoToJSON = CreateBankAccountRequestBodyDtoToJSON;
 exports.CreateBankAccountRequestBodyDtoToJSONTyped = CreateBankAccountRequestBodyDtoToJSONTyped;
+var CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitution_1 = require("./CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitution");
 /**
  * @export
  */
@@ -85,6 +86,7 @@ function CreateBankAccountRequestBodyDtoFromJSONTyped(json, ignoreDiscriminator)
         'providerAccountId': json['providerAccountId'] == null ? undefined : json['providerAccountId'],
         'providerItemId': json['providerItemId'] == null ? undefined : json['providerItemId'],
         'searchScore': json['searchScore'] == null ? undefined : json['searchScore'],
+        'populatedInstitution': json['populatedInstitution'] == null ? undefined : (0, CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitution_1.CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitutionFromJSON)(json['populatedInstitution']),
         'channel': json['channel'],
     };
 }
@@ -111,6 +113,7 @@ function CreateBankAccountRequestBodyDtoToJSONTyped(value, ignoreDiscriminator) 
         'providerAccountId': value['providerAccountId'],
         'providerItemId': value['providerItemId'],
         'searchScore': value['searchScore'],
+        'populatedInstitution': (0, CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitution_1.CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitutionToJSON)(value['populatedInstitution']),
         'channel': value['channel'],
     };
 }

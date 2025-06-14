@@ -19,6 +19,7 @@ exports.PartialUpdateBankAccountRequestBodyDtoFromJSON = PartialUpdateBankAccoun
 exports.PartialUpdateBankAccountRequestBodyDtoFromJSONTyped = PartialUpdateBankAccountRequestBodyDtoFromJSONTyped;
 exports.PartialUpdateBankAccountRequestBodyDtoToJSON = PartialUpdateBankAccountRequestBodyDtoToJSON;
 exports.PartialUpdateBankAccountRequestBodyDtoToJSONTyped = PartialUpdateBankAccountRequestBodyDtoToJSONTyped;
+var CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitution_1 = require("./CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitution");
 /**
  * @export
  */
@@ -53,6 +54,7 @@ function PartialUpdateBankAccountRequestBodyDtoFromJSONTyped(json, ignoreDiscrim
         'institution': json['institution'] == null ? undefined : json['institution'],
         'active': json['active'] == null ? undefined : json['active'],
         'searchScore': json['searchScore'] == null ? undefined : json['searchScore'],
+        'populatedInstitution': json['populatedInstitution'] == null ? undefined : (0, CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitution_1.CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitutionFromJSON)(json['populatedInstitution']),
         'channel': json['channel'],
     };
 }
@@ -74,6 +76,7 @@ function PartialUpdateBankAccountRequestBodyDtoToJSONTyped(value, ignoreDiscrimi
         'institution': value['institution'],
         'active': value['active'],
         'searchScore': value['searchScore'],
+        'populatedInstitution': (0, CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitution_1.CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitutionToJSON)(value['populatedInstitution']),
         'channel': value['channel'],
     };
 }

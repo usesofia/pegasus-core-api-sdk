@@ -19,6 +19,7 @@ exports.BankTransactionEntityPopulatedBankAccountFromJSON = BankTransactionEntit
 exports.BankTransactionEntityPopulatedBankAccountFromJSONTyped = BankTransactionEntityPopulatedBankAccountFromJSONTyped;
 exports.BankTransactionEntityPopulatedBankAccountToJSON = BankTransactionEntityPopulatedBankAccountToJSON;
 exports.BankTransactionEntityPopulatedBankAccountToJSONTyped = BankTransactionEntityPopulatedBankAccountToJSONTyped;
+var CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitution_1 = require("./CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitution");
 /**
  * @export
  */
@@ -93,6 +94,7 @@ function BankTransactionEntityPopulatedBankAccountFromJSONTyped(json, ignoreDisc
         'searchScore': json['searchScore'] == null ? undefined : json['searchScore'],
         'createdAt': json['createdAt'],
         'updatedAt': json['updatedAt'],
+        'populatedInstitution': json['populatedInstitution'] == null ? undefined : (0, CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitution_1.CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitutionFromJSON)(json['populatedInstitution']),
     };
 }
 function BankTransactionEntityPopulatedBankAccountToJSON(json) {
@@ -123,5 +125,6 @@ function BankTransactionEntityPopulatedBankAccountToJSONTyped(value, ignoreDiscr
         'searchScore': value['searchScore'],
         'createdAt': value['createdAt'],
         'updatedAt': value['updatedAt'],
+        'populatedInstitution': (0, CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitution_1.CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitutionToJSON)(value['populatedInstitution']),
     };
 }

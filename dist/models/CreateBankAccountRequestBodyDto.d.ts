@@ -9,6 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import type { CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitution } from './CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitution';
 /**
  *
  * @export
@@ -99,6 +100,12 @@ export interface CreateBankAccountRequestBodyDto {
      * @memberof CreateBankAccountRequestBodyDto
      */
     searchScore?: number | null;
+    /**
+     *
+     * @type {CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitution}
+     * @memberof CreateBankAccountRequestBodyDto
+     */
+    populatedInstitution?: CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitution | null;
     /**
      * Canal de origem da operação
      * @type {string}

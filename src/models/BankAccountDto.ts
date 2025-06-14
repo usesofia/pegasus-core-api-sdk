@@ -13,6 +13,14 @@
  */
 
 import { mapValues } from '../runtime';
+import type { CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitution } from './CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitution';
+import {
+    CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitutionFromJSON,
+    CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitutionFromJSONTyped,
+    CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitutionToJSON,
+    CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitutionToJSONTyped,
+} from './CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitution';
+
 /**
  * 
  * @export
@@ -133,6 +141,12 @@ export interface BankAccountDto {
      * @memberof BankAccountDto
      */
     updatedAt: any | null;
+    /**
+     * 
+     * @type {CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitution}
+     * @memberof BankAccountDto
+     */
+    populatedInstitution?: CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitution | null;
 }
 
 
@@ -207,6 +221,7 @@ export function BankAccountDtoFromJSONTyped(json: any, ignoreDiscriminator: bool
         'searchScore': json['searchScore'] == null ? undefined : json['searchScore'],
         'createdAt': json['createdAt'],
         'updatedAt': json['updatedAt'],
+        'populatedInstitution': json['populatedInstitution'] == null ? undefined : CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitutionFromJSON(json['populatedInstitution']),
     };
 }
 
@@ -240,6 +255,7 @@ export function BankAccountDtoToJSONTyped(value?: BankAccountDto | null, ignoreD
         'searchScore': value['searchScore'],
         'createdAt': value['createdAt'],
         'updatedAt': value['updatedAt'],
+        'populatedInstitution': CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitutionToJSON(value['populatedInstitution']),
     };
 }
 

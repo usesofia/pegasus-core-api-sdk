@@ -9,6 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import type { CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitution } from './CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitution';
 /**
  * Conta relacionada.
  * @export
@@ -129,6 +130,12 @@ export interface CreateFinancialRecordRequestBodyDtoPopulatedAccount {
      * @memberof CreateFinancialRecordRequestBodyDtoPopulatedAccount
      */
     updatedAt: any | null;
+    /**
+     *
+     * @type {CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitution}
+     * @memberof CreateFinancialRecordRequestBodyDtoPopulatedAccount
+     */
+    populatedInstitution?: CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitution | null;
 }
 /**
  * @export

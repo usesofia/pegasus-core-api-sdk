@@ -13,6 +13,14 @@
  */
 
 import { mapValues } from '../runtime';
+import type { CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitution } from './CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitution';
+import {
+    CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitutionFromJSON,
+    CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitutionFromJSONTyped,
+    CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitutionToJSON,
+    CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitutionToJSONTyped,
+} from './CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitution';
+
 /**
  * 
  * @export
@@ -104,6 +112,12 @@ export interface CreateBankAccountRequestBodyDto {
      */
     searchScore?: number | null;
     /**
+     * 
+     * @type {CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitution}
+     * @memberof CreateBankAccountRequestBodyDto
+     */
+    populatedInstitution?: CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitution | null;
+    /**
      * Canal de origem da operação
      * @type {string}
      * @memberof CreateBankAccountRequestBodyDto
@@ -183,6 +197,7 @@ export function CreateBankAccountRequestBodyDtoFromJSONTyped(json: any, ignoreDi
         'providerAccountId': json['providerAccountId'] == null ? undefined : json['providerAccountId'],
         'providerItemId': json['providerItemId'] == null ? undefined : json['providerItemId'],
         'searchScore': json['searchScore'] == null ? undefined : json['searchScore'],
+        'populatedInstitution': json['populatedInstitution'] == null ? undefined : CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitutionFromJSON(json['populatedInstitution']),
         'channel': json['channel'],
     };
 }
@@ -212,6 +227,7 @@ export function CreateBankAccountRequestBodyDtoToJSONTyped(value?: CreateBankAcc
         'providerAccountId': value['providerAccountId'],
         'providerItemId': value['providerItemId'],
         'searchScore': value['searchScore'],
+        'populatedInstitution': CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitutionToJSON(value['populatedInstitution']),
         'channel': value['channel'],
     };
 }

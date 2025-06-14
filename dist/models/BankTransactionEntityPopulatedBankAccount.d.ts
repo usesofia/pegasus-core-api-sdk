@@ -9,6 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import type { CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitution } from './CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitution';
 /**
  * Conta bancária da movimentação financeira.
  * @export
@@ -129,6 +130,12 @@ export interface BankTransactionEntityPopulatedBankAccount {
      * @memberof BankTransactionEntityPopulatedBankAccount
      */
     updatedAt: any | null;
+    /**
+     *
+     * @type {CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitution}
+     * @memberof BankTransactionEntityPopulatedBankAccount
+     */
+    populatedInstitution?: CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitution | null;
 }
 /**
  * @export

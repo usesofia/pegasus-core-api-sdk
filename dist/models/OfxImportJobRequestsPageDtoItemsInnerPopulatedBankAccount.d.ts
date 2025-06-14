@@ -9,6 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import type { CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitution } from './CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitution';
 /**
  * Conta bancária populada.
  * @export
@@ -129,6 +130,12 @@ export interface OfxImportJobRequestsPageDtoItemsInnerPopulatedBankAccount {
      * @memberof OfxImportJobRequestsPageDtoItemsInnerPopulatedBankAccount
      */
     updatedAt: any | null;
+    /**
+     *
+     * @type {CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitution}
+     * @memberof OfxImportJobRequestsPageDtoItemsInnerPopulatedBankAccount
+     */
+    populatedInstitution?: CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitution | null;
 }
 /**
  * @export

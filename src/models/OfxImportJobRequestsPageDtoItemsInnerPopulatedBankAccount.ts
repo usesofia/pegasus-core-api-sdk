@@ -13,6 +13,14 @@
  */
 
 import { mapValues } from '../runtime';
+import type { CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitution } from './CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitution';
+import {
+    CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitutionFromJSON,
+    CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitutionFromJSONTyped,
+    CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitutionToJSON,
+    CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitutionToJSONTyped,
+} from './CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitution';
+
 /**
  * Conta bancária populada.
  * @export
@@ -133,6 +141,12 @@ export interface OfxImportJobRequestsPageDtoItemsInnerPopulatedBankAccount {
      * @memberof OfxImportJobRequestsPageDtoItemsInnerPopulatedBankAccount
      */
     updatedAt: any | null;
+    /**
+     * 
+     * @type {CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitution}
+     * @memberof OfxImportJobRequestsPageDtoItemsInnerPopulatedBankAccount
+     */
+    populatedInstitution?: CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitution | null;
 }
 
 
@@ -207,6 +221,7 @@ export function OfxImportJobRequestsPageDtoItemsInnerPopulatedBankAccountFromJSO
         'searchScore': json['searchScore'] == null ? undefined : json['searchScore'],
         'createdAt': json['createdAt'],
         'updatedAt': json['updatedAt'],
+        'populatedInstitution': json['populatedInstitution'] == null ? undefined : CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitutionFromJSON(json['populatedInstitution']),
     };
 }
 
@@ -240,6 +255,7 @@ export function OfxImportJobRequestsPageDtoItemsInnerPopulatedBankAccountToJSONT
         'searchScore': value['searchScore'],
         'createdAt': value['createdAt'],
         'updatedAt': value['updatedAt'],
+        'populatedInstitution': CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitutionToJSON(value['populatedInstitution']),
     };
 }
 

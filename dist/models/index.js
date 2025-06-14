@@ -50,6 +50,7 @@ __exportStar(require("./CreateFileUpload200Response"), exports);
 __exportStar(require("./CreateFileUploadRequestBodyDto"), exports);
 __exportStar(require("./CreateFinancialRecordRequestBodyDto"), exports);
 __exportStar(require("./CreateFinancialRecordRequestBodyDtoPopulatedAccount"), exports);
+__exportStar(require("./CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitution"), exports);
 __exportStar(require("./CreateFinancialRecordRequestBodyDtoPopulatedContact"), exports);
 __exportStar(require("./CreateFinancialRecordRequestBodyDtoPopulatedFilesInner"), exports);
 __exportStar(require("./CreateFinancialRecordRequestBodyDtoPopulatedSubcategory"), exports);

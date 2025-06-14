@@ -19,6 +19,7 @@ exports.OfxImportJobRequestsPageDtoItemsInnerPopulatedBankAccountFromJSON = OfxI
 exports.OfxImportJobRequestsPageDtoItemsInnerPopulatedBankAccountFromJSONTyped = OfxImportJobRequestsPageDtoItemsInnerPopulatedBankAccountFromJSONTyped;
 exports.OfxImportJobRequestsPageDtoItemsInnerPopulatedBankAccountToJSON = OfxImportJobRequestsPageDtoItemsInnerPopulatedBankAccountToJSON;
 exports.OfxImportJobRequestsPageDtoItemsInnerPopulatedBankAccountToJSONTyped = OfxImportJobRequestsPageDtoItemsInnerPopulatedBankAccountToJSONTyped;
+var CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitution_1 = require("./CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitution");
 /**
  * @export
  */
@@ -93,6 +94,7 @@ function OfxImportJobRequestsPageDtoItemsInnerPopulatedBankAccountFromJSONTyped(
         'searchScore': json['searchScore'] == null ? undefined : json['searchScore'],
         'createdAt': json['createdAt'],
         'updatedAt': json['updatedAt'],
+        'populatedInstitution': json['populatedInstitution'] == null ? undefined : (0, CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitution_1.CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitutionFromJSON)(json['populatedInstitution']),
     };
 }
 function OfxImportJobRequestsPageDtoItemsInnerPopulatedBankAccountToJSON(json) {
@@ -123,5 +125,6 @@ function OfxImportJobRequestsPageDtoItemsInnerPopulatedBankAccountToJSONTyped(va
         'searchScore': value['searchScore'],
         'createdAt': value['createdAt'],
         'updatedAt': value['updatedAt'],
+        'populatedInstitution': (0, CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitution_1.CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitutionToJSON)(value['populatedInstitution']),
     };
 }

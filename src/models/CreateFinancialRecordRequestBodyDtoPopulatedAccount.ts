@@ -13,6 +13,14 @@
  */
 
 import { mapValues } from '../runtime';
+import type { CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitution } from './CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitution';
+import {
+    CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitutionFromJSON,
+    CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitutionFromJSONTyped,
+    CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitutionToJSON,
+    CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitutionToJSONTyped,
+} from './CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitution';
+
 /**
  * Conta relacionada.
  * @export
@@ -133,6 +141,12 @@ export interface CreateFinancialRecordRequestBodyDtoPopulatedAccount {
      * @memberof CreateFinancialRecordRequestBodyDtoPopulatedAccount
      */
     updatedAt: any | null;
+    /**
+     * 
+     * @type {CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitution}
+     * @memberof CreateFinancialRecordRequestBodyDtoPopulatedAccount
+     */
+    populatedInstitution?: CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitution | null;
 }
 
 
@@ -207,6 +221,7 @@ export function CreateFinancialRecordRequestBodyDtoPopulatedAccountFromJSONTyped
         'searchScore': json['searchScore'] == null ? undefined : json['searchScore'],
         'createdAt': json['createdAt'],
         'updatedAt': json['updatedAt'],
+        'populatedInstitution': json['populatedInstitution'] == null ? undefined : CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitutionFromJSON(json['populatedInstitution']),
     };
 }
 
@@ -240,6 +255,7 @@ export function CreateFinancialRecordRequestBodyDtoPopulatedAccountToJSONTyped(v
         'searchScore': value['searchScore'],
         'createdAt': value['createdAt'],
         'updatedAt': value['updatedAt'],
+        'populatedInstitution': CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitutionToJSON(value['populatedInstitution']),
     };
 }
 

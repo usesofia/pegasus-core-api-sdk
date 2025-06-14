@@ -32,6 +32,7 @@ export * from './CreateFileUpload200Response';
 export * from './CreateFileUploadRequestBodyDto';
 export * from './CreateFinancialRecordRequestBodyDto';
 export * from './CreateFinancialRecordRequestBodyDtoPopulatedAccount';
+export * from './CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitution';
 export * from './CreateFinancialRecordRequestBodyDtoPopulatedContact';
 export * from './CreateFinancialRecordRequestBodyDtoPopulatedFilesInner';
 export * from './CreateFinancialRecordRequestBodyDtoPopulatedSubcategory';

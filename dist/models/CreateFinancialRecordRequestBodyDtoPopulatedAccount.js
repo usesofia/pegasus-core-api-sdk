@@ -19,6 +19,7 @@ exports.CreateFinancialRecordRequestBodyDtoPopulatedAccountFromJSON = CreateFina
 exports.CreateFinancialRecordRequestBodyDtoPopulatedAccountFromJSONTyped = CreateFinancialRecordRequestBodyDtoPopulatedAccountFromJSONTyped;
 exports.CreateFinancialRecordRequestBodyDtoPopulatedAccountToJSON = CreateFinancialRecordRequestBodyDtoPopulatedAccountToJSON;
 exports.CreateFinancialRecordRequestBodyDtoPopulatedAccountToJSONTyped = CreateFinancialRecordRequestBodyDtoPopulatedAccountToJSONTyped;
+var CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitution_1 = require("./CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitution");
 /**
  * @export
  */
@@ -93,6 +94,7 @@ function CreateFinancialRecordRequestBodyDtoPopulatedAccountFromJSONTyped(json, 
         'searchScore': json['searchScore'] == null ? undefined : json['searchScore'],
         'createdAt': json['createdAt'],
         'updatedAt': json['updatedAt'],
+        'populatedInstitution': json['populatedInstitution'] == null ? undefined : (0, CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitution_1.CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitutionFromJSON)(json['populatedInstitution']),
     };
 }
 function CreateFinancialRecordRequestBodyDtoPopulatedAccountToJSON(json) {
@@ -123,5 +125,6 @@ function CreateFinancialRecordRequestBodyDtoPopulatedAccountToJSONTyped(value, i
         'searchScore': value['searchScore'],
         'createdAt': value['createdAt'],
         'updatedAt': value['updatedAt'],
+        'populatedInstitution': (0, CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitution_1.CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitutionToJSON)(value['populatedInstitution']),
     };
 }
