@@ -13,6 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
+import type { OfxImportJobRequestsPageDtoItemsInnerPopulatedBankAccount } from './OfxImportJobRequestsPageDtoItemsInnerPopulatedBankAccount';
+import {
+    OfxImportJobRequestsPageDtoItemsInnerPopulatedBankAccountFromJSON,
+    OfxImportJobRequestsPageDtoItemsInnerPopulatedBankAccountFromJSONTyped,
+    OfxImportJobRequestsPageDtoItemsInnerPopulatedBankAccountToJSON,
+    OfxImportJobRequestsPageDtoItemsInnerPopulatedBankAccountToJSONTyped,
+} from './OfxImportJobRequestsPageDtoItemsInnerPopulatedBankAccount';
 import type { OfxImportJobRequestsPageDtoItemsInnerExecutionsInner } from './OfxImportJobRequestsPageDtoItemsInnerExecutionsInner';
 import {
     OfxImportJobRequestsPageDtoItemsInnerExecutionsInnerFromJSON,
@@ -118,6 +125,12 @@ export interface OfxImportJobRequestsPageDtoItemsInner {
      * @memberof OfxImportJobRequestsPageDtoItemsInner
      */
     status: OfxImportJobRequestsPageDtoItemsInnerStatusEnum;
+    /**
+     * 
+     * @type {OfxImportJobRequestsPageDtoItemsInnerPopulatedBankAccount}
+     * @memberof OfxImportJobRequestsPageDtoItemsInner
+     */
+    populatedBankAccount: OfxImportJobRequestsPageDtoItemsInnerPopulatedBankAccount;
 }
 
 
@@ -146,6 +159,7 @@ export function instanceOfOfxImportJobRequestsPageDtoItemsInner(value: object): 
     if (!('executions' in value) || value['executions'] === undefined) return false;
     if (!('user' in value) || value['user'] === undefined) return false;
     if (!('status' in value) || value['status'] === undefined) return false;
+    if (!('populatedBankAccount' in value) || value['populatedBankAccount'] === undefined) return false;
     return true;
 }
 
@@ -173,6 +187,7 @@ export function OfxImportJobRequestsPageDtoItemsInnerFromJSONTyped(json: any, ig
         'nSuccessImportedTransactions': json['nSuccessImportedTransactions'] == null ? undefined : json['nSuccessImportedTransactions'],
         'user': OfxImportJobRequestsPageDtoItemsInnerUserFromJSON(json['user']),
         'status': json['status'],
+        'populatedBankAccount': OfxImportJobRequestsPageDtoItemsInnerPopulatedBankAccountFromJSON(json['populatedBankAccount']),
     };
 }
 
@@ -201,6 +216,7 @@ export function OfxImportJobRequestsPageDtoItemsInnerToJSONTyped(value?: OfxImpo
         'nSuccessImportedTransactions': value['nSuccessImportedTransactions'],
         'user': OfxImportJobRequestsPageDtoItemsInnerUserToJSON(value['user']),
         'status': value['status'],
+        'populatedBankAccount': OfxImportJobRequestsPageDtoItemsInnerPopulatedBankAccountToJSON(value['populatedBankAccount']),
     };
 }
 

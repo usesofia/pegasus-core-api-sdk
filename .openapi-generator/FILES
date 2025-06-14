@@ -165,6 +165,7 @@ src/models/OfxImportJobRequestEntity.ts
 src/models/OfxImportJobRequestsPageDto.ts
 src/models/OfxImportJobRequestsPageDtoItemsInner.ts
 src/models/OfxImportJobRequestsPageDtoItemsInnerExecutionsInner.ts
+src/models/OfxImportJobRequestsPageDtoItemsInnerPopulatedBankAccount.ts
 src/models/OfxImportJobRequestsPageDtoItemsInnerUser.ts
 src/models/OfxImportRequestBodyDto.ts
 src/models/OrganizationEntity.ts

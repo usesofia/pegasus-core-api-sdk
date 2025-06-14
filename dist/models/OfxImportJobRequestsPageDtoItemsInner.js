@@ -19,6 +19,7 @@ exports.OfxImportJobRequestsPageDtoItemsInnerFromJSON = OfxImportJobRequestsPage
 exports.OfxImportJobRequestsPageDtoItemsInnerFromJSONTyped = OfxImportJobRequestsPageDtoItemsInnerFromJSONTyped;
 exports.OfxImportJobRequestsPageDtoItemsInnerToJSON = OfxImportJobRequestsPageDtoItemsInnerToJSON;
 exports.OfxImportJobRequestsPageDtoItemsInnerToJSONTyped = OfxImportJobRequestsPageDtoItemsInnerToJSONTyped;
+var OfxImportJobRequestsPageDtoItemsInnerPopulatedBankAccount_1 = require("./OfxImportJobRequestsPageDtoItemsInnerPopulatedBankAccount");
 var OfxImportJobRequestsPageDtoItemsInnerExecutionsInner_1 = require("./OfxImportJobRequestsPageDtoItemsInnerExecutionsInner");
 var OfxImportJobRequestsPageDtoItemsInnerUser_1 = require("./OfxImportJobRequestsPageDtoItemsInnerUser");
 /**
@@ -53,6 +54,8 @@ function instanceOfOfxImportJobRequestsPageDtoItemsInner(value) {
         return false;
     if (!('status' in value) || value['status'] === undefined)
         return false;
+    if (!('populatedBankAccount' in value) || value['populatedBankAccount'] === undefined)
+        return false;
     return true;
 }
 function OfxImportJobRequestsPageDtoItemsInnerFromJSON(json) {
@@ -77,6 +80,7 @@ function OfxImportJobRequestsPageDtoItemsInnerFromJSONTyped(json, ignoreDiscrimi
         'nSuccessImportedTransactions': json['nSuccessImportedTransactions'] == null ? undefined : json['nSuccessImportedTransactions'],
         'user': (0, OfxImportJobRequestsPageDtoItemsInnerUser_1.OfxImportJobRequestsPageDtoItemsInnerUserFromJSON)(json['user']),
         'status': json['status'],
+        'populatedBankAccount': (0, OfxImportJobRequestsPageDtoItemsInnerPopulatedBankAccount_1.OfxImportJobRequestsPageDtoItemsInnerPopulatedBankAccountFromJSON)(json['populatedBankAccount']),
     };
 }
 function OfxImportJobRequestsPageDtoItemsInnerToJSON(json) {
@@ -102,5 +106,6 @@ function OfxImportJobRequestsPageDtoItemsInnerToJSONTyped(value, ignoreDiscrimin
         'nSuccessImportedTransactions': value['nSuccessImportedTransactions'],
         'user': (0, OfxImportJobRequestsPageDtoItemsInnerUser_1.OfxImportJobRequestsPageDtoItemsInnerUserToJSON)(value['user']),
         'status': value['status'],
+        'populatedBankAccount': (0, OfxImportJobRequestsPageDtoItemsInnerPopulatedBankAccount_1.OfxImportJobRequestsPageDtoItemsInnerPopulatedBankAccountToJSON)(value['populatedBankAccount']),
     };
 }

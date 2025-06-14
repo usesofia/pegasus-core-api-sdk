@@ -9,6 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import type { OfxImportJobRequestsPageDtoItemsInnerPopulatedBankAccount } from './OfxImportJobRequestsPageDtoItemsInnerPopulatedBankAccount';
 import type { OfxImportJobRequestsPageDtoItemsInnerExecutionsInner } from './OfxImportJobRequestsPageDtoItemsInnerExecutionsInner';
 import type { OfxImportJobRequestsPageDtoItemsInnerUser } from './OfxImportJobRequestsPageDtoItemsInnerUser';
 /**
@@ -101,6 +102,12 @@ export interface OfxImportJobRequestsPageDtoItemsInner {
      * @memberof OfxImportJobRequestsPageDtoItemsInner
      */
     status: OfxImportJobRequestsPageDtoItemsInnerStatusEnum;
+    /**
+     *
+     * @type {OfxImportJobRequestsPageDtoItemsInnerPopulatedBankAccount}
+     * @memberof OfxImportJobRequestsPageDtoItemsInner
+     */
+    populatedBankAccount: OfxImportJobRequestsPageDtoItemsInnerPopulatedBankAccount;
 }
 /**
  * @export

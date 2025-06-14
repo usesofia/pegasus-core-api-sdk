@@ -127,6 +127,7 @@ export * from './OfxImportJobRequestEntity';
 export * from './OfxImportJobRequestsPageDto';
 export * from './OfxImportJobRequestsPageDtoItemsInner';
 export * from './OfxImportJobRequestsPageDtoItemsInnerExecutionsInner';
+export * from './OfxImportJobRequestsPageDtoItemsInnerPopulatedBankAccount';
 export * from './OfxImportJobRequestsPageDtoItemsInnerUser';
 export * from './OfxImportRequestBodyDto';
 export * from './OrganizationEntity';

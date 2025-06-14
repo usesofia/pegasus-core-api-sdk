@@ -143,6 +143,7 @@ __exportStar(require("./OfxImportJobRequestEntity"), exports);
 __exportStar(require("./OfxImportJobRequestsPageDto"), exports);
 __exportStar(require("./OfxImportJobRequestsPageDtoItemsInner"), exports);
 __exportStar(require("./OfxImportJobRequestsPageDtoItemsInnerExecutionsInner"), exports);
+__exportStar(require("./OfxImportJobRequestsPageDtoItemsInnerPopulatedBankAccount"), exports);
 __exportStar(require("./OfxImportJobRequestsPageDtoItemsInnerUser"), exports);
 __exportStar(require("./OfxImportRequestBodyDto"), exports);
 __exportStar(require("./OrganizationEntity"), exports);
