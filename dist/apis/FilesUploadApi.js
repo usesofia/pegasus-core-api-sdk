@@ -167,6 +167,104 @@ var FilesUploadApi = /** @class */ (function (_super) {
             });
         });
     };
+    /**
+     * Confirms a file upload
+     */
+    FilesUploadApi.prototype.systemConfirmFileUploadRaw = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (requestParameters['organizationId'] == null) {
+                            throw new runtime.RequiredError('organizationId', 'Required parameter "organizationId" was null or undefined when calling systemConfirmFileUpload().');
+                        }
+                        if (requestParameters['confirmFileUploadRequestBodyDto'] == null) {
+                            throw new runtime.RequiredError('confirmFileUploadRequestBodyDto', 'Required parameter "confirmFileUploadRequestBodyDto" was null or undefined when calling systemConfirmFileUpload().');
+                        }
+                        queryParameters = {};
+                        headerParameters = {};
+                        headerParameters['Content-Type'] = 'application/json';
+                        return [4 /*yield*/, this.request({
+                                path: "/internal/organizations/{organizationId}/files/upload/confirm".replace("{".concat("organizationId", "}"), encodeURIComponent(String(requestParameters['organizationId']))),
+                                method: 'POST',
+                                headers: headerParameters,
+                                query: queryParameters,
+                                body: (0, index_1.ConfirmFileUploadRequestBodyDtoToJSON)(requestParameters['confirmFileUploadRequestBodyDto']),
+                            }, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.FileEntityFromJSON)(jsonValue); })];
+                }
+            });
+        });
+    };
+    /**
+     * Confirms a file upload
+     */
+    FilesUploadApi.prototype.systemConfirmFileUpload = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.systemConfirmFileUploadRaw(requestParameters, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [4 /*yield*/, response.value()];
+                    case 2: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
+    /**
+     * Cria uma nova solicitação de upload de arquivo
+     */
+    FilesUploadApi.prototype.systemCreateFileUploadRaw = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (requestParameters['organizationId'] == null) {
+                            throw new runtime.RequiredError('organizationId', 'Required parameter "organizationId" was null or undefined when calling systemCreateFileUpload().');
+                        }
+                        if (requestParameters['createFileUploadRequestBodyDto'] == null) {
+                            throw new runtime.RequiredError('createFileUploadRequestBodyDto', 'Required parameter "createFileUploadRequestBodyDto" was null or undefined when calling systemCreateFileUpload().');
+                        }
+                        queryParameters = {};
+                        headerParameters = {};
+                        headerParameters['Content-Type'] = 'application/json';
+                        return [4 /*yield*/, this.request({
+                                path: "/internal/organizations/{organizationId}/files/upload".replace("{".concat("organizationId", "}"), encodeURIComponent(String(requestParameters['organizationId']))),
+                                method: 'POST',
+                                headers: headerParameters,
+                                query: queryParameters,
+                                body: (0, index_1.CreateFileUploadRequestBodyDtoToJSON)(requestParameters['createFileUploadRequestBodyDto']),
+                            }, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.CreateFileUpload200ResponseFromJSON)(jsonValue); })];
+                }
+            });
+        });
+    };
+    /**
+     * Cria uma nova solicitação de upload de arquivo
+     */
+    FilesUploadApi.prototype.systemCreateFileUpload = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.systemCreateFileUploadRaw(requestParameters, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [4 /*yield*/, response.value()];
+                    case 2: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
     return FilesUploadApi;
 }(runtime.BaseAPI));
 exports.FilesUploadApi = FilesUploadApi;

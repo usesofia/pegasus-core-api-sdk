@@ -17,6 +17,14 @@ export interface ConfirmFileUploadRequest {
 export interface CreateFileUploadRequest {
     createFileUploadRequestBodyDto: CreateFileUploadRequestBodyDto;
 }
+export interface SystemConfirmFileUploadRequest {
+    organizationId: string;
+    confirmFileUploadRequestBodyDto: ConfirmFileUploadRequestBodyDto;
+}
+export interface SystemCreateFileUploadRequest {
+    organizationId: string;
+    createFileUploadRequestBodyDto: CreateFileUploadRequestBodyDto;
+}
 /**
  * FilesUploadApi - interface
  *
@@ -50,6 +58,34 @@ export interface FilesUploadApiInterface {
      * Cria uma nova solicitação de upload de arquivo
      */
     createFileUpload(requestParameters: CreateFileUploadRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CreateFileUpload200Response>;
+    /**
+     *
+     * @summary Confirms a file upload
+     * @param {string} organizationId The id of the organization to confirm the file upload
+     * @param {ConfirmFileUploadRequestBodyDto} confirmFileUploadRequestBodyDto
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof FilesUploadApiInterface
+     */
+    systemConfirmFileUploadRaw(requestParameters: SystemConfirmFileUploadRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FileEntity>>;
+    /**
+     * Confirms a file upload
+     */
+    systemConfirmFileUpload(requestParameters: SystemConfirmFileUploadRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FileEntity>;
+    /**
+     *
+     * @summary Cria uma nova solicitação de upload de arquivo
+     * @param {string} organizationId The id of the organization to confirm the file upload
+     * @param {CreateFileUploadRequestBodyDto} createFileUploadRequestBodyDto
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof FilesUploadApiInterface
+     */
+    systemCreateFileUploadRaw(requestParameters: SystemCreateFileUploadRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CreateFileUpload200Response>>;
+    /**
+     * Cria uma nova solicitação de upload de arquivo
+     */
+    systemCreateFileUpload(requestParameters: SystemCreateFileUploadRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CreateFileUpload200Response>;
 }
 /**
  *
@@ -71,4 +107,20 @@ export declare class FilesUploadApi extends runtime.BaseAPI implements FilesUplo
      * Cria uma nova solicitação de upload de arquivo
      */
     createFileUpload(requestParameters: CreateFileUploadRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CreateFileUpload200Response>;
+    /**
+     * Confirms a file upload
+     */
+    systemConfirmFileUploadRaw(requestParameters: SystemConfirmFileUploadRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FileEntity>>;
+    /**
+     * Confirms a file upload
+     */
+    systemConfirmFileUpload(requestParameters: SystemConfirmFileUploadRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FileEntity>;
+    /**
+     * Cria uma nova solicitação de upload de arquivo
+     */
+    systemCreateFileUploadRaw(requestParameters: SystemCreateFileUploadRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CreateFileUpload200Response>>;
+    /**
+     * Cria uma nova solicitação de upload de arquivo
+     */
+    systemCreateFileUpload(requestParameters: SystemCreateFileUploadRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CreateFileUpload200Response>;
 }
