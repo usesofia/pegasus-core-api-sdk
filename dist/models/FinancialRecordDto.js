@@ -28,8 +28,8 @@ var CreateFinancialRecordRequestBodyDtoPopulatedContact_1 = require("./CreateFin
  * @export
  */
 exports.FinancialRecordDtoDirectionEnum = {
-    Income: 'INCOME',
-    Outcome: 'OUTCOME'
+    In: 'IN',
+    Out: 'OUT'
 };
 /**
  * Check if a given object implements the FinancialRecordDto interface.
@@ -74,7 +74,7 @@ function FinancialRecordDtoFromJSONTyped(json, ignoreDiscriminator) {
         'tags': json['tags'] == null ? undefined : json['tags'],
         'competenceDate': json['competenceDate'] == null ? undefined : json['competenceDate'],
         'files': json['files'] == null ? undefined : json['files'],
-        'inboxRecords': json['inboxRecords'] == null ? undefined : json['inboxRecords'],
+        'radarItems': json['radarItems'] == null ? undefined : json['radarItems'],
         'pixKey': json['pixKey'] == null ? undefined : json['pixKey'],
         'boletoCode': json['boletoCode'] == null ? undefined : json['boletoCode'],
         'pixCode': json['pixCode'] == null ? undefined : json['pixCode'],
@@ -120,7 +120,7 @@ function FinancialRecordDtoToJSONTyped(value, ignoreDiscriminator) {
         'tags': value['tags'],
         'competenceDate': value['competenceDate'],
         'files': value['files'],
-        'inboxRecords': value['inboxRecords'],
+        'radarItems': value['radarItems'],
         'pixKey': value['pixKey'],
         'boletoCode': value['boletoCode'],
         'pixCode': value['pixCode'],

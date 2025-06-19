@@ -48,13 +48,7 @@ export interface BulkCreateJobRequestDto {
      * @type {string}
      * @memberof BulkCreateJobRequestDto
      */
-    inboxRecord?: string;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof BulkCreateJobRequestDto
-     */
-    archiveInboxRecord?: boolean;
+    radarItem?: string;
 }
 
 
@@ -110,8 +104,7 @@ export function BulkCreateJobRequestDtoFromJSONTyped(json: any, ignoreDiscrimina
         'resource': json['resource'],
         'nRows': json['nRows'],
         'channel': json['channel'],
-        'inboxRecord': json['inboxRecord'] == null ? undefined : json['inboxRecord'],
-        'archiveInboxRecord': json['archiveInboxRecord'] == null ? undefined : json['archiveInboxRecord'],
+        'radarItem': json['radarItem'] == null ? undefined : json['radarItem'],
     };
 }
 
@@ -130,8 +123,7 @@ export function BulkCreateJobRequestDtoToJSONTyped(value?: BulkCreateJobRequestD
         'resource': value['resource'],
         'nRows': value['nRows'],
         'channel': value['channel'],
-        'inboxRecord': value['inboxRecord'],
-        'archiveInboxRecord': value['archiveInboxRecord'],
+        'radarItem': value['radarItem'],
     };
 }
 

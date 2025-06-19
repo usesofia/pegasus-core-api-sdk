@@ -108,8 +108,10 @@ export const CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerFileTypeEnum 
     ExtractContactFromFile: 'EXTRACT_CONTACT_FROM_FILE',
     FinancialRecordsBulkCreate: 'FINANCIAL_RECORDS_BULK_CREATE',
     ContactsBulkCreate: 'CONTACTS_BULK_CREATE',
-    FinancialRecordsBulkCreateExtraction: 'FINANCIAL_RECORDS_BULK_CREATE_EXTRACTION',
-    ContactsBulkCreateExtraction: 'CONTACTS_BULK_CREATE_EXTRACTION',
+    FinancialRecordsBulkCreateExtractionInput: 'FINANCIAL_RECORDS_BULK_CREATE_EXTRACTION_INPUT',
+    FinancialRecordsBulkCreateExtractionOutput: 'FINANCIAL_RECORDS_BULK_CREATE_EXTRACTION_OUTPUT',
+    ContactsBulkCreateExtractionInput: 'CONTACTS_BULK_CREATE_EXTRACTION_INPUT',
+    ContactsBulkCreateExtractionOutput: 'CONTACTS_BULK_CREATE_EXTRACTION_OUTPUT',
     SevenDaysTempFile: 'SEVEN_DAYS_TEMP_FILE'
 } as const;
 export type CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerFileTypeEnum = typeof CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerFileTypeEnum[keyof typeof CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerFileTypeEnum];

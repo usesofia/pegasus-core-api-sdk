@@ -169,8 +169,8 @@ export interface CreateManyRecurringFinancialRecordsRequestBodyDtoDataInner {
  * @export
  */
 export const CreateManyRecurringFinancialRecordsRequestBodyDtoDataInnerDirectionEnum = {
-    Income: 'INCOME',
-    Outcome: 'OUTCOME'
+    In: 'IN',
+    Out: 'OUT'
 } as const;
 export type CreateManyRecurringFinancialRecordsRequestBodyDtoDataInnerDirectionEnum = typeof CreateManyRecurringFinancialRecordsRequestBodyDtoDataInnerDirectionEnum[keyof typeof CreateManyRecurringFinancialRecordsRequestBodyDtoDataInnerDirectionEnum];
 

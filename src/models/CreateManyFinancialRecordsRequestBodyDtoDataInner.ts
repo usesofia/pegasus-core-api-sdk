@@ -164,12 +164,6 @@ export interface CreateManyFinancialRecordsRequestBodyDtoDataInner {
      */
     finesAndInterest?: number | null;
     /**
-     * Valor final do lançamento (calculado automaticamente).
-     * @type {number}
-     * @memberof CreateManyFinancialRecordsRequestBodyDtoDataInner
-     */
-    finalAmount?: number;
-    /**
      * Indica se foi reconciliado.
      * @type {boolean}
      * @memberof CreateManyFinancialRecordsRequestBodyDtoDataInner
@@ -236,17 +230,17 @@ export interface CreateManyFinancialRecordsRequestBodyDtoDataInner {
      */
     searchScore?: number | null;
     /**
-     * Identificador do registro de inbox que originou o lançamento.
+     * Valor final do lançamento (calculado automaticamente).
+     * @type {number}
+     * @memberof CreateManyFinancialRecordsRequestBodyDtoDataInner
+     */
+    finalAmount?: number;
+    /**
+     * Identificador do item no radar que originou o lançamento.
      * @type {string}
      * @memberof CreateManyFinancialRecordsRequestBodyDtoDataInner
      */
-    inboxRecord?: string;
-    /**
-     * Arquivar o registro de inbox se fornecido.
-     * @type {boolean}
-     * @memberof CreateManyFinancialRecordsRequestBodyDtoDataInner
-     */
-    archiveInboxRecord?: boolean;
+    radarItem?: string;
 }
 
 
@@ -254,8 +248,8 @@ export interface CreateManyFinancialRecordsRequestBodyDtoDataInner {
  * @export
  */
 export const CreateManyFinancialRecordsRequestBodyDtoDataInnerDirectionEnum = {
-    Income: 'INCOME',
-    Outcome: 'OUTCOME'
+    In: 'IN',
+    Out: 'OUT'
 } as const;
 export type CreateManyFinancialRecordsRequestBodyDtoDataInnerDirectionEnum = typeof CreateManyFinancialRecordsRequestBodyDtoDataInnerDirectionEnum[keyof typeof CreateManyFinancialRecordsRequestBodyDtoDataInnerDirectionEnum];
 
@@ -300,7 +294,6 @@ export function CreateManyFinancialRecordsRequestBodyDtoDataInnerFromJSONTyped(j
         'account': json['account'] == null ? undefined : json['account'],
         'discount': json['discount'] == null ? undefined : json['discount'],
         'finesAndInterest': json['finesAndInterest'] == null ? undefined : json['finesAndInterest'],
-        'finalAmount': json['finalAmount'] == null ? undefined : json['finalAmount'],
         'reconciled': json['reconciled'] == null ? undefined : json['reconciled'],
         'bankStatement': json['bankStatement'] == null ? undefined : json['bankStatement'],
         'installmentFinancialRecord': json['installmentFinancialRecord'] == null ? undefined : json['installmentFinancialRecord'],
@@ -312,8 +305,8 @@ export function CreateManyFinancialRecordsRequestBodyDtoDataInnerFromJSONTyped(j
         'populatedTags': json['populatedTags'] == null ? undefined : ((json['populatedTags'] as Array<any>).map(CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerFromJSON)),
         'populatedAccount': json['populatedAccount'] == null ? undefined : CreateFinancialRecordRequestBodyDtoPopulatedAccountFromJSON(json['populatedAccount']),
         'searchScore': json['searchScore'] == null ? undefined : json['searchScore'],
-        'inboxRecord': json['inboxRecord'] == null ? undefined : json['inboxRecord'],
-        'archiveInboxRecord': json['archiveInboxRecord'] == null ? undefined : json['archiveInboxRecord'],
+        'finalAmount': json['finalAmount'] == null ? undefined : json['finalAmount'],
+        'radarItem': json['radarItem'] == null ? undefined : json['radarItem'],
     };
 }
 
@@ -346,7 +339,6 @@ export function CreateManyFinancialRecordsRequestBodyDtoDataInnerToJSONTyped(val
         'account': value['account'],
         'discount': value['discount'],
         'finesAndInterest': value['finesAndInterest'],
-        'finalAmount': value['finalAmount'],
         'reconciled': value['reconciled'],
         'bankStatement': value['bankStatement'],
         'installmentFinancialRecord': value['installmentFinancialRecord'],
@@ -358,8 +350,8 @@ export function CreateManyFinancialRecordsRequestBodyDtoDataInnerToJSONTyped(val
         'populatedTags': value['populatedTags'] == null ? undefined : ((value['populatedTags'] as Array<any>).map(CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerToJSON)),
         'populatedAccount': CreateFinancialRecordRequestBodyDtoPopulatedAccountToJSON(value['populatedAccount']),
         'searchScore': value['searchScore'],
-        'inboxRecord': value['inboxRecord'],
-        'archiveInboxRecord': value['archiveInboxRecord'],
+        'finalAmount': value['finalAmount'],
+        'radarItem': value['radarItem'],
     };
 }
 

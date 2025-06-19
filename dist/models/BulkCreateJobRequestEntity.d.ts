@@ -46,17 +46,11 @@ export interface BulkCreateJobRequestEntity {
      */
     requesterUserId: string;
     /**
-     * Identificador do registro de inbox que originou a criação em massa.
+     * Identificador do registro de radar que originou a criação em massa.
      * @type {string}
      * @memberof BulkCreateJobRequestEntity
      */
-    inboxRecord?: string;
-    /**
-     * Arquivar o registro de inbox se fornecido.
-     * @type {boolean}
-     * @memberof BulkCreateJobRequestEntity
-     */
-    archiveInboxRecord?: boolean;
+    radarItem?: string;
     /**
      * Data de criação da solicitação de criação.
      * @type {any}

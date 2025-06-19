@@ -67,8 +67,7 @@ function BulkCreateJobRequestDtoFromJSONTyped(json, ignoreDiscriminator) {
         'resource': json['resource'],
         'nRows': json['nRows'],
         'channel': json['channel'],
-        'inboxRecord': json['inboxRecord'] == null ? undefined : json['inboxRecord'],
-        'archiveInboxRecord': json['archiveInboxRecord'] == null ? undefined : json['archiveInboxRecord'],
+        'radarItem': json['radarItem'] == null ? undefined : json['radarItem'],
     };
 }
 function BulkCreateJobRequestDtoToJSON(json) {
@@ -84,7 +83,6 @@ function BulkCreateJobRequestDtoToJSONTyped(value, ignoreDiscriminator) {
         'resource': value['resource'],
         'nRows': value['nRows'],
         'channel': value['channel'],
-        'inboxRecord': value['inboxRecord'],
-        'archiveInboxRecord': value['archiveInboxRecord'],
+        'radarItem': value['radarItem'],
     };
 }

@@ -162,8 +162,8 @@ export interface RecurringFinancialRecordDto {
  * @export
  */
 export declare const RecurringFinancialRecordDtoDirectionEnum: {
-    readonly Income: "INCOME";
-    readonly Outcome: "OUTCOME";
+    readonly In: "IN";
+    readonly Out: "OUT";
 };
 export type RecurringFinancialRecordDtoDirectionEnum = typeof RecurringFinancialRecordDtoDirectionEnum[keyof typeof RecurringFinancialRecordDtoDirectionEnum];
 /**

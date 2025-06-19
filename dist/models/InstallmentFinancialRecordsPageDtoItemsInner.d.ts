@@ -169,8 +169,8 @@ export interface InstallmentFinancialRecordsPageDtoItemsInner {
  * @export
  */
 export declare const InstallmentFinancialRecordsPageDtoItemsInnerDirectionEnum: {
-    readonly Income: "INCOME";
-    readonly Outcome: "OUTCOME";
+    readonly In: "IN";
+    readonly Out: "OUT";
 };
 export type InstallmentFinancialRecordsPageDtoItemsInnerDirectionEnum = typeof InstallmentFinancialRecordsPageDtoItemsInnerDirectionEnum[keyof typeof InstallmentFinancialRecordsPageDtoItemsInnerDirectionEnum];
 /**

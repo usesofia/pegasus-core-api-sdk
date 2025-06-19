@@ -16,18 +16,32 @@
 import * as runtime from '../runtime';
 import type {
   ExceptionResponseEntity,
+  FileEntity,
   RemoveFileRequestBodyDto,
+  SignedUrlEntity,
 } from '../models/index';
 import {
     ExceptionResponseEntityFromJSON,
     ExceptionResponseEntityToJSON,
+    FileEntityFromJSON,
+    FileEntityToJSON,
     RemoveFileRequestBodyDtoFromJSON,
     RemoveFileRequestBodyDtoToJSON,
+    SignedUrlEntityFromJSON,
+    SignedUrlEntityToJSON,
 } from '../models/index';
 
 export interface DeleteFileRequest {
     id: string;
     removeFileRequestBodyDto: RemoveFileRequestBodyDto;
+}
+
+export interface FindByIdFileRequest {
+    id: string;
+}
+
+export interface GetSignedUrlFromUrlRequest {
+    url: string;
 }
 
 /**
@@ -52,6 +66,36 @@ export interface FilesApiInterface {
      * Deletes a file
      */
     deleteFile(requestParameters: DeleteFileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+
+    /**
+     * 
+     * @summary Finds a file by id
+     * @param {string} id The id of the file to get
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof FilesApiInterface
+     */
+    findByIdFileRaw(requestParameters: FindByIdFileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FileEntity>>;
+
+    /**
+     * Finds a file by id
+     */
+    findByIdFile(requestParameters: FindByIdFileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FileEntity>;
+
+    /**
+     * 
+     * @summary Get a signed url from a url
+     * @param {string} url The url of the file to get the signed url from
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof FilesApiInterface
+     */
+    getSignedUrlFromUrlRaw(requestParameters: GetSignedUrlFromUrlRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SignedUrlEntity>>;
+
+    /**
+     * Get a signed url from a url
+     */
+    getSignedUrlFromUrl(requestParameters: GetSignedUrlFromUrlRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SignedUrlEntity>;
 
 }
 
@@ -100,6 +144,76 @@ export class FilesApi extends runtime.BaseAPI implements FilesApiInterface {
      */
     async deleteFile(requestParameters: DeleteFileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.deleteFileRaw(requestParameters, initOverrides);
+    }
+
+    /**
+     * Finds a file by id
+     */
+    async findByIdFileRaw(requestParameters: FindByIdFileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FileEntity>> {
+        if (requestParameters['id'] == null) {
+            throw new runtime.RequiredError(
+                'id',
+                'Required parameter "id" was null or undefined when calling findByIdFile().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/external/files/{id}`.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id']))),
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => FileEntityFromJSON(jsonValue));
+    }
+
+    /**
+     * Finds a file by id
+     */
+    async findByIdFile(requestParameters: FindByIdFileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FileEntity> {
+        const response = await this.findByIdFileRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Get a signed url from a url
+     */
+    async getSignedUrlFromUrlRaw(requestParameters: GetSignedUrlFromUrlRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SignedUrlEntity>> {
+        if (requestParameters['url'] == null) {
+            throw new runtime.RequiredError(
+                'url',
+                'Required parameter "url" was null or undefined when calling getSignedUrlFromUrl().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['url'] != null) {
+            queryParameters['url'] = requestParameters['url'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/external/files/signed-url`,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => SignedUrlEntityFromJSON(jsonValue));
+    }
+
+    /**
+     * Get a signed url from a url
+     */
+    async getSignedUrlFromUrl(requestParameters: GetSignedUrlFromUrlRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SignedUrlEntity> {
+        const response = await this.getSignedUrlFromUrlRaw(requestParameters, initOverrides);
+        return await response.value();
     }
 
 }

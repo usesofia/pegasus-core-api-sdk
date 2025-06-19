@@ -47,7 +47,6 @@ function LinkFinancialRecordsRequestBodyDtoFromJSONTyped(json, ignoreDiscriminat
     }
     return {
         'financialRecordIds': json['financialRecordIds'],
-        'archiveInboxRecord': json['archiveInboxRecord'] == null ? undefined : json['archiveInboxRecord'],
         'channel': json['channel'],
     };
 }
@@ -61,7 +60,6 @@ function LinkFinancialRecordsRequestBodyDtoToJSONTyped(value, ignoreDiscriminato
     }
     return {
         'financialRecordIds': value['financialRecordIds'],
-        'archiveInboxRecord': value['archiveInboxRecord'],
         'channel': value['channel'],
     };
 }

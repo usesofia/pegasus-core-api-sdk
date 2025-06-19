@@ -122,11 +122,11 @@ export interface FinancialRecordDto {
      */
     files?: Array<string>;
     /**
-     * Ids de registros de inbox relacionados.
+     * Ids de itens no radar relacionados.
      * @type {Array<string>}
      * @memberof FinancialRecordDto
      */
-    inboxRecords?: Array<string>;
+    radarItems?: Array<string>;
     /**
      * Chave PIX.
      * @type {string}
@@ -272,8 +272,8 @@ export interface FinancialRecordDto {
  * @export
  */
 export const FinancialRecordDtoDirectionEnum = {
-    Income: 'INCOME',
-    Outcome: 'OUTCOME'
+    In: 'IN',
+    Out: 'OUT'
 } as const;
 export type FinancialRecordDtoDirectionEnum = typeof FinancialRecordDtoDirectionEnum[keyof typeof FinancialRecordDtoDirectionEnum];
 
@@ -315,7 +315,7 @@ export function FinancialRecordDtoFromJSONTyped(json: any, ignoreDiscriminator: 
         'tags': json['tags'] == null ? undefined : json['tags'],
         'competenceDate': json['competenceDate'] == null ? undefined : json['competenceDate'],
         'files': json['files'] == null ? undefined : json['files'],
-        'inboxRecords': json['inboxRecords'] == null ? undefined : json['inboxRecords'],
+        'radarItems': json['radarItems'] == null ? undefined : json['radarItems'],
         'pixKey': json['pixKey'] == null ? undefined : json['pixKey'],
         'boletoCode': json['boletoCode'] == null ? undefined : json['boletoCode'],
         'pixCode': json['pixCode'] == null ? undefined : json['pixCode'],
@@ -364,7 +364,7 @@ export function FinancialRecordDtoToJSONTyped(value?: FinancialRecordDto | null,
         'tags': value['tags'],
         'competenceDate': value['competenceDate'],
         'files': value['files'],
-        'inboxRecords': value['inboxRecords'],
+        'radarItems': value['radarItems'],
         'pixKey': value['pixKey'],
         'boletoCode': value['boletoCode'],
         'pixCode': value['pixCode'],

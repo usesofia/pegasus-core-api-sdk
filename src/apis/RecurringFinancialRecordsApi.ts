@@ -155,7 +155,7 @@ export interface RecurringFinancialRecordsApiInterface {
      * @param {string} [contact] Identificador do contato.
      * @param {Date} [firstOccurrenceDateTo] Data final da primeira ocorrência (formato ISO YYYY-MM-DD).
      * @param {Date} [firstOccurrenceDateFrom] Data inicial da primeira ocorrência (formato ISO YYYY-MM-DD).
-     * @param {'INCOME' | 'EXPENSE'} [direction] Direção do lançamento (entrada/saída).
+     * @param {'IN' | 'OUT'} [direction] Direção do lançamento (entrada/saída).
      * @param {'asc' | 'desc'} [sortOrder] Ordem da ordenação.
      * @param {'direction' | 'firstOccurrenceDate' | 'contact' | 'description' | 'subcategory' | 'amount' | 'frequency' | 'isActive' | 'createdAt'} [sortBy] Campo para ordenação.
      * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
@@ -647,8 +647,8 @@ export type FindAllRecurringFinancialRecordsFrequencyEnum = typeof FindAllRecurr
  * @export
  */
 export const FindAllRecurringFinancialRecordsDirectionEnum = {
-    Income: 'INCOME',
-    Expense: 'EXPENSE'
+    In: 'IN',
+    Out: 'OUT'
 } as const;
 export type FindAllRecurringFinancialRecordsDirectionEnum = typeof FindAllRecurringFinancialRecordsDirectionEnum[keyof typeof FindAllRecurringFinancialRecordsDirectionEnum];
 /**

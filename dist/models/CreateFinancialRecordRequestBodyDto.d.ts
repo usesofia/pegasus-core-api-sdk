@@ -129,12 +129,6 @@ export interface CreateFinancialRecordRequestBodyDto {
      */
     finesAndInterest?: string | null;
     /**
-     * Valor final do lançamento (calculado automaticamente).
-     * @type {number}
-     * @memberof CreateFinancialRecordRequestBodyDto
-     */
-    finalAmount?: number;
-    /**
      * Indica se foi reconciliado.
      * @type {boolean}
      * @memberof CreateFinancialRecordRequestBodyDto
@@ -201,17 +195,17 @@ export interface CreateFinancialRecordRequestBodyDto {
      */
     searchScore?: number | null;
     /**
-     * Identificador do registro de inbox que originou o lançamento.
+     * Valor final do lançamento (calculado automaticamente).
+     * @type {number}
+     * @memberof CreateFinancialRecordRequestBodyDto
+     */
+    finalAmount?: number;
+    /**
+     * Identificador do item no radar que originou o lançamento.
      * @type {string}
      * @memberof CreateFinancialRecordRequestBodyDto
      */
-    inboxRecord?: string;
-    /**
-     * Arquivar o registro de inbox se fornecido.
-     * @type {boolean}
-     * @memberof CreateFinancialRecordRequestBodyDto
-     */
-    archiveInboxRecord?: boolean;
+    radarItem?: string;
     /**
      * Canal de origem da operação
      * @type {string}
@@ -223,8 +217,8 @@ export interface CreateFinancialRecordRequestBodyDto {
  * @export
  */
 export declare const CreateFinancialRecordRequestBodyDtoDirectionEnum: {
-    readonly Income: "INCOME";
-    readonly Outcome: "OUTCOME";
+    readonly In: "IN";
+    readonly Out: "OUT";
 };
 export type CreateFinancialRecordRequestBodyDtoDirectionEnum = typeof CreateFinancialRecordRequestBodyDtoDirectionEnum[keyof typeof CreateFinancialRecordRequestBodyDtoDirectionEnum];
 /**

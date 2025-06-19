@@ -122,11 +122,11 @@ export interface FinancialRecordsPageDtoItemsInner {
      */
     files?: Array<string>;
     /**
-     * Ids de registros de inbox relacionados.
+     * Ids de itens no radar relacionados.
      * @type {Array<string>}
      * @memberof FinancialRecordsPageDtoItemsInner
      */
-    inboxRecords?: Array<string>;
+    radarItems?: Array<string>;
     /**
      * Chave PIX.
      * @type {string}
@@ -272,8 +272,8 @@ export interface FinancialRecordsPageDtoItemsInner {
  * @export
  */
 export const FinancialRecordsPageDtoItemsInnerDirectionEnum = {
-    Income: 'INCOME',
-    Outcome: 'OUTCOME'
+    In: 'IN',
+    Out: 'OUT'
 } as const;
 export type FinancialRecordsPageDtoItemsInnerDirectionEnum = typeof FinancialRecordsPageDtoItemsInnerDirectionEnum[keyof typeof FinancialRecordsPageDtoItemsInnerDirectionEnum];
 
@@ -315,7 +315,7 @@ export function FinancialRecordsPageDtoItemsInnerFromJSONTyped(json: any, ignore
         'tags': json['tags'] == null ? undefined : json['tags'],
         'competenceDate': json['competenceDate'] == null ? undefined : json['competenceDate'],
         'files': json['files'] == null ? undefined : json['files'],
-        'inboxRecords': json['inboxRecords'] == null ? undefined : json['inboxRecords'],
+        'radarItems': json['radarItems'] == null ? undefined : json['radarItems'],
         'pixKey': json['pixKey'] == null ? undefined : json['pixKey'],
         'boletoCode': json['boletoCode'] == null ? undefined : json['boletoCode'],
         'pixCode': json['pixCode'] == null ? undefined : json['pixCode'],
@@ -364,7 +364,7 @@ export function FinancialRecordsPageDtoItemsInnerToJSONTyped(value?: FinancialRe
         'tags': value['tags'],
         'competenceDate': value['competenceDate'],
         'files': value['files'],
-        'inboxRecords': value['inboxRecords'],
+        'radarItems': value['radarItems'],
         'pixKey': value['pixKey'],
         'boletoCode': value['boletoCode'],
         'pixCode': value['pixCode'],

@@ -164,12 +164,6 @@ export interface CreateFinancialRecordRequestBodyDto {
      */
     finesAndInterest?: string | null;
     /**
-     * Valor final do lançamento (calculado automaticamente).
-     * @type {number}
-     * @memberof CreateFinancialRecordRequestBodyDto
-     */
-    finalAmount?: number;
-    /**
      * Indica se foi reconciliado.
      * @type {boolean}
      * @memberof CreateFinancialRecordRequestBodyDto
@@ -236,17 +230,17 @@ export interface CreateFinancialRecordRequestBodyDto {
      */
     searchScore?: number | null;
     /**
-     * Identificador do registro de inbox que originou o lançamento.
+     * Valor final do lançamento (calculado automaticamente).
+     * @type {number}
+     * @memberof CreateFinancialRecordRequestBodyDto
+     */
+    finalAmount?: number;
+    /**
+     * Identificador do item no radar que originou o lançamento.
      * @type {string}
      * @memberof CreateFinancialRecordRequestBodyDto
      */
-    inboxRecord?: string;
-    /**
-     * Arquivar o registro de inbox se fornecido.
-     * @type {boolean}
-     * @memberof CreateFinancialRecordRequestBodyDto
-     */
-    archiveInboxRecord?: boolean;
+    radarItem?: string;
     /**
      * Canal de origem da operação
      * @type {string}
@@ -260,8 +254,8 @@ export interface CreateFinancialRecordRequestBodyDto {
  * @export
  */
 export const CreateFinancialRecordRequestBodyDtoDirectionEnum = {
-    Income: 'INCOME',
-    Outcome: 'OUTCOME'
+    In: 'IN',
+    Out: 'OUT'
 } as const;
 export type CreateFinancialRecordRequestBodyDtoDirectionEnum = typeof CreateFinancialRecordRequestBodyDtoDirectionEnum[keyof typeof CreateFinancialRecordRequestBodyDtoDirectionEnum];
 
@@ -318,7 +312,6 @@ export function CreateFinancialRecordRequestBodyDtoFromJSONTyped(json: any, igno
         'account': json['account'] == null ? undefined : json['account'],
         'discount': json['discount'] == null ? undefined : json['discount'],
         'finesAndInterest': json['finesAndInterest'] == null ? undefined : json['finesAndInterest'],
-        'finalAmount': json['finalAmount'] == null ? undefined : json['finalAmount'],
         'reconciled': json['reconciled'] == null ? undefined : json['reconciled'],
         'bankStatement': json['bankStatement'] == null ? undefined : json['bankStatement'],
         'installmentFinancialRecord': json['installmentFinancialRecord'] == null ? undefined : json['installmentFinancialRecord'],
@@ -330,8 +323,8 @@ export function CreateFinancialRecordRequestBodyDtoFromJSONTyped(json: any, igno
         'populatedTags': json['populatedTags'] == null ? undefined : ((json['populatedTags'] as Array<any>).map(CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerFromJSON)),
         'populatedAccount': json['populatedAccount'] == null ? undefined : CreateFinancialRecordRequestBodyDtoPopulatedAccountFromJSON(json['populatedAccount']),
         'searchScore': json['searchScore'] == null ? undefined : json['searchScore'],
-        'inboxRecord': json['inboxRecord'] == null ? undefined : json['inboxRecord'],
-        'archiveInboxRecord': json['archiveInboxRecord'] == null ? undefined : json['archiveInboxRecord'],
+        'finalAmount': json['finalAmount'] == null ? undefined : json['finalAmount'],
+        'radarItem': json['radarItem'] == null ? undefined : json['radarItem'],
         'channel': json['channel'],
     };
 }
@@ -365,7 +358,6 @@ export function CreateFinancialRecordRequestBodyDtoToJSONTyped(value?: CreateFin
         'account': value['account'],
         'discount': value['discount'],
         'finesAndInterest': value['finesAndInterest'],
-        'finalAmount': value['finalAmount'],
         'reconciled': value['reconciled'],
         'bankStatement': value['bankStatement'],
         'installmentFinancialRecord': value['installmentFinancialRecord'],
@@ -377,8 +369,8 @@ export function CreateFinancialRecordRequestBodyDtoToJSONTyped(value?: CreateFin
         'populatedTags': value['populatedTags'] == null ? undefined : ((value['populatedTags'] as Array<any>).map(CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerToJSON)),
         'populatedAccount': CreateFinancialRecordRequestBodyDtoPopulatedAccountToJSON(value['populatedAccount']),
         'searchScore': value['searchScore'],
-        'inboxRecord': value['inboxRecord'],
-        'archiveInboxRecord': value['archiveInboxRecord'],
+        'finalAmount': value['finalAmount'],
+        'radarItem': value['radarItem'],
         'channel': value['channel'],
     };
 }

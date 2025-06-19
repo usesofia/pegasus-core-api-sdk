@@ -170,8 +170,8 @@ export interface CreateInstallmentFinancialRecordRequestBodyDto {
  * @export
  */
 export const CreateInstallmentFinancialRecordRequestBodyDtoDirectionEnum = {
-    Income: 'INCOME',
-    Outcome: 'OUTCOME'
+    In: 'IN',
+    Out: 'OUT'
 } as const;
 export type CreateInstallmentFinancialRecordRequestBodyDtoDirectionEnum = typeof CreateInstallmentFinancialRecordRequestBodyDtoDirectionEnum[keyof typeof CreateInstallmentFinancialRecordRequestBodyDtoDirectionEnum];
 

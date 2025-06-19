@@ -206,8 +206,8 @@ export interface InstallmentFinancialRecordDto {
  * @export
  */
 export const InstallmentFinancialRecordDtoDirectionEnum = {
-    Income: 'INCOME',
-    Outcome: 'OUTCOME'
+    In: 'IN',
+    Out: 'OUT'
 } as const;
 export type InstallmentFinancialRecordDtoDirectionEnum = typeof InstallmentFinancialRecordDtoDirectionEnum[keyof typeof InstallmentFinancialRecordDtoDirectionEnum];
 

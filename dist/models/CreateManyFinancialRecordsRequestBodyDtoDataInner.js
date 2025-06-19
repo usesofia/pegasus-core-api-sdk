@@ -28,8 +28,8 @@ var CreateFinancialRecordRequestBodyDtoPopulatedContact_1 = require("./CreateFin
  * @export
  */
 exports.CreateManyFinancialRecordsRequestBodyDtoDataInnerDirectionEnum = {
-    Income: 'INCOME',
-    Outcome: 'OUTCOME'
+    In: 'IN',
+    Out: 'OUT'
 };
 /**
  * Check if a given object implements the CreateManyFinancialRecordsRequestBodyDtoDataInner interface.
@@ -73,7 +73,6 @@ function CreateManyFinancialRecordsRequestBodyDtoDataInnerFromJSONTyped(json, ig
         'account': json['account'] == null ? undefined : json['account'],
         'discount': json['discount'] == null ? undefined : json['discount'],
         'finesAndInterest': json['finesAndInterest'] == null ? undefined : json['finesAndInterest'],
-        'finalAmount': json['finalAmount'] == null ? undefined : json['finalAmount'],
         'reconciled': json['reconciled'] == null ? undefined : json['reconciled'],
         'bankStatement': json['bankStatement'] == null ? undefined : json['bankStatement'],
         'installmentFinancialRecord': json['installmentFinancialRecord'] == null ? undefined : json['installmentFinancialRecord'],
@@ -85,8 +84,8 @@ function CreateManyFinancialRecordsRequestBodyDtoDataInnerFromJSONTyped(json, ig
         'populatedTags': json['populatedTags'] == null ? undefined : (json['populatedTags'].map(CreateFinancialRecordRequestBodyDtoPopulatedTagsInner_1.CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerFromJSON)),
         'populatedAccount': json['populatedAccount'] == null ? undefined : (0, CreateFinancialRecordRequestBodyDtoPopulatedAccount_1.CreateFinancialRecordRequestBodyDtoPopulatedAccountFromJSON)(json['populatedAccount']),
         'searchScore': json['searchScore'] == null ? undefined : json['searchScore'],
-        'inboxRecord': json['inboxRecord'] == null ? undefined : json['inboxRecord'],
-        'archiveInboxRecord': json['archiveInboxRecord'] == null ? undefined : json['archiveInboxRecord'],
+        'finalAmount': json['finalAmount'] == null ? undefined : json['finalAmount'],
+        'radarItem': json['radarItem'] == null ? undefined : json['radarItem'],
     };
 }
 function CreateManyFinancialRecordsRequestBodyDtoDataInnerToJSON(json) {
@@ -116,7 +115,6 @@ function CreateManyFinancialRecordsRequestBodyDtoDataInnerToJSONTyped(value, ign
         'account': value['account'],
         'discount': value['discount'],
         'finesAndInterest': value['finesAndInterest'],
-        'finalAmount': value['finalAmount'],
         'reconciled': value['reconciled'],
         'bankStatement': value['bankStatement'],
         'installmentFinancialRecord': value['installmentFinancialRecord'],
@@ -128,7 +126,7 @@ function CreateManyFinancialRecordsRequestBodyDtoDataInnerToJSONTyped(value, ign
         'populatedTags': value['populatedTags'] == null ? undefined : (value['populatedTags'].map(CreateFinancialRecordRequestBodyDtoPopulatedTagsInner_1.CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerToJSON)),
         'populatedAccount': (0, CreateFinancialRecordRequestBodyDtoPopulatedAccount_1.CreateFinancialRecordRequestBodyDtoPopulatedAccountToJSON)(value['populatedAccount']),
         'searchScore': value['searchScore'],
-        'inboxRecord': value['inboxRecord'],
-        'archiveInboxRecord': value['archiveInboxRecord'],
+        'finalAmount': value['finalAmount'],
+        'radarItem': value['radarItem'],
     };
 }

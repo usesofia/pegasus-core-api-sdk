@@ -162,8 +162,8 @@ export interface RecurringFinancialRecordsPageDtoItemsInner {
  * @export
  */
 export declare const RecurringFinancialRecordsPageDtoItemsInnerDirectionEnum: {
-    readonly Income: "INCOME";
-    readonly Outcome: "OUTCOME";
+    readonly In: "IN";
+    readonly Out: "OUT";
 };
 export type RecurringFinancialRecordsPageDtoItemsInnerDirectionEnum = typeof RecurringFinancialRecordsPageDtoItemsInnerDirectionEnum[keyof typeof RecurringFinancialRecordsPageDtoItemsInnerDirectionEnum];
 /**

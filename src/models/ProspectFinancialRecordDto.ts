@@ -230,17 +230,11 @@ export interface ProspectFinancialRecordDto {
      */
     searchScore?: number | null;
     /**
-     * Identificador do registro de inbox que originou o lançamento.
+     * Identificador do item no radar que originou o lançamento.
      * @type {string}
      * @memberof ProspectFinancialRecordDto
      */
-    inboxRecord?: string;
-    /**
-     * Arquivar o registro de inbox se fornecido.
-     * @type {boolean}
-     * @memberof ProspectFinancialRecordDto
-     */
-    archiveInboxRecord?: boolean;
+    radarItem?: string;
 }
 
 
@@ -248,8 +242,8 @@ export interface ProspectFinancialRecordDto {
  * @export
  */
 export const ProspectFinancialRecordDtoDirectionEnum = {
-    Income: 'INCOME',
-    Outcome: 'OUTCOME'
+    In: 'IN',
+    Out: 'OUT'
 } as const;
 export type ProspectFinancialRecordDtoDirectionEnum = typeof ProspectFinancialRecordDtoDirectionEnum[keyof typeof ProspectFinancialRecordDtoDirectionEnum];
 
@@ -304,8 +298,7 @@ export function ProspectFinancialRecordDtoFromJSONTyped(json: any, ignoreDiscrim
         'populatedTags': json['populatedTags'] == null ? undefined : ((json['populatedTags'] as Array<any>).map(CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerFromJSON)),
         'populatedAccount': json['populatedAccount'] == null ? undefined : CreateFinancialRecordRequestBodyDtoPopulatedAccountFromJSON(json['populatedAccount']),
         'searchScore': json['searchScore'] == null ? undefined : json['searchScore'],
-        'inboxRecord': json['inboxRecord'] == null ? undefined : json['inboxRecord'],
-        'archiveInboxRecord': json['archiveInboxRecord'] == null ? undefined : json['archiveInboxRecord'],
+        'radarItem': json['radarItem'] == null ? undefined : json['radarItem'],
     };
 }
 
@@ -349,8 +342,7 @@ export function ProspectFinancialRecordDtoToJSONTyped(value?: ProspectFinancialR
         'populatedTags': value['populatedTags'] == null ? undefined : ((value['populatedTags'] as Array<any>).map(CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerToJSON)),
         'populatedAccount': CreateFinancialRecordRequestBodyDtoPopulatedAccountToJSON(value['populatedAccount']),
         'searchScore': value['searchScore'],
-        'inboxRecord': value['inboxRecord'],
-        'archiveInboxRecord': value['archiveInboxRecord'],
+        'radarItem': value['radarItem'],
     };
 }
 

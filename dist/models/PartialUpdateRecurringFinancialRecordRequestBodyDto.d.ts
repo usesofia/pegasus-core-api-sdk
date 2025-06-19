@@ -144,8 +144,8 @@ export interface PartialUpdateRecurringFinancialRecordRequestBodyDto {
  * @export
  */
 export declare const PartialUpdateRecurringFinancialRecordRequestBodyDtoDirectionEnum: {
-    readonly Income: "INCOME";
-    readonly Outcome: "OUTCOME";
+    readonly In: "IN";
+    readonly Out: "OUT";
 };
 export type PartialUpdateRecurringFinancialRecordRequestBodyDtoDirectionEnum = typeof PartialUpdateRecurringFinancialRecordRequestBodyDtoDirectionEnum[keyof typeof PartialUpdateRecurringFinancialRecordRequestBodyDtoDirectionEnum];
 /**

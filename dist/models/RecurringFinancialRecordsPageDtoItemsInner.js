@@ -27,8 +27,8 @@ var CreateFinancialRecordRequestBodyDtoPopulatedContact_1 = require("./CreateFin
  * @export
  */
 exports.RecurringFinancialRecordsPageDtoItemsInnerDirectionEnum = {
-    Income: 'INCOME',
-    Outcome: 'OUTCOME'
+    In: 'IN',
+    Out: 'OUT'
 };
 /**
  * @export

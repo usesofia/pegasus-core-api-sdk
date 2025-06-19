@@ -22,12 +22,6 @@ export interface LinkFinancialRecordsRequestBodyDto {
      */
     financialRecordIds: Array<string>;
     /**
-     * Arquivar o registro de inbox após vincular.
-     * @type {boolean}
-     * @memberof LinkFinancialRecordsRequestBodyDto
-     */
-    archiveInboxRecord?: boolean;
-    /**
      * Canal de origem da operação
      * @type {string}
      * @memberof LinkFinancialRecordsRequestBodyDto

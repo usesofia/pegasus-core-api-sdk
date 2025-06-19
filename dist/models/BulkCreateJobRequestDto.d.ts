@@ -44,13 +44,7 @@ export interface BulkCreateJobRequestDto {
      * @type {string}
      * @memberof BulkCreateJobRequestDto
      */
-    inboxRecord?: string;
-    /**
-     *
-     * @type {boolean}
-     * @memberof BulkCreateJobRequestDto
-     */
-    archiveInboxRecord?: boolean;
+    radarItem?: string;
 }
 /**
  * @export

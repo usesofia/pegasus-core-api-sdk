@@ -170,8 +170,8 @@ export interface PartialUpdateInstallmentFinancialRecordRequestBodyDto {
  * @export
  */
 export const PartialUpdateInstallmentFinancialRecordRequestBodyDtoDirectionEnum = {
-    Income: 'INCOME',
-    Outcome: 'OUTCOME'
+    In: 'IN',
+    Out: 'OUT'
 } as const;
 export type PartialUpdateInstallmentFinancialRecordRequestBodyDtoDirectionEnum = typeof PartialUpdateInstallmentFinancialRecordRequestBodyDtoDirectionEnum[keyof typeof PartialUpdateInstallmentFinancialRecordRequestBodyDtoDirectionEnum];
 

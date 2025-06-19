@@ -181,8 +181,8 @@ export interface ProspectRecurringFinancialRecordRequestBodyDto {
  * @export
  */
 export const ProspectRecurringFinancialRecordRequestBodyDtoDirectionEnum = {
-    Income: 'INCOME',
-    Outcome: 'OUTCOME'
+    In: 'IN',
+    Out: 'OUT'
 } as const;
 export type ProspectRecurringFinancialRecordRequestBodyDtoDirectionEnum = typeof ProspectRecurringFinancialRecordRequestBodyDtoDirectionEnum[keyof typeof ProspectRecurringFinancialRecordRequestBodyDtoDirectionEnum];
 

@@ -112,7 +112,7 @@ export interface InstallmentFinancialRecordsApiInterface {
      * @param {string} [contact] Identificador do contato.
      * @param {Date} [firstInstallmentDateTo] Data final da primeira parcela (formato ISO YYYY-MM-DD).
      * @param {Date} [firstInstallmentDateFrom] Data inicial da primeira parcela (formato ISO YYYY-MM-DD).
-     * @param {'INCOME' | 'EXPENSE'} [direction] Direção do lançamento (entrada/saída).
+     * @param {'IN' | 'OUT'} [direction] Direção do lançamento (entrada/saída).
      * @param {'asc' | 'desc'} [sortOrder] Ordem da ordenação.
      * @param {'direction' | 'firstInstallmentDate' | 'contact' | 'description' | 'subcategory' | 'amount' | 'tags' | 'competenceDate' | 'frequency' | 'createdAt'} [sortBy] Campo para ordenação.
      * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
@@ -460,8 +460,8 @@ export type FindAllInstallmentFinancialRecordsFrequencyEnum = typeof FindAllInst
  * @export
  */
 export const FindAllInstallmentFinancialRecordsDirectionEnum = {
-    Income: 'INCOME',
-    Expense: 'EXPENSE'
+    In: 'IN',
+    Out: 'OUT'
 } as const;
 export type FindAllInstallmentFinancialRecordsDirectionEnum = typeof FindAllInstallmentFinancialRecordsDirectionEnum[keyof typeof FindAllInstallmentFinancialRecordsDirectionEnum];
 /**

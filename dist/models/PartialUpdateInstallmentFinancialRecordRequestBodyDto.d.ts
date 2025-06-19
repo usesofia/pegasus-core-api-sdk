@@ -133,8 +133,8 @@ export interface PartialUpdateInstallmentFinancialRecordRequestBodyDto {
  * @export
  */
 export declare const PartialUpdateInstallmentFinancialRecordRequestBodyDtoDirectionEnum: {
-    readonly Income: "INCOME";
-    readonly Outcome: "OUTCOME";
+    readonly In: "IN";
+    readonly Out: "OUT";
 };
 export type PartialUpdateInstallmentFinancialRecordRequestBodyDtoDirectionEnum = typeof PartialUpdateInstallmentFinancialRecordRequestBodyDtoDirectionEnum[keyof typeof PartialUpdateInstallmentFinancialRecordRequestBodyDtoDirectionEnum];
 /**

@@ -195,24 +195,18 @@ export interface ProspectFinancialRecordDto {
      */
     searchScore?: number | null;
     /**
-     * Identificador do registro de inbox que originou o lançamento.
+     * Identificador do item no radar que originou o lançamento.
      * @type {string}
      * @memberof ProspectFinancialRecordDto
      */
-    inboxRecord?: string;
-    /**
-     * Arquivar o registro de inbox se fornecido.
-     * @type {boolean}
-     * @memberof ProspectFinancialRecordDto
-     */
-    archiveInboxRecord?: boolean;
+    radarItem?: string;
 }
 /**
  * @export
  */
 export declare const ProspectFinancialRecordDtoDirectionEnum: {
-    readonly Income: "INCOME";
-    readonly Outcome: "OUTCOME";
+    readonly In: "IN";
+    readonly Out: "OUT";
 };
 export type ProspectFinancialRecordDtoDirectionEnum = typeof ProspectFinancialRecordDtoDirectionEnum[keyof typeof ProspectFinancialRecordDtoDirectionEnum];
 /**

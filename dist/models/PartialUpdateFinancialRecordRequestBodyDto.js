@@ -28,8 +28,8 @@ var CreateFinancialRecordRequestBodyDtoPopulatedContact_1 = require("./CreateFin
  * @export
  */
 exports.PartialUpdateFinancialRecordRequestBodyDtoDirectionEnum = {
-    Income: 'INCOME',
-    Outcome: 'OUTCOME'
+    In: 'IN',
+    Out: 'OUT'
 };
 /**
  * @export
@@ -85,8 +85,7 @@ function PartialUpdateFinancialRecordRequestBodyDtoFromJSONTyped(json, ignoreDis
         'populatedTags': json['populatedTags'] == null ? undefined : (json['populatedTags'].map(CreateFinancialRecordRequestBodyDtoPopulatedTagsInner_1.CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerFromJSON)),
         'populatedAccount': json['populatedAccount'] == null ? undefined : (0, CreateFinancialRecordRequestBodyDtoPopulatedAccount_1.CreateFinancialRecordRequestBodyDtoPopulatedAccountFromJSON)(json['populatedAccount']),
         'searchScore': json['searchScore'] == null ? undefined : json['searchScore'],
-        'inboxRecord': json['inboxRecord'] == null ? undefined : json['inboxRecord'],
-        'archiveInboxRecord': json['archiveInboxRecord'] == null ? undefined : json['archiveInboxRecord'],
+        'radarItem': json['radarItem'] == null ? undefined : json['radarItem'],
         'channel': json['channel'],
     };
 }
@@ -128,8 +127,7 @@ function PartialUpdateFinancialRecordRequestBodyDtoToJSONTyped(value, ignoreDisc
         'populatedTags': value['populatedTags'] == null ? undefined : (value['populatedTags'].map(CreateFinancialRecordRequestBodyDtoPopulatedTagsInner_1.CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerToJSON)),
         'populatedAccount': (0, CreateFinancialRecordRequestBodyDtoPopulatedAccount_1.CreateFinancialRecordRequestBodyDtoPopulatedAccountToJSON)(value['populatedAccount']),
         'searchScore': value['searchScore'],
-        'inboxRecord': value['inboxRecord'],
-        'archiveInboxRecord': value['archiveInboxRecord'],
+        'radarItem': value['radarItem'],
         'channel': value['channel'],
     };
 }

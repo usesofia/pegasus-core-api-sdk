@@ -518,8 +518,8 @@ exports.FindAllRecurringFinancialRecordsFrequencyEnum = {
  * @export
  */
 exports.FindAllRecurringFinancialRecordsDirectionEnum = {
-    Income: 'INCOME',
-    Expense: 'EXPENSE'
+    In: 'IN',
+    Out: 'OUT'
 };
 /**
  * @export

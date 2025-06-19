@@ -28,8 +28,8 @@ var CreateFinancialRecordRequestBodyDtoPopulatedSubcategory_1 = require("./Creat
  * @export
  */
 exports.PartialUpdateInstallmentFinancialRecordRequestBodyDtoDirectionEnum = {
-    Income: 'INCOME',
-    Outcome: 'OUTCOME'
+    In: 'IN',
+    Out: 'OUT'
 };
 /**
  * @export

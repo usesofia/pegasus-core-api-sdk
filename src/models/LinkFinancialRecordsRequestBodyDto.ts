@@ -26,12 +26,6 @@ export interface LinkFinancialRecordsRequestBodyDto {
      */
     financialRecordIds: Array<string>;
     /**
-     * Arquivar o registro de inbox após vincular.
-     * @type {boolean}
-     * @memberof LinkFinancialRecordsRequestBodyDto
-     */
-    archiveInboxRecord?: boolean;
-    /**
      * Canal de origem da operação
      * @type {string}
      * @memberof LinkFinancialRecordsRequestBodyDto
@@ -72,7 +66,6 @@ export function LinkFinancialRecordsRequestBodyDtoFromJSONTyped(json: any, ignor
     return {
         
         'financialRecordIds': json['financialRecordIds'],
-        'archiveInboxRecord': json['archiveInboxRecord'] == null ? undefined : json['archiveInboxRecord'],
         'channel': json['channel'],
     };
 }
@@ -89,7 +82,6 @@ export function LinkFinancialRecordsRequestBodyDtoToJSONTyped(value?: LinkFinanc
     return {
         
         'financialRecordIds': value['financialRecordIds'],
-        'archiveInboxRecord': value['archiveInboxRecord'],
         'channel': value['channel'],
     };
 }

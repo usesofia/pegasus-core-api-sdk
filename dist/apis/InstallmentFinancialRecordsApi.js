@@ -377,8 +377,8 @@ exports.FindAllInstallmentFinancialRecordsFrequencyEnum = {
  * @export
  */
 exports.FindAllInstallmentFinancialRecordsDirectionEnum = {
-    Income: 'INCOME',
-    Expense: 'EXPENSE'
+    In: 'IN',
+    Out: 'OUT'
 };
 /**
  * @export

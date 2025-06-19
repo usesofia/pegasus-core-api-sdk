@@ -195,17 +195,11 @@ export interface PartialUpdateFinancialRecordRequestBodyDto {
      */
     searchScore?: number | null;
     /**
-     * Identificador do registro de inbox que originou a atualização.
+     * Identificador do item no radar que originou a atualização.
      * @type {string}
      * @memberof PartialUpdateFinancialRecordRequestBodyDto
      */
-    inboxRecord?: string;
-    /**
-     * Arquivar o registro de inbox se fornecido.
-     * @type {boolean}
-     * @memberof PartialUpdateFinancialRecordRequestBodyDto
-     */
-    archiveInboxRecord?: boolean;
+    radarItem?: string;
     /**
      * Canal de origem da operação
      * @type {string}
@@ -217,8 +211,8 @@ export interface PartialUpdateFinancialRecordRequestBodyDto {
  * @export
  */
 export declare const PartialUpdateFinancialRecordRequestBodyDtoDirectionEnum: {
-    readonly Income: "INCOME";
-    readonly Outcome: "OUTCOME";
+    readonly In: "IN";
+    readonly Out: "OUT";
 };
 export type PartialUpdateFinancialRecordRequestBodyDtoDirectionEnum = typeof PartialUpdateFinancialRecordRequestBodyDtoDirectionEnum[keyof typeof PartialUpdateFinancialRecordRequestBodyDtoDirectionEnum];
 /**

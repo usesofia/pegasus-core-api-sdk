@@ -50,17 +50,11 @@ export interface BulkCreateJobRequestEntity {
      */
     requesterUserId: string;
     /**
-     * Identificador do registro de inbox que originou a criação em massa.
+     * Identificador do registro de radar que originou a criação em massa.
      * @type {string}
      * @memberof BulkCreateJobRequestEntity
      */
-    inboxRecord?: string;
-    /**
-     * Arquivar o registro de inbox se fornecido.
-     * @type {boolean}
-     * @memberof BulkCreateJobRequestEntity
-     */
-    archiveInboxRecord?: boolean;
+    radarItem?: string;
     /**
      * Data de criação da solicitação de criação.
      * @type {any}
@@ -128,8 +122,7 @@ export function BulkCreateJobRequestEntityFromJSONTyped(json: any, ignoreDiscrim
         'nRows': json['nRows'],
         'fileId': json['fileId'],
         'requesterUserId': json['requesterUserId'],
-        'inboxRecord': json['inboxRecord'] == null ? undefined : json['inboxRecord'],
-        'archiveInboxRecord': json['archiveInboxRecord'] == null ? undefined : json['archiveInboxRecord'],
+        'radarItem': json['radarItem'] == null ? undefined : json['radarItem'],
         'createdAt': json['createdAt'],
         'updatedAt': json['updatedAt'],
         'deletedAt': json['deletedAt'],
@@ -152,8 +145,7 @@ export function BulkCreateJobRequestEntityToJSONTyped(value?: BulkCreateJobReque
         'nRows': value['nRows'],
         'fileId': value['fileId'],
         'requesterUserId': value['requesterUserId'],
-        'inboxRecord': value['inboxRecord'],
-        'archiveInboxRecord': value['archiveInboxRecord'],
+        'radarItem': value['radarItem'],
         'createdAt': value['createdAt'],
         'updatedAt': value['updatedAt'],
         'deletedAt': value['deletedAt'],

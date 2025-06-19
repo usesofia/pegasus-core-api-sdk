@@ -193,8 +193,8 @@ export interface RecurringFinancialRecordDto {
  * @export
  */
 export const RecurringFinancialRecordDtoDirectionEnum = {
-    Income: 'INCOME',
-    Outcome: 'OUTCOME'
+    In: 'IN',
+    Out: 'OUT'
 } as const;
 export type RecurringFinancialRecordDtoDirectionEnum = typeof RecurringFinancialRecordDtoDirectionEnum[keyof typeof RecurringFinancialRecordDtoDirectionEnum];
 

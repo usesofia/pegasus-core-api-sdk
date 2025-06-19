@@ -129,12 +129,6 @@ export interface CreateManyFinancialRecordsRequestBodyDtoDataInner {
      */
     finesAndInterest?: number | null;
     /**
-     * Valor final do lançamento (calculado automaticamente).
-     * @type {number}
-     * @memberof CreateManyFinancialRecordsRequestBodyDtoDataInner
-     */
-    finalAmount?: number;
-    /**
      * Indica se foi reconciliado.
      * @type {boolean}
      * @memberof CreateManyFinancialRecordsRequestBodyDtoDataInner
@@ -201,24 +195,24 @@ export interface CreateManyFinancialRecordsRequestBodyDtoDataInner {
      */
     searchScore?: number | null;
     /**
-     * Identificador do registro de inbox que originou o lançamento.
+     * Valor final do lançamento (calculado automaticamente).
+     * @type {number}
+     * @memberof CreateManyFinancialRecordsRequestBodyDtoDataInner
+     */
+    finalAmount?: number;
+    /**
+     * Identificador do item no radar que originou o lançamento.
      * @type {string}
      * @memberof CreateManyFinancialRecordsRequestBodyDtoDataInner
      */
-    inboxRecord?: string;
-    /**
-     * Arquivar o registro de inbox se fornecido.
-     * @type {boolean}
-     * @memberof CreateManyFinancialRecordsRequestBodyDtoDataInner
-     */
-    archiveInboxRecord?: boolean;
+    radarItem?: string;
 }
 /**
  * @export
  */
 export declare const CreateManyFinancialRecordsRequestBodyDtoDataInnerDirectionEnum: {
-    readonly Income: "INCOME";
-    readonly Outcome: "OUTCOME";
+    readonly In: "IN";
+    readonly Out: "OUT";
 };
 export type CreateManyFinancialRecordsRequestBodyDtoDataInnerDirectionEnum = typeof CreateManyFinancialRecordsRequestBodyDtoDataInnerDirectionEnum[keyof typeof CreateManyFinancialRecordsRequestBodyDtoDataInnerDirectionEnum];
 /**

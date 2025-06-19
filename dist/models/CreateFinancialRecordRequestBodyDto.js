@@ -28,8 +28,8 @@ var CreateFinancialRecordRequestBodyDtoPopulatedContact_1 = require("./CreateFin
  * @export
  */
 exports.CreateFinancialRecordRequestBodyDtoDirectionEnum = {
-    Income: 'INCOME',
-    Outcome: 'OUTCOME'
+    In: 'IN',
+    Out: 'OUT'
 };
 /**
  * @export
@@ -84,7 +84,6 @@ function CreateFinancialRecordRequestBodyDtoFromJSONTyped(json, ignoreDiscrimina
         'account': json['account'] == null ? undefined : json['account'],
         'discount': json['discount'] == null ? undefined : json['discount'],
         'finesAndInterest': json['finesAndInterest'] == null ? undefined : json['finesAndInterest'],
-        'finalAmount': json['finalAmount'] == null ? undefined : json['finalAmount'],
         'reconciled': json['reconciled'] == null ? undefined : json['reconciled'],
         'bankStatement': json['bankStatement'] == null ? undefined : json['bankStatement'],
         'installmentFinancialRecord': json['installmentFinancialRecord'] == null ? undefined : json['installmentFinancialRecord'],
@@ -96,8 +95,8 @@ function CreateFinancialRecordRequestBodyDtoFromJSONTyped(json, ignoreDiscrimina
         'populatedTags': json['populatedTags'] == null ? undefined : (json['populatedTags'].map(CreateFinancialRecordRequestBodyDtoPopulatedTagsInner_1.CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerFromJSON)),
         'populatedAccount': json['populatedAccount'] == null ? undefined : (0, CreateFinancialRecordRequestBodyDtoPopulatedAccount_1.CreateFinancialRecordRequestBodyDtoPopulatedAccountFromJSON)(json['populatedAccount']),
         'searchScore': json['searchScore'] == null ? undefined : json['searchScore'],
-        'inboxRecord': json['inboxRecord'] == null ? undefined : json['inboxRecord'],
-        'archiveInboxRecord': json['archiveInboxRecord'] == null ? undefined : json['archiveInboxRecord'],
+        'finalAmount': json['finalAmount'] == null ? undefined : json['finalAmount'],
+        'radarItem': json['radarItem'] == null ? undefined : json['radarItem'],
         'channel': json['channel'],
     };
 }
@@ -128,7 +127,6 @@ function CreateFinancialRecordRequestBodyDtoToJSONTyped(value, ignoreDiscriminat
         'account': value['account'],
         'discount': value['discount'],
         'finesAndInterest': value['finesAndInterest'],
-        'finalAmount': value['finalAmount'],
         'reconciled': value['reconciled'],
         'bankStatement': value['bankStatement'],
         'installmentFinancialRecord': value['installmentFinancialRecord'],
@@ -140,8 +138,8 @@ function CreateFinancialRecordRequestBodyDtoToJSONTyped(value, ignoreDiscriminat
         'populatedTags': value['populatedTags'] == null ? undefined : (value['populatedTags'].map(CreateFinancialRecordRequestBodyDtoPopulatedTagsInner_1.CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerToJSON)),
         'populatedAccount': (0, CreateFinancialRecordRequestBodyDtoPopulatedAccount_1.CreateFinancialRecordRequestBodyDtoPopulatedAccountToJSON)(value['populatedAccount']),
         'searchScore': value['searchScore'],
-        'inboxRecord': value['inboxRecord'],
-        'archiveInboxRecord': value['archiveInboxRecord'],
+        'finalAmount': value['finalAmount'],
+        'radarItem': value['radarItem'],
         'channel': value['channel'],
     };
 }

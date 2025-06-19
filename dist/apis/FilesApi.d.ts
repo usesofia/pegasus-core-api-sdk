@@ -10,10 +10,16 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { RemoveFileRequestBodyDto } from '../models/index';
+import type { FileEntity, RemoveFileRequestBodyDto, SignedUrlEntity } from '../models/index';
 export interface DeleteFileRequest {
     id: string;
     removeFileRequestBodyDto: RemoveFileRequestBodyDto;
+}
+export interface FindByIdFileRequest {
+    id: string;
+}
+export interface GetSignedUrlFromUrlRequest {
+    url: string;
 }
 /**
  * FilesApi - interface
@@ -36,6 +42,32 @@ export interface FilesApiInterface {
      * Deletes a file
      */
     deleteFile(requestParameters: DeleteFileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+    /**
+     *
+     * @summary Finds a file by id
+     * @param {string} id The id of the file to get
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof FilesApiInterface
+     */
+    findByIdFileRaw(requestParameters: FindByIdFileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FileEntity>>;
+    /**
+     * Finds a file by id
+     */
+    findByIdFile(requestParameters: FindByIdFileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FileEntity>;
+    /**
+     *
+     * @summary Get a signed url from a url
+     * @param {string} url The url of the file to get the signed url from
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof FilesApiInterface
+     */
+    getSignedUrlFromUrlRaw(requestParameters: GetSignedUrlFromUrlRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SignedUrlEntity>>;
+    /**
+     * Get a signed url from a url
+     */
+    getSignedUrlFromUrl(requestParameters: GetSignedUrlFromUrlRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SignedUrlEntity>;
 }
 /**
  *
@@ -49,4 +81,20 @@ export declare class FilesApi extends runtime.BaseAPI implements FilesApiInterfa
      * Deletes a file
      */
     deleteFile(requestParameters: DeleteFileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+    /**
+     * Finds a file by id
+     */
+    findByIdFileRaw(requestParameters: FindByIdFileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FileEntity>>;
+    /**
+     * Finds a file by id
+     */
+    findByIdFile(requestParameters: FindByIdFileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FileEntity>;
+    /**
+     * Get a signed url from a url
+     */
+    getSignedUrlFromUrlRaw(requestParameters: GetSignedUrlFromUrlRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SignedUrlEntity>>;
+    /**
+     * Get a signed url from a url
+     */
+    getSignedUrlFromUrl(requestParameters: GetSignedUrlFromUrlRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SignedUrlEntity>;
 }

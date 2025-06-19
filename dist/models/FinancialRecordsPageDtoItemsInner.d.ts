@@ -87,11 +87,11 @@ export interface FinancialRecordsPageDtoItemsInner {
      */
     files?: Array<string>;
     /**
-     * Ids de registros de inbox relacionados.
+     * Ids de itens no radar relacionados.
      * @type {Array<string>}
      * @memberof FinancialRecordsPageDtoItemsInner
      */
-    inboxRecords?: Array<string>;
+    radarItems?: Array<string>;
     /**
      * Chave PIX.
      * @type {string}
@@ -235,8 +235,8 @@ export interface FinancialRecordsPageDtoItemsInner {
  * @export
  */
 export declare const FinancialRecordsPageDtoItemsInnerDirectionEnum: {
-    readonly Income: "INCOME";
-    readonly Outcome: "OUTCOME";
+    readonly In: "IN";
+    readonly Out: "OUT";
 };
 export type FinancialRecordsPageDtoItemsInnerDirectionEnum = typeof FinancialRecordsPageDtoItemsInnerDirectionEnum[keyof typeof FinancialRecordsPageDtoItemsInnerDirectionEnum];
 /**
