@@ -157,6 +157,12 @@ export interface BankTransactionsPageDtoItemsInner {
      */
     ignored: boolean;
     /**
+     * Indica se a transação foi conciliada.
+     * @type {boolean}
+     * @memberof BankTransactionsPageDtoItemsInner
+     */
+    reconciled?: boolean;
+    /**
      * Identificador da solicitação de importação OFX relacionada.
      * @type {string}
      * @memberof BankTransactionsPageDtoItemsInner
@@ -355,6 +361,7 @@ export function BankTransactionsPageDtoItemsInnerFromJSONTyped(json: any, ignore
         'description': json['description'] == null ? undefined : json['description'],
         'status': json['status'],
         'ignored': json['ignored'],
+        'reconciled': json['reconciled'] == null ? undefined : json['reconciled'],
         'ofxJobRequestId': json['ofxJobRequestId'] == null ? undefined : json['ofxJobRequestId'],
         'ofxJobExecutionId': json['ofxJobExecutionId'] == null ? undefined : json['ofxJobExecutionId'],
         'pluggyJobRequestId': json['pluggyJobRequestId'] == null ? undefined : json['pluggyJobRequestId'],
@@ -406,6 +413,7 @@ export function BankTransactionsPageDtoItemsInnerToJSONTyped(value?: BankTransac
         'description': value['description'],
         'status': value['status'],
         'ignored': value['ignored'],
+        'reconciled': value['reconciled'],
         'ofxJobRequestId': value['ofxJobRequestId'],
         'ofxJobExecutionId': value['ofxJobExecutionId'],
         'pluggyJobRequestId': value['pluggyJobRequestId'],

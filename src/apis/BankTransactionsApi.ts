@@ -57,6 +57,11 @@ export interface DispatchOfxImportRequest {
 
 export interface FindAllBankTransactionsRequest {
     populate?: string;
+    sortOrder?: FindAllBankTransactionsSortOrderEnum;
+    sortBy?: FindAllBankTransactionsSortByEnum;
+    ignored?: boolean;
+    origin?: FindAllBankTransactionsOriginEnum;
+    reconciled?: boolean;
     type?: FindAllBankTransactionsTypeEnum;
     dateTo?: Date;
     dateFrom?: Date;
@@ -91,9 +96,12 @@ export interface ProcessOfxImportRequest {
 
 export interface SystemFindAllBankTransactionsRequest {
     ownerOrganizationId: string;
-    sortOrder?: string;
-    sortBy?: string;
     populate?: string;
+    sortOrder?: SystemFindAllBankTransactionsSortOrderEnum;
+    sortBy?: SystemFindAllBankTransactionsSortByEnum;
+    ignored?: boolean;
+    origin?: SystemFindAllBankTransactionsOriginEnum;
+    reconciled?: boolean;
     type?: SystemFindAllBankTransactionsTypeEnum;
     dateTo?: Date;
     dateFrom?: Date;
@@ -146,6 +154,11 @@ export interface BankTransactionsApiInterface {
      * 
      * @summary Busca todas as movimentações financeiras.
      * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
+     * @param {'asc' | 'desc'} [sortOrder] Ordem da ordenação. Valores possíveis: \&#39;asc\&#39;, \&#39;desc\&#39;.
+     * @param {'date' | 'amountInBrl' | 'description' | 'createdAt' | 'reconciled'} [sortBy] Campo para ordenação. Valores possíveis: \&#39;date\&#39;, \&#39;amountInBrl\&#39;, \&#39;description\&#39;, \&#39;createdAt\&#39;, \&#39;reconciled\&#39;, \&#39;origin\&#39;.
+     * @param {boolean} [ignored] Filtrar por transações ignoradas/arquivadas. (true/false)
+     * @param {'AUTOMATIC_INTEGRATION' | 'MANUAL_OFX_IMPORT'} [origin] Filtrar pela origem da transação.
+     * @param {boolean} [reconciled] Filtrar por transações reconciliadas. (true/false)
      * @param {'DEBIT' | 'CREDIT'} [type] Tipo da movimentação.
      * @param {Date} [dateTo] Data final para filtrar.
      * @param {Date} [dateFrom] Data inicial para filtrar.
@@ -235,9 +248,12 @@ export interface BankTransactionsApiInterface {
      * 
      * @summary Busca todas as movimentações financeiras pelo sistema.
      * @param {string} ownerOrganizationId Identificador da organização proprietária das movimentações financeiras.
-     * @param {string} [sortOrder] Ordem de ordenação das movimentações financeiras.
-     * @param {string} [sortBy] Campo para ordenação das movimentações financeiras.
      * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
+     * @param {'asc' | 'desc'} [sortOrder] Ordem da ordenação. Valores possíveis: \&#39;asc\&#39;, \&#39;desc\&#39;.
+     * @param {'date' | 'amountInBrl' | 'description' | 'createdAt' | 'reconciled'} [sortBy] Campo para ordenação das movimentações financeiras. Valores possíveis: \&#39;date\&#39;, \&#39;amountInBrl\&#39;, \&#39;description\&#39;, \&#39;createdAt\&#39;, \&#39;reconciled\&#39;, \&#39;origin\&#39;.
+     * @param {boolean} [ignored] Filtrar por transações ignoradas/arquivadas. (true/false)
+     * @param {'AUTOMATIC_INTEGRATION' | 'MANUAL_OFX_IMPORT'} [origin] Filtrar pela origem da transação.
+     * @param {boolean} [reconciled] Filtrar por transações reconciliadas. (true/false)
      * @param {'DEBIT' | 'CREDIT'} [type] Tipo da movimentação.
      * @param {Date} [dateTo] Data final para filtrar.
      * @param {Date} [dateFrom] Data inicial para filtrar.
@@ -348,6 +364,26 @@ export class BankTransactionsApi extends runtime.BaseAPI implements BankTransact
 
         if (requestParameters['populate'] != null) {
             queryParameters['populate'] = requestParameters['populate'];
+        }
+
+        if (requestParameters['sortOrder'] != null) {
+            queryParameters['sortOrder'] = requestParameters['sortOrder'];
+        }
+
+        if (requestParameters['sortBy'] != null) {
+            queryParameters['sortBy'] = requestParameters['sortBy'];
+        }
+
+        if (requestParameters['ignored'] != null) {
+            queryParameters['ignored'] = requestParameters['ignored'];
+        }
+
+        if (requestParameters['origin'] != null) {
+            queryParameters['origin'] = requestParameters['origin'];
+        }
+
+        if (requestParameters['reconciled'] != null) {
+            queryParameters['reconciled'] = requestParameters['reconciled'];
         }
 
         if (requestParameters['type'] != null) {
@@ -576,6 +612,14 @@ export class BankTransactionsApi extends runtime.BaseAPI implements BankTransact
 
         const queryParameters: any = {};
 
+        if (requestParameters['ownerOrganizationId'] != null) {
+            queryParameters['ownerOrganizationId'] = requestParameters['ownerOrganizationId'];
+        }
+
+        if (requestParameters['populate'] != null) {
+            queryParameters['populate'] = requestParameters['populate'];
+        }
+
         if (requestParameters['sortOrder'] != null) {
             queryParameters['sortOrder'] = requestParameters['sortOrder'];
         }
@@ -584,12 +628,16 @@ export class BankTransactionsApi extends runtime.BaseAPI implements BankTransact
             queryParameters['sortBy'] = requestParameters['sortBy'];
         }
 
-        if (requestParameters['ownerOrganizationId'] != null) {
-            queryParameters['ownerOrganizationId'] = requestParameters['ownerOrganizationId'];
+        if (requestParameters['ignored'] != null) {
+            queryParameters['ignored'] = requestParameters['ignored'];
         }
 
-        if (requestParameters['populate'] != null) {
-            queryParameters['populate'] = requestParameters['populate'];
+        if (requestParameters['origin'] != null) {
+            queryParameters['origin'] = requestParameters['origin'];
+        }
+
+        if (requestParameters['reconciled'] != null) {
+            queryParameters['reconciled'] = requestParameters['reconciled'];
         }
 
         if (requestParameters['type'] != null) {
@@ -649,6 +697,33 @@ export class BankTransactionsApi extends runtime.BaseAPI implements BankTransact
 /**
  * @export
  */
+export const FindAllBankTransactionsSortOrderEnum = {
+    Asc: 'asc',
+    Desc: 'desc'
+} as const;
+export type FindAllBankTransactionsSortOrderEnum = typeof FindAllBankTransactionsSortOrderEnum[keyof typeof FindAllBankTransactionsSortOrderEnum];
+/**
+ * @export
+ */
+export const FindAllBankTransactionsSortByEnum = {
+    Date: 'date',
+    AmountInBrl: 'amountInBrl',
+    Description: 'description',
+    CreatedAt: 'createdAt',
+    Reconciled: 'reconciled'
+} as const;
+export type FindAllBankTransactionsSortByEnum = typeof FindAllBankTransactionsSortByEnum[keyof typeof FindAllBankTransactionsSortByEnum];
+/**
+ * @export
+ */
+export const FindAllBankTransactionsOriginEnum = {
+    AutomaticIntegration: 'AUTOMATIC_INTEGRATION',
+    ManualOfxImport: 'MANUAL_OFX_IMPORT'
+} as const;
+export type FindAllBankTransactionsOriginEnum = typeof FindAllBankTransactionsOriginEnum[keyof typeof FindAllBankTransactionsOriginEnum];
+/**
+ * @export
+ */
 export const FindAllBankTransactionsTypeEnum = {
     Debit: 'DEBIT',
     Credit: 'CREDIT'
@@ -671,6 +746,33 @@ export const FindAllOfxImportJobRequestsSortByEnum = {
     BankAccountName: 'bankAccountName'
 } as const;
 export type FindAllOfxImportJobRequestsSortByEnum = typeof FindAllOfxImportJobRequestsSortByEnum[keyof typeof FindAllOfxImportJobRequestsSortByEnum];
+/**
+ * @export
+ */
+export const SystemFindAllBankTransactionsSortOrderEnum = {
+    Asc: 'asc',
+    Desc: 'desc'
+} as const;
+export type SystemFindAllBankTransactionsSortOrderEnum = typeof SystemFindAllBankTransactionsSortOrderEnum[keyof typeof SystemFindAllBankTransactionsSortOrderEnum];
+/**
+ * @export
+ */
+export const SystemFindAllBankTransactionsSortByEnum = {
+    Date: 'date',
+    AmountInBrl: 'amountInBrl',
+    Description: 'description',
+    CreatedAt: 'createdAt',
+    Reconciled: 'reconciled'
+} as const;
+export type SystemFindAllBankTransactionsSortByEnum = typeof SystemFindAllBankTransactionsSortByEnum[keyof typeof SystemFindAllBankTransactionsSortByEnum];
+/**
+ * @export
+ */
+export const SystemFindAllBankTransactionsOriginEnum = {
+    AutomaticIntegration: 'AUTOMATIC_INTEGRATION',
+    ManualOfxImport: 'MANUAL_OFX_IMPORT'
+} as const;
+export type SystemFindAllBankTransactionsOriginEnum = typeof SystemFindAllBankTransactionsOriginEnum[keyof typeof SystemFindAllBankTransactionsOriginEnum];
 /**
  * @export
  */

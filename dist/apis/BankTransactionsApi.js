@@ -64,7 +64,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.SystemFindAllBankTransactionsTypeEnum = exports.FindAllOfxImportJobRequestsSortByEnum = exports.FindAllOfxImportJobRequestsSortOrderEnum = exports.FindAllBankTransactionsTypeEnum = exports.BankTransactionsApi = void 0;
+exports.SystemFindAllBankTransactionsTypeEnum = exports.SystemFindAllBankTransactionsOriginEnum = exports.SystemFindAllBankTransactionsSortByEnum = exports.SystemFindAllBankTransactionsSortOrderEnum = exports.FindAllOfxImportJobRequestsSortByEnum = exports.FindAllOfxImportJobRequestsSortOrderEnum = exports.FindAllBankTransactionsTypeEnum = exports.FindAllBankTransactionsOriginEnum = exports.FindAllBankTransactionsSortByEnum = exports.FindAllBankTransactionsSortOrderEnum = exports.BankTransactionsApi = void 0;
 var runtime = require("../runtime");
 var index_1 = require("../models/index");
 /**
@@ -182,6 +182,21 @@ var BankTransactionsApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         if (requestParameters['populate'] != null) {
                             queryParameters['populate'] = requestParameters['populate'];
+                        }
+                        if (requestParameters['sortOrder'] != null) {
+                            queryParameters['sortOrder'] = requestParameters['sortOrder'];
+                        }
+                        if (requestParameters['sortBy'] != null) {
+                            queryParameters['sortBy'] = requestParameters['sortBy'];
+                        }
+                        if (requestParameters['ignored'] != null) {
+                            queryParameters['ignored'] = requestParameters['ignored'];
+                        }
+                        if (requestParameters['origin'] != null) {
+                            queryParameters['origin'] = requestParameters['origin'];
+                        }
+                        if (requestParameters['reconciled'] != null) {
+                            queryParameters['reconciled'] = requestParameters['reconciled'];
                         }
                         if (requestParameters['type'] != null) {
                             queryParameters['type'] = requestParameters['type'];
@@ -449,17 +464,26 @@ var BankTransactionsApi = /** @class */ (function (_super) {
                             throw new runtime.RequiredError('ownerOrganizationId', 'Required parameter "ownerOrganizationId" was null or undefined when calling systemFindAllBankTransactions().');
                         }
                         queryParameters = {};
+                        if (requestParameters['ownerOrganizationId'] != null) {
+                            queryParameters['ownerOrganizationId'] = requestParameters['ownerOrganizationId'];
+                        }
+                        if (requestParameters['populate'] != null) {
+                            queryParameters['populate'] = requestParameters['populate'];
+                        }
                         if (requestParameters['sortOrder'] != null) {
                             queryParameters['sortOrder'] = requestParameters['sortOrder'];
                         }
                         if (requestParameters['sortBy'] != null) {
                             queryParameters['sortBy'] = requestParameters['sortBy'];
                         }
-                        if (requestParameters['ownerOrganizationId'] != null) {
-                            queryParameters['ownerOrganizationId'] = requestParameters['ownerOrganizationId'];
+                        if (requestParameters['ignored'] != null) {
+                            queryParameters['ignored'] = requestParameters['ignored'];
                         }
-                        if (requestParameters['populate'] != null) {
-                            queryParameters['populate'] = requestParameters['populate'];
+                        if (requestParameters['origin'] != null) {
+                            queryParameters['origin'] = requestParameters['origin'];
+                        }
+                        if (requestParameters['reconciled'] != null) {
+                            queryParameters['reconciled'] = requestParameters['reconciled'];
                         }
                         if (requestParameters['type'] != null) {
                             queryParameters['type'] = requestParameters['type'];
@@ -522,6 +546,30 @@ exports.BankTransactionsApi = BankTransactionsApi;
 /**
  * @export
  */
+exports.FindAllBankTransactionsSortOrderEnum = {
+    Asc: 'asc',
+    Desc: 'desc'
+};
+/**
+ * @export
+ */
+exports.FindAllBankTransactionsSortByEnum = {
+    Date: 'date',
+    AmountInBrl: 'amountInBrl',
+    Description: 'description',
+    CreatedAt: 'createdAt',
+    Reconciled: 'reconciled'
+};
+/**
+ * @export
+ */
+exports.FindAllBankTransactionsOriginEnum = {
+    AutomaticIntegration: 'AUTOMATIC_INTEGRATION',
+    ManualOfxImport: 'MANUAL_OFX_IMPORT'
+};
+/**
+ * @export
+ */
 exports.FindAllBankTransactionsTypeEnum = {
     Debit: 'DEBIT',
     Credit: 'CREDIT'
@@ -540,6 +588,30 @@ exports.FindAllOfxImportJobRequestsSortByEnum = {
     CreatedAt: 'createdAt',
     FileName: 'fileName',
     BankAccountName: 'bankAccountName'
+};
+/**
+ * @export
+ */
+exports.SystemFindAllBankTransactionsSortOrderEnum = {
+    Asc: 'asc',
+    Desc: 'desc'
+};
+/**
+ * @export
+ */
+exports.SystemFindAllBankTransactionsSortByEnum = {
+    Date: 'date',
+    AmountInBrl: 'amountInBrl',
+    Description: 'description',
+    CreatedAt: 'createdAt',
+    Reconciled: 'reconciled'
+};
+/**
+ * @export
+ */
+exports.SystemFindAllBankTransactionsOriginEnum = {
+    AutomaticIntegration: 'AUTOMATIC_INTEGRATION',
+    ManualOfxImport: 'MANUAL_OFX_IMPORT'
 };
 /**
  * @export

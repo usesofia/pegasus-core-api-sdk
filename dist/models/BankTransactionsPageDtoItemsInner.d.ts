@@ -128,6 +128,12 @@ export interface BankTransactionsPageDtoItemsInner {
      */
     ignored: boolean;
     /**
+     * Indica se a transação foi conciliada.
+     * @type {boolean}
+     * @memberof BankTransactionsPageDtoItemsInner
+     */
+    reconciled?: boolean;
+    /**
      * Identificador da solicitação de importação OFX relacionada.
      * @type {string}
      * @memberof BankTransactionsPageDtoItemsInner
