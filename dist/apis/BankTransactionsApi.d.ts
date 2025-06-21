@@ -108,7 +108,7 @@ export interface BankTransactionsApiInterface {
      * @summary Busca todas as movimentações financeiras.
      * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
      * @param {'asc' | 'desc'} [sortOrder] Ordem da ordenação. Valores possíveis: \&#39;asc\&#39;, \&#39;desc\&#39;.
-     * @param {'date' | 'amountInBrl' | 'description' | 'createdAt' | 'reconciled'} [sortBy] Campo para ordenação. Valores possíveis: \&#39;date\&#39;, \&#39;amountInBrl\&#39;, \&#39;description\&#39;, \&#39;createdAt\&#39;, \&#39;reconciled\&#39;, \&#39;origin\&#39;.
+     * @param {'date' | 'amountInBrl' | 'description' | 'createdAt' | 'reconciled'} [sortBy] Campo para ordenação
      * @param {boolean} [ignored] Filtrar por transações ignoradas/arquivadas. (true/false)
      * @param {'AUTOMATIC_INTEGRATION' | 'MANUAL_OFX_IMPORT'} [origin] Filtrar pela origem da transação.
      * @param {boolean} [reconciled] Filtrar por transações reconciliadas. (true/false)
@@ -193,7 +193,7 @@ export interface BankTransactionsApiInterface {
      * @param {string} ownerOrganizationId Identificador da organização proprietária das movimentações financeiras.
      * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
      * @param {'asc' | 'desc'} [sortOrder] Ordem da ordenação. Valores possíveis: \&#39;asc\&#39;, \&#39;desc\&#39;.
-     * @param {'date' | 'amountInBrl' | 'description' | 'createdAt' | 'reconciled'} [sortBy] Campo para ordenação das movimentações financeiras. Valores possíveis: \&#39;date\&#39;, \&#39;amountInBrl\&#39;, \&#39;description\&#39;, \&#39;createdAt\&#39;, \&#39;reconciled\&#39;, \&#39;origin\&#39;.
+     * @param {'date' | 'amountInBrl' | 'description' | 'createdAt' | 'reconciled'} [sortBy] Campo para ordenação
      * @param {boolean} [ignored] Filtrar por transações ignoradas/arquivadas. (true/false)
      * @param {'AUTOMATIC_INTEGRATION' | 'MANUAL_OFX_IMPORT'} [origin] Filtrar pela origem da transação.
      * @param {boolean} [reconciled] Filtrar por transações reconciliadas. (true/false)
