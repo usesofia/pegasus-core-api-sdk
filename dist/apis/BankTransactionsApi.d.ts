@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { BankTransactionEntity, BankTransactionsPageDto, CreateOrUpdateBankTransactionRequestBodyDto, ExecuteOfxImportJobRequestBodyDto, OfxImportJobRequestEntity, OfxImportJobRequestsPageDto, OfxImportRequestBodyDto, PartialUpdateBankTransactionRequestBodyDto } from '../models/index';
+import type { BankTransactionEntity, BankTransactionsPageDto, CreateOrUpdateBankTransactionRequestBodyDto, ExecuteOfxImportJobRequestBodyDto, OfxImportJobRequestEntity, OfxImportJobRequestsPageDto, OfxImportRequestBodyDto, PartialUpdateBankTransactionRequestBodyDto, ReconcileBankTransactionRequestBodyDto } from '../models/index';
 export interface CreateOrUpdateBankTransactionRequest {
     createOrUpdateBankTransactionRequestBodyDto: CreateOrUpdateBankTransactionRequestBodyDto;
     populate?: string;
@@ -52,6 +52,10 @@ export interface PartialUpdateBankTransactionRequest {
 export interface ProcessOfxImportRequest {
     executeOfxImportJobRequestBodyDto: ExecuteOfxImportJobRequestBodyDto;
 }
+export interface ReconcileBankTransactionRequest {
+    bankTransactionId: string;
+    reconcileBankTransactionRequestBodyDto: ReconcileBankTransactionRequestBodyDto;
+}
 export interface SystemFindAllBankTransactionsRequest {
     ownerOrganizationId: string;
     populate?: string;
@@ -68,6 +72,9 @@ export interface SystemFindAllBankTransactionsRequest {
     textSearchTerm?: string;
     pageSize?: number;
     pageIndex?: number;
+}
+export interface UnreconcileBankTransactionRequest {
+    bankTransactionId: string;
 }
 /**
  * BankTransactionsApi - interface
@@ -189,6 +196,20 @@ export interface BankTransactionsApiInterface {
     processOfxImport(requestParameters: ProcessOfxImportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
     /**
      *
+     * @summary Reconcilia uma transação bancária com múltiplos lançamentos financeiros.
+     * @param {string} bankTransactionId ID da transação bancária a ser reconciliada.
+     * @param {ReconcileBankTransactionRequestBodyDto} reconcileBankTransactionRequestBodyDto
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof BankTransactionsApiInterface
+     */
+    reconcileBankTransactionRaw(requestParameters: ReconcileBankTransactionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankTransactionEntity>>;
+    /**
+     * Reconcilia uma transação bancária com múltiplos lançamentos financeiros.
+     */
+    reconcileBankTransaction(requestParameters: ReconcileBankTransactionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankTransactionEntity>;
+    /**
+     *
      * @summary Busca todas as movimentações financeiras pelo sistema.
      * @param {string} ownerOrganizationId Identificador da organização proprietária das movimentações financeiras.
      * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
@@ -214,6 +235,19 @@ export interface BankTransactionsApiInterface {
      * Busca todas as movimentações financeiras pelo sistema.
      */
     systemFindAllBankTransactions(requestParameters: SystemFindAllBankTransactionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankTransactionsPageDto>;
+    /**
+     *
+     * @summary Desfaz a reconciliação de uma transação bancária.
+     * @param {string} bankTransactionId ID da transação bancária para desfazer a reconciliação.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof BankTransactionsApiInterface
+     */
+    unreconcileBankTransactionRaw(requestParameters: UnreconcileBankTransactionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankTransactionEntity>>;
+    /**
+     * Desfaz a reconciliação de uma transação bancária.
+     */
+    unreconcileBankTransaction(requestParameters: UnreconcileBankTransactionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankTransactionEntity>;
 }
 /**
  *
@@ -276,6 +310,14 @@ export declare class BankTransactionsApi extends runtime.BaseAPI implements Bank
      */
     processOfxImport(requestParameters: ProcessOfxImportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
     /**
+     * Reconcilia uma transação bancária com múltiplos lançamentos financeiros.
+     */
+    reconcileBankTransactionRaw(requestParameters: ReconcileBankTransactionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankTransactionEntity>>;
+    /**
+     * Reconcilia uma transação bancária com múltiplos lançamentos financeiros.
+     */
+    reconcileBankTransaction(requestParameters: ReconcileBankTransactionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankTransactionEntity>;
+    /**
      * Busca todas as movimentações financeiras pelo sistema.
      */
     systemFindAllBankTransactionsRaw(requestParameters: SystemFindAllBankTransactionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankTransactionsPageDto>>;
@@ -283,6 +325,14 @@ export declare class BankTransactionsApi extends runtime.BaseAPI implements Bank
      * Busca todas as movimentações financeiras pelo sistema.
      */
     systemFindAllBankTransactions(requestParameters: SystemFindAllBankTransactionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankTransactionsPageDto>;
+    /**
+     * Desfaz a reconciliação de uma transação bancária.
+     */
+    unreconcileBankTransactionRaw(requestParameters: UnreconcileBankTransactionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankTransactionEntity>>;
+    /**
+     * Desfaz a reconciliação de uma transação bancária.
+     */
+    unreconcileBankTransaction(requestParameters: UnreconcileBankTransactionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankTransactionEntity>;
 }
 /**
  * @export

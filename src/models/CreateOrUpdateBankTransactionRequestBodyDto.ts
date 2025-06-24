@@ -97,6 +97,12 @@ export interface CreateOrUpdateBankTransactionRequestBodyDto {
      */
     status: CreateOrUpdateBankTransactionRequestBodyDtoStatusEnum;
     /**
+     * IDs dos lançamentos financeiros vinculados a esta transação bancária.
+     * @type {Array<string>}
+     * @memberof CreateOrUpdateBankTransactionRequestBodyDto
+     */
+    financialRecords?: Array<string>;
+    /**
      * Identificador da solicitação de importação OFX relacionada.
      * @type {string}
      * @memberof CreateOrUpdateBankTransactionRequestBodyDto
@@ -269,6 +275,7 @@ export function CreateOrUpdateBankTransactionRequestBodyDtoFromJSONTyped(json: a
         'type': json['type'],
         'description': json['description'] == null ? undefined : json['description'],
         'status': json['status'],
+        'financialRecords': json['financialRecords'] == null ? undefined : json['financialRecords'],
         'ofxJobRequestId': json['ofxJobRequestId'] == null ? undefined : json['ofxJobRequestId'],
         'ofxJobExecutionId': json['ofxJobExecutionId'] == null ? undefined : json['ofxJobExecutionId'],
         'pluggyJobRequestId': json['pluggyJobRequestId'] == null ? undefined : json['pluggyJobRequestId'],
@@ -309,6 +316,7 @@ export function CreateOrUpdateBankTransactionRequestBodyDtoToJSONTyped(value?: C
         'type': value['type'],
         'description': value['description'],
         'status': value['status'],
+        'financialRecords': value['financialRecords'],
         'ofxJobRequestId': value['ofxJobRequestId'],
         'ofxJobExecutionId': value['ofxJobExecutionId'],
         'pluggyJobRequestId': value['pluggyJobRequestId'],

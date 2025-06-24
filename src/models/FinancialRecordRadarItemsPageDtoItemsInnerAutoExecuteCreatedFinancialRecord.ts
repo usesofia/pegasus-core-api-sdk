@@ -188,17 +188,17 @@ export interface FinancialRecordRadarItemsPageDtoItemsInnerAutoExecuteCreatedFin
      */
     finalAmount: number;
     /**
-     * Indica se foi reconciliado.
+     * Indica se foi reconciliado com uma transação bancária.
      * @type {boolean}
      * @memberof FinancialRecordRadarItemsPageDtoItemsInnerAutoExecuteCreatedFinancialRecord
      */
     reconciled?: boolean;
     /**
-     * Identificador do extrato bancário.
+     * Identificador da transação bancária vinculada.
      * @type {string}
      * @memberof FinancialRecordRadarItemsPageDtoItemsInnerAutoExecuteCreatedFinancialRecord
      */
-    bankStatement?: string | null;
+    bankTransaction?: string | null;
     /**
      * Identificador do lançamento financeiro parcelado.
      * @type {string}
@@ -327,7 +327,7 @@ export function FinancialRecordRadarItemsPageDtoItemsInnerAutoExecuteCreatedFina
         'finesAndInterest': json['finesAndInterest'] == null ? undefined : json['finesAndInterest'],
         'finalAmount': json['finalAmount'],
         'reconciled': json['reconciled'] == null ? undefined : json['reconciled'],
-        'bankStatement': json['bankStatement'] == null ? undefined : json['bankStatement'],
+        'bankTransaction': json['bankTransaction'] == null ? undefined : json['bankTransaction'],
         'installmentFinancialRecord': json['installmentFinancialRecord'] == null ? undefined : json['installmentFinancialRecord'],
         'installmentNumber': json['installmentNumber'] == null ? undefined : json['installmentNumber'],
         'recurringFinancialRecord': json['recurringFinancialRecord'] == null ? undefined : json['recurringFinancialRecord'],
@@ -376,7 +376,7 @@ export function FinancialRecordRadarItemsPageDtoItemsInnerAutoExecuteCreatedFina
         'finesAndInterest': value['finesAndInterest'],
         'finalAmount': value['finalAmount'],
         'reconciled': value['reconciled'],
-        'bankStatement': value['bankStatement'],
+        'bankTransaction': value['bankTransaction'],
         'installmentFinancialRecord': value['installmentFinancialRecord'],
         'installmentNumber': value['installmentNumber'],
         'recurringFinancialRecord': value['recurringFinancialRecord'],

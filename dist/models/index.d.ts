@@ -159,6 +159,7 @@ export * from './ProcessExportResourceJobRequestBodyDtoRequesterOrganizationPare
 export * from './ProspectFinancialRecordDto';
 export * from './ProspectInstallmentFinancialRecordRequestBodyDto';
 export * from './ProspectRecurringFinancialRecordRequestBodyDto';
+export * from './ReconcileBankTransactionRequestBodyDto';
 export * from './RecurringFinancialRecordDto';
 export * from './RecurringFinancialRecordsPageDto';
 export * from './RecurringFinancialRecordsPageDtoItemsInner';

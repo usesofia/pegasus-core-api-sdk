@@ -24,6 +24,7 @@ import type {
   OfxImportJobRequestsPageDto,
   OfxImportRequestBodyDto,
   PartialUpdateBankTransactionRequestBodyDto,
+  ReconcileBankTransactionRequestBodyDto,
 } from '../models/index';
 import {
     BankTransactionEntityFromJSON,
@@ -44,6 +45,8 @@ import {
     OfxImportRequestBodyDtoToJSON,
     PartialUpdateBankTransactionRequestBodyDtoFromJSON,
     PartialUpdateBankTransactionRequestBodyDtoToJSON,
+    ReconcileBankTransactionRequestBodyDtoFromJSON,
+    ReconcileBankTransactionRequestBodyDtoToJSON,
 } from '../models/index';
 
 export interface CreateOrUpdateBankTransactionRequest {
@@ -94,6 +97,11 @@ export interface ProcessOfxImportRequest {
     executeOfxImportJobRequestBodyDto: ExecuteOfxImportJobRequestBodyDto;
 }
 
+export interface ReconcileBankTransactionRequest {
+    bankTransactionId: string;
+    reconcileBankTransactionRequestBodyDto: ReconcileBankTransactionRequestBodyDto;
+}
+
 export interface SystemFindAllBankTransactionsRequest {
     ownerOrganizationId: string;
     populate?: string;
@@ -110,6 +118,10 @@ export interface SystemFindAllBankTransactionsRequest {
     textSearchTerm?: string;
     pageSize?: number;
     pageIndex?: number;
+}
+
+export interface UnreconcileBankTransactionRequest {
+    bankTransactionId: string;
 }
 
 /**
@@ -246,6 +258,22 @@ export interface BankTransactionsApiInterface {
 
     /**
      * 
+     * @summary Reconcilia uma transação bancária com múltiplos lançamentos financeiros.
+     * @param {string} bankTransactionId ID da transação bancária a ser reconciliada.
+     * @param {ReconcileBankTransactionRequestBodyDto} reconcileBankTransactionRequestBodyDto 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof BankTransactionsApiInterface
+     */
+    reconcileBankTransactionRaw(requestParameters: ReconcileBankTransactionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankTransactionEntity>>;
+
+    /**
+     * Reconcilia uma transação bancária com múltiplos lançamentos financeiros.
+     */
+    reconcileBankTransaction(requestParameters: ReconcileBankTransactionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankTransactionEntity>;
+
+    /**
+     * 
      * @summary Busca todas as movimentações financeiras pelo sistema.
      * @param {string} ownerOrganizationId Identificador da organização proprietária das movimentações financeiras.
      * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
@@ -272,6 +300,21 @@ export interface BankTransactionsApiInterface {
      * Busca todas as movimentações financeiras pelo sistema.
      */
     systemFindAllBankTransactions(requestParameters: SystemFindAllBankTransactionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankTransactionsPageDto>;
+
+    /**
+     * 
+     * @summary Desfaz a reconciliação de uma transação bancária.
+     * @param {string} bankTransactionId ID da transação bancária para desfazer a reconciliação.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof BankTransactionsApiInterface
+     */
+    unreconcileBankTransactionRaw(requestParameters: UnreconcileBankTransactionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankTransactionEntity>>;
+
+    /**
+     * Desfaz a reconciliação de uma transação bancária.
+     */
+    unreconcileBankTransaction(requestParameters: UnreconcileBankTransactionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankTransactionEntity>;
 
 }
 
@@ -600,6 +643,49 @@ export class BankTransactionsApi extends runtime.BaseAPI implements BankTransact
     }
 
     /**
+     * Reconcilia uma transação bancária com múltiplos lançamentos financeiros.
+     */
+    async reconcileBankTransactionRaw(requestParameters: ReconcileBankTransactionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankTransactionEntity>> {
+        if (requestParameters['bankTransactionId'] == null) {
+            throw new runtime.RequiredError(
+                'bankTransactionId',
+                'Required parameter "bankTransactionId" was null or undefined when calling reconcileBankTransaction().'
+            );
+        }
+
+        if (requestParameters['reconcileBankTransactionRequestBodyDto'] == null) {
+            throw new runtime.RequiredError(
+                'reconcileBankTransactionRequestBodyDto',
+                'Required parameter "reconcileBankTransactionRequestBodyDto" was null or undefined when calling reconcileBankTransaction().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        const response = await this.request({
+            path: `/external/bank-transactions/{bankTransactionId}/reconcile`.replace(`{${"bankTransactionId"}}`, encodeURIComponent(String(requestParameters['bankTransactionId']))),
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: ReconcileBankTransactionRequestBodyDtoToJSON(requestParameters['reconcileBankTransactionRequestBodyDto']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => BankTransactionEntityFromJSON(jsonValue));
+    }
+
+    /**
+     * Reconcilia uma transação bancária com múltiplos lançamentos financeiros.
+     */
+    async reconcileBankTransaction(requestParameters: ReconcileBankTransactionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankTransactionEntity> {
+        const response = await this.reconcileBankTransactionRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
      * Busca todas as movimentações financeiras pelo sistema.
      */
     async systemFindAllBankTransactionsRaw(requestParameters: SystemFindAllBankTransactionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankTransactionsPageDto>> {
@@ -689,6 +775,39 @@ export class BankTransactionsApi extends runtime.BaseAPI implements BankTransact
      */
     async systemFindAllBankTransactions(requestParameters: SystemFindAllBankTransactionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankTransactionsPageDto> {
         const response = await this.systemFindAllBankTransactionsRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Desfaz a reconciliação de uma transação bancária.
+     */
+    async unreconcileBankTransactionRaw(requestParameters: UnreconcileBankTransactionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankTransactionEntity>> {
+        if (requestParameters['bankTransactionId'] == null) {
+            throw new runtime.RequiredError(
+                'bankTransactionId',
+                'Required parameter "bankTransactionId" was null or undefined when calling unreconcileBankTransaction().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/external/bank-transactions/{bankTransactionId}/unreconcile`.replace(`{${"bankTransactionId"}}`, encodeURIComponent(String(requestParameters['bankTransactionId']))),
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => BankTransactionEntityFromJSON(jsonValue));
+    }
+
+    /**
+     * Desfaz a reconciliação de uma transação bancária.
+     */
+    async unreconcileBankTransaction(requestParameters: UnreconcileBankTransactionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankTransactionEntity> {
+        const response = await this.unreconcileBankTransactionRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

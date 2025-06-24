@@ -129,18 +129,6 @@ export interface CreateFinancialRecordRadarItemRequestBodyDtoBestSuggestedAction
      */
     finesAndInterest?: number | null;
     /**
-     * Indica se foi reconciliado.
-     * @type {boolean}
-     * @memberof CreateFinancialRecordRadarItemRequestBodyDtoBestSuggestedActionFinancialRecordRadarRawCreateFinancialRecordRequest
-     */
-    reconciled?: boolean;
-    /**
-     * Identificador do extrato bancário.
-     * @type {string}
-     * @memberof CreateFinancialRecordRadarItemRequestBodyDtoBestSuggestedActionFinancialRecordRadarRawCreateFinancialRecordRequest
-     */
-    bankStatement?: string | null;
-    /**
      * Identificador do lançamento financeiro parcelado.
      * @type {string}
      * @memberof CreateFinancialRecordRadarItemRequestBodyDtoBestSuggestedActionFinancialRecordRadarRawCreateFinancialRecordRequest

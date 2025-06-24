@@ -200,6 +200,7 @@ src/models/ProcessExportResourceJobRequestBodyDtoRequesterOrganizationParent.ts
 src/models/ProspectFinancialRecordDto.ts
 src/models/ProspectInstallmentFinancialRecordRequestBodyDto.ts
 src/models/ProspectRecurringFinancialRecordRequestBodyDto.ts
+src/models/ReconcileBankTransactionRequestBodyDto.ts
 src/models/RecurringFinancialRecordDto.ts
 src/models/RecurringFinancialRecordsPageDto.ts
 src/models/RecurringFinancialRecordsPageDtoItemsInner.ts

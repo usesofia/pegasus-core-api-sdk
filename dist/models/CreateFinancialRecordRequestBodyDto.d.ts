@@ -129,18 +129,6 @@ export interface CreateFinancialRecordRequestBodyDto {
      */
     finesAndInterest?: string | null;
     /**
-     * Indica se foi reconciliado.
-     * @type {boolean}
-     * @memberof CreateFinancialRecordRequestBodyDto
-     */
-    reconciled?: boolean;
-    /**
-     * Identificador do extrato bancário.
-     * @type {string}
-     * @memberof CreateFinancialRecordRequestBodyDto
-     */
-    bankStatement?: string | null;
-    /**
      * Identificador do lançamento financeiro parcelado.
      * @type {string}
      * @memberof CreateFinancialRecordRequestBodyDto

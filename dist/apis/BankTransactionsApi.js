@@ -452,6 +452,55 @@ var BankTransactionsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Reconcilia uma transação bancária com múltiplos lançamentos financeiros.
+     */
+    BankTransactionsApi.prototype.reconcileBankTransactionRaw = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (requestParameters['bankTransactionId'] == null) {
+                            throw new runtime.RequiredError('bankTransactionId', 'Required parameter "bankTransactionId" was null or undefined when calling reconcileBankTransaction().');
+                        }
+                        if (requestParameters['reconcileBankTransactionRequestBodyDto'] == null) {
+                            throw new runtime.RequiredError('reconcileBankTransactionRequestBodyDto', 'Required parameter "reconcileBankTransactionRequestBodyDto" was null or undefined when calling reconcileBankTransaction().');
+                        }
+                        queryParameters = {};
+                        headerParameters = {};
+                        headerParameters['Content-Type'] = 'application/json';
+                        return [4 /*yield*/, this.request({
+                                path: "/external/bank-transactions/{bankTransactionId}/reconcile".replace("{".concat("bankTransactionId", "}"), encodeURIComponent(String(requestParameters['bankTransactionId']))),
+                                method: 'POST',
+                                headers: headerParameters,
+                                query: queryParameters,
+                                body: (0, index_1.ReconcileBankTransactionRequestBodyDtoToJSON)(requestParameters['reconcileBankTransactionRequestBodyDto']),
+                            }, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.BankTransactionEntityFromJSON)(jsonValue); })];
+                }
+            });
+        });
+    };
+    /**
+     * Reconcilia uma transação bancária com múltiplos lançamentos financeiros.
+     */
+    BankTransactionsApi.prototype.reconcileBankTransaction = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.reconcileBankTransactionRaw(requestParameters, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [4 /*yield*/, response.value()];
+                    case 2: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
+    /**
      * Busca todas as movimentações financeiras pelo sistema.
      */
     BankTransactionsApi.prototype.systemFindAllBankTransactionsRaw = function (requestParameters, initOverrides) {
@@ -532,6 +581,50 @@ var BankTransactionsApi = /** @class */ (function (_super) {
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, this.systemFindAllBankTransactionsRaw(requestParameters, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [4 /*yield*/, response.value()];
+                    case 2: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
+    /**
+     * Desfaz a reconciliação de uma transação bancária.
+     */
+    BankTransactionsApi.prototype.unreconcileBankTransactionRaw = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (requestParameters['bankTransactionId'] == null) {
+                            throw new runtime.RequiredError('bankTransactionId', 'Required parameter "bankTransactionId" was null or undefined when calling unreconcileBankTransaction().');
+                        }
+                        queryParameters = {};
+                        headerParameters = {};
+                        return [4 /*yield*/, this.request({
+                                path: "/external/bank-transactions/{bankTransactionId}/unreconcile".replace("{".concat("bankTransactionId", "}"), encodeURIComponent(String(requestParameters['bankTransactionId']))),
+                                method: 'POST',
+                                headers: headerParameters,
+                                query: queryParameters,
+                            }, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.BankTransactionEntityFromJSON)(jsonValue); })];
+                }
+            });
+        });
+    };
+    /**
+     * Desfaz a reconciliação de uma transação bancária.
+     */
+    BankTransactionsApi.prototype.unreconcileBankTransaction = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.unreconcileBankTransactionRaw(requestParameters, initOverrides)];
                     case 1:
                         response = _a.sent();
                         return [4 /*yield*/, response.value()];

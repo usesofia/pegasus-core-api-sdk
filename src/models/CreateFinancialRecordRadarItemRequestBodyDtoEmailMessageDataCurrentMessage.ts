@@ -28,6 +28,12 @@ import {
  */
 export interface CreateFinancialRecordRadarItemRequestBodyDtoEmailMessageDataCurrentMessage {
     /**
+     * ID da mensagem.
+     * @type {string}
+     * @memberof CreateFinancialRecordRadarItemRequestBodyDtoEmailMessageDataCurrentMessage
+     */
+    id: string;
+    /**
      * Timestamp da mensagem.
      * @type {string}
      * @memberof CreateFinancialRecordRadarItemRequestBodyDtoEmailMessageDataCurrentMessage
@@ -63,6 +69,7 @@ export interface CreateFinancialRecordRadarItemRequestBodyDtoEmailMessageDataCur
  * Check if a given object implements the CreateFinancialRecordRadarItemRequestBodyDtoEmailMessageDataCurrentMessage interface.
  */
 export function instanceOfCreateFinancialRecordRadarItemRequestBodyDtoEmailMessageDataCurrentMessage(value: object): value is CreateFinancialRecordRadarItemRequestBodyDtoEmailMessageDataCurrentMessage {
+    if (!('id' in value) || value['id'] === undefined) return false;
     if (!('timestamp' in value) || value['timestamp'] === undefined) return false;
     if (!('email' in value) || value['email'] === undefined) return false;
     return true;
@@ -78,6 +85,7 @@ export function CreateFinancialRecordRadarItemRequestBodyDtoEmailMessageDataCurr
     }
     return {
         
+        'id': json['id'],
         'timestamp': json['timestamp'],
         'email': json['email'],
         'name': json['name'] == null ? undefined : json['name'],
@@ -97,6 +105,7 @@ export function CreateFinancialRecordRadarItemRequestBodyDtoEmailMessageDataCurr
 
     return {
         
+        'id': value['id'],
         'timestamp': value['timestamp'],
         'email': value['email'],
         'name': value['name'],

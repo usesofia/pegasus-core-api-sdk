@@ -18,6 +18,12 @@ import type { CreateFinancialRecordRadarItemRequestBodyDtoWhatsappMessageDataCur
  */
 export interface CreateFinancialRecordRadarItemRequestBodyDtoWhatsappMessageDataLastMessagesInner {
     /**
+     * ID da mensagem.
+     * @type {string}
+     * @memberof CreateFinancialRecordRadarItemRequestBodyDtoWhatsappMessageDataLastMessagesInner
+     */
+    id: string;
+    /**
      * Timestamp da mensagem.
      * @type {string}
      * @memberof CreateFinancialRecordRadarItemRequestBodyDtoWhatsappMessageDataLastMessagesInner

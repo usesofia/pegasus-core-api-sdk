@@ -157,11 +157,17 @@ export interface BankTransactionEntity {
      */
     ignored: boolean;
     /**
-     * Indica se a transação foi conciliada.
+     * Indica se a transação foi conciliada com lançamentos financeiros.
      * @type {boolean}
      * @memberof BankTransactionEntity
      */
     reconciled?: boolean;
+    /**
+     * IDs dos lançamentos financeiros vinculados a esta transação bancária.
+     * @type {Array<string>}
+     * @memberof BankTransactionEntity
+     */
+    financialRecords?: Array<string>;
     /**
      * Identificador da solicitação de importação OFX relacionada.
      * @type {string}
@@ -362,6 +368,7 @@ export function BankTransactionEntityFromJSONTyped(json: any, ignoreDiscriminato
         'status': json['status'],
         'ignored': json['ignored'],
         'reconciled': json['reconciled'] == null ? undefined : json['reconciled'],
+        'financialRecords': json['financialRecords'] == null ? undefined : json['financialRecords'],
         'ofxJobRequestId': json['ofxJobRequestId'] == null ? undefined : json['ofxJobRequestId'],
         'ofxJobExecutionId': json['ofxJobExecutionId'] == null ? undefined : json['ofxJobExecutionId'],
         'pluggyJobRequestId': json['pluggyJobRequestId'] == null ? undefined : json['pluggyJobRequestId'],
@@ -414,6 +421,7 @@ export function BankTransactionEntityToJSONTyped(value?: BankTransactionEntity |
         'status': value['status'],
         'ignored': value['ignored'],
         'reconciled': value['reconciled'],
+        'financialRecords': value['financialRecords'],
         'ofxJobRequestId': value['ofxJobRequestId'],
         'ofxJobExecutionId': value['ofxJobExecutionId'],
         'pluggyJobRequestId': value['pluggyJobRequestId'],

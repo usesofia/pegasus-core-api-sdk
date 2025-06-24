@@ -128,11 +128,17 @@ export interface BankTransactionEntity {
      */
     ignored: boolean;
     /**
-     * Indica se a transação foi conciliada.
+     * Indica se a transação foi conciliada com lançamentos financeiros.
      * @type {boolean}
      * @memberof BankTransactionEntity
      */
     reconciled?: boolean;
+    /**
+     * IDs dos lançamentos financeiros vinculados a esta transação bancária.
+     * @type {Array<string>}
+     * @memberof BankTransactionEntity
+     */
+    financialRecords?: Array<string>;
     /**
      * Identificador da solicitação de importação OFX relacionada.
      * @type {string}

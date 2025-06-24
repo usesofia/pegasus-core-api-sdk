@@ -177,6 +177,7 @@ __exportStar(require("./ProcessExportResourceJobRequestBodyDtoRequesterOrganizat
 __exportStar(require("./ProspectFinancialRecordDto"), exports);
 __exportStar(require("./ProspectInstallmentFinancialRecordRequestBodyDto"), exports);
 __exportStar(require("./ProspectRecurringFinancialRecordRequestBodyDto"), exports);
+__exportStar(require("./ReconcileBankTransactionRequestBodyDto"), exports);
 __exportStar(require("./RecurringFinancialRecordDto"), exports);
 __exportStar(require("./RecurringFinancialRecordsPageDto"), exports);
 __exportStar(require("./RecurringFinancialRecordsPageDtoItemsInner"), exports);

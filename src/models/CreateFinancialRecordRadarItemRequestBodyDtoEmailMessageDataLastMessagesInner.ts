@@ -28,6 +28,12 @@ import {
  */
 export interface CreateFinancialRecordRadarItemRequestBodyDtoEmailMessageDataLastMessagesInner {
     /**
+     * ID da mensagem.
+     * @type {string}
+     * @memberof CreateFinancialRecordRadarItemRequestBodyDtoEmailMessageDataLastMessagesInner
+     */
+    id: string;
+    /**
      * Timestamp da mensagem.
      * @type {string}
      * @memberof CreateFinancialRecordRadarItemRequestBodyDtoEmailMessageDataLastMessagesInner
@@ -63,6 +69,7 @@ export interface CreateFinancialRecordRadarItemRequestBodyDtoEmailMessageDataLas
  * Check if a given object implements the CreateFinancialRecordRadarItemRequestBodyDtoEmailMessageDataLastMessagesInner interface.
  */
 export function instanceOfCreateFinancialRecordRadarItemRequestBodyDtoEmailMessageDataLastMessagesInner(value: object): value is CreateFinancialRecordRadarItemRequestBodyDtoEmailMessageDataLastMessagesInner {
+    if (!('id' in value) || value['id'] === undefined) return false;
     if (!('timestamp' in value) || value['timestamp'] === undefined) return false;
     if (!('email' in value) || value['email'] === undefined) return false;
     return true;
@@ -78,6 +85,7 @@ export function CreateFinancialRecordRadarItemRequestBodyDtoEmailMessageDataLast
     }
     return {
         
+        'id': json['id'],
         'timestamp': json['timestamp'],
         'email': json['email'],
         'name': json['name'] == null ? undefined : json['name'],
@@ -97,6 +105,7 @@ export function CreateFinancialRecordRadarItemRequestBodyDtoEmailMessageDataLast
 
     return {
         
+        'id': value['id'],
         'timestamp': value['timestamp'],
         'email': value['email'],
         'name': value['name'],

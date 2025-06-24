@@ -24,6 +24,8 @@ var CreateFinancialRecordRadarItemRequestBodyDtoWhatsappMessageDataCurrentMessag
  * Check if a given object implements the CreateFinancialRecordRadarItemRequestBodyDtoWhatsappMessageDataCurrentMessage interface.
  */
 function instanceOfCreateFinancialRecordRadarItemRequestBodyDtoWhatsappMessageDataCurrentMessage(value) {
+    if (!('id' in value) || value['id'] === undefined)
+        return false;
     if (!('timestamp' in value) || value['timestamp'] === undefined)
         return false;
     if (!('phone' in value) || value['phone'] === undefined)
@@ -38,6 +40,7 @@ function CreateFinancialRecordRadarItemRequestBodyDtoWhatsappMessageDataCurrentM
         return json;
     }
     return {
+        'id': json['id'],
         'timestamp': json['timestamp'],
         'phone': json['phone'],
         'name': json['name'] == null ? undefined : json['name'],
@@ -55,6 +58,7 @@ function CreateFinancialRecordRadarItemRequestBodyDtoWhatsappMessageDataCurrentM
         return value;
     }
     return {
+        'id': value['id'],
         'timestamp': value['timestamp'],
         'phone': value['phone'],
         'name': value['name'],

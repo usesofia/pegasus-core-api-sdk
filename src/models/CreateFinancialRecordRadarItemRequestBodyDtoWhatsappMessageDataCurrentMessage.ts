@@ -35,6 +35,12 @@ import {
  */
 export interface CreateFinancialRecordRadarItemRequestBodyDtoWhatsappMessageDataCurrentMessage {
     /**
+     * ID da mensagem.
+     * @type {string}
+     * @memberof CreateFinancialRecordRadarItemRequestBodyDtoWhatsappMessageDataCurrentMessage
+     */
+    id: string;
+    /**
      * Timestamp da mensagem.
      * @type {string}
      * @memberof CreateFinancialRecordRadarItemRequestBodyDtoWhatsappMessageDataCurrentMessage
@@ -76,6 +82,7 @@ export interface CreateFinancialRecordRadarItemRequestBodyDtoWhatsappMessageData
  * Check if a given object implements the CreateFinancialRecordRadarItemRequestBodyDtoWhatsappMessageDataCurrentMessage interface.
  */
 export function instanceOfCreateFinancialRecordRadarItemRequestBodyDtoWhatsappMessageDataCurrentMessage(value: object): value is CreateFinancialRecordRadarItemRequestBodyDtoWhatsappMessageDataCurrentMessage {
+    if (!('id' in value) || value['id'] === undefined) return false;
     if (!('timestamp' in value) || value['timestamp'] === undefined) return false;
     if (!('phone' in value) || value['phone'] === undefined) return false;
     return true;
@@ -91,6 +98,7 @@ export function CreateFinancialRecordRadarItemRequestBodyDtoWhatsappMessageDataC
     }
     return {
         
+        'id': json['id'],
         'timestamp': json['timestamp'],
         'phone': json['phone'],
         'name': json['name'] == null ? undefined : json['name'],
@@ -111,6 +119,7 @@ export function CreateFinancialRecordRadarItemRequestBodyDtoWhatsappMessageDataC
 
     return {
         
+        'id': value['id'],
         'timestamp': value['timestamp'],
         'phone': value['phone'],
         'name': value['name'],

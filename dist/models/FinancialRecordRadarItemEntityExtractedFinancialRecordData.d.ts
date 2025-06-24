@@ -129,18 +129,6 @@ export interface FinancialRecordRadarItemEntityExtractedFinancialRecordData {
      */
     finesAndInterest?: number | null;
     /**
-     * Indica se foi reconciliado.
-     * @type {boolean}
-     * @memberof FinancialRecordRadarItemEntityExtractedFinancialRecordData
-     */
-    reconciled?: boolean;
-    /**
-     * Identificador do extrato bancário.
-     * @type {string}
-     * @memberof FinancialRecordRadarItemEntityExtractedFinancialRecordData
-     */
-    bankStatement?: string | null;
-    /**
      * Identificador do lançamento financeiro parcelado.
      * @type {string}
      * @memberof FinancialRecordRadarItemEntityExtractedFinancialRecordData

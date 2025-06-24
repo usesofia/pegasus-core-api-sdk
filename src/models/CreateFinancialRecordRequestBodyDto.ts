@@ -164,18 +164,6 @@ export interface CreateFinancialRecordRequestBodyDto {
      */
     finesAndInterest?: string | null;
     /**
-     * Indica se foi reconciliado.
-     * @type {boolean}
-     * @memberof CreateFinancialRecordRequestBodyDto
-     */
-    reconciled?: boolean;
-    /**
-     * Identificador do extrato bancário.
-     * @type {string}
-     * @memberof CreateFinancialRecordRequestBodyDto
-     */
-    bankStatement?: string | null;
-    /**
      * Identificador do lançamento financeiro parcelado.
      * @type {string}
      * @memberof CreateFinancialRecordRequestBodyDto
@@ -312,8 +300,6 @@ export function CreateFinancialRecordRequestBodyDtoFromJSONTyped(json: any, igno
         'account': json['account'] == null ? undefined : json['account'],
         'discount': json['discount'] == null ? undefined : json['discount'],
         'finesAndInterest': json['finesAndInterest'] == null ? undefined : json['finesAndInterest'],
-        'reconciled': json['reconciled'] == null ? undefined : json['reconciled'],
-        'bankStatement': json['bankStatement'] == null ? undefined : json['bankStatement'],
         'installmentFinancialRecord': json['installmentFinancialRecord'] == null ? undefined : json['installmentFinancialRecord'],
         'installmentNumber': json['installmentNumber'] == null ? undefined : json['installmentNumber'],
         'recurringFinancialRecord': json['recurringFinancialRecord'] == null ? undefined : json['recurringFinancialRecord'],
@@ -358,8 +344,6 @@ export function CreateFinancialRecordRequestBodyDtoToJSONTyped(value?: CreateFin
         'account': value['account'],
         'discount': value['discount'],
         'finesAndInterest': value['finesAndInterest'],
-        'reconciled': value['reconciled'],
-        'bankStatement': value['bankStatement'],
         'installmentFinancialRecord': value['installmentFinancialRecord'],
         'installmentNumber': value['installmentNumber'],
         'recurringFinancialRecord': value['recurringFinancialRecord'],

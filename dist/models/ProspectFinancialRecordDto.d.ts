@@ -129,18 +129,6 @@ export interface ProspectFinancialRecordDto {
      */
     finesAndInterest?: string | null;
     /**
-     * Indica se foi reconciliado.
-     * @type {boolean}
-     * @memberof ProspectFinancialRecordDto
-     */
-    reconciled?: boolean;
-    /**
-     * Identificador do extrato bancário.
-     * @type {string}
-     * @memberof ProspectFinancialRecordDto
-     */
-    bankStatement?: string | null;
-    /**
      * Identificador do lançamento financeiro parcelado.
      * @type {string}
      * @memberof ProspectFinancialRecordDto

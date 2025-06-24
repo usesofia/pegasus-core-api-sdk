@@ -164,17 +164,17 @@ export interface PartialUpdateFinancialRecordRequestBodyDto {
      */
     finesAndInterest?: string;
     /**
-     * Indica se foi reconciliado.
+     * Indica se foi reconciliado com uma transação bancária.
      * @type {boolean}
      * @memberof PartialUpdateFinancialRecordRequestBodyDto
      */
     reconciled?: boolean;
     /**
-     * Identificador do extrato bancário.
+     * Identificador da transação bancária vinculada.
      * @type {string}
      * @memberof PartialUpdateFinancialRecordRequestBodyDto
      */
-    bankStatement?: string | null;
+    bankTransaction?: string | null;
     /**
      * Identificador do lançamento financeiro parcelado.
      * @type {string}
@@ -302,7 +302,7 @@ export function PartialUpdateFinancialRecordRequestBodyDtoFromJSONTyped(json: an
         'discount': json['discount'] == null ? undefined : json['discount'],
         'finesAndInterest': json['finesAndInterest'] == null ? undefined : json['finesAndInterest'],
         'reconciled': json['reconciled'] == null ? undefined : json['reconciled'],
-        'bankStatement': json['bankStatement'] == null ? undefined : json['bankStatement'],
+        'bankTransaction': json['bankTransaction'] == null ? undefined : json['bankTransaction'],
         'installmentFinancialRecord': json['installmentFinancialRecord'] == null ? undefined : json['installmentFinancialRecord'],
         'installmentNumber': json['installmentNumber'] == null ? undefined : json['installmentNumber'],
         'recurringFinancialRecord': json['recurringFinancialRecord'] == null ? undefined : json['recurringFinancialRecord'],
@@ -347,7 +347,7 @@ export function PartialUpdateFinancialRecordRequestBodyDtoToJSONTyped(value?: Pa
         'discount': value['discount'],
         'finesAndInterest': value['finesAndInterest'],
         'reconciled': value['reconciled'],
-        'bankStatement': value['bankStatement'],
+        'bankTransaction': value['bankTransaction'],
         'installmentFinancialRecord': value['installmentFinancialRecord'],
         'installmentNumber': value['installmentNumber'],
         'recurringFinancialRecord': value['recurringFinancialRecord'],
