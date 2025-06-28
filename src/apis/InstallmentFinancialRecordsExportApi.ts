@@ -70,8 +70,11 @@ export class InstallmentFinancialRecordsExportApi extends runtime.BaseAPI implem
 
         const headerParameters: runtime.HTTPHeaders = {};
 
+
+        let urlPath = `/external/installment-financial-records/export`;
+
         const response = await this.request({
-            path: `/external/installment-financial-records/export`,
+            path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,

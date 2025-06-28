@@ -100,8 +100,11 @@ export class BulkCreateApi extends runtime.BaseAPI implements BulkCreateApiInter
 
         headerParameters['Content-Type'] = 'application/json';
 
+
+        let urlPath = `/internal/queues/bulk-create`;
+
         const response = await this.request({
-            path: `/internal/queues/bulk-create`,
+            path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
@@ -135,8 +138,11 @@ export class BulkCreateApi extends runtime.BaseAPI implements BulkCreateApiInter
 
         headerParameters['Content-Type'] = 'application/json';
 
+
+        let urlPath = `/external/bulk/create`;
+
         const response = await this.request({
-            path: `/external/bulk/create`,
+            path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,

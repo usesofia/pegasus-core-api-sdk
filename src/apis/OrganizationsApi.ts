@@ -193,8 +193,11 @@ export class OrganizationsApi extends runtime.BaseAPI implements OrganizationsAp
 
         headerParameters['Content-Type'] = 'application/json';
 
+
+        let urlPath = `/external/organizations`;
+
         const response = await this.request({
-            path: `/external/organizations`,
+            path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
@@ -227,8 +230,12 @@ export class OrganizationsApi extends runtime.BaseAPI implements OrganizationsAp
 
         const headerParameters: runtime.HTTPHeaders = {};
 
+
+        let urlPath = `/external/organizations/{organizationId}/hard`;
+        urlPath = urlPath.replace(`{${"organizationId"}}`, encodeURIComponent(String(requestParameters['organizationId'])));
+
         const response = await this.request({
-            path: `/external/organizations/{organizationId}/hard`.replace(`{${"organizationId"}}`, encodeURIComponent(String(requestParameters['organizationId']))),
+            path: urlPath,
             method: 'DELETE',
             headers: headerParameters,
             query: queryParameters,
@@ -252,8 +259,11 @@ export class OrganizationsApi extends runtime.BaseAPI implements OrganizationsAp
 
         const headerParameters: runtime.HTTPHeaders = {};
 
+
+        let urlPath = `/external/organizations/my/admin/type/group`;
+
         const response = await this.request({
-            path: `/external/organizations/my/admin/type/group`,
+            path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
@@ -278,8 +288,11 @@ export class OrganizationsApi extends runtime.BaseAPI implements OrganizationsAp
 
         const headerParameters: runtime.HTTPHeaders = {};
 
+
+        let urlPath = `/external/organizations/my`;
+
         const response = await this.request({
-            path: `/external/organizations/my`,
+            path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
@@ -311,8 +324,12 @@ export class OrganizationsApi extends runtime.BaseAPI implements OrganizationsAp
 
         const headerParameters: runtime.HTTPHeaders = {};
 
+
+        let urlPath = `/external/organizations/{organizationId}`;
+        urlPath = urlPath.replace(`{${"organizationId"}}`, encodeURIComponent(String(requestParameters['organizationId'])));
+
         const response = await this.request({
-            path: `/external/organizations/{organizationId}`.replace(`{${"organizationId"}}`, encodeURIComponent(String(requestParameters['organizationId']))),
+            path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
@@ -344,8 +361,12 @@ export class OrganizationsApi extends runtime.BaseAPI implements OrganizationsAp
 
         const headerParameters: runtime.HTTPHeaders = {};
 
+
+        let urlPath = `/internal/organizations/{organizationId}/hard`;
+        urlPath = urlPath.replace(`{${"organizationId"}}`, encodeURIComponent(String(requestParameters['organizationId'])));
+
         const response = await this.request({
-            path: `/internal/organizations/{organizationId}/hard`.replace(`{${"organizationId"}}`, encodeURIComponent(String(requestParameters['organizationId']))),
+            path: urlPath,
             method: 'DELETE',
             headers: headerParameters,
             query: queryParameters,
@@ -385,8 +406,12 @@ export class OrganizationsApi extends runtime.BaseAPI implements OrganizationsAp
 
         headerParameters['Content-Type'] = 'application/json';
 
+
+        let urlPath = `/external/organizations/{id}`;
+        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+
         const response = await this.request({
-            path: `/external/organizations/{id}`.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id']))),
+            path: urlPath,
             method: 'PATCH',
             headers: headerParameters,
             query: queryParameters,

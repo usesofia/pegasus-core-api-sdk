@@ -79,14 +79,15 @@ var FinancialRecordRadarItemsSeederApi = /** @class */ (function (_super) {
      */
     FinancialRecordRadarItemsSeederApi.prototype.seedFinancialRecordRadarItemsRaw = function (initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         queryParameters = {};
                         headerParameters = {};
+                        urlPath = "/external/financial-records/radar/items/seeder";
                         return [4 /*yield*/, this.request({
-                                path: "/external/financial-records/radar/items/seeder",
+                                path: urlPath,
                                 method: 'POST',
                                 headers: headerParameters,
                                 query: queryParameters,

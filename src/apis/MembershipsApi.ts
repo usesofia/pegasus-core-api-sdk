@@ -181,8 +181,11 @@ export class MembershipsApi extends runtime.BaseAPI implements MembershipsApiInt
 
         headerParameters['Content-Type'] = 'application/json';
 
+
+        let urlPath = `/external/memberships/invites`;
+
         const response = await this.request({
-            path: `/external/memberships/invites`,
+            path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
@@ -208,8 +211,11 @@ export class MembershipsApi extends runtime.BaseAPI implements MembershipsApiInt
 
         const headerParameters: runtime.HTTPHeaders = {};
 
+
+        let urlPath = `/external/memberships/invites`;
+
         const response = await this.request({
-            path: `/external/memberships/invites`,
+            path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
@@ -234,8 +240,11 @@ export class MembershipsApi extends runtime.BaseAPI implements MembershipsApiInt
 
         const headerParameters: runtime.HTTPHeaders = {};
 
+
+        let urlPath = `/external/memberships/members`;
+
         const response = await this.request({
-            path: `/external/memberships/members`,
+            path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
@@ -276,8 +285,12 @@ export class MembershipsApi extends runtime.BaseAPI implements MembershipsApiInt
 
         headerParameters['Content-Type'] = 'application/json';
 
+
+        let urlPath = `/external/memberships/members/{id}`;
+        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+
         const response = await this.request({
-            path: `/external/memberships/members/{id}`.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id']))),
+            path: urlPath,
             method: 'PATCH',
             headers: headerParameters,
             query: queryParameters,
@@ -319,8 +332,12 @@ export class MembershipsApi extends runtime.BaseAPI implements MembershipsApiInt
 
         headerParameters['Content-Type'] = 'application/json';
 
+
+        let urlPath = `/external/memberships/members/{id}`;
+        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+
         const response = await this.request({
-            path: `/external/memberships/members/{id}`.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id']))),
+            path: urlPath,
             method: 'DELETE',
             headers: headerParameters,
             query: queryParameters,
@@ -361,8 +378,12 @@ export class MembershipsApi extends runtime.BaseAPI implements MembershipsApiInt
 
         headerParameters['Content-Type'] = 'application/json';
 
+
+        let urlPath = `/external/memberships/invites/{id}/revoke`;
+        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+
         const response = await this.request({
-            path: `/external/memberships/invites/{id}/revoke`.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id']))),
+            path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,

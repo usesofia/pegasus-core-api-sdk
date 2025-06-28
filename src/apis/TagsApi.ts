@@ -187,8 +187,11 @@ export class TagsApi extends runtime.BaseAPI implements TagsApiInterface {
 
         headerParameters['Content-Type'] = 'application/json';
 
+
+        let urlPath = `/external/tags`;
+
         const response = await this.request({
-            path: `/external/tags`,
+            path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
@@ -238,8 +241,11 @@ export class TagsApi extends runtime.BaseAPI implements TagsApiInterface {
 
         const headerParameters: runtime.HTTPHeaders = {};
 
+
+        let urlPath = `/external/tags`;
+
         const response = await this.request({
-            path: `/external/tags`,
+            path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
@@ -275,8 +281,12 @@ export class TagsApi extends runtime.BaseAPI implements TagsApiInterface {
 
         const headerParameters: runtime.HTTPHeaders = {};
 
+
+        let urlPath = `/external/tags/{id}`;
+        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+
         const response = await this.request({
-            path: `/external/tags/{id}`.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id']))),
+            path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
@@ -321,8 +331,12 @@ export class TagsApi extends runtime.BaseAPI implements TagsApiInterface {
 
         headerParameters['Content-Type'] = 'application/json';
 
+
+        let urlPath = `/external/tags/{id}`;
+        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+
         const response = await this.request({
-            path: `/external/tags/{id}`.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id']))),
+            path: urlPath,
             method: 'PATCH',
             headers: headerParameters,
             query: queryParameters,
@@ -364,8 +378,12 @@ export class TagsApi extends runtime.BaseAPI implements TagsApiInterface {
 
         headerParameters['Content-Type'] = 'application/json';
 
+
+        let urlPath = `/external/tags/{id}`;
+        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+
         const response = await this.request({
-            path: `/external/tags/{id}`.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id']))),
+            path: urlPath,
             method: 'DELETE',
             headers: headerParameters,
             query: queryParameters,

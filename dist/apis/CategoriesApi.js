@@ -80,7 +80,7 @@ var CategoriesApi = /** @class */ (function (_super) {
      */
     CategoriesApi.prototype.findAllCategoriesRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -95,8 +95,9 @@ var CategoriesApi = /** @class */ (function (_super) {
                             queryParameters['pageIndex'] = requestParameters['pageIndex'];
                         }
                         headerParameters = {};
+                        urlPath = "/external/categories";
                         return [4 /*yield*/, this.request({
-                                path: "/external/categories",
+                                path: urlPath,
                                 method: 'GET',
                                 headers: headerParameters,
                                 query: queryParameters,

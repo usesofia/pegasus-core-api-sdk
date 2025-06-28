@@ -128,8 +128,12 @@ export class FilesApi extends runtime.BaseAPI implements FilesApiInterface {
 
         headerParameters['Content-Type'] = 'application/json';
 
+
+        let urlPath = `/external/files/{id}`;
+        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+
         const response = await this.request({
-            path: `/external/files/{id}`.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id']))),
+            path: urlPath,
             method: 'DELETE',
             headers: headerParameters,
             query: queryParameters,
@@ -161,8 +165,12 @@ export class FilesApi extends runtime.BaseAPI implements FilesApiInterface {
 
         const headerParameters: runtime.HTTPHeaders = {};
 
+
+        let urlPath = `/external/files/{id}`;
+        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+
         const response = await this.request({
-            path: `/external/files/{id}`.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id']))),
+            path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
@@ -198,8 +206,11 @@ export class FilesApi extends runtime.BaseAPI implements FilesApiInterface {
 
         const headerParameters: runtime.HTTPHeaders = {};
 
+
+        let urlPath = `/external/files/signed-url`;
+
         const response = await this.request({
-            path: `/external/files/signed-url`,
+            path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,

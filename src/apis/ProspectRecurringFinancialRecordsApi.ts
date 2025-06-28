@@ -78,8 +78,11 @@ export class ProspectRecurringFinancialRecordsApi extends runtime.BaseAPI implem
 
         headerParameters['Content-Type'] = 'application/json';
 
+
+        let urlPath = `/external/recurring-financial-records/prospect`;
+
         const response = await this.request({
-            path: `/external/recurring-financial-records/prospect`,
+            path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,

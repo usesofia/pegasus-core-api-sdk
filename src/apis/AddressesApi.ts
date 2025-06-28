@@ -83,8 +83,11 @@ export class AddressesApi extends runtime.BaseAPI implements AddressesApiInterfa
 
         const headerParameters: runtime.HTTPHeaders = {};
 
+
+        let urlPath = `/external/addresses/countries`;
+
         const response = await this.request({
-            path: `/external/addresses/countries`,
+            path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
@@ -116,8 +119,12 @@ export class AddressesApi extends runtime.BaseAPI implements AddressesApiInterfa
 
         const headerParameters: runtime.HTTPHeaders = {};
 
+
+        let urlPath = `/external/addresses/countries/{countryId}/states`;
+        urlPath = urlPath.replace(`{${"countryId"}}`, encodeURIComponent(String(requestParameters['countryId'])));
+
         const response = await this.request({
-            path: `/external/addresses/countries/{countryId}/states`.replace(`{${"countryId"}}`, encodeURIComponent(String(requestParameters['countryId']))),
+            path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,

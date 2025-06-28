@@ -70,8 +70,11 @@ export class TagsExportApi extends runtime.BaseAPI implements TagsExportApiInter
 
         const headerParameters: runtime.HTTPHeaders = {};
 
+
+        let urlPath = `/external/tags/export`;
+
         const response = await this.request({
-            path: `/external/tags/export`,
+            path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,

@@ -80,7 +80,7 @@ var BankAccountsApi = /** @class */ (function (_super) {
      */
     BankAccountsApi.prototype.createBankAccountRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -93,8 +93,9 @@ var BankAccountsApi = /** @class */ (function (_super) {
                         }
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
+                        urlPath = "/external/bank-accounts";
                         return [4 /*yield*/, this.request({
-                                path: "/external/bank-accounts",
+                                path: urlPath,
                                 method: 'POST',
                                 headers: headerParameters,
                                 query: queryParameters,
@@ -129,14 +130,15 @@ var BankAccountsApi = /** @class */ (function (_super) {
      */
     BankAccountsApi.prototype.findAllBankAccountTypesRaw = function (initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         queryParameters = {};
                         headerParameters = {};
+                        urlPath = "/external/bank-accounts/types";
                         return [4 /*yield*/, this.request({
-                                path: "/external/bank-accounts/types",
+                                path: urlPath,
                                 method: 'GET',
                                 headers: headerParameters,
                                 query: queryParameters,
@@ -170,7 +172,7 @@ var BankAccountsApi = /** @class */ (function (_super) {
      */
     BankAccountsApi.prototype.findAllBankAccountsRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -215,8 +217,9 @@ var BankAccountsApi = /** @class */ (function (_super) {
                             queryParameters['pageIndex'] = requestParameters['pageIndex'];
                         }
                         headerParameters = {};
+                        urlPath = "/external/bank-accounts";
                         return [4 /*yield*/, this.request({
-                                path: "/external/bank-accounts",
+                                path: urlPath,
                                 method: 'GET',
                                 headers: headerParameters,
                                 query: queryParameters,
@@ -251,7 +254,7 @@ var BankAccountsApi = /** @class */ (function (_super) {
      */
     BankAccountsApi.prototype.findAllByPluggyItemRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -263,8 +266,10 @@ var BankAccountsApi = /** @class */ (function (_super) {
                             queryParameters['populate'] = requestParameters['populate'];
                         }
                         headerParameters = {};
+                        urlPath = "/internal/bank-accounts/pluggy/{itemId}";
+                        urlPath = urlPath.replace("{".concat("itemId", "}"), encodeURIComponent(String(requestParameters['itemId'])));
                         return [4 /*yield*/, this.request({
-                                path: "/internal/bank-accounts/pluggy/{itemId}".replace("{".concat("itemId", "}"), encodeURIComponent(String(requestParameters['itemId']))),
+                                path: urlPath,
                                 method: 'GET',
                                 headers: headerParameters,
                                 query: queryParameters,
@@ -298,7 +303,7 @@ var BankAccountsApi = /** @class */ (function (_super) {
      */
     BankAccountsApi.prototype.findByIdBankAccountRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -310,8 +315,10 @@ var BankAccountsApi = /** @class */ (function (_super) {
                             queryParameters['populate'] = requestParameters['populate'];
                         }
                         headerParameters = {};
+                        urlPath = "/external/bank-accounts/{id}";
+                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
-                                path: "/external/bank-accounts/{id}".replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id']))),
+                                path: urlPath,
                                 method: 'GET',
                                 headers: headerParameters,
                                 query: queryParameters,
@@ -345,7 +352,7 @@ var BankAccountsApi = /** @class */ (function (_super) {
      */
     BankAccountsApi.prototype.partialUpdateBankAccountRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -361,8 +368,10 @@ var BankAccountsApi = /** @class */ (function (_super) {
                         }
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
+                        urlPath = "/external/bank-accounts/{id}";
+                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
-                                path: "/external/bank-accounts/{id}".replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id']))),
+                                path: urlPath,
                                 method: 'PATCH',
                                 headers: headerParameters,
                                 query: queryParameters,
@@ -397,7 +406,7 @@ var BankAccountsApi = /** @class */ (function (_super) {
      */
     BankAccountsApi.prototype.removeBankAccountRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -410,8 +419,10 @@ var BankAccountsApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
+                        urlPath = "/external/bank-accounts/{id}";
+                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
-                                path: "/external/bank-accounts/{id}".replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id']))),
+                                path: urlPath,
                                 method: 'DELETE',
                                 headers: headerParameters,
                                 query: queryParameters,
@@ -444,7 +455,7 @@ var BankAccountsApi = /** @class */ (function (_super) {
      */
     BankAccountsApi.prototype.systemFindAllBankAccountsRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -498,8 +509,9 @@ var BankAccountsApi = /** @class */ (function (_super) {
                             queryParameters['pageIndex'] = requestParameters['pageIndex'];
                         }
                         headerParameters = {};
+                        urlPath = "/internal/bank-accounts";
                         return [4 /*yield*/, this.request({
-                                path: "/internal/bank-accounts",
+                                path: urlPath,
                                 method: 'GET',
                                 headers: headerParameters,
                                 query: queryParameters,

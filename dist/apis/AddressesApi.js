@@ -80,14 +80,15 @@ var AddressesApi = /** @class */ (function (_super) {
      */
     AddressesApi.prototype.findAllCountriesRaw = function (initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         queryParameters = {};
                         headerParameters = {};
+                        urlPath = "/external/addresses/countries";
                         return [4 /*yield*/, this.request({
-                                path: "/external/addresses/countries",
+                                path: urlPath,
                                 method: 'GET',
                                 headers: headerParameters,
                                 query: queryParameters,
@@ -121,7 +122,7 @@ var AddressesApi = /** @class */ (function (_super) {
      */
     AddressesApi.prototype.findStatesByCountryRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -130,8 +131,10 @@ var AddressesApi = /** @class */ (function (_super) {
                         }
                         queryParameters = {};
                         headerParameters = {};
+                        urlPath = "/external/addresses/countries/{countryId}/states";
+                        urlPath = urlPath.replace("{".concat("countryId", "}"), encodeURIComponent(String(requestParameters['countryId'])));
                         return [4 /*yield*/, this.request({
-                                path: "/external/addresses/countries/{countryId}/states".replace("{".concat("countryId", "}"), encodeURIComponent(String(requestParameters['countryId']))),
+                                path: urlPath,
                                 method: 'GET',
                                 headers: headerParameters,
                                 query: queryParameters,

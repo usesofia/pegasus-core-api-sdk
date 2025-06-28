@@ -70,8 +70,11 @@ export class SubcategoriesExportApi extends runtime.BaseAPI implements Subcatego
 
         const headerParameters: runtime.HTTPHeaders = {};
 
+
+        let urlPath = `/external/subcategories/export`;
+
         const response = await this.request({
-            path: `/external/subcategories/export`,
+            path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,

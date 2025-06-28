@@ -80,7 +80,7 @@ var ContactsApi = /** @class */ (function (_super) {
      */
     ContactsApi.prototype.createContactRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -93,8 +93,9 @@ var ContactsApi = /** @class */ (function (_super) {
                         }
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
+                        urlPath = "/external/contacts";
                         return [4 /*yield*/, this.request({
-                                path: "/external/contacts",
+                                path: urlPath,
                                 method: 'POST',
                                 headers: headerParameters,
                                 query: queryParameters,
@@ -129,14 +130,15 @@ var ContactsApi = /** @class */ (function (_super) {
      */
     ContactsApi.prototype.findAllContactOriginsRaw = function (initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         queryParameters = {};
                         headerParameters = {};
+                        urlPath = "/external/contacts/origins";
                         return [4 /*yield*/, this.request({
-                                path: "/external/contacts/origins",
+                                path: urlPath,
                                 method: 'GET',
                                 headers: headerParameters,
                                 query: queryParameters,
@@ -170,14 +172,15 @@ var ContactsApi = /** @class */ (function (_super) {
      */
     ContactsApi.prototype.findAllContactTypesRaw = function (initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         queryParameters = {};
                         headerParameters = {};
+                        urlPath = "/external/contacts/types";
                         return [4 /*yield*/, this.request({
-                                path: "/external/contacts/types",
+                                path: urlPath,
                                 method: 'GET',
                                 headers: headerParameters,
                                 query: queryParameters,
@@ -211,7 +214,7 @@ var ContactsApi = /** @class */ (function (_super) {
      */
     ContactsApi.prototype.findAllContactsRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -259,8 +262,9 @@ var ContactsApi = /** @class */ (function (_super) {
                             queryParameters['pageIndex'] = requestParameters['pageIndex'];
                         }
                         headerParameters = {};
+                        urlPath = "/external/contacts";
                         return [4 /*yield*/, this.request({
-                                path: "/external/contacts",
+                                path: urlPath,
                                 method: 'GET',
                                 headers: headerParameters,
                                 query: queryParameters,
@@ -295,7 +299,7 @@ var ContactsApi = /** @class */ (function (_super) {
      */
     ContactsApi.prototype.findByIdContactRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -307,8 +311,10 @@ var ContactsApi = /** @class */ (function (_super) {
                             queryParameters['populate'] = requestParameters['populate'];
                         }
                         headerParameters = {};
+                        urlPath = "/external/contacts/{id}";
+                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
-                                path: "/external/contacts/{id}".replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id']))),
+                                path: urlPath,
                                 method: 'GET',
                                 headers: headerParameters,
                                 query: queryParameters,
@@ -342,7 +348,7 @@ var ContactsApi = /** @class */ (function (_super) {
      */
     ContactsApi.prototype.findNotIdentifiedContactRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -351,8 +357,10 @@ var ContactsApi = /** @class */ (function (_super) {
                         }
                         queryParameters = {};
                         headerParameters = {};
+                        urlPath = "/internal/organizations/{organizationId}/contacts/not-identified";
+                        urlPath = urlPath.replace("{".concat("organizationId", "}"), encodeURIComponent(String(requestParameters['organizationId'])));
                         return [4 /*yield*/, this.request({
-                                path: "/internal/organizations/{organizationId}/contacts/not-identified".replace("{".concat("organizationId", "}"), encodeURIComponent(String(requestParameters['organizationId']))),
+                                path: urlPath,
                                 method: 'GET',
                                 headers: headerParameters,
                                 query: queryParameters,
@@ -386,7 +394,7 @@ var ContactsApi = /** @class */ (function (_super) {
      */
     ContactsApi.prototype.partialUpdateContactRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -402,8 +410,10 @@ var ContactsApi = /** @class */ (function (_super) {
                         }
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
+                        urlPath = "/external/contacts/{id}";
+                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
-                                path: "/external/contacts/{id}".replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id']))),
+                                path: urlPath,
                                 method: 'PATCH',
                                 headers: headerParameters,
                                 query: queryParameters,
@@ -438,7 +448,7 @@ var ContactsApi = /** @class */ (function (_super) {
      */
     ContactsApi.prototype.removeContactRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -451,8 +461,10 @@ var ContactsApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
+                        urlPath = "/external/contacts/{id}";
+                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
-                                path: "/external/contacts/{id}".replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id']))),
+                                path: urlPath,
                                 method: 'DELETE',
                                 headers: headerParameters,
                                 query: queryParameters,
@@ -485,7 +497,7 @@ var ContactsApi = /** @class */ (function (_super) {
      */
     ContactsApi.prototype.systemFindAllContactsRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -542,8 +554,9 @@ var ContactsApi = /** @class */ (function (_super) {
                             queryParameters['pageIndex'] = requestParameters['pageIndex'];
                         }
                         headerParameters = {};
+                        urlPath = "/internal/contacts";
                         return [4 /*yield*/, this.request({
-                                path: "/internal/contacts",
+                                path: urlPath,
                                 method: 'GET',
                                 headers: headerParameters,
                                 query: queryParameters,

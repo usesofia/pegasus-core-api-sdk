@@ -305,8 +305,11 @@ export class ContactsApi extends runtime.BaseAPI implements ContactsApiInterface
 
         headerParameters['Content-Type'] = 'application/json';
 
+
+        let urlPath = `/external/contacts`;
+
         const response = await this.request({
-            path: `/external/contacts`,
+            path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
@@ -332,8 +335,11 @@ export class ContactsApi extends runtime.BaseAPI implements ContactsApiInterface
 
         const headerParameters: runtime.HTTPHeaders = {};
 
+
+        let urlPath = `/external/contacts/origins`;
+
         const response = await this.request({
-            path: `/external/contacts/origins`,
+            path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
@@ -358,8 +364,11 @@ export class ContactsApi extends runtime.BaseAPI implements ContactsApiInterface
 
         const headerParameters: runtime.HTTPHeaders = {};
 
+
+        let urlPath = `/external/contacts/types`;
+
         const response = await this.request({
-            path: `/external/contacts/types`,
+            path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
@@ -440,8 +449,11 @@ export class ContactsApi extends runtime.BaseAPI implements ContactsApiInterface
 
         const headerParameters: runtime.HTTPHeaders = {};
 
+
+        let urlPath = `/external/contacts`;
+
         const response = await this.request({
-            path: `/external/contacts`,
+            path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
@@ -477,8 +489,12 @@ export class ContactsApi extends runtime.BaseAPI implements ContactsApiInterface
 
         const headerParameters: runtime.HTTPHeaders = {};
 
+
+        let urlPath = `/external/contacts/{id}`;
+        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+
         const response = await this.request({
-            path: `/external/contacts/{id}`.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id']))),
+            path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
@@ -510,8 +526,12 @@ export class ContactsApi extends runtime.BaseAPI implements ContactsApiInterface
 
         const headerParameters: runtime.HTTPHeaders = {};
 
+
+        let urlPath = `/internal/organizations/{organizationId}/contacts/not-identified`;
+        urlPath = urlPath.replace(`{${"organizationId"}}`, encodeURIComponent(String(requestParameters['organizationId'])));
+
         const response = await this.request({
-            path: `/internal/organizations/{organizationId}/contacts/not-identified`.replace(`{${"organizationId"}}`, encodeURIComponent(String(requestParameters['organizationId']))),
+            path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
@@ -556,8 +576,12 @@ export class ContactsApi extends runtime.BaseAPI implements ContactsApiInterface
 
         headerParameters['Content-Type'] = 'application/json';
 
+
+        let urlPath = `/external/contacts/{id}`;
+        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+
         const response = await this.request({
-            path: `/external/contacts/{id}`.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id']))),
+            path: urlPath,
             method: 'PATCH',
             headers: headerParameters,
             query: queryParameters,
@@ -599,8 +623,12 @@ export class ContactsApi extends runtime.BaseAPI implements ContactsApiInterface
 
         headerParameters['Content-Type'] = 'application/json';
 
+
+        let urlPath = `/external/contacts/{id}`;
+        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+
         const response = await this.request({
-            path: `/external/contacts/{id}`.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id']))),
+            path: urlPath,
             method: 'DELETE',
             headers: headerParameters,
             query: queryParameters,
@@ -696,8 +724,11 @@ export class ContactsApi extends runtime.BaseAPI implements ContactsApiInterface
 
         const headerParameters: runtime.HTTPHeaders = {};
 
+
+        let urlPath = `/internal/contacts`;
+
         const response = await this.request({
-            path: `/internal/contacts`,
+            path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,

@@ -58,8 +58,11 @@ export class FinancialRecordRadarItemsSeederApi extends runtime.BaseAPI implemen
 
         const headerParameters: runtime.HTTPHeaders = {};
 
+
+        let urlPath = `/external/financial-records/radar/items/seeder`;
+
         const response = await this.request({
-            path: `/external/financial-records/radar/items/seeder`,
+            path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,

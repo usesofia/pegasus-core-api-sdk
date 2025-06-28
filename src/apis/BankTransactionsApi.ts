@@ -344,8 +344,11 @@ export class BankTransactionsApi extends runtime.BaseAPI implements BankTransact
 
         headerParameters['Content-Type'] = 'application/json';
 
+
+        let urlPath = `/internal/bank-transactions`;
+
         const response = await this.request({
-            path: `/internal/bank-transactions`,
+            path: urlPath,
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
@@ -380,8 +383,11 @@ export class BankTransactionsApi extends runtime.BaseAPI implements BankTransact
 
         headerParameters['Content-Type'] = 'application/json';
 
+
+        let urlPath = `/external/bank-transactions/ofx`;
+
         const response = await this.request({
-            path: `/external/bank-transactions/ofx`,
+            path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
@@ -463,8 +469,11 @@ export class BankTransactionsApi extends runtime.BaseAPI implements BankTransact
 
         const headerParameters: runtime.HTTPHeaders = {};
 
+
+        let urlPath = `/external/bank-transactions`;
+
         const response = await this.request({
-            path: `/external/bank-transactions`,
+            path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
@@ -505,8 +514,11 @@ export class BankTransactionsApi extends runtime.BaseAPI implements BankTransact
 
         const headerParameters: runtime.HTTPHeaders = {};
 
+
+        let urlPath = `/external/bank-transactions/ofx/job-requests`;
+
         const response = await this.request({
-            path: `/external/bank-transactions/ofx/job-requests`,
+            path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
@@ -542,8 +554,12 @@ export class BankTransactionsApi extends runtime.BaseAPI implements BankTransact
 
         const headerParameters: runtime.HTTPHeaders = {};
 
+
+        let urlPath = `/external/bank-transactions/{id}`;
+        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+
         const response = await this.request({
-            path: `/external/bank-transactions/{id}`.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id']))),
+            path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
@@ -588,8 +604,12 @@ export class BankTransactionsApi extends runtime.BaseAPI implements BankTransact
 
         headerParameters['Content-Type'] = 'application/json';
 
+
+        let urlPath = `/external/bank-transactions/{id}`;
+        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+
         const response = await this.request({
-            path: `/external/bank-transactions/{id}`.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id']))),
+            path: urlPath,
             method: 'PATCH',
             headers: headerParameters,
             query: queryParameters,
@@ -624,8 +644,11 @@ export class BankTransactionsApi extends runtime.BaseAPI implements BankTransact
 
         headerParameters['Content-Type'] = 'application/json';
 
+
+        let urlPath = `/internal/queues/ofx-import`;
+
         const response = await this.request({
-            path: `/internal/queues/ofx-import`,
+            path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
@@ -666,8 +689,12 @@ export class BankTransactionsApi extends runtime.BaseAPI implements BankTransact
 
         headerParameters['Content-Type'] = 'application/json';
 
+
+        let urlPath = `/external/bank-transactions/{bankTransactionId}/reconcile`;
+        urlPath = urlPath.replace(`{${"bankTransactionId"}}`, encodeURIComponent(String(requestParameters['bankTransactionId'])));
+
         const response = await this.request({
-            path: `/external/bank-transactions/{bankTransactionId}/reconcile`.replace(`{${"bankTransactionId"}}`, encodeURIComponent(String(requestParameters['bankTransactionId']))),
+            path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
@@ -760,8 +787,11 @@ export class BankTransactionsApi extends runtime.BaseAPI implements BankTransact
 
         const headerParameters: runtime.HTTPHeaders = {};
 
+
+        let urlPath = `/internal/bank-transactions`;
+
         const response = await this.request({
-            path: `/internal/bank-transactions`,
+            path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
@@ -793,8 +823,12 @@ export class BankTransactionsApi extends runtime.BaseAPI implements BankTransact
 
         const headerParameters: runtime.HTTPHeaders = {};
 
+
+        let urlPath = `/external/bank-transactions/{bankTransactionId}/unreconcile`;
+        urlPath = urlPath.replace(`{${"bankTransactionId"}}`, encodeURIComponent(String(requestParameters['bankTransactionId'])));
+
         const response = await this.request({
-            path: `/external/bank-transactions/{bankTransactionId}/unreconcile`.replace(`{${"bankTransactionId"}}`, encodeURIComponent(String(requestParameters['bankTransactionId']))),
+            path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,

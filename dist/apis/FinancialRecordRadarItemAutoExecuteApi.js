@@ -81,14 +81,15 @@ var FinancialRecordRadarItemAutoExecuteApi = /** @class */ (function (_super) {
      */
     FinancialRecordRadarItemAutoExecuteApi.prototype.getFinancialRecordRadarItemAutoExecuteSettingsRaw = function (initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         queryParameters = {};
                         headerParameters = {};
+                        urlPath = "/external/financial-records/radar/items/auto-execute/settings";
                         return [4 /*yield*/, this.request({
-                                path: "/external/financial-records/radar/items/auto-execute/settings",
+                                path: urlPath,
                                 method: 'GET',
                                 headers: headerParameters,
                                 query: queryParameters,
@@ -124,7 +125,7 @@ var FinancialRecordRadarItemAutoExecuteApi = /** @class */ (function (_super) {
      */
     FinancialRecordRadarItemAutoExecuteApi.prototype.updateFinancialRecordRadarItemAutoExecuteSettingsRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -134,8 +135,9 @@ var FinancialRecordRadarItemAutoExecuteApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
+                        urlPath = "/external/financial-records/radar/items/auto-execute/settings";
                         return [4 /*yield*/, this.request({
-                                path: "/external/financial-records/radar/items/auto-execute/settings",
+                                path: urlPath,
                                 method: 'PUT',
                                 headers: headerParameters,
                                 query: queryParameters,

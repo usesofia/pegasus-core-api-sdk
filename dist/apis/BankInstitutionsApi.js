@@ -80,14 +80,15 @@ var BankInstitutionsApi = /** @class */ (function (_super) {
      */
     BankInstitutionsApi.prototype.findAllBankInstitutionsRaw = function (initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         queryParameters = {};
                         headerParameters = {};
+                        urlPath = "/external/bank-institutions";
                         return [4 /*yield*/, this.request({
-                                path: "/external/bank-institutions",
+                                path: urlPath,
                                 method: 'GET',
                                 headers: headerParameters,
                                 query: queryParameters,

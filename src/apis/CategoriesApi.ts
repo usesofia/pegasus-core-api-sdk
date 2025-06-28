@@ -82,8 +82,11 @@ export class CategoriesApi extends runtime.BaseAPI implements CategoriesApiInter
 
         const headerParameters: runtime.HTTPHeaders = {};
 
+
+        let urlPath = `/external/categories`;
+
         const response = await this.request({
-            path: `/external/categories`,
+            path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,

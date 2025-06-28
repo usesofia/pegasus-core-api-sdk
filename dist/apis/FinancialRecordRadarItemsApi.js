@@ -80,7 +80,7 @@ var FinancialRecordRadarItemsApi = /** @class */ (function (_super) {
      */
     FinancialRecordRadarItemsApi.prototype.createFinancialRecordRadarItemRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -90,8 +90,9 @@ var FinancialRecordRadarItemsApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
+                        urlPath = "/external/financial-records/radar/items";
                         return [4 /*yield*/, this.request({
-                                path: "/external/financial-records/radar/items",
+                                path: urlPath,
                                 method: 'POST',
                                 headers: headerParameters,
                                 query: queryParameters,
@@ -126,7 +127,7 @@ var FinancialRecordRadarItemsApi = /** @class */ (function (_super) {
      */
     FinancialRecordRadarItemsApi.prototype.findAllFinancialRecordRadarItemsRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -159,8 +160,9 @@ var FinancialRecordRadarItemsApi = /** @class */ (function (_super) {
                             queryParameters['pageIndex'] = requestParameters['pageIndex'];
                         }
                         headerParameters = {};
+                        urlPath = "/external/financial-records/radar/items";
                         return [4 /*yield*/, this.request({
-                                path: "/external/financial-records/radar/items",
+                                path: urlPath,
                                 method: 'GET',
                                 headers: headerParameters,
                                 query: queryParameters,
@@ -195,7 +197,7 @@ var FinancialRecordRadarItemsApi = /** @class */ (function (_super) {
      */
     FinancialRecordRadarItemsApi.prototype.getTagsForFinancialRecordRadarItemRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -204,8 +206,10 @@ var FinancialRecordRadarItemsApi = /** @class */ (function (_super) {
                         }
                         queryParameters = {};
                         headerParameters = {};
+                        urlPath = "/external/financial-records/radar/items/{radarItemId}/tags";
+                        urlPath = urlPath.replace("{".concat("radarItemId", "}"), encodeURIComponent(String(requestParameters['radarItemId'])));
                         return [4 /*yield*/, this.request({
-                                path: "/external/financial-records/radar/items/{radarItemId}/tags".replace("{".concat("radarItemId", "}"), encodeURIComponent(String(requestParameters['radarItemId']))),
+                                path: urlPath,
                                 method: 'GET',
                                 headers: headerParameters,
                                 query: queryParameters,
@@ -240,7 +244,7 @@ var FinancialRecordRadarItemsApi = /** @class */ (function (_super) {
      */
     FinancialRecordRadarItemsApi.prototype.linkFinancialRecordsToFinancialRecordRadarItemRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -253,8 +257,10 @@ var FinancialRecordRadarItemsApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
+                        urlPath = "/external/financial-records/radar/items/{radarItemId}/links";
+                        urlPath = urlPath.replace("{".concat("radarItemId", "}"), encodeURIComponent(String(requestParameters['radarItemId'])));
                         return [4 /*yield*/, this.request({
-                                path: "/external/financial-records/radar/items/{radarItemId}/links".replace("{".concat("radarItemId", "}"), encodeURIComponent(String(requestParameters['radarItemId']))),
+                                path: urlPath,
                                 method: 'POST',
                                 headers: headerParameters,
                                 query: queryParameters,
@@ -291,7 +297,7 @@ var FinancialRecordRadarItemsApi = /** @class */ (function (_super) {
      */
     FinancialRecordRadarItemsApi.prototype.partialUpdateFinancialRecordRadarItemRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -304,8 +310,10 @@ var FinancialRecordRadarItemsApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
+                        urlPath = "/external/financial-records/radar/items/{radarItemId}";
+                        urlPath = urlPath.replace("{".concat("radarItemId", "}"), encodeURIComponent(String(requestParameters['radarItemId'])));
                         return [4 /*yield*/, this.request({
-                                path: "/external/financial-records/radar/items/{radarItemId}".replace("{".concat("radarItemId", "}"), encodeURIComponent(String(requestParameters['radarItemId']))),
+                                path: urlPath,
                                 method: 'PATCH',
                                 headers: headerParameters,
                                 query: queryParameters,
@@ -341,7 +349,7 @@ var FinancialRecordRadarItemsApi = /** @class */ (function (_super) {
      */
     FinancialRecordRadarItemsApi.prototype.previewBulkCreateFileRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -353,8 +361,10 @@ var FinancialRecordRadarItemsApi = /** @class */ (function (_super) {
                             queryParameters['limit'] = requestParameters['limit'];
                         }
                         headerParameters = {};
+                        urlPath = "/external/financial-records/radar/items/{radarItemId}/preview-bulk-create-file";
+                        urlPath = urlPath.replace("{".concat("radarItemId", "}"), encodeURIComponent(String(requestParameters['radarItemId'])));
                         return [4 /*yield*/, this.request({
-                                path: "/external/financial-records/radar/items/{radarItemId}/preview-bulk-create-file".replace("{".concat("radarItemId", "}"), encodeURIComponent(String(requestParameters['radarItemId']))),
+                                path: urlPath,
                                 method: 'GET',
                                 headers: headerParameters,
                                 query: queryParameters,

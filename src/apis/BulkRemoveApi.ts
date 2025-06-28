@@ -100,8 +100,11 @@ export class BulkRemoveApi extends runtime.BaseAPI implements BulkRemoveApiInter
 
         headerParameters['Content-Type'] = 'application/json';
 
+
+        let urlPath = `/internal/queues/bulk-remove`;
+
         const response = await this.request({
-            path: `/internal/queues/bulk-remove`,
+            path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
@@ -135,8 +138,11 @@ export class BulkRemoveApi extends runtime.BaseAPI implements BulkRemoveApiInter
 
         headerParameters['Content-Type'] = 'application/json';
 
+
+        let urlPath = `/external/bulk/remove`;
+
         const response = await this.request({
-            path: `/external/bulk/remove`,
+            path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,

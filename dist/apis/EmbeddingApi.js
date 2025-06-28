@@ -80,7 +80,7 @@ var EmbeddingApi = /** @class */ (function (_super) {
      */
     EmbeddingApi.prototype.calculateAndUpdateEmbeddingRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -90,8 +90,9 @@ var EmbeddingApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
+                        urlPath = "/internal/queues/calculate-embedding";
                         return [4 /*yield*/, this.request({
-                                path: "/internal/queues/calculate-embedding",
+                                path: urlPath,
                                 method: 'POST',
                                 headers: headerParameters,
                                 query: queryParameters,
@@ -124,14 +125,15 @@ var EmbeddingApi = /** @class */ (function (_super) {
      */
     EmbeddingApi.prototype.catchProblematicEmbeddingCalculationsRaw = function (initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         queryParameters = {};
                         headerParameters = {};
+                        urlPath = "/internal/embedding/catch";
                         return [4 /*yield*/, this.request({
-                                path: "/internal/embedding/catch",
+                                path: urlPath,
                                 method: 'POST',
                                 headers: headerParameters,
                                 query: queryParameters,

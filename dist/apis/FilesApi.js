@@ -80,7 +80,7 @@ var FilesApi = /** @class */ (function (_super) {
      */
     FilesApi.prototype.deleteFileRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -93,8 +93,10 @@ var FilesApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
+                        urlPath = "/external/files/{id}";
+                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
-                                path: "/external/files/{id}".replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id']))),
+                                path: urlPath,
                                 method: 'DELETE',
                                 headers: headerParameters,
                                 query: queryParameters,
@@ -127,7 +129,7 @@ var FilesApi = /** @class */ (function (_super) {
      */
     FilesApi.prototype.findByIdFileRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -136,8 +138,10 @@ var FilesApi = /** @class */ (function (_super) {
                         }
                         queryParameters = {};
                         headerParameters = {};
+                        urlPath = "/external/files/{id}";
+                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
-                                path: "/external/files/{id}".replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id']))),
+                                path: urlPath,
                                 method: 'GET',
                                 headers: headerParameters,
                                 query: queryParameters,
@@ -171,7 +175,7 @@ var FilesApi = /** @class */ (function (_super) {
      */
     FilesApi.prototype.getSignedUrlFromUrlRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -183,8 +187,9 @@ var FilesApi = /** @class */ (function (_super) {
                             queryParameters['url'] = requestParameters['url'];
                         }
                         headerParameters = {};
+                        urlPath = "/external/files/signed-url";
                         return [4 /*yield*/, this.request({
-                                path: "/external/files/signed-url",
+                                path: urlPath,
                                 method: 'GET',
                                 headers: headerParameters,
                                 query: queryParameters,

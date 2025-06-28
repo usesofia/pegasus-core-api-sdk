@@ -80,7 +80,7 @@ var ProspectRecurringFinancialRecordsApi = /** @class */ (function (_super) {
      */
     ProspectRecurringFinancialRecordsApi.prototype.prospectRecurringFinancialRecordRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -90,8 +90,9 @@ var ProspectRecurringFinancialRecordsApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
+                        urlPath = "/external/recurring-financial-records/prospect";
                         return [4 /*yield*/, this.request({
-                                path: "/external/recurring-financial-records/prospect",
+                                path: urlPath,
                                 method: 'POST',
                                 headers: headerParameters,
                                 query: queryParameters,

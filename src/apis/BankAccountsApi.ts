@@ -286,8 +286,11 @@ export class BankAccountsApi extends runtime.BaseAPI implements BankAccountsApiI
 
         headerParameters['Content-Type'] = 'application/json';
 
+
+        let urlPath = `/external/bank-accounts`;
+
         const response = await this.request({
-            path: `/external/bank-accounts`,
+            path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
@@ -313,8 +316,11 @@ export class BankAccountsApi extends runtime.BaseAPI implements BankAccountsApiI
 
         const headerParameters: runtime.HTTPHeaders = {};
 
+
+        let urlPath = `/external/bank-accounts/types`;
+
         const response = await this.request({
-            path: `/external/bank-accounts/types`,
+            path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
@@ -391,8 +397,11 @@ export class BankAccountsApi extends runtime.BaseAPI implements BankAccountsApiI
 
         const headerParameters: runtime.HTTPHeaders = {};
 
+
+        let urlPath = `/external/bank-accounts`;
+
         const response = await this.request({
-            path: `/external/bank-accounts`,
+            path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
@@ -428,8 +437,12 @@ export class BankAccountsApi extends runtime.BaseAPI implements BankAccountsApiI
 
         const headerParameters: runtime.HTTPHeaders = {};
 
+
+        let urlPath = `/internal/bank-accounts/pluggy/{itemId}`;
+        urlPath = urlPath.replace(`{${"itemId"}}`, encodeURIComponent(String(requestParameters['itemId'])));
+
         const response = await this.request({
-            path: `/internal/bank-accounts/pluggy/{itemId}`.replace(`{${"itemId"}}`, encodeURIComponent(String(requestParameters['itemId']))),
+            path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
@@ -465,8 +478,12 @@ export class BankAccountsApi extends runtime.BaseAPI implements BankAccountsApiI
 
         const headerParameters: runtime.HTTPHeaders = {};
 
+
+        let urlPath = `/external/bank-accounts/{id}`;
+        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+
         const response = await this.request({
-            path: `/external/bank-accounts/{id}`.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id']))),
+            path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
@@ -511,8 +528,12 @@ export class BankAccountsApi extends runtime.BaseAPI implements BankAccountsApiI
 
         headerParameters['Content-Type'] = 'application/json';
 
+
+        let urlPath = `/external/bank-accounts/{id}`;
+        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+
         const response = await this.request({
-            path: `/external/bank-accounts/{id}`.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id']))),
+            path: urlPath,
             method: 'PATCH',
             headers: headerParameters,
             query: queryParameters,
@@ -554,8 +575,12 @@ export class BankAccountsApi extends runtime.BaseAPI implements BankAccountsApiI
 
         headerParameters['Content-Type'] = 'application/json';
 
+
+        let urlPath = `/external/bank-accounts/{id}`;
+        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+
         const response = await this.request({
-            path: `/external/bank-accounts/{id}`.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id']))),
+            path: urlPath,
             method: 'DELETE',
             headers: headerParameters,
             query: queryParameters,
@@ -647,8 +672,11 @@ export class BankAccountsApi extends runtime.BaseAPI implements BankAccountsApiI
 
         const headerParameters: runtime.HTTPHeaders = {};
 
+
+        let urlPath = `/internal/bank-accounts`;
+
         const response = await this.request({
-            path: `/internal/bank-accounts`,
+            path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,

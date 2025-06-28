@@ -79,14 +79,15 @@ var FibonacciApi = /** @class */ (function (_super) {
      */
     FibonacciApi.prototype.generateFibonacciSequenceRaw = function (initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         queryParameters = {};
                         headerParameters = {};
+                        urlPath = "/internal/queues/generate-fibonacci-sequence";
                         return [4 /*yield*/, this.request({
-                                path: "/internal/queues/generate-fibonacci-sequence",
+                                path: urlPath,
                                 method: 'POST',
                                 headers: headerParameters,
                                 query: queryParameters,
@@ -118,14 +119,15 @@ var FibonacciApi = /** @class */ (function (_super) {
      */
     FibonacciApi.prototype.startFibonacciRaw = function (initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         queryParameters = {};
                         headerParameters = {};
+                        urlPath = "/internal/fibonacci/start";
                         return [4 /*yield*/, this.request({
-                                path: "/internal/fibonacci/start",
+                                path: urlPath,
                                 method: 'POST',
                                 headers: headerParameters,
                                 query: queryParameters,
@@ -157,14 +159,15 @@ var FibonacciApi = /** @class */ (function (_super) {
      */
     FibonacciApi.prototype.sumFibonacciSequenceRaw = function (initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         queryParameters = {};
                         headerParameters = {};
+                        urlPath = "/internal/queues/sum-fibonacci-sequence";
                         return [4 /*yield*/, this.request({
-                                path: "/internal/queues/sum-fibonacci-sequence",
+                                path: urlPath,
                                 method: 'POST',
                                 headers: headerParameters,
                                 query: queryParameters,

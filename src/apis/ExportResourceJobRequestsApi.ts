@@ -75,8 +75,11 @@ export class ExportResourceJobRequestsApi extends runtime.BaseAPI implements Exp
 
         headerParameters['Content-Type'] = 'application/json';
 
+
+        let urlPath = `/internal/queues/export-resources`;
+
         const response = await this.request({
-            path: `/internal/queues/export-resources`,
+            path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,

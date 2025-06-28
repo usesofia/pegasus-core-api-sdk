@@ -80,7 +80,7 @@ var MembershipsApi = /** @class */ (function (_super) {
      */
     MembershipsApi.prototype.createInviteRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -90,8 +90,9 @@ var MembershipsApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
+                        urlPath = "/external/memberships/invites";
                         return [4 /*yield*/, this.request({
-                                path: "/external/memberships/invites",
+                                path: urlPath,
                                 method: 'POST',
                                 headers: headerParameters,
                                 query: queryParameters,
@@ -126,14 +127,15 @@ var MembershipsApi = /** @class */ (function (_super) {
      */
     MembershipsApi.prototype.findAllInvitesRaw = function (initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         queryParameters = {};
                         headerParameters = {};
+                        urlPath = "/external/memberships/invites";
                         return [4 /*yield*/, this.request({
-                                path: "/external/memberships/invites",
+                                path: urlPath,
                                 method: 'GET',
                                 headers: headerParameters,
                                 query: queryParameters,
@@ -167,14 +169,15 @@ var MembershipsApi = /** @class */ (function (_super) {
      */
     MembershipsApi.prototype.findAllMembersRaw = function (initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         queryParameters = {};
                         headerParameters = {};
+                        urlPath = "/external/memberships/members";
                         return [4 /*yield*/, this.request({
-                                path: "/external/memberships/members",
+                                path: urlPath,
                                 method: 'GET',
                                 headers: headerParameters,
                                 query: queryParameters,
@@ -208,7 +211,7 @@ var MembershipsApi = /** @class */ (function (_super) {
      */
     MembershipsApi.prototype.partialUpdateMemberRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -221,8 +224,10 @@ var MembershipsApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
+                        urlPath = "/external/memberships/members/{id}";
+                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
-                                path: "/external/memberships/members/{id}".replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id']))),
+                                path: urlPath,
                                 method: 'PATCH',
                                 headers: headerParameters,
                                 query: queryParameters,
@@ -257,7 +262,7 @@ var MembershipsApi = /** @class */ (function (_super) {
      */
     MembershipsApi.prototype.removeMemberRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -270,8 +275,10 @@ var MembershipsApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
+                        urlPath = "/external/memberships/members/{id}";
+                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
-                                path: "/external/memberships/members/{id}".replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id']))),
+                                path: urlPath,
                                 method: 'DELETE',
                                 headers: headerParameters,
                                 query: queryParameters,
@@ -304,7 +311,7 @@ var MembershipsApi = /** @class */ (function (_super) {
      */
     MembershipsApi.prototype.revokeInviteRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -317,8 +324,10 @@ var MembershipsApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
+                        urlPath = "/external/memberships/invites/{id}/revoke";
+                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
-                                path: "/external/memberships/invites/{id}/revoke".replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id']))),
+                                path: urlPath,
                                 method: 'POST',
                                 headers: headerParameters,
                                 query: queryParameters,

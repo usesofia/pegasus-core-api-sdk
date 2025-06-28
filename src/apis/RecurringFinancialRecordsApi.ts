@@ -275,8 +275,11 @@ export class RecurringFinancialRecordsApi extends runtime.BaseAPI implements Rec
 
         headerParameters['Content-Type'] = 'application/json';
 
+
+        let urlPath = `/external/recurring-financial-records/many`;
+
         const response = await this.request({
-            path: `/external/recurring-financial-records/many`,
+            path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
@@ -315,8 +318,11 @@ export class RecurringFinancialRecordsApi extends runtime.BaseAPI implements Rec
 
         headerParameters['Content-Type'] = 'application/json';
 
+
+        let urlPath = `/external/recurring-financial-records`;
+
         const response = await this.request({
-            path: `/external/recurring-financial-records`,
+            path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
@@ -422,8 +428,11 @@ export class RecurringFinancialRecordsApi extends runtime.BaseAPI implements Rec
 
         const headerParameters: runtime.HTTPHeaders = {};
 
+
+        let urlPath = `/external/recurring-financial-records`;
+
         const response = await this.request({
-            path: `/external/recurring-financial-records`,
+            path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
@@ -459,8 +468,12 @@ export class RecurringFinancialRecordsApi extends runtime.BaseAPI implements Rec
 
         const headerParameters: runtime.HTTPHeaders = {};
 
+
+        let urlPath = `/external/recurring-financial-records/{id}`;
+        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+
         const response = await this.request({
-            path: `/external/recurring-financial-records/{id}`.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id']))),
+            path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
@@ -501,8 +514,12 @@ export class RecurringFinancialRecordsApi extends runtime.BaseAPI implements Rec
 
         headerParameters['Content-Type'] = 'application/json';
 
+
+        let urlPath = `/external/recurring-financial-records/{id}`;
+        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+
         const response = await this.request({
-            path: `/external/recurring-financial-records/{id}`.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id']))),
+            path: urlPath,
             method: 'PATCH',
             headers: headerParameters,
             query: queryParameters,
@@ -544,8 +561,12 @@ export class RecurringFinancialRecordsApi extends runtime.BaseAPI implements Rec
 
         headerParameters['Content-Type'] = 'application/json';
 
+
+        let urlPath = `/external/recurring-financial-records/{id}`;
+        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+
         const response = await this.request({
-            path: `/external/recurring-financial-records/{id}`.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id']))),
+            path: urlPath,
             method: 'DELETE',
             headers: headerParameters,
             query: queryParameters,
@@ -579,8 +600,11 @@ export class RecurringFinancialRecordsApi extends runtime.BaseAPI implements Rec
 
         headerParameters['Content-Type'] = 'application/json';
 
+
+        let urlPath = `/internal/recurring-financial-records/seed`;
+
         const response = await this.request({
-            path: `/internal/recurring-financial-records/seed`,
+            path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
@@ -614,8 +638,11 @@ export class RecurringFinancialRecordsApi extends runtime.BaseAPI implements Rec
 
         headerParameters['Content-Type'] = 'application/json';
 
+
+        let urlPath = `/internal/queues/recurring-financial-records-2`;
+
         const response = await this.request({
-            path: `/internal/queues/recurring-financial-records-2`,
+            path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,

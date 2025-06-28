@@ -83,8 +83,11 @@ export class FinancialRecordRadarItemAutoExecuteApi extends runtime.BaseAPI impl
 
         const headerParameters: runtime.HTTPHeaders = {};
 
+
+        let urlPath = `/external/financial-records/radar/items/auto-execute/settings`;
+
         const response = await this.request({
-            path: `/external/financial-records/radar/items/auto-execute/settings`,
+            path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
@@ -120,8 +123,11 @@ export class FinancialRecordRadarItemAutoExecuteApi extends runtime.BaseAPI impl
 
         headerParameters['Content-Type'] = 'application/json';
 
+
+        let urlPath = `/external/financial-records/radar/items/auto-execute/settings`;
+
         const response = await this.request({
-            path: `/external/financial-records/radar/items/auto-execute/settings`,
+            path: urlPath,
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,

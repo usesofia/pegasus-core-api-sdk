@@ -70,8 +70,11 @@ export class FinancialRecordsExportApi extends runtime.BaseAPI implements Financ
 
         const headerParameters: runtime.HTTPHeaders = {};
 
+
+        let urlPath = `/external/financial-records/export`;
+
         const response = await this.request({
-            path: `/external/financial-records/export`,
+            path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,

@@ -80,7 +80,7 @@ var BankTransactionsApi = /** @class */ (function (_super) {
      */
     BankTransactionsApi.prototype.createOrUpdateBankTransactionRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -93,8 +93,9 @@ var BankTransactionsApi = /** @class */ (function (_super) {
                         }
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
+                        urlPath = "/internal/bank-transactions";
                         return [4 /*yield*/, this.request({
-                                path: "/internal/bank-transactions",
+                                path: urlPath,
                                 method: 'PUT',
                                 headers: headerParameters,
                                 query: queryParameters,
@@ -129,7 +130,7 @@ var BankTransactionsApi = /** @class */ (function (_super) {
      */
     BankTransactionsApi.prototype.dispatchOfxImportRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -139,8 +140,9 @@ var BankTransactionsApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
+                        urlPath = "/external/bank-transactions/ofx";
                         return [4 /*yield*/, this.request({
-                                path: "/external/bank-transactions/ofx",
+                                path: urlPath,
                                 method: 'POST',
                                 headers: headerParameters,
                                 query: queryParameters,
@@ -175,7 +177,7 @@ var BankTransactionsApi = /** @class */ (function (_super) {
      */
     BankTransactionsApi.prototype.findAllBankTransactionsRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -223,8 +225,9 @@ var BankTransactionsApi = /** @class */ (function (_super) {
                             queryParameters['pageIndex'] = requestParameters['pageIndex'];
                         }
                         headerParameters = {};
+                        urlPath = "/external/bank-transactions";
                         return [4 /*yield*/, this.request({
-                                path: "/external/bank-transactions",
+                                path: urlPath,
                                 method: 'GET',
                                 headers: headerParameters,
                                 query: queryParameters,
@@ -259,7 +262,7 @@ var BankTransactionsApi = /** @class */ (function (_super) {
      */
     BankTransactionsApi.prototype.findAllOfxImportJobRequestsRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -277,8 +280,9 @@ var BankTransactionsApi = /** @class */ (function (_super) {
                             queryParameters['pageIndex'] = requestParameters['pageIndex'];
                         }
                         headerParameters = {};
+                        urlPath = "/external/bank-transactions/ofx/job-requests";
                         return [4 /*yield*/, this.request({
-                                path: "/external/bank-transactions/ofx/job-requests",
+                                path: urlPath,
                                 method: 'GET',
                                 headers: headerParameters,
                                 query: queryParameters,
@@ -313,7 +317,7 @@ var BankTransactionsApi = /** @class */ (function (_super) {
      */
     BankTransactionsApi.prototype.findBankTransactionByIdRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -325,8 +329,10 @@ var BankTransactionsApi = /** @class */ (function (_super) {
                             queryParameters['populate'] = requestParameters['populate'];
                         }
                         headerParameters = {};
+                        urlPath = "/external/bank-transactions/{id}";
+                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
-                                path: "/external/bank-transactions/{id}".replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id']))),
+                                path: urlPath,
                                 method: 'GET',
                                 headers: headerParameters,
                                 query: queryParameters,
@@ -360,7 +366,7 @@ var BankTransactionsApi = /** @class */ (function (_super) {
      */
     BankTransactionsApi.prototype.partialUpdateBankTransactionRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -376,8 +382,10 @@ var BankTransactionsApi = /** @class */ (function (_super) {
                         }
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
+                        urlPath = "/external/bank-transactions/{id}";
+                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
-                                path: "/external/bank-transactions/{id}".replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id']))),
+                                path: urlPath,
                                 method: 'PATCH',
                                 headers: headerParameters,
                                 query: queryParameters,
@@ -412,7 +420,7 @@ var BankTransactionsApi = /** @class */ (function (_super) {
      */
     BankTransactionsApi.prototype.processOfxImportRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -422,8 +430,9 @@ var BankTransactionsApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
+                        urlPath = "/internal/queues/ofx-import";
                         return [4 /*yield*/, this.request({
-                                path: "/internal/queues/ofx-import",
+                                path: urlPath,
                                 method: 'POST',
                                 headers: headerParameters,
                                 query: queryParameters,
@@ -456,7 +465,7 @@ var BankTransactionsApi = /** @class */ (function (_super) {
      */
     BankTransactionsApi.prototype.reconcileBankTransactionRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -469,8 +478,10 @@ var BankTransactionsApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
+                        urlPath = "/external/bank-transactions/{bankTransactionId}/reconcile";
+                        urlPath = urlPath.replace("{".concat("bankTransactionId", "}"), encodeURIComponent(String(requestParameters['bankTransactionId'])));
                         return [4 /*yield*/, this.request({
-                                path: "/external/bank-transactions/{bankTransactionId}/reconcile".replace("{".concat("bankTransactionId", "}"), encodeURIComponent(String(requestParameters['bankTransactionId']))),
+                                path: urlPath,
                                 method: 'POST',
                                 headers: headerParameters,
                                 query: queryParameters,
@@ -505,7 +516,7 @@ var BankTransactionsApi = /** @class */ (function (_super) {
      */
     BankTransactionsApi.prototype.systemFindAllBankTransactionsRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -559,8 +570,9 @@ var BankTransactionsApi = /** @class */ (function (_super) {
                             queryParameters['pageIndex'] = requestParameters['pageIndex'];
                         }
                         headerParameters = {};
+                        urlPath = "/internal/bank-transactions";
                         return [4 /*yield*/, this.request({
-                                path: "/internal/bank-transactions",
+                                path: urlPath,
                                 method: 'GET',
                                 headers: headerParameters,
                                 query: queryParameters,
@@ -594,7 +606,7 @@ var BankTransactionsApi = /** @class */ (function (_super) {
      */
     BankTransactionsApi.prototype.unreconcileBankTransactionRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -603,8 +615,10 @@ var BankTransactionsApi = /** @class */ (function (_super) {
                         }
                         queryParameters = {};
                         headerParameters = {};
+                        urlPath = "/external/bank-transactions/{bankTransactionId}/unreconcile";
+                        urlPath = urlPath.replace("{".concat("bankTransactionId", "}"), encodeURIComponent(String(requestParameters['bankTransactionId'])));
                         return [4 /*yield*/, this.request({
-                                path: "/external/bank-transactions/{bankTransactionId}/unreconcile".replace("{".concat("bankTransactionId", "}"), encodeURIComponent(String(requestParameters['bankTransactionId']))),
+                                path: urlPath,
                                 method: 'POST',
                                 headers: headerParameters,
                                 query: queryParameters,

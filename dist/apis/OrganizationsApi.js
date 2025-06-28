@@ -80,7 +80,7 @@ var OrganizationsApi = /** @class */ (function (_super) {
      */
     OrganizationsApi.prototype.createOrganizationRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -93,8 +93,9 @@ var OrganizationsApi = /** @class */ (function (_super) {
                         }
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
+                        urlPath = "/external/organizations";
                         return [4 /*yield*/, this.request({
-                                path: "/external/organizations",
+                                path: urlPath,
                                 method: 'POST',
                                 headers: headerParameters,
                                 query: queryParameters,
@@ -129,7 +130,7 @@ var OrganizationsApi = /** @class */ (function (_super) {
      */
     OrganizationsApi.prototype.externalHardRemoveOrganizationRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -138,8 +139,10 @@ var OrganizationsApi = /** @class */ (function (_super) {
                         }
                         queryParameters = {};
                         headerParameters = {};
+                        urlPath = "/external/organizations/{organizationId}/hard";
+                        urlPath = urlPath.replace("{".concat("organizationId", "}"), encodeURIComponent(String(requestParameters['organizationId'])));
                         return [4 /*yield*/, this.request({
-                                path: "/external/organizations/{organizationId}/hard".replace("{".concat("organizationId", "}"), encodeURIComponent(String(requestParameters['organizationId']))),
+                                path: urlPath,
                                 method: 'DELETE',
                                 headers: headerParameters,
                                 query: queryParameters,
@@ -171,14 +174,15 @@ var OrganizationsApi = /** @class */ (function (_super) {
      */
     OrganizationsApi.prototype.findMyAdminGroupOrganizationsRaw = function (initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         queryParameters = {};
                         headerParameters = {};
+                        urlPath = "/external/organizations/my/admin/type/group";
                         return [4 /*yield*/, this.request({
-                                path: "/external/organizations/my/admin/type/group",
+                                path: urlPath,
                                 method: 'GET',
                                 headers: headerParameters,
                                 query: queryParameters,
@@ -212,14 +216,15 @@ var OrganizationsApi = /** @class */ (function (_super) {
      */
     OrganizationsApi.prototype.findMyOrganizationRaw = function (initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         queryParameters = {};
                         headerParameters = {};
+                        urlPath = "/external/organizations/my";
                         return [4 /*yield*/, this.request({
-                                path: "/external/organizations/my",
+                                path: urlPath,
                                 method: 'GET',
                                 headers: headerParameters,
                                 query: queryParameters,
@@ -253,7 +258,7 @@ var OrganizationsApi = /** @class */ (function (_super) {
      */
     OrganizationsApi.prototype.findOrganizationByIdRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -262,8 +267,10 @@ var OrganizationsApi = /** @class */ (function (_super) {
                         }
                         queryParameters = {};
                         headerParameters = {};
+                        urlPath = "/external/organizations/{organizationId}";
+                        urlPath = urlPath.replace("{".concat("organizationId", "}"), encodeURIComponent(String(requestParameters['organizationId'])));
                         return [4 /*yield*/, this.request({
-                                path: "/external/organizations/{organizationId}".replace("{".concat("organizationId", "}"), encodeURIComponent(String(requestParameters['organizationId']))),
+                                path: urlPath,
                                 method: 'GET',
                                 headers: headerParameters,
                                 query: queryParameters,
@@ -297,7 +304,7 @@ var OrganizationsApi = /** @class */ (function (_super) {
      */
     OrganizationsApi.prototype.hardRemoveOrganizationInternalRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -306,8 +313,10 @@ var OrganizationsApi = /** @class */ (function (_super) {
                         }
                         queryParameters = {};
                         headerParameters = {};
+                        urlPath = "/internal/organizations/{organizationId}/hard";
+                        urlPath = urlPath.replace("{".concat("organizationId", "}"), encodeURIComponent(String(requestParameters['organizationId'])));
                         return [4 /*yield*/, this.request({
-                                path: "/internal/organizations/{organizationId}/hard".replace("{".concat("organizationId", "}"), encodeURIComponent(String(requestParameters['organizationId']))),
+                                path: urlPath,
                                 method: 'DELETE',
                                 headers: headerParameters,
                                 query: queryParameters,
@@ -339,7 +348,7 @@ var OrganizationsApi = /** @class */ (function (_super) {
      */
     OrganizationsApi.prototype.partialUpdateOrganizationRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -352,8 +361,10 @@ var OrganizationsApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
+                        urlPath = "/external/organizations/{id}";
+                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
-                                path: "/external/organizations/{id}".replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id']))),
+                                path: urlPath,
                                 method: 'PATCH',
                                 headers: headerParameters,
                                 query: queryParameters,

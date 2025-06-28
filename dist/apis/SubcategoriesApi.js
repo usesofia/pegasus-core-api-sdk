@@ -80,7 +80,7 @@ var SubcategoriesApi = /** @class */ (function (_super) {
      */
     SubcategoriesApi.prototype.createSubcategoryRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -93,8 +93,9 @@ var SubcategoriesApi = /** @class */ (function (_super) {
                         }
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
+                        urlPath = "/external/subcategories";
                         return [4 /*yield*/, this.request({
-                                path: "/external/subcategories",
+                                path: urlPath,
                                 method: 'POST',
                                 headers: headerParameters,
                                 query: queryParameters,
@@ -129,7 +130,7 @@ var SubcategoriesApi = /** @class */ (function (_super) {
      */
     SubcategoriesApi.prototype.findAllSubcategoriesRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -162,8 +163,9 @@ var SubcategoriesApi = /** @class */ (function (_super) {
                             queryParameters['pageIndex'] = requestParameters['pageIndex'];
                         }
                         headerParameters = {};
+                        urlPath = "/external/subcategories";
                         return [4 /*yield*/, this.request({
-                                path: "/external/subcategories",
+                                path: urlPath,
                                 method: 'GET',
                                 headers: headerParameters,
                                 query: queryParameters,
@@ -198,7 +200,7 @@ var SubcategoriesApi = /** @class */ (function (_super) {
      */
     SubcategoriesApi.prototype.findBySlugSubcategoryRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -210,8 +212,10 @@ var SubcategoriesApi = /** @class */ (function (_super) {
                             queryParameters['populate'] = requestParameters['populate'];
                         }
                         headerParameters = {};
+                        urlPath = "/external/subcategories/slug/{slug}";
+                        urlPath = urlPath.replace("{".concat("slug", "}"), encodeURIComponent(String(requestParameters['slug'])));
                         return [4 /*yield*/, this.request({
-                                path: "/external/subcategories/slug/{slug}".replace("{".concat("slug", "}"), encodeURIComponent(String(requestParameters['slug']))),
+                                path: urlPath,
                                 method: 'GET',
                                 headers: headerParameters,
                                 query: queryParameters,
@@ -245,7 +249,7 @@ var SubcategoriesApi = /** @class */ (function (_super) {
      */
     SubcategoriesApi.prototype.partialUpdateSubcategoryRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -261,8 +265,10 @@ var SubcategoriesApi = /** @class */ (function (_super) {
                         }
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
+                        urlPath = "/external/subcategories/{id}";
+                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
-                                path: "/external/subcategories/{id}".replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id']))),
+                                path: urlPath,
                                 method: 'PATCH',
                                 headers: headerParameters,
                                 query: queryParameters,
@@ -297,7 +303,7 @@ var SubcategoriesApi = /** @class */ (function (_super) {
      */
     SubcategoriesApi.prototype.removeSubcategoryRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -310,8 +316,10 @@ var SubcategoriesApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
+                        urlPath = "/external/subcategories/{id}";
+                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
-                                path: "/external/subcategories/{id}".replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id']))),
+                                path: urlPath,
                                 method: 'DELETE',
                                 headers: headerParameters,
                                 query: queryParameters,
@@ -344,7 +352,7 @@ var SubcategoriesApi = /** @class */ (function (_super) {
      */
     SubcategoriesApi.prototype.systemFindAllSubcategoriesRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -386,8 +394,9 @@ var SubcategoriesApi = /** @class */ (function (_super) {
                             queryParameters['pageIndex'] = requestParameters['pageIndex'];
                         }
                         headerParameters = {};
+                        urlPath = "/internal/subcategories";
                         return [4 /*yield*/, this.request({
-                                path: "/internal/subcategories",
+                                path: urlPath,
                                 method: 'GET',
                                 headers: headerParameters,
                                 query: queryParameters,

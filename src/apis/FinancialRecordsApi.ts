@@ -66,6 +66,8 @@ export interface FindAllFinancialRecordsRequest {
     contact?: string;
     dueDateTo?: string;
     dueDateFrom?: string;
+    amountTo?: string;
+    amountFrom?: string;
     direction?: string;
     populate?: string;
     semanticSearchTermInBase64?: string;
@@ -109,6 +111,8 @@ export interface SystemFindAllFinancialRecordsRequest {
     contact?: string;
     dueDateTo?: string;
     dueDateFrom?: string;
+    amountTo?: string;
+    amountFrom?: string;
     direction?: string;
     populate?: string;
     semanticSearchTermInBase64?: string;
@@ -174,6 +178,8 @@ export interface FinancialRecordsApiInterface {
      * @param {string} [contact] Contato do lançamento financeiro.
      * @param {string} [dueDateTo] Data de vencimento final.
      * @param {string} [dueDateFrom] Data de vencimento inicial.
+     * @param {string} [amountTo] Valor do lançamento financeiro máximo.
+     * @param {string} [amountFrom] Valor do lançamento financeiro mínimo.
      * @param {string} [direction] Direção do lançamento financeiro.
      * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
      * @param {string} [semanticSearchTermInBase64] Termo para busca semântica.
@@ -261,6 +267,8 @@ export interface FinancialRecordsApiInterface {
      * @param {string} [contact] Contato do lançamento financeiro.
      * @param {string} [dueDateTo] Data de vencimento final.
      * @param {string} [dueDateFrom] Data de vencimento inicial.
+     * @param {string} [amountTo] Valor do lançamento financeiro máximo.
+     * @param {string} [amountFrom] Valor do lançamento financeiro mínimo.
      * @param {string} [direction] Direção do lançamento financeiro.
      * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
      * @param {string} [semanticSearchTermInBase64] Termo para busca semântica.
@@ -306,8 +314,11 @@ export class FinancialRecordsApi extends runtime.BaseAPI implements FinancialRec
 
         headerParameters['Content-Type'] = 'application/json';
 
+
+        let urlPath = `/external/financial-records`;
+
         const response = await this.request({
-            path: `/external/financial-records`,
+            path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
@@ -342,8 +353,11 @@ export class FinancialRecordsApi extends runtime.BaseAPI implements FinancialRec
 
         headerParameters['Content-Type'] = 'application/json';
 
+
+        let urlPath = `/external/financial-records/many`;
+
         const response = await this.request({
-            path: `/external/financial-records/many`,
+            path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
@@ -431,6 +445,14 @@ export class FinancialRecordsApi extends runtime.BaseAPI implements FinancialRec
             queryParameters['dueDateFrom'] = requestParameters['dueDateFrom'];
         }
 
+        if (requestParameters['amountTo'] != null) {
+            queryParameters['amountTo'] = requestParameters['amountTo'];
+        }
+
+        if (requestParameters['amountFrom'] != null) {
+            queryParameters['amountFrom'] = requestParameters['amountFrom'];
+        }
+
         if (requestParameters['direction'] != null) {
             queryParameters['direction'] = requestParameters['direction'];
         }
@@ -457,8 +479,11 @@ export class FinancialRecordsApi extends runtime.BaseAPI implements FinancialRec
 
         const headerParameters: runtime.HTTPHeaders = {};
 
+
+        let urlPath = `/external/financial-records`;
+
         const response = await this.request({
-            path: `/external/financial-records`,
+            path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
@@ -494,8 +519,12 @@ export class FinancialRecordsApi extends runtime.BaseAPI implements FinancialRec
 
         const headerParameters: runtime.HTTPHeaders = {};
 
+
+        let urlPath = `/external/financial-records/{id}`;
+        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+
         const response = await this.request({
-            path: `/external/financial-records/{id}`.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id']))),
+            path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
@@ -540,8 +569,12 @@ export class FinancialRecordsApi extends runtime.BaseAPI implements FinancialRec
 
         headerParameters['Content-Type'] = 'application/json';
 
+
+        let urlPath = `/external/financial-records/{id}`;
+        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+
         const response = await this.request({
-            path: `/external/financial-records/{id}`.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id']))),
+            path: urlPath,
             method: 'PATCH',
             headers: headerParameters,
             query: queryParameters,
@@ -583,8 +616,12 @@ export class FinancialRecordsApi extends runtime.BaseAPI implements FinancialRec
 
         headerParameters['Content-Type'] = 'application/json';
 
+
+        let urlPath = `/external/financial-records/{id}`;
+        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+
         const response = await this.request({
-            path: `/external/financial-records/{id}`.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id']))),
+            path: urlPath,
             method: 'DELETE',
             headers: headerParameters,
             query: queryParameters,
@@ -686,6 +723,14 @@ export class FinancialRecordsApi extends runtime.BaseAPI implements FinancialRec
             queryParameters['dueDateFrom'] = requestParameters['dueDateFrom'];
         }
 
+        if (requestParameters['amountTo'] != null) {
+            queryParameters['amountTo'] = requestParameters['amountTo'];
+        }
+
+        if (requestParameters['amountFrom'] != null) {
+            queryParameters['amountFrom'] = requestParameters['amountFrom'];
+        }
+
         if (requestParameters['direction'] != null) {
             queryParameters['direction'] = requestParameters['direction'];
         }
@@ -712,8 +757,11 @@ export class FinancialRecordsApi extends runtime.BaseAPI implements FinancialRec
 
         const headerParameters: runtime.HTTPHeaders = {};
 
+
+        let urlPath = `/internal/financial-records`;
+
         const response = await this.request({
-            path: `/internal/financial-records`,
+            path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,

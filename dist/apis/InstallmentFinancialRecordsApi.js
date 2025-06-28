@@ -80,7 +80,7 @@ var InstallmentFinancialRecordsApi = /** @class */ (function (_super) {
      */
     InstallmentFinancialRecordsApi.prototype.createInstallmentFinancialRecordRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -93,8 +93,9 @@ var InstallmentFinancialRecordsApi = /** @class */ (function (_super) {
                         }
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
+                        urlPath = "/external/installment-financial-records";
                         return [4 /*yield*/, this.request({
-                                path: "/external/installment-financial-records",
+                                path: urlPath,
                                 method: 'POST',
                                 headers: headerParameters,
                                 query: queryParameters,
@@ -129,7 +130,7 @@ var InstallmentFinancialRecordsApi = /** @class */ (function (_super) {
      */
     InstallmentFinancialRecordsApi.prototype.findAllInstallmentFinancialRecordsRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -183,8 +184,9 @@ var InstallmentFinancialRecordsApi = /** @class */ (function (_super) {
                             queryParameters['pageIndex'] = requestParameters['pageIndex'];
                         }
                         headerParameters = {};
+                        urlPath = "/external/installment-financial-records";
                         return [4 /*yield*/, this.request({
-                                path: "/external/installment-financial-records",
+                                path: urlPath,
                                 method: 'GET',
                                 headers: headerParameters,
                                 query: queryParameters,
@@ -219,7 +221,7 @@ var InstallmentFinancialRecordsApi = /** @class */ (function (_super) {
      */
     InstallmentFinancialRecordsApi.prototype.findByIdInstallmentFinancialRecordRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -231,8 +233,10 @@ var InstallmentFinancialRecordsApi = /** @class */ (function (_super) {
                             queryParameters['populate'] = requestParameters['populate'];
                         }
                         headerParameters = {};
+                        urlPath = "/external/installment-financial-records/{id}";
+                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
-                                path: "/external/installment-financial-records/{id}".replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id']))),
+                                path: urlPath,
                                 method: 'GET',
                                 headers: headerParameters,
                                 query: queryParameters,
@@ -266,7 +270,7 @@ var InstallmentFinancialRecordsApi = /** @class */ (function (_super) {
      */
     InstallmentFinancialRecordsApi.prototype.partialUpdateInstallmentFinancialRecordRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -282,8 +286,10 @@ var InstallmentFinancialRecordsApi = /** @class */ (function (_super) {
                         }
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
+                        urlPath = "/external/installment-financial-records/{id}";
+                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
-                                path: "/external/installment-financial-records/{id}".replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id']))),
+                                path: urlPath,
                                 method: 'PATCH',
                                 headers: headerParameters,
                                 query: queryParameters,
@@ -319,7 +325,7 @@ var InstallmentFinancialRecordsApi = /** @class */ (function (_super) {
      */
     InstallmentFinancialRecordsApi.prototype.removeInstallmentFinancialRecordRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -332,8 +338,10 @@ var InstallmentFinancialRecordsApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
+                        urlPath = "/external/installment-financial-records/{id}";
+                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
-                                path: "/external/installment-financial-records/{id}".replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id']))),
+                                path: urlPath,
                                 method: 'DELETE',
                                 headers: headerParameters,
                                 query: queryParameters,

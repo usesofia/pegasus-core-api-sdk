@@ -78,8 +78,11 @@ export class ProspectInstallmentFinancialRecordsApi extends runtime.BaseAPI impl
 
         headerParameters['Content-Type'] = 'application/json';
 
+
+        let urlPath = `/external/installment-financial-records/prospect`;
+
         const response = await this.request({
-            path: `/external/installment-financial-records/prospect`,
+            path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,

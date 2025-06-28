@@ -88,8 +88,11 @@ export class NormalizedSubcategoriesApi extends runtime.BaseAPI implements Norma
 
         const headerParameters: runtime.HTTPHeaders = {};
 
+
+        let urlPath = `/external/normalized-subcategories`;
+
         const response = await this.request({
-            path: `/external/normalized-subcategories`,
+            path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,

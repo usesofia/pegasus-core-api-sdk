@@ -212,8 +212,11 @@ export class FinancialRecordRadarItemsApi extends runtime.BaseAPI implements Fin
 
         headerParameters['Content-Type'] = 'application/json';
 
+
+        let urlPath = `/external/financial-records/radar/items`;
+
         const response = await this.request({
-            path: `/external/financial-records/radar/items`,
+            path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
@@ -275,8 +278,11 @@ export class FinancialRecordRadarItemsApi extends runtime.BaseAPI implements Fin
 
         const headerParameters: runtime.HTTPHeaders = {};
 
+
+        let urlPath = `/external/financial-records/radar/items`;
+
         const response = await this.request({
-            path: `/external/financial-records/radar/items`,
+            path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
@@ -308,8 +314,12 @@ export class FinancialRecordRadarItemsApi extends runtime.BaseAPI implements Fin
 
         const headerParameters: runtime.HTTPHeaders = {};
 
+
+        let urlPath = `/external/financial-records/radar/items/{radarItemId}/tags`;
+        urlPath = urlPath.replace(`{${"radarItemId"}}`, encodeURIComponent(String(requestParameters['radarItemId'])));
+
         const response = await this.request({
-            path: `/external/financial-records/radar/items/{radarItemId}/tags`.replace(`{${"radarItemId"}}`, encodeURIComponent(String(requestParameters['radarItemId']))),
+            path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
@@ -351,8 +361,12 @@ export class FinancialRecordRadarItemsApi extends runtime.BaseAPI implements Fin
 
         headerParameters['Content-Type'] = 'application/json';
 
+
+        let urlPath = `/external/financial-records/radar/items/{radarItemId}/links`;
+        urlPath = urlPath.replace(`{${"radarItemId"}}`, encodeURIComponent(String(requestParameters['radarItemId'])));
+
         const response = await this.request({
-            path: `/external/financial-records/radar/items/{radarItemId}/links`.replace(`{${"radarItemId"}}`, encodeURIComponent(String(requestParameters['radarItemId']))),
+            path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
@@ -396,8 +410,12 @@ export class FinancialRecordRadarItemsApi extends runtime.BaseAPI implements Fin
 
         headerParameters['Content-Type'] = 'application/json';
 
+
+        let urlPath = `/external/financial-records/radar/items/{radarItemId}`;
+        urlPath = urlPath.replace(`{${"radarItemId"}}`, encodeURIComponent(String(requestParameters['radarItemId'])));
+
         const response = await this.request({
-            path: `/external/financial-records/radar/items/{radarItemId}`.replace(`{${"radarItemId"}}`, encodeURIComponent(String(requestParameters['radarItemId']))),
+            path: urlPath,
             method: 'PATCH',
             headers: headerParameters,
             query: queryParameters,
@@ -435,8 +453,12 @@ export class FinancialRecordRadarItemsApi extends runtime.BaseAPI implements Fin
 
         const headerParameters: runtime.HTTPHeaders = {};
 
+
+        let urlPath = `/external/financial-records/radar/items/{radarItemId}/preview-bulk-create-file`;
+        urlPath = urlPath.replace(`{${"radarItemId"}}`, encodeURIComponent(String(requestParameters['radarItemId'])));
+
         const response = await this.request({
-            path: `/external/financial-records/radar/items/{radarItemId}/preview-bulk-create-file`.replace(`{${"radarItemId"}}`, encodeURIComponent(String(requestParameters['radarItemId']))),
+            path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,

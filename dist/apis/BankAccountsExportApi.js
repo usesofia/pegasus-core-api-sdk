@@ -80,7 +80,7 @@ var BankAccountsExportApi = /** @class */ (function (_super) {
      */
     BankAccountsExportApi.prototype.exportBankAccountsRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -89,8 +89,9 @@ var BankAccountsExportApi = /** @class */ (function (_super) {
                             queryParameters['format'] = requestParameters['format'];
                         }
                         headerParameters = {};
+                        urlPath = "/external/bank-accounts/export";
                         return [4 /*yield*/, this.request({
-                                path: "/external/bank-accounts/export",
+                                path: urlPath,
                                 method: 'POST',
                                 headers: headerParameters,
                                 query: queryParameters,

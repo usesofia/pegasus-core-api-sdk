@@ -70,8 +70,11 @@ export class BankAccountsExportApi extends runtime.BaseAPI implements BankAccoun
 
         const headerParameters: runtime.HTTPHeaders = {};
 
+
+        let urlPath = `/external/bank-accounts/export`;
+
         const response = await this.request({
-            path: `/external/bank-accounts/export`,
+            path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,

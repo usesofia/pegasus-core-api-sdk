@@ -208,8 +208,11 @@ export class InstallmentFinancialRecordsApi extends runtime.BaseAPI implements I
 
         headerParameters['Content-Type'] = 'application/json';
 
+
+        let urlPath = `/external/installment-financial-records`;
+
         const response = await this.request({
-            path: `/external/installment-financial-records`,
+            path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
@@ -299,8 +302,11 @@ export class InstallmentFinancialRecordsApi extends runtime.BaseAPI implements I
 
         const headerParameters: runtime.HTTPHeaders = {};
 
+
+        let urlPath = `/external/installment-financial-records`;
+
         const response = await this.request({
-            path: `/external/installment-financial-records`,
+            path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
@@ -336,8 +342,12 @@ export class InstallmentFinancialRecordsApi extends runtime.BaseAPI implements I
 
         const headerParameters: runtime.HTTPHeaders = {};
 
+
+        let urlPath = `/external/installment-financial-records/{id}`;
+        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+
         const response = await this.request({
-            path: `/external/installment-financial-records/{id}`.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id']))),
+            path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
@@ -382,8 +392,12 @@ export class InstallmentFinancialRecordsApi extends runtime.BaseAPI implements I
 
         headerParameters['Content-Type'] = 'application/json';
 
+
+        let urlPath = `/external/installment-financial-records/{id}`;
+        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+
         const response = await this.request({
-            path: `/external/installment-financial-records/{id}`.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id']))),
+            path: urlPath,
             method: 'PATCH',
             headers: headerParameters,
             query: queryParameters,
@@ -426,8 +440,12 @@ export class InstallmentFinancialRecordsApi extends runtime.BaseAPI implements I
 
         headerParameters['Content-Type'] = 'application/json';
 
+
+        let urlPath = `/external/installment-financial-records/{id}`;
+        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+
         const response = await this.request({
-            path: `/external/installment-financial-records/{id}`.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id']))),
+            path: urlPath,
             method: 'DELETE',
             headers: headerParameters,
             query: queryParameters,

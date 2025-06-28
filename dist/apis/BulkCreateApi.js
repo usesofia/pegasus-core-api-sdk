@@ -80,7 +80,7 @@ var BulkCreateApi = /** @class */ (function (_super) {
      */
     BulkCreateApi.prototype.processBulkCreateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -90,8 +90,9 @@ var BulkCreateApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
+                        urlPath = "/internal/queues/bulk-create";
                         return [4 /*yield*/, this.request({
-                                path: "/internal/queues/bulk-create",
+                                path: urlPath,
                                 method: 'POST',
                                 headers: headerParameters,
                                 query: queryParameters,
@@ -124,7 +125,7 @@ var BulkCreateApi = /** @class */ (function (_super) {
      */
     BulkCreateApi.prototype.scheduleBulkCreateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -134,8 +135,9 @@ var BulkCreateApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
+                        urlPath = "/external/bulk/create";
                         return [4 /*yield*/, this.request({
-                                path: "/external/bulk/create",
+                                path: urlPath,
                                 method: 'POST',
                                 headers: headerParameters,
                                 query: queryParameters,

@@ -80,7 +80,7 @@ var ExportResourceJobRequestsApi = /** @class */ (function (_super) {
      */
     ExportResourceJobRequestsApi.prototype.processExportResourceJobRequestRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -90,8 +90,9 @@ var ExportResourceJobRequestsApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
+                        urlPath = "/internal/queues/export-resources";
                         return [4 /*yield*/, this.request({
-                                path: "/internal/queues/export-resources",
+                                path: urlPath,
                                 method: 'POST',
                                 headers: headerParameters,
                                 query: queryParameters,

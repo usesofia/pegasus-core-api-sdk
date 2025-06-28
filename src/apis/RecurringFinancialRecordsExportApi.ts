@@ -70,8 +70,11 @@ export class RecurringFinancialRecordsExportApi extends runtime.BaseAPI implemen
 
         const headerParameters: runtime.HTTPHeaders = {};
 
+
+        let urlPath = `/external/recurring-financial-records/export`;
+
         const response = await this.request({
-            path: `/external/recurring-financial-records/export`,
+            path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,

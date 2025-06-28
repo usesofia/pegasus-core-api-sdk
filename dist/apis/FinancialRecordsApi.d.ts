@@ -35,6 +35,8 @@ export interface FindAllFinancialRecordsRequest {
     contact?: string;
     dueDateTo?: string;
     dueDateFrom?: string;
+    amountTo?: string;
+    amountFrom?: string;
     direction?: string;
     populate?: string;
     semanticSearchTermInBase64?: string;
@@ -74,6 +76,8 @@ export interface SystemFindAllFinancialRecordsRequest {
     contact?: string;
     dueDateTo?: string;
     dueDateFrom?: string;
+    amountTo?: string;
+    amountFrom?: string;
     direction?: string;
     populate?: string;
     semanticSearchTermInBase64?: string;
@@ -134,6 +138,8 @@ export interface FinancialRecordsApiInterface {
      * @param {string} [contact] Contato do lançamento financeiro.
      * @param {string} [dueDateTo] Data de vencimento final.
      * @param {string} [dueDateFrom] Data de vencimento inicial.
+     * @param {string} [amountTo] Valor do lançamento financeiro máximo.
+     * @param {string} [amountFrom] Valor do lançamento financeiro mínimo.
      * @param {string} [direction] Direção do lançamento financeiro.
      * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
      * @param {string} [semanticSearchTermInBase64] Termo para busca semântica.
@@ -213,6 +219,8 @@ export interface FinancialRecordsApiInterface {
      * @param {string} [contact] Contato do lançamento financeiro.
      * @param {string} [dueDateTo] Data de vencimento final.
      * @param {string} [dueDateFrom] Data de vencimento inicial.
+     * @param {string} [amountTo] Valor do lançamento financeiro máximo.
+     * @param {string} [amountFrom] Valor do lançamento financeiro mínimo.
      * @param {string} [direction] Direção do lançamento financeiro.
      * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
      * @param {string} [semanticSearchTermInBase64] Termo para busca semântica.

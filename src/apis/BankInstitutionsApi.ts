@@ -58,8 +58,11 @@ export class BankInstitutionsApi extends runtime.BaseAPI implements BankInstitut
 
         const headerParameters: runtime.HTTPHeaders = {};
 
+
+        let urlPath = `/external/bank-institutions`;
+
         const response = await this.request({
-            path: `/external/bank-institutions`,
+            path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,

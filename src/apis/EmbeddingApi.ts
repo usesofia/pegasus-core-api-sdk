@@ -89,8 +89,11 @@ export class EmbeddingApi extends runtime.BaseAPI implements EmbeddingApiInterfa
 
         headerParameters['Content-Type'] = 'application/json';
 
+
+        let urlPath = `/internal/queues/calculate-embedding`;
+
         const response = await this.request({
-            path: `/internal/queues/calculate-embedding`,
+            path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
@@ -115,8 +118,11 @@ export class EmbeddingApi extends runtime.BaseAPI implements EmbeddingApiInterfa
 
         const headerParameters: runtime.HTTPHeaders = {};
 
+
+        let urlPath = `/internal/embedding/catch`;
+
         const response = await this.request({
-            path: `/internal/embedding/catch`,
+            path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,

@@ -70,8 +70,11 @@ export class ContactsExportApi extends runtime.BaseAPI implements ContactsExport
 
         const headerParameters: runtime.HTTPHeaders = {};
 
+
+        let urlPath = `/external/contacts/export`;
+
         const response = await this.request({
-            path: `/external/contacts/export`,
+            path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,

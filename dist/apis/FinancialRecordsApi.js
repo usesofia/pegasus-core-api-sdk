@@ -80,7 +80,7 @@ var FinancialRecordsApi = /** @class */ (function (_super) {
      */
     FinancialRecordsApi.prototype.createFinancialRecordRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -93,8 +93,9 @@ var FinancialRecordsApi = /** @class */ (function (_super) {
                         }
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
+                        urlPath = "/external/financial-records";
                         return [4 /*yield*/, this.request({
-                                path: "/external/financial-records",
+                                path: urlPath,
                                 method: 'POST',
                                 headers: headerParameters,
                                 query: queryParameters,
@@ -129,7 +130,7 @@ var FinancialRecordsApi = /** @class */ (function (_super) {
      */
     FinancialRecordsApi.prototype.createManyFinancialRecordsRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -139,8 +140,9 @@ var FinancialRecordsApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
+                        urlPath = "/external/financial-records/many";
                         return [4 /*yield*/, this.request({
-                                path: "/external/financial-records/many",
+                                path: urlPath,
                                 method: 'POST',
                                 headers: headerParameters,
                                 query: queryParameters,
@@ -175,7 +177,7 @@ var FinancialRecordsApi = /** @class */ (function (_super) {
      */
     FinancialRecordsApi.prototype.findAllFinancialRecordsRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -228,6 +230,12 @@ var FinancialRecordsApi = /** @class */ (function (_super) {
                         if (requestParameters['dueDateFrom'] != null) {
                             queryParameters['dueDateFrom'] = requestParameters['dueDateFrom'];
                         }
+                        if (requestParameters['amountTo'] != null) {
+                            queryParameters['amountTo'] = requestParameters['amountTo'];
+                        }
+                        if (requestParameters['amountFrom'] != null) {
+                            queryParameters['amountFrom'] = requestParameters['amountFrom'];
+                        }
                         if (requestParameters['direction'] != null) {
                             queryParameters['direction'] = requestParameters['direction'];
                         }
@@ -247,8 +255,9 @@ var FinancialRecordsApi = /** @class */ (function (_super) {
                             queryParameters['pageIndex'] = requestParameters['pageIndex'];
                         }
                         headerParameters = {};
+                        urlPath = "/external/financial-records";
                         return [4 /*yield*/, this.request({
-                                path: "/external/financial-records",
+                                path: urlPath,
                                 method: 'GET',
                                 headers: headerParameters,
                                 query: queryParameters,
@@ -283,7 +292,7 @@ var FinancialRecordsApi = /** @class */ (function (_super) {
      */
     FinancialRecordsApi.prototype.findByIdFinancialRecordRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -295,8 +304,10 @@ var FinancialRecordsApi = /** @class */ (function (_super) {
                             queryParameters['populate'] = requestParameters['populate'];
                         }
                         headerParameters = {};
+                        urlPath = "/external/financial-records/{id}";
+                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
-                                path: "/external/financial-records/{id}".replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id']))),
+                                path: urlPath,
                                 method: 'GET',
                                 headers: headerParameters,
                                 query: queryParameters,
@@ -330,7 +341,7 @@ var FinancialRecordsApi = /** @class */ (function (_super) {
      */
     FinancialRecordsApi.prototype.partialUpdateFinancialRecordRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -346,8 +357,10 @@ var FinancialRecordsApi = /** @class */ (function (_super) {
                         }
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
+                        urlPath = "/external/financial-records/{id}";
+                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
-                                path: "/external/financial-records/{id}".replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id']))),
+                                path: urlPath,
                                 method: 'PATCH',
                                 headers: headerParameters,
                                 query: queryParameters,
@@ -382,7 +395,7 @@ var FinancialRecordsApi = /** @class */ (function (_super) {
      */
     FinancialRecordsApi.prototype.removeFinancialRecordRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -395,8 +408,10 @@ var FinancialRecordsApi = /** @class */ (function (_super) {
                         queryParameters = {};
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
+                        urlPath = "/external/financial-records/{id}";
+                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
-                                path: "/external/financial-records/{id}".replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id']))),
+                                path: urlPath,
                                 method: 'DELETE',
                                 headers: headerParameters,
                                 query: queryParameters,
@@ -429,7 +444,7 @@ var FinancialRecordsApi = /** @class */ (function (_super) {
      */
     FinancialRecordsApi.prototype.systemFindAllFinancialRecordsRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, response;
+            var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -491,6 +506,12 @@ var FinancialRecordsApi = /** @class */ (function (_super) {
                         if (requestParameters['dueDateFrom'] != null) {
                             queryParameters['dueDateFrom'] = requestParameters['dueDateFrom'];
                         }
+                        if (requestParameters['amountTo'] != null) {
+                            queryParameters['amountTo'] = requestParameters['amountTo'];
+                        }
+                        if (requestParameters['amountFrom'] != null) {
+                            queryParameters['amountFrom'] = requestParameters['amountFrom'];
+                        }
                         if (requestParameters['direction'] != null) {
                             queryParameters['direction'] = requestParameters['direction'];
                         }
@@ -510,8 +531,9 @@ var FinancialRecordsApi = /** @class */ (function (_super) {
                             queryParameters['pageIndex'] = requestParameters['pageIndex'];
                         }
                         headerParameters = {};
+                        urlPath = "/internal/financial-records";
                         return [4 /*yield*/, this.request({
-                                path: "/internal/financial-records",
+                                path: urlPath,
                                 method: 'GET',
                                 headers: headerParameters,
                                 query: queryParameters,

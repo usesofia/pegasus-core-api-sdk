@@ -232,8 +232,11 @@ export class SubcategoriesApi extends runtime.BaseAPI implements SubcategoriesAp
 
         headerParameters['Content-Type'] = 'application/json';
 
+
+        let urlPath = `/external/subcategories`;
+
         const response = await this.request({
-            path: `/external/subcategories`,
+            path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
@@ -295,8 +298,11 @@ export class SubcategoriesApi extends runtime.BaseAPI implements SubcategoriesAp
 
         const headerParameters: runtime.HTTPHeaders = {};
 
+
+        let urlPath = `/external/subcategories`;
+
         const response = await this.request({
-            path: `/external/subcategories`,
+            path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
@@ -332,8 +338,12 @@ export class SubcategoriesApi extends runtime.BaseAPI implements SubcategoriesAp
 
         const headerParameters: runtime.HTTPHeaders = {};
 
+
+        let urlPath = `/external/subcategories/slug/{slug}`;
+        urlPath = urlPath.replace(`{${"slug"}}`, encodeURIComponent(String(requestParameters['slug'])));
+
         const response = await this.request({
-            path: `/external/subcategories/slug/{slug}`.replace(`{${"slug"}}`, encodeURIComponent(String(requestParameters['slug']))),
+            path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
@@ -378,8 +388,12 @@ export class SubcategoriesApi extends runtime.BaseAPI implements SubcategoriesAp
 
         headerParameters['Content-Type'] = 'application/json';
 
+
+        let urlPath = `/external/subcategories/{id}`;
+        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+
         const response = await this.request({
-            path: `/external/subcategories/{id}`.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id']))),
+            path: urlPath,
             method: 'PATCH',
             headers: headerParameters,
             query: queryParameters,
@@ -421,8 +435,12 @@ export class SubcategoriesApi extends runtime.BaseAPI implements SubcategoriesAp
 
         headerParameters['Content-Type'] = 'application/json';
 
+
+        let urlPath = `/external/subcategories/{id}`;
+        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+
         const response = await this.request({
-            path: `/external/subcategories/{id}`.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id']))),
+            path: urlPath,
             method: 'DELETE',
             headers: headerParameters,
             query: queryParameters,
@@ -498,8 +516,11 @@ export class SubcategoriesApi extends runtime.BaseAPI implements SubcategoriesAp
 
         const headerParameters: runtime.HTTPHeaders = {};
 
+
+        let urlPath = `/internal/subcategories`;
+
         const response = await this.request({
-            path: `/internal/subcategories`,
+            path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,

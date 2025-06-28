@@ -145,8 +145,11 @@ export class FilesUploadApi extends runtime.BaseAPI implements FilesUploadApiInt
 
         headerParameters['Content-Type'] = 'application/json';
 
+
+        let urlPath = `/external/files/upload/confirm`;
+
         const response = await this.request({
-            path: `/external/files/upload/confirm`,
+            path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
@@ -181,8 +184,11 @@ export class FilesUploadApi extends runtime.BaseAPI implements FilesUploadApiInt
 
         headerParameters['Content-Type'] = 'application/json';
 
+
+        let urlPath = `/external/files/upload`;
+
         const response = await this.request({
-            path: `/external/files/upload`,
+            path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
@@ -224,8 +230,12 @@ export class FilesUploadApi extends runtime.BaseAPI implements FilesUploadApiInt
 
         headerParameters['Content-Type'] = 'application/json';
 
+
+        let urlPath = `/internal/organizations/{organizationId}/files/upload/confirm`;
+        urlPath = urlPath.replace(`{${"organizationId"}}`, encodeURIComponent(String(requestParameters['organizationId'])));
+
         const response = await this.request({
-            path: `/internal/organizations/{organizationId}/files/upload/confirm`.replace(`{${"organizationId"}}`, encodeURIComponent(String(requestParameters['organizationId']))),
+            path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
@@ -267,8 +277,12 @@ export class FilesUploadApi extends runtime.BaseAPI implements FilesUploadApiInt
 
         headerParameters['Content-Type'] = 'application/json';
 
+
+        let urlPath = `/internal/organizations/{organizationId}/files/upload`;
+        urlPath = urlPath.replace(`{${"organizationId"}}`, encodeURIComponent(String(requestParameters['organizationId'])));
+
         const response = await this.request({
-            path: `/internal/organizations/{organizationId}/files/upload`.replace(`{${"organizationId"}}`, encodeURIComponent(String(requestParameters['organizationId']))),
+            path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
