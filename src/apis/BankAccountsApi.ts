@@ -100,6 +100,11 @@ export interface SystemFindAllBankAccountsRequest {
     pageIndex?: number;
 }
 
+export interface SystemFindByIdBankAccountRequest {
+    id: string;
+    populate?: string;
+}
+
 /**
  * BankAccountsApi - interface
  * 
@@ -257,6 +262,22 @@ export interface BankAccountsApiInterface {
      * Busca todas as contas bancárias.
      */
     systemFindAllBankAccounts(requestParameters: SystemFindAllBankAccountsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankAccountsPageDto>;
+
+    /**
+     * 
+     * @summary Busca uma conta bancária pelo identificador.
+     * @param {string} id Identificador da conta bancária.
+     * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof BankAccountsApiInterface
+     */
+    systemFindByIdBankAccountRaw(requestParameters: SystemFindByIdBankAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankAccountDto>>;
+
+    /**
+     * Busca uma conta bancária pelo identificador.
+     */
+    systemFindByIdBankAccount(requestParameters: SystemFindByIdBankAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankAccountDto>;
 
 }
 
@@ -690,6 +711,47 @@ export class BankAccountsApi extends runtime.BaseAPI implements BankAccountsApiI
      */
     async systemFindAllBankAccounts(requestParameters: SystemFindAllBankAccountsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankAccountsPageDto> {
         const response = await this.systemFindAllBankAccountsRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Busca uma conta bancária pelo identificador.
+     */
+    async systemFindByIdBankAccountRaw(requestParameters: SystemFindByIdBankAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankAccountDto>> {
+        if (requestParameters['id'] == null) {
+            throw new runtime.RequiredError(
+                'id',
+                'Required parameter "id" was null or undefined when calling systemFindByIdBankAccount().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['populate'] != null) {
+            queryParameters['populate'] = requestParameters['populate'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+
+        let urlPath = `/internal/bank-accounts/{id}`;
+        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => BankAccountDtoFromJSON(jsonValue));
+    }
+
+    /**
+     * Busca uma conta bancária pelo identificador.
+     */
+    async systemFindByIdBankAccount(requestParameters: SystemFindByIdBankAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankAccountDto> {
+        const response = await this.systemFindByIdBankAccountRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

@@ -64,6 +64,10 @@ export interface SystemFindAllBankAccountsRequest {
     pageSize?: number;
     pageIndex?: number;
 }
+export interface SystemFindByIdBankAccountRequest {
+    id: string;
+    populate?: string;
+}
 /**
  * BankAccountsApi - interface
  *
@@ -206,6 +210,20 @@ export interface BankAccountsApiInterface {
      * Busca todas as contas bancárias.
      */
     systemFindAllBankAccounts(requestParameters: SystemFindAllBankAccountsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankAccountsPageDto>;
+    /**
+     *
+     * @summary Busca uma conta bancária pelo identificador.
+     * @param {string} id Identificador da conta bancária.
+     * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof BankAccountsApiInterface
+     */
+    systemFindByIdBankAccountRaw(requestParameters: SystemFindByIdBankAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankAccountDto>>;
+    /**
+     * Busca uma conta bancária pelo identificador.
+     */
+    systemFindByIdBankAccount(requestParameters: SystemFindByIdBankAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankAccountDto>;
 }
 /**
  *
@@ -275,6 +293,14 @@ export declare class BankAccountsApi extends runtime.BaseAPI implements BankAcco
      * Busca todas as contas bancárias.
      */
     systemFindAllBankAccounts(requestParameters: SystemFindAllBankAccountsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankAccountsPageDto>;
+    /**
+     * Busca uma conta bancária pelo identificador.
+     */
+    systemFindByIdBankAccountRaw(requestParameters: SystemFindByIdBankAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankAccountDto>>;
+    /**
+     * Busca uma conta bancária pelo identificador.
+     */
+    systemFindByIdBankAccount(requestParameters: SystemFindByIdBankAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankAccountDto>;
 }
 /**
  * @export
