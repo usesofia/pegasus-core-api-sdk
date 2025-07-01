@@ -120,6 +120,11 @@ export interface SystemFindAllBankTransactionsRequest {
     pageIndex?: number;
 }
 
+export interface SystemFindBankTransactionByIdRequest {
+    id: string;
+    populate?: string;
+}
+
 export interface UnreconcileBankTransactionRequest {
     bankTransactionId: string;
 }
@@ -300,6 +305,22 @@ export interface BankTransactionsApiInterface {
      * Busca todas as movimentações financeiras pelo sistema.
      */
     systemFindAllBankTransactions(requestParameters: SystemFindAllBankTransactionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankTransactionsPageDto>;
+
+    /**
+     * 
+     * @summary Busca uma movimentação financeira por ID.
+     * @param {string} id ID da movimentação financeira.
+     * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof BankTransactionsApiInterface
+     */
+    systemFindBankTransactionByIdRaw(requestParameters: SystemFindBankTransactionByIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankTransactionEntity>>;
+
+    /**
+     * Busca uma movimentação financeira por ID.
+     */
+    systemFindBankTransactionById(requestParameters: SystemFindBankTransactionByIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankTransactionEntity>;
 
     /**
      * 
@@ -805,6 +826,47 @@ export class BankTransactionsApi extends runtime.BaseAPI implements BankTransact
      */
     async systemFindAllBankTransactions(requestParameters: SystemFindAllBankTransactionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankTransactionsPageDto> {
         const response = await this.systemFindAllBankTransactionsRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Busca uma movimentação financeira por ID.
+     */
+    async systemFindBankTransactionByIdRaw(requestParameters: SystemFindBankTransactionByIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankTransactionEntity>> {
+        if (requestParameters['id'] == null) {
+            throw new runtime.RequiredError(
+                'id',
+                'Required parameter "id" was null or undefined when calling systemFindBankTransactionById().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['populate'] != null) {
+            queryParameters['populate'] = requestParameters['populate'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+
+        let urlPath = `/internal/bank-transactions/{id}`;
+        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => BankTransactionEntityFromJSON(jsonValue));
+    }
+
+    /**
+     * Busca uma movimentação financeira por ID.
+     */
+    async systemFindBankTransactionById(requestParameters: SystemFindBankTransactionByIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankTransactionEntity> {
+        const response = await this.systemFindBankTransactionByIdRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

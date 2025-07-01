@@ -73,6 +73,10 @@ export interface SystemFindAllBankTransactionsRequest {
     pageSize?: number;
     pageIndex?: number;
 }
+export interface SystemFindBankTransactionByIdRequest {
+    id: string;
+    populate?: string;
+}
 export interface UnreconcileBankTransactionRequest {
     bankTransactionId: string;
 }
@@ -237,6 +241,20 @@ export interface BankTransactionsApiInterface {
     systemFindAllBankTransactions(requestParameters: SystemFindAllBankTransactionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankTransactionsPageDto>;
     /**
      *
+     * @summary Busca uma movimentação financeira por ID.
+     * @param {string} id ID da movimentação financeira.
+     * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof BankTransactionsApiInterface
+     */
+    systemFindBankTransactionByIdRaw(requestParameters: SystemFindBankTransactionByIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankTransactionEntity>>;
+    /**
+     * Busca uma movimentação financeira por ID.
+     */
+    systemFindBankTransactionById(requestParameters: SystemFindBankTransactionByIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankTransactionEntity>;
+    /**
+     *
      * @summary Desfaz a reconciliação de uma transação bancária.
      * @param {string} bankTransactionId ID da transação bancária para desfazer a reconciliação.
      * @param {*} [options] Override http request option.
@@ -325,6 +343,14 @@ export declare class BankTransactionsApi extends runtime.BaseAPI implements Bank
      * Busca todas as movimentações financeiras pelo sistema.
      */
     systemFindAllBankTransactions(requestParameters: SystemFindAllBankTransactionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankTransactionsPageDto>;
+    /**
+     * Busca uma movimentação financeira por ID.
+     */
+    systemFindBankTransactionByIdRaw(requestParameters: SystemFindBankTransactionByIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankTransactionEntity>>;
+    /**
+     * Busca uma movimentação financeira por ID.
+     */
+    systemFindBankTransactionById(requestParameters: SystemFindBankTransactionByIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankTransactionEntity>;
     /**
      * Desfaz a reconciliação de uma transação bancária.
      */
