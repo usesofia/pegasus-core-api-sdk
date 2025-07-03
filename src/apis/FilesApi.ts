@@ -47,7 +47,6 @@ export interface GetSignedUrlFromUrlRequest {
 export interface SystemFindByIdFileRequest {
     fileId: string;
     organizationId: string;
-    id: string;
 }
 
 /**
@@ -106,9 +105,8 @@ export interface FilesApiInterface {
     /**
      * 
      * @summary Finds a file by id
-     * @param {string} fileId 
-     * @param {string} organizationId 
-     * @param {string} id The id of the file to get
+     * @param {string} fileId The id of the file to get
+     * @param {string} organizationId The id of the organization to get the file from
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof FilesApiInterface
@@ -268,13 +266,6 @@ export class FilesApi extends runtime.BaseAPI implements FilesApiInterface {
             );
         }
 
-        if (requestParameters['id'] == null) {
-            throw new runtime.RequiredError(
-                'id',
-                'Required parameter "id" was null or undefined when calling systemFindByIdFile().'
-            );
-        }
-
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -283,7 +274,6 @@ export class FilesApi extends runtime.BaseAPI implements FilesApiInterface {
         let urlPath = `/internal/organizations/{organizationId}/files/{fileId}`;
         urlPath = urlPath.replace(`{${"fileId"}}`, encodeURIComponent(String(requestParameters['fileId'])));
         urlPath = urlPath.replace(`{${"organizationId"}}`, encodeURIComponent(String(requestParameters['organizationId'])));
-        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
 
         const response = await this.request({
             path: urlPath,

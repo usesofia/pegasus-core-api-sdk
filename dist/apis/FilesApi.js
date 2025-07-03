@@ -233,15 +233,11 @@ var FilesApi = /** @class */ (function (_super) {
                         if (requestParameters['organizationId'] == null) {
                             throw new runtime.RequiredError('organizationId', 'Required parameter "organizationId" was null or undefined when calling systemFindByIdFile().');
                         }
-                        if (requestParameters['id'] == null) {
-                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling systemFindByIdFile().');
-                        }
                         queryParameters = {};
                         headerParameters = {};
                         urlPath = "/internal/organizations/{organizationId}/files/{fileId}";
                         urlPath = urlPath.replace("{".concat("fileId", "}"), encodeURIComponent(String(requestParameters['fileId'])));
                         urlPath = urlPath.replace("{".concat("organizationId", "}"), encodeURIComponent(String(requestParameters['organizationId'])));
-                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
                                 method: 'GET',

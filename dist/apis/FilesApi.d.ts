@@ -24,7 +24,6 @@ export interface GetSignedUrlFromUrlRequest {
 export interface SystemFindByIdFileRequest {
     fileId: string;
     organizationId: string;
-    id: string;
 }
 /**
  * FilesApi - interface
@@ -76,9 +75,8 @@ export interface FilesApiInterface {
     /**
      *
      * @summary Finds a file by id
-     * @param {string} fileId
-     * @param {string} organizationId
-     * @param {string} id The id of the file to get
+     * @param {string} fileId The id of the file to get
+     * @param {string} organizationId The id of the organization to get the file from
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof FilesApiInterface
