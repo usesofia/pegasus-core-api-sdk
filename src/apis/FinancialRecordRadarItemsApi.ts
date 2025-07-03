@@ -23,6 +23,7 @@ import type {
   FinancialRecordsBulkCreateFilePreviewEntity,
   LinkFinancialRecordsRequestBodyDto,
   PartialUpdateFinancialRecordRadarItemRequestBodyDto,
+  UnlinkFinancialRecordsRequestBodyDto,
 } from '../models/index';
 import {
     CreateFinancialRecordRadarItemRequestBodyDtoFromJSON,
@@ -41,6 +42,8 @@ import {
     LinkFinancialRecordsRequestBodyDtoToJSON,
     PartialUpdateFinancialRecordRadarItemRequestBodyDtoFromJSON,
     PartialUpdateFinancialRecordRadarItemRequestBodyDtoToJSON,
+    UnlinkFinancialRecordsRequestBodyDtoFromJSON,
+    UnlinkFinancialRecordsRequestBodyDtoToJSON,
 } from '../models/index';
 
 export interface CreateFinancialRecordRadarItemRequest {
@@ -76,6 +79,11 @@ export interface PartialUpdateFinancialRecordRadarItemRequest {
 export interface PreviewBulkCreateFileRequest {
     radarItemId: string;
     limit?: number;
+}
+
+export interface UnlinkFinancialRecordsFromFinancialRecordRadarItemRequest {
+    radarItemId: string;
+    unlinkFinancialRecordsRequestBodyDto: UnlinkFinancialRecordsRequestBodyDto;
 }
 
 /**
@@ -187,6 +195,23 @@ export interface FinancialRecordRadarItemsApiInterface {
      * Obtém o preview de um arquivo .csv para criação em lote.
      */
     previewBulkCreateFile(requestParameters: PreviewBulkCreateFileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialRecordsBulkCreateFilePreviewEntity>;
+
+    /**
+     * Remove vínculos entre um registro de radar e registros financeiros, atualizando ambos os lados da relação.
+     * @summary Desvincula registros financeiros de um registro de radar
+     * @param {string} radarItemId Identificador do registro de radar
+     * @param {UnlinkFinancialRecordsRequestBodyDto} unlinkFinancialRecordsRequestBodyDto 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof FinancialRecordRadarItemsApiInterface
+     */
+    unlinkFinancialRecordsFromFinancialRecordRadarItemRaw(requestParameters: UnlinkFinancialRecordsFromFinancialRecordRadarItemRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FinancialRecordRadarItemEntity>>;
+
+    /**
+     * Remove vínculos entre um registro de radar e registros financeiros, atualizando ambos os lados da relação.
+     * Desvincula registros financeiros de um registro de radar
+     */
+    unlinkFinancialRecordsFromFinancialRecordRadarItem(requestParameters: UnlinkFinancialRecordsFromFinancialRecordRadarItemRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialRecordRadarItemEntity>;
 
 }
 
@@ -472,6 +497,55 @@ export class FinancialRecordRadarItemsApi extends runtime.BaseAPI implements Fin
      */
     async previewBulkCreateFile(requestParameters: PreviewBulkCreateFileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialRecordsBulkCreateFilePreviewEntity> {
         const response = await this.previewBulkCreateFileRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Remove vínculos entre um registro de radar e registros financeiros, atualizando ambos os lados da relação.
+     * Desvincula registros financeiros de um registro de radar
+     */
+    async unlinkFinancialRecordsFromFinancialRecordRadarItemRaw(requestParameters: UnlinkFinancialRecordsFromFinancialRecordRadarItemRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FinancialRecordRadarItemEntity>> {
+        if (requestParameters['radarItemId'] == null) {
+            throw new runtime.RequiredError(
+                'radarItemId',
+                'Required parameter "radarItemId" was null or undefined when calling unlinkFinancialRecordsFromFinancialRecordRadarItem().'
+            );
+        }
+
+        if (requestParameters['unlinkFinancialRecordsRequestBodyDto'] == null) {
+            throw new runtime.RequiredError(
+                'unlinkFinancialRecordsRequestBodyDto',
+                'Required parameter "unlinkFinancialRecordsRequestBodyDto" was null or undefined when calling unlinkFinancialRecordsFromFinancialRecordRadarItem().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+
+        let urlPath = `/external/financial-records/radar/items/{radarItemId}/unlink`;
+        urlPath = urlPath.replace(`{${"radarItemId"}}`, encodeURIComponent(String(requestParameters['radarItemId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: UnlinkFinancialRecordsRequestBodyDtoToJSON(requestParameters['unlinkFinancialRecordsRequestBodyDto']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => FinancialRecordRadarItemEntityFromJSON(jsonValue));
+    }
+
+    /**
+     * Remove vínculos entre um registro de radar e registros financeiros, atualizando ambos os lados da relação.
+     * Desvincula registros financeiros de um registro de radar
+     */
+    async unlinkFinancialRecordsFromFinancialRecordRadarItem(requestParameters: UnlinkFinancialRecordsFromFinancialRecordRadarItemRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialRecordRadarItemEntity> {
+        const response = await this.unlinkFinancialRecordsFromFinancialRecordRadarItemRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

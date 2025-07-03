@@ -44,6 +44,12 @@ export interface GetSignedUrlFromUrlRequest {
     url: string;
 }
 
+export interface SystemFindByIdFileRequest {
+    fileId: string;
+    organizationId: string;
+    id: string;
+}
+
 /**
  * FilesApi - interface
  * 
@@ -96,6 +102,23 @@ export interface FilesApiInterface {
      * Get a signed url from a url
      */
     getSignedUrlFromUrl(requestParameters: GetSignedUrlFromUrlRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SignedUrlEntity>;
+
+    /**
+     * 
+     * @summary Finds a file by id
+     * @param {string} fileId 
+     * @param {string} organizationId 
+     * @param {string} id The id of the file to get
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof FilesApiInterface
+     */
+    systemFindByIdFileRaw(requestParameters: SystemFindByIdFileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FileEntity>>;
+
+    /**
+     * Finds a file by id
+     */
+    systemFindByIdFile(requestParameters: SystemFindByIdFileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FileEntity>;
 
 }
 
@@ -224,6 +247,59 @@ export class FilesApi extends runtime.BaseAPI implements FilesApiInterface {
      */
     async getSignedUrlFromUrl(requestParameters: GetSignedUrlFromUrlRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SignedUrlEntity> {
         const response = await this.getSignedUrlFromUrlRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Finds a file by id
+     */
+    async systemFindByIdFileRaw(requestParameters: SystemFindByIdFileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FileEntity>> {
+        if (requestParameters['fileId'] == null) {
+            throw new runtime.RequiredError(
+                'fileId',
+                'Required parameter "fileId" was null or undefined when calling systemFindByIdFile().'
+            );
+        }
+
+        if (requestParameters['organizationId'] == null) {
+            throw new runtime.RequiredError(
+                'organizationId',
+                'Required parameter "organizationId" was null or undefined when calling systemFindByIdFile().'
+            );
+        }
+
+        if (requestParameters['id'] == null) {
+            throw new runtime.RequiredError(
+                'id',
+                'Required parameter "id" was null or undefined when calling systemFindByIdFile().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+
+        let urlPath = `/internal/organizations/{organizationId}/files/{fileId}`;
+        urlPath = urlPath.replace(`{${"fileId"}}`, encodeURIComponent(String(requestParameters['fileId'])));
+        urlPath = urlPath.replace(`{${"organizationId"}}`, encodeURIComponent(String(requestParameters['organizationId'])));
+        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => FileEntityFromJSON(jsonValue));
+    }
+
+    /**
+     * Finds a file by id
+     */
+    async systemFindByIdFile(requestParameters: SystemFindByIdFileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FileEntity> {
+        const response = await this.systemFindByIdFileRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

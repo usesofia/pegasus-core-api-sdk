@@ -38,6 +38,7 @@ export interface FindAllFinancialRecordsRequest {
     amountTo?: string;
     amountFrom?: string;
     direction?: string;
+    ids?: string;
     populate?: string;
     semanticSearchTermInBase64?: string;
     textSearchTerm?: string;
@@ -79,6 +80,7 @@ export interface SystemFindAllFinancialRecordsRequest {
     amountTo?: string;
     amountFrom?: string;
     direction?: string;
+    ids?: string;
     populate?: string;
     semanticSearchTermInBase64?: string;
     textSearchTerm?: string;
@@ -141,6 +143,7 @@ export interface FinancialRecordsApiInterface {
      * @param {string} [amountTo] Valor do lançamento financeiro máximo.
      * @param {string} [amountFrom] Valor do lançamento financeiro mínimo.
      * @param {string} [direction] Direção do lançamento financeiro.
+     * @param {string} [ids] Lista de IDs de lançamentos financeiros para filtrar separados por vírgula.
      * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
      * @param {string} [semanticSearchTermInBase64] Termo para busca semântica.
      * @param {string} [textSearchTerm] Termo para busca textual.
@@ -222,6 +225,7 @@ export interface FinancialRecordsApiInterface {
      * @param {string} [amountTo] Valor do lançamento financeiro máximo.
      * @param {string} [amountFrom] Valor do lançamento financeiro mínimo.
      * @param {string} [direction] Direção do lançamento financeiro.
+     * @param {string} [ids] Lista de IDs de lançamentos financeiros para filtrar separados por vírgula.
      * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
      * @param {string} [semanticSearchTermInBase64] Termo para busca semântica.
      * @param {string} [textSearchTerm] Termo para busca textual.

@@ -222,6 +222,7 @@ src/models/SubcategoriesPageEntityItemsInner.ts
 src/models/SubcategoryEntity.ts
 src/models/TagEntity.ts
 src/models/TagsPageEntity.ts
+src/models/UnlinkFinancialRecordsRequestBodyDto.ts
 src/models/UpdateFinancialRecordRadarItemAutoExecuteSettingsRequestBodyDto.ts
 src/models/index.ts
 src/runtime.ts

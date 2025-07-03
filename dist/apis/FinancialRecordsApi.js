@@ -239,6 +239,9 @@ var FinancialRecordsApi = /** @class */ (function (_super) {
                         if (requestParameters['direction'] != null) {
                             queryParameters['direction'] = requestParameters['direction'];
                         }
+                        if (requestParameters['ids'] != null) {
+                            queryParameters['ids'] = requestParameters['ids'];
+                        }
                         if (requestParameters['populate'] != null) {
                             queryParameters['populate'] = requestParameters['populate'];
                         }
@@ -514,6 +517,9 @@ var FinancialRecordsApi = /** @class */ (function (_super) {
                         }
                         if (requestParameters['direction'] != null) {
                             queryParameters['direction'] = requestParameters['direction'];
+                        }
+                        if (requestParameters['ids'] != null) {
+                            queryParameters['ids'] = requestParameters['ids'];
                         }
                         if (requestParameters['populate'] != null) {
                             queryParameters['populate'] = requestParameters['populate'];

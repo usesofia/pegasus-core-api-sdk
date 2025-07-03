@@ -183,4 +183,5 @@ export * from './SubcategoriesPageEntityItemsInner';
 export * from './SubcategoryEntity';
 export * from './TagEntity';
 export * from './TagsPageEntity';
+export * from './UnlinkFinancialRecordsRequestBodyDto';
 export * from './UpdateFinancialRecordRadarItemAutoExecuteSettingsRequestBodyDto';

@@ -393,6 +393,59 @@ var FinancialRecordRadarItemsApi = /** @class */ (function (_super) {
             });
         });
     };
+    /**
+     * Remove vínculos entre um registro de radar e registros financeiros, atualizando ambos os lados da relação.
+     * Desvincula registros financeiros de um registro de radar
+     */
+    FinancialRecordRadarItemsApi.prototype.unlinkFinancialRecordsFromFinancialRecordRadarItemRaw = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (requestParameters['radarItemId'] == null) {
+                            throw new runtime.RequiredError('radarItemId', 'Required parameter "radarItemId" was null or undefined when calling unlinkFinancialRecordsFromFinancialRecordRadarItem().');
+                        }
+                        if (requestParameters['unlinkFinancialRecordsRequestBodyDto'] == null) {
+                            throw new runtime.RequiredError('unlinkFinancialRecordsRequestBodyDto', 'Required parameter "unlinkFinancialRecordsRequestBodyDto" was null or undefined when calling unlinkFinancialRecordsFromFinancialRecordRadarItem().');
+                        }
+                        queryParameters = {};
+                        headerParameters = {};
+                        headerParameters['Content-Type'] = 'application/json';
+                        urlPath = "/external/financial-records/radar/items/{radarItemId}/unlink";
+                        urlPath = urlPath.replace("{".concat("radarItemId", "}"), encodeURIComponent(String(requestParameters['radarItemId'])));
+                        return [4 /*yield*/, this.request({
+                                path: urlPath,
+                                method: 'POST',
+                                headers: headerParameters,
+                                query: queryParameters,
+                                body: (0, index_1.UnlinkFinancialRecordsRequestBodyDtoToJSON)(requestParameters['unlinkFinancialRecordsRequestBodyDto']),
+                            }, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.FinancialRecordRadarItemEntityFromJSON)(jsonValue); })];
+                }
+            });
+        });
+    };
+    /**
+     * Remove vínculos entre um registro de radar e registros financeiros, atualizando ambos os lados da relação.
+     * Desvincula registros financeiros de um registro de radar
+     */
+    FinancialRecordRadarItemsApi.prototype.unlinkFinancialRecordsFromFinancialRecordRadarItem = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.unlinkFinancialRecordsFromFinancialRecordRadarItemRaw(requestParameters, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [4 /*yield*/, response.value()];
+                    case 2: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
     return FinancialRecordRadarItemsApi;
 }(runtime.BaseAPI));
 exports.FinancialRecordRadarItemsApi = FinancialRecordRadarItemsApi;

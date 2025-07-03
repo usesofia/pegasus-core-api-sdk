@@ -199,4 +199,5 @@ __exportStar(require("./SubcategoriesPageEntityItemsInner"), exports);
 __exportStar(require("./SubcategoryEntity"), exports);
 __exportStar(require("./TagEntity"), exports);
 __exportStar(require("./TagsPageEntity"), exports);
+__exportStar(require("./UnlinkFinancialRecordsRequestBodyDto"), exports);
 __exportStar(require("./UpdateFinancialRecordRadarItemAutoExecuteSettingsRequestBodyDto"), exports);

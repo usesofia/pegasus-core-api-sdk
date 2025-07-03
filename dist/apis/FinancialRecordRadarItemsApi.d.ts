@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { CreateFinancialRecordRadarItemRequestBodyDto, FinancialRecordRadarItemEntity, FinancialRecordRadarItemTagEntity, FinancialRecordRadarItemsPageDto, FinancialRecordsBulkCreateFilePreviewEntity, LinkFinancialRecordsRequestBodyDto, PartialUpdateFinancialRecordRadarItemRequestBodyDto } from '../models/index';
+import type { CreateFinancialRecordRadarItemRequestBodyDto, FinancialRecordRadarItemEntity, FinancialRecordRadarItemTagEntity, FinancialRecordRadarItemsPageDto, FinancialRecordsBulkCreateFilePreviewEntity, LinkFinancialRecordsRequestBodyDto, PartialUpdateFinancialRecordRadarItemRequestBodyDto, UnlinkFinancialRecordsRequestBodyDto } from '../models/index';
 export interface CreateFinancialRecordRadarItemRequest {
     createFinancialRecordRadarItemRequestBodyDto: CreateFinancialRecordRadarItemRequestBodyDto;
 }
@@ -39,6 +39,10 @@ export interface PartialUpdateFinancialRecordRadarItemRequest {
 export interface PreviewBulkCreateFileRequest {
     radarItemId: string;
     limit?: number;
+}
+export interface UnlinkFinancialRecordsFromFinancialRecordRadarItemRequest {
+    radarItemId: string;
+    unlinkFinancialRecordsRequestBodyDto: UnlinkFinancialRecordsRequestBodyDto;
 }
 /**
  * FinancialRecordRadarItemsApi - interface
@@ -138,6 +142,21 @@ export interface FinancialRecordRadarItemsApiInterface {
      * Obtém o preview de um arquivo .csv para criação em lote.
      */
     previewBulkCreateFile(requestParameters: PreviewBulkCreateFileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialRecordsBulkCreateFilePreviewEntity>;
+    /**
+     * Remove vínculos entre um registro de radar e registros financeiros, atualizando ambos os lados da relação.
+     * @summary Desvincula registros financeiros de um registro de radar
+     * @param {string} radarItemId Identificador do registro de radar
+     * @param {UnlinkFinancialRecordsRequestBodyDto} unlinkFinancialRecordsRequestBodyDto
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof FinancialRecordRadarItemsApiInterface
+     */
+    unlinkFinancialRecordsFromFinancialRecordRadarItemRaw(requestParameters: UnlinkFinancialRecordsFromFinancialRecordRadarItemRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FinancialRecordRadarItemEntity>>;
+    /**
+     * Remove vínculos entre um registro de radar e registros financeiros, atualizando ambos os lados da relação.
+     * Desvincula registros financeiros de um registro de radar
+     */
+    unlinkFinancialRecordsFromFinancialRecordRadarItem(requestParameters: UnlinkFinancialRecordsFromFinancialRecordRadarItemRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialRecordRadarItemEntity>;
 }
 /**
  *
@@ -195,6 +214,16 @@ export declare class FinancialRecordRadarItemsApi extends runtime.BaseAPI implem
      * Obtém o preview de um arquivo .csv para criação em lote.
      */
     previewBulkCreateFile(requestParameters: PreviewBulkCreateFileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialRecordsBulkCreateFilePreviewEntity>;
+    /**
+     * Remove vínculos entre um registro de radar e registros financeiros, atualizando ambos os lados da relação.
+     * Desvincula registros financeiros de um registro de radar
+     */
+    unlinkFinancialRecordsFromFinancialRecordRadarItemRaw(requestParameters: UnlinkFinancialRecordsFromFinancialRecordRadarItemRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FinancialRecordRadarItemEntity>>;
+    /**
+     * Remove vínculos entre um registro de radar e registros financeiros, atualizando ambos os lados da relação.
+     * Desvincula registros financeiros de um registro de radar
+     */
+    unlinkFinancialRecordsFromFinancialRecordRadarItem(requestParameters: UnlinkFinancialRecordsFromFinancialRecordRadarItemRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialRecordRadarItemEntity>;
 }
 /**
  * @export
