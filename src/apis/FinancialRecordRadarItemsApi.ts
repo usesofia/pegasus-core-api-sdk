@@ -81,6 +81,11 @@ export interface PreviewBulkCreateFileRequest {
     limit?: number;
 }
 
+export interface SystemFindByIdFinancialRecordRadarItemRequest {
+    organizationId: string;
+    radarItemId: string;
+}
+
 export interface UnlinkFinancialRecordsFromFinancialRecordRadarItemRequest {
     radarItemId: string;
     unlinkFinancialRecordsRequestBodyDto: UnlinkFinancialRecordsRequestBodyDto;
@@ -195,6 +200,22 @@ export interface FinancialRecordRadarItemsApiInterface {
      * Obtém o preview de um arquivo .csv para criação em lote.
      */
     previewBulkCreateFile(requestParameters: PreviewBulkCreateFileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialRecordsBulkCreateFilePreviewEntity>;
+
+    /**
+     * 
+     * @summary Busca um registro de radar pelo identificador.
+     * @param {string} organizationId Identificador da organização
+     * @param {string} radarItemId Identificador do registro de radar
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof FinancialRecordRadarItemsApiInterface
+     */
+    systemFindByIdFinancialRecordRadarItemRaw(requestParameters: SystemFindByIdFinancialRecordRadarItemRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FinancialRecordRadarItemEntity>>;
+
+    /**
+     * Busca um registro de radar pelo identificador.
+     */
+    systemFindByIdFinancialRecordRadarItem(requestParameters: SystemFindByIdFinancialRecordRadarItemRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialRecordRadarItemEntity>;
 
     /**
      * Remove vínculos entre um registro de radar e registros financeiros, atualizando ambos os lados da relação.
@@ -497,6 +518,51 @@ export class FinancialRecordRadarItemsApi extends runtime.BaseAPI implements Fin
      */
     async previewBulkCreateFile(requestParameters: PreviewBulkCreateFileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialRecordsBulkCreateFilePreviewEntity> {
         const response = await this.previewBulkCreateFileRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Busca um registro de radar pelo identificador.
+     */
+    async systemFindByIdFinancialRecordRadarItemRaw(requestParameters: SystemFindByIdFinancialRecordRadarItemRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FinancialRecordRadarItemEntity>> {
+        if (requestParameters['organizationId'] == null) {
+            throw new runtime.RequiredError(
+                'organizationId',
+                'Required parameter "organizationId" was null or undefined when calling systemFindByIdFinancialRecordRadarItem().'
+            );
+        }
+
+        if (requestParameters['radarItemId'] == null) {
+            throw new runtime.RequiredError(
+                'radarItemId',
+                'Required parameter "radarItemId" was null or undefined when calling systemFindByIdFinancialRecordRadarItem().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+
+        let urlPath = `/internal/organizations/{organizationId}/financial-records/radar/items/{radarItemId}`;
+        urlPath = urlPath.replace(`{${"organizationId"}}`, encodeURIComponent(String(requestParameters['organizationId'])));
+        urlPath = urlPath.replace(`{${"radarItemId"}}`, encodeURIComponent(String(requestParameters['radarItemId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => FinancialRecordRadarItemEntityFromJSON(jsonValue));
+    }
+
+    /**
+     * Busca um registro de radar pelo identificador.
+     */
+    async systemFindByIdFinancialRecordRadarItem(requestParameters: SystemFindByIdFinancialRecordRadarItemRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialRecordRadarItemEntity> {
+        const response = await this.systemFindByIdFinancialRecordRadarItemRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

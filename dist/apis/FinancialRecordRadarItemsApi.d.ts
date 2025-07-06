@@ -40,6 +40,10 @@ export interface PreviewBulkCreateFileRequest {
     radarItemId: string;
     limit?: number;
 }
+export interface SystemFindByIdFinancialRecordRadarItemRequest {
+    organizationId: string;
+    radarItemId: string;
+}
 export interface UnlinkFinancialRecordsFromFinancialRecordRadarItemRequest {
     radarItemId: string;
     unlinkFinancialRecordsRequestBodyDto: UnlinkFinancialRecordsRequestBodyDto;
@@ -143,6 +147,20 @@ export interface FinancialRecordRadarItemsApiInterface {
      */
     previewBulkCreateFile(requestParameters: PreviewBulkCreateFileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialRecordsBulkCreateFilePreviewEntity>;
     /**
+     *
+     * @summary Busca um registro de radar pelo identificador.
+     * @param {string} organizationId Identificador da organização
+     * @param {string} radarItemId Identificador do registro de radar
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof FinancialRecordRadarItemsApiInterface
+     */
+    systemFindByIdFinancialRecordRadarItemRaw(requestParameters: SystemFindByIdFinancialRecordRadarItemRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FinancialRecordRadarItemEntity>>;
+    /**
+     * Busca um registro de radar pelo identificador.
+     */
+    systemFindByIdFinancialRecordRadarItem(requestParameters: SystemFindByIdFinancialRecordRadarItemRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialRecordRadarItemEntity>;
+    /**
      * Remove vínculos entre um registro de radar e registros financeiros, atualizando ambos os lados da relação.
      * @summary Desvincula registros financeiros de um registro de radar
      * @param {string} radarItemId Identificador do registro de radar
@@ -214,6 +232,14 @@ export declare class FinancialRecordRadarItemsApi extends runtime.BaseAPI implem
      * Obtém o preview de um arquivo .csv para criação em lote.
      */
     previewBulkCreateFile(requestParameters: PreviewBulkCreateFileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialRecordsBulkCreateFilePreviewEntity>;
+    /**
+     * Busca um registro de radar pelo identificador.
+     */
+    systemFindByIdFinancialRecordRadarItemRaw(requestParameters: SystemFindByIdFinancialRecordRadarItemRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FinancialRecordRadarItemEntity>>;
+    /**
+     * Busca um registro de radar pelo identificador.
+     */
+    systemFindByIdFinancialRecordRadarItem(requestParameters: SystemFindByIdFinancialRecordRadarItemRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialRecordRadarItemEntity>;
     /**
      * Remove vínculos entre um registro de radar e registros financeiros, atualizando ambos os lados da relação.
      * Desvincula registros financeiros de um registro de radar
