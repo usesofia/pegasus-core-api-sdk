@@ -443,6 +443,57 @@ var FinancialRecordsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Cria múltiplos lançamentos financeiros.
+     */
+    FinancialRecordsApi.prototype.systemCreateManyFinancialRecordsRaw = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (requestParameters['organizationId'] == null) {
+                            throw new runtime.RequiredError('organizationId', 'Required parameter "organizationId" was null or undefined when calling systemCreateManyFinancialRecords().');
+                        }
+                        if (requestParameters['createManyFinancialRecordsRequestBodyDto'] == null) {
+                            throw new runtime.RequiredError('createManyFinancialRecordsRequestBodyDto', 'Required parameter "createManyFinancialRecordsRequestBodyDto" was null or undefined when calling systemCreateManyFinancialRecords().');
+                        }
+                        queryParameters = {};
+                        headerParameters = {};
+                        headerParameters['Content-Type'] = 'application/json';
+                        urlPath = "/internal/organizations/{organizationId}/financial-records/many";
+                        urlPath = urlPath.replace("{".concat("organizationId", "}"), encodeURIComponent(String(requestParameters['organizationId'])));
+                        return [4 /*yield*/, this.request({
+                                path: urlPath,
+                                method: 'POST',
+                                headers: headerParameters,
+                                query: queryParameters,
+                                body: (0, index_1.CreateManyFinancialRecordsRequestBodyDtoToJSON)(requestParameters['createManyFinancialRecordsRequestBodyDto']),
+                            }, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return jsonValue.map(index_1.FinancialRecordDtoFromJSON); })];
+                }
+            });
+        });
+    };
+    /**
+     * Cria múltiplos lançamentos financeiros.
+     */
+    FinancialRecordsApi.prototype.systemCreateManyFinancialRecords = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.systemCreateManyFinancialRecordsRaw(requestParameters, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [4 /*yield*/, response.value()];
+                    case 2: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
+    /**
      * Busca todos os lançamentos financeiros pelo sistema.
      */
     FinancialRecordsApi.prototype.systemFindAllFinancialRecordsRaw = function (requestParameters, initOverrides) {
@@ -560,6 +611,59 @@ var FinancialRecordsApi = /** @class */ (function (_super) {
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, this.systemFindAllFinancialRecordsRaw(requestParameters, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [4 /*yield*/, response.value()];
+                    case 2: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
+    /**
+     * Busca um lançamento financeiro pelo identificador.
+     */
+    FinancialRecordsApi.prototype.systemFindByIdFinancialRecordRaw = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (requestParameters['organizationId'] == null) {
+                            throw new runtime.RequiredError('organizationId', 'Required parameter "organizationId" was null or undefined when calling systemFindByIdFinancialRecord().');
+                        }
+                        if (requestParameters['financialRecordId'] == null) {
+                            throw new runtime.RequiredError('financialRecordId', 'Required parameter "financialRecordId" was null or undefined when calling systemFindByIdFinancialRecord().');
+                        }
+                        queryParameters = {};
+                        if (requestParameters['populate'] != null) {
+                            queryParameters['populate'] = requestParameters['populate'];
+                        }
+                        headerParameters = {};
+                        urlPath = "/internal/organizations/{organizationId}/financial-records/{financialRecordId}";
+                        urlPath = urlPath.replace("{".concat("organizationId", "}"), encodeURIComponent(String(requestParameters['organizationId'])));
+                        urlPath = urlPath.replace("{".concat("financialRecordId", "}"), encodeURIComponent(String(requestParameters['financialRecordId'])));
+                        return [4 /*yield*/, this.request({
+                                path: urlPath,
+                                method: 'GET',
+                                headers: headerParameters,
+                                query: queryParameters,
+                            }, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.FinancialRecordDtoFromJSON)(jsonValue); })];
+                }
+            });
+        });
+    };
+    /**
+     * Busca um lançamento financeiro pelo identificador.
+     */
+    FinancialRecordsApi.prototype.systemFindByIdFinancialRecord = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.systemFindByIdFinancialRecordRaw(requestParameters, initOverrides)];
                     case 1:
                         response = _a.sent();
                         return [4 /*yield*/, response.value()];

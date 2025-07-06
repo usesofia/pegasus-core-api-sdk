@@ -84,6 +84,12 @@ export interface SystemFindAllSubcategoriesRequest {
     pageIndex?: number;
 }
 
+export interface SystemFindByIdSubcategoryRequest {
+    organizationId: string;
+    subcategoryId: string;
+    populate?: string;
+}
+
 /**
  * SubcategoriesApi - interface
  * 
@@ -203,6 +209,23 @@ export interface SubcategoriesApiInterface {
      * Busca todas as subcategorias pelo sistema.
      */
     systemFindAllSubcategories(requestParameters: SystemFindAllSubcategoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SubcategoriesPageEntity>;
+
+    /**
+     * 
+     * @summary Busca uma subcategoria pelo identificador.
+     * @param {string} organizationId Identificador da organização.
+     * @param {string} subcategoryId Identificador da subcategoria.
+     * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SubcategoriesApiInterface
+     */
+    systemFindByIdSubcategoryRaw(requestParameters: SystemFindByIdSubcategoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SubcategoryEntity>>;
+
+    /**
+     * Busca uma subcategoria pelo identificador.
+     */
+    systemFindByIdSubcategory(requestParameters: SystemFindByIdSubcategoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SubcategoryEntity>;
 
 }
 
@@ -534,6 +557,55 @@ export class SubcategoriesApi extends runtime.BaseAPI implements SubcategoriesAp
      */
     async systemFindAllSubcategories(requestParameters: SystemFindAllSubcategoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SubcategoriesPageEntity> {
         const response = await this.systemFindAllSubcategoriesRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Busca uma subcategoria pelo identificador.
+     */
+    async systemFindByIdSubcategoryRaw(requestParameters: SystemFindByIdSubcategoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SubcategoryEntity>> {
+        if (requestParameters['organizationId'] == null) {
+            throw new runtime.RequiredError(
+                'organizationId',
+                'Required parameter "organizationId" was null or undefined when calling systemFindByIdSubcategory().'
+            );
+        }
+
+        if (requestParameters['subcategoryId'] == null) {
+            throw new runtime.RequiredError(
+                'subcategoryId',
+                'Required parameter "subcategoryId" was null or undefined when calling systemFindByIdSubcategory().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['populate'] != null) {
+            queryParameters['populate'] = requestParameters['populate'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+
+        let urlPath = `/internal/organizations/{organizationId}/subcategories/{subcategoryId}`;
+        urlPath = urlPath.replace(`{${"organizationId"}}`, encodeURIComponent(String(requestParameters['organizationId'])));
+        urlPath = urlPath.replace(`{${"subcategoryId"}}`, encodeURIComponent(String(requestParameters['subcategoryId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => SubcategoryEntityFromJSON(jsonValue));
+    }
+
+    /**
+     * Busca uma subcategoria pelo identificador.
+     */
+    async systemFindByIdSubcategory(requestParameters: SystemFindByIdSubcategoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SubcategoryEntity> {
+        const response = await this.systemFindByIdSubcategoryRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

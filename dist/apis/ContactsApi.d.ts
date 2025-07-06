@@ -65,6 +65,11 @@ export interface SystemFindAllContactsRequest {
     pageSize?: number;
     pageIndex?: number;
 }
+export interface SystemFindByIdContactRequest {
+    organizationId: string;
+    contactId: string;
+    populate?: string;
+}
 /**
  * ContactsApi - interface
  *
@@ -220,6 +225,21 @@ export interface ContactsApiInterface {
      * Busca todos os contatos pelo sistema.
      */
     systemFindAllContacts(requestParameters: SystemFindAllContactsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ContactsPageDto>;
+    /**
+     *
+     * @summary Busca um contato pelo identificador.
+     * @param {string} organizationId Identificador da organização.
+     * @param {string} contactId Identificador do contato.
+     * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ContactsApiInterface
+     */
+    systemFindByIdContactRaw(requestParameters: SystemFindByIdContactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ContactDto>>;
+    /**
+     * Busca um contato pelo identificador.
+     */
+    systemFindByIdContact(requestParameters: SystemFindByIdContactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ContactDto>;
 }
 /**
  *
@@ -297,6 +317,14 @@ export declare class ContactsApi extends runtime.BaseAPI implements ContactsApiI
      * Busca todos os contatos pelo sistema.
      */
     systemFindAllContacts(requestParameters: SystemFindAllContactsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ContactsPageDto>;
+    /**
+     * Busca um contato pelo identificador.
+     */
+    systemFindByIdContactRaw(requestParameters: SystemFindByIdContactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ContactDto>>;
+    /**
+     * Busca um contato pelo identificador.
+     */
+    systemFindByIdContact(requestParameters: SystemFindByIdContactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ContactDto>;
 }
 /**
  * @export

@@ -52,6 +52,11 @@ export interface SystemFindAllSubcategoriesRequest {
     pageSize?: number;
     pageIndex?: number;
 }
+export interface SystemFindByIdSubcategoryRequest {
+    organizationId: string;
+    subcategoryId: string;
+    populate?: string;
+}
 /**
  * SubcategoriesApi - interface
  *
@@ -160,6 +165,21 @@ export interface SubcategoriesApiInterface {
      * Busca todas as subcategorias pelo sistema.
      */
     systemFindAllSubcategories(requestParameters: SystemFindAllSubcategoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SubcategoriesPageEntity>;
+    /**
+     *
+     * @summary Busca uma subcategoria pelo identificador.
+     * @param {string} organizationId Identificador da organização.
+     * @param {string} subcategoryId Identificador da subcategoria.
+     * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SubcategoriesApiInterface
+     */
+    systemFindByIdSubcategoryRaw(requestParameters: SystemFindByIdSubcategoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SubcategoryEntity>>;
+    /**
+     * Busca uma subcategoria pelo identificador.
+     */
+    systemFindByIdSubcategory(requestParameters: SystemFindByIdSubcategoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SubcategoryEntity>;
 }
 /**
  *
@@ -213,6 +233,14 @@ export declare class SubcategoriesApi extends runtime.BaseAPI implements Subcate
      * Busca todas as subcategorias pelo sistema.
      */
     systemFindAllSubcategories(requestParameters: SystemFindAllSubcategoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SubcategoriesPageEntity>;
+    /**
+     * Busca uma subcategoria pelo identificador.
+     */
+    systemFindByIdSubcategoryRaw(requestParameters: SystemFindByIdSubcategoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SubcategoryEntity>>;
+    /**
+     * Busca uma subcategoria pelo identificador.
+     */
+    systemFindByIdSubcategory(requestParameters: SystemFindByIdSubcategoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SubcategoryEntity>;
 }
 /**
  * @export

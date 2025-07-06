@@ -425,6 +425,59 @@ var SubcategoriesApi = /** @class */ (function (_super) {
             });
         });
     };
+    /**
+     * Busca uma subcategoria pelo identificador.
+     */
+    SubcategoriesApi.prototype.systemFindByIdSubcategoryRaw = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (requestParameters['organizationId'] == null) {
+                            throw new runtime.RequiredError('organizationId', 'Required parameter "organizationId" was null or undefined when calling systemFindByIdSubcategory().');
+                        }
+                        if (requestParameters['subcategoryId'] == null) {
+                            throw new runtime.RequiredError('subcategoryId', 'Required parameter "subcategoryId" was null or undefined when calling systemFindByIdSubcategory().');
+                        }
+                        queryParameters = {};
+                        if (requestParameters['populate'] != null) {
+                            queryParameters['populate'] = requestParameters['populate'];
+                        }
+                        headerParameters = {};
+                        urlPath = "/internal/organizations/{organizationId}/subcategories/{subcategoryId}";
+                        urlPath = urlPath.replace("{".concat("organizationId", "}"), encodeURIComponent(String(requestParameters['organizationId'])));
+                        urlPath = urlPath.replace("{".concat("subcategoryId", "}"), encodeURIComponent(String(requestParameters['subcategoryId'])));
+                        return [4 /*yield*/, this.request({
+                                path: urlPath,
+                                method: 'GET',
+                                headers: headerParameters,
+                                query: queryParameters,
+                            }, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.SubcategoryEntityFromJSON)(jsonValue); })];
+                }
+            });
+        });
+    };
+    /**
+     * Busca uma subcategoria pelo identificador.
+     */
+    SubcategoriesApi.prototype.systemFindByIdSubcategory = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.systemFindByIdSubcategoryRaw(requestParameters, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [4 /*yield*/, response.value()];
+                    case 2: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
     return SubcategoriesApi;
 }(runtime.BaseAPI));
 exports.SubcategoriesApi = SubcategoriesApi;

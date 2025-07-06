@@ -585,6 +585,59 @@ var ContactsApi = /** @class */ (function (_super) {
             });
         });
     };
+    /**
+     * Busca um contato pelo identificador.
+     */
+    ContactsApi.prototype.systemFindByIdContactRaw = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (requestParameters['organizationId'] == null) {
+                            throw new runtime.RequiredError('organizationId', 'Required parameter "organizationId" was null or undefined when calling systemFindByIdContact().');
+                        }
+                        if (requestParameters['contactId'] == null) {
+                            throw new runtime.RequiredError('contactId', 'Required parameter "contactId" was null or undefined when calling systemFindByIdContact().');
+                        }
+                        queryParameters = {};
+                        if (requestParameters['populate'] != null) {
+                            queryParameters['populate'] = requestParameters['populate'];
+                        }
+                        headerParameters = {};
+                        urlPath = "/internal/organizations/{organizationId}/contacts/{contactId}";
+                        urlPath = urlPath.replace("{".concat("organizationId", "}"), encodeURIComponent(String(requestParameters['organizationId'])));
+                        urlPath = urlPath.replace("{".concat("contactId", "}"), encodeURIComponent(String(requestParameters['contactId'])));
+                        return [4 /*yield*/, this.request({
+                                path: urlPath,
+                                method: 'GET',
+                                headers: headerParameters,
+                                query: queryParameters,
+                            }, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.ContactDtoFromJSON)(jsonValue); })];
+                }
+            });
+        });
+    };
+    /**
+     * Busca um contato pelo identificador.
+     */
+    ContactsApi.prototype.systemFindByIdContact = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.systemFindByIdContactRaw(requestParameters, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [4 /*yield*/, response.value()];
+                    case 2: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
     return ContactsApi;
 }(runtime.BaseAPI));
 exports.ContactsApi = ContactsApi;

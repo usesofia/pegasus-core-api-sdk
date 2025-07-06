@@ -93,6 +93,11 @@ export interface RemoveFinancialRecordRequest {
     removeFinancialRecordRequestBodyDto: RemoveFinancialRecordRequestBodyDto;
 }
 
+export interface SystemCreateManyFinancialRecordsRequest {
+    organizationId: string;
+    createManyFinancialRecordsRequestBodyDto: CreateManyFinancialRecordsRequestBodyDto;
+}
+
 export interface SystemFindAllFinancialRecordsRequest {
     ownerOrganizationId: string;
     readPreference?: SystemFindAllFinancialRecordsReadPreferenceEnum;
@@ -121,6 +126,12 @@ export interface SystemFindAllFinancialRecordsRequest {
     textSearchTerm?: string;
     pageSize?: number;
     pageIndex?: number;
+}
+
+export interface SystemFindByIdFinancialRecordRequest {
+    organizationId: string;
+    financialRecordId: string;
+    populate?: string;
 }
 
 /**
@@ -251,6 +262,22 @@ export interface FinancialRecordsApiInterface {
 
     /**
      * 
+     * @summary Cria múltiplos lançamentos financeiros.
+     * @param {string} organizationId Identificador da organização.
+     * @param {CreateManyFinancialRecordsRequestBodyDto} createManyFinancialRecordsRequestBodyDto 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof FinancialRecordsApiInterface
+     */
+    systemCreateManyFinancialRecordsRaw(requestParameters: SystemCreateManyFinancialRecordsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<FinancialRecordDto>>>;
+
+    /**
+     * Cria múltiplos lançamentos financeiros.
+     */
+    systemCreateManyFinancialRecords(requestParameters: SystemCreateManyFinancialRecordsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<FinancialRecordDto>>;
+
+    /**
+     * 
      * @summary Busca todos os lançamentos financeiros pelo sistema.
      * @param {string} ownerOrganizationId Identificador da organização proprietária dos lançamentos financeiros.
      * @param {'primary' | 'primaryPreferred' | 'secondary' | 'secondaryPreferred' | 'nearest'} [readPreference] Preferência de leitura dos lançamentos financeiros.
@@ -289,6 +316,23 @@ export interface FinancialRecordsApiInterface {
      * Busca todos os lançamentos financeiros pelo sistema.
      */
     systemFindAllFinancialRecords(requestParameters: SystemFindAllFinancialRecordsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialRecordsPageDto>;
+
+    /**
+     * 
+     * @summary Busca um lançamento financeiro pelo identificador.
+     * @param {string} organizationId Identificador da organização.
+     * @param {string} financialRecordId Identificador do lançamento financeiro.
+     * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof FinancialRecordsApiInterface
+     */
+    systemFindByIdFinancialRecordRaw(requestParameters: SystemFindByIdFinancialRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FinancialRecordDto>>;
+
+    /**
+     * Busca um lançamento financeiro pelo identificador.
+     */
+    systemFindByIdFinancialRecord(requestParameters: SystemFindByIdFinancialRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialRecordDto>;
 
 }
 
@@ -647,6 +691,53 @@ export class FinancialRecordsApi extends runtime.BaseAPI implements FinancialRec
     }
 
     /**
+     * Cria múltiplos lançamentos financeiros.
+     */
+    async systemCreateManyFinancialRecordsRaw(requestParameters: SystemCreateManyFinancialRecordsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<FinancialRecordDto>>> {
+        if (requestParameters['organizationId'] == null) {
+            throw new runtime.RequiredError(
+                'organizationId',
+                'Required parameter "organizationId" was null or undefined when calling systemCreateManyFinancialRecords().'
+            );
+        }
+
+        if (requestParameters['createManyFinancialRecordsRequestBodyDto'] == null) {
+            throw new runtime.RequiredError(
+                'createManyFinancialRecordsRequestBodyDto',
+                'Required parameter "createManyFinancialRecordsRequestBodyDto" was null or undefined when calling systemCreateManyFinancialRecords().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+
+        let urlPath = `/internal/organizations/{organizationId}/financial-records/many`;
+        urlPath = urlPath.replace(`{${"organizationId"}}`, encodeURIComponent(String(requestParameters['organizationId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: CreateManyFinancialRecordsRequestBodyDtoToJSON(requestParameters['createManyFinancialRecordsRequestBodyDto']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(FinancialRecordDtoFromJSON));
+    }
+
+    /**
+     * Cria múltiplos lançamentos financeiros.
+     */
+    async systemCreateManyFinancialRecords(requestParameters: SystemCreateManyFinancialRecordsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<FinancialRecordDto>> {
+        const response = await this.systemCreateManyFinancialRecordsRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
      * Busca todos os lançamentos financeiros pelo sistema.
      */
     async systemFindAllFinancialRecordsRaw(requestParameters: SystemFindAllFinancialRecordsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FinancialRecordsPageDto>> {
@@ -787,6 +878,55 @@ export class FinancialRecordsApi extends runtime.BaseAPI implements FinancialRec
      */
     async systemFindAllFinancialRecords(requestParameters: SystemFindAllFinancialRecordsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialRecordsPageDto> {
         const response = await this.systemFindAllFinancialRecordsRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Busca um lançamento financeiro pelo identificador.
+     */
+    async systemFindByIdFinancialRecordRaw(requestParameters: SystemFindByIdFinancialRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FinancialRecordDto>> {
+        if (requestParameters['organizationId'] == null) {
+            throw new runtime.RequiredError(
+                'organizationId',
+                'Required parameter "organizationId" was null or undefined when calling systemFindByIdFinancialRecord().'
+            );
+        }
+
+        if (requestParameters['financialRecordId'] == null) {
+            throw new runtime.RequiredError(
+                'financialRecordId',
+                'Required parameter "financialRecordId" was null or undefined when calling systemFindByIdFinancialRecord().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['populate'] != null) {
+            queryParameters['populate'] = requestParameters['populate'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+
+        let urlPath = `/internal/organizations/{organizationId}/financial-records/{financialRecordId}`;
+        urlPath = urlPath.replace(`{${"organizationId"}}`, encodeURIComponent(String(requestParameters['organizationId'])));
+        urlPath = urlPath.replace(`{${"financialRecordId"}}`, encodeURIComponent(String(requestParameters['financialRecordId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => FinancialRecordDtoFromJSON(jsonValue));
+    }
+
+    /**
+     * Busca um lançamento financeiro pelo identificador.
+     */
+    async systemFindByIdFinancialRecord(requestParameters: SystemFindByIdFinancialRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialRecordDto> {
+        const response = await this.systemFindByIdFinancialRecordRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

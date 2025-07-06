@@ -58,6 +58,10 @@ export interface RemoveFinancialRecordRequest {
     id: string;
     removeFinancialRecordRequestBodyDto: RemoveFinancialRecordRequestBodyDto;
 }
+export interface SystemCreateManyFinancialRecordsRequest {
+    organizationId: string;
+    createManyFinancialRecordsRequestBodyDto: CreateManyFinancialRecordsRequestBodyDto;
+}
 export interface SystemFindAllFinancialRecordsRequest {
     ownerOrganizationId: string;
     readPreference?: SystemFindAllFinancialRecordsReadPreferenceEnum;
@@ -86,6 +90,11 @@ export interface SystemFindAllFinancialRecordsRequest {
     textSearchTerm?: string;
     pageSize?: number;
     pageIndex?: number;
+}
+export interface SystemFindByIdFinancialRecordRequest {
+    organizationId: string;
+    financialRecordId: string;
+    populate?: string;
 }
 /**
  * FinancialRecordsApi - interface
@@ -203,6 +212,20 @@ export interface FinancialRecordsApiInterface {
     removeFinancialRecord(requestParameters: RemoveFinancialRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
     /**
      *
+     * @summary Cria múltiplos lançamentos financeiros.
+     * @param {string} organizationId Identificador da organização.
+     * @param {CreateManyFinancialRecordsRequestBodyDto} createManyFinancialRecordsRequestBodyDto
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof FinancialRecordsApiInterface
+     */
+    systemCreateManyFinancialRecordsRaw(requestParameters: SystemCreateManyFinancialRecordsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<FinancialRecordDto>>>;
+    /**
+     * Cria múltiplos lançamentos financeiros.
+     */
+    systemCreateManyFinancialRecords(requestParameters: SystemCreateManyFinancialRecordsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<FinancialRecordDto>>;
+    /**
+     *
      * @summary Busca todos os lançamentos financeiros pelo sistema.
      * @param {string} ownerOrganizationId Identificador da organização proprietária dos lançamentos financeiros.
      * @param {'primary' | 'primaryPreferred' | 'secondary' | 'secondaryPreferred' | 'nearest'} [readPreference] Preferência de leitura dos lançamentos financeiros.
@@ -240,6 +263,21 @@ export interface FinancialRecordsApiInterface {
      * Busca todos os lançamentos financeiros pelo sistema.
      */
     systemFindAllFinancialRecords(requestParameters: SystemFindAllFinancialRecordsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialRecordsPageDto>;
+    /**
+     *
+     * @summary Busca um lançamento financeiro pelo identificador.
+     * @param {string} organizationId Identificador da organização.
+     * @param {string} financialRecordId Identificador do lançamento financeiro.
+     * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof FinancialRecordsApiInterface
+     */
+    systemFindByIdFinancialRecordRaw(requestParameters: SystemFindByIdFinancialRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FinancialRecordDto>>;
+    /**
+     * Busca um lançamento financeiro pelo identificador.
+     */
+    systemFindByIdFinancialRecord(requestParameters: SystemFindByIdFinancialRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialRecordDto>;
 }
 /**
  *
@@ -294,6 +332,14 @@ export declare class FinancialRecordsApi extends runtime.BaseAPI implements Fina
      */
     removeFinancialRecord(requestParameters: RemoveFinancialRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
     /**
+     * Cria múltiplos lançamentos financeiros.
+     */
+    systemCreateManyFinancialRecordsRaw(requestParameters: SystemCreateManyFinancialRecordsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<FinancialRecordDto>>>;
+    /**
+     * Cria múltiplos lançamentos financeiros.
+     */
+    systemCreateManyFinancialRecords(requestParameters: SystemCreateManyFinancialRecordsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<FinancialRecordDto>>;
+    /**
      * Busca todos os lançamentos financeiros pelo sistema.
      */
     systemFindAllFinancialRecordsRaw(requestParameters: SystemFindAllFinancialRecordsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FinancialRecordsPageDto>>;
@@ -301,6 +347,14 @@ export declare class FinancialRecordsApi extends runtime.BaseAPI implements Fina
      * Busca todos os lançamentos financeiros pelo sistema.
      */
     systemFindAllFinancialRecords(requestParameters: SystemFindAllFinancialRecordsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialRecordsPageDto>;
+    /**
+     * Busca um lançamento financeiro pelo identificador.
+     */
+    systemFindByIdFinancialRecordRaw(requestParameters: SystemFindByIdFinancialRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FinancialRecordDto>>;
+    /**
+     * Busca um lançamento financeiro pelo identificador.
+     */
+    systemFindByIdFinancialRecord(requestParameters: SystemFindByIdFinancialRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialRecordDto>;
 }
 /**
  * @export

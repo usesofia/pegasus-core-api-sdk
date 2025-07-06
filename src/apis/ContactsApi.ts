@@ -104,6 +104,12 @@ export interface SystemFindAllContactsRequest {
     pageIndex?: number;
 }
 
+export interface SystemFindByIdContactRequest {
+    organizationId: string;
+    contactId: string;
+    populate?: string;
+}
+
 /**
  * ContactsApi - interface
  * 
@@ -276,6 +282,23 @@ export interface ContactsApiInterface {
      * Busca todos os contatos pelo sistema.
      */
     systemFindAllContacts(requestParameters: SystemFindAllContactsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ContactsPageDto>;
+
+    /**
+     * 
+     * @summary Busca um contato pelo identificador.
+     * @param {string} organizationId Identificador da organização.
+     * @param {string} contactId Identificador do contato.
+     * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ContactsApiInterface
+     */
+    systemFindByIdContactRaw(requestParameters: SystemFindByIdContactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ContactDto>>;
+
+    /**
+     * Busca um contato pelo identificador.
+     */
+    systemFindByIdContact(requestParameters: SystemFindByIdContactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ContactDto>;
 
 }
 
@@ -742,6 +765,55 @@ export class ContactsApi extends runtime.BaseAPI implements ContactsApiInterface
      */
     async systemFindAllContacts(requestParameters: SystemFindAllContactsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ContactsPageDto> {
         const response = await this.systemFindAllContactsRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Busca um contato pelo identificador.
+     */
+    async systemFindByIdContactRaw(requestParameters: SystemFindByIdContactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ContactDto>> {
+        if (requestParameters['organizationId'] == null) {
+            throw new runtime.RequiredError(
+                'organizationId',
+                'Required parameter "organizationId" was null or undefined when calling systemFindByIdContact().'
+            );
+        }
+
+        if (requestParameters['contactId'] == null) {
+            throw new runtime.RequiredError(
+                'contactId',
+                'Required parameter "contactId" was null or undefined when calling systemFindByIdContact().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['populate'] != null) {
+            queryParameters['populate'] = requestParameters['populate'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+
+        let urlPath = `/internal/organizations/{organizationId}/contacts/{contactId}`;
+        urlPath = urlPath.replace(`{${"organizationId"}}`, encodeURIComponent(String(requestParameters['organizationId'])));
+        urlPath = urlPath.replace(`{${"contactId"}}`, encodeURIComponent(String(requestParameters['contactId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ContactDtoFromJSON(jsonValue));
+    }
+
+    /**
+     * Busca um contato pelo identificador.
+     */
+    async systemFindByIdContact(requestParameters: SystemFindByIdContactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ContactDto> {
+        const response = await this.systemFindByIdContactRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
