@@ -50,183 +50,195 @@ import {
 } from './CreateFinancialRecordRequestBodyDtoPopulatedContact';
 
 /**
- * Dados extraídos do registro financeiro.
+ * 
  * @export
- * @interface FinancialRecordRadarItemEntityExtractedFinancialRecordData
+ * @interface FinancialRecordRadarItemEntityFinalBestSuggestedActionFinancialRecordRadarProcessedPartialUpdateFinancialRecordRequestData
  */
-export interface FinancialRecordRadarItemEntityExtractedFinancialRecordData {
+export interface FinancialRecordRadarItemEntityFinalBestSuggestedActionFinancialRecordRadarProcessedPartialUpdateFinancialRecordRequestData {
     /**
      * Direção do lançamento (entrada/saída).
      * @type {string}
-     * @memberof FinancialRecordRadarItemEntityExtractedFinancialRecordData
+     * @memberof FinancialRecordRadarItemEntityFinalBestSuggestedActionFinancialRecordRadarProcessedPartialUpdateFinancialRecordRequestData
      */
-    direction?: FinancialRecordRadarItemEntityExtractedFinancialRecordDataDirectionEnum;
+    direction?: FinancialRecordRadarItemEntityFinalBestSuggestedActionFinancialRecordRadarProcessedPartialUpdateFinancialRecordRequestDataDirectionEnum;
     /**
      * Data de vencimento.
      * @type {any}
-     * @memberof FinancialRecordRadarItemEntityExtractedFinancialRecordData
+     * @memberof FinancialRecordRadarItemEntityFinalBestSuggestedActionFinancialRecordRadarProcessedPartialUpdateFinancialRecordRequestData
      */
     dueDate?: any | null;
     /**
      * Identificador do contato relacionado.
      * @type {string}
-     * @memberof FinancialRecordRadarItemEntityExtractedFinancialRecordData
+     * @memberof FinancialRecordRadarItemEntityFinalBestSuggestedActionFinancialRecordRadarProcessedPartialUpdateFinancialRecordRequestData
      */
     contact?: string;
     /**
      * Descrição do lançamento.
      * @type {string}
-     * @memberof FinancialRecordRadarItemEntityExtractedFinancialRecordData
+     * @memberof FinancialRecordRadarItemEntityFinalBestSuggestedActionFinancialRecordRadarProcessedPartialUpdateFinancialRecordRequestData
      */
     description?: string;
     /**
      * Identificador da subcategoria.
      * @type {string}
-     * @memberof FinancialRecordRadarItemEntityExtractedFinancialRecordData
+     * @memberof FinancialRecordRadarItemEntityFinalBestSuggestedActionFinancialRecordRadarProcessedPartialUpdateFinancialRecordRequestData
      */
     subcategory?: string;
     /**
-     * 
-     * @type {string}
-     * @memberof FinancialRecordRadarItemEntityExtractedFinancialRecordData
+     * Valor do lançamento.
+     * @type {number}
+     * @memberof FinancialRecordRadarItemEntityFinalBestSuggestedActionFinancialRecordRadarProcessedPartialUpdateFinancialRecordRequestData
      */
-    amount?: string;
+    amount?: number;
     /**
      * Tags relacionadas.
      * @type {Array<string>}
-     * @memberof FinancialRecordRadarItemEntityExtractedFinancialRecordData
+     * @memberof FinancialRecordRadarItemEntityFinalBestSuggestedActionFinancialRecordRadarProcessedPartialUpdateFinancialRecordRequestData
      */
     tags?: Array<string>;
     /**
      * Data de competência.
      * @type {any}
-     * @memberof FinancialRecordRadarItemEntityExtractedFinancialRecordData
+     * @memberof FinancialRecordRadarItemEntityFinalBestSuggestedActionFinancialRecordRadarProcessedPartialUpdateFinancialRecordRequestData
      */
     competenceDate?: any | null;
     /**
      * Arquivos anexados.
      * @type {Array<string>}
-     * @memberof FinancialRecordRadarItemEntityExtractedFinancialRecordData
+     * @memberof FinancialRecordRadarItemEntityFinalBestSuggestedActionFinancialRecordRadarProcessedPartialUpdateFinancialRecordRequestData
      */
     files?: Array<string>;
     /**
      * Chave PIX.
      * @type {string}
-     * @memberof FinancialRecordRadarItemEntityExtractedFinancialRecordData
+     * @memberof FinancialRecordRadarItemEntityFinalBestSuggestedActionFinancialRecordRadarProcessedPartialUpdateFinancialRecordRequestData
      */
     pixKey?: string | null;
     /**
      * Código do boleto.
      * @type {string}
-     * @memberof FinancialRecordRadarItemEntityExtractedFinancialRecordData
+     * @memberof FinancialRecordRadarItemEntityFinalBestSuggestedActionFinancialRecordRadarProcessedPartialUpdateFinancialRecordRequestData
      */
     boletoCode?: string | null;
     /**
      * Código PIX para pagamento/recebimento.
      * @type {string}
-     * @memberof FinancialRecordRadarItemEntityExtractedFinancialRecordData
+     * @memberof FinancialRecordRadarItemEntityFinalBestSuggestedActionFinancialRecordRadarProcessedPartialUpdateFinancialRecordRequestData
      */
     pixCode?: string | null;
     /**
      * Número da nota fiscal.
      * @type {string}
-     * @memberof FinancialRecordRadarItemEntityExtractedFinancialRecordData
+     * @memberof FinancialRecordRadarItemEntityFinalBestSuggestedActionFinancialRecordRadarProcessedPartialUpdateFinancialRecordRequestData
      */
     invoiceNumber?: string | null;
     /**
      * Indica se o lançamento foi concluído.
      * @type {boolean}
-     * @memberof FinancialRecordRadarItemEntityExtractedFinancialRecordData
+     * @memberof FinancialRecordRadarItemEntityFinalBestSuggestedActionFinancialRecordRadarProcessedPartialUpdateFinancialRecordRequestData
      */
     completed?: boolean;
     /**
      * Data de pagamento.
      * @type {any}
-     * @memberof FinancialRecordRadarItemEntityExtractedFinancialRecordData
+     * @memberof FinancialRecordRadarItemEntityFinalBestSuggestedActionFinancialRecordRadarProcessedPartialUpdateFinancialRecordRequestData
      */
     cashDate?: any | null;
     /**
      * Identificador da conta.
      * @type {string}
-     * @memberof FinancialRecordRadarItemEntityExtractedFinancialRecordData
+     * @memberof FinancialRecordRadarItemEntityFinalBestSuggestedActionFinancialRecordRadarProcessedPartialUpdateFinancialRecordRequestData
      */
     account?: string | null;
     /**
-     * 
-     * @type {string}
-     * @memberof FinancialRecordRadarItemEntityExtractedFinancialRecordData
+     * Valor do desconto.
+     * @type {number}
+     * @memberof FinancialRecordRadarItemEntityFinalBestSuggestedActionFinancialRecordRadarProcessedPartialUpdateFinancialRecordRequestData
      */
-    discount?: string;
+    discount?: number | null;
     /**
-     * 
-     * @type {string}
-     * @memberof FinancialRecordRadarItemEntityExtractedFinancialRecordData
+     * Valor de multas e juros.
+     * @type {number}
+     * @memberof FinancialRecordRadarItemEntityFinalBestSuggestedActionFinancialRecordRadarProcessedPartialUpdateFinancialRecordRequestData
      */
-    finesAndInterest?: string;
+    finesAndInterest?: number | null;
+    /**
+     * Indica se foi reconciliado com uma transação bancária.
+     * @type {boolean}
+     * @memberof FinancialRecordRadarItemEntityFinalBestSuggestedActionFinancialRecordRadarProcessedPartialUpdateFinancialRecordRequestData
+     */
+    reconciled?: boolean;
+    /**
+     * Identificador da transação bancária vinculada.
+     * @type {string}
+     * @memberof FinancialRecordRadarItemEntityFinalBestSuggestedActionFinancialRecordRadarProcessedPartialUpdateFinancialRecordRequestData
+     */
+    bankTransaction?: string | null;
     /**
      * Identificador do lançamento financeiro parcelado.
      * @type {string}
-     * @memberof FinancialRecordRadarItemEntityExtractedFinancialRecordData
+     * @memberof FinancialRecordRadarItemEntityFinalBestSuggestedActionFinancialRecordRadarProcessedPartialUpdateFinancialRecordRequestData
      */
     installmentFinancialRecord?: string | null;
     /**
      * Índice da parcela (1, 2, 3, etc.).
      * @type {number}
-     * @memberof FinancialRecordRadarItemEntityExtractedFinancialRecordData
+     * @memberof FinancialRecordRadarItemEntityFinalBestSuggestedActionFinancialRecordRadarProcessedPartialUpdateFinancialRecordRequestData
      */
     installmentNumber?: number | null;
     /**
      * Identificador do lançamento financeiro recorrente.
      * @type {string}
-     * @memberof FinancialRecordRadarItemEntityExtractedFinancialRecordData
+     * @memberof FinancialRecordRadarItemEntityFinalBestSuggestedActionFinancialRecordRadarProcessedPartialUpdateFinancialRecordRequestData
      */
     recurringFinancialRecord?: string | null;
     /**
      * Arquivos anexados.
      * @type {Array<CreateFinancialRecordRequestBodyDtoPopulatedFilesInner>}
-     * @memberof FinancialRecordRadarItemEntityExtractedFinancialRecordData
+     * @memberof FinancialRecordRadarItemEntityFinalBestSuggestedActionFinancialRecordRadarProcessedPartialUpdateFinancialRecordRequestData
      */
     populatedFiles?: Array<CreateFinancialRecordRequestBodyDtoPopulatedFilesInner>;
     /**
      * 
      * @type {CreateFinancialRecordRequestBodyDtoPopulatedSubcategory}
-     * @memberof FinancialRecordRadarItemEntityExtractedFinancialRecordData
+     * @memberof FinancialRecordRadarItemEntityFinalBestSuggestedActionFinancialRecordRadarProcessedPartialUpdateFinancialRecordRequestData
      */
     populatedSubcategory?: CreateFinancialRecordRequestBodyDtoPopulatedSubcategory | null;
     /**
      * 
      * @type {CreateFinancialRecordRequestBodyDtoPopulatedContact}
-     * @memberof FinancialRecordRadarItemEntityExtractedFinancialRecordData
+     * @memberof FinancialRecordRadarItemEntityFinalBestSuggestedActionFinancialRecordRadarProcessedPartialUpdateFinancialRecordRequestData
      */
     populatedContact?: CreateFinancialRecordRequestBodyDtoPopulatedContact | null;
     /**
      * Tags relacionadas.
      * @type {Array<CreateFinancialRecordRequestBodyDtoPopulatedTagsInner>}
-     * @memberof FinancialRecordRadarItemEntityExtractedFinancialRecordData
+     * @memberof FinancialRecordRadarItemEntityFinalBestSuggestedActionFinancialRecordRadarProcessedPartialUpdateFinancialRecordRequestData
      */
     populatedTags?: Array<CreateFinancialRecordRequestBodyDtoPopulatedTagsInner> | null;
     /**
      * 
      * @type {CreateFinancialRecordRequestBodyDtoPopulatedAccount}
-     * @memberof FinancialRecordRadarItemEntityExtractedFinancialRecordData
+     * @memberof FinancialRecordRadarItemEntityFinalBestSuggestedActionFinancialRecordRadarProcessedPartialUpdateFinancialRecordRequestData
      */
     populatedAccount?: CreateFinancialRecordRequestBodyDtoPopulatedAccount | null;
     /**
      * Pontuação de busca do lançamento.
      * @type {number}
-     * @memberof FinancialRecordRadarItemEntityExtractedFinancialRecordData
+     * @memberof FinancialRecordRadarItemEntityFinalBestSuggestedActionFinancialRecordRadarProcessedPartialUpdateFinancialRecordRequestData
      */
     searchScore?: number | null;
     /**
      * Valor final do lançamento (calculado automaticamente).
      * @type {number}
-     * @memberof FinancialRecordRadarItemEntityExtractedFinancialRecordData
+     * @memberof FinancialRecordRadarItemEntityFinalBestSuggestedActionFinancialRecordRadarProcessedPartialUpdateFinancialRecordRequestData
      */
     finalAmount?: number;
     /**
-     * Identificador do item no radar que originou o lançamento.
+     * Identificador do item no radar que originou a atualização.
      * @type {string}
-     * @memberof FinancialRecordRadarItemEntityExtractedFinancialRecordData
+     * @memberof FinancialRecordRadarItemEntityFinalBestSuggestedActionFinancialRecordRadarProcessedPartialUpdateFinancialRecordRequestData
      */
     radarItem?: string;
 }
@@ -235,25 +247,25 @@ export interface FinancialRecordRadarItemEntityExtractedFinancialRecordData {
 /**
  * @export
  */
-export const FinancialRecordRadarItemEntityExtractedFinancialRecordDataDirectionEnum = {
+export const FinancialRecordRadarItemEntityFinalBestSuggestedActionFinancialRecordRadarProcessedPartialUpdateFinancialRecordRequestDataDirectionEnum = {
     In: 'IN',
     Out: 'OUT'
 } as const;
-export type FinancialRecordRadarItemEntityExtractedFinancialRecordDataDirectionEnum = typeof FinancialRecordRadarItemEntityExtractedFinancialRecordDataDirectionEnum[keyof typeof FinancialRecordRadarItemEntityExtractedFinancialRecordDataDirectionEnum];
+export type FinancialRecordRadarItemEntityFinalBestSuggestedActionFinancialRecordRadarProcessedPartialUpdateFinancialRecordRequestDataDirectionEnum = typeof FinancialRecordRadarItemEntityFinalBestSuggestedActionFinancialRecordRadarProcessedPartialUpdateFinancialRecordRequestDataDirectionEnum[keyof typeof FinancialRecordRadarItemEntityFinalBestSuggestedActionFinancialRecordRadarProcessedPartialUpdateFinancialRecordRequestDataDirectionEnum];
 
 
 /**
- * Check if a given object implements the FinancialRecordRadarItemEntityExtractedFinancialRecordData interface.
+ * Check if a given object implements the FinancialRecordRadarItemEntityFinalBestSuggestedActionFinancialRecordRadarProcessedPartialUpdateFinancialRecordRequestData interface.
  */
-export function instanceOfFinancialRecordRadarItemEntityExtractedFinancialRecordData(value: object): value is FinancialRecordRadarItemEntityExtractedFinancialRecordData {
+export function instanceOfFinancialRecordRadarItemEntityFinalBestSuggestedActionFinancialRecordRadarProcessedPartialUpdateFinancialRecordRequestData(value: object): value is FinancialRecordRadarItemEntityFinalBestSuggestedActionFinancialRecordRadarProcessedPartialUpdateFinancialRecordRequestData {
     return true;
 }
 
-export function FinancialRecordRadarItemEntityExtractedFinancialRecordDataFromJSON(json: any): FinancialRecordRadarItemEntityExtractedFinancialRecordData {
-    return FinancialRecordRadarItemEntityExtractedFinancialRecordDataFromJSONTyped(json, false);
+export function FinancialRecordRadarItemEntityFinalBestSuggestedActionFinancialRecordRadarProcessedPartialUpdateFinancialRecordRequestDataFromJSON(json: any): FinancialRecordRadarItemEntityFinalBestSuggestedActionFinancialRecordRadarProcessedPartialUpdateFinancialRecordRequestData {
+    return FinancialRecordRadarItemEntityFinalBestSuggestedActionFinancialRecordRadarProcessedPartialUpdateFinancialRecordRequestDataFromJSONTyped(json, false);
 }
 
-export function FinancialRecordRadarItemEntityExtractedFinancialRecordDataFromJSONTyped(json: any, ignoreDiscriminator: boolean): FinancialRecordRadarItemEntityExtractedFinancialRecordData {
+export function FinancialRecordRadarItemEntityFinalBestSuggestedActionFinancialRecordRadarProcessedPartialUpdateFinancialRecordRequestDataFromJSONTyped(json: any, ignoreDiscriminator: boolean): FinancialRecordRadarItemEntityFinalBestSuggestedActionFinancialRecordRadarProcessedPartialUpdateFinancialRecordRequestData {
     if (json == null) {
         return json;
     }
@@ -277,6 +289,8 @@ export function FinancialRecordRadarItemEntityExtractedFinancialRecordDataFromJS
         'account': json['account'] == null ? undefined : json['account'],
         'discount': json['discount'] == null ? undefined : json['discount'],
         'finesAndInterest': json['finesAndInterest'] == null ? undefined : json['finesAndInterest'],
+        'reconciled': json['reconciled'] == null ? undefined : json['reconciled'],
+        'bankTransaction': json['bankTransaction'] == null ? undefined : json['bankTransaction'],
         'installmentFinancialRecord': json['installmentFinancialRecord'] == null ? undefined : json['installmentFinancialRecord'],
         'installmentNumber': json['installmentNumber'] == null ? undefined : json['installmentNumber'],
         'recurringFinancialRecord': json['recurringFinancialRecord'] == null ? undefined : json['recurringFinancialRecord'],
@@ -291,11 +305,11 @@ export function FinancialRecordRadarItemEntityExtractedFinancialRecordDataFromJS
     };
 }
 
-export function FinancialRecordRadarItemEntityExtractedFinancialRecordDataToJSON(json: any): FinancialRecordRadarItemEntityExtractedFinancialRecordData {
-    return FinancialRecordRadarItemEntityExtractedFinancialRecordDataToJSONTyped(json, false);
+export function FinancialRecordRadarItemEntityFinalBestSuggestedActionFinancialRecordRadarProcessedPartialUpdateFinancialRecordRequestDataToJSON(json: any): FinancialRecordRadarItemEntityFinalBestSuggestedActionFinancialRecordRadarProcessedPartialUpdateFinancialRecordRequestData {
+    return FinancialRecordRadarItemEntityFinalBestSuggestedActionFinancialRecordRadarProcessedPartialUpdateFinancialRecordRequestDataToJSONTyped(json, false);
 }
 
-export function FinancialRecordRadarItemEntityExtractedFinancialRecordDataToJSONTyped(value?: FinancialRecordRadarItemEntityExtractedFinancialRecordData | null, ignoreDiscriminator: boolean = false): any {
+export function FinancialRecordRadarItemEntityFinalBestSuggestedActionFinancialRecordRadarProcessedPartialUpdateFinancialRecordRequestDataToJSONTyped(value?: FinancialRecordRadarItemEntityFinalBestSuggestedActionFinancialRecordRadarProcessedPartialUpdateFinancialRecordRequestData | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
@@ -320,6 +334,8 @@ export function FinancialRecordRadarItemEntityExtractedFinancialRecordDataToJSON
         'account': value['account'],
         'discount': value['discount'],
         'finesAndInterest': value['finesAndInterest'],
+        'reconciled': value['reconciled'],
+        'bankTransaction': value['bankTransaction'],
         'installmentFinancialRecord': value['installmentFinancialRecord'],
         'installmentNumber': value['installmentNumber'],
         'recurringFinancialRecord': value['recurringFinancialRecord'],

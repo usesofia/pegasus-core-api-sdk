@@ -107,6 +107,7 @@ export * from './FinancialRecordRadarItemEntityFinalBestSuggestedActionFinancial
 export * from './FinancialRecordRadarItemEntityFinalBestSuggestedActionFinancialRecordRadarProcessedCreateManyFinancialRecordsRequest';
 export * from './FinancialRecordRadarItemEntityFinalBestSuggestedActionFinancialRecordRadarProcessedLinkFinancialRecordToThisRadarItemRequest';
 export * from './FinancialRecordRadarItemEntityFinalBestSuggestedActionFinancialRecordRadarProcessedPartialUpdateFinancialRecordRequest';
+export * from './FinancialRecordRadarItemEntityFinalBestSuggestedActionFinancialRecordRadarProcessedPartialUpdateFinancialRecordRequestData';
 export * from './FinancialRecordRadarItemEntitySubsequentRadarItemsInner';
 export * from './FinancialRecordRadarItemEntitySubsequentRadarItemsInnerBestSuggestedAction';
 export * from './FinancialRecordRadarItemEntitySubsequentRadarItemsInnerEmailMessageData';

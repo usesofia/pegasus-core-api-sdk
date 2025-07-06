@@ -86,11 +86,11 @@ export interface CreateFinancialRecordRadarItemRequestBodyDtoBestSuggestedAction
      */
     subcategory?: string;
     /**
-     * Valor do lançamento.
-     * @type {number}
+     * 
+     * @type {string}
      * @memberof CreateFinancialRecordRadarItemRequestBodyDtoBestSuggestedActionFinancialRecordRadarRawPartialUpdateFinancialRecordRequestData
      */
-    amount?: number;
+    amount?: string;
     /**
      * Tags relacionadas.
      * @type {Array<string>}
@@ -152,17 +152,17 @@ export interface CreateFinancialRecordRadarItemRequestBodyDtoBestSuggestedAction
      */
     account?: string | null;
     /**
-     * Valor do desconto.
-     * @type {number}
+     * 
+     * @type {string}
      * @memberof CreateFinancialRecordRadarItemRequestBodyDtoBestSuggestedActionFinancialRecordRadarRawPartialUpdateFinancialRecordRequestData
      */
-    discount?: number | null;
+    discount?: string;
     /**
-     * Valor de multas e juros.
-     * @type {number}
+     * 
+     * @type {string}
      * @memberof CreateFinancialRecordRadarItemRequestBodyDtoBestSuggestedActionFinancialRecordRadarRawPartialUpdateFinancialRecordRequestData
      */
-    finesAndInterest?: number | null;
+    finesAndInterest?: string;
     /**
      * Indica se foi reconciliado com uma transação bancária.
      * @type {boolean}

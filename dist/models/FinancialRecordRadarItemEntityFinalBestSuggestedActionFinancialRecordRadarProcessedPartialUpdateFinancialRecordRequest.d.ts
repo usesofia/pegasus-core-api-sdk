@@ -9,8 +9,8 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { CreateFinancialRecordRadarItemRequestBodyDtoBestSuggestedActionFinancialRecordRadarRawPartialUpdateFinancialRecordRequestData } from './CreateFinancialRecordRadarItemRequestBodyDtoBestSuggestedActionFinancialRecordRadarRawPartialUpdateFinancialRecordRequestData';
 import type { CreateFinancialRecordRadarItemRequestBodyDtoBestSuggestedActionFinancialRecordRadarRawPartialUpdateFinancialRecordRequestExtractedFinancialRecordData } from './CreateFinancialRecordRadarItemRequestBodyDtoBestSuggestedActionFinancialRecordRadarRawPartialUpdateFinancialRecordRequestExtractedFinancialRecordData';
+import type { FinancialRecordRadarItemEntityFinalBestSuggestedActionFinancialRecordRadarProcessedPartialUpdateFinancialRecordRequestData } from './FinancialRecordRadarItemEntityFinalBestSuggestedActionFinancialRecordRadarProcessedPartialUpdateFinancialRecordRequestData';
 /**
  * Dados finais para atualizar parcialmente registro financeiro.
  * @export
@@ -25,10 +25,10 @@ export interface FinancialRecordRadarItemEntityFinalBestSuggestedActionFinancial
     id: string;
     /**
      *
-     * @type {CreateFinancialRecordRadarItemRequestBodyDtoBestSuggestedActionFinancialRecordRadarRawPartialUpdateFinancialRecordRequestData}
+     * @type {FinancialRecordRadarItemEntityFinalBestSuggestedActionFinancialRecordRadarProcessedPartialUpdateFinancialRecordRequestData}
      * @memberof FinancialRecordRadarItemEntityFinalBestSuggestedActionFinancialRecordRadarProcessedPartialUpdateFinancialRecordRequest
      */
-    data: CreateFinancialRecordRadarItemRequestBodyDtoBestSuggestedActionFinancialRecordRadarRawPartialUpdateFinancialRecordRequestData;
+    data: FinancialRecordRadarItemEntityFinalBestSuggestedActionFinancialRecordRadarProcessedPartialUpdateFinancialRecordRequestData;
     /**
      *
      * @type {CreateFinancialRecordRadarItemRequestBodyDtoBestSuggestedActionFinancialRecordRadarRawPartialUpdateFinancialRecordRequestExtractedFinancialRecordData}

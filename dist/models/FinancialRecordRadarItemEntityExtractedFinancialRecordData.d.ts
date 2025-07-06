@@ -51,11 +51,11 @@ export interface FinancialRecordRadarItemEntityExtractedFinancialRecordData {
      */
     subcategory?: string;
     /**
-     * Valor do lançamento.
-     * @type {number}
+     *
+     * @type {string}
      * @memberof FinancialRecordRadarItemEntityExtractedFinancialRecordData
      */
-    amount?: number;
+    amount?: string;
     /**
      * Tags relacionadas.
      * @type {Array<string>}
@@ -117,17 +117,17 @@ export interface FinancialRecordRadarItemEntityExtractedFinancialRecordData {
      */
     account?: string | null;
     /**
-     * Valor do desconto.
-     * @type {number}
+     *
+     * @type {string}
      * @memberof FinancialRecordRadarItemEntityExtractedFinancialRecordData
      */
-    discount?: number | null;
+    discount?: string;
     /**
-     * Valor de multas e juros.
-     * @type {number}
+     *
+     * @type {string}
      * @memberof FinancialRecordRadarItemEntityExtractedFinancialRecordData
      */
-    finesAndInterest?: number | null;
+    finesAndInterest?: string;
     /**
      * Identificador do lançamento financeiro parcelado.
      * @type {string}

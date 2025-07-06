@@ -125,6 +125,7 @@ __exportStar(require("./FinancialRecordRadarItemEntityFinalBestSuggestedActionFi
 __exportStar(require("./FinancialRecordRadarItemEntityFinalBestSuggestedActionFinancialRecordRadarProcessedCreateManyFinancialRecordsRequest"), exports);
 __exportStar(require("./FinancialRecordRadarItemEntityFinalBestSuggestedActionFinancialRecordRadarProcessedLinkFinancialRecordToThisRadarItemRequest"), exports);
 __exportStar(require("./FinancialRecordRadarItemEntityFinalBestSuggestedActionFinancialRecordRadarProcessedPartialUpdateFinancialRecordRequest"), exports);
+__exportStar(require("./FinancialRecordRadarItemEntityFinalBestSuggestedActionFinancialRecordRadarProcessedPartialUpdateFinancialRecordRequestData"), exports);
 __exportStar(require("./FinancialRecordRadarItemEntitySubsequentRadarItemsInner"), exports);
 __exportStar(require("./FinancialRecordRadarItemEntitySubsequentRadarItemsInnerBestSuggestedAction"), exports);
 __exportStar(require("./FinancialRecordRadarItemEntitySubsequentRadarItemsInnerEmailMessageData"), exports);

@@ -86,11 +86,11 @@ export interface CreateFinancialRecordRadarItemRequestBodyDtoBestSuggestedAction
      */
     subcategory: string;
     /**
-     * Valor do lançamento.
-     * @type {number}
+     * 
+     * @type {string}
      * @memberof CreateFinancialRecordRadarItemRequestBodyDtoBestSuggestedActionFinancialRecordRadarRawCreateFinancialRecordRequest
      */
-    amount: number;
+    amount: string;
     /**
      * Tags relacionadas.
      * @type {Array<string>}
@@ -152,17 +152,17 @@ export interface CreateFinancialRecordRadarItemRequestBodyDtoBestSuggestedAction
      */
     account?: string | null;
     /**
-     * Valor do desconto.
-     * @type {number}
+     * 
+     * @type {string}
      * @memberof CreateFinancialRecordRadarItemRequestBodyDtoBestSuggestedActionFinancialRecordRadarRawCreateFinancialRecordRequest
      */
-    discount?: number | null;
+    discount?: string | null;
     /**
-     * Valor de multas e juros.
-     * @type {number}
+     * 
+     * @type {string}
      * @memberof CreateFinancialRecordRadarItemRequestBodyDtoBestSuggestedActionFinancialRecordRadarRawCreateFinancialRecordRequest
      */
-    finesAndInterest?: number | null;
+    finesAndInterest?: string | null;
     /**
      * Identificador do lançamento financeiro parcelado.
      * @type {string}
