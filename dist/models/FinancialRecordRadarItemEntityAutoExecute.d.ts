@@ -9,11 +9,11 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { FinancialRecordRadarItemEntityAutoExecuteBulkCreateJobRequest } from './FinancialRecordRadarItemEntityAutoExecuteBulkCreateJobRequest';
 import type { FinancialRecordRadarItemEntityAutoExecutePartialUpdatedFinancialRecord } from './FinancialRecordRadarItemEntityAutoExecutePartialUpdatedFinancialRecord';
 import type { FinancialRecordRadarItemEntityAutoExecuteLinkedFinancialRecord } from './FinancialRecordRadarItemEntityAutoExecuteLinkedFinancialRecord';
-import type { FinancialRecordRadarItemEntityFinalBestSuggestedAction } from './FinancialRecordRadarItemEntityFinalBestSuggestedAction';
+import type { CreatedFinancialRecordRadarItemResultEntityRadarItemAutoExecuteBulkCreateJobRequest } from './CreatedFinancialRecordRadarItemResultEntityRadarItemAutoExecuteBulkCreateJobRequest';
 import type { FinancialRecordRadarItemEntityAutoExecuteCreatedFinancialRecord } from './FinancialRecordRadarItemEntityAutoExecuteCreatedFinancialRecord';
+import type { CreatedFinancialRecordRadarItemResultEntityRadarItemFinalBestSuggestedAction } from './CreatedFinancialRecordRadarItemResultEntityRadarItemFinalBestSuggestedAction';
 /**
  * Auto-execute do registro.
  * @export
@@ -22,10 +22,10 @@ import type { FinancialRecordRadarItemEntityAutoExecuteCreatedFinancialRecord } 
 export interface FinancialRecordRadarItemEntityAutoExecute {
     /**
      *
-     * @type {FinancialRecordRadarItemEntityFinalBestSuggestedAction}
+     * @type {CreatedFinancialRecordRadarItemResultEntityRadarItemFinalBestSuggestedAction}
      * @memberof FinancialRecordRadarItemEntityAutoExecute
      */
-    finalBestSuggestedAction?: FinancialRecordRadarItemEntityFinalBestSuggestedAction;
+    finalBestSuggestedAction?: CreatedFinancialRecordRadarItemResultEntityRadarItemFinalBestSuggestedAction;
     /**
      * Status da execução do auto-execute.
      * @type {string}
@@ -58,10 +58,10 @@ export interface FinancialRecordRadarItemEntityAutoExecute {
     partialUpdatedFinancialRecord?: FinancialRecordRadarItemEntityAutoExecutePartialUpdatedFinancialRecord;
     /**
      *
-     * @type {FinancialRecordRadarItemEntityAutoExecuteBulkCreateJobRequest}
+     * @type {CreatedFinancialRecordRadarItemResultEntityRadarItemAutoExecuteBulkCreateJobRequest}
      * @memberof FinancialRecordRadarItemEntityAutoExecute
      */
-    bulkCreateJobRequest?: FinancialRecordRadarItemEntityAutoExecuteBulkCreateJobRequest;
+    bulkCreateJobRequest?: CreatedFinancialRecordRadarItemResultEntityRadarItemAutoExecuteBulkCreateJobRequest;
     /**
      *
      * @type {FinancialRecordRadarItemEntityAutoExecuteLinkedFinancialRecord}

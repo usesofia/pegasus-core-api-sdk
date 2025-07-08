@@ -19,13 +19,13 @@ exports.FinancialRecordRadarItemEntityFromJSON = FinancialRecordRadarItemEntityF
 exports.FinancialRecordRadarItemEntityFromJSONTyped = FinancialRecordRadarItemEntityFromJSONTyped;
 exports.FinancialRecordRadarItemEntityToJSON = FinancialRecordRadarItemEntityToJSON;
 exports.FinancialRecordRadarItemEntityToJSONTyped = FinancialRecordRadarItemEntityToJSONTyped;
-var FinancialRecordRadarItemEntityExtractedFinancialRecordData_1 = require("./FinancialRecordRadarItemEntityExtractedFinancialRecordData");
+var CreatedFinancialRecordRadarItemResultEntityRadarItemSubsequentRadarItemsInner_1 = require("./CreatedFinancialRecordRadarItemResultEntityRadarItemSubsequentRadarItemsInner");
 var CreateFinancialRecordRadarItemRequestBodyDtoEmailMessageData_1 = require("./CreateFinancialRecordRadarItemRequestBodyDtoEmailMessageData");
 var CreateFinancialRecordRadarItemRequestBodyDtoBestSuggestedAction_1 = require("./CreateFinancialRecordRadarItemRequestBodyDtoBestSuggestedAction");
 var CreateFinancialRecordRadarItemRequestBodyDtoWhatsappMessageData_1 = require("./CreateFinancialRecordRadarItemRequestBodyDtoWhatsappMessageData");
 var FinancialRecordRadarItemEntityAutoExecute_1 = require("./FinancialRecordRadarItemEntityAutoExecute");
-var FinancialRecordRadarItemEntityFinalBestSuggestedAction_1 = require("./FinancialRecordRadarItemEntityFinalBestSuggestedAction");
-var FinancialRecordRadarItemEntitySubsequentRadarItemsInner_1 = require("./FinancialRecordRadarItemEntitySubsequentRadarItemsInner");
+var CreatedFinancialRecordRadarItemResultEntityRadarItemExtractedFinancialRecordData_1 = require("./CreatedFinancialRecordRadarItemResultEntityRadarItemExtractedFinancialRecordData");
+var CreatedFinancialRecordRadarItemResultEntityRadarItemFinalBestSuggestedAction_1 = require("./CreatedFinancialRecordRadarItemResultEntityRadarItemFinalBestSuggestedAction");
 /**
  * @export
  */
@@ -95,9 +95,9 @@ function FinancialRecordRadarItemEntityFromJSONTyped(json, ignoreDiscriminator) 
         'folder': json['folder'],
         'links': json['links'],
         'bestSuggestedAction': json['bestSuggestedAction'] == null ? undefined : (0, CreateFinancialRecordRadarItemRequestBodyDtoBestSuggestedAction_1.CreateFinancialRecordRadarItemRequestBodyDtoBestSuggestedActionFromJSON)(json['bestSuggestedAction']),
-        'finalBestSuggestedAction': json['finalBestSuggestedAction'] == null ? undefined : (0, FinancialRecordRadarItemEntityFinalBestSuggestedAction_1.FinancialRecordRadarItemEntityFinalBestSuggestedActionFromJSON)(json['finalBestSuggestedAction']),
-        'extractedFinancialRecordData': json['extractedFinancialRecordData'] == null ? undefined : (0, FinancialRecordRadarItemEntityExtractedFinancialRecordData_1.FinancialRecordRadarItemEntityExtractedFinancialRecordDataFromJSON)(json['extractedFinancialRecordData']),
-        'subsequentRadarItems': json['subsequentRadarItems'] == null ? undefined : (json['subsequentRadarItems'].map(FinancialRecordRadarItemEntitySubsequentRadarItemsInner_1.FinancialRecordRadarItemEntitySubsequentRadarItemsInnerFromJSON)),
+        'finalBestSuggestedAction': json['finalBestSuggestedAction'] == null ? undefined : (0, CreatedFinancialRecordRadarItemResultEntityRadarItemFinalBestSuggestedAction_1.CreatedFinancialRecordRadarItemResultEntityRadarItemFinalBestSuggestedActionFromJSON)(json['finalBestSuggestedAction']),
+        'extractedFinancialRecordData': json['extractedFinancialRecordData'] == null ? undefined : (0, CreatedFinancialRecordRadarItemResultEntityRadarItemExtractedFinancialRecordData_1.CreatedFinancialRecordRadarItemResultEntityRadarItemExtractedFinancialRecordDataFromJSON)(json['extractedFinancialRecordData']),
+        'subsequentRadarItems': json['subsequentRadarItems'] == null ? undefined : (json['subsequentRadarItems'].map(CreatedFinancialRecordRadarItemResultEntityRadarItemSubsequentRadarItemsInner_1.CreatedFinancialRecordRadarItemResultEntityRadarItemSubsequentRadarItemsInnerFromJSON)),
         'whatsappMessageData': json['whatsappMessageData'] == null ? undefined : (0, CreateFinancialRecordRadarItemRequestBodyDtoWhatsappMessageData_1.CreateFinancialRecordRadarItemRequestBodyDtoWhatsappMessageDataFromJSON)(json['whatsappMessageData']),
         'emailMessageData': json['emailMessageData'] == null ? undefined : (0, CreateFinancialRecordRadarItemRequestBodyDtoEmailMessageData_1.CreateFinancialRecordRadarItemRequestBodyDtoEmailMessageDataFromJSON)(json['emailMessageData']),
         'autoExecute': json['autoExecute'] == null ? undefined : (0, FinancialRecordRadarItemEntityAutoExecute_1.FinancialRecordRadarItemEntityAutoExecuteFromJSON)(json['autoExecute']),
@@ -122,9 +122,9 @@ function FinancialRecordRadarItemEntityToJSONTyped(value, ignoreDiscriminator) {
         'folder': value['folder'],
         'links': value['links'],
         'bestSuggestedAction': (0, CreateFinancialRecordRadarItemRequestBodyDtoBestSuggestedAction_1.CreateFinancialRecordRadarItemRequestBodyDtoBestSuggestedActionToJSON)(value['bestSuggestedAction']),
-        'finalBestSuggestedAction': (0, FinancialRecordRadarItemEntityFinalBestSuggestedAction_1.FinancialRecordRadarItemEntityFinalBestSuggestedActionToJSON)(value['finalBestSuggestedAction']),
-        'extractedFinancialRecordData': (0, FinancialRecordRadarItemEntityExtractedFinancialRecordData_1.FinancialRecordRadarItemEntityExtractedFinancialRecordDataToJSON)(value['extractedFinancialRecordData']),
-        'subsequentRadarItems': value['subsequentRadarItems'] == null ? undefined : (value['subsequentRadarItems'].map(FinancialRecordRadarItemEntitySubsequentRadarItemsInner_1.FinancialRecordRadarItemEntitySubsequentRadarItemsInnerToJSON)),
+        'finalBestSuggestedAction': (0, CreatedFinancialRecordRadarItemResultEntityRadarItemFinalBestSuggestedAction_1.CreatedFinancialRecordRadarItemResultEntityRadarItemFinalBestSuggestedActionToJSON)(value['finalBestSuggestedAction']),
+        'extractedFinancialRecordData': (0, CreatedFinancialRecordRadarItemResultEntityRadarItemExtractedFinancialRecordData_1.CreatedFinancialRecordRadarItemResultEntityRadarItemExtractedFinancialRecordDataToJSON)(value['extractedFinancialRecordData']),
+        'subsequentRadarItems': value['subsequentRadarItems'] == null ? undefined : (value['subsequentRadarItems'].map(CreatedFinancialRecordRadarItemResultEntityRadarItemSubsequentRadarItemsInner_1.CreatedFinancialRecordRadarItemResultEntityRadarItemSubsequentRadarItemsInnerToJSON)),
         'whatsappMessageData': (0, CreateFinancialRecordRadarItemRequestBodyDtoWhatsappMessageData_1.CreateFinancialRecordRadarItemRequestBodyDtoWhatsappMessageDataToJSON)(value['whatsappMessageData']),
         'emailMessageData': (0, CreateFinancialRecordRadarItemRequestBodyDtoEmailMessageData_1.CreateFinancialRecordRadarItemRequestBodyDtoEmailMessageDataToJSON)(value['emailMessageData']),
         'autoExecute': (0, FinancialRecordRadarItemEntityAutoExecute_1.FinancialRecordRadarItemEntityAutoExecuteToJSON)(value['autoExecute']),

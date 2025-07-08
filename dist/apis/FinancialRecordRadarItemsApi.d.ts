@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { CreateFinancialRecordRadarItemRequestBodyDto, FinancialRecordRadarItemEntity, FinancialRecordRadarItemTagEntity, FinancialRecordRadarItemsPageDto, FinancialRecordsBulkCreateFilePreviewEntity, LinkFinancialRecordsRequestBodyDto, PartialUpdateFinancialRecordRadarItemRequestBodyDto, UnlinkFinancialRecordsRequestBodyDto } from '../models/index';
+import type { CreateFinancialRecordRadarItemRequestBodyDto, CreatedFinancialRecordRadarItemResultEntity, FinancialRecordRadarItemEntity, FinancialRecordRadarItemTagEntity, FinancialRecordRadarItemsPageDto, FinancialRecordsBulkCreateFilePreviewEntity, LinkFinancialRecordsRequestBodyDto, PartialUpdateFinancialRecordRadarItemRequestBodyDto, UnlinkFinancialRecordsRequestBodyDto } from '../models/index';
 export interface CreateFinancialRecordRadarItemRequest {
     createFinancialRecordRadarItemRequestBodyDto: CreateFinancialRecordRadarItemRequestBodyDto;
 }
@@ -63,11 +63,11 @@ export interface FinancialRecordRadarItemsApiInterface {
      * @throws {RequiredError}
      * @memberof FinancialRecordRadarItemsApiInterface
      */
-    createFinancialRecordRadarItemRaw(requestParameters: CreateFinancialRecordRadarItemRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FinancialRecordRadarItemEntity>>;
+    createFinancialRecordRadarItemRaw(requestParameters: CreateFinancialRecordRadarItemRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CreatedFinancialRecordRadarItemResultEntity>>;
     /**
      * Cria um novo registro de radar
      */
-    createFinancialRecordRadarItem(requestParameters: CreateFinancialRecordRadarItemRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialRecordRadarItemEntity>;
+    createFinancialRecordRadarItem(requestParameters: CreateFinancialRecordRadarItemRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CreatedFinancialRecordRadarItemResultEntity>;
     /**
      *
      * @summary Busca todos os registros do radar.
@@ -183,11 +183,11 @@ export declare class FinancialRecordRadarItemsApi extends runtime.BaseAPI implem
     /**
      * Cria um novo registro de radar
      */
-    createFinancialRecordRadarItemRaw(requestParameters: CreateFinancialRecordRadarItemRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FinancialRecordRadarItemEntity>>;
+    createFinancialRecordRadarItemRaw(requestParameters: CreateFinancialRecordRadarItemRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CreatedFinancialRecordRadarItemResultEntity>>;
     /**
      * Cria um novo registro de radar
      */
-    createFinancialRecordRadarItem(requestParameters: CreateFinancialRecordRadarItemRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialRecordRadarItemEntity>;
+    createFinancialRecordRadarItem(requestParameters: CreateFinancialRecordRadarItemRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CreatedFinancialRecordRadarItemResultEntity>;
     /**
      * Busca todos os registros do radar.
      */

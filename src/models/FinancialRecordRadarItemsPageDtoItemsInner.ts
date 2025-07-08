@@ -13,13 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
-import type { FinancialRecordRadarItemEntityExtractedFinancialRecordData } from './FinancialRecordRadarItemEntityExtractedFinancialRecordData';
+import type { CreatedFinancialRecordRadarItemResultEntityRadarItemSubsequentRadarItemsInner } from './CreatedFinancialRecordRadarItemResultEntityRadarItemSubsequentRadarItemsInner';
 import {
-    FinancialRecordRadarItemEntityExtractedFinancialRecordDataFromJSON,
-    FinancialRecordRadarItemEntityExtractedFinancialRecordDataFromJSONTyped,
-    FinancialRecordRadarItemEntityExtractedFinancialRecordDataToJSON,
-    FinancialRecordRadarItemEntityExtractedFinancialRecordDataToJSONTyped,
-} from './FinancialRecordRadarItemEntityExtractedFinancialRecordData';
+    CreatedFinancialRecordRadarItemResultEntityRadarItemSubsequentRadarItemsInnerFromJSON,
+    CreatedFinancialRecordRadarItemResultEntityRadarItemSubsequentRadarItemsInnerFromJSONTyped,
+    CreatedFinancialRecordRadarItemResultEntityRadarItemSubsequentRadarItemsInnerToJSON,
+    CreatedFinancialRecordRadarItemResultEntityRadarItemSubsequentRadarItemsInnerToJSONTyped,
+} from './CreatedFinancialRecordRadarItemResultEntityRadarItemSubsequentRadarItemsInner';
 import type { CreateFinancialRecordRadarItemRequestBodyDtoEmailMessageData } from './CreateFinancialRecordRadarItemRequestBodyDtoEmailMessageData';
 import {
     CreateFinancialRecordRadarItemRequestBodyDtoEmailMessageDataFromJSON,
@@ -48,20 +48,20 @@ import {
     CreateFinancialRecordRadarItemRequestBodyDtoWhatsappMessageDataToJSON,
     CreateFinancialRecordRadarItemRequestBodyDtoWhatsappMessageDataToJSONTyped,
 } from './CreateFinancialRecordRadarItemRequestBodyDtoWhatsappMessageData';
-import type { FinancialRecordRadarItemEntityFinalBestSuggestedAction } from './FinancialRecordRadarItemEntityFinalBestSuggestedAction';
+import type { CreatedFinancialRecordRadarItemResultEntityRadarItemExtractedFinancialRecordData } from './CreatedFinancialRecordRadarItemResultEntityRadarItemExtractedFinancialRecordData';
 import {
-    FinancialRecordRadarItemEntityFinalBestSuggestedActionFromJSON,
-    FinancialRecordRadarItemEntityFinalBestSuggestedActionFromJSONTyped,
-    FinancialRecordRadarItemEntityFinalBestSuggestedActionToJSON,
-    FinancialRecordRadarItemEntityFinalBestSuggestedActionToJSONTyped,
-} from './FinancialRecordRadarItemEntityFinalBestSuggestedAction';
-import type { FinancialRecordRadarItemEntitySubsequentRadarItemsInner } from './FinancialRecordRadarItemEntitySubsequentRadarItemsInner';
+    CreatedFinancialRecordRadarItemResultEntityRadarItemExtractedFinancialRecordDataFromJSON,
+    CreatedFinancialRecordRadarItemResultEntityRadarItemExtractedFinancialRecordDataFromJSONTyped,
+    CreatedFinancialRecordRadarItemResultEntityRadarItemExtractedFinancialRecordDataToJSON,
+    CreatedFinancialRecordRadarItemResultEntityRadarItemExtractedFinancialRecordDataToJSONTyped,
+} from './CreatedFinancialRecordRadarItemResultEntityRadarItemExtractedFinancialRecordData';
+import type { CreatedFinancialRecordRadarItemResultEntityRadarItemFinalBestSuggestedAction } from './CreatedFinancialRecordRadarItemResultEntityRadarItemFinalBestSuggestedAction';
 import {
-    FinancialRecordRadarItemEntitySubsequentRadarItemsInnerFromJSON,
-    FinancialRecordRadarItemEntitySubsequentRadarItemsInnerFromJSONTyped,
-    FinancialRecordRadarItemEntitySubsequentRadarItemsInnerToJSON,
-    FinancialRecordRadarItemEntitySubsequentRadarItemsInnerToJSONTyped,
-} from './FinancialRecordRadarItemEntitySubsequentRadarItemsInner';
+    CreatedFinancialRecordRadarItemResultEntityRadarItemFinalBestSuggestedActionFromJSON,
+    CreatedFinancialRecordRadarItemResultEntityRadarItemFinalBestSuggestedActionFromJSONTyped,
+    CreatedFinancialRecordRadarItemResultEntityRadarItemFinalBestSuggestedActionToJSON,
+    CreatedFinancialRecordRadarItemResultEntityRadarItemFinalBestSuggestedActionToJSONTyped,
+} from './CreatedFinancialRecordRadarItemResultEntityRadarItemFinalBestSuggestedAction';
 
 /**
  * 
@@ -119,22 +119,22 @@ export interface FinancialRecordRadarItemsPageDtoItemsInner {
     bestSuggestedAction?: CreateFinancialRecordRadarItemRequestBodyDtoBestSuggestedAction;
     /**
      * 
-     * @type {FinancialRecordRadarItemEntityFinalBestSuggestedAction}
+     * @type {CreatedFinancialRecordRadarItemResultEntityRadarItemFinalBestSuggestedAction}
      * @memberof FinancialRecordRadarItemsPageDtoItemsInner
      */
-    finalBestSuggestedAction?: FinancialRecordRadarItemEntityFinalBestSuggestedAction;
+    finalBestSuggestedAction?: CreatedFinancialRecordRadarItemResultEntityRadarItemFinalBestSuggestedAction;
     /**
      * 
-     * @type {FinancialRecordRadarItemEntityExtractedFinancialRecordData}
+     * @type {CreatedFinancialRecordRadarItemResultEntityRadarItemExtractedFinancialRecordData}
      * @memberof FinancialRecordRadarItemsPageDtoItemsInner
      */
-    extractedFinancialRecordData?: FinancialRecordRadarItemEntityExtractedFinancialRecordData;
+    extractedFinancialRecordData?: CreatedFinancialRecordRadarItemResultEntityRadarItemExtractedFinancialRecordData;
     /**
      * Registros subsequentes relacionados.
-     * @type {Array<FinancialRecordRadarItemEntitySubsequentRadarItemsInner>}
+     * @type {Array<CreatedFinancialRecordRadarItemResultEntityRadarItemSubsequentRadarItemsInner>}
      * @memberof FinancialRecordRadarItemsPageDtoItemsInner
      */
-    subsequentRadarItems?: Array<FinancialRecordRadarItemEntitySubsequentRadarItemsInner>;
+    subsequentRadarItems?: Array<CreatedFinancialRecordRadarItemResultEntityRadarItemSubsequentRadarItemsInner>;
     /**
      * 
      * @type {CreateFinancialRecordRadarItemRequestBodyDtoWhatsappMessageData}
@@ -240,9 +240,9 @@ export function FinancialRecordRadarItemsPageDtoItemsInnerFromJSONTyped(json: an
         'folder': json['folder'],
         'links': json['links'],
         'bestSuggestedAction': json['bestSuggestedAction'] == null ? undefined : CreateFinancialRecordRadarItemRequestBodyDtoBestSuggestedActionFromJSON(json['bestSuggestedAction']),
-        'finalBestSuggestedAction': json['finalBestSuggestedAction'] == null ? undefined : FinancialRecordRadarItemEntityFinalBestSuggestedActionFromJSON(json['finalBestSuggestedAction']),
-        'extractedFinancialRecordData': json['extractedFinancialRecordData'] == null ? undefined : FinancialRecordRadarItemEntityExtractedFinancialRecordDataFromJSON(json['extractedFinancialRecordData']),
-        'subsequentRadarItems': json['subsequentRadarItems'] == null ? undefined : ((json['subsequentRadarItems'] as Array<any>).map(FinancialRecordRadarItemEntitySubsequentRadarItemsInnerFromJSON)),
+        'finalBestSuggestedAction': json['finalBestSuggestedAction'] == null ? undefined : CreatedFinancialRecordRadarItemResultEntityRadarItemFinalBestSuggestedActionFromJSON(json['finalBestSuggestedAction']),
+        'extractedFinancialRecordData': json['extractedFinancialRecordData'] == null ? undefined : CreatedFinancialRecordRadarItemResultEntityRadarItemExtractedFinancialRecordDataFromJSON(json['extractedFinancialRecordData']),
+        'subsequentRadarItems': json['subsequentRadarItems'] == null ? undefined : ((json['subsequentRadarItems'] as Array<any>).map(CreatedFinancialRecordRadarItemResultEntityRadarItemSubsequentRadarItemsInnerFromJSON)),
         'whatsappMessageData': json['whatsappMessageData'] == null ? undefined : CreateFinancialRecordRadarItemRequestBodyDtoWhatsappMessageDataFromJSON(json['whatsappMessageData']),
         'emailMessageData': json['emailMessageData'] == null ? undefined : CreateFinancialRecordRadarItemRequestBodyDtoEmailMessageDataFromJSON(json['emailMessageData']),
         'autoExecute': json['autoExecute'] == null ? undefined : FinancialRecordRadarItemsPageDtoItemsInnerAutoExecuteFromJSON(json['autoExecute']),
@@ -270,9 +270,9 @@ export function FinancialRecordRadarItemsPageDtoItemsInnerToJSONTyped(value?: Fi
         'folder': value['folder'],
         'links': value['links'],
         'bestSuggestedAction': CreateFinancialRecordRadarItemRequestBodyDtoBestSuggestedActionToJSON(value['bestSuggestedAction']),
-        'finalBestSuggestedAction': FinancialRecordRadarItemEntityFinalBestSuggestedActionToJSON(value['finalBestSuggestedAction']),
-        'extractedFinancialRecordData': FinancialRecordRadarItemEntityExtractedFinancialRecordDataToJSON(value['extractedFinancialRecordData']),
-        'subsequentRadarItems': value['subsequentRadarItems'] == null ? undefined : ((value['subsequentRadarItems'] as Array<any>).map(FinancialRecordRadarItemEntitySubsequentRadarItemsInnerToJSON)),
+        'finalBestSuggestedAction': CreatedFinancialRecordRadarItemResultEntityRadarItemFinalBestSuggestedActionToJSON(value['finalBestSuggestedAction']),
+        'extractedFinancialRecordData': CreatedFinancialRecordRadarItemResultEntityRadarItemExtractedFinancialRecordDataToJSON(value['extractedFinancialRecordData']),
+        'subsequentRadarItems': value['subsequentRadarItems'] == null ? undefined : ((value['subsequentRadarItems'] as Array<any>).map(CreatedFinancialRecordRadarItemResultEntityRadarItemSubsequentRadarItemsInnerToJSON)),
         'whatsappMessageData': CreateFinancialRecordRadarItemRequestBodyDtoWhatsappMessageDataToJSON(value['whatsappMessageData']),
         'emailMessageData': CreateFinancialRecordRadarItemRequestBodyDtoEmailMessageDataToJSON(value['emailMessageData']),
         'autoExecute': FinancialRecordRadarItemsPageDtoItemsInnerAutoExecuteToJSON(value['autoExecute']),

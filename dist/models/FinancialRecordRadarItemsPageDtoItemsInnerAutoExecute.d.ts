@@ -9,11 +9,11 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { FinancialRecordRadarItemEntityAutoExecuteBulkCreateJobRequest } from './FinancialRecordRadarItemEntityAutoExecuteBulkCreateJobRequest';
 import type { FinancialRecordRadarItemsPageDtoItemsInnerAutoExecutePartialUpdatedFinancialRecord } from './FinancialRecordRadarItemsPageDtoItemsInnerAutoExecutePartialUpdatedFinancialRecord';
 import type { FinancialRecordRadarItemsPageDtoItemsInnerAutoExecuteCreatedFinancialRecord } from './FinancialRecordRadarItemsPageDtoItemsInnerAutoExecuteCreatedFinancialRecord';
-import type { FinancialRecordRadarItemEntityFinalBestSuggestedAction } from './FinancialRecordRadarItemEntityFinalBestSuggestedAction';
+import type { CreatedFinancialRecordRadarItemResultEntityRadarItemAutoExecuteBulkCreateJobRequest } from './CreatedFinancialRecordRadarItemResultEntityRadarItemAutoExecuteBulkCreateJobRequest';
 import type { FinancialRecordRadarItemsPageDtoItemsInnerAutoExecuteLinkedFinancialRecord } from './FinancialRecordRadarItemsPageDtoItemsInnerAutoExecuteLinkedFinancialRecord';
+import type { CreatedFinancialRecordRadarItemResultEntityRadarItemFinalBestSuggestedAction } from './CreatedFinancialRecordRadarItemResultEntityRadarItemFinalBestSuggestedAction';
 /**
  * Auto-execute do registro.
  * @export
@@ -22,10 +22,10 @@ import type { FinancialRecordRadarItemsPageDtoItemsInnerAutoExecuteLinkedFinanci
 export interface FinancialRecordRadarItemsPageDtoItemsInnerAutoExecute {
     /**
      *
-     * @type {FinancialRecordRadarItemEntityFinalBestSuggestedAction}
+     * @type {CreatedFinancialRecordRadarItemResultEntityRadarItemFinalBestSuggestedAction}
      * @memberof FinancialRecordRadarItemsPageDtoItemsInnerAutoExecute
      */
-    finalBestSuggestedAction?: FinancialRecordRadarItemEntityFinalBestSuggestedAction;
+    finalBestSuggestedAction?: CreatedFinancialRecordRadarItemResultEntityRadarItemFinalBestSuggestedAction;
     /**
      * Status da execução do auto-execute.
      * @type {string}
@@ -58,10 +58,10 @@ export interface FinancialRecordRadarItemsPageDtoItemsInnerAutoExecute {
     partialUpdatedFinancialRecord?: FinancialRecordRadarItemsPageDtoItemsInnerAutoExecutePartialUpdatedFinancialRecord;
     /**
      *
-     * @type {FinancialRecordRadarItemEntityAutoExecuteBulkCreateJobRequest}
+     * @type {CreatedFinancialRecordRadarItemResultEntityRadarItemAutoExecuteBulkCreateJobRequest}
      * @memberof FinancialRecordRadarItemsPageDtoItemsInnerAutoExecute
      */
-    bulkCreateJobRequest?: FinancialRecordRadarItemEntityAutoExecuteBulkCreateJobRequest;
+    bulkCreateJobRequest?: CreatedFinancialRecordRadarItemResultEntityRadarItemAutoExecuteBulkCreateJobRequest;
     /**
      *
      * @type {FinancialRecordRadarItemsPageDtoItemsInnerAutoExecuteLinkedFinancialRecord}

@@ -9,13 +9,13 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { FinancialRecordRadarItemEntityExtractedFinancialRecordData } from './FinancialRecordRadarItemEntityExtractedFinancialRecordData';
+import type { CreatedFinancialRecordRadarItemResultEntityRadarItemSubsequentRadarItemsInner } from './CreatedFinancialRecordRadarItemResultEntityRadarItemSubsequentRadarItemsInner';
 import type { CreateFinancialRecordRadarItemRequestBodyDtoEmailMessageData } from './CreateFinancialRecordRadarItemRequestBodyDtoEmailMessageData';
 import type { FinancialRecordRadarItemsPageDtoItemsInnerAutoExecute } from './FinancialRecordRadarItemsPageDtoItemsInnerAutoExecute';
 import type { CreateFinancialRecordRadarItemRequestBodyDtoBestSuggestedAction } from './CreateFinancialRecordRadarItemRequestBodyDtoBestSuggestedAction';
 import type { CreateFinancialRecordRadarItemRequestBodyDtoWhatsappMessageData } from './CreateFinancialRecordRadarItemRequestBodyDtoWhatsappMessageData';
-import type { FinancialRecordRadarItemEntityFinalBestSuggestedAction } from './FinancialRecordRadarItemEntityFinalBestSuggestedAction';
-import type { FinancialRecordRadarItemEntitySubsequentRadarItemsInner } from './FinancialRecordRadarItemEntitySubsequentRadarItemsInner';
+import type { CreatedFinancialRecordRadarItemResultEntityRadarItemExtractedFinancialRecordData } from './CreatedFinancialRecordRadarItemResultEntityRadarItemExtractedFinancialRecordData';
+import type { CreatedFinancialRecordRadarItemResultEntityRadarItemFinalBestSuggestedAction } from './CreatedFinancialRecordRadarItemResultEntityRadarItemFinalBestSuggestedAction';
 /**
  *
  * @export
@@ -72,22 +72,22 @@ export interface FinancialRecordRadarItemsPageDtoItemsInner {
     bestSuggestedAction?: CreateFinancialRecordRadarItemRequestBodyDtoBestSuggestedAction;
     /**
      *
-     * @type {FinancialRecordRadarItemEntityFinalBestSuggestedAction}
+     * @type {CreatedFinancialRecordRadarItemResultEntityRadarItemFinalBestSuggestedAction}
      * @memberof FinancialRecordRadarItemsPageDtoItemsInner
      */
-    finalBestSuggestedAction?: FinancialRecordRadarItemEntityFinalBestSuggestedAction;
+    finalBestSuggestedAction?: CreatedFinancialRecordRadarItemResultEntityRadarItemFinalBestSuggestedAction;
     /**
      *
-     * @type {FinancialRecordRadarItemEntityExtractedFinancialRecordData}
+     * @type {CreatedFinancialRecordRadarItemResultEntityRadarItemExtractedFinancialRecordData}
      * @memberof FinancialRecordRadarItemsPageDtoItemsInner
      */
-    extractedFinancialRecordData?: FinancialRecordRadarItemEntityExtractedFinancialRecordData;
+    extractedFinancialRecordData?: CreatedFinancialRecordRadarItemResultEntityRadarItemExtractedFinancialRecordData;
     /**
      * Registros subsequentes relacionados.
-     * @type {Array<FinancialRecordRadarItemEntitySubsequentRadarItemsInner>}
+     * @type {Array<CreatedFinancialRecordRadarItemResultEntityRadarItemSubsequentRadarItemsInner>}
      * @memberof FinancialRecordRadarItemsPageDtoItemsInner
      */
-    subsequentRadarItems?: Array<FinancialRecordRadarItemEntitySubsequentRadarItemsInner>;
+    subsequentRadarItems?: Array<CreatedFinancialRecordRadarItemResultEntityRadarItemSubsequentRadarItemsInner>;
     /**
      *
      * @type {CreateFinancialRecordRadarItemRequestBodyDtoWhatsappMessageData}

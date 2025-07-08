@@ -100,7 +100,7 @@ var FinancialRecordRadarItemsApi = /** @class */ (function (_super) {
                             }, initOverrides)];
                     case 1:
                         response = _a.sent();
-                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.FinancialRecordRadarItemEntityFromJSON)(jsonValue); })];
+                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.CreatedFinancialRecordRadarItemResultEntityFromJSON)(jsonValue); })];
                 }
             });
         });

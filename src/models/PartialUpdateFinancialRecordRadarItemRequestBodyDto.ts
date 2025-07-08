@@ -13,13 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
-import type { FinancialRecordRadarItemEntityExtractedFinancialRecordData } from './FinancialRecordRadarItemEntityExtractedFinancialRecordData';
+import type { CreatedFinancialRecordRadarItemResultEntityRadarItemExtractedFinancialRecordData } from './CreatedFinancialRecordRadarItemResultEntityRadarItemExtractedFinancialRecordData';
 import {
-    FinancialRecordRadarItemEntityExtractedFinancialRecordDataFromJSON,
-    FinancialRecordRadarItemEntityExtractedFinancialRecordDataFromJSONTyped,
-    FinancialRecordRadarItemEntityExtractedFinancialRecordDataToJSON,
-    FinancialRecordRadarItemEntityExtractedFinancialRecordDataToJSONTyped,
-} from './FinancialRecordRadarItemEntityExtractedFinancialRecordData';
+    CreatedFinancialRecordRadarItemResultEntityRadarItemExtractedFinancialRecordDataFromJSON,
+    CreatedFinancialRecordRadarItemResultEntityRadarItemExtractedFinancialRecordDataFromJSONTyped,
+    CreatedFinancialRecordRadarItemResultEntityRadarItemExtractedFinancialRecordDataToJSON,
+    CreatedFinancialRecordRadarItemResultEntityRadarItemExtractedFinancialRecordDataToJSONTyped,
+} from './CreatedFinancialRecordRadarItemResultEntityRadarItemExtractedFinancialRecordData';
 
 /**
  * 
@@ -41,10 +41,10 @@ export interface PartialUpdateFinancialRecordRadarItemRequestBodyDto {
     folder?: PartialUpdateFinancialRecordRadarItemRequestBodyDtoFolderEnum;
     /**
      * 
-     * @type {FinancialRecordRadarItemEntityExtractedFinancialRecordData}
+     * @type {CreatedFinancialRecordRadarItemResultEntityRadarItemExtractedFinancialRecordData}
      * @memberof PartialUpdateFinancialRecordRadarItemRequestBodyDto
      */
-    extractedFinancialRecordData?: FinancialRecordRadarItemEntityExtractedFinancialRecordData;
+    extractedFinancialRecordData?: CreatedFinancialRecordRadarItemResultEntityRadarItemExtractedFinancialRecordData;
 }
 
 
@@ -87,7 +87,7 @@ export function PartialUpdateFinancialRecordRadarItemRequestBodyDtoFromJSONTyped
         
         'status': json['status'] == null ? undefined : json['status'],
         'folder': json['folder'] == null ? undefined : json['folder'],
-        'extractedFinancialRecordData': json['extractedFinancialRecordData'] == null ? undefined : FinancialRecordRadarItemEntityExtractedFinancialRecordDataFromJSON(json['extractedFinancialRecordData']),
+        'extractedFinancialRecordData': json['extractedFinancialRecordData'] == null ? undefined : CreatedFinancialRecordRadarItemResultEntityRadarItemExtractedFinancialRecordDataFromJSON(json['extractedFinancialRecordData']),
     };
 }
 
@@ -104,7 +104,7 @@ export function PartialUpdateFinancialRecordRadarItemRequestBodyDtoToJSONTyped(v
         
         'status': value['status'],
         'folder': value['folder'],
-        'extractedFinancialRecordData': FinancialRecordRadarItemEntityExtractedFinancialRecordDataToJSON(value['extractedFinancialRecordData']),
+        'extractedFinancialRecordData': CreatedFinancialRecordRadarItemResultEntityRadarItemExtractedFinancialRecordDataToJSON(value['extractedFinancialRecordData']),
     };
 }
 

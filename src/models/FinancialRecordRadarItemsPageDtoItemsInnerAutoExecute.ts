@@ -13,13 +13,6 @@
  */
 
 import { mapValues } from '../runtime';
-import type { FinancialRecordRadarItemEntityAutoExecuteBulkCreateJobRequest } from './FinancialRecordRadarItemEntityAutoExecuteBulkCreateJobRequest';
-import {
-    FinancialRecordRadarItemEntityAutoExecuteBulkCreateJobRequestFromJSON,
-    FinancialRecordRadarItemEntityAutoExecuteBulkCreateJobRequestFromJSONTyped,
-    FinancialRecordRadarItemEntityAutoExecuteBulkCreateJobRequestToJSON,
-    FinancialRecordRadarItemEntityAutoExecuteBulkCreateJobRequestToJSONTyped,
-} from './FinancialRecordRadarItemEntityAutoExecuteBulkCreateJobRequest';
 import type { FinancialRecordRadarItemsPageDtoItemsInnerAutoExecutePartialUpdatedFinancialRecord } from './FinancialRecordRadarItemsPageDtoItemsInnerAutoExecutePartialUpdatedFinancialRecord';
 import {
     FinancialRecordRadarItemsPageDtoItemsInnerAutoExecutePartialUpdatedFinancialRecordFromJSON,
@@ -34,13 +27,13 @@ import {
     FinancialRecordRadarItemsPageDtoItemsInnerAutoExecuteCreatedFinancialRecordToJSON,
     FinancialRecordRadarItemsPageDtoItemsInnerAutoExecuteCreatedFinancialRecordToJSONTyped,
 } from './FinancialRecordRadarItemsPageDtoItemsInnerAutoExecuteCreatedFinancialRecord';
-import type { FinancialRecordRadarItemEntityFinalBestSuggestedAction } from './FinancialRecordRadarItemEntityFinalBestSuggestedAction';
+import type { CreatedFinancialRecordRadarItemResultEntityRadarItemAutoExecuteBulkCreateJobRequest } from './CreatedFinancialRecordRadarItemResultEntityRadarItemAutoExecuteBulkCreateJobRequest';
 import {
-    FinancialRecordRadarItemEntityFinalBestSuggestedActionFromJSON,
-    FinancialRecordRadarItemEntityFinalBestSuggestedActionFromJSONTyped,
-    FinancialRecordRadarItemEntityFinalBestSuggestedActionToJSON,
-    FinancialRecordRadarItemEntityFinalBestSuggestedActionToJSONTyped,
-} from './FinancialRecordRadarItemEntityFinalBestSuggestedAction';
+    CreatedFinancialRecordRadarItemResultEntityRadarItemAutoExecuteBulkCreateJobRequestFromJSON,
+    CreatedFinancialRecordRadarItemResultEntityRadarItemAutoExecuteBulkCreateJobRequestFromJSONTyped,
+    CreatedFinancialRecordRadarItemResultEntityRadarItemAutoExecuteBulkCreateJobRequestToJSON,
+    CreatedFinancialRecordRadarItemResultEntityRadarItemAutoExecuteBulkCreateJobRequestToJSONTyped,
+} from './CreatedFinancialRecordRadarItemResultEntityRadarItemAutoExecuteBulkCreateJobRequest';
 import type { FinancialRecordRadarItemsPageDtoItemsInnerAutoExecuteLinkedFinancialRecord } from './FinancialRecordRadarItemsPageDtoItemsInnerAutoExecuteLinkedFinancialRecord';
 import {
     FinancialRecordRadarItemsPageDtoItemsInnerAutoExecuteLinkedFinancialRecordFromJSON,
@@ -48,6 +41,13 @@ import {
     FinancialRecordRadarItemsPageDtoItemsInnerAutoExecuteLinkedFinancialRecordToJSON,
     FinancialRecordRadarItemsPageDtoItemsInnerAutoExecuteLinkedFinancialRecordToJSONTyped,
 } from './FinancialRecordRadarItemsPageDtoItemsInnerAutoExecuteLinkedFinancialRecord';
+import type { CreatedFinancialRecordRadarItemResultEntityRadarItemFinalBestSuggestedAction } from './CreatedFinancialRecordRadarItemResultEntityRadarItemFinalBestSuggestedAction';
+import {
+    CreatedFinancialRecordRadarItemResultEntityRadarItemFinalBestSuggestedActionFromJSON,
+    CreatedFinancialRecordRadarItemResultEntityRadarItemFinalBestSuggestedActionFromJSONTyped,
+    CreatedFinancialRecordRadarItemResultEntityRadarItemFinalBestSuggestedActionToJSON,
+    CreatedFinancialRecordRadarItemResultEntityRadarItemFinalBestSuggestedActionToJSONTyped,
+} from './CreatedFinancialRecordRadarItemResultEntityRadarItemFinalBestSuggestedAction';
 
 /**
  * Auto-execute do registro.
@@ -57,10 +57,10 @@ import {
 export interface FinancialRecordRadarItemsPageDtoItemsInnerAutoExecute {
     /**
      * 
-     * @type {FinancialRecordRadarItemEntityFinalBestSuggestedAction}
+     * @type {CreatedFinancialRecordRadarItemResultEntityRadarItemFinalBestSuggestedAction}
      * @memberof FinancialRecordRadarItemsPageDtoItemsInnerAutoExecute
      */
-    finalBestSuggestedAction?: FinancialRecordRadarItemEntityFinalBestSuggestedAction;
+    finalBestSuggestedAction?: CreatedFinancialRecordRadarItemResultEntityRadarItemFinalBestSuggestedAction;
     /**
      * Status da execução do auto-execute.
      * @type {string}
@@ -93,10 +93,10 @@ export interface FinancialRecordRadarItemsPageDtoItemsInnerAutoExecute {
     partialUpdatedFinancialRecord?: FinancialRecordRadarItemsPageDtoItemsInnerAutoExecutePartialUpdatedFinancialRecord;
     /**
      * 
-     * @type {FinancialRecordRadarItemEntityAutoExecuteBulkCreateJobRequest}
+     * @type {CreatedFinancialRecordRadarItemResultEntityRadarItemAutoExecuteBulkCreateJobRequest}
      * @memberof FinancialRecordRadarItemsPageDtoItemsInnerAutoExecute
      */
-    bulkCreateJobRequest?: FinancialRecordRadarItemEntityAutoExecuteBulkCreateJobRequest;
+    bulkCreateJobRequest?: CreatedFinancialRecordRadarItemResultEntityRadarItemAutoExecuteBulkCreateJobRequest;
     /**
      * 
      * @type {FinancialRecordRadarItemsPageDtoItemsInnerAutoExecuteLinkedFinancialRecord}
@@ -135,13 +135,13 @@ export function FinancialRecordRadarItemsPageDtoItemsInnerAutoExecuteFromJSONTyp
     }
     return {
         
-        'finalBestSuggestedAction': json['finalBestSuggestedAction'] == null ? undefined : FinancialRecordRadarItemEntityFinalBestSuggestedActionFromJSON(json['finalBestSuggestedAction']),
+        'finalBestSuggestedAction': json['finalBestSuggestedAction'] == null ? undefined : CreatedFinancialRecordRadarItemResultEntityRadarItemFinalBestSuggestedActionFromJSON(json['finalBestSuggestedAction']),
         'executionStatus': json['executionStatus'],
         'executionErrorMessage': json['executionErrorMessage'] == null ? undefined : json['executionErrorMessage'],
         'executedAt': json['executedAt'],
         'createdFinancialRecord': json['createdFinancialRecord'] == null ? undefined : FinancialRecordRadarItemsPageDtoItemsInnerAutoExecuteCreatedFinancialRecordFromJSON(json['createdFinancialRecord']),
         'partialUpdatedFinancialRecord': json['partialUpdatedFinancialRecord'] == null ? undefined : FinancialRecordRadarItemsPageDtoItemsInnerAutoExecutePartialUpdatedFinancialRecordFromJSON(json['partialUpdatedFinancialRecord']),
-        'bulkCreateJobRequest': json['bulkCreateJobRequest'] == null ? undefined : FinancialRecordRadarItemEntityAutoExecuteBulkCreateJobRequestFromJSON(json['bulkCreateJobRequest']),
+        'bulkCreateJobRequest': json['bulkCreateJobRequest'] == null ? undefined : CreatedFinancialRecordRadarItemResultEntityRadarItemAutoExecuteBulkCreateJobRequestFromJSON(json['bulkCreateJobRequest']),
         'linkedFinancialRecord': json['linkedFinancialRecord'] == null ? undefined : FinancialRecordRadarItemsPageDtoItemsInnerAutoExecuteLinkedFinancialRecordFromJSON(json['linkedFinancialRecord']),
     };
 }
@@ -157,13 +157,13 @@ export function FinancialRecordRadarItemsPageDtoItemsInnerAutoExecuteToJSONTyped
 
     return {
         
-        'finalBestSuggestedAction': FinancialRecordRadarItemEntityFinalBestSuggestedActionToJSON(value['finalBestSuggestedAction']),
+        'finalBestSuggestedAction': CreatedFinancialRecordRadarItemResultEntityRadarItemFinalBestSuggestedActionToJSON(value['finalBestSuggestedAction']),
         'executionStatus': value['executionStatus'],
         'executionErrorMessage': value['executionErrorMessage'],
         'executedAt': value['executedAt'],
         'createdFinancialRecord': FinancialRecordRadarItemsPageDtoItemsInnerAutoExecuteCreatedFinancialRecordToJSON(value['createdFinancialRecord']),
         'partialUpdatedFinancialRecord': FinancialRecordRadarItemsPageDtoItemsInnerAutoExecutePartialUpdatedFinancialRecordToJSON(value['partialUpdatedFinancialRecord']),
-        'bulkCreateJobRequest': FinancialRecordRadarItemEntityAutoExecuteBulkCreateJobRequestToJSON(value['bulkCreateJobRequest']),
+        'bulkCreateJobRequest': CreatedFinancialRecordRadarItemResultEntityRadarItemAutoExecuteBulkCreateJobRequestToJSON(value['bulkCreateJobRequest']),
         'linkedFinancialRecord': FinancialRecordRadarItemsPageDtoItemsInnerAutoExecuteLinkedFinancialRecordToJSON(value['linkedFinancialRecord']),
     };
 }

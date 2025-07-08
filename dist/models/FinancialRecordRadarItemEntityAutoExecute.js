@@ -19,11 +19,11 @@ exports.FinancialRecordRadarItemEntityAutoExecuteFromJSON = FinancialRecordRadar
 exports.FinancialRecordRadarItemEntityAutoExecuteFromJSONTyped = FinancialRecordRadarItemEntityAutoExecuteFromJSONTyped;
 exports.FinancialRecordRadarItemEntityAutoExecuteToJSON = FinancialRecordRadarItemEntityAutoExecuteToJSON;
 exports.FinancialRecordRadarItemEntityAutoExecuteToJSONTyped = FinancialRecordRadarItemEntityAutoExecuteToJSONTyped;
-var FinancialRecordRadarItemEntityAutoExecuteBulkCreateJobRequest_1 = require("./FinancialRecordRadarItemEntityAutoExecuteBulkCreateJobRequest");
 var FinancialRecordRadarItemEntityAutoExecutePartialUpdatedFinancialRecord_1 = require("./FinancialRecordRadarItemEntityAutoExecutePartialUpdatedFinancialRecord");
 var FinancialRecordRadarItemEntityAutoExecuteLinkedFinancialRecord_1 = require("./FinancialRecordRadarItemEntityAutoExecuteLinkedFinancialRecord");
-var FinancialRecordRadarItemEntityFinalBestSuggestedAction_1 = require("./FinancialRecordRadarItemEntityFinalBestSuggestedAction");
+var CreatedFinancialRecordRadarItemResultEntityRadarItemAutoExecuteBulkCreateJobRequest_1 = require("./CreatedFinancialRecordRadarItemResultEntityRadarItemAutoExecuteBulkCreateJobRequest");
 var FinancialRecordRadarItemEntityAutoExecuteCreatedFinancialRecord_1 = require("./FinancialRecordRadarItemEntityAutoExecuteCreatedFinancialRecord");
+var CreatedFinancialRecordRadarItemResultEntityRadarItemFinalBestSuggestedAction_1 = require("./CreatedFinancialRecordRadarItemResultEntityRadarItemFinalBestSuggestedAction");
 /**
  * @export
  */
@@ -49,13 +49,13 @@ function FinancialRecordRadarItemEntityAutoExecuteFromJSONTyped(json, ignoreDisc
         return json;
     }
     return {
-        'finalBestSuggestedAction': json['finalBestSuggestedAction'] == null ? undefined : (0, FinancialRecordRadarItemEntityFinalBestSuggestedAction_1.FinancialRecordRadarItemEntityFinalBestSuggestedActionFromJSON)(json['finalBestSuggestedAction']),
+        'finalBestSuggestedAction': json['finalBestSuggestedAction'] == null ? undefined : (0, CreatedFinancialRecordRadarItemResultEntityRadarItemFinalBestSuggestedAction_1.CreatedFinancialRecordRadarItemResultEntityRadarItemFinalBestSuggestedActionFromJSON)(json['finalBestSuggestedAction']),
         'executionStatus': json['executionStatus'],
         'executionErrorMessage': json['executionErrorMessage'] == null ? undefined : json['executionErrorMessage'],
         'executedAt': json['executedAt'],
         'createdFinancialRecord': json['createdFinancialRecord'] == null ? undefined : (0, FinancialRecordRadarItemEntityAutoExecuteCreatedFinancialRecord_1.FinancialRecordRadarItemEntityAutoExecuteCreatedFinancialRecordFromJSON)(json['createdFinancialRecord']),
         'partialUpdatedFinancialRecord': json['partialUpdatedFinancialRecord'] == null ? undefined : (0, FinancialRecordRadarItemEntityAutoExecutePartialUpdatedFinancialRecord_1.FinancialRecordRadarItemEntityAutoExecutePartialUpdatedFinancialRecordFromJSON)(json['partialUpdatedFinancialRecord']),
-        'bulkCreateJobRequest': json['bulkCreateJobRequest'] == null ? undefined : (0, FinancialRecordRadarItemEntityAutoExecuteBulkCreateJobRequest_1.FinancialRecordRadarItemEntityAutoExecuteBulkCreateJobRequestFromJSON)(json['bulkCreateJobRequest']),
+        'bulkCreateJobRequest': json['bulkCreateJobRequest'] == null ? undefined : (0, CreatedFinancialRecordRadarItemResultEntityRadarItemAutoExecuteBulkCreateJobRequest_1.CreatedFinancialRecordRadarItemResultEntityRadarItemAutoExecuteBulkCreateJobRequestFromJSON)(json['bulkCreateJobRequest']),
         'linkedFinancialRecord': json['linkedFinancialRecord'] == null ? undefined : (0, FinancialRecordRadarItemEntityAutoExecuteLinkedFinancialRecord_1.FinancialRecordRadarItemEntityAutoExecuteLinkedFinancialRecordFromJSON)(json['linkedFinancialRecord']),
     };
 }
@@ -68,13 +68,13 @@ function FinancialRecordRadarItemEntityAutoExecuteToJSONTyped(value, ignoreDiscr
         return value;
     }
     return {
-        'finalBestSuggestedAction': (0, FinancialRecordRadarItemEntityFinalBestSuggestedAction_1.FinancialRecordRadarItemEntityFinalBestSuggestedActionToJSON)(value['finalBestSuggestedAction']),
+        'finalBestSuggestedAction': (0, CreatedFinancialRecordRadarItemResultEntityRadarItemFinalBestSuggestedAction_1.CreatedFinancialRecordRadarItemResultEntityRadarItemFinalBestSuggestedActionToJSON)(value['finalBestSuggestedAction']),
         'executionStatus': value['executionStatus'],
         'executionErrorMessage': value['executionErrorMessage'],
         'executedAt': value['executedAt'],
         'createdFinancialRecord': (0, FinancialRecordRadarItemEntityAutoExecuteCreatedFinancialRecord_1.FinancialRecordRadarItemEntityAutoExecuteCreatedFinancialRecordToJSON)(value['createdFinancialRecord']),
         'partialUpdatedFinancialRecord': (0, FinancialRecordRadarItemEntityAutoExecutePartialUpdatedFinancialRecord_1.FinancialRecordRadarItemEntityAutoExecutePartialUpdatedFinancialRecordToJSON)(value['partialUpdatedFinancialRecord']),
-        'bulkCreateJobRequest': (0, FinancialRecordRadarItemEntityAutoExecuteBulkCreateJobRequest_1.FinancialRecordRadarItemEntityAutoExecuteBulkCreateJobRequestToJSON)(value['bulkCreateJobRequest']),
+        'bulkCreateJobRequest': (0, CreatedFinancialRecordRadarItemResultEntityRadarItemAutoExecuteBulkCreateJobRequest_1.CreatedFinancialRecordRadarItemResultEntityRadarItemAutoExecuteBulkCreateJobRequestToJSON)(value['bulkCreateJobRequest']),
         'linkedFinancialRecord': (0, FinancialRecordRadarItemEntityAutoExecuteLinkedFinancialRecord_1.FinancialRecordRadarItemEntityAutoExecuteLinkedFinancialRecordToJSON)(value['linkedFinancialRecord']),
     };
 }

@@ -19,7 +19,7 @@ exports.PartialUpdateFinancialRecordRadarItemRequestBodyDtoFromJSON = PartialUpd
 exports.PartialUpdateFinancialRecordRadarItemRequestBodyDtoFromJSONTyped = PartialUpdateFinancialRecordRadarItemRequestBodyDtoFromJSONTyped;
 exports.PartialUpdateFinancialRecordRadarItemRequestBodyDtoToJSON = PartialUpdateFinancialRecordRadarItemRequestBodyDtoToJSON;
 exports.PartialUpdateFinancialRecordRadarItemRequestBodyDtoToJSONTyped = PartialUpdateFinancialRecordRadarItemRequestBodyDtoToJSONTyped;
-var FinancialRecordRadarItemEntityExtractedFinancialRecordData_1 = require("./FinancialRecordRadarItemEntityExtractedFinancialRecordData");
+var CreatedFinancialRecordRadarItemResultEntityRadarItemExtractedFinancialRecordData_1 = require("./CreatedFinancialRecordRadarItemResultEntityRadarItemExtractedFinancialRecordData");
 /**
  * @export
  */
@@ -51,7 +51,7 @@ function PartialUpdateFinancialRecordRadarItemRequestBodyDtoFromJSONTyped(json, 
     return {
         'status': json['status'] == null ? undefined : json['status'],
         'folder': json['folder'] == null ? undefined : json['folder'],
-        'extractedFinancialRecordData': json['extractedFinancialRecordData'] == null ? undefined : (0, FinancialRecordRadarItemEntityExtractedFinancialRecordData_1.FinancialRecordRadarItemEntityExtractedFinancialRecordDataFromJSON)(json['extractedFinancialRecordData']),
+        'extractedFinancialRecordData': json['extractedFinancialRecordData'] == null ? undefined : (0, CreatedFinancialRecordRadarItemResultEntityRadarItemExtractedFinancialRecordData_1.CreatedFinancialRecordRadarItemResultEntityRadarItemExtractedFinancialRecordDataFromJSON)(json['extractedFinancialRecordData']),
     };
 }
 function PartialUpdateFinancialRecordRadarItemRequestBodyDtoToJSON(json) {
@@ -65,6 +65,6 @@ function PartialUpdateFinancialRecordRadarItemRequestBodyDtoToJSONTyped(value, i
     return {
         'status': value['status'],
         'folder': value['folder'],
-        'extractedFinancialRecordData': (0, FinancialRecordRadarItemEntityExtractedFinancialRecordData_1.FinancialRecordRadarItemEntityExtractedFinancialRecordDataToJSON)(value['extractedFinancialRecordData']),
+        'extractedFinancialRecordData': (0, CreatedFinancialRecordRadarItemResultEntityRadarItemExtractedFinancialRecordData_1.CreatedFinancialRecordRadarItemResultEntityRadarItemExtractedFinancialRecordDataToJSON)(value['extractedFinancialRecordData']),
     };
 }

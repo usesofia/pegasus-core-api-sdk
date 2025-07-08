@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { FinancialRecordRadarItemEntityExtractedFinancialRecordData } from './FinancialRecordRadarItemEntityExtractedFinancialRecordData';
+import type { CreatedFinancialRecordRadarItemResultEntityRadarItemExtractedFinancialRecordData } from './CreatedFinancialRecordRadarItemResultEntityRadarItemExtractedFinancialRecordData';
 /**
  *
  * @export
@@ -30,10 +30,10 @@ export interface PartialUpdateFinancialRecordRadarItemRequestBodyDto {
     folder?: PartialUpdateFinancialRecordRadarItemRequestBodyDtoFolderEnum;
     /**
      *
-     * @type {FinancialRecordRadarItemEntityExtractedFinancialRecordData}
+     * @type {CreatedFinancialRecordRadarItemResultEntityRadarItemExtractedFinancialRecordData}
      * @memberof PartialUpdateFinancialRecordRadarItemRequestBodyDto
      */
-    extractedFinancialRecordData?: FinancialRecordRadarItemEntityExtractedFinancialRecordData;
+    extractedFinancialRecordData?: CreatedFinancialRecordRadarItemResultEntityRadarItemExtractedFinancialRecordData;
 }
 /**
  * @export
