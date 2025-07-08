@@ -87,7 +87,7 @@ export interface FinancialRecordRadarItemsPageDtoItemsInner {
      * @type {Array<FinancialRecordRadarItemEntitySubsequentRadarItemsInner>}
      * @memberof FinancialRecordRadarItemsPageDtoItemsInner
      */
-    subsequentRadarItems: Array<FinancialRecordRadarItemEntitySubsequentRadarItemsInner>;
+    subsequentRadarItems?: Array<FinancialRecordRadarItemEntitySubsequentRadarItemsInner>;
     /**
      *
      * @type {CreateFinancialRecordRadarItemRequestBodyDtoWhatsappMessageData}

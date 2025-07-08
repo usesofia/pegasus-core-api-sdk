@@ -134,7 +134,7 @@ export interface FinancialRecordRadarItemEntity {
      * @type {Array<FinancialRecordRadarItemEntitySubsequentRadarItemsInner>}
      * @memberof FinancialRecordRadarItemEntity
      */
-    subsequentRadarItems: Array<FinancialRecordRadarItemEntitySubsequentRadarItemsInner>;
+    subsequentRadarItems?: Array<FinancialRecordRadarItemEntitySubsequentRadarItemsInner>;
     /**
      * 
      * @type {CreateFinancialRecordRadarItemRequestBodyDtoWhatsappMessageData}
@@ -217,7 +217,6 @@ export function instanceOfFinancialRecordRadarItemEntity(value: object): value i
     if (!('status' in value) || value['status'] === undefined) return false;
     if (!('folder' in value) || value['folder'] === undefined) return false;
     if (!('links' in value) || value['links'] === undefined) return false;
-    if (!('subsequentRadarItems' in value) || value['subsequentRadarItems'] === undefined) return false;
     if (!('createdAt' in value) || value['createdAt'] === undefined) return false;
     if (!('updatedAt' in value) || value['updatedAt'] === undefined) return false;
     return true;
@@ -243,7 +242,7 @@ export function FinancialRecordRadarItemEntityFromJSONTyped(json: any, ignoreDis
         'bestSuggestedAction': json['bestSuggestedAction'] == null ? undefined : CreateFinancialRecordRadarItemRequestBodyDtoBestSuggestedActionFromJSON(json['bestSuggestedAction']),
         'finalBestSuggestedAction': json['finalBestSuggestedAction'] == null ? undefined : FinancialRecordRadarItemEntityFinalBestSuggestedActionFromJSON(json['finalBestSuggestedAction']),
         'extractedFinancialRecordData': json['extractedFinancialRecordData'] == null ? undefined : FinancialRecordRadarItemEntityExtractedFinancialRecordDataFromJSON(json['extractedFinancialRecordData']),
-        'subsequentRadarItems': ((json['subsequentRadarItems'] as Array<any>).map(FinancialRecordRadarItemEntitySubsequentRadarItemsInnerFromJSON)),
+        'subsequentRadarItems': json['subsequentRadarItems'] == null ? undefined : ((json['subsequentRadarItems'] as Array<any>).map(FinancialRecordRadarItemEntitySubsequentRadarItemsInnerFromJSON)),
         'whatsappMessageData': json['whatsappMessageData'] == null ? undefined : CreateFinancialRecordRadarItemRequestBodyDtoWhatsappMessageDataFromJSON(json['whatsappMessageData']),
         'emailMessageData': json['emailMessageData'] == null ? undefined : CreateFinancialRecordRadarItemRequestBodyDtoEmailMessageDataFromJSON(json['emailMessageData']),
         'autoExecute': json['autoExecute'] == null ? undefined : FinancialRecordRadarItemEntityAutoExecuteFromJSON(json['autoExecute']),
@@ -273,7 +272,7 @@ export function FinancialRecordRadarItemEntityToJSONTyped(value?: FinancialRecor
         'bestSuggestedAction': CreateFinancialRecordRadarItemRequestBodyDtoBestSuggestedActionToJSON(value['bestSuggestedAction']),
         'finalBestSuggestedAction': FinancialRecordRadarItemEntityFinalBestSuggestedActionToJSON(value['finalBestSuggestedAction']),
         'extractedFinancialRecordData': FinancialRecordRadarItemEntityExtractedFinancialRecordDataToJSON(value['extractedFinancialRecordData']),
-        'subsequentRadarItems': ((value['subsequentRadarItems'] as Array<any>).map(FinancialRecordRadarItemEntitySubsequentRadarItemsInnerToJSON)),
+        'subsequentRadarItems': value['subsequentRadarItems'] == null ? undefined : ((value['subsequentRadarItems'] as Array<any>).map(FinancialRecordRadarItemEntitySubsequentRadarItemsInnerToJSON)),
         'whatsappMessageData': CreateFinancialRecordRadarItemRequestBodyDtoWhatsappMessageDataToJSON(value['whatsappMessageData']),
         'emailMessageData': CreateFinancialRecordRadarItemRequestBodyDtoEmailMessageDataToJSON(value['emailMessageData']),
         'autoExecute': FinancialRecordRadarItemEntityAutoExecuteToJSON(value['autoExecute']),

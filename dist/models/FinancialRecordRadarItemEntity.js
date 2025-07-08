@@ -73,8 +73,6 @@ function instanceOfFinancialRecordRadarItemEntity(value) {
         return false;
     if (!('links' in value) || value['links'] === undefined)
         return false;
-    if (!('subsequentRadarItems' in value) || value['subsequentRadarItems'] === undefined)
-        return false;
     if (!('createdAt' in value) || value['createdAt'] === undefined)
         return false;
     if (!('updatedAt' in value) || value['updatedAt'] === undefined)
@@ -99,7 +97,7 @@ function FinancialRecordRadarItemEntityFromJSONTyped(json, ignoreDiscriminator) 
         'bestSuggestedAction': json['bestSuggestedAction'] == null ? undefined : (0, CreateFinancialRecordRadarItemRequestBodyDtoBestSuggestedAction_1.CreateFinancialRecordRadarItemRequestBodyDtoBestSuggestedActionFromJSON)(json['bestSuggestedAction']),
         'finalBestSuggestedAction': json['finalBestSuggestedAction'] == null ? undefined : (0, FinancialRecordRadarItemEntityFinalBestSuggestedAction_1.FinancialRecordRadarItemEntityFinalBestSuggestedActionFromJSON)(json['finalBestSuggestedAction']),
         'extractedFinancialRecordData': json['extractedFinancialRecordData'] == null ? undefined : (0, FinancialRecordRadarItemEntityExtractedFinancialRecordData_1.FinancialRecordRadarItemEntityExtractedFinancialRecordDataFromJSON)(json['extractedFinancialRecordData']),
-        'subsequentRadarItems': (json['subsequentRadarItems'].map(FinancialRecordRadarItemEntitySubsequentRadarItemsInner_1.FinancialRecordRadarItemEntitySubsequentRadarItemsInnerFromJSON)),
+        'subsequentRadarItems': json['subsequentRadarItems'] == null ? undefined : (json['subsequentRadarItems'].map(FinancialRecordRadarItemEntitySubsequentRadarItemsInner_1.FinancialRecordRadarItemEntitySubsequentRadarItemsInnerFromJSON)),
         'whatsappMessageData': json['whatsappMessageData'] == null ? undefined : (0, CreateFinancialRecordRadarItemRequestBodyDtoWhatsappMessageData_1.CreateFinancialRecordRadarItemRequestBodyDtoWhatsappMessageDataFromJSON)(json['whatsappMessageData']),
         'emailMessageData': json['emailMessageData'] == null ? undefined : (0, CreateFinancialRecordRadarItemRequestBodyDtoEmailMessageData_1.CreateFinancialRecordRadarItemRequestBodyDtoEmailMessageDataFromJSON)(json['emailMessageData']),
         'autoExecute': json['autoExecute'] == null ? undefined : (0, FinancialRecordRadarItemEntityAutoExecute_1.FinancialRecordRadarItemEntityAutoExecuteFromJSON)(json['autoExecute']),
@@ -126,7 +124,7 @@ function FinancialRecordRadarItemEntityToJSONTyped(value, ignoreDiscriminator) {
         'bestSuggestedAction': (0, CreateFinancialRecordRadarItemRequestBodyDtoBestSuggestedAction_1.CreateFinancialRecordRadarItemRequestBodyDtoBestSuggestedActionToJSON)(value['bestSuggestedAction']),
         'finalBestSuggestedAction': (0, FinancialRecordRadarItemEntityFinalBestSuggestedAction_1.FinancialRecordRadarItemEntityFinalBestSuggestedActionToJSON)(value['finalBestSuggestedAction']),
         'extractedFinancialRecordData': (0, FinancialRecordRadarItemEntityExtractedFinancialRecordData_1.FinancialRecordRadarItemEntityExtractedFinancialRecordDataToJSON)(value['extractedFinancialRecordData']),
-        'subsequentRadarItems': (value['subsequentRadarItems'].map(FinancialRecordRadarItemEntitySubsequentRadarItemsInner_1.FinancialRecordRadarItemEntitySubsequentRadarItemsInnerToJSON)),
+        'subsequentRadarItems': value['subsequentRadarItems'] == null ? undefined : (value['subsequentRadarItems'].map(FinancialRecordRadarItemEntitySubsequentRadarItemsInner_1.FinancialRecordRadarItemEntitySubsequentRadarItemsInnerToJSON)),
         'whatsappMessageData': (0, CreateFinancialRecordRadarItemRequestBodyDtoWhatsappMessageData_1.CreateFinancialRecordRadarItemRequestBodyDtoWhatsappMessageDataToJSON)(value['whatsappMessageData']),
         'emailMessageData': (0, CreateFinancialRecordRadarItemRequestBodyDtoEmailMessageData_1.CreateFinancialRecordRadarItemRequestBodyDtoEmailMessageDataToJSON)(value['emailMessageData']),
         'autoExecute': (0, FinancialRecordRadarItemEntityAutoExecute_1.FinancialRecordRadarItemEntityAutoExecuteToJSON)(value['autoExecute']),
