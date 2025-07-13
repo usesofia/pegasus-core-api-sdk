@@ -19,6 +19,7 @@ import type {
   BankTransactionsPageDto,
   CreateOrUpdateBankTransactionRequestBodyDto,
   ExceptionResponseEntity,
+  ExecuteBankTransactionsCreateOrUpdateBestSuggestionActionRequestBodyDto,
   ExecuteOfxImportJobRequestBodyDto,
   OfxImportJobRequestEntity,
   OfxImportJobRequestsPageDto,
@@ -35,6 +36,8 @@ import {
     CreateOrUpdateBankTransactionRequestBodyDtoToJSON,
     ExceptionResponseEntityFromJSON,
     ExceptionResponseEntityToJSON,
+    ExecuteBankTransactionsCreateOrUpdateBestSuggestionActionRequestBodyDtoFromJSON,
+    ExecuteBankTransactionsCreateOrUpdateBestSuggestionActionRequestBodyDtoToJSON,
     ExecuteOfxImportJobRequestBodyDtoFromJSON,
     ExecuteOfxImportJobRequestBodyDtoToJSON,
     OfxImportJobRequestEntityFromJSON,
@@ -52,6 +55,11 @@ import {
 export interface CreateOrUpdateBankTransactionRequest {
     createOrUpdateBankTransactionRequestBodyDto: CreateOrUpdateBankTransactionRequestBodyDto;
     populate?: string;
+}
+
+export interface CreateOrUpdateBankTransactionBestSuggestedActionRequest {
+    bankTransactionId: string;
+    createOrUpdateBankTransactionRequestBodyDto: CreateOrUpdateBankTransactionRequestBodyDto;
 }
 
 export interface DispatchOfxImportRequest {
@@ -91,6 +99,10 @@ export interface PartialUpdateBankTransactionRequest {
     id: string;
     partialUpdateBankTransactionRequestBodyDto: PartialUpdateBankTransactionRequestBodyDto;
     populate?: string;
+}
+
+export interface ProcessBankTransactionsCreateOrUpdateBestSuggestionActionRequest {
+    executeBankTransactionsCreateOrUpdateBestSuggestionActionRequestBodyDto: ExecuteBankTransactionsCreateOrUpdateBestSuggestionActionRequestBodyDto;
 }
 
 export interface ProcessOfxImportRequest {
@@ -151,6 +163,22 @@ export interface BankTransactionsApiInterface {
      * Cria ou atualiza uma movimentação financeira.
      */
     createOrUpdateBankTransaction(requestParameters: CreateOrUpdateBankTransactionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankTransactionEntity>;
+
+    /**
+     * 
+     * @summary Cria ou atualiza uma sugestão de melhor ação para uma transação bancária.
+     * @param {string} bankTransactionId 
+     * @param {CreateOrUpdateBankTransactionRequestBodyDto} createOrUpdateBankTransactionRequestBodyDto 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof BankTransactionsApiInterface
+     */
+    createOrUpdateBankTransactionBestSuggestedActionRaw(requestParameters: CreateOrUpdateBankTransactionBestSuggestedActionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankTransactionEntity>>;
+
+    /**
+     * Cria ou atualiza uma sugestão de melhor ação para uma transação bancária.
+     */
+    createOrUpdateBankTransactionBestSuggestedAction(requestParameters: CreateOrUpdateBankTransactionBestSuggestedActionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankTransactionEntity>;
 
     /**
      * 
@@ -245,6 +273,21 @@ export interface BankTransactionsApiInterface {
      * Atualiza parcialmente uma movimentação financeira.
      */
     partialUpdateBankTransaction(requestParameters: PartialUpdateBankTransactionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankTransactionEntity>;
+
+    /**
+     * 
+     * @summary Processa a obtenção de sugestões de melhor ação para transações bancárias via AI.
+     * @param {ExecuteBankTransactionsCreateOrUpdateBestSuggestionActionRequestBodyDto} executeBankTransactionsCreateOrUpdateBestSuggestionActionRequestBodyDto 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof BankTransactionsApiInterface
+     */
+    processBankTransactionsCreateOrUpdateBestSuggestionActionRaw(requestParameters: ProcessBankTransactionsCreateOrUpdateBestSuggestionActionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
+
+    /**
+     * Processa a obtenção de sugestões de melhor ação para transações bancárias via AI.
+     */
+    processBankTransactionsCreateOrUpdateBestSuggestionAction(requestParameters: ProcessBankTransactionsCreateOrUpdateBestSuggestionActionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
 
     /**
      * 
@@ -384,6 +427,53 @@ export class BankTransactionsApi extends runtime.BaseAPI implements BankTransact
      */
     async createOrUpdateBankTransaction(requestParameters: CreateOrUpdateBankTransactionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankTransactionEntity> {
         const response = await this.createOrUpdateBankTransactionRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Cria ou atualiza uma sugestão de melhor ação para uma transação bancária.
+     */
+    async createOrUpdateBankTransactionBestSuggestedActionRaw(requestParameters: CreateOrUpdateBankTransactionBestSuggestedActionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankTransactionEntity>> {
+        if (requestParameters['bankTransactionId'] == null) {
+            throw new runtime.RequiredError(
+                'bankTransactionId',
+                'Required parameter "bankTransactionId" was null or undefined when calling createOrUpdateBankTransactionBestSuggestedAction().'
+            );
+        }
+
+        if (requestParameters['createOrUpdateBankTransactionRequestBodyDto'] == null) {
+            throw new runtime.RequiredError(
+                'createOrUpdateBankTransactionRequestBodyDto',
+                'Required parameter "createOrUpdateBankTransactionRequestBodyDto" was null or undefined when calling createOrUpdateBankTransactionBestSuggestedAction().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+
+        let urlPath = `/external/bank-transactions/{bankTransactionId}/best-suggested-action`;
+        urlPath = urlPath.replace(`{${"bankTransactionId"}}`, encodeURIComponent(String(requestParameters['bankTransactionId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'PUT',
+            headers: headerParameters,
+            query: queryParameters,
+            body: CreateOrUpdateBankTransactionRequestBodyDtoToJSON(requestParameters['createOrUpdateBankTransactionRequestBodyDto']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => BankTransactionEntityFromJSON(jsonValue));
+    }
+
+    /**
+     * Cria ou atualiza uma sugestão de melhor ação para uma transação bancária.
+     */
+    async createOrUpdateBankTransactionBestSuggestedAction(requestParameters: CreateOrUpdateBankTransactionBestSuggestedActionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankTransactionEntity> {
+        const response = await this.createOrUpdateBankTransactionBestSuggestedActionRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
@@ -646,6 +736,44 @@ export class BankTransactionsApi extends runtime.BaseAPI implements BankTransact
     async partialUpdateBankTransaction(requestParameters: PartialUpdateBankTransactionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankTransactionEntity> {
         const response = await this.partialUpdateBankTransactionRaw(requestParameters, initOverrides);
         return await response.value();
+    }
+
+    /**
+     * Processa a obtenção de sugestões de melhor ação para transações bancárias via AI.
+     */
+    async processBankTransactionsCreateOrUpdateBestSuggestionActionRaw(requestParameters: ProcessBankTransactionsCreateOrUpdateBestSuggestionActionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        if (requestParameters['executeBankTransactionsCreateOrUpdateBestSuggestionActionRequestBodyDto'] == null) {
+            throw new runtime.RequiredError(
+                'executeBankTransactionsCreateOrUpdateBestSuggestionActionRequestBodyDto',
+                'Required parameter "executeBankTransactionsCreateOrUpdateBestSuggestionActionRequestBodyDto" was null or undefined when calling processBankTransactionsCreateOrUpdateBestSuggestionAction().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+
+        let urlPath = `/internal/queues/bank-transactions-create-or-update-best-suggestion-action`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: ExecuteBankTransactionsCreateOrUpdateBestSuggestionActionRequestBodyDtoToJSON(requestParameters['executeBankTransactionsCreateOrUpdateBestSuggestionActionRequestBodyDto']),
+        }, initOverrides);
+
+        return new runtime.VoidApiResponse(response);
+    }
+
+    /**
+     * Processa a obtenção de sugestões de melhor ação para transações bancárias via AI.
+     */
+    async processBankTransactionsCreateOrUpdateBestSuggestionAction(requestParameters: ProcessBankTransactionsCreateOrUpdateBestSuggestionActionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+        await this.processBankTransactionsCreateOrUpdateBestSuggestionActionRaw(requestParameters, initOverrides);
     }
 
     /**

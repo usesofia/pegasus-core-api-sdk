@@ -65,6 +65,10 @@ export * from './CreateManyFinancialRecordsRequestBodyDtoDataInner';
 export * from './CreateManyRecurringFinancialRecordsRequestBodyDto';
 export * from './CreateManyRecurringFinancialRecordsRequestBodyDtoDataInner';
 export * from './CreateOrUpdateBankTransactionRequestBodyDto';
+export * from './CreateOrUpdateBankTransactionRequestBodyDtoAiSuggestion';
+export * from './CreateOrUpdateBankTransactionRequestBodyDtoAiSuggestionCreateData';
+export * from './CreateOrUpdateBankTransactionRequestBodyDtoAiSuggestionCreateDataFinancialRecord';
+export * from './CreateOrUpdateBankTransactionRequestBodyDtoAiSuggestionLinkData';
 export * from './CreateOrUpdateBankTransactionRequestBodyDtoCreditCardMetadata';
 export * from './CreateOrUpdateBankTransactionRequestBodyDtoMerchant';
 export * from './CreateOrUpdateBankTransactionRequestBodyDtoPaymentData';
@@ -102,6 +106,7 @@ export * from './CreatedFinancialRecordRadarItemResultEntityRadarItemSubsequentR
 export * from './CreatedFinancialRecordRadarItemResultEntityRadarItemSubsequentRadarItemsInnerWhatsappMessageData';
 export * from './ExceptionResponseEntity';
 export * from './ExceptionResponseEntityErrorsInner';
+export * from './ExecuteBankTransactionsCreateOrUpdateBestSuggestionActionRequestBodyDto';
 export * from './ExecuteBulkCreateJobRequestBodyDto';
 export * from './ExecuteBulkRemoveJobRequestBodyDto';
 export * from './ExecuteOfxImportJobRequestBodyDto';

@@ -20,6 +20,13 @@ import {
     CreateOrUpdateBankTransactionRequestBodyDtoCreditCardMetadataToJSON,
     CreateOrUpdateBankTransactionRequestBodyDtoCreditCardMetadataToJSONTyped,
 } from './CreateOrUpdateBankTransactionRequestBodyDtoCreditCardMetadata';
+import type { CreateOrUpdateBankTransactionRequestBodyDtoAiSuggestion } from './CreateOrUpdateBankTransactionRequestBodyDtoAiSuggestion';
+import {
+    CreateOrUpdateBankTransactionRequestBodyDtoAiSuggestionFromJSON,
+    CreateOrUpdateBankTransactionRequestBodyDtoAiSuggestionFromJSONTyped,
+    CreateOrUpdateBankTransactionRequestBodyDtoAiSuggestionToJSON,
+    CreateOrUpdateBankTransactionRequestBodyDtoAiSuggestionToJSONTyped,
+} from './CreateOrUpdateBankTransactionRequestBodyDtoAiSuggestion';
 import type { CreateOrUpdateBankTransactionRequestBodyDtoMerchant } from './CreateOrUpdateBankTransactionRequestBodyDtoMerchant';
 import {
     CreateOrUpdateBankTransactionRequestBodyDtoMerchantFromJSON,
@@ -102,6 +109,12 @@ export interface CreateOrUpdateBankTransactionRequestBodyDto {
      * @memberof CreateOrUpdateBankTransactionRequestBodyDto
      */
     financialRecords?: Array<string>;
+    /**
+     * 
+     * @type {CreateOrUpdateBankTransactionRequestBodyDtoAiSuggestion}
+     * @memberof CreateOrUpdateBankTransactionRequestBodyDto
+     */
+    aiSuggestion?: CreateOrUpdateBankTransactionRequestBodyDtoAiSuggestion | null;
     /**
      * Identificador da solicitação de importação OFX relacionada.
      * @type {string}
@@ -276,6 +289,7 @@ export function CreateOrUpdateBankTransactionRequestBodyDtoFromJSONTyped(json: a
         'description': json['description'] == null ? undefined : json['description'],
         'status': json['status'],
         'financialRecords': json['financialRecords'] == null ? undefined : json['financialRecords'],
+        'aiSuggestion': json['aiSuggestion'] == null ? undefined : CreateOrUpdateBankTransactionRequestBodyDtoAiSuggestionFromJSON(json['aiSuggestion']),
         'ofxJobRequestId': json['ofxJobRequestId'] == null ? undefined : json['ofxJobRequestId'],
         'ofxJobExecutionId': json['ofxJobExecutionId'] == null ? undefined : json['ofxJobExecutionId'],
         'pluggyJobRequestId': json['pluggyJobRequestId'] == null ? undefined : json['pluggyJobRequestId'],
@@ -317,6 +331,7 @@ export function CreateOrUpdateBankTransactionRequestBodyDtoToJSONTyped(value?: C
         'description': value['description'],
         'status': value['status'],
         'financialRecords': value['financialRecords'],
+        'aiSuggestion': CreateOrUpdateBankTransactionRequestBodyDtoAiSuggestionToJSON(value['aiSuggestion']),
         'ofxJobRequestId': value['ofxJobRequestId'],
         'ofxJobExecutionId': value['ofxJobExecutionId'],
         'pluggyJobRequestId': value['pluggyJobRequestId'],

@@ -10,10 +10,14 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { BankTransactionEntity, BankTransactionsPageDto, CreateOrUpdateBankTransactionRequestBodyDto, ExecuteOfxImportJobRequestBodyDto, OfxImportJobRequestEntity, OfxImportJobRequestsPageDto, OfxImportRequestBodyDto, PartialUpdateBankTransactionRequestBodyDto, ReconcileBankTransactionRequestBodyDto } from '../models/index';
+import type { BankTransactionEntity, BankTransactionsPageDto, CreateOrUpdateBankTransactionRequestBodyDto, ExecuteBankTransactionsCreateOrUpdateBestSuggestionActionRequestBodyDto, ExecuteOfxImportJobRequestBodyDto, OfxImportJobRequestEntity, OfxImportJobRequestsPageDto, OfxImportRequestBodyDto, PartialUpdateBankTransactionRequestBodyDto, ReconcileBankTransactionRequestBodyDto } from '../models/index';
 export interface CreateOrUpdateBankTransactionRequest {
     createOrUpdateBankTransactionRequestBodyDto: CreateOrUpdateBankTransactionRequestBodyDto;
     populate?: string;
+}
+export interface CreateOrUpdateBankTransactionBestSuggestedActionRequest {
+    bankTransactionId: string;
+    createOrUpdateBankTransactionRequestBodyDto: CreateOrUpdateBankTransactionRequestBodyDto;
 }
 export interface DispatchOfxImportRequest {
     ofxImportRequestBodyDto: OfxImportRequestBodyDto;
@@ -48,6 +52,9 @@ export interface PartialUpdateBankTransactionRequest {
     id: string;
     partialUpdateBankTransactionRequestBodyDto: PartialUpdateBankTransactionRequestBodyDto;
     populate?: string;
+}
+export interface ProcessBankTransactionsCreateOrUpdateBestSuggestionActionRequest {
+    executeBankTransactionsCreateOrUpdateBestSuggestionActionRequestBodyDto: ExecuteBankTransactionsCreateOrUpdateBestSuggestionActionRequestBodyDto;
 }
 export interface ProcessOfxImportRequest {
     executeOfxImportJobRequestBodyDto: ExecuteOfxImportJobRequestBodyDto;
@@ -101,6 +108,20 @@ export interface BankTransactionsApiInterface {
      * Cria ou atualiza uma movimentação financeira.
      */
     createOrUpdateBankTransaction(requestParameters: CreateOrUpdateBankTransactionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankTransactionEntity>;
+    /**
+     *
+     * @summary Cria ou atualiza uma sugestão de melhor ação para uma transação bancária.
+     * @param {string} bankTransactionId
+     * @param {CreateOrUpdateBankTransactionRequestBodyDto} createOrUpdateBankTransactionRequestBodyDto
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof BankTransactionsApiInterface
+     */
+    createOrUpdateBankTransactionBestSuggestedActionRaw(requestParameters: CreateOrUpdateBankTransactionBestSuggestedActionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankTransactionEntity>>;
+    /**
+     * Cria ou atualiza uma sugestão de melhor ação para uma transação bancária.
+     */
+    createOrUpdateBankTransactionBestSuggestedAction(requestParameters: CreateOrUpdateBankTransactionBestSuggestedActionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankTransactionEntity>;
     /**
      *
      * @summary Dispara a importação assíncrona de um arquivo OFX.
@@ -185,6 +206,19 @@ export interface BankTransactionsApiInterface {
      * Atualiza parcialmente uma movimentação financeira.
      */
     partialUpdateBankTransaction(requestParameters: PartialUpdateBankTransactionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankTransactionEntity>;
+    /**
+     *
+     * @summary Processa a obtenção de sugestões de melhor ação para transações bancárias via AI.
+     * @param {ExecuteBankTransactionsCreateOrUpdateBestSuggestionActionRequestBodyDto} executeBankTransactionsCreateOrUpdateBestSuggestionActionRequestBodyDto
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof BankTransactionsApiInterface
+     */
+    processBankTransactionsCreateOrUpdateBestSuggestionActionRaw(requestParameters: ProcessBankTransactionsCreateOrUpdateBestSuggestionActionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
+    /**
+     * Processa a obtenção de sugestões de melhor ação para transações bancárias via AI.
+     */
+    processBankTransactionsCreateOrUpdateBestSuggestionAction(requestParameters: ProcessBankTransactionsCreateOrUpdateBestSuggestionActionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
     /**
      *
      * @summary Processa a importação assíncrona de um arquivo OFX.
@@ -280,6 +314,14 @@ export declare class BankTransactionsApi extends runtime.BaseAPI implements Bank
      */
     createOrUpdateBankTransaction(requestParameters: CreateOrUpdateBankTransactionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankTransactionEntity>;
     /**
+     * Cria ou atualiza uma sugestão de melhor ação para uma transação bancária.
+     */
+    createOrUpdateBankTransactionBestSuggestedActionRaw(requestParameters: CreateOrUpdateBankTransactionBestSuggestedActionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankTransactionEntity>>;
+    /**
+     * Cria ou atualiza uma sugestão de melhor ação para uma transação bancária.
+     */
+    createOrUpdateBankTransactionBestSuggestedAction(requestParameters: CreateOrUpdateBankTransactionBestSuggestedActionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankTransactionEntity>;
+    /**
      * Dispara a importação assíncrona de um arquivo OFX.
      */
     dispatchOfxImportRaw(requestParameters: DispatchOfxImportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<OfxImportJobRequestEntity>>;
@@ -319,6 +361,14 @@ export declare class BankTransactionsApi extends runtime.BaseAPI implements Bank
      * Atualiza parcialmente uma movimentação financeira.
      */
     partialUpdateBankTransaction(requestParameters: PartialUpdateBankTransactionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankTransactionEntity>;
+    /**
+     * Processa a obtenção de sugestões de melhor ação para transações bancárias via AI.
+     */
+    processBankTransactionsCreateOrUpdateBestSuggestionActionRaw(requestParameters: ProcessBankTransactionsCreateOrUpdateBestSuggestionActionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
+    /**
+     * Processa a obtenção de sugestões de melhor ação para transações bancárias via AI.
+     */
+    processBankTransactionsCreateOrUpdateBestSuggestionAction(requestParameters: ProcessBankTransactionsCreateOrUpdateBestSuggestionActionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
     /**
      * Processa a importação assíncrona de um arquivo OFX.
      */

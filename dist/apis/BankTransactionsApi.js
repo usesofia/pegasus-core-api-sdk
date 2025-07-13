@@ -126,6 +126,57 @@ var BankTransactionsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Cria ou atualiza uma sugestão de melhor ação para uma transação bancária.
+     */
+    BankTransactionsApi.prototype.createOrUpdateBankTransactionBestSuggestedActionRaw = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (requestParameters['bankTransactionId'] == null) {
+                            throw new runtime.RequiredError('bankTransactionId', 'Required parameter "bankTransactionId" was null or undefined when calling createOrUpdateBankTransactionBestSuggestedAction().');
+                        }
+                        if (requestParameters['createOrUpdateBankTransactionRequestBodyDto'] == null) {
+                            throw new runtime.RequiredError('createOrUpdateBankTransactionRequestBodyDto', 'Required parameter "createOrUpdateBankTransactionRequestBodyDto" was null or undefined when calling createOrUpdateBankTransactionBestSuggestedAction().');
+                        }
+                        queryParameters = {};
+                        headerParameters = {};
+                        headerParameters['Content-Type'] = 'application/json';
+                        urlPath = "/external/bank-transactions/{bankTransactionId}/best-suggested-action";
+                        urlPath = urlPath.replace("{".concat("bankTransactionId", "}"), encodeURIComponent(String(requestParameters['bankTransactionId'])));
+                        return [4 /*yield*/, this.request({
+                                path: urlPath,
+                                method: 'PUT',
+                                headers: headerParameters,
+                                query: queryParameters,
+                                body: (0, index_1.CreateOrUpdateBankTransactionRequestBodyDtoToJSON)(requestParameters['createOrUpdateBankTransactionRequestBodyDto']),
+                            }, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.BankTransactionEntityFromJSON)(jsonValue); })];
+                }
+            });
+        });
+    };
+    /**
+     * Cria ou atualiza uma sugestão de melhor ação para uma transação bancária.
+     */
+    BankTransactionsApi.prototype.createOrUpdateBankTransactionBestSuggestedAction = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.createOrUpdateBankTransactionBestSuggestedActionRaw(requestParameters, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [4 /*yield*/, response.value()];
+                    case 2: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
+    /**
      * Dispara a importação assíncrona de um arquivo OFX.
      */
     BankTransactionsApi.prototype.dispatchOfxImportRaw = function (requestParameters, initOverrides) {
@@ -411,6 +462,51 @@ var BankTransactionsApi = /** @class */ (function (_super) {
                         response = _a.sent();
                         return [4 /*yield*/, response.value()];
                     case 2: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
+    /**
+     * Processa a obtenção de sugestões de melhor ação para transações bancárias via AI.
+     */
+    BankTransactionsApi.prototype.processBankTransactionsCreateOrUpdateBestSuggestionActionRaw = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (requestParameters['executeBankTransactionsCreateOrUpdateBestSuggestionActionRequestBodyDto'] == null) {
+                            throw new runtime.RequiredError('executeBankTransactionsCreateOrUpdateBestSuggestionActionRequestBodyDto', 'Required parameter "executeBankTransactionsCreateOrUpdateBestSuggestionActionRequestBodyDto" was null or undefined when calling processBankTransactionsCreateOrUpdateBestSuggestionAction().');
+                        }
+                        queryParameters = {};
+                        headerParameters = {};
+                        headerParameters['Content-Type'] = 'application/json';
+                        urlPath = "/internal/queues/bank-transactions-create-or-update-best-suggestion-action";
+                        return [4 /*yield*/, this.request({
+                                path: urlPath,
+                                method: 'POST',
+                                headers: headerParameters,
+                                query: queryParameters,
+                                body: (0, index_1.ExecuteBankTransactionsCreateOrUpdateBestSuggestionActionRequestBodyDtoToJSON)(requestParameters['executeBankTransactionsCreateOrUpdateBestSuggestionActionRequestBodyDto']),
+                            }, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [2 /*return*/, new runtime.VoidApiResponse(response)];
+                }
+            });
+        });
+    };
+    /**
+     * Processa a obtenção de sugestões de melhor ação para transações bancárias via AI.
+     */
+    BankTransactionsApi.prototype.processBankTransactionsCreateOrUpdateBestSuggestionAction = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.processBankTransactionsCreateOrUpdateBestSuggestionActionRaw(requestParameters, initOverrides)];
+                    case 1:
+                        _a.sent();
+                        return [2 /*return*/];
                 }
             });
         });

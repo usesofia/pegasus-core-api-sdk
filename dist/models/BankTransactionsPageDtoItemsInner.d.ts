@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 import type { CreateOrUpdateBankTransactionRequestBodyDtoCreditCardMetadata } from './CreateOrUpdateBankTransactionRequestBodyDtoCreditCardMetadata';
+import type { CreateOrUpdateBankTransactionRequestBodyDtoAiSuggestion } from './CreateOrUpdateBankTransactionRequestBodyDtoAiSuggestion';
 import type { CreateOrUpdateBankTransactionRequestBodyDtoMerchant } from './CreateOrUpdateBankTransactionRequestBodyDtoMerchant';
 import type { BankTransactionEntityPopulatedBankAccount } from './BankTransactionEntityPopulatedBankAccount';
 import type { CreateOrUpdateBankTransactionRequestBodyDtoPaymentData } from './CreateOrUpdateBankTransactionRequestBodyDtoPaymentData';
@@ -139,6 +140,12 @@ export interface BankTransactionsPageDtoItemsInner {
      * @memberof BankTransactionsPageDtoItemsInner
      */
     financialRecords?: Array<string>;
+    /**
+     *
+     * @type {CreateOrUpdateBankTransactionRequestBodyDtoAiSuggestion}
+     * @memberof BankTransactionsPageDtoItemsInner
+     */
+    aiSuggestion?: CreateOrUpdateBankTransactionRequestBodyDtoAiSuggestion | null;
     /**
      * Identificador da solicitação de importação OFX relacionada.
      * @type {string}

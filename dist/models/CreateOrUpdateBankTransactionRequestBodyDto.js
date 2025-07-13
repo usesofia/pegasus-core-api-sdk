@@ -20,6 +20,7 @@ exports.CreateOrUpdateBankTransactionRequestBodyDtoFromJSONTyped = CreateOrUpdat
 exports.CreateOrUpdateBankTransactionRequestBodyDtoToJSON = CreateOrUpdateBankTransactionRequestBodyDtoToJSON;
 exports.CreateOrUpdateBankTransactionRequestBodyDtoToJSONTyped = CreateOrUpdateBankTransactionRequestBodyDtoToJSONTyped;
 var CreateOrUpdateBankTransactionRequestBodyDtoCreditCardMetadata_1 = require("./CreateOrUpdateBankTransactionRequestBodyDtoCreditCardMetadata");
+var CreateOrUpdateBankTransactionRequestBodyDtoAiSuggestion_1 = require("./CreateOrUpdateBankTransactionRequestBodyDtoAiSuggestion");
 var CreateOrUpdateBankTransactionRequestBodyDtoMerchant_1 = require("./CreateOrUpdateBankTransactionRequestBodyDtoMerchant");
 var ProcessExportResourceJobRequestBodyDtoRequester_1 = require("./ProcessExportResourceJobRequestBodyDtoRequester");
 var CreateOrUpdateBankTransactionRequestBodyDtoPaymentData_1 = require("./CreateOrUpdateBankTransactionRequestBodyDtoPaymentData");
@@ -84,6 +85,7 @@ function CreateOrUpdateBankTransactionRequestBodyDtoFromJSONTyped(json, ignoreDi
         'description': json['description'] == null ? undefined : json['description'],
         'status': json['status'],
         'financialRecords': json['financialRecords'] == null ? undefined : json['financialRecords'],
+        'aiSuggestion': json['aiSuggestion'] == null ? undefined : (0, CreateOrUpdateBankTransactionRequestBodyDtoAiSuggestion_1.CreateOrUpdateBankTransactionRequestBodyDtoAiSuggestionFromJSON)(json['aiSuggestion']),
         'ofxJobRequestId': json['ofxJobRequestId'] == null ? undefined : json['ofxJobRequestId'],
         'ofxJobExecutionId': json['ofxJobExecutionId'] == null ? undefined : json['ofxJobExecutionId'],
         'pluggyJobRequestId': json['pluggyJobRequestId'] == null ? undefined : json['pluggyJobRequestId'],
@@ -122,6 +124,7 @@ function CreateOrUpdateBankTransactionRequestBodyDtoToJSONTyped(value, ignoreDis
         'description': value['description'],
         'status': value['status'],
         'financialRecords': value['financialRecords'],
+        'aiSuggestion': (0, CreateOrUpdateBankTransactionRequestBodyDtoAiSuggestion_1.CreateOrUpdateBankTransactionRequestBodyDtoAiSuggestionToJSON)(value['aiSuggestion']),
         'ofxJobRequestId': value['ofxJobRequestId'],
         'ofxJobExecutionId': value['ofxJobExecutionId'],
         'pluggyJobRequestId': value['pluggyJobRequestId'],

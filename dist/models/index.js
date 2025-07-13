@@ -83,6 +83,10 @@ __exportStar(require("./CreateManyFinancialRecordsRequestBodyDtoDataInner"), exp
 __exportStar(require("./CreateManyRecurringFinancialRecordsRequestBodyDto"), exports);
 __exportStar(require("./CreateManyRecurringFinancialRecordsRequestBodyDtoDataInner"), exports);
 __exportStar(require("./CreateOrUpdateBankTransactionRequestBodyDto"), exports);
+__exportStar(require("./CreateOrUpdateBankTransactionRequestBodyDtoAiSuggestion"), exports);
+__exportStar(require("./CreateOrUpdateBankTransactionRequestBodyDtoAiSuggestionCreateData"), exports);
+__exportStar(require("./CreateOrUpdateBankTransactionRequestBodyDtoAiSuggestionCreateDataFinancialRecord"), exports);
+__exportStar(require("./CreateOrUpdateBankTransactionRequestBodyDtoAiSuggestionLinkData"), exports);
 __exportStar(require("./CreateOrUpdateBankTransactionRequestBodyDtoCreditCardMetadata"), exports);
 __exportStar(require("./CreateOrUpdateBankTransactionRequestBodyDtoMerchant"), exports);
 __exportStar(require("./CreateOrUpdateBankTransactionRequestBodyDtoPaymentData"), exports);
@@ -120,6 +124,7 @@ __exportStar(require("./CreatedFinancialRecordRadarItemResultEntityRadarItemSubs
 __exportStar(require("./CreatedFinancialRecordRadarItemResultEntityRadarItemSubsequentRadarItemsInnerWhatsappMessageData"), exports);
 __exportStar(require("./ExceptionResponseEntity"), exports);
 __exportStar(require("./ExceptionResponseEntityErrorsInner"), exports);
+__exportStar(require("./ExecuteBankTransactionsCreateOrUpdateBestSuggestionActionRequestBodyDto"), exports);
 __exportStar(require("./ExecuteBulkCreateJobRequestBodyDto"), exports);
 __exportStar(require("./ExecuteBulkRemoveJobRequestBodyDto"), exports);
 __exportStar(require("./ExecuteOfxImportJobRequestBodyDto"), exports);
