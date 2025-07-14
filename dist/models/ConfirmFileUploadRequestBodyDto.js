@@ -57,8 +57,8 @@ function ConfirmFileUploadRequestBodyDtoFromJSONTyped(json, ignoreDiscriminator)
     return {
         'id': json['id'],
         'status': json['status'],
+        'caption': json['caption'] == null ? undefined : json['caption'],
         'deletedAt': json['deletedAt'] == null ? undefined : json['deletedAt'],
-        'signedUrl': json['signedUrl'] == null ? undefined : json['signedUrl'],
         'channel': json['channel'],
     };
 }
@@ -73,8 +73,8 @@ function ConfirmFileUploadRequestBodyDtoToJSONTyped(value, ignoreDiscriminator) 
     return {
         'id': value['id'],
         'status': value['status'],
+        'caption': value['caption'],
         'deletedAt': value['deletedAt'],
-        'signedUrl': value['signedUrl'],
         'channel': value['channel'],
     };
 }

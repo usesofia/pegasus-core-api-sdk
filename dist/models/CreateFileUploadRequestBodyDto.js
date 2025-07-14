@@ -37,7 +37,9 @@ exports.CreateFileUploadRequestBodyDtoFileTypeEnum = {
     FinancialRecordsBulkCreateExtractionOutput: 'FINANCIAL_RECORDS_BULK_CREATE_EXTRACTION_OUTPUT',
     ContactsBulkCreateExtractionInput: 'CONTACTS_BULK_CREATE_EXTRACTION_INPUT',
     ContactsBulkCreateExtractionOutput: 'CONTACTS_BULK_CREATE_EXTRACTION_OUTPUT',
-    SevenDaysTempFile: 'SEVEN_DAYS_TEMP_FILE'
+    SevenDaysTempFile: 'SEVEN_DAYS_TEMP_FILE',
+    WhatsappMessageFile: 'WHATSAPP_MESSAGE_FILE',
+    EmailForwardingIntegration: 'EMAIL_FORWARDING_INTEGRATION'
 };
 /**
  * @export
@@ -76,7 +78,7 @@ function CreateFileUploadRequestBodyDtoFromJSONTyped(json, ignoreDiscriminator) 
         'mimeType': json['mimeType'],
         'size': json['size'],
         'fileType': json['fileType'],
-        'signedUrl': json['signedUrl'] == null ? undefined : json['signedUrl'],
+        'caption': json['caption'] == null ? undefined : json['caption'],
         'channel': json['channel'],
     };
 }
@@ -93,7 +95,7 @@ function CreateFileUploadRequestBodyDtoToJSONTyped(value, ignoreDiscriminator) {
         'mimeType': value['mimeType'],
         'size': value['size'],
         'fileType': value['fileType'],
-        'signedUrl': value['signedUrl'],
+        'caption': value['caption'],
         'channel': value['channel'],
     };
 }

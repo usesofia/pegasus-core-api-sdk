@@ -64,6 +64,12 @@ export interface CreateFinancialRecordRequestBodyDtoPopulatedFilesInner {
      */
     status: CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerStatusEnum;
     /**
+     * Legenda do arquivo.
+     * @type {string}
+     * @memberof CreateFinancialRecordRequestBodyDtoPopulatedFilesInner
+     */
+    caption?: string | null;
+    /**
      * Data de criação do arquivo.
      * @type {any}
      * @memberof CreateFinancialRecordRequestBodyDtoPopulatedFilesInner
@@ -82,11 +88,17 @@ export interface CreateFinancialRecordRequestBodyDtoPopulatedFilesInner {
      */
     deletedAt?: any | null;
     /**
+     * URL do arquivo.
+     * @type {string}
+     * @memberof CreateFinancialRecordRequestBodyDtoPopulatedFilesInner
+     */
+    url: string;
+    /**
      * URL assinada do arquivo.
      * @type {string}
      * @memberof CreateFinancialRecordRequestBodyDtoPopulatedFilesInner
      */
-    signedUrl?: string;
+    signedUrl: string;
 }
 /**
  * @export
@@ -107,6 +119,8 @@ export declare const CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerFileT
     readonly ContactsBulkCreateExtractionInput: "CONTACTS_BULK_CREATE_EXTRACTION_INPUT";
     readonly ContactsBulkCreateExtractionOutput: "CONTACTS_BULK_CREATE_EXTRACTION_OUTPUT";
     readonly SevenDaysTempFile: "SEVEN_DAYS_TEMP_FILE";
+    readonly WhatsappMessageFile: "WHATSAPP_MESSAGE_FILE";
+    readonly EmailForwardingIntegration: "EMAIL_FORWARDING_INTEGRATION";
 };
 export type CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerFileTypeEnum = typeof CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerFileTypeEnum[keyof typeof CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerFileTypeEnum];
 /**

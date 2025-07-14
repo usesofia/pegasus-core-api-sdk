@@ -37,7 +37,9 @@ exports.CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerFileTypeEnum = {
     FinancialRecordsBulkCreateExtractionOutput: 'FINANCIAL_RECORDS_BULK_CREATE_EXTRACTION_OUTPUT',
     ContactsBulkCreateExtractionInput: 'CONTACTS_BULK_CREATE_EXTRACTION_INPUT',
     ContactsBulkCreateExtractionOutput: 'CONTACTS_BULK_CREATE_EXTRACTION_OUTPUT',
-    SevenDaysTempFile: 'SEVEN_DAYS_TEMP_FILE'
+    SevenDaysTempFile: 'SEVEN_DAYS_TEMP_FILE',
+    WhatsappMessageFile: 'WHATSAPP_MESSAGE_FILE',
+    EmailForwardingIntegration: 'EMAIL_FORWARDING_INTEGRATION'
 };
 /**
  * @export
@@ -72,6 +74,10 @@ function instanceOfCreateFinancialRecordRequestBodyDtoPopulatedFilesInner(value)
         return false;
     if (!('updatedAt' in value) || value['updatedAt'] === undefined)
         return false;
+    if (!('url' in value) || value['url'] === undefined)
+        return false;
+    if (!('signedUrl' in value) || value['signedUrl'] === undefined)
+        return false;
     return true;
 }
 function CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerFromJSON(json) {
@@ -90,10 +96,12 @@ function CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerFromJSONTyped(jso
         'fileType': json['fileType'],
         'objectName': json['objectName'],
         'status': json['status'],
+        'caption': json['caption'] == null ? undefined : json['caption'],
         'createdAt': json['createdAt'],
         'updatedAt': json['updatedAt'],
         'deletedAt': json['deletedAt'] == null ? undefined : json['deletedAt'],
-        'signedUrl': json['signedUrl'] == null ? undefined : json['signedUrl'],
+        'url': json['url'],
+        'signedUrl': json['signedUrl'],
     };
 }
 function CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerToJSON(json) {
@@ -113,9 +121,11 @@ function CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerToJSONTyped(value
         'fileType': value['fileType'],
         'objectName': value['objectName'],
         'status': value['status'],
+        'caption': value['caption'],
         'createdAt': value['createdAt'],
         'updatedAt': value['updatedAt'],
         'deletedAt': value['deletedAt'],
+        'url': value['url'],
         'signedUrl': value['signedUrl'],
     };
 }

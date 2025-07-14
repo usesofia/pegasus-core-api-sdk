@@ -32,17 +32,17 @@ export interface ConfirmFileUploadRequestBodyDto {
      */
     status: ConfirmFileUploadRequestBodyDtoStatusEnum;
     /**
+     * Legenda do arquivo.
+     * @type {string}
+     * @memberof ConfirmFileUploadRequestBodyDto
+     */
+    caption?: string | null;
+    /**
      * Data de exclusão do arquivo.
      * @type {any}
      * @memberof ConfirmFileUploadRequestBodyDto
      */
     deletedAt?: any | null;
-    /**
-     * URL assinada do arquivo.
-     * @type {string}
-     * @memberof ConfirmFileUploadRequestBodyDto
-     */
-    signedUrl?: string;
     /**
      * Canal de origem da operação
      * @type {string}
@@ -95,8 +95,8 @@ export function ConfirmFileUploadRequestBodyDtoFromJSONTyped(json: any, ignoreDi
         
         'id': json['id'],
         'status': json['status'],
+        'caption': json['caption'] == null ? undefined : json['caption'],
         'deletedAt': json['deletedAt'] == null ? undefined : json['deletedAt'],
-        'signedUrl': json['signedUrl'] == null ? undefined : json['signedUrl'],
         'channel': json['channel'],
     };
 }
@@ -114,8 +114,8 @@ export function ConfirmFileUploadRequestBodyDtoToJSONTyped(value?: ConfirmFileUp
         
         'id': value['id'],
         'status': value['status'],
+        'caption': value['caption'],
         'deletedAt': value['deletedAt'],
-        'signedUrl': value['signedUrl'],
         'channel': value['channel'],
     };
 }

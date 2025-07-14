@@ -68,6 +68,12 @@ export interface FileEntity {
      */
     status: FileEntityStatusEnum;
     /**
+     * Legenda do arquivo.
+     * @type {string}
+     * @memberof FileEntity
+     */
+    caption?: string | null;
+    /**
      * Data de criação do arquivo.
      * @type {any}
      * @memberof FileEntity
@@ -86,11 +92,17 @@ export interface FileEntity {
      */
     deletedAt?: any | null;
     /**
+     * URL do arquivo.
+     * @type {string}
+     * @memberof FileEntity
+     */
+    url: string;
+    /**
      * URL assinada do arquivo.
      * @type {string}
      * @memberof FileEntity
      */
-    signedUrl?: string;
+    signedUrl: string;
 }
 
 
@@ -112,7 +124,9 @@ export const FileEntityFileTypeEnum = {
     FinancialRecordsBulkCreateExtractionOutput: 'FINANCIAL_RECORDS_BULK_CREATE_EXTRACTION_OUTPUT',
     ContactsBulkCreateExtractionInput: 'CONTACTS_BULK_CREATE_EXTRACTION_INPUT',
     ContactsBulkCreateExtractionOutput: 'CONTACTS_BULK_CREATE_EXTRACTION_OUTPUT',
-    SevenDaysTempFile: 'SEVEN_DAYS_TEMP_FILE'
+    SevenDaysTempFile: 'SEVEN_DAYS_TEMP_FILE',
+    WhatsappMessageFile: 'WHATSAPP_MESSAGE_FILE',
+    EmailForwardingIntegration: 'EMAIL_FORWARDING_INTEGRATION'
 } as const;
 export type FileEntityFileTypeEnum = typeof FileEntityFileTypeEnum[keyof typeof FileEntityFileTypeEnum];
 
@@ -142,6 +156,8 @@ export function instanceOfFileEntity(value: object): value is FileEntity {
     if (!('status' in value) || value['status'] === undefined) return false;
     if (!('createdAt' in value) || value['createdAt'] === undefined) return false;
     if (!('updatedAt' in value) || value['updatedAt'] === undefined) return false;
+    if (!('url' in value) || value['url'] === undefined) return false;
+    if (!('signedUrl' in value) || value['signedUrl'] === undefined) return false;
     return true;
 }
 
@@ -163,10 +179,12 @@ export function FileEntityFromJSONTyped(json: any, ignoreDiscriminator: boolean)
         'fileType': json['fileType'],
         'objectName': json['objectName'],
         'status': json['status'],
+        'caption': json['caption'] == null ? undefined : json['caption'],
         'createdAt': json['createdAt'],
         'updatedAt': json['updatedAt'],
         'deletedAt': json['deletedAt'] == null ? undefined : json['deletedAt'],
-        'signedUrl': json['signedUrl'] == null ? undefined : json['signedUrl'],
+        'url': json['url'],
+        'signedUrl': json['signedUrl'],
     };
 }
 
@@ -189,9 +207,11 @@ export function FileEntityToJSONTyped(value?: FileEntity | null, ignoreDiscrimin
         'fileType': value['fileType'],
         'objectName': value['objectName'],
         'status': value['status'],
+        'caption': value['caption'],
         'createdAt': value['createdAt'],
         'updatedAt': value['updatedAt'],
         'deletedAt': value['deletedAt'],
+        'url': value['url'],
         'signedUrl': value['signedUrl'],
     };
 }

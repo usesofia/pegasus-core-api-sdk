@@ -64,6 +64,12 @@ export interface FileEntity {
      */
     status: FileEntityStatusEnum;
     /**
+     * Legenda do arquivo.
+     * @type {string}
+     * @memberof FileEntity
+     */
+    caption?: string | null;
+    /**
      * Data de criação do arquivo.
      * @type {any}
      * @memberof FileEntity
@@ -82,11 +88,17 @@ export interface FileEntity {
      */
     deletedAt?: any | null;
     /**
+     * URL do arquivo.
+     * @type {string}
+     * @memberof FileEntity
+     */
+    url: string;
+    /**
      * URL assinada do arquivo.
      * @type {string}
      * @memberof FileEntity
      */
-    signedUrl?: string;
+    signedUrl: string;
 }
 /**
  * @export
@@ -107,6 +119,8 @@ export declare const FileEntityFileTypeEnum: {
     readonly ContactsBulkCreateExtractionInput: "CONTACTS_BULK_CREATE_EXTRACTION_INPUT";
     readonly ContactsBulkCreateExtractionOutput: "CONTACTS_BULK_CREATE_EXTRACTION_OUTPUT";
     readonly SevenDaysTempFile: "SEVEN_DAYS_TEMP_FILE";
+    readonly WhatsappMessageFile: "WHATSAPP_MESSAGE_FILE";
+    readonly EmailForwardingIntegration: "EMAIL_FORWARDING_INTEGRATION";
 };
 export type FileEntityFileTypeEnum = typeof FileEntityFileTypeEnum[keyof typeof FileEntityFileTypeEnum];
 /**

@@ -40,11 +40,11 @@ export interface CreateFileUploadRequestBodyDto {
      */
     fileType: CreateFileUploadRequestBodyDtoFileTypeEnum;
     /**
-     * URL assinada do arquivo.
+     * Legenda do arquivo.
      * @type {string}
      * @memberof CreateFileUploadRequestBodyDto
      */
-    signedUrl?: string;
+    caption?: string | null;
     /**
      * Canal de origem da operação
      * @type {string}
@@ -71,6 +71,8 @@ export declare const CreateFileUploadRequestBodyDtoFileTypeEnum: {
     readonly ContactsBulkCreateExtractionInput: "CONTACTS_BULK_CREATE_EXTRACTION_INPUT";
     readonly ContactsBulkCreateExtractionOutput: "CONTACTS_BULK_CREATE_EXTRACTION_OUTPUT";
     readonly SevenDaysTempFile: "SEVEN_DAYS_TEMP_FILE";
+    readonly WhatsappMessageFile: "WHATSAPP_MESSAGE_FILE";
+    readonly EmailForwardingIntegration: "EMAIL_FORWARDING_INTEGRATION";
 };
 export type CreateFileUploadRequestBodyDtoFileTypeEnum = typeof CreateFileUploadRequestBodyDtoFileTypeEnum[keyof typeof CreateFileUploadRequestBodyDtoFileTypeEnum];
 /**

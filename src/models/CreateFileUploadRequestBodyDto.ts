@@ -44,11 +44,11 @@ export interface CreateFileUploadRequestBodyDto {
      */
     fileType: CreateFileUploadRequestBodyDtoFileTypeEnum;
     /**
-     * URL assinada do arquivo.
+     * Legenda do arquivo.
      * @type {string}
      * @memberof CreateFileUploadRequestBodyDto
      */
-    signedUrl?: string;
+    caption?: string | null;
     /**
      * Canal de origem da operação
      * @type {string}
@@ -76,7 +76,9 @@ export const CreateFileUploadRequestBodyDtoFileTypeEnum = {
     FinancialRecordsBulkCreateExtractionOutput: 'FINANCIAL_RECORDS_BULK_CREATE_EXTRACTION_OUTPUT',
     ContactsBulkCreateExtractionInput: 'CONTACTS_BULK_CREATE_EXTRACTION_INPUT',
     ContactsBulkCreateExtractionOutput: 'CONTACTS_BULK_CREATE_EXTRACTION_OUTPUT',
-    SevenDaysTempFile: 'SEVEN_DAYS_TEMP_FILE'
+    SevenDaysTempFile: 'SEVEN_DAYS_TEMP_FILE',
+    WhatsappMessageFile: 'WHATSAPP_MESSAGE_FILE',
+    EmailForwardingIntegration: 'EMAIL_FORWARDING_INTEGRATION'
 } as const;
 export type CreateFileUploadRequestBodyDtoFileTypeEnum = typeof CreateFileUploadRequestBodyDtoFileTypeEnum[keyof typeof CreateFileUploadRequestBodyDtoFileTypeEnum];
 
@@ -118,7 +120,7 @@ export function CreateFileUploadRequestBodyDtoFromJSONTyped(json: any, ignoreDis
         'mimeType': json['mimeType'],
         'size': json['size'],
         'fileType': json['fileType'],
-        'signedUrl': json['signedUrl'] == null ? undefined : json['signedUrl'],
+        'caption': json['caption'] == null ? undefined : json['caption'],
         'channel': json['channel'],
     };
 }
@@ -138,7 +140,7 @@ export function CreateFileUploadRequestBodyDtoToJSONTyped(value?: CreateFileUplo
         'mimeType': value['mimeType'],
         'size': value['size'],
         'fileType': value['fileType'],
-        'signedUrl': value['signedUrl'],
+        'caption': value['caption'],
         'channel': value['channel'],
     };
 }
