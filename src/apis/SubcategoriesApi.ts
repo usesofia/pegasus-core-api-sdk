@@ -47,6 +47,7 @@ export interface FindAllSubcategoriesRequest {
     sortOrder?: string;
     sortBy?: string;
     populate?: string;
+    direction?: string;
     categoryId?: string;
     semanticSearchTermInBase64?: string;
     textSearchTerm?: string;
@@ -120,6 +121,7 @@ export interface SubcategoriesApiInterface {
      * @param {string} [sortOrder] Ordem de ordenação das subcategorias.
      * @param {string} [sortBy] Campo para ordenar as subcategorias.
      * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
+     * @param {string} [direction] Direção da subcategoria.
      * @param {string} [categoryId] ID da categoria para filtrar subcategorias.
      * @param {string} [semanticSearchTermInBase64] Termo para busca semântica codificado em base64.
      * @param {string} [textSearchTerm] Termo para busca textual por nome, descrição ou slug da subcategoria.
@@ -297,6 +299,10 @@ export class SubcategoriesApi extends runtime.BaseAPI implements SubcategoriesAp
 
         if (requestParameters['populate'] != null) {
             queryParameters['populate'] = requestParameters['populate'];
+        }
+
+        if (requestParameters['direction'] != null) {
+            queryParameters['direction'] = requestParameters['direction'];
         }
 
         if (requestParameters['categoryId'] != null) {

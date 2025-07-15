@@ -147,6 +147,9 @@ var SubcategoriesApi = /** @class */ (function (_super) {
                         if (requestParameters['populate'] != null) {
                             queryParameters['populate'] = requestParameters['populate'];
                         }
+                        if (requestParameters['direction'] != null) {
+                            queryParameters['direction'] = requestParameters['direction'];
+                        }
                         if (requestParameters['categoryId'] != null) {
                             queryParameters['categoryId'] = requestParameters['categoryId'];
                         }
