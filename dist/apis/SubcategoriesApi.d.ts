@@ -27,6 +27,10 @@ export interface FindAllSubcategoriesRequest {
     pageSize?: number;
     pageIndex?: number;
 }
+export interface FindByIdSubcategoryRequest {
+    id: string;
+    populate?: string;
+}
 export interface FindBySlugSubcategoryRequest {
     slug: string;
     populate?: string;
@@ -101,6 +105,20 @@ export interface SubcategoriesApiInterface {
      * Busca todas as subcategorias.
      */
     findAllSubcategories(requestParameters: FindAllSubcategoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SubcategoriesPageEntity>;
+    /**
+     *
+     * @summary Busca uma subcategoria pelo identificador.
+     * @param {string} id Identificador da subcategoria.
+     * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SubcategoriesApiInterface
+     */
+    findByIdSubcategoryRaw(requestParameters: FindByIdSubcategoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SubcategoryEntity>>;
+    /**
+     * Busca uma subcategoria pelo identificador.
+     */
+    findByIdSubcategory(requestParameters: FindByIdSubcategoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SubcategoryEntity>;
     /**
      *
      * @summary Busca uma subcategoria pelo slug.
@@ -203,6 +221,14 @@ export declare class SubcategoriesApi extends runtime.BaseAPI implements Subcate
      * Busca todas as subcategorias.
      */
     findAllSubcategories(requestParameters?: FindAllSubcategoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SubcategoriesPageEntity>;
+    /**
+     * Busca uma subcategoria pelo identificador.
+     */
+    findByIdSubcategoryRaw(requestParameters: FindByIdSubcategoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SubcategoryEntity>>;
+    /**
+     * Busca uma subcategoria pelo identificador.
+     */
+    findByIdSubcategory(requestParameters: FindByIdSubcategoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SubcategoryEntity>;
     /**
      * Busca uma subcategoria pelo slug.
      */

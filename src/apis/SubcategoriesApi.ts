@@ -55,6 +55,11 @@ export interface FindAllSubcategoriesRequest {
     pageIndex?: number;
 }
 
+export interface FindByIdSubcategoryRequest {
+    id: string;
+    populate?: string;
+}
+
 export interface FindBySlugSubcategoryRequest {
     slug: string;
     populate?: string;
@@ -137,6 +142,22 @@ export interface SubcategoriesApiInterface {
      * Busca todas as subcategorias.
      */
     findAllSubcategories(requestParameters: FindAllSubcategoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SubcategoriesPageEntity>;
+
+    /**
+     * 
+     * @summary Busca uma subcategoria pelo identificador.
+     * @param {string} id Identificador da subcategoria.
+     * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SubcategoriesApiInterface
+     */
+    findByIdSubcategoryRaw(requestParameters: FindByIdSubcategoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SubcategoryEntity>>;
+
+    /**
+     * Busca uma subcategoria pelo identificador.
+     */
+    findByIdSubcategory(requestParameters: FindByIdSubcategoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SubcategoryEntity>;
 
     /**
      * 
@@ -345,6 +366,47 @@ export class SubcategoriesApi extends runtime.BaseAPI implements SubcategoriesAp
      */
     async findAllSubcategories(requestParameters: FindAllSubcategoriesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SubcategoriesPageEntity> {
         const response = await this.findAllSubcategoriesRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Busca uma subcategoria pelo identificador.
+     */
+    async findByIdSubcategoryRaw(requestParameters: FindByIdSubcategoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SubcategoryEntity>> {
+        if (requestParameters['id'] == null) {
+            throw new runtime.RequiredError(
+                'id',
+                'Required parameter "id" was null or undefined when calling findByIdSubcategory().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['populate'] != null) {
+            queryParameters['populate'] = requestParameters['populate'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+
+        let urlPath = `/external/subcategories/{id}`;
+        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => SubcategoryEntityFromJSON(jsonValue));
+    }
+
+    /**
+     * Busca uma subcategoria pelo identificador.
+     */
+    async findByIdSubcategory(requestParameters: FindByIdSubcategoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SubcategoryEntity> {
+        const response = await this.findByIdSubcategoryRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
