@@ -195,6 +195,9 @@ var BankAccountsApi = /** @class */ (function (_super) {
                         if (requestParameters['active'] != null) {
                             queryParameters['active'] = requestParameters['active'];
                         }
+                        if (requestParameters['ids'] != null) {
+                            queryParameters['ids'] = requestParameters['ids'];
+                        }
                         if (requestParameters['isDefault'] != null) {
                             queryParameters['isDefault'] = requestParameters['isDefault'];
                         }

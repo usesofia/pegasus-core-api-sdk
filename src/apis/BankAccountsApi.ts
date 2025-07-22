@@ -52,6 +52,7 @@ export interface FindAllBankAccountsRequest {
     providerAccountId?: string;
     provider?: string;
     active?: boolean;
+    ids?: Array<string>;
     isDefault?: boolean;
     isAutomatic?: boolean;
     type?: string;
@@ -151,6 +152,7 @@ export interface BankAccountsApiInterface {
      * @param {string} [providerAccountId] Identificador da conta bancária no fornecedor.
      * @param {string} [provider] Fornecedor da conta bancária.
      * @param {boolean} [active] Indica se a conta está ativa.
+     * @param {Array<string>} [ids] Identificadores das contas bancárias a serem buscadas.
      * @param {boolean} [isDefault] Indica se a conta é a padrão.
      * @param {boolean} [isAutomatic] Indica se a conta é automática ou manual.
      * @param {string} [type] Tipo de conta bancária a ser buscada.
@@ -386,6 +388,10 @@ export class BankAccountsApi extends runtime.BaseAPI implements BankAccountsApiI
 
         if (requestParameters['active'] != null) {
             queryParameters['active'] = requestParameters['active'];
+        }
+
+        if (requestParameters['ids'] != null) {
+            queryParameters['ids'] = requestParameters['ids'];
         }
 
         if (requestParameters['isDefault'] != null) {
