@@ -72,7 +72,7 @@ export interface PartialUpdateFinancialRecordRequestBodyDto {
      * @type {string}
      * @memberof PartialUpdateFinancialRecordRequestBodyDto
      */
-    contact?: string;
+    contact?: string | null;
     /**
      * Descrição do lançamento.
      * @type {string}

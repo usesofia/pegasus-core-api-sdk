@@ -72,7 +72,7 @@ export interface CreatedFinancialRecordRadarItemResultEntityRadarItemExtractedFi
      * @type {string}
      * @memberof CreatedFinancialRecordRadarItemResultEntityRadarItemExtractedFinancialRecordData
      */
-    contact?: string;
+    contact?: string | null;
     /**
      * Descrição do lançamento.
      * @type {string}

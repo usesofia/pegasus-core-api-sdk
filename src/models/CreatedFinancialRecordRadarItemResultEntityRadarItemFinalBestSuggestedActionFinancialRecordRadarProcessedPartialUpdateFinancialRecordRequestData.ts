@@ -72,7 +72,7 @@ export interface CreatedFinancialRecordRadarItemResultEntityRadarItemFinalBestSu
      * @type {string}
      * @memberof CreatedFinancialRecordRadarItemResultEntityRadarItemFinalBestSuggestedActionFinancialRecordRadarProcessedPartialUpdateFinancialRecordRequestData
      */
-    contact?: string;
+    contact?: string | null;
     /**
      * Descrição do lançamento.
      * @type {string}

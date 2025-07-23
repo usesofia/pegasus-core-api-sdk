@@ -72,7 +72,7 @@ export interface CreateFinancialRecordRadarItemRequestBodyDtoBestSuggestedAction
      * @type {string}
      * @memberof CreateFinancialRecordRadarItemRequestBodyDtoBestSuggestedActionFinancialRecordRadarRawPartialUpdateFinancialRecordRequestExtractedFinancialRecordData
      */
-    contact?: string;
+    contact?: string | null;
     /**
      * Descrição do lançamento.
      * @type {string}
