@@ -129,6 +129,12 @@ export interface CreatedFinancialRecordRadarItemResultEntityRadarItemExtractedFi
      */
     finesAndInterest?: string;
     /**
+     * Identificador da transação bancária vinculada.
+     * @type {string}
+     * @memberof CreatedFinancialRecordRadarItemResultEntityRadarItemExtractedFinancialRecordData
+     */
+    bankTransaction?: string | null;
+    /**
      * Identificador do lançamento financeiro parcelado.
      * @type {string}
      * @memberof CreatedFinancialRecordRadarItemResultEntityRadarItemExtractedFinancialRecordData

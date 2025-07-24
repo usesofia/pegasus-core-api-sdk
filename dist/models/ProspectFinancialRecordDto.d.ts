@@ -129,6 +129,12 @@ export interface ProspectFinancialRecordDto {
      */
     finesAndInterest?: string | null;
     /**
+     * Identificador da transação bancária vinculada.
+     * @type {string}
+     * @memberof ProspectFinancialRecordDto
+     */
+    bankTransaction?: string | null;
+    /**
      * Identificador do lançamento financeiro parcelado.
      * @type {string}
      * @memberof ProspectFinancialRecordDto

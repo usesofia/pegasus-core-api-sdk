@@ -129,6 +129,12 @@ export interface CreateFinancialRecordRequestBodyDto {
      */
     finesAndInterest?: string | null;
     /**
+     * Identificador da transação bancária vinculada.
+     * @type {string}
+     * @memberof CreateFinancialRecordRequestBodyDto
+     */
+    bankTransaction?: string | null;
+    /**
      * Identificador do lançamento financeiro parcelado.
      * @type {string}
      * @memberof CreateFinancialRecordRequestBodyDto

@@ -135,12 +135,6 @@ export interface CreatedFinancialRecordRadarItemResultEntityRadarItemFinalBestSu
      */
     reconciled?: boolean;
     /**
-     * Identificador da transação bancária vinculada.
-     * @type {string}
-     * @memberof CreatedFinancialRecordRadarItemResultEntityRadarItemFinalBestSuggestedActionFinancialRecordRadarProcessedPartialUpdateFinancialRecordRequestData
-     */
-    bankTransaction?: string | null;
-    /**
      * Identificador do lançamento financeiro parcelado.
      * @type {string}
      * @memberof CreatedFinancialRecordRadarItemResultEntityRadarItemFinalBestSuggestedActionFinancialRecordRadarProcessedPartialUpdateFinancialRecordRequestData
