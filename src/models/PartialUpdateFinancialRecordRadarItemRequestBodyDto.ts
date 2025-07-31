@@ -13,6 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
+import type { CreatedFinancialRecordRadarItemResultEntityRadarItemAsyncActions } from './CreatedFinancialRecordRadarItemResultEntityRadarItemAsyncActions';
+import {
+    CreatedFinancialRecordRadarItemResultEntityRadarItemAsyncActionsFromJSON,
+    CreatedFinancialRecordRadarItemResultEntityRadarItemAsyncActionsFromJSONTyped,
+    CreatedFinancialRecordRadarItemResultEntityRadarItemAsyncActionsToJSON,
+    CreatedFinancialRecordRadarItemResultEntityRadarItemAsyncActionsToJSONTyped,
+} from './CreatedFinancialRecordRadarItemResultEntityRadarItemAsyncActions';
 import type { CreatedFinancialRecordRadarItemResultEntityRadarItemExtractedFinancialRecordData } from './CreatedFinancialRecordRadarItemResultEntityRadarItemExtractedFinancialRecordData';
 import {
     CreatedFinancialRecordRadarItemResultEntityRadarItemExtractedFinancialRecordDataFromJSON,
@@ -45,6 +52,12 @@ export interface PartialUpdateFinancialRecordRadarItemRequestBodyDto {
      * @memberof PartialUpdateFinancialRecordRadarItemRequestBodyDto
      */
     extractedFinancialRecordData?: CreatedFinancialRecordRadarItemResultEntityRadarItemExtractedFinancialRecordData;
+    /**
+     * 
+     * @type {CreatedFinancialRecordRadarItemResultEntityRadarItemAsyncActions}
+     * @memberof PartialUpdateFinancialRecordRadarItemRequestBodyDto
+     */
+    asyncActions?: CreatedFinancialRecordRadarItemResultEntityRadarItemAsyncActions;
 }
 
 
@@ -88,6 +101,7 @@ export function PartialUpdateFinancialRecordRadarItemRequestBodyDtoFromJSONTyped
         'status': json['status'] == null ? undefined : json['status'],
         'folder': json['folder'] == null ? undefined : json['folder'],
         'extractedFinancialRecordData': json['extractedFinancialRecordData'] == null ? undefined : CreatedFinancialRecordRadarItemResultEntityRadarItemExtractedFinancialRecordDataFromJSON(json['extractedFinancialRecordData']),
+        'asyncActions': json['asyncActions'] == null ? undefined : CreatedFinancialRecordRadarItemResultEntityRadarItemAsyncActionsFromJSON(json['asyncActions']),
     };
 }
 
@@ -105,6 +119,7 @@ export function PartialUpdateFinancialRecordRadarItemRequestBodyDtoToJSONTyped(v
         'status': value['status'],
         'folder': value['folder'],
         'extractedFinancialRecordData': CreatedFinancialRecordRadarItemResultEntityRadarItemExtractedFinancialRecordDataToJSON(value['extractedFinancialRecordData']),
+        'asyncActions': CreatedFinancialRecordRadarItemResultEntityRadarItemAsyncActionsToJSON(value['asyncActions']),
     };
 }
 

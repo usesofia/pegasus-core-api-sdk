@@ -57,12 +57,19 @@ export interface FindAllFinancialRecordRadarItemsRequest {
     sortOrder?: string;
     sortBy?: string;
     hasAutoExecute?: boolean;
+    populate?: string;
     nature?: FindAllFinancialRecordRadarItemsNatureEnum;
     origin?: FindAllFinancialRecordRadarItemsOriginEnum;
     status?: FindAllFinancialRecordRadarItemsStatusEnum;
     folder?: FindAllFinancialRecordRadarItemsFolderEnum;
     pageSize?: number;
     pageIndex?: number;
+}
+
+export interface FindByIdFinancialRecordRadarItemRequest {
+    radarItemId: string;
+    organizationId: string;
+    populate?: string;
 }
 
 export interface GetTagsForFinancialRecordRadarItemRequest {
@@ -87,6 +94,7 @@ export interface PreviewBulkCreateFileRequest {
 export interface SystemFindByIdFinancialRecordRadarItemRequest {
     organizationId: string;
     radarItemId: string;
+    populate?: string;
 }
 
 export interface UnlinkFinancialRecordsFromFinancialRecordRadarItemRequest {
@@ -122,6 +130,7 @@ export interface FinancialRecordRadarItemsApiInterface {
      * @param {string} [sortOrder] Ordem de ordenação.
      * @param {string} [sortBy] Campo de ordenação.
      * @param {boolean} [hasAutoExecute] Se possui auto-execute.
+     * @param {string} [populate] População do registro.
      * @param {'WHATSAPP_MESSAGE' | 'EMAIL_MESSAGE'} [nature] Natureza do registro.
      * @param {'WHATSAPP_AGENT' | 'EMAIL_FORWARDING_INTEGRATION'} [origin] Origem do registro.
      * @param {'PENDING' | 'LINKED' | 'ARCHIVED'} [status] Status do registro.
@@ -138,6 +147,23 @@ export interface FinancialRecordRadarItemsApiInterface {
      * Busca todos os registros do radar.
      */
     findAllFinancialRecordRadarItems(requestParameters: FindAllFinancialRecordRadarItemsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialRecordRadarItemsPageDto>;
+
+    /**
+     * 
+     * @summary Busca um registro de radar pelo identificador.
+     * @param {string} radarItemId Identificador do registro de radar
+     * @param {string} organizationId Identificador da organização
+     * @param {string} [populate] População do registro.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof FinancialRecordRadarItemsApiInterface
+     */
+    findByIdFinancialRecordRadarItemRaw(requestParameters: FindByIdFinancialRecordRadarItemRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FinancialRecordRadarItemEntity>>;
+
+    /**
+     * Busca um registro de radar pelo identificador.
+     */
+    findByIdFinancialRecordRadarItem(requestParameters: FindByIdFinancialRecordRadarItemRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialRecordRadarItemEntity>;
 
     /**
      * 
@@ -209,6 +235,7 @@ export interface FinancialRecordRadarItemsApiInterface {
      * @summary Busca um registro de radar pelo identificador.
      * @param {string} organizationId Identificador da organização
      * @param {string} radarItemId Identificador do registro de radar
+     * @param {string} [populate] População do registro.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof FinancialRecordRadarItemsApiInterface
@@ -301,6 +328,10 @@ export class FinancialRecordRadarItemsApi extends runtime.BaseAPI implements Fin
             queryParameters['hasAutoExecute'] = requestParameters['hasAutoExecute'];
         }
 
+        if (requestParameters['populate'] != null) {
+            queryParameters['populate'] = requestParameters['populate'];
+        }
+
         if (requestParameters['nature'] != null) {
             queryParameters['nature'] = requestParameters['nature'];
         }
@@ -345,6 +376,55 @@ export class FinancialRecordRadarItemsApi extends runtime.BaseAPI implements Fin
      */
     async findAllFinancialRecordRadarItems(requestParameters: FindAllFinancialRecordRadarItemsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialRecordRadarItemsPageDto> {
         const response = await this.findAllFinancialRecordRadarItemsRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Busca um registro de radar pelo identificador.
+     */
+    async findByIdFinancialRecordRadarItemRaw(requestParameters: FindByIdFinancialRecordRadarItemRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FinancialRecordRadarItemEntity>> {
+        if (requestParameters['radarItemId'] == null) {
+            throw new runtime.RequiredError(
+                'radarItemId',
+                'Required parameter "radarItemId" was null or undefined when calling findByIdFinancialRecordRadarItem().'
+            );
+        }
+
+        if (requestParameters['organizationId'] == null) {
+            throw new runtime.RequiredError(
+                'organizationId',
+                'Required parameter "organizationId" was null or undefined when calling findByIdFinancialRecordRadarItem().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['populate'] != null) {
+            queryParameters['populate'] = requestParameters['populate'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+
+        let urlPath = `/external/financial-records/radar/items/{radarItemId}`;
+        urlPath = urlPath.replace(`{${"radarItemId"}}`, encodeURIComponent(String(requestParameters['radarItemId'])));
+        urlPath = urlPath.replace(`{${"organizationId"}}`, encodeURIComponent(String(requestParameters['organizationId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => FinancialRecordRadarItemEntityFromJSON(jsonValue));
+    }
+
+    /**
+     * Busca um registro de radar pelo identificador.
+     */
+    async findByIdFinancialRecordRadarItem(requestParameters: FindByIdFinancialRecordRadarItemRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialRecordRadarItemEntity> {
+        const response = await this.findByIdFinancialRecordRadarItemRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
@@ -543,6 +623,10 @@ export class FinancialRecordRadarItemsApi extends runtime.BaseAPI implements Fin
         }
 
         const queryParameters: any = {};
+
+        if (requestParameters['populate'] != null) {
+            queryParameters['populate'] = requestParameters['populate'];
+        }
 
         const headerParameters: runtime.HTTPHeaders = {};
 

@@ -13,6 +13,7 @@ import type { CreatedFinancialRecordRadarItemResultEntityRadarItemSubsequentRada
 import type { CreateFinancialRecordRadarItemRequestBodyDtoEmailMessageData } from './CreateFinancialRecordRadarItemRequestBodyDtoEmailMessageData';
 import type { FinancialRecordRadarItemsPageDtoItemsInnerAutoExecute } from './FinancialRecordRadarItemsPageDtoItemsInnerAutoExecute';
 import type { CreateFinancialRecordRadarItemRequestBodyDtoBestSuggestedAction } from './CreateFinancialRecordRadarItemRequestBodyDtoBestSuggestedAction';
+import type { CreatedFinancialRecordRadarItemResultEntityRadarItemAsyncActions } from './CreatedFinancialRecordRadarItemResultEntityRadarItemAsyncActions';
 import type { CreateFinancialRecordRadarItemRequestBodyDtoWhatsappMessageData } from './CreateFinancialRecordRadarItemRequestBodyDtoWhatsappMessageData';
 import type { CreatedFinancialRecordRadarItemResultEntityRadarItemExtractedFinancialRecordData } from './CreatedFinancialRecordRadarItemResultEntityRadarItemExtractedFinancialRecordData';
 import type { CreatedFinancialRecordRadarItemResultEntityRadarItemFinalBestSuggestedAction } from './CreatedFinancialRecordRadarItemResultEntityRadarItemFinalBestSuggestedAction';
@@ -106,6 +107,12 @@ export interface FinancialRecordRadarItemsPageDtoItemsInner {
      * @memberof FinancialRecordRadarItemsPageDtoItemsInner
      */
     autoExecute?: FinancialRecordRadarItemsPageDtoItemsInnerAutoExecute;
+    /**
+     *
+     * @type {CreatedFinancialRecordRadarItemResultEntityRadarItemAsyncActions}
+     * @memberof FinancialRecordRadarItemsPageDtoItemsInner
+     */
+    asyncActions?: CreatedFinancialRecordRadarItemResultEntityRadarItemAsyncActions;
     /**
      * Data de criação do registro.
      * @type {any}

@@ -90,6 +90,7 @@ export * from './CreatedFinancialRecordRadarItemResultEntityAutoExecuteCreatedFi
 export * from './CreatedFinancialRecordRadarItemResultEntityAutoExecuteLinkedFinancialRecord';
 export * from './CreatedFinancialRecordRadarItemResultEntityAutoExecutePartialUpdatedFinancialRecord';
 export * from './CreatedFinancialRecordRadarItemResultEntityRadarItem';
+export * from './CreatedFinancialRecordRadarItemResultEntityRadarItemAsyncActions';
 export * from './CreatedFinancialRecordRadarItemResultEntityRadarItemAutoExecute';
 export * from './CreatedFinancialRecordRadarItemResultEntityRadarItemAutoExecuteBulkCreateJobRequest';
 export * from './CreatedFinancialRecordRadarItemResultEntityRadarItemAutoExecuteCreatedFinancialRecord';

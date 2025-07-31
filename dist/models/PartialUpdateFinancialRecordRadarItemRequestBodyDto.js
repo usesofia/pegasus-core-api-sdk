@@ -19,6 +19,7 @@ exports.PartialUpdateFinancialRecordRadarItemRequestBodyDtoFromJSON = PartialUpd
 exports.PartialUpdateFinancialRecordRadarItemRequestBodyDtoFromJSONTyped = PartialUpdateFinancialRecordRadarItemRequestBodyDtoFromJSONTyped;
 exports.PartialUpdateFinancialRecordRadarItemRequestBodyDtoToJSON = PartialUpdateFinancialRecordRadarItemRequestBodyDtoToJSON;
 exports.PartialUpdateFinancialRecordRadarItemRequestBodyDtoToJSONTyped = PartialUpdateFinancialRecordRadarItemRequestBodyDtoToJSONTyped;
+var CreatedFinancialRecordRadarItemResultEntityRadarItemAsyncActions_1 = require("./CreatedFinancialRecordRadarItemResultEntityRadarItemAsyncActions");
 var CreatedFinancialRecordRadarItemResultEntityRadarItemExtractedFinancialRecordData_1 = require("./CreatedFinancialRecordRadarItemResultEntityRadarItemExtractedFinancialRecordData");
 /**
  * @export
@@ -52,6 +53,7 @@ function PartialUpdateFinancialRecordRadarItemRequestBodyDtoFromJSONTyped(json, 
         'status': json['status'] == null ? undefined : json['status'],
         'folder': json['folder'] == null ? undefined : json['folder'],
         'extractedFinancialRecordData': json['extractedFinancialRecordData'] == null ? undefined : (0, CreatedFinancialRecordRadarItemResultEntityRadarItemExtractedFinancialRecordData_1.CreatedFinancialRecordRadarItemResultEntityRadarItemExtractedFinancialRecordDataFromJSON)(json['extractedFinancialRecordData']),
+        'asyncActions': json['asyncActions'] == null ? undefined : (0, CreatedFinancialRecordRadarItemResultEntityRadarItemAsyncActions_1.CreatedFinancialRecordRadarItemResultEntityRadarItemAsyncActionsFromJSON)(json['asyncActions']),
     };
 }
 function PartialUpdateFinancialRecordRadarItemRequestBodyDtoToJSON(json) {
@@ -66,5 +68,6 @@ function PartialUpdateFinancialRecordRadarItemRequestBodyDtoToJSONTyped(value, i
         'status': value['status'],
         'folder': value['folder'],
         'extractedFinancialRecordData': (0, CreatedFinancialRecordRadarItemResultEntityRadarItemExtractedFinancialRecordData_1.CreatedFinancialRecordRadarItemResultEntityRadarItemExtractedFinancialRecordDataToJSON)(value['extractedFinancialRecordData']),
+        'asyncActions': (0, CreatedFinancialRecordRadarItemResultEntityRadarItemAsyncActions_1.CreatedFinancialRecordRadarItemResultEntityRadarItemAsyncActionsToJSON)(value['asyncActions']),
     };
 }

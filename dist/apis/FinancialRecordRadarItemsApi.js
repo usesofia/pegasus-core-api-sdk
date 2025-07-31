@@ -141,6 +141,9 @@ var FinancialRecordRadarItemsApi = /** @class */ (function (_super) {
                         if (requestParameters['hasAutoExecute'] != null) {
                             queryParameters['hasAutoExecute'] = requestParameters['hasAutoExecute'];
                         }
+                        if (requestParameters['populate'] != null) {
+                            queryParameters['populate'] = requestParameters['populate'];
+                        }
                         if (requestParameters['nature'] != null) {
                             queryParameters['nature'] = requestParameters['nature'];
                         }
@@ -184,6 +187,59 @@ var FinancialRecordRadarItemsApi = /** @class */ (function (_super) {
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, this.findAllFinancialRecordRadarItemsRaw(requestParameters, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [4 /*yield*/, response.value()];
+                    case 2: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
+    /**
+     * Busca um registro de radar pelo identificador.
+     */
+    FinancialRecordRadarItemsApi.prototype.findByIdFinancialRecordRadarItemRaw = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (requestParameters['radarItemId'] == null) {
+                            throw new runtime.RequiredError('radarItemId', 'Required parameter "radarItemId" was null or undefined when calling findByIdFinancialRecordRadarItem().');
+                        }
+                        if (requestParameters['organizationId'] == null) {
+                            throw new runtime.RequiredError('organizationId', 'Required parameter "organizationId" was null or undefined when calling findByIdFinancialRecordRadarItem().');
+                        }
+                        queryParameters = {};
+                        if (requestParameters['populate'] != null) {
+                            queryParameters['populate'] = requestParameters['populate'];
+                        }
+                        headerParameters = {};
+                        urlPath = "/external/financial-records/radar/items/{radarItemId}";
+                        urlPath = urlPath.replace("{".concat("radarItemId", "}"), encodeURIComponent(String(requestParameters['radarItemId'])));
+                        urlPath = urlPath.replace("{".concat("organizationId", "}"), encodeURIComponent(String(requestParameters['organizationId'])));
+                        return [4 /*yield*/, this.request({
+                                path: urlPath,
+                                method: 'GET',
+                                headers: headerParameters,
+                                query: queryParameters,
+                            }, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.FinancialRecordRadarItemEntityFromJSON)(jsonValue); })];
+                }
+            });
+        });
+    };
+    /**
+     * Busca um registro de radar pelo identificador.
+     */
+    FinancialRecordRadarItemsApi.prototype.findByIdFinancialRecordRadarItem = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.findByIdFinancialRecordRadarItemRaw(requestParameters, initOverrides)];
                     case 1:
                         response = _a.sent();
                         return [4 /*yield*/, response.value()];
@@ -409,6 +465,9 @@ var FinancialRecordRadarItemsApi = /** @class */ (function (_super) {
                             throw new runtime.RequiredError('radarItemId', 'Required parameter "radarItemId" was null or undefined when calling systemFindByIdFinancialRecordRadarItem().');
                         }
                         queryParameters = {};
+                        if (requestParameters['populate'] != null) {
+                            queryParameters['populate'] = requestParameters['populate'];
+                        }
                         headerParameters = {};
                         urlPath = "/internal/organizations/{organizationId}/financial-records/radar/items/{radarItemId}";
                         urlPath = urlPath.replace("{".concat("organizationId", "}"), encodeURIComponent(String(requestParameters['organizationId'])));

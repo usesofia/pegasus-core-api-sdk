@@ -18,12 +18,18 @@ export interface FindAllFinancialRecordRadarItemsRequest {
     sortOrder?: string;
     sortBy?: string;
     hasAutoExecute?: boolean;
+    populate?: string;
     nature?: FindAllFinancialRecordRadarItemsNatureEnum;
     origin?: FindAllFinancialRecordRadarItemsOriginEnum;
     status?: FindAllFinancialRecordRadarItemsStatusEnum;
     folder?: FindAllFinancialRecordRadarItemsFolderEnum;
     pageSize?: number;
     pageIndex?: number;
+}
+export interface FindByIdFinancialRecordRadarItemRequest {
+    radarItemId: string;
+    organizationId: string;
+    populate?: string;
 }
 export interface GetTagsForFinancialRecordRadarItemRequest {
     radarItemId: string;
@@ -43,6 +49,7 @@ export interface PreviewBulkCreateFileRequest {
 export interface SystemFindByIdFinancialRecordRadarItemRequest {
     organizationId: string;
     radarItemId: string;
+    populate?: string;
 }
 export interface UnlinkFinancialRecordsFromFinancialRecordRadarItemRequest {
     radarItemId: string;
@@ -74,6 +81,7 @@ export interface FinancialRecordRadarItemsApiInterface {
      * @param {string} [sortOrder] Ordem de ordenação.
      * @param {string} [sortBy] Campo de ordenação.
      * @param {boolean} [hasAutoExecute] Se possui auto-execute.
+     * @param {string} [populate] População do registro.
      * @param {'WHATSAPP_MESSAGE' | 'EMAIL_MESSAGE'} [nature] Natureza do registro.
      * @param {'WHATSAPP_AGENT' | 'EMAIL_FORWARDING_INTEGRATION'} [origin] Origem do registro.
      * @param {'PENDING' | 'LINKED' | 'ARCHIVED'} [status] Status do registro.
@@ -89,6 +97,21 @@ export interface FinancialRecordRadarItemsApiInterface {
      * Busca todos os registros do radar.
      */
     findAllFinancialRecordRadarItems(requestParameters: FindAllFinancialRecordRadarItemsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialRecordRadarItemsPageDto>;
+    /**
+     *
+     * @summary Busca um registro de radar pelo identificador.
+     * @param {string} radarItemId Identificador do registro de radar
+     * @param {string} organizationId Identificador da organização
+     * @param {string} [populate] População do registro.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof FinancialRecordRadarItemsApiInterface
+     */
+    findByIdFinancialRecordRadarItemRaw(requestParameters: FindByIdFinancialRecordRadarItemRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FinancialRecordRadarItemEntity>>;
+    /**
+     * Busca um registro de radar pelo identificador.
+     */
+    findByIdFinancialRecordRadarItem(requestParameters: FindByIdFinancialRecordRadarItemRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialRecordRadarItemEntity>;
     /**
      *
      * @summary Obtém os tags para um registro de radar.
@@ -151,6 +174,7 @@ export interface FinancialRecordRadarItemsApiInterface {
      * @summary Busca um registro de radar pelo identificador.
      * @param {string} organizationId Identificador da organização
      * @param {string} radarItemId Identificador do registro de radar
+     * @param {string} [populate] População do registro.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof FinancialRecordRadarItemsApiInterface
@@ -196,6 +220,14 @@ export declare class FinancialRecordRadarItemsApi extends runtime.BaseAPI implem
      * Busca todos os registros do radar.
      */
     findAllFinancialRecordRadarItems(requestParameters?: FindAllFinancialRecordRadarItemsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialRecordRadarItemsPageDto>;
+    /**
+     * Busca um registro de radar pelo identificador.
+     */
+    findByIdFinancialRecordRadarItemRaw(requestParameters: FindByIdFinancialRecordRadarItemRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FinancialRecordRadarItemEntity>>;
+    /**
+     * Busca um registro de radar pelo identificador.
+     */
+    findByIdFinancialRecordRadarItem(requestParameters: FindByIdFinancialRecordRadarItemRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialRecordRadarItemEntity>;
     /**
      * Obtém os tags para um registro de radar.
      */

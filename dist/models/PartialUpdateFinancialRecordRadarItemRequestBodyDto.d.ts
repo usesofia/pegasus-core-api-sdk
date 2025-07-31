@@ -9,6 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import type { CreatedFinancialRecordRadarItemResultEntityRadarItemAsyncActions } from './CreatedFinancialRecordRadarItemResultEntityRadarItemAsyncActions';
 import type { CreatedFinancialRecordRadarItemResultEntityRadarItemExtractedFinancialRecordData } from './CreatedFinancialRecordRadarItemResultEntityRadarItemExtractedFinancialRecordData';
 /**
  *
@@ -34,6 +35,12 @@ export interface PartialUpdateFinancialRecordRadarItemRequestBodyDto {
      * @memberof PartialUpdateFinancialRecordRadarItemRequestBodyDto
      */
     extractedFinancialRecordData?: CreatedFinancialRecordRadarItemResultEntityRadarItemExtractedFinancialRecordData;
+    /**
+     *
+     * @type {CreatedFinancialRecordRadarItemResultEntityRadarItemAsyncActions}
+     * @memberof PartialUpdateFinancialRecordRadarItemRequestBodyDto
+     */
+    asyncActions?: CreatedFinancialRecordRadarItemResultEntityRadarItemAsyncActions;
 }
 /**
  * @export

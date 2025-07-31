@@ -34,6 +34,13 @@ import {
     CreateFinancialRecordRadarItemRequestBodyDtoBestSuggestedActionToJSON,
     CreateFinancialRecordRadarItemRequestBodyDtoBestSuggestedActionToJSONTyped,
 } from './CreateFinancialRecordRadarItemRequestBodyDtoBestSuggestedAction';
+import type { CreatedFinancialRecordRadarItemResultEntityRadarItemAsyncActions } from './CreatedFinancialRecordRadarItemResultEntityRadarItemAsyncActions';
+import {
+    CreatedFinancialRecordRadarItemResultEntityRadarItemAsyncActionsFromJSON,
+    CreatedFinancialRecordRadarItemResultEntityRadarItemAsyncActionsFromJSONTyped,
+    CreatedFinancialRecordRadarItemResultEntityRadarItemAsyncActionsToJSON,
+    CreatedFinancialRecordRadarItemResultEntityRadarItemAsyncActionsToJSONTyped,
+} from './CreatedFinancialRecordRadarItemResultEntityRadarItemAsyncActions';
 import type { CreateFinancialRecordRadarItemRequestBodyDtoWhatsappMessageData } from './CreateFinancialRecordRadarItemRequestBodyDtoWhatsappMessageData';
 import {
     CreateFinancialRecordRadarItemRequestBodyDtoWhatsappMessageDataFromJSON,
@@ -154,6 +161,12 @@ export interface CreatedFinancialRecordRadarItemResultEntityRadarItem {
      */
     autoExecute?: CreatedFinancialRecordRadarItemResultEntityRadarItemAutoExecute;
     /**
+     * 
+     * @type {CreatedFinancialRecordRadarItemResultEntityRadarItemAsyncActions}
+     * @memberof CreatedFinancialRecordRadarItemResultEntityRadarItem
+     */
+    asyncActions?: CreatedFinancialRecordRadarItemResultEntityRadarItemAsyncActions;
+    /**
      * Data de criação do registro.
      * @type {any}
      * @memberof CreatedFinancialRecordRadarItemResultEntityRadarItem
@@ -246,6 +259,7 @@ export function CreatedFinancialRecordRadarItemResultEntityRadarItemFromJSONType
         'whatsappMessageData': json['whatsappMessageData'] == null ? undefined : CreateFinancialRecordRadarItemRequestBodyDtoWhatsappMessageDataFromJSON(json['whatsappMessageData']),
         'emailMessageData': json['emailMessageData'] == null ? undefined : CreateFinancialRecordRadarItemRequestBodyDtoEmailMessageDataFromJSON(json['emailMessageData']),
         'autoExecute': json['autoExecute'] == null ? undefined : CreatedFinancialRecordRadarItemResultEntityRadarItemAutoExecuteFromJSON(json['autoExecute']),
+        'asyncActions': json['asyncActions'] == null ? undefined : CreatedFinancialRecordRadarItemResultEntityRadarItemAsyncActionsFromJSON(json['asyncActions']),
         'createdAt': json['createdAt'],
         'updatedAt': json['updatedAt'],
     };
@@ -276,6 +290,7 @@ export function CreatedFinancialRecordRadarItemResultEntityRadarItemToJSONTyped(
         'whatsappMessageData': CreateFinancialRecordRadarItemRequestBodyDtoWhatsappMessageDataToJSON(value['whatsappMessageData']),
         'emailMessageData': CreateFinancialRecordRadarItemRequestBodyDtoEmailMessageDataToJSON(value['emailMessageData']),
         'autoExecute': CreatedFinancialRecordRadarItemResultEntityRadarItemAutoExecuteToJSON(value['autoExecute']),
+        'asyncActions': CreatedFinancialRecordRadarItemResultEntityRadarItemAsyncActionsToJSON(value['asyncActions']),
         'createdAt': value['createdAt'],
         'updatedAt': value['updatedAt'],
     };

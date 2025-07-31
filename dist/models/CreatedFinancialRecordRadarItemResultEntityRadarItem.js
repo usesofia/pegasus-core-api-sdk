@@ -22,6 +22,7 @@ exports.CreatedFinancialRecordRadarItemResultEntityRadarItemToJSONTyped = Create
 var CreatedFinancialRecordRadarItemResultEntityRadarItemSubsequentRadarItemsInner_1 = require("./CreatedFinancialRecordRadarItemResultEntityRadarItemSubsequentRadarItemsInner");
 var CreateFinancialRecordRadarItemRequestBodyDtoEmailMessageData_1 = require("./CreateFinancialRecordRadarItemRequestBodyDtoEmailMessageData");
 var CreateFinancialRecordRadarItemRequestBodyDtoBestSuggestedAction_1 = require("./CreateFinancialRecordRadarItemRequestBodyDtoBestSuggestedAction");
+var CreatedFinancialRecordRadarItemResultEntityRadarItemAsyncActions_1 = require("./CreatedFinancialRecordRadarItemResultEntityRadarItemAsyncActions");
 var CreateFinancialRecordRadarItemRequestBodyDtoWhatsappMessageData_1 = require("./CreateFinancialRecordRadarItemRequestBodyDtoWhatsappMessageData");
 var CreatedFinancialRecordRadarItemResultEntityRadarItemAutoExecute_1 = require("./CreatedFinancialRecordRadarItemResultEntityRadarItemAutoExecute");
 var CreatedFinancialRecordRadarItemResultEntityRadarItemExtractedFinancialRecordData_1 = require("./CreatedFinancialRecordRadarItemResultEntityRadarItemExtractedFinancialRecordData");
@@ -101,6 +102,7 @@ function CreatedFinancialRecordRadarItemResultEntityRadarItemFromJSONTyped(json,
         'whatsappMessageData': json['whatsappMessageData'] == null ? undefined : (0, CreateFinancialRecordRadarItemRequestBodyDtoWhatsappMessageData_1.CreateFinancialRecordRadarItemRequestBodyDtoWhatsappMessageDataFromJSON)(json['whatsappMessageData']),
         'emailMessageData': json['emailMessageData'] == null ? undefined : (0, CreateFinancialRecordRadarItemRequestBodyDtoEmailMessageData_1.CreateFinancialRecordRadarItemRequestBodyDtoEmailMessageDataFromJSON)(json['emailMessageData']),
         'autoExecute': json['autoExecute'] == null ? undefined : (0, CreatedFinancialRecordRadarItemResultEntityRadarItemAutoExecute_1.CreatedFinancialRecordRadarItemResultEntityRadarItemAutoExecuteFromJSON)(json['autoExecute']),
+        'asyncActions': json['asyncActions'] == null ? undefined : (0, CreatedFinancialRecordRadarItemResultEntityRadarItemAsyncActions_1.CreatedFinancialRecordRadarItemResultEntityRadarItemAsyncActionsFromJSON)(json['asyncActions']),
         'createdAt': json['createdAt'],
         'updatedAt': json['updatedAt'],
     };
@@ -128,6 +130,7 @@ function CreatedFinancialRecordRadarItemResultEntityRadarItemToJSONTyped(value, 
         'whatsappMessageData': (0, CreateFinancialRecordRadarItemRequestBodyDtoWhatsappMessageData_1.CreateFinancialRecordRadarItemRequestBodyDtoWhatsappMessageDataToJSON)(value['whatsappMessageData']),
         'emailMessageData': (0, CreateFinancialRecordRadarItemRequestBodyDtoEmailMessageData_1.CreateFinancialRecordRadarItemRequestBodyDtoEmailMessageDataToJSON)(value['emailMessageData']),
         'autoExecute': (0, CreatedFinancialRecordRadarItemResultEntityRadarItemAutoExecute_1.CreatedFinancialRecordRadarItemResultEntityRadarItemAutoExecuteToJSON)(value['autoExecute']),
+        'asyncActions': (0, CreatedFinancialRecordRadarItemResultEntityRadarItemAsyncActions_1.CreatedFinancialRecordRadarItemResultEntityRadarItemAsyncActionsToJSON)(value['asyncActions']),
         'createdAt': value['createdAt'],
         'updatedAt': value['updatedAt'],
     };
