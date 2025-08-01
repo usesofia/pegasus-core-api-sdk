@@ -22,8 +22,6 @@ exports.FinancialRecordRadarItemTagEntityToJSONTyped = FinancialRecordRadarItemT
  * Check if a given object implements the FinancialRecordRadarItemTagEntity interface.
  */
 function instanceOfFinancialRecordRadarItemTagEntity(value) {
-    if (!('iconName' in value) || value['iconName'] === undefined)
-        return false;
     if (!('property' in value) || value['property'] === undefined)
         return false;
     if (!('currentValue' in value) || value['currentValue'] === undefined)
@@ -38,7 +36,7 @@ function FinancialRecordRadarItemTagEntityFromJSONTyped(json, ignoreDiscriminato
         return json;
     }
     return {
-        'iconName': json['iconName'],
+        'iconName': json['iconName'] == null ? undefined : json['iconName'],
         'property': json['property'],
         'currentValue': json['currentValue'],
         'oldValue': json['oldValue'] == null ? undefined : json['oldValue'],

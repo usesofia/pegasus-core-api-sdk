@@ -24,7 +24,7 @@ export interface FinancialRecordRadarItemTagEntity {
      * @type {string}
      * @memberof FinancialRecordRadarItemTagEntity
      */
-    iconName: string;
+    iconName?: string;
     /**
      * 
      * @type {string}
@@ -49,7 +49,6 @@ export interface FinancialRecordRadarItemTagEntity {
  * Check if a given object implements the FinancialRecordRadarItemTagEntity interface.
  */
 export function instanceOfFinancialRecordRadarItemTagEntity(value: object): value is FinancialRecordRadarItemTagEntity {
-    if (!('iconName' in value) || value['iconName'] === undefined) return false;
     if (!('property' in value) || value['property'] === undefined) return false;
     if (!('currentValue' in value) || value['currentValue'] === undefined) return false;
     return true;
@@ -65,7 +64,7 @@ export function FinancialRecordRadarItemTagEntityFromJSONTyped(json: any, ignore
     }
     return {
         
-        'iconName': json['iconName'],
+        'iconName': json['iconName'] == null ? undefined : json['iconName'],
         'property': json['property'],
         'currentValue': json['currentValue'],
         'oldValue': json['oldValue'] == null ? undefined : json['oldValue'],

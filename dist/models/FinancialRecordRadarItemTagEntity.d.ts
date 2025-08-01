@@ -20,7 +20,7 @@ export interface FinancialRecordRadarItemTagEntity {
      * @type {string}
      * @memberof FinancialRecordRadarItemTagEntity
      */
-    iconName: string;
+    iconName?: string;
     /**
      *
      * @type {string}
