@@ -68,7 +68,6 @@ export interface FindAllFinancialRecordRadarItemsRequest {
 
 export interface FindByIdFinancialRecordRadarItemRequest {
     radarItemId: string;
-    organizationId: string;
     populate?: string;
 }
 
@@ -152,7 +151,6 @@ export interface FinancialRecordRadarItemsApiInterface {
      * 
      * @summary Busca um registro de radar pelo identificador.
      * @param {string} radarItemId Identificador do registro de radar
-     * @param {string} organizationId Identificador da organização
      * @param {string} [populate] População do registro.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -390,13 +388,6 @@ export class FinancialRecordRadarItemsApi extends runtime.BaseAPI implements Fin
             );
         }
 
-        if (requestParameters['organizationId'] == null) {
-            throw new runtime.RequiredError(
-                'organizationId',
-                'Required parameter "organizationId" was null or undefined when calling findByIdFinancialRecordRadarItem().'
-            );
-        }
-
         const queryParameters: any = {};
 
         if (requestParameters['populate'] != null) {
@@ -408,7 +399,6 @@ export class FinancialRecordRadarItemsApi extends runtime.BaseAPI implements Fin
 
         let urlPath = `/external/financial-records/radar/items/{radarItemId}`;
         urlPath = urlPath.replace(`{${"radarItemId"}}`, encodeURIComponent(String(requestParameters['radarItemId'])));
-        urlPath = urlPath.replace(`{${"organizationId"}}`, encodeURIComponent(String(requestParameters['organizationId'])));
 
         const response = await this.request({
             path: urlPath,

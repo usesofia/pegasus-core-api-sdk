@@ -207,9 +207,6 @@ var FinancialRecordRadarItemsApi = /** @class */ (function (_super) {
                         if (requestParameters['radarItemId'] == null) {
                             throw new runtime.RequiredError('radarItemId', 'Required parameter "radarItemId" was null or undefined when calling findByIdFinancialRecordRadarItem().');
                         }
-                        if (requestParameters['organizationId'] == null) {
-                            throw new runtime.RequiredError('organizationId', 'Required parameter "organizationId" was null or undefined when calling findByIdFinancialRecordRadarItem().');
-                        }
                         queryParameters = {};
                         if (requestParameters['populate'] != null) {
                             queryParameters['populate'] = requestParameters['populate'];
@@ -217,7 +214,6 @@ var FinancialRecordRadarItemsApi = /** @class */ (function (_super) {
                         headerParameters = {};
                         urlPath = "/external/financial-records/radar/items/{radarItemId}";
                         urlPath = urlPath.replace("{".concat("radarItemId", "}"), encodeURIComponent(String(requestParameters['radarItemId'])));
-                        urlPath = urlPath.replace("{".concat("organizationId", "}"), encodeURIComponent(String(requestParameters['organizationId'])));
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
                                 method: 'GET',

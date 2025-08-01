@@ -28,7 +28,6 @@ export interface FindAllFinancialRecordRadarItemsRequest {
 }
 export interface FindByIdFinancialRecordRadarItemRequest {
     radarItemId: string;
-    organizationId: string;
     populate?: string;
 }
 export interface GetTagsForFinancialRecordRadarItemRequest {
@@ -101,7 +100,6 @@ export interface FinancialRecordRadarItemsApiInterface {
      *
      * @summary Busca um registro de radar pelo identificador.
      * @param {string} radarItemId Identificador do registro de radar
-     * @param {string} organizationId Identificador da organização
      * @param {string} [populate] População do registro.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
