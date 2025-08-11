@@ -47,8 +47,8 @@ export interface FindAllSubcategoriesRequest {
     sortOrder?: string;
     sortBy?: string;
     populate?: string;
-    direction?: string;
     categoryId?: string;
+    direction?: string;
     semanticSearchTermInBase64?: string;
     textSearchTerm?: string;
     pageSize?: number;
@@ -79,6 +79,7 @@ export interface RemoveSubcategoryRequest {
 export interface SystemFindAllSubcategoriesRequest {
     ownerOrganizationId: string;
     readPreference?: SystemFindAllSubcategoriesReadPreferenceEnum;
+    direction?: string;
     active?: boolean;
     sortOrder?: string;
     sortBy?: string;
@@ -126,8 +127,8 @@ export interface SubcategoriesApiInterface {
      * @param {string} [sortOrder] Ordem de ordenação das subcategorias.
      * @param {string} [sortBy] Campo para ordenar as subcategorias.
      * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
-     * @param {string} [direction] Direção da subcategoria.
      * @param {string} [categoryId] ID da categoria para filtrar subcategorias.
+     * @param {string} [direction] Direção da subcategoria.
      * @param {string} [semanticSearchTermInBase64] Termo para busca semântica codificado em base64.
      * @param {string} [textSearchTerm] Termo para busca textual por nome, descrição ou slug da subcategoria.
      * @param {number} [pageSize] Quantidade de itens por página.
@@ -213,6 +214,7 @@ export interface SubcategoriesApiInterface {
      * @summary Busca todas as subcategorias pelo sistema.
      * @param {string} ownerOrganizationId Identificador da organização proprietária das subcategorias.
      * @param {'primary' | 'primaryPreferred' | 'secondary' | 'secondaryPreferred' | 'nearest'} [readPreference] Preferência de leitura das subcategorias.
+     * @param {string} [direction] Direção da subcategoria.
      * @param {boolean} [active] Filtra subcategorias ativas ou inativas.
      * @param {string} [sortOrder] Ordem de ordenação das subcategorias.
      * @param {string} [sortBy] Campo para ordenar as subcategorias.
@@ -322,12 +324,12 @@ export class SubcategoriesApi extends runtime.BaseAPI implements SubcategoriesAp
             queryParameters['populate'] = requestParameters['populate'];
         }
 
-        if (requestParameters['direction'] != null) {
-            queryParameters['direction'] = requestParameters['direction'];
-        }
-
         if (requestParameters['categoryId'] != null) {
             queryParameters['categoryId'] = requestParameters['categoryId'];
+        }
+
+        if (requestParameters['direction'] != null) {
+            queryParameters['direction'] = requestParameters['direction'];
         }
 
         if (requestParameters['semanticSearchTermInBase64'] != null) {
@@ -567,6 +569,10 @@ export class SubcategoriesApi extends runtime.BaseAPI implements SubcategoriesAp
 
         if (requestParameters['ownerOrganizationId'] != null) {
             queryParameters['ownerOrganizationId'] = requestParameters['ownerOrganizationId'];
+        }
+
+        if (requestParameters['direction'] != null) {
+            queryParameters['direction'] = requestParameters['direction'];
         }
 
         if (requestParameters['active'] != null) {

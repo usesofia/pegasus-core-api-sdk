@@ -147,11 +147,11 @@ var SubcategoriesApi = /** @class */ (function (_super) {
                         if (requestParameters['populate'] != null) {
                             queryParameters['populate'] = requestParameters['populate'];
                         }
-                        if (requestParameters['direction'] != null) {
-                            queryParameters['direction'] = requestParameters['direction'];
-                        }
                         if (requestParameters['categoryId'] != null) {
                             queryParameters['categoryId'] = requestParameters['categoryId'];
+                        }
+                        if (requestParameters['direction'] != null) {
+                            queryParameters['direction'] = requestParameters['direction'];
                         }
                         if (requestParameters['semanticSearchTermInBase64'] != null) {
                             queryParameters['semanticSearchTermInBase64'] = requestParameters['semanticSearchTermInBase64'];
@@ -417,6 +417,9 @@ var SubcategoriesApi = /** @class */ (function (_super) {
                         }
                         if (requestParameters['ownerOrganizationId'] != null) {
                             queryParameters['ownerOrganizationId'] = requestParameters['ownerOrganizationId'];
+                        }
+                        if (requestParameters['direction'] != null) {
+                            queryParameters['direction'] = requestParameters['direction'];
                         }
                         if (requestParameters['active'] != null) {
                             queryParameters['active'] = requestParameters['active'];
