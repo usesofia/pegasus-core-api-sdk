@@ -9,6 +9,7 @@ src/apis/BankInstitutionsApi.ts
 src/apis/BankTransactionsApi.ts
 src/apis/BulkCreateApi.ts
 src/apis/BulkRemoveApi.ts
+src/apis/BulkUpdateApi.ts
 src/apis/CacheApi.ts
 src/apis/CategoriesApi.ts
 src/apis/ContactsApi.ts
@@ -52,6 +53,8 @@ src/models/BulkCreateJobRequestDto.ts
 src/models/BulkCreateJobRequestEntity.ts
 src/models/BulkRemoveJobRequestDto.ts
 src/models/BulkRemoveJobRequestEntity.ts
+src/models/BulkUpdateJobRequestDto.ts
+src/models/BulkUpdateJobRequestEntity.ts
 src/models/CacheGetResponseDto.ts
 src/models/CacheSetDto.ts
 src/models/CalculateAndUpdateEmbeddingBodyRequestDto.ts
@@ -151,6 +154,7 @@ src/models/ExceptionResponseEntityErrorsInner.ts
 src/models/ExecuteBankTransactionsCreateOrUpdateBestSuggestionActionRequestBodyDto.ts
 src/models/ExecuteBulkCreateJobRequestBodyDto.ts
 src/models/ExecuteBulkRemoveJobRequestBodyDto.ts
+src/models/ExecuteBulkUpdateJobRequestBodyDto.ts
 src/models/ExecuteOfxImportJobRequestBodyDto.ts
 src/models/ExportBankAccountsDto.ts
 src/models/ExportContactsDto.ts
@@ -204,6 +208,8 @@ src/models/PartialUpdateFinancialRecordRadarItemRequestBodyDto.ts
 src/models/PartialUpdateFinancialRecordRequestBodyDto.ts
 src/models/PartialUpdateInstallmentFinancialRecordRequestBodyDto.ts
 src/models/PartialUpdateInstallmentFinancialRecordRequestBodyDtoInstallmentsInner.ts
+src/models/PartialUpdateManyFinancialRecordsRequestBodyDto.ts
+src/models/PartialUpdateManyFinancialRecordsRequestBodyDtoData.ts
 src/models/PartialUpdateMemberRequestBodyDto.ts
 src/models/PartialUpdateOrganizationRequestBodyDto.ts
 src/models/PartialUpdateRecurringFinancialRecordRequestBodyDto.ts

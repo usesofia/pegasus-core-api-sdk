@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { CreateFinancialRecordRequestBodyDto, CreateManyFinancialRecordsRequestBodyDto, FinancialRecordDto, FinancialRecordsPageDto, PartialUpdateFinancialRecordRequestBodyDto, RemoveFinancialRecordRequestBodyDto } from '../models/index';
+import type { CreateFinancialRecordRequestBodyDto, CreateManyFinancialRecordsRequestBodyDto, FinancialRecordDto, FinancialRecordsPageDto, PartialUpdateFinancialRecordRequestBodyDto, PartialUpdateManyFinancialRecordsRequestBodyDto, RemoveFinancialRecordRequestBodyDto } from '../models/index';
 export interface CreateFinancialRecordRequest {
     createFinancialRecordRequestBodyDto: CreateFinancialRecordRequestBodyDto;
     populate?: string;
@@ -53,6 +53,9 @@ export interface PartialUpdateFinancialRecordRequest {
     id: string;
     partialUpdateFinancialRecordRequestBodyDto: PartialUpdateFinancialRecordRequestBodyDto;
     populate?: string;
+}
+export interface PartialUpdateManyFinancialRecordsRequest {
+    partialUpdateManyFinancialRecordsRequestBodyDto: PartialUpdateManyFinancialRecordsRequestBodyDto;
 }
 export interface RemoveFinancialRecordRequest {
     id: string;
@@ -198,6 +201,19 @@ export interface FinancialRecordsApiInterface {
     partialUpdateFinancialRecord(requestParameters: PartialUpdateFinancialRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialRecordDto>;
     /**
      *
+     * @summary Atualiza parcialmente múltiplos lançamentos financeiros.
+     * @param {PartialUpdateManyFinancialRecordsRequestBodyDto} partialUpdateManyFinancialRecordsRequestBodyDto
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof FinancialRecordsApiInterface
+     */
+    partialUpdateManyFinancialRecordsRaw(requestParameters: PartialUpdateManyFinancialRecordsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<FinancialRecordDto>>>;
+    /**
+     * Atualiza parcialmente múltiplos lançamentos financeiros.
+     */
+    partialUpdateManyFinancialRecords(requestParameters: PartialUpdateManyFinancialRecordsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<FinancialRecordDto>>;
+    /**
+     *
      * @summary Remove um lançamento financeiro.
      * @param {string} id Identificador do lançamento financeiro.
      * @param {RemoveFinancialRecordRequestBodyDto} removeFinancialRecordRequestBodyDto
@@ -323,6 +339,14 @@ export declare class FinancialRecordsApi extends runtime.BaseAPI implements Fina
      * Atualiza parcialmente um lançamento financeiro.
      */
     partialUpdateFinancialRecord(requestParameters: PartialUpdateFinancialRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialRecordDto>;
+    /**
+     * Atualiza parcialmente múltiplos lançamentos financeiros.
+     */
+    partialUpdateManyFinancialRecordsRaw(requestParameters: PartialUpdateManyFinancialRecordsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<FinancialRecordDto>>>;
+    /**
+     * Atualiza parcialmente múltiplos lançamentos financeiros.
+     */
+    partialUpdateManyFinancialRecords(requestParameters: PartialUpdateManyFinancialRecordsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<FinancialRecordDto>>;
     /**
      * Remove um lançamento financeiro.
      */

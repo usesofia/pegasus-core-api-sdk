@@ -21,6 +21,7 @@ import type {
   FinancialRecordDto,
   FinancialRecordsPageDto,
   PartialUpdateFinancialRecordRequestBodyDto,
+  PartialUpdateManyFinancialRecordsRequestBodyDto,
   RemoveFinancialRecordRequestBodyDto,
 } from '../models/index';
 import {
@@ -36,6 +37,8 @@ import {
     FinancialRecordsPageDtoToJSON,
     PartialUpdateFinancialRecordRequestBodyDtoFromJSON,
     PartialUpdateFinancialRecordRequestBodyDtoToJSON,
+    PartialUpdateManyFinancialRecordsRequestBodyDtoFromJSON,
+    PartialUpdateManyFinancialRecordsRequestBodyDtoToJSON,
     RemoveFinancialRecordRequestBodyDtoFromJSON,
     RemoveFinancialRecordRequestBodyDtoToJSON,
 } from '../models/index';
@@ -86,6 +89,10 @@ export interface PartialUpdateFinancialRecordRequest {
     id: string;
     partialUpdateFinancialRecordRequestBodyDto: PartialUpdateFinancialRecordRequestBodyDto;
     populate?: string;
+}
+
+export interface PartialUpdateManyFinancialRecordsRequest {
+    partialUpdateManyFinancialRecordsRequestBodyDto: PartialUpdateManyFinancialRecordsRequestBodyDto;
 }
 
 export interface RemoveFinancialRecordRequest {
@@ -243,6 +250,21 @@ export interface FinancialRecordsApiInterface {
      * Atualiza parcialmente um lançamento financeiro.
      */
     partialUpdateFinancialRecord(requestParameters: PartialUpdateFinancialRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialRecordDto>;
+
+    /**
+     * 
+     * @summary Atualiza parcialmente múltiplos lançamentos financeiros.
+     * @param {PartialUpdateManyFinancialRecordsRequestBodyDto} partialUpdateManyFinancialRecordsRequestBodyDto 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof FinancialRecordsApiInterface
+     */
+    partialUpdateManyFinancialRecordsRaw(requestParameters: PartialUpdateManyFinancialRecordsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<FinancialRecordDto>>>;
+
+    /**
+     * Atualiza parcialmente múltiplos lançamentos financeiros.
+     */
+    partialUpdateManyFinancialRecords(requestParameters: PartialUpdateManyFinancialRecordsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<FinancialRecordDto>>;
 
     /**
      * 
@@ -641,6 +663,45 @@ export class FinancialRecordsApi extends runtime.BaseAPI implements FinancialRec
      */
     async partialUpdateFinancialRecord(requestParameters: PartialUpdateFinancialRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialRecordDto> {
         const response = await this.partialUpdateFinancialRecordRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Atualiza parcialmente múltiplos lançamentos financeiros.
+     */
+    async partialUpdateManyFinancialRecordsRaw(requestParameters: PartialUpdateManyFinancialRecordsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<FinancialRecordDto>>> {
+        if (requestParameters['partialUpdateManyFinancialRecordsRequestBodyDto'] == null) {
+            throw new runtime.RequiredError(
+                'partialUpdateManyFinancialRecordsRequestBodyDto',
+                'Required parameter "partialUpdateManyFinancialRecordsRequestBodyDto" was null or undefined when calling partialUpdateManyFinancialRecords().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+
+        let urlPath = `/external/financial-records/many`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'PATCH',
+            headers: headerParameters,
+            query: queryParameters,
+            body: PartialUpdateManyFinancialRecordsRequestBodyDtoToJSON(requestParameters['partialUpdateManyFinancialRecordsRequestBodyDto']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(FinancialRecordDtoFromJSON));
+    }
+
+    /**
+     * Atualiza parcialmente múltiplos lançamentos financeiros.
+     */
+    async partialUpdateManyFinancialRecords(requestParameters: PartialUpdateManyFinancialRecordsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<FinancialRecordDto>> {
+        const response = await this.partialUpdateManyFinancialRecordsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

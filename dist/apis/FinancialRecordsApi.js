@@ -394,6 +394,53 @@ var FinancialRecordsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Atualiza parcialmente múltiplos lançamentos financeiros.
+     */
+    FinancialRecordsApi.prototype.partialUpdateManyFinancialRecordsRaw = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (requestParameters['partialUpdateManyFinancialRecordsRequestBodyDto'] == null) {
+                            throw new runtime.RequiredError('partialUpdateManyFinancialRecordsRequestBodyDto', 'Required parameter "partialUpdateManyFinancialRecordsRequestBodyDto" was null or undefined when calling partialUpdateManyFinancialRecords().');
+                        }
+                        queryParameters = {};
+                        headerParameters = {};
+                        headerParameters['Content-Type'] = 'application/json';
+                        urlPath = "/external/financial-records/many";
+                        return [4 /*yield*/, this.request({
+                                path: urlPath,
+                                method: 'PATCH',
+                                headers: headerParameters,
+                                query: queryParameters,
+                                body: (0, index_1.PartialUpdateManyFinancialRecordsRequestBodyDtoToJSON)(requestParameters['partialUpdateManyFinancialRecordsRequestBodyDto']),
+                            }, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return jsonValue.map(index_1.FinancialRecordDtoFromJSON); })];
+                }
+            });
+        });
+    };
+    /**
+     * Atualiza parcialmente múltiplos lançamentos financeiros.
+     */
+    FinancialRecordsApi.prototype.partialUpdateManyFinancialRecords = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.partialUpdateManyFinancialRecordsRaw(requestParameters, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [4 /*yield*/, response.value()];
+                    case 2: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
+    /**
      * Remove um lançamento financeiro.
      */
     FinancialRecordsApi.prototype.removeFinancialRecordRaw = function (requestParameters, initOverrides) {

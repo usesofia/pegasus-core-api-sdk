@@ -5,6 +5,7 @@ export * from './BankInstitutionsApi';
 export * from './BankTransactionsApi';
 export * from './BulkCreateApi';
 export * from './BulkRemoveApi';
+export * from './BulkUpdateApi';
 export * from './CacheApi';
 export * from './CategoriesApi';
 export * from './ContactsApi';

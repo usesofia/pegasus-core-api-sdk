@@ -23,6 +23,7 @@ __exportStar(require("./BankInstitutionsApi"), exports);
 __exportStar(require("./BankTransactionsApi"), exports);
 __exportStar(require("./BulkCreateApi"), exports);
 __exportStar(require("./BulkRemoveApi"), exports);
+__exportStar(require("./BulkUpdateApi"), exports);
 __exportStar(require("./CacheApi"), exports);
 __exportStar(require("./CategoriesApi"), exports);
 __exportStar(require("./ContactsApi"), exports);
