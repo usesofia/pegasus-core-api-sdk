@@ -608,6 +608,53 @@ var BankTransactionsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Verifica se a AI deve sugerir uma ação para uma transação bancária.
+     */
+    BankTransactionsApi.prototype.shouldAiSuggestActionRaw = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (requestParameters['shouldAiSuggestActionRequestBodyDto'] == null) {
+                            throw new runtime.RequiredError('shouldAiSuggestActionRequestBodyDto', 'Required parameter "shouldAiSuggestActionRequestBodyDto" was null or undefined when calling shouldAiSuggestAction().');
+                        }
+                        queryParameters = {};
+                        headerParameters = {};
+                        headerParameters['Content-Type'] = 'application/json';
+                        urlPath = "/internal/bank-transactions/should-ai-suggest-action";
+                        return [4 /*yield*/, this.request({
+                                path: urlPath,
+                                method: 'POST',
+                                headers: headerParameters,
+                                query: queryParameters,
+                                body: (0, index_1.ShouldAiSuggestActionRequestBodyDtoToJSON)(requestParameters['shouldAiSuggestActionRequestBodyDto']),
+                            }, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.ShouldAiSuggestActionResponseDtoFromJSON)(jsonValue); })];
+                }
+            });
+        });
+    };
+    /**
+     * Verifica se a AI deve sugerir uma ação para uma transação bancária.
+     */
+    BankTransactionsApi.prototype.shouldAiSuggestAction = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.shouldAiSuggestActionRaw(requestParameters, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [4 /*yield*/, response.value()];
+                    case 2: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
+    /**
      * Busca todas as movimentações financeiras pelo sistema.
      */
     BankTransactionsApi.prototype.systemFindAllBankTransactionsRaw = function (requestParameters, initOverrides) {

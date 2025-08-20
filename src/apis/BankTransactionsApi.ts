@@ -26,6 +26,8 @@ import type {
   OfxImportRequestBodyDto,
   PartialUpdateBankTransactionRequestBodyDto,
   ReconcileBankTransactionRequestBodyDto,
+  ShouldAiSuggestActionRequestBodyDto,
+  ShouldAiSuggestActionResponseDto,
 } from '../models/index';
 import {
     BankTransactionEntityFromJSON,
@@ -50,6 +52,10 @@ import {
     PartialUpdateBankTransactionRequestBodyDtoToJSON,
     ReconcileBankTransactionRequestBodyDtoFromJSON,
     ReconcileBankTransactionRequestBodyDtoToJSON,
+    ShouldAiSuggestActionRequestBodyDtoFromJSON,
+    ShouldAiSuggestActionRequestBodyDtoToJSON,
+    ShouldAiSuggestActionResponseDtoFromJSON,
+    ShouldAiSuggestActionResponseDtoToJSON,
 } from '../models/index';
 
 export interface CreateOrUpdateBankTransactionRequest {
@@ -112,6 +118,10 @@ export interface ProcessOfxImportRequest {
 export interface ReconcileBankTransactionRequest {
     bankTransactionId: string;
     reconcileBankTransactionRequestBodyDto: ReconcileBankTransactionRequestBodyDto;
+}
+
+export interface ShouldAiSuggestActionRequest {
+    shouldAiSuggestActionRequestBodyDto: ShouldAiSuggestActionRequestBodyDto;
 }
 
 export interface SystemFindAllBankTransactionsRequest {
@@ -319,6 +329,21 @@ export interface BankTransactionsApiInterface {
      * Reconcilia uma transação bancária com múltiplos lançamentos financeiros.
      */
     reconcileBankTransaction(requestParameters: ReconcileBankTransactionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankTransactionEntity>;
+
+    /**
+     * 
+     * @summary Verifica se a AI deve sugerir uma ação para uma transação bancária.
+     * @param {ShouldAiSuggestActionRequestBodyDto} shouldAiSuggestActionRequestBodyDto 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof BankTransactionsApiInterface
+     */
+    shouldAiSuggestActionRaw(requestParameters: ShouldAiSuggestActionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ShouldAiSuggestActionResponseDto>>;
+
+    /**
+     * Verifica se a AI deve sugerir uma ação para uma transação bancária.
+     */
+    shouldAiSuggestAction(requestParameters: ShouldAiSuggestActionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ShouldAiSuggestActionResponseDto>;
 
     /**
      * 
@@ -858,6 +883,45 @@ export class BankTransactionsApi extends runtime.BaseAPI implements BankTransact
      */
     async reconcileBankTransaction(requestParameters: ReconcileBankTransactionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankTransactionEntity> {
         const response = await this.reconcileBankTransactionRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Verifica se a AI deve sugerir uma ação para uma transação bancária.
+     */
+    async shouldAiSuggestActionRaw(requestParameters: ShouldAiSuggestActionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ShouldAiSuggestActionResponseDto>> {
+        if (requestParameters['shouldAiSuggestActionRequestBodyDto'] == null) {
+            throw new runtime.RequiredError(
+                'shouldAiSuggestActionRequestBodyDto',
+                'Required parameter "shouldAiSuggestActionRequestBodyDto" was null or undefined when calling shouldAiSuggestAction().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+
+        let urlPath = `/internal/bank-transactions/should-ai-suggest-action`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: ShouldAiSuggestActionRequestBodyDtoToJSON(requestParameters['shouldAiSuggestActionRequestBodyDto']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ShouldAiSuggestActionResponseDtoFromJSON(jsonValue));
+    }
+
+    /**
+     * Verifica se a AI deve sugerir uma ação para uma transação bancária.
+     */
+    async shouldAiSuggestAction(requestParameters: ShouldAiSuggestActionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ShouldAiSuggestActionResponseDto> {
+        const response = await this.shouldAiSuggestActionRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

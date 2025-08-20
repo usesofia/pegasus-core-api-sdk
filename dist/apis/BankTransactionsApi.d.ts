@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { BankTransactionEntity, BankTransactionsPageDto, CreateOrUpdateBankTransactionRequestBodyDto, ExecuteBankTransactionsCreateOrUpdateBestSuggestionActionRequestBodyDto, ExecuteOfxImportJobRequestBodyDto, OfxImportJobRequestEntity, OfxImportJobRequestsPageDto, OfxImportRequestBodyDto, PartialUpdateBankTransactionRequestBodyDto, ReconcileBankTransactionRequestBodyDto } from '../models/index';
+import type { BankTransactionEntity, BankTransactionsPageDto, CreateOrUpdateBankTransactionRequestBodyDto, ExecuteBankTransactionsCreateOrUpdateBestSuggestionActionRequestBodyDto, ExecuteOfxImportJobRequestBodyDto, OfxImportJobRequestEntity, OfxImportJobRequestsPageDto, OfxImportRequestBodyDto, PartialUpdateBankTransactionRequestBodyDto, ReconcileBankTransactionRequestBodyDto, ShouldAiSuggestActionRequestBodyDto, ShouldAiSuggestActionResponseDto } from '../models/index';
 export interface CreateOrUpdateBankTransactionRequest {
     createOrUpdateBankTransactionRequestBodyDto: CreateOrUpdateBankTransactionRequestBodyDto;
     populate?: string;
@@ -62,6 +62,9 @@ export interface ProcessOfxImportRequest {
 export interface ReconcileBankTransactionRequest {
     bankTransactionId: string;
     reconcileBankTransactionRequestBodyDto: ReconcileBankTransactionRequestBodyDto;
+}
+export interface ShouldAiSuggestActionRequest {
+    shouldAiSuggestActionRequestBodyDto: ShouldAiSuggestActionRequestBodyDto;
 }
 export interface SystemFindAllBankTransactionsRequest {
     ownerOrganizationId: string;
@@ -248,6 +251,19 @@ export interface BankTransactionsApiInterface {
     reconcileBankTransaction(requestParameters: ReconcileBankTransactionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankTransactionEntity>;
     /**
      *
+     * @summary Verifica se a AI deve sugerir uma ação para uma transação bancária.
+     * @param {ShouldAiSuggestActionRequestBodyDto} shouldAiSuggestActionRequestBodyDto
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof BankTransactionsApiInterface
+     */
+    shouldAiSuggestActionRaw(requestParameters: ShouldAiSuggestActionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ShouldAiSuggestActionResponseDto>>;
+    /**
+     * Verifica se a AI deve sugerir uma ação para uma transação bancária.
+     */
+    shouldAiSuggestAction(requestParameters: ShouldAiSuggestActionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ShouldAiSuggestActionResponseDto>;
+    /**
+     *
      * @summary Busca todas as movimentações financeiras pelo sistema.
      * @param {string} ownerOrganizationId Identificador da organização proprietária das movimentações financeiras.
      * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
@@ -385,6 +401,14 @@ export declare class BankTransactionsApi extends runtime.BaseAPI implements Bank
      * Reconcilia uma transação bancária com múltiplos lançamentos financeiros.
      */
     reconcileBankTransaction(requestParameters: ReconcileBankTransactionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankTransactionEntity>;
+    /**
+     * Verifica se a AI deve sugerir uma ação para uma transação bancária.
+     */
+    shouldAiSuggestActionRaw(requestParameters: ShouldAiSuggestActionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ShouldAiSuggestActionResponseDto>>;
+    /**
+     * Verifica se a AI deve sugerir uma ação para uma transação bancária.
+     */
+    shouldAiSuggestAction(requestParameters: ShouldAiSuggestActionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ShouldAiSuggestActionResponseDto>;
     /**
      * Busca todas as movimentações financeiras pelo sistema.
      */

@@ -239,6 +239,10 @@ src/models/RemoveTagRequestBodyDto.ts
 src/models/RevokeInviteRequestBodyDto.ts
 src/models/ScheduleRecurringFinancialRecordsSeedingRequestBodyDto.ts
 src/models/SeedRecurringFinancialRecordsRequestBodyDto.ts
+src/models/ShouldAiSuggestActionRequestBodyDto.ts
+src/models/ShouldAiSuggestActionRequestBodyDtoRequester.ts
+src/models/ShouldAiSuggestActionRequestBodyDtoTransactionData.ts
+src/models/ShouldAiSuggestActionResponseDto.ts
 src/models/SignedUrlEntity.ts
 src/models/SubcategoriesPageEntity.ts
 src/models/SubcategoriesPageEntityItemsInner.ts
