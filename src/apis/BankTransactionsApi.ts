@@ -74,7 +74,6 @@ export interface CreateOrUpdateBankTransactionRequest {
 
 export interface CreateOrUpdateBankTransactionBestSuggestedActionRequest {
     bankTransactionId: string;
-    createOrUpdateBankTransactionRequestBodyDto: CreateOrUpdateBankTransactionRequestBodyDto;
 }
 
 export interface DispatchOfxImportRequest {
@@ -194,8 +193,7 @@ export interface BankTransactionsApiInterface {
     /**
      * 
      * @summary Cria ou atualiza uma sugestão de melhor ação para uma transação bancária.
-     * @param {string} bankTransactionId 
-     * @param {CreateOrUpdateBankTransactionRequestBodyDto} createOrUpdateBankTransactionRequestBodyDto 
+     * @param {string} bankTransactionId ID da transação bancária para obter sugestões de melhor ação.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof BankTransactionsApiInterface
@@ -513,18 +511,9 @@ export class BankTransactionsApi extends runtime.BaseAPI implements BankTransact
             );
         }
 
-        if (requestParameters['createOrUpdateBankTransactionRequestBodyDto'] == null) {
-            throw new runtime.RequiredError(
-                'createOrUpdateBankTransactionRequestBodyDto',
-                'Required parameter "createOrUpdateBankTransactionRequestBodyDto" was null or undefined when calling createOrUpdateBankTransactionBestSuggestedAction().'
-            );
-        }
-
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
 
 
         let urlPath = `/external/bank-transactions/{bankTransactionId}/best-suggested-action`;
@@ -535,7 +524,6 @@ export class BankTransactionsApi extends runtime.BaseAPI implements BankTransact
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: CreateOrUpdateBankTransactionRequestBodyDtoToJSON(requestParameters['createOrUpdateBankTransactionRequestBodyDto']),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => BankTransactionEntityFromJSON(jsonValue));

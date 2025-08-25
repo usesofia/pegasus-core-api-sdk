@@ -17,7 +17,6 @@ export interface CreateOrUpdateBankTransactionRequest {
 }
 export interface CreateOrUpdateBankTransactionBestSuggestedActionRequest {
     bankTransactionId: string;
-    createOrUpdateBankTransactionRequestBodyDto: CreateOrUpdateBankTransactionRequestBodyDto;
 }
 export interface DispatchOfxImportRequest {
     ofxImportRequestBodyDto: OfxImportRequestBodyDto;
@@ -120,8 +119,7 @@ export interface BankTransactionsApiInterface {
     /**
      *
      * @summary Cria ou atualiza uma sugestão de melhor ação para uma transação bancária.
-     * @param {string} bankTransactionId
-     * @param {CreateOrUpdateBankTransactionRequestBodyDto} createOrUpdateBankTransactionRequestBodyDto
+     * @param {string} bankTransactionId ID da transação bancária para obter sugestões de melhor ação.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof BankTransactionsApiInterface

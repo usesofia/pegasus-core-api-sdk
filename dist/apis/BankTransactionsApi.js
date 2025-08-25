@@ -137,12 +137,8 @@ var BankTransactionsApi = /** @class */ (function (_super) {
                         if (requestParameters['bankTransactionId'] == null) {
                             throw new runtime.RequiredError('bankTransactionId', 'Required parameter "bankTransactionId" was null or undefined when calling createOrUpdateBankTransactionBestSuggestedAction().');
                         }
-                        if (requestParameters['createOrUpdateBankTransactionRequestBodyDto'] == null) {
-                            throw new runtime.RequiredError('createOrUpdateBankTransactionRequestBodyDto', 'Required parameter "createOrUpdateBankTransactionRequestBodyDto" was null or undefined when calling createOrUpdateBankTransactionBestSuggestedAction().');
-                        }
                         queryParameters = {};
                         headerParameters = {};
-                        headerParameters['Content-Type'] = 'application/json';
                         urlPath = "/external/bank-transactions/{bankTransactionId}/best-suggested-action";
                         urlPath = urlPath.replace("{".concat("bankTransactionId", "}"), encodeURIComponent(String(requestParameters['bankTransactionId'])));
                         return [4 /*yield*/, this.request({
@@ -150,7 +146,6 @@ var BankTransactionsApi = /** @class */ (function (_super) {
                                 method: 'PUT',
                                 headers: headerParameters,
                                 query: queryParameters,
-                                body: (0, index_1.CreateOrUpdateBankTransactionRequestBodyDtoToJSON)(requestParameters['createOrUpdateBankTransactionRequestBodyDto']),
                             }, initOverrides)];
                     case 1:
                         response = _a.sent();
