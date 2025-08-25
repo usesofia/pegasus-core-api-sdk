@@ -7,6 +7,8 @@ export * from './BankTransactionEntity';
 export * from './BankTransactionEntityPopulatedBankAccount';
 export * from './BankTransactionsPageDto';
 export * from './BankTransactionsPageDtoItemsInner';
+export * from './BulkBankTransactionsJobRequestDto';
+export * from './BulkBankTransactionsJobRequestEntity';
 export * from './BulkCreateJobRequestDto';
 export * from './BulkCreateJobRequestEntity';
 export * from './BulkRemoveJobRequestDto';
@@ -110,6 +112,7 @@ export * from './CreatedFinancialRecordRadarItemResultEntityRadarItemSubsequentR
 export * from './ExceptionResponseEntity';
 export * from './ExceptionResponseEntityErrorsInner';
 export * from './ExecuteBankTransactionsCreateOrUpdateBestSuggestionActionRequestBodyDto';
+export * from './ExecuteBulkBankTransactionsJobRequestBodyDto';
 export * from './ExecuteBulkCreateJobRequestBodyDto';
 export * from './ExecuteBulkRemoveJobRequestBodyDto';
 export * from './ExecuteBulkUpdateJobRequestBodyDto';

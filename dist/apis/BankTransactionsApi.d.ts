@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { BankTransactionEntity, BankTransactionsPageDto, CreateOrUpdateBankTransactionRequestBodyDto, ExecuteBankTransactionsCreateOrUpdateBestSuggestionActionRequestBodyDto, ExecuteOfxImportJobRequestBodyDto, OfxImportJobRequestEntity, OfxImportJobRequestsPageDto, OfxImportRequestBodyDto, PartialUpdateBankTransactionRequestBodyDto, ReconcileBankTransactionRequestBodyDto, ShouldAiSuggestActionRequestBodyDto, ShouldAiSuggestActionResponseDto } from '../models/index';
+import type { BankTransactionEntity, BankTransactionsPageDto, BulkBankTransactionsJobRequestDto, BulkBankTransactionsJobRequestEntity, CreateOrUpdateBankTransactionRequestBodyDto, ExecuteBankTransactionsCreateOrUpdateBestSuggestionActionRequestBodyDto, ExecuteBulkBankTransactionsJobRequestBodyDto, ExecuteOfxImportJobRequestBodyDto, OfxImportJobRequestEntity, OfxImportJobRequestsPageDto, OfxImportRequestBodyDto, PartialUpdateBankTransactionRequestBodyDto, ReconcileBankTransactionRequestBodyDto, ShouldAiSuggestActionRequestBodyDto, ShouldAiSuggestActionResponseDto } from '../models/index';
 export interface CreateOrUpdateBankTransactionRequest {
     createOrUpdateBankTransactionRequestBodyDto: CreateOrUpdateBankTransactionRequestBodyDto;
     populate?: string;
@@ -56,12 +56,18 @@ export interface PartialUpdateBankTransactionRequest {
 export interface ProcessBankTransactionsCreateOrUpdateBestSuggestionActionRequest {
     executeBankTransactionsCreateOrUpdateBestSuggestionActionRequestBodyDto: ExecuteBankTransactionsCreateOrUpdateBestSuggestionActionRequestBodyDto;
 }
+export interface ProcessBulkBankTransactionsOperationRequest {
+    executeBulkBankTransactionsJobRequestBodyDto: ExecuteBulkBankTransactionsJobRequestBodyDto;
+}
 export interface ProcessOfxImportRequest {
     executeOfxImportJobRequestBodyDto: ExecuteOfxImportJobRequestBodyDto;
 }
 export interface ReconcileBankTransactionRequest {
     bankTransactionId: string;
     reconcileBankTransactionRequestBodyDto: ReconcileBankTransactionRequestBodyDto;
+}
+export interface ScheduleBulkBankTransactionsOperationRequest {
+    bulkBankTransactionsJobRequestDto: BulkBankTransactionsJobRequestDto;
 }
 export interface ShouldAiSuggestActionRequest {
     shouldAiSuggestActionRequestBodyDto: ShouldAiSuggestActionRequestBodyDto;
@@ -224,6 +230,19 @@ export interface BankTransactionsApiInterface {
     processBankTransactionsCreateOrUpdateBestSuggestionAction(requestParameters: ProcessBankTransactionsCreateOrUpdateBestSuggestionActionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
     /**
      *
+     * @summary Processa uma operação em lote para transações bancárias.
+     * @param {ExecuteBulkBankTransactionsJobRequestBodyDto} executeBulkBankTransactionsJobRequestBodyDto
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof BankTransactionsApiInterface
+     */
+    processBulkBankTransactionsOperationRaw(requestParameters: ProcessBulkBankTransactionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
+    /**
+     * Processa uma operação em lote para transações bancárias.
+     */
+    processBulkBankTransactionsOperation(requestParameters: ProcessBulkBankTransactionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+    /**
+     *
      * @summary Processa a importação assíncrona de um arquivo OFX.
      * @param {ExecuteOfxImportJobRequestBodyDto} executeOfxImportJobRequestBodyDto
      * @param {*} [options] Override http request option.
@@ -249,6 +268,19 @@ export interface BankTransactionsApiInterface {
      * Reconcilia uma transação bancária com múltiplos lançamentos financeiros.
      */
     reconcileBankTransaction(requestParameters: ReconcileBankTransactionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankTransactionEntity>;
+    /**
+     *
+     * @summary Agenda uma operação em lote para transações bancárias.
+     * @param {BulkBankTransactionsJobRequestDto} bulkBankTransactionsJobRequestDto
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof BankTransactionsApiInterface
+     */
+    scheduleBulkBankTransactionsOperationRaw(requestParameters: ScheduleBulkBankTransactionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BulkBankTransactionsJobRequestEntity>>;
+    /**
+     * Agenda uma operação em lote para transações bancárias.
+     */
+    scheduleBulkBankTransactionsOperation(requestParameters: ScheduleBulkBankTransactionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BulkBankTransactionsJobRequestEntity>;
     /**
      *
      * @summary Verifica se a AI deve sugerir uma ação para uma transação bancária.
@@ -386,6 +418,14 @@ export declare class BankTransactionsApi extends runtime.BaseAPI implements Bank
      */
     processBankTransactionsCreateOrUpdateBestSuggestionAction(requestParameters: ProcessBankTransactionsCreateOrUpdateBestSuggestionActionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
     /**
+     * Processa uma operação em lote para transações bancárias.
+     */
+    processBulkBankTransactionsOperationRaw(requestParameters: ProcessBulkBankTransactionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
+    /**
+     * Processa uma operação em lote para transações bancárias.
+     */
+    processBulkBankTransactionsOperation(requestParameters: ProcessBulkBankTransactionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+    /**
      * Processa a importação assíncrona de um arquivo OFX.
      */
     processOfxImportRaw(requestParameters: ProcessOfxImportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
@@ -401,6 +441,14 @@ export declare class BankTransactionsApi extends runtime.BaseAPI implements Bank
      * Reconcilia uma transação bancária com múltiplos lançamentos financeiros.
      */
     reconcileBankTransaction(requestParameters: ReconcileBankTransactionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankTransactionEntity>;
+    /**
+     * Agenda uma operação em lote para transações bancárias.
+     */
+    scheduleBulkBankTransactionsOperationRaw(requestParameters: ScheduleBulkBankTransactionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BulkBankTransactionsJobRequestEntity>>;
+    /**
+     * Agenda uma operação em lote para transações bancárias.
+     */
+    scheduleBulkBankTransactionsOperation(requestParameters: ScheduleBulkBankTransactionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BulkBankTransactionsJobRequestEntity>;
     /**
      * Verifica se a AI deve sugerir uma ação para uma transação bancária.
      */

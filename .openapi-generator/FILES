@@ -49,6 +49,8 @@ src/models/BankTransactionEntity.ts
 src/models/BankTransactionEntityPopulatedBankAccount.ts
 src/models/BankTransactionsPageDto.ts
 src/models/BankTransactionsPageDtoItemsInner.ts
+src/models/BulkBankTransactionsJobRequestDto.ts
+src/models/BulkBankTransactionsJobRequestEntity.ts
 src/models/BulkCreateJobRequestDto.ts
 src/models/BulkCreateJobRequestEntity.ts
 src/models/BulkRemoveJobRequestDto.ts
@@ -152,6 +154,7 @@ src/models/CreatedFinancialRecordRadarItemResultEntityRadarItemSubsequentRadarIt
 src/models/ExceptionResponseEntity.ts
 src/models/ExceptionResponseEntityErrorsInner.ts
 src/models/ExecuteBankTransactionsCreateOrUpdateBestSuggestionActionRequestBodyDto.ts
+src/models/ExecuteBulkBankTransactionsJobRequestBodyDto.ts
 src/models/ExecuteBulkCreateJobRequestBodyDto.ts
 src/models/ExecuteBulkRemoveJobRequestBodyDto.ts
 src/models/ExecuteBulkUpdateJobRequestBodyDto.ts

@@ -17,9 +17,12 @@ import * as runtime from '../runtime';
 import type {
   BankTransactionEntity,
   BankTransactionsPageDto,
+  BulkBankTransactionsJobRequestDto,
+  BulkBankTransactionsJobRequestEntity,
   CreateOrUpdateBankTransactionRequestBodyDto,
   ExceptionResponseEntity,
   ExecuteBankTransactionsCreateOrUpdateBestSuggestionActionRequestBodyDto,
+  ExecuteBulkBankTransactionsJobRequestBodyDto,
   ExecuteOfxImportJobRequestBodyDto,
   OfxImportJobRequestEntity,
   OfxImportJobRequestsPageDto,
@@ -34,12 +37,18 @@ import {
     BankTransactionEntityToJSON,
     BankTransactionsPageDtoFromJSON,
     BankTransactionsPageDtoToJSON,
+    BulkBankTransactionsJobRequestDtoFromJSON,
+    BulkBankTransactionsJobRequestDtoToJSON,
+    BulkBankTransactionsJobRequestEntityFromJSON,
+    BulkBankTransactionsJobRequestEntityToJSON,
     CreateOrUpdateBankTransactionRequestBodyDtoFromJSON,
     CreateOrUpdateBankTransactionRequestBodyDtoToJSON,
     ExceptionResponseEntityFromJSON,
     ExceptionResponseEntityToJSON,
     ExecuteBankTransactionsCreateOrUpdateBestSuggestionActionRequestBodyDtoFromJSON,
     ExecuteBankTransactionsCreateOrUpdateBestSuggestionActionRequestBodyDtoToJSON,
+    ExecuteBulkBankTransactionsJobRequestBodyDtoFromJSON,
+    ExecuteBulkBankTransactionsJobRequestBodyDtoToJSON,
     ExecuteOfxImportJobRequestBodyDtoFromJSON,
     ExecuteOfxImportJobRequestBodyDtoToJSON,
     OfxImportJobRequestEntityFromJSON,
@@ -111,6 +120,10 @@ export interface ProcessBankTransactionsCreateOrUpdateBestSuggestionActionReques
     executeBankTransactionsCreateOrUpdateBestSuggestionActionRequestBodyDto: ExecuteBankTransactionsCreateOrUpdateBestSuggestionActionRequestBodyDto;
 }
 
+export interface ProcessBulkBankTransactionsOperationRequest {
+    executeBulkBankTransactionsJobRequestBodyDto: ExecuteBulkBankTransactionsJobRequestBodyDto;
+}
+
 export interface ProcessOfxImportRequest {
     executeOfxImportJobRequestBodyDto: ExecuteOfxImportJobRequestBodyDto;
 }
@@ -118,6 +131,10 @@ export interface ProcessOfxImportRequest {
 export interface ReconcileBankTransactionRequest {
     bankTransactionId: string;
     reconcileBankTransactionRequestBodyDto: ReconcileBankTransactionRequestBodyDto;
+}
+
+export interface ScheduleBulkBankTransactionsOperationRequest {
+    bulkBankTransactionsJobRequestDto: BulkBankTransactionsJobRequestDto;
 }
 
 export interface ShouldAiSuggestActionRequest {
@@ -301,6 +318,21 @@ export interface BankTransactionsApiInterface {
 
     /**
      * 
+     * @summary Processa uma operação em lote para transações bancárias.
+     * @param {ExecuteBulkBankTransactionsJobRequestBodyDto} executeBulkBankTransactionsJobRequestBodyDto 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof BankTransactionsApiInterface
+     */
+    processBulkBankTransactionsOperationRaw(requestParameters: ProcessBulkBankTransactionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
+
+    /**
+     * Processa uma operação em lote para transações bancárias.
+     */
+    processBulkBankTransactionsOperation(requestParameters: ProcessBulkBankTransactionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+
+    /**
+     * 
      * @summary Processa a importação assíncrona de um arquivo OFX.
      * @param {ExecuteOfxImportJobRequestBodyDto} executeOfxImportJobRequestBodyDto 
      * @param {*} [options] Override http request option.
@@ -329,6 +361,21 @@ export interface BankTransactionsApiInterface {
      * Reconcilia uma transação bancária com múltiplos lançamentos financeiros.
      */
     reconcileBankTransaction(requestParameters: ReconcileBankTransactionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankTransactionEntity>;
+
+    /**
+     * 
+     * @summary Agenda uma operação em lote para transações bancárias.
+     * @param {BulkBankTransactionsJobRequestDto} bulkBankTransactionsJobRequestDto 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof BankTransactionsApiInterface
+     */
+    scheduleBulkBankTransactionsOperationRaw(requestParameters: ScheduleBulkBankTransactionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BulkBankTransactionsJobRequestEntity>>;
+
+    /**
+     * Agenda uma operação em lote para transações bancárias.
+     */
+    scheduleBulkBankTransactionsOperation(requestParameters: ScheduleBulkBankTransactionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BulkBankTransactionsJobRequestEntity>;
 
     /**
      * 
@@ -802,6 +849,44 @@ export class BankTransactionsApi extends runtime.BaseAPI implements BankTransact
     }
 
     /**
+     * Processa uma operação em lote para transações bancárias.
+     */
+    async processBulkBankTransactionsOperationRaw(requestParameters: ProcessBulkBankTransactionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        if (requestParameters['executeBulkBankTransactionsJobRequestBodyDto'] == null) {
+            throw new runtime.RequiredError(
+                'executeBulkBankTransactionsJobRequestBodyDto',
+                'Required parameter "executeBulkBankTransactionsJobRequestBodyDto" was null or undefined when calling processBulkBankTransactionsOperation().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+
+        let urlPath = `/internal/queues/bulk-bank-transactions`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: ExecuteBulkBankTransactionsJobRequestBodyDtoToJSON(requestParameters['executeBulkBankTransactionsJobRequestBodyDto']),
+        }, initOverrides);
+
+        return new runtime.VoidApiResponse(response);
+    }
+
+    /**
+     * Processa uma operação em lote para transações bancárias.
+     */
+    async processBulkBankTransactionsOperation(requestParameters: ProcessBulkBankTransactionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+        await this.processBulkBankTransactionsOperationRaw(requestParameters, initOverrides);
+    }
+
+    /**
      * Processa a importação assíncrona de um arquivo OFX.
      */
     async processOfxImportRaw(requestParameters: ProcessOfxImportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
@@ -883,6 +968,45 @@ export class BankTransactionsApi extends runtime.BaseAPI implements BankTransact
      */
     async reconcileBankTransaction(requestParameters: ReconcileBankTransactionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankTransactionEntity> {
         const response = await this.reconcileBankTransactionRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Agenda uma operação em lote para transações bancárias.
+     */
+    async scheduleBulkBankTransactionsOperationRaw(requestParameters: ScheduleBulkBankTransactionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BulkBankTransactionsJobRequestEntity>> {
+        if (requestParameters['bulkBankTransactionsJobRequestDto'] == null) {
+            throw new runtime.RequiredError(
+                'bulkBankTransactionsJobRequestDto',
+                'Required parameter "bulkBankTransactionsJobRequestDto" was null or undefined when calling scheduleBulkBankTransactionsOperation().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+
+        let urlPath = `/external/bank-transactions/bulk-operations`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: BulkBankTransactionsJobRequestDtoToJSON(requestParameters['bulkBankTransactionsJobRequestDto']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => BulkBankTransactionsJobRequestEntityFromJSON(jsonValue));
+    }
+
+    /**
+     * Agenda uma operação em lote para transações bancárias.
+     */
+    async scheduleBulkBankTransactionsOperation(requestParameters: ScheduleBulkBankTransactionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BulkBankTransactionsJobRequestEntity> {
+        const response = await this.scheduleBulkBankTransactionsOperationRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

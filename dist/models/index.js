@@ -25,6 +25,8 @@ __exportStar(require("./BankTransactionEntity"), exports);
 __exportStar(require("./BankTransactionEntityPopulatedBankAccount"), exports);
 __exportStar(require("./BankTransactionsPageDto"), exports);
 __exportStar(require("./BankTransactionsPageDtoItemsInner"), exports);
+__exportStar(require("./BulkBankTransactionsJobRequestDto"), exports);
+__exportStar(require("./BulkBankTransactionsJobRequestEntity"), exports);
 __exportStar(require("./BulkCreateJobRequestDto"), exports);
 __exportStar(require("./BulkCreateJobRequestEntity"), exports);
 __exportStar(require("./BulkRemoveJobRequestDto"), exports);
@@ -128,6 +130,7 @@ __exportStar(require("./CreatedFinancialRecordRadarItemResultEntityRadarItemSubs
 __exportStar(require("./ExceptionResponseEntity"), exports);
 __exportStar(require("./ExceptionResponseEntityErrorsInner"), exports);
 __exportStar(require("./ExecuteBankTransactionsCreateOrUpdateBestSuggestionActionRequestBodyDto"), exports);
+__exportStar(require("./ExecuteBulkBankTransactionsJobRequestBodyDto"), exports);
 __exportStar(require("./ExecuteBulkCreateJobRequestBodyDto"), exports);
 __exportStar(require("./ExecuteBulkRemoveJobRequestBodyDto"), exports);
 __exportStar(require("./ExecuteBulkUpdateJobRequestBodyDto"), exports);

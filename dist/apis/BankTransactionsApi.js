@@ -512,6 +512,51 @@ var BankTransactionsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Processa uma operação em lote para transações bancárias.
+     */
+    BankTransactionsApi.prototype.processBulkBankTransactionsOperationRaw = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (requestParameters['executeBulkBankTransactionsJobRequestBodyDto'] == null) {
+                            throw new runtime.RequiredError('executeBulkBankTransactionsJobRequestBodyDto', 'Required parameter "executeBulkBankTransactionsJobRequestBodyDto" was null or undefined when calling processBulkBankTransactionsOperation().');
+                        }
+                        queryParameters = {};
+                        headerParameters = {};
+                        headerParameters['Content-Type'] = 'application/json';
+                        urlPath = "/internal/queues/bulk-bank-transactions";
+                        return [4 /*yield*/, this.request({
+                                path: urlPath,
+                                method: 'POST',
+                                headers: headerParameters,
+                                query: queryParameters,
+                                body: (0, index_1.ExecuteBulkBankTransactionsJobRequestBodyDtoToJSON)(requestParameters['executeBulkBankTransactionsJobRequestBodyDto']),
+                            }, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [2 /*return*/, new runtime.VoidApiResponse(response)];
+                }
+            });
+        });
+    };
+    /**
+     * Processa uma operação em lote para transações bancárias.
+     */
+    BankTransactionsApi.prototype.processBulkBankTransactionsOperation = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.processBulkBankTransactionsOperationRaw(requestParameters, initOverrides)];
+                    case 1:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    /**
      * Processa a importação assíncrona de um arquivo OFX.
      */
     BankTransactionsApi.prototype.processOfxImportRaw = function (requestParameters, initOverrides) {
@@ -599,6 +644,53 @@ var BankTransactionsApi = /** @class */ (function (_super) {
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, this.reconcileBankTransactionRaw(requestParameters, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [4 /*yield*/, response.value()];
+                    case 2: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
+    /**
+     * Agenda uma operação em lote para transações bancárias.
+     */
+    BankTransactionsApi.prototype.scheduleBulkBankTransactionsOperationRaw = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (requestParameters['bulkBankTransactionsJobRequestDto'] == null) {
+                            throw new runtime.RequiredError('bulkBankTransactionsJobRequestDto', 'Required parameter "bulkBankTransactionsJobRequestDto" was null or undefined when calling scheduleBulkBankTransactionsOperation().');
+                        }
+                        queryParameters = {};
+                        headerParameters = {};
+                        headerParameters['Content-Type'] = 'application/json';
+                        urlPath = "/external/bank-transactions/bulk-operations";
+                        return [4 /*yield*/, this.request({
+                                path: urlPath,
+                                method: 'POST',
+                                headers: headerParameters,
+                                query: queryParameters,
+                                body: (0, index_1.BulkBankTransactionsJobRequestDtoToJSON)(requestParameters['bulkBankTransactionsJobRequestDto']),
+                            }, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.BulkBankTransactionsJobRequestEntityFromJSON)(jsonValue); })];
+                }
+            });
+        });
+    };
+    /**
+     * Agenda uma operação em lote para transações bancárias.
+     */
+    BankTransactionsApi.prototype.scheduleBulkBankTransactionsOperation = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.scheduleBulkBankTransactionsOperationRaw(requestParameters, initOverrides)];
                     case 1:
                         response = _a.sent();
                         return [4 /*yield*/, response.value()];
