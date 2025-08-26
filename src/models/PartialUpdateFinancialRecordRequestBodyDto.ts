@@ -164,12 +164,6 @@ export interface PartialUpdateFinancialRecordRequestBodyDto {
      */
     finesAndInterest?: string;
     /**
-     * Indica se foi reconciliado com uma transação bancária.
-     * @type {boolean}
-     * @memberof PartialUpdateFinancialRecordRequestBodyDto
-     */
-    reconciled?: boolean;
-    /**
      * Identificador do lançamento financeiro parcelado.
      * @type {string}
      * @memberof PartialUpdateFinancialRecordRequestBodyDto
@@ -295,7 +289,6 @@ export function PartialUpdateFinancialRecordRequestBodyDtoFromJSONTyped(json: an
         'account': json['account'] == null ? undefined : json['account'],
         'discount': json['discount'] == null ? undefined : json['discount'],
         'finesAndInterest': json['finesAndInterest'] == null ? undefined : json['finesAndInterest'],
-        'reconciled': json['reconciled'] == null ? undefined : json['reconciled'],
         'installmentFinancialRecord': json['installmentFinancialRecord'] == null ? undefined : json['installmentFinancialRecord'],
         'installmentNumber': json['installmentNumber'] == null ? undefined : json['installmentNumber'],
         'recurringFinancialRecord': json['recurringFinancialRecord'] == null ? undefined : json['recurringFinancialRecord'],
@@ -339,7 +332,6 @@ export function PartialUpdateFinancialRecordRequestBodyDtoToJSONTyped(value?: Pa
         'account': value['account'],
         'discount': value['discount'],
         'finesAndInterest': value['finesAndInterest'],
-        'reconciled': value['reconciled'],
         'installmentFinancialRecord': value['installmentFinancialRecord'],
         'installmentNumber': value['installmentNumber'],
         'recurringFinancialRecord': value['recurringFinancialRecord'],

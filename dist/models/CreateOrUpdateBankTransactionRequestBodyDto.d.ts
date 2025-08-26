@@ -69,12 +69,6 @@ export interface CreateOrUpdateBankTransactionRequestBodyDto {
      */
     status: CreateOrUpdateBankTransactionRequestBodyDtoStatusEnum;
     /**
-     * IDs dos lançamentos financeiros vinculados a esta transação bancária.
-     * @type {Array<string>}
-     * @memberof CreateOrUpdateBankTransactionRequestBodyDto
-     */
-    financialRecords?: Array<string>;
-    /**
      *
      * @type {CreateOrUpdateBankTransactionRequestBodyDtoAiSuggestion}
      * @memberof CreateOrUpdateBankTransactionRequestBodyDto

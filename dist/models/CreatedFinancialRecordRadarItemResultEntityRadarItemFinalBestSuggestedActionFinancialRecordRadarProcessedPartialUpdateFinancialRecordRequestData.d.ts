@@ -129,12 +129,6 @@ export interface CreatedFinancialRecordRadarItemResultEntityRadarItemFinalBestSu
      */
     finesAndInterest?: number | null;
     /**
-     * Indica se foi reconciliado com uma transação bancária.
-     * @type {boolean}
-     * @memberof CreatedFinancialRecordRadarItemResultEntityRadarItemFinalBestSuggestedActionFinancialRecordRadarProcessedPartialUpdateFinancialRecordRequestData
-     */
-    reconciled?: boolean;
-    /**
      * Identificador do lançamento financeiro parcelado.
      * @type {string}
      * @memberof CreatedFinancialRecordRadarItemResultEntityRadarItemFinalBestSuggestedActionFinancialRecordRadarProcessedPartialUpdateFinancialRecordRequestData

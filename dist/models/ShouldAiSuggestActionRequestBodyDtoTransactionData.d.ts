@@ -68,12 +68,6 @@ export interface ShouldAiSuggestActionRequestBodyDtoTransactionData {
      */
     status: ShouldAiSuggestActionRequestBodyDtoTransactionDataStatusEnum;
     /**
-     * IDs dos lançamentos financeiros vinculados a esta transação bancária.
-     * @type {Array<string>}
-     * @memberof ShouldAiSuggestActionRequestBodyDtoTransactionData
-     */
-    financialRecords?: Array<string>;
-    /**
      *
      * @type {CreateOrUpdateBankTransactionRequestBodyDtoAiSuggestion}
      * @memberof ShouldAiSuggestActionRequestBodyDtoTransactionData

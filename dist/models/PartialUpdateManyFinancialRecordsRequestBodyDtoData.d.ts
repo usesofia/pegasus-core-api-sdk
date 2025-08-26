@@ -129,12 +129,6 @@ export interface PartialUpdateManyFinancialRecordsRequestBodyDtoData {
      */
     finesAndInterest?: string;
     /**
-     * Indica se foi reconciliado com uma transação bancária.
-     * @type {boolean}
-     * @memberof PartialUpdateManyFinancialRecordsRequestBodyDtoData
-     */
-    reconciled?: boolean;
-    /**
      * Identificador do lançamento financeiro parcelado.
      * @type {string}
      * @memberof PartialUpdateManyFinancialRecordsRequestBodyDtoData
