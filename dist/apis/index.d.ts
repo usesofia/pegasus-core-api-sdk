@@ -32,5 +32,6 @@ export * from './RecurringFinancialRecordsApi';
 export * from './RecurringFinancialRecordsExportApi';
 export * from './SubcategoriesApi';
 export * from './SubcategoriesExportApi';
+export * from './SyncOrganizationsApi';
 export * from './TagsApi';
 export * from './TagsExportApi';

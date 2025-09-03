@@ -50,5 +50,6 @@ __exportStar(require("./RecurringFinancialRecordsApi"), exports);
 __exportStar(require("./RecurringFinancialRecordsExportApi"), exports);
 __exportStar(require("./SubcategoriesApi"), exports);
 __exportStar(require("./SubcategoriesExportApi"), exports);
+__exportStar(require("./SyncOrganizationsApi"), exports);
 __exportStar(require("./TagsApi"), exports);
 __exportStar(require("./TagsExportApi"), exports);

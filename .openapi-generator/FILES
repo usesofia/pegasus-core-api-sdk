@@ -36,6 +36,7 @@ src/apis/RecurringFinancialRecordsApi.ts
 src/apis/RecurringFinancialRecordsExportApi.ts
 src/apis/SubcategoriesApi.ts
 src/apis/SubcategoriesExportApi.ts
+src/apis/SyncOrganizationsApi.ts
 src/apis/TagsApi.ts
 src/apis/TagsExportApi.ts
 src/apis/index.ts
