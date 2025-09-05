@@ -21,6 +21,8 @@ export interface CreateManyFinancialRecordsRequest {
 export interface FindAllFinancialRecordsRequest {
     sortOrder?: string;
     sortBy?: FindAllFinancialRecordsSortByEnum;
+    recurringFinancialRecord?: string;
+    installmentFinancialRecord?: string;
     account?: string;
     reconciled?: boolean;
     completed?: boolean;
@@ -138,6 +140,8 @@ export interface FinancialRecordsApiInterface {
      * @summary Busca todos os lançamentos financeiros.
      * @param {string} [sortOrder] Ordem de ordenação dos lançamentos financeiros.
      * @param {'direction' | 'dueDate' | 'contact' | 'description' | 'subcategory' | 'amount' | 'competenceDate' | 'cashDate' | 'createdAt'} [sortBy] Campo para ordenação dos lançamentos financeiros.
+     * @param {string} [recurringFinancialRecord] ID da recorrência financeira.
+     * @param {string} [installmentFinancialRecord] ID do parcelamento financeiro.
      * @param {string} [account] Conta do lançamento financeiro.
      * @param {boolean} [reconciled] Indica se o lançamento financeiro foi reconciliado.
      * @param {boolean} [completed] Indica se o lançamento financeiro foi completado.

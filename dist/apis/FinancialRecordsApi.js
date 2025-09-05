@@ -188,6 +188,12 @@ var FinancialRecordsApi = /** @class */ (function (_super) {
                         if (requestParameters['sortBy'] != null) {
                             queryParameters['sortBy'] = requestParameters['sortBy'];
                         }
+                        if (requestParameters['recurringFinancialRecord'] != null) {
+                            queryParameters['recurringFinancialRecord'] = requestParameters['recurringFinancialRecord'];
+                        }
+                        if (requestParameters['installmentFinancialRecord'] != null) {
+                            queryParameters['installmentFinancialRecord'] = requestParameters['installmentFinancialRecord'];
+                        }
                         if (requestParameters['account'] != null) {
                             queryParameters['account'] = requestParameters['account'];
                         }
