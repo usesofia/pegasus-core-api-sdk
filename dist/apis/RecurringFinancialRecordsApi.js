@@ -340,6 +340,9 @@ var RecurringFinancialRecordsApi = /** @class */ (function (_super) {
                             throw new runtime.RequiredError('partialUpdateRecurringFinancialRecordRequestBodyDto', 'Required parameter "partialUpdateRecurringFinancialRecordRequestBodyDto" was null or undefined when calling partialUpdateRecurringFinancialRecord().');
                         }
                         queryParameters = {};
+                        if (requestParameters['populate'] != null) {
+                            queryParameters['populate'] = requestParameters['populate'];
+                        }
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
                         urlPath = "/external/recurring-financial-records/{id}";

@@ -47,6 +47,7 @@ export interface FindByIdRecurringFinancialRecordRequest {
 export interface PartialUpdateRecurringFinancialRecordRequest {
     id: string;
     partialUpdateRecurringFinancialRecordRequestBodyDto: PartialUpdateRecurringFinancialRecordRequestBodyDto;
+    populate?: string;
 }
 export interface RemoveRecurringFinancialRecordRequest {
     id: string;
@@ -143,6 +144,7 @@ export interface RecurringFinancialRecordsApiInterface {
      * @summary Atualiza parcialmente um lançamento financeiro recorrente.
      * @param {string} id Identificador do lançamento financeiro recorrente.
      * @param {PartialUpdateRecurringFinancialRecordRequestBodyDto} partialUpdateRecurringFinancialRecordRequestBodyDto
+     * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof RecurringFinancialRecordsApiInterface
