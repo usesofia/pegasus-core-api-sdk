@@ -46,6 +46,12 @@ export interface OfxImportJobRequestEntity {
      */
     signedUrl: string;
     /**
+     * Número máximo de transações para sugestão de AI na importação.
+     * @type {number}
+     * @memberof OfxImportJobRequestEntity
+     */
+    maxTransactionsForAiSuggestionOnImport: number;
+    /**
      * Identificador do usuário que solicitou a importação.
      * @type {string}
      * @memberof OfxImportJobRequestEntity
