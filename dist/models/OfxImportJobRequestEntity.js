@@ -32,8 +32,6 @@ function instanceOfOfxImportJobRequestEntity(value) {
         return false;
     if (!('signedUrl' in value) || value['signedUrl'] === undefined)
         return false;
-    if (!('maxTransactionsForAiSuggestionOnImport' in value) || value['maxTransactionsForAiSuggestionOnImport'] === undefined)
-        return false;
     if (!('requesterUserId' in value) || value['requesterUserId'] === undefined)
         return false;
     if (!('createdAt' in value) || value['createdAt'] === undefined)
@@ -57,7 +55,7 @@ function OfxImportJobRequestEntityFromJSONTyped(json, ignoreDiscriminator) {
         'bankAccountName': json['bankAccountName'],
         'fileName': json['fileName'],
         'signedUrl': json['signedUrl'],
-        'maxTransactionsForAiSuggestionOnImport': json['maxTransactionsForAiSuggestionOnImport'],
+        'maxTransactionsForAiSuggestionOnImport': json['maxTransactionsForAiSuggestionOnImport'] == null ? undefined : json['maxTransactionsForAiSuggestionOnImport'],
         'requesterUserId': json['requesterUserId'],
         'totalTransactions': json['totalTransactions'] == null ? undefined : json['totalTransactions'],
         'periodStartDate': json['periodStartDate'] == null ? undefined : json['periodStartDate'],

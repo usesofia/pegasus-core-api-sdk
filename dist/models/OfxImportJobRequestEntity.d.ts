@@ -50,7 +50,7 @@ export interface OfxImportJobRequestEntity {
      * @type {number}
      * @memberof OfxImportJobRequestEntity
      */
-    maxTransactionsForAiSuggestionOnImport: number;
+    maxTransactionsForAiSuggestionOnImport?: number;
     /**
      * Identificador do usuário que solicitou a importação.
      * @type {string}

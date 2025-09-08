@@ -54,7 +54,7 @@ export interface OfxImportJobRequestEntity {
      * @type {number}
      * @memberof OfxImportJobRequestEntity
      */
-    maxTransactionsForAiSuggestionOnImport: number;
+    maxTransactionsForAiSuggestionOnImport?: number;
     /**
      * Identificador do usuário que solicitou a importação.
      * @type {string}
@@ -108,7 +108,6 @@ export function instanceOfOfxImportJobRequestEntity(value: object): value is Ofx
     if (!('bankAccountName' in value) || value['bankAccountName'] === undefined) return false;
     if (!('fileName' in value) || value['fileName'] === undefined) return false;
     if (!('signedUrl' in value) || value['signedUrl'] === undefined) return false;
-    if (!('maxTransactionsForAiSuggestionOnImport' in value) || value['maxTransactionsForAiSuggestionOnImport'] === undefined) return false;
     if (!('requesterUserId' in value) || value['requesterUserId'] === undefined) return false;
     if (!('createdAt' in value) || value['createdAt'] === undefined) return false;
     if (!('updatedAt' in value) || value['updatedAt'] === undefined) return false;
@@ -131,7 +130,7 @@ export function OfxImportJobRequestEntityFromJSONTyped(json: any, ignoreDiscrimi
         'bankAccountName': json['bankAccountName'],
         'fileName': json['fileName'],
         'signedUrl': json['signedUrl'],
-        'maxTransactionsForAiSuggestionOnImport': json['maxTransactionsForAiSuggestionOnImport'],
+        'maxTransactionsForAiSuggestionOnImport': json['maxTransactionsForAiSuggestionOnImport'] == null ? undefined : json['maxTransactionsForAiSuggestionOnImport'],
         'requesterUserId': json['requesterUserId'],
         'totalTransactions': json['totalTransactions'] == null ? undefined : json['totalTransactions'],
         'periodStartDate': json['periodStartDate'] == null ? undefined : json['periodStartDate'],
