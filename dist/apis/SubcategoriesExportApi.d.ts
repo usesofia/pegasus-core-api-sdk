@@ -12,6 +12,9 @@
 import * as runtime from '../runtime';
 import type { ExportSubcategoriesDto } from '../models/index';
 export interface ExportSubcategoriesRequest {
+    active?: boolean;
+    categoryId?: string;
+    direction?: string;
     format?: ExportSubcategoriesFormatEnum;
 }
 /**
@@ -24,6 +27,9 @@ export interface SubcategoriesExportApiInterface {
     /**
      *
      * @summary Solicita a exportação das subcategorias.
+     * @param {boolean} [active] Filtra subcategorias ativas ou inativas.
+     * @param {string} [categoryId] ID da categoria para filtrar subcategorias.
+     * @param {string} [direction] Direção da subcategoria.
      * @param {'csv' | 'xlsx'} [format] Formato de exportação dos dados.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}

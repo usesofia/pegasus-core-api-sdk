@@ -85,6 +85,27 @@ var BankAccountsExportApi = /** @class */ (function (_super) {
                 switch (_a.label) {
                     case 0:
                         queryParameters = {};
+                        if (requestParameters['providerAccountId'] != null) {
+                            queryParameters['providerAccountId'] = requestParameters['providerAccountId'];
+                        }
+                        if (requestParameters['provider'] != null) {
+                            queryParameters['provider'] = requestParameters['provider'];
+                        }
+                        if (requestParameters['active'] != null) {
+                            queryParameters['active'] = requestParameters['active'];
+                        }
+                        if (requestParameters['ids'] != null) {
+                            queryParameters['ids'] = requestParameters['ids'];
+                        }
+                        if (requestParameters['isDefault'] != null) {
+                            queryParameters['isDefault'] = requestParameters['isDefault'];
+                        }
+                        if (requestParameters['isAutomatic'] != null) {
+                            queryParameters['isAutomatic'] = requestParameters['isAutomatic'];
+                        }
+                        if (requestParameters['type'] != null) {
+                            queryParameters['type'] = requestParameters['type'];
+                        }
                         if (requestParameters['format'] != null) {
                             queryParameters['format'] = requestParameters['format'];
                         }

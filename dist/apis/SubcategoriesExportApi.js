@@ -85,6 +85,15 @@ var SubcategoriesExportApi = /** @class */ (function (_super) {
                 switch (_a.label) {
                     case 0:
                         queryParameters = {};
+                        if (requestParameters['active'] != null) {
+                            queryParameters['active'] = requestParameters['active'];
+                        }
+                        if (requestParameters['categoryId'] != null) {
+                            queryParameters['categoryId'] = requestParameters['categoryId'];
+                        }
+                        if (requestParameters['direction'] != null) {
+                            queryParameters['direction'] = requestParameters['direction'];
+                        }
                         if (requestParameters['format'] != null) {
                             queryParameters['format'] = requestParameters['format'];
                         }

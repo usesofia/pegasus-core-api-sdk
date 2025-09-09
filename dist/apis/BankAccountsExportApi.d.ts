@@ -12,6 +12,13 @@
 import * as runtime from '../runtime';
 import type { ExportBankAccountsDto } from '../models/index';
 export interface ExportBankAccountsRequest {
+    providerAccountId?: string;
+    provider?: string;
+    active?: boolean;
+    ids?: Array<string>;
+    isDefault?: boolean;
+    isAutomatic?: boolean;
+    type?: string;
     format?: ExportBankAccountsFormatEnum;
 }
 /**
@@ -24,6 +31,13 @@ export interface BankAccountsExportApiInterface {
     /**
      *
      * @summary Solicita a exportação das contas bancárias.
+     * @param {string} [providerAccountId] Identificador da conta bancária no fornecedor.
+     * @param {string} [provider] Fornecedor da conta bancária.
+     * @param {boolean} [active] Indica se a conta está ativa.
+     * @param {Array<string>} [ids] Identificadores das contas bancárias a serem buscadas.
+     * @param {boolean} [isDefault] Indica se a conta é a padrão.
+     * @param {boolean} [isAutomatic] Indica se a conta é automática ou manual.
+     * @param {string} [type] Tipo de conta bancária a ser buscada.
      * @param {'csv' | 'xlsx'} [format] Formato de exportação dos dados.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}

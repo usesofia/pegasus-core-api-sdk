@@ -26,6 +26,20 @@ import {
 } from '../models/index';
 
 export interface ExportRecurringFinancialRecordsRequest {
+    frequency?: ExportRecurringFinancialRecordsFrequencyEnum;
+    isActive?: boolean;
+    automaticCompletion?: boolean;
+    onlyBusinessDays?: boolean;
+    repetitionMonth?: number;
+    repetitionDay?: number;
+    tags?: Array<any>;
+    amountTo?: string;
+    amountFrom?: string;
+    subcategory?: string;
+    contact?: string;
+    firstOccurrenceDateTo?: Date;
+    firstOccurrenceDateFrom?: Date;
+    direction?: ExportRecurringFinancialRecordsDirectionEnum;
     format?: ExportRecurringFinancialRecordsFormatEnum;
 }
 
@@ -39,6 +53,20 @@ export interface RecurringFinancialRecordsExportApiInterface {
     /**
      * 
      * @summary Solicita a exportação dos lançamentos recorrentes.
+     * @param {'WEEKLY' | 'MONTHLY' | 'YEARLY'} [frequency] Frequência de repetição do lançamento.
+     * @param {boolean} [isActive] Indica se o lançamento recorrente está ativo.
+     * @param {boolean} [automaticCompletion] Indica se o lançamento será completado automaticamente.
+     * @param {boolean} [onlyBusinessDays] Indica se o lançamento será apenas em dias úteis.
+     * @param {number} [repetitionMonth] Mês de repetição do lançamento.
+     * @param {number} [repetitionDay] Dia de repetição do lançamento.
+     * @param {Array<any>} [tags] Identificadores das tags.
+     * @param {string} [amountTo] Valor máximo do lançamento.
+     * @param {string} [amountFrom] Valor mínimo do lançamento.
+     * @param {string} [subcategory] Identificador da subcategoria.
+     * @param {string} [contact] Identificador do contato.
+     * @param {Date} [firstOccurrenceDateTo] Data final da primeira ocorrência (formato ISO YYYY-MM-DD).
+     * @param {Date} [firstOccurrenceDateFrom] Data inicial da primeira ocorrência (formato ISO YYYY-MM-DD).
+     * @param {'IN' | 'OUT'} [direction] Direção do lançamento (entrada/saída).
      * @param {'csv' | 'xlsx'} [format] Formato de exportação dos dados.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -63,6 +91,62 @@ export class RecurringFinancialRecordsExportApi extends runtime.BaseAPI implemen
      */
     async exportRecurringFinancialRecordsRaw(requestParameters: ExportRecurringFinancialRecordsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ExportRecurringFinancialRecordsDto>> {
         const queryParameters: any = {};
+
+        if (requestParameters['frequency'] != null) {
+            queryParameters['frequency'] = requestParameters['frequency'];
+        }
+
+        if (requestParameters['isActive'] != null) {
+            queryParameters['isActive'] = requestParameters['isActive'];
+        }
+
+        if (requestParameters['automaticCompletion'] != null) {
+            queryParameters['automaticCompletion'] = requestParameters['automaticCompletion'];
+        }
+
+        if (requestParameters['onlyBusinessDays'] != null) {
+            queryParameters['onlyBusinessDays'] = requestParameters['onlyBusinessDays'];
+        }
+
+        if (requestParameters['repetitionMonth'] != null) {
+            queryParameters['repetitionMonth'] = requestParameters['repetitionMonth'];
+        }
+
+        if (requestParameters['repetitionDay'] != null) {
+            queryParameters['repetitionDay'] = requestParameters['repetitionDay'];
+        }
+
+        if (requestParameters['tags'] != null) {
+            queryParameters['tags'] = requestParameters['tags'];
+        }
+
+        if (requestParameters['amountTo'] != null) {
+            queryParameters['amountTo'] = requestParameters['amountTo'];
+        }
+
+        if (requestParameters['amountFrom'] != null) {
+            queryParameters['amountFrom'] = requestParameters['amountFrom'];
+        }
+
+        if (requestParameters['subcategory'] != null) {
+            queryParameters['subcategory'] = requestParameters['subcategory'];
+        }
+
+        if (requestParameters['contact'] != null) {
+            queryParameters['contact'] = requestParameters['contact'];
+        }
+
+        if (requestParameters['firstOccurrenceDateTo'] != null) {
+            queryParameters['firstOccurrenceDateTo'] = (requestParameters['firstOccurrenceDateTo'] as any).toISOString().substring(0,10);
+        }
+
+        if (requestParameters['firstOccurrenceDateFrom'] != null) {
+            queryParameters['firstOccurrenceDateFrom'] = (requestParameters['firstOccurrenceDateFrom'] as any).toISOString().substring(0,10);
+        }
+
+        if (requestParameters['direction'] != null) {
+            queryParameters['direction'] = requestParameters['direction'];
+        }
 
         if (requestParameters['format'] != null) {
             queryParameters['format'] = requestParameters['format'];
@@ -93,6 +177,23 @@ export class RecurringFinancialRecordsExportApi extends runtime.BaseAPI implemen
 
 }
 
+/**
+ * @export
+ */
+export const ExportRecurringFinancialRecordsFrequencyEnum = {
+    Weekly: 'WEEKLY',
+    Monthly: 'MONTHLY',
+    Yearly: 'YEARLY'
+} as const;
+export type ExportRecurringFinancialRecordsFrequencyEnum = typeof ExportRecurringFinancialRecordsFrequencyEnum[keyof typeof ExportRecurringFinancialRecordsFrequencyEnum];
+/**
+ * @export
+ */
+export const ExportRecurringFinancialRecordsDirectionEnum = {
+    In: 'IN',
+    Out: 'OUT'
+} as const;
+export type ExportRecurringFinancialRecordsDirectionEnum = typeof ExportRecurringFinancialRecordsDirectionEnum[keyof typeof ExportRecurringFinancialRecordsDirectionEnum];
 /**
  * @export
  */

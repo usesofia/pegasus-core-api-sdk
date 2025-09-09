@@ -12,6 +12,20 @@
 import * as runtime from '../runtime';
 import type { ExportRecurringFinancialRecordsDto } from '../models/index';
 export interface ExportRecurringFinancialRecordsRequest {
+    frequency?: ExportRecurringFinancialRecordsFrequencyEnum;
+    isActive?: boolean;
+    automaticCompletion?: boolean;
+    onlyBusinessDays?: boolean;
+    repetitionMonth?: number;
+    repetitionDay?: number;
+    tags?: Array<any>;
+    amountTo?: string;
+    amountFrom?: string;
+    subcategory?: string;
+    contact?: string;
+    firstOccurrenceDateTo?: Date;
+    firstOccurrenceDateFrom?: Date;
+    direction?: ExportRecurringFinancialRecordsDirectionEnum;
     format?: ExportRecurringFinancialRecordsFormatEnum;
 }
 /**
@@ -24,6 +38,20 @@ export interface RecurringFinancialRecordsExportApiInterface {
     /**
      *
      * @summary Solicita a exportação dos lançamentos recorrentes.
+     * @param {'WEEKLY' | 'MONTHLY' | 'YEARLY'} [frequency] Frequência de repetição do lançamento.
+     * @param {boolean} [isActive] Indica se o lançamento recorrente está ativo.
+     * @param {boolean} [automaticCompletion] Indica se o lançamento será completado automaticamente.
+     * @param {boolean} [onlyBusinessDays] Indica se o lançamento será apenas em dias úteis.
+     * @param {number} [repetitionMonth] Mês de repetição do lançamento.
+     * @param {number} [repetitionDay] Dia de repetição do lançamento.
+     * @param {Array<any>} [tags] Identificadores das tags.
+     * @param {string} [amountTo] Valor máximo do lançamento.
+     * @param {string} [amountFrom] Valor mínimo do lançamento.
+     * @param {string} [subcategory] Identificador da subcategoria.
+     * @param {string} [contact] Identificador do contato.
+     * @param {Date} [firstOccurrenceDateTo] Data final da primeira ocorrência (formato ISO YYYY-MM-DD).
+     * @param {Date} [firstOccurrenceDateFrom] Data inicial da primeira ocorrência (formato ISO YYYY-MM-DD).
+     * @param {'IN' | 'OUT'} [direction] Direção do lançamento (entrada/saída).
      * @param {'csv' | 'xlsx'} [format] Formato de exportação dos dados.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -48,6 +76,23 @@ export declare class RecurringFinancialRecordsExportApi extends runtime.BaseAPI 
      */
     exportRecurringFinancialRecords(requestParameters?: ExportRecurringFinancialRecordsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ExportRecurringFinancialRecordsDto>;
 }
+/**
+ * @export
+ */
+export declare const ExportRecurringFinancialRecordsFrequencyEnum: {
+    readonly Weekly: "WEEKLY";
+    readonly Monthly: "MONTHLY";
+    readonly Yearly: "YEARLY";
+};
+export type ExportRecurringFinancialRecordsFrequencyEnum = typeof ExportRecurringFinancialRecordsFrequencyEnum[keyof typeof ExportRecurringFinancialRecordsFrequencyEnum];
+/**
+ * @export
+ */
+export declare const ExportRecurringFinancialRecordsDirectionEnum: {
+    readonly In: "IN";
+    readonly Out: "OUT";
+};
+export type ExportRecurringFinancialRecordsDirectionEnum = typeof ExportRecurringFinancialRecordsDirectionEnum[keyof typeof ExportRecurringFinancialRecordsDirectionEnum];
 /**
  * @export
  */

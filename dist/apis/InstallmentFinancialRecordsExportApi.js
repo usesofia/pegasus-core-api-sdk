@@ -64,7 +64,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ExportInstallmentFinancialRecordsFormatEnum = exports.InstallmentFinancialRecordsExportApi = void 0;
+exports.ExportInstallmentFinancialRecordsFormatEnum = exports.ExportInstallmentFinancialRecordsDirectionEnum = exports.ExportInstallmentFinancialRecordsFrequencyEnum = exports.InstallmentFinancialRecordsExportApi = void 0;
 var runtime = require("../runtime");
 var index_1 = require("../models/index");
 /**
@@ -85,6 +85,36 @@ var InstallmentFinancialRecordsExportApi = /** @class */ (function (_super) {
                 switch (_a.label) {
                     case 0:
                         queryParameters = {};
+                        if (requestParameters['completed'] != null) {
+                            queryParameters['completed'] = requestParameters['completed'];
+                        }
+                        if (requestParameters['frequency'] != null) {
+                            queryParameters['frequency'] = requestParameters['frequency'];
+                        }
+                        if (requestParameters['competenceDateTo'] != null) {
+                            queryParameters['competenceDateTo'] = requestParameters['competenceDateTo'].toISOString().substring(0, 10);
+                        }
+                        if (requestParameters['competenceDateFrom'] != null) {
+                            queryParameters['competenceDateFrom'] = requestParameters['competenceDateFrom'].toISOString().substring(0, 10);
+                        }
+                        if (requestParameters['tags'] != null) {
+                            queryParameters['tags'] = requestParameters['tags'];
+                        }
+                        if (requestParameters['subcategory'] != null) {
+                            queryParameters['subcategory'] = requestParameters['subcategory'];
+                        }
+                        if (requestParameters['contact'] != null) {
+                            queryParameters['contact'] = requestParameters['contact'];
+                        }
+                        if (requestParameters['firstInstallmentDateTo'] != null) {
+                            queryParameters['firstInstallmentDateTo'] = requestParameters['firstInstallmentDateTo'].toISOString().substring(0, 10);
+                        }
+                        if (requestParameters['firstInstallmentDateFrom'] != null) {
+                            queryParameters['firstInstallmentDateFrom'] = requestParameters['firstInstallmentDateFrom'].toISOString().substring(0, 10);
+                        }
+                        if (requestParameters['direction'] != null) {
+                            queryParameters['direction'] = requestParameters['direction'];
+                        }
                         if (requestParameters['format'] != null) {
                             queryParameters['format'] = requestParameters['format'];
                         }
@@ -124,6 +154,21 @@ var InstallmentFinancialRecordsExportApi = /** @class */ (function (_super) {
     return InstallmentFinancialRecordsExportApi;
 }(runtime.BaseAPI));
 exports.InstallmentFinancialRecordsExportApi = InstallmentFinancialRecordsExportApi;
+/**
+ * @export
+ */
+exports.ExportInstallmentFinancialRecordsFrequencyEnum = {
+    Monthly: 'MONTHLY',
+    Weekly: 'WEEKLY',
+    Yearly: 'YEARLY'
+};
+/**
+ * @export
+ */
+exports.ExportInstallmentFinancialRecordsDirectionEnum = {
+    In: 'IN',
+    Out: 'OUT'
+};
 /**
  * @export
  */

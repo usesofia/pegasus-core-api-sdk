@@ -26,6 +26,13 @@ import {
 } from '../models/index';
 
 export interface ExportContactsRequest {
+    considerNotIdentified?: boolean;
+    states?: string;
+    country?: string;
+    birthdayTo?: string;
+    birthdayFrom?: string;
+    origins?: string;
+    types?: string;
     format?: ExportContactsFormatEnum;
 }
 
@@ -39,6 +46,13 @@ export interface ContactsExportApiInterface {
     /**
      * 
      * @summary Solicita a exportação dos contatos.
+     * @param {boolean} [considerNotIdentified] Considerar ou não o contato não identificado.
+     * @param {string} [states] Estados a serem buscados.
+     * @param {string} [country] País a serem buscados.
+     * @param {string} [birthdayTo] Data de nascimento final a serem buscadas.
+     * @param {string} [birthdayFrom] Data de nascimento inicial a serem buscadas.
+     * @param {string} [origins] Origens de contato a serem buscadas.
+     * @param {string} [types] Tipos de contato a serem buscados.
      * @param {'csv' | 'xlsx'} [format] Formato de exportação dos dados.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -63,6 +77,34 @@ export class ContactsExportApi extends runtime.BaseAPI implements ContactsExport
      */
     async exportContactsRaw(requestParameters: ExportContactsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ExportContactsDto>> {
         const queryParameters: any = {};
+
+        if (requestParameters['considerNotIdentified'] != null) {
+            queryParameters['considerNotIdentified'] = requestParameters['considerNotIdentified'];
+        }
+
+        if (requestParameters['states'] != null) {
+            queryParameters['states'] = requestParameters['states'];
+        }
+
+        if (requestParameters['country'] != null) {
+            queryParameters['country'] = requestParameters['country'];
+        }
+
+        if (requestParameters['birthdayTo'] != null) {
+            queryParameters['birthdayTo'] = requestParameters['birthdayTo'];
+        }
+
+        if (requestParameters['birthdayFrom'] != null) {
+            queryParameters['birthdayFrom'] = requestParameters['birthdayFrom'];
+        }
+
+        if (requestParameters['origins'] != null) {
+            queryParameters['origins'] = requestParameters['origins'];
+        }
+
+        if (requestParameters['types'] != null) {
+            queryParameters['types'] = requestParameters['types'];
+        }
 
         if (requestParameters['format'] != null) {
             queryParameters['format'] = requestParameters['format'];

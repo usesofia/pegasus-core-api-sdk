@@ -12,6 +12,13 @@
 import * as runtime from '../runtime';
 import type { ExportContactsDto } from '../models/index';
 export interface ExportContactsRequest {
+    considerNotIdentified?: boolean;
+    states?: string;
+    country?: string;
+    birthdayTo?: string;
+    birthdayFrom?: string;
+    origins?: string;
+    types?: string;
     format?: ExportContactsFormatEnum;
 }
 /**
@@ -24,6 +31,13 @@ export interface ContactsExportApiInterface {
     /**
      *
      * @summary Solicita a exportação dos contatos.
+     * @param {boolean} [considerNotIdentified] Considerar ou não o contato não identificado.
+     * @param {string} [states] Estados a serem buscados.
+     * @param {string} [country] País a serem buscados.
+     * @param {string} [birthdayTo] Data de nascimento final a serem buscadas.
+     * @param {string} [birthdayFrom] Data de nascimento inicial a serem buscadas.
+     * @param {string} [origins] Origens de contato a serem buscadas.
+     * @param {string} [types] Tipos de contato a serem buscados.
      * @param {'csv' | 'xlsx'} [format] Formato de exportação dos dados.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}

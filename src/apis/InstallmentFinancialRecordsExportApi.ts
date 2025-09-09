@@ -26,6 +26,16 @@ import {
 } from '../models/index';
 
 export interface ExportInstallmentFinancialRecordsRequest {
+    completed?: boolean;
+    frequency?: ExportInstallmentFinancialRecordsFrequencyEnum;
+    competenceDateTo?: Date;
+    competenceDateFrom?: Date;
+    tags?: Array<any>;
+    subcategory?: string;
+    contact?: string;
+    firstInstallmentDateTo?: Date;
+    firstInstallmentDateFrom?: Date;
+    direction?: ExportInstallmentFinancialRecordsDirectionEnum;
     format?: ExportInstallmentFinancialRecordsFormatEnum;
 }
 
@@ -39,6 +49,16 @@ export interface InstallmentFinancialRecordsExportApiInterface {
     /**
      * 
      * @summary Solicita a exportação dos lançamentos financeiros parcelados.
+     * @param {boolean} [completed] Indica se o lançamento parcelado está completo (todas as parcelas pagas/recebidas).
+     * @param {'MONTHLY' | 'WEEKLY' | 'YEARLY'} [frequency] Frequência do lançamento parcelado.
+     * @param {Date} [competenceDateTo] Data de competência final (formato ISO YYYY-MM-DD).
+     * @param {Date} [competenceDateFrom] Data de competência inicial (formato ISO YYYY-MM-DD).
+     * @param {Array<any>} [tags] Identificadores das tags.
+     * @param {string} [subcategory] Identificador da subcategoria.
+     * @param {string} [contact] Identificador do contato.
+     * @param {Date} [firstInstallmentDateTo] Data final da primeira parcela (formato ISO YYYY-MM-DD).
+     * @param {Date} [firstInstallmentDateFrom] Data inicial da primeira parcela (formato ISO YYYY-MM-DD).
+     * @param {'IN' | 'OUT'} [direction] Direção do lançamento (entrada/saída).
      * @param {'csv' | 'xlsx'} [format] Formato de exportação dos dados (CSV padrão).
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -63,6 +83,46 @@ export class InstallmentFinancialRecordsExportApi extends runtime.BaseAPI implem
      */
     async exportInstallmentFinancialRecordsRaw(requestParameters: ExportInstallmentFinancialRecordsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ExportInstallmentFinancialRecordsDto>> {
         const queryParameters: any = {};
+
+        if (requestParameters['completed'] != null) {
+            queryParameters['completed'] = requestParameters['completed'];
+        }
+
+        if (requestParameters['frequency'] != null) {
+            queryParameters['frequency'] = requestParameters['frequency'];
+        }
+
+        if (requestParameters['competenceDateTo'] != null) {
+            queryParameters['competenceDateTo'] = (requestParameters['competenceDateTo'] as any).toISOString().substring(0,10);
+        }
+
+        if (requestParameters['competenceDateFrom'] != null) {
+            queryParameters['competenceDateFrom'] = (requestParameters['competenceDateFrom'] as any).toISOString().substring(0,10);
+        }
+
+        if (requestParameters['tags'] != null) {
+            queryParameters['tags'] = requestParameters['tags'];
+        }
+
+        if (requestParameters['subcategory'] != null) {
+            queryParameters['subcategory'] = requestParameters['subcategory'];
+        }
+
+        if (requestParameters['contact'] != null) {
+            queryParameters['contact'] = requestParameters['contact'];
+        }
+
+        if (requestParameters['firstInstallmentDateTo'] != null) {
+            queryParameters['firstInstallmentDateTo'] = (requestParameters['firstInstallmentDateTo'] as any).toISOString().substring(0,10);
+        }
+
+        if (requestParameters['firstInstallmentDateFrom'] != null) {
+            queryParameters['firstInstallmentDateFrom'] = (requestParameters['firstInstallmentDateFrom'] as any).toISOString().substring(0,10);
+        }
+
+        if (requestParameters['direction'] != null) {
+            queryParameters['direction'] = requestParameters['direction'];
+        }
 
         if (requestParameters['format'] != null) {
             queryParameters['format'] = requestParameters['format'];
@@ -93,6 +153,23 @@ export class InstallmentFinancialRecordsExportApi extends runtime.BaseAPI implem
 
 }
 
+/**
+ * @export
+ */
+export const ExportInstallmentFinancialRecordsFrequencyEnum = {
+    Monthly: 'MONTHLY',
+    Weekly: 'WEEKLY',
+    Yearly: 'YEARLY'
+} as const;
+export type ExportInstallmentFinancialRecordsFrequencyEnum = typeof ExportInstallmentFinancialRecordsFrequencyEnum[keyof typeof ExportInstallmentFinancialRecordsFrequencyEnum];
+/**
+ * @export
+ */
+export const ExportInstallmentFinancialRecordsDirectionEnum = {
+    In: 'IN',
+    Out: 'OUT'
+} as const;
+export type ExportInstallmentFinancialRecordsDirectionEnum = typeof ExportInstallmentFinancialRecordsDirectionEnum[keyof typeof ExportInstallmentFinancialRecordsDirectionEnum];
 /**
  * @export
  */

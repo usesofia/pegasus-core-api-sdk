@@ -85,6 +85,27 @@ var ContactsExportApi = /** @class */ (function (_super) {
                 switch (_a.label) {
                     case 0:
                         queryParameters = {};
+                        if (requestParameters['considerNotIdentified'] != null) {
+                            queryParameters['considerNotIdentified'] = requestParameters['considerNotIdentified'];
+                        }
+                        if (requestParameters['states'] != null) {
+                            queryParameters['states'] = requestParameters['states'];
+                        }
+                        if (requestParameters['country'] != null) {
+                            queryParameters['country'] = requestParameters['country'];
+                        }
+                        if (requestParameters['birthdayTo'] != null) {
+                            queryParameters['birthdayTo'] = requestParameters['birthdayTo'];
+                        }
+                        if (requestParameters['birthdayFrom'] != null) {
+                            queryParameters['birthdayFrom'] = requestParameters['birthdayFrom'];
+                        }
+                        if (requestParameters['origins'] != null) {
+                            queryParameters['origins'] = requestParameters['origins'];
+                        }
+                        if (requestParameters['types'] != null) {
+                            queryParameters['types'] = requestParameters['types'];
+                        }
                         if (requestParameters['format'] != null) {
                             queryParameters['format'] = requestParameters['format'];
                         }

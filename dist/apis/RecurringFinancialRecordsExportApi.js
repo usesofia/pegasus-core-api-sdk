@@ -64,7 +64,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ExportRecurringFinancialRecordsFormatEnum = exports.RecurringFinancialRecordsExportApi = void 0;
+exports.ExportRecurringFinancialRecordsFormatEnum = exports.ExportRecurringFinancialRecordsDirectionEnum = exports.ExportRecurringFinancialRecordsFrequencyEnum = exports.RecurringFinancialRecordsExportApi = void 0;
 var runtime = require("../runtime");
 var index_1 = require("../models/index");
 /**
@@ -85,6 +85,48 @@ var RecurringFinancialRecordsExportApi = /** @class */ (function (_super) {
                 switch (_a.label) {
                     case 0:
                         queryParameters = {};
+                        if (requestParameters['frequency'] != null) {
+                            queryParameters['frequency'] = requestParameters['frequency'];
+                        }
+                        if (requestParameters['isActive'] != null) {
+                            queryParameters['isActive'] = requestParameters['isActive'];
+                        }
+                        if (requestParameters['automaticCompletion'] != null) {
+                            queryParameters['automaticCompletion'] = requestParameters['automaticCompletion'];
+                        }
+                        if (requestParameters['onlyBusinessDays'] != null) {
+                            queryParameters['onlyBusinessDays'] = requestParameters['onlyBusinessDays'];
+                        }
+                        if (requestParameters['repetitionMonth'] != null) {
+                            queryParameters['repetitionMonth'] = requestParameters['repetitionMonth'];
+                        }
+                        if (requestParameters['repetitionDay'] != null) {
+                            queryParameters['repetitionDay'] = requestParameters['repetitionDay'];
+                        }
+                        if (requestParameters['tags'] != null) {
+                            queryParameters['tags'] = requestParameters['tags'];
+                        }
+                        if (requestParameters['amountTo'] != null) {
+                            queryParameters['amountTo'] = requestParameters['amountTo'];
+                        }
+                        if (requestParameters['amountFrom'] != null) {
+                            queryParameters['amountFrom'] = requestParameters['amountFrom'];
+                        }
+                        if (requestParameters['subcategory'] != null) {
+                            queryParameters['subcategory'] = requestParameters['subcategory'];
+                        }
+                        if (requestParameters['contact'] != null) {
+                            queryParameters['contact'] = requestParameters['contact'];
+                        }
+                        if (requestParameters['firstOccurrenceDateTo'] != null) {
+                            queryParameters['firstOccurrenceDateTo'] = requestParameters['firstOccurrenceDateTo'].toISOString().substring(0, 10);
+                        }
+                        if (requestParameters['firstOccurrenceDateFrom'] != null) {
+                            queryParameters['firstOccurrenceDateFrom'] = requestParameters['firstOccurrenceDateFrom'].toISOString().substring(0, 10);
+                        }
+                        if (requestParameters['direction'] != null) {
+                            queryParameters['direction'] = requestParameters['direction'];
+                        }
                         if (requestParameters['format'] != null) {
                             queryParameters['format'] = requestParameters['format'];
                         }
@@ -124,6 +166,21 @@ var RecurringFinancialRecordsExportApi = /** @class */ (function (_super) {
     return RecurringFinancialRecordsExportApi;
 }(runtime.BaseAPI));
 exports.RecurringFinancialRecordsExportApi = RecurringFinancialRecordsExportApi;
+/**
+ * @export
+ */
+exports.ExportRecurringFinancialRecordsFrequencyEnum = {
+    Weekly: 'WEEKLY',
+    Monthly: 'MONTHLY',
+    Yearly: 'YEARLY'
+};
+/**
+ * @export
+ */
+exports.ExportRecurringFinancialRecordsDirectionEnum = {
+    In: 'IN',
+    Out: 'OUT'
+};
 /**
  * @export
  */
