@@ -120,6 +120,7 @@ export * from './ExecuteBulkRemoveJobRequestBodyDto';
 export * from './ExecuteBulkUpdateJobRequestBodyDto';
 export * from './ExecuteOfxImportJobRequestBodyDto';
 export * from './ExportBankAccountsDto';
+export * from './ExportBankTransactionsDto';
 export * from './ExportContactsDto';
 export * from './ExportFinancialRecordsDto';
 export * from './ExportInstallmentFinancialRecordsDto';

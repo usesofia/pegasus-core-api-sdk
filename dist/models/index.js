@@ -136,6 +136,7 @@ __exportStar(require("./ExecuteBulkRemoveJobRequestBodyDto"), exports);
 __exportStar(require("./ExecuteBulkUpdateJobRequestBodyDto"), exports);
 __exportStar(require("./ExecuteOfxImportJobRequestBodyDto"), exports);
 __exportStar(require("./ExportBankAccountsDto"), exports);
+__exportStar(require("./ExportBankTransactionsDto"), exports);
 __exportStar(require("./ExportContactsDto"), exports);
 __exportStar(require("./ExportFinancialRecordsDto"), exports);
 __exportStar(require("./ExportInstallmentFinancialRecordsDto"), exports);

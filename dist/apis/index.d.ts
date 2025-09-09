@@ -3,6 +3,7 @@ export * from './BankAccountsApi';
 export * from './BankAccountsExportApi';
 export * from './BankInstitutionsApi';
 export * from './BankTransactionsApi';
+export * from './BankTransactionsExportApi';
 export * from './BulkCreateApi';
 export * from './BulkRemoveApi';
 export * from './BulkUpdateApi';

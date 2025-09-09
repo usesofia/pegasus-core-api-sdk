@@ -7,6 +7,7 @@ src/apis/BankAccountsApi.ts
 src/apis/BankAccountsExportApi.ts
 src/apis/BankInstitutionsApi.ts
 src/apis/BankTransactionsApi.ts
+src/apis/BankTransactionsExportApi.ts
 src/apis/BulkCreateApi.ts
 src/apis/BulkRemoveApi.ts
 src/apis/BulkUpdateApi.ts
@@ -161,6 +162,7 @@ src/models/ExecuteBulkRemoveJobRequestBodyDto.ts
 src/models/ExecuteBulkUpdateJobRequestBodyDto.ts
 src/models/ExecuteOfxImportJobRequestBodyDto.ts
 src/models/ExportBankAccountsDto.ts
+src/models/ExportBankTransactionsDto.ts
 src/models/ExportContactsDto.ts
 src/models/ExportFinancialRecordsDto.ts
 src/models/ExportInstallmentFinancialRecordsDto.ts

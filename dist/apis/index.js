@@ -21,6 +21,7 @@ __exportStar(require("./BankAccountsApi"), exports);
 __exportStar(require("./BankAccountsExportApi"), exports);
 __exportStar(require("./BankInstitutionsApi"), exports);
 __exportStar(require("./BankTransactionsApi"), exports);
+__exportStar(require("./BankTransactionsExportApi"), exports);
 __exportStar(require("./BulkCreateApi"), exports);
 __exportStar(require("./BulkRemoveApi"), exports);
 __exportStar(require("./BulkUpdateApi"), exports);
