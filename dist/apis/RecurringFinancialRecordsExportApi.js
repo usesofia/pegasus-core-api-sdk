@@ -64,7 +64,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ExportRecurringFinancialRecordsFormatEnum = exports.ExportRecurringFinancialRecordsDirectionEnum = exports.ExportRecurringFinancialRecordsFrequencyEnum = exports.RecurringFinancialRecordsExportApi = void 0;
+exports.ExportRecurringFinancialRecordsFormatEnum = exports.ExportRecurringFinancialRecordsDirectionEnum = exports.ExportRecurringFinancialRecordsFrequencyEnum = exports.ExportRecurringFinancialRecordsSortByEnum = exports.ExportRecurringFinancialRecordsSortOrderEnum = exports.RecurringFinancialRecordsExportApi = void 0;
 var runtime = require("../runtime");
 var index_1 = require("../models/index");
 /**
@@ -85,6 +85,12 @@ var RecurringFinancialRecordsExportApi = /** @class */ (function (_super) {
                 switch (_a.label) {
                     case 0:
                         queryParameters = {};
+                        if (requestParameters['sortOrder'] != null) {
+                            queryParameters['sortOrder'] = requestParameters['sortOrder'];
+                        }
+                        if (requestParameters['sortBy'] != null) {
+                            queryParameters['sortBy'] = requestParameters['sortBy'];
+                        }
                         if (requestParameters['frequency'] != null) {
                             queryParameters['frequency'] = requestParameters['frequency'];
                         }
@@ -166,6 +172,27 @@ var RecurringFinancialRecordsExportApi = /** @class */ (function (_super) {
     return RecurringFinancialRecordsExportApi;
 }(runtime.BaseAPI));
 exports.RecurringFinancialRecordsExportApi = RecurringFinancialRecordsExportApi;
+/**
+ * @export
+ */
+exports.ExportRecurringFinancialRecordsSortOrderEnum = {
+    Asc: 'asc',
+    Desc: 'desc'
+};
+/**
+ * @export
+ */
+exports.ExportRecurringFinancialRecordsSortByEnum = {
+    Direction: 'direction',
+    FirstOccurrenceDate: 'firstOccurrenceDate',
+    Contact: 'contact',
+    Description: 'description',
+    Subcategory: 'subcategory',
+    Amount: 'amount',
+    Frequency: 'frequency',
+    IsActive: 'isActive',
+    CreatedAt: 'createdAt'
+};
 /**
  * @export
  */

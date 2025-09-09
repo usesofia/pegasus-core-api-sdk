@@ -26,6 +26,8 @@ import {
 } from '../models/index';
 
 export interface ExportFinancialRecordsRequest {
+    sortOrder?: string;
+    sortBy?: ExportFinancialRecordsSortByEnum;
     recurringFinancialRecord?: string;
     installmentFinancialRecord?: string;
     account?: string;
@@ -58,6 +60,8 @@ export interface FinancialRecordsExportApiInterface {
     /**
      * 
      * @summary Solicita a exportação dos lançamentos financeiros.
+     * @param {string} [sortOrder] Ordem de ordenação dos lançamentos financeiros.
+     * @param {'direction' | 'dueDate' | 'contact' | 'description' | 'subcategory' | 'amount' | 'competenceDate' | 'cashDate' | 'createdAt'} [sortBy] Campo para ordenação dos lançamentos financeiros.
      * @param {string} [recurringFinancialRecord] ID da recorrência financeira.
      * @param {string} [installmentFinancialRecord] ID do parcelamento financeiro.
      * @param {string} [account] Conta do lançamento financeiro.
@@ -101,6 +105,14 @@ export class FinancialRecordsExportApi extends runtime.BaseAPI implements Financ
      */
     async exportFinancialRecordsRaw(requestParameters: ExportFinancialRecordsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ExportFinancialRecordsDto>> {
         const queryParameters: any = {};
+
+        if (requestParameters['sortOrder'] != null) {
+            queryParameters['sortOrder'] = requestParameters['sortOrder'];
+        }
+
+        if (requestParameters['sortBy'] != null) {
+            queryParameters['sortBy'] = requestParameters['sortBy'];
+        }
 
         if (requestParameters['recurringFinancialRecord'] != null) {
             queryParameters['recurringFinancialRecord'] = requestParameters['recurringFinancialRecord'];
@@ -207,6 +219,21 @@ export class FinancialRecordsExportApi extends runtime.BaseAPI implements Financ
 
 }
 
+/**
+ * @export
+ */
+export const ExportFinancialRecordsSortByEnum = {
+    Direction: 'direction',
+    DueDate: 'dueDate',
+    Contact: 'contact',
+    Description: 'description',
+    Subcategory: 'subcategory',
+    Amount: 'amount',
+    CompetenceDate: 'competenceDate',
+    CashDate: 'cashDate',
+    CreatedAt: 'createdAt'
+} as const;
+export type ExportFinancialRecordsSortByEnum = typeof ExportFinancialRecordsSortByEnum[keyof typeof ExportFinancialRecordsSortByEnum];
 /**
  * @export
  */

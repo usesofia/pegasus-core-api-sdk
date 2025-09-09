@@ -26,6 +26,8 @@ import {
 } from '../models/index';
 
 export interface ExportSubcategoriesRequest {
+    sortOrder?: string;
+    sortBy?: string;
     active?: boolean;
     categoryId?: string;
     direction?: string;
@@ -42,6 +44,8 @@ export interface SubcategoriesExportApiInterface {
     /**
      * 
      * @summary Solicita a exportação das subcategorias.
+     * @param {string} [sortOrder] Ordem de ordenação das subcategorias.
+     * @param {string} [sortBy] Campo para ordenar as subcategorias.
      * @param {boolean} [active] Filtra subcategorias ativas ou inativas.
      * @param {string} [categoryId] ID da categoria para filtrar subcategorias.
      * @param {string} [direction] Direção da subcategoria.
@@ -69,6 +73,14 @@ export class SubcategoriesExportApi extends runtime.BaseAPI implements Subcatego
      */
     async exportSubcategoriesRaw(requestParameters: ExportSubcategoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ExportSubcategoriesDto>> {
         const queryParameters: any = {};
+
+        if (requestParameters['sortOrder'] != null) {
+            queryParameters['sortOrder'] = requestParameters['sortOrder'];
+        }
+
+        if (requestParameters['sortBy'] != null) {
+            queryParameters['sortBy'] = requestParameters['sortBy'];
+        }
 
         if (requestParameters['active'] != null) {
             queryParameters['active'] = requestParameters['active'];

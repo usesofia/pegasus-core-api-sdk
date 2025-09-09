@@ -12,6 +12,8 @@
 import * as runtime from '../runtime';
 import type { ExportTagsDto } from '../models/index';
 export interface ExportTagsRequest {
+    sortOrder?: string;
+    sortBy?: string;
     format?: ExportTagsFormatEnum;
 }
 /**
@@ -24,6 +26,8 @@ export interface TagsExportApiInterface {
     /**
      *
      * @summary Solicita a exportação das tags.
+     * @param {string} [sortOrder] Ordem de ordenação dos resultados. Valores possíveis: asc ou desc.
+     * @param {string} [sortBy] Campo para ordenação dos resultados. Valores possíveis: name ou createdAt.
      * @param {'csv' | 'xlsx'} [format] Formato de exportação dos dados.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}

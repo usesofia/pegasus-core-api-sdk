@@ -26,6 +26,8 @@ import {
 } from '../models/index';
 
 export interface ExportRecurringFinancialRecordsRequest {
+    sortOrder?: ExportRecurringFinancialRecordsSortOrderEnum;
+    sortBy?: ExportRecurringFinancialRecordsSortByEnum;
     frequency?: ExportRecurringFinancialRecordsFrequencyEnum;
     isActive?: boolean;
     automaticCompletion?: boolean;
@@ -53,6 +55,8 @@ export interface RecurringFinancialRecordsExportApiInterface {
     /**
      * 
      * @summary Solicita a exportação dos lançamentos recorrentes.
+     * @param {'asc' | 'desc'} [sortOrder] Ordem da ordenação.
+     * @param {'direction' | 'firstOccurrenceDate' | 'contact' | 'description' | 'subcategory' | 'amount' | 'frequency' | 'isActive' | 'createdAt'} [sortBy] Campo para ordenação.
      * @param {'WEEKLY' | 'MONTHLY' | 'YEARLY'} [frequency] Frequência de repetição do lançamento.
      * @param {boolean} [isActive] Indica se o lançamento recorrente está ativo.
      * @param {boolean} [automaticCompletion] Indica se o lançamento será completado automaticamente.
@@ -91,6 +95,14 @@ export class RecurringFinancialRecordsExportApi extends runtime.BaseAPI implemen
      */
     async exportRecurringFinancialRecordsRaw(requestParameters: ExportRecurringFinancialRecordsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ExportRecurringFinancialRecordsDto>> {
         const queryParameters: any = {};
+
+        if (requestParameters['sortOrder'] != null) {
+            queryParameters['sortOrder'] = requestParameters['sortOrder'];
+        }
+
+        if (requestParameters['sortBy'] != null) {
+            queryParameters['sortBy'] = requestParameters['sortBy'];
+        }
 
         if (requestParameters['frequency'] != null) {
             queryParameters['frequency'] = requestParameters['frequency'];
@@ -177,6 +189,29 @@ export class RecurringFinancialRecordsExportApi extends runtime.BaseAPI implemen
 
 }
 
+/**
+ * @export
+ */
+export const ExportRecurringFinancialRecordsSortOrderEnum = {
+    Asc: 'asc',
+    Desc: 'desc'
+} as const;
+export type ExportRecurringFinancialRecordsSortOrderEnum = typeof ExportRecurringFinancialRecordsSortOrderEnum[keyof typeof ExportRecurringFinancialRecordsSortOrderEnum];
+/**
+ * @export
+ */
+export const ExportRecurringFinancialRecordsSortByEnum = {
+    Direction: 'direction',
+    FirstOccurrenceDate: 'firstOccurrenceDate',
+    Contact: 'contact',
+    Description: 'description',
+    Subcategory: 'subcategory',
+    Amount: 'amount',
+    Frequency: 'frequency',
+    IsActive: 'isActive',
+    CreatedAt: 'createdAt'
+} as const;
+export type ExportRecurringFinancialRecordsSortByEnum = typeof ExportRecurringFinancialRecordsSortByEnum[keyof typeof ExportRecurringFinancialRecordsSortByEnum];
 /**
  * @export
  */

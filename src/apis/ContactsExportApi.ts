@@ -26,6 +26,8 @@ import {
 } from '../models/index';
 
 export interface ExportContactsRequest {
+    sortOrder?: string;
+    sortBy?: string;
     considerNotIdentified?: boolean;
     states?: string;
     country?: string;
@@ -46,6 +48,8 @@ export interface ContactsExportApiInterface {
     /**
      * 
      * @summary Solicita a exportação dos contatos.
+     * @param {string} [sortOrder] Ordem de ordenação dos contatos.
+     * @param {string} [sortBy] Campo para ordenação dos contatos.
      * @param {boolean} [considerNotIdentified] Considerar ou não o contato não identificado.
      * @param {string} [states] Estados a serem buscados.
      * @param {string} [country] País a serem buscados.
@@ -77,6 +81,14 @@ export class ContactsExportApi extends runtime.BaseAPI implements ContactsExport
      */
     async exportContactsRaw(requestParameters: ExportContactsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ExportContactsDto>> {
         const queryParameters: any = {};
+
+        if (requestParameters['sortOrder'] != null) {
+            queryParameters['sortOrder'] = requestParameters['sortOrder'];
+        }
+
+        if (requestParameters['sortBy'] != null) {
+            queryParameters['sortBy'] = requestParameters['sortBy'];
+        }
 
         if (requestParameters['considerNotIdentified'] != null) {
             queryParameters['considerNotIdentified'] = requestParameters['considerNotIdentified'];

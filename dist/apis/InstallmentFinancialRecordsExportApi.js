@@ -64,7 +64,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ExportInstallmentFinancialRecordsFormatEnum = exports.ExportInstallmentFinancialRecordsDirectionEnum = exports.ExportInstallmentFinancialRecordsFrequencyEnum = exports.InstallmentFinancialRecordsExportApi = void 0;
+exports.ExportInstallmentFinancialRecordsFormatEnum = exports.ExportInstallmentFinancialRecordsDirectionEnum = exports.ExportInstallmentFinancialRecordsFrequencyEnum = exports.ExportInstallmentFinancialRecordsSortByEnum = exports.ExportInstallmentFinancialRecordsSortOrderEnum = exports.InstallmentFinancialRecordsExportApi = void 0;
 var runtime = require("../runtime");
 var index_1 = require("../models/index");
 /**
@@ -85,6 +85,12 @@ var InstallmentFinancialRecordsExportApi = /** @class */ (function (_super) {
                 switch (_a.label) {
                     case 0:
                         queryParameters = {};
+                        if (requestParameters['sortOrder'] != null) {
+                            queryParameters['sortOrder'] = requestParameters['sortOrder'];
+                        }
+                        if (requestParameters['sortBy'] != null) {
+                            queryParameters['sortBy'] = requestParameters['sortBy'];
+                        }
                         if (requestParameters['completed'] != null) {
                             queryParameters['completed'] = requestParameters['completed'];
                         }
@@ -154,6 +160,28 @@ var InstallmentFinancialRecordsExportApi = /** @class */ (function (_super) {
     return InstallmentFinancialRecordsExportApi;
 }(runtime.BaseAPI));
 exports.InstallmentFinancialRecordsExportApi = InstallmentFinancialRecordsExportApi;
+/**
+ * @export
+ */
+exports.ExportInstallmentFinancialRecordsSortOrderEnum = {
+    Asc: 'asc',
+    Desc: 'desc'
+};
+/**
+ * @export
+ */
+exports.ExportInstallmentFinancialRecordsSortByEnum = {
+    Direction: 'direction',
+    FirstInstallmentDate: 'firstInstallmentDate',
+    Contact: 'contact',
+    Description: 'description',
+    Subcategory: 'subcategory',
+    Amount: 'amount',
+    Tags: 'tags',
+    CompetenceDate: 'competenceDate',
+    Frequency: 'frequency',
+    CreatedAt: 'createdAt'
+};
 /**
  * @export
  */

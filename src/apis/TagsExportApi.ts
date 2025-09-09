@@ -26,6 +26,8 @@ import {
 } from '../models/index';
 
 export interface ExportTagsRequest {
+    sortOrder?: string;
+    sortBy?: string;
     format?: ExportTagsFormatEnum;
 }
 
@@ -39,6 +41,8 @@ export interface TagsExportApiInterface {
     /**
      * 
      * @summary Solicita a exportação das tags.
+     * @param {string} [sortOrder] Ordem de ordenação dos resultados. Valores possíveis: asc ou desc.
+     * @param {string} [sortBy] Campo para ordenação dos resultados. Valores possíveis: name ou createdAt.
      * @param {'csv' | 'xlsx'} [format] Formato de exportação dos dados.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -63,6 +67,14 @@ export class TagsExportApi extends runtime.BaseAPI implements TagsExportApiInter
      */
     async exportTagsRaw(requestParameters: ExportTagsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ExportTagsDto>> {
         const queryParameters: any = {};
+
+        if (requestParameters['sortOrder'] != null) {
+            queryParameters['sortOrder'] = requestParameters['sortOrder'];
+        }
+
+        if (requestParameters['sortBy'] != null) {
+            queryParameters['sortBy'] = requestParameters['sortBy'];
+        }
 
         if (requestParameters['format'] != null) {
             queryParameters['format'] = requestParameters['format'];

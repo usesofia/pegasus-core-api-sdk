@@ -12,6 +12,8 @@
 import * as runtime from '../runtime';
 import type { ExportFinancialRecordsDto } from '../models/index';
 export interface ExportFinancialRecordsRequest {
+    sortOrder?: string;
+    sortBy?: ExportFinancialRecordsSortByEnum;
     recurringFinancialRecord?: string;
     installmentFinancialRecord?: string;
     account?: string;
@@ -43,6 +45,8 @@ export interface FinancialRecordsExportApiInterface {
     /**
      *
      * @summary Solicita a exportação dos lançamentos financeiros.
+     * @param {string} [sortOrder] Ordem de ordenação dos lançamentos financeiros.
+     * @param {'direction' | 'dueDate' | 'contact' | 'description' | 'subcategory' | 'amount' | 'competenceDate' | 'cashDate' | 'createdAt'} [sortBy] Campo para ordenação dos lançamentos financeiros.
      * @param {string} [recurringFinancialRecord] ID da recorrência financeira.
      * @param {string} [installmentFinancialRecord] ID do parcelamento financeiro.
      * @param {string} [account] Conta do lançamento financeiro.
@@ -86,6 +90,21 @@ export declare class FinancialRecordsExportApi extends runtime.BaseAPI implement
      */
     exportFinancialRecords(requestParameters?: ExportFinancialRecordsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ExportFinancialRecordsDto>;
 }
+/**
+ * @export
+ */
+export declare const ExportFinancialRecordsSortByEnum: {
+    readonly Direction: "direction";
+    readonly DueDate: "dueDate";
+    readonly Contact: "contact";
+    readonly Description: "description";
+    readonly Subcategory: "subcategory";
+    readonly Amount: "amount";
+    readonly CompetenceDate: "competenceDate";
+    readonly CashDate: "cashDate";
+    readonly CreatedAt: "createdAt";
+};
+export type ExportFinancialRecordsSortByEnum = typeof ExportFinancialRecordsSortByEnum[keyof typeof ExportFinancialRecordsSortByEnum];
 /**
  * @export
  */

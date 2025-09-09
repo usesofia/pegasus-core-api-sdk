@@ -12,6 +12,8 @@
 import * as runtime from '../runtime';
 import type { ExportSubcategoriesDto } from '../models/index';
 export interface ExportSubcategoriesRequest {
+    sortOrder?: string;
+    sortBy?: string;
     active?: boolean;
     categoryId?: string;
     direction?: string;
@@ -27,6 +29,8 @@ export interface SubcategoriesExportApiInterface {
     /**
      *
      * @summary Solicita a exportação das subcategorias.
+     * @param {string} [sortOrder] Ordem de ordenação das subcategorias.
+     * @param {string} [sortBy] Campo para ordenar as subcategorias.
      * @param {boolean} [active] Filtra subcategorias ativas ou inativas.
      * @param {string} [categoryId] ID da categoria para filtrar subcategorias.
      * @param {string} [direction] Direção da subcategoria.

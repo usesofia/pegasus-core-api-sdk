@@ -12,6 +12,8 @@
 import * as runtime from '../runtime';
 import type { ExportRecurringFinancialRecordsDto } from '../models/index';
 export interface ExportRecurringFinancialRecordsRequest {
+    sortOrder?: ExportRecurringFinancialRecordsSortOrderEnum;
+    sortBy?: ExportRecurringFinancialRecordsSortByEnum;
     frequency?: ExportRecurringFinancialRecordsFrequencyEnum;
     isActive?: boolean;
     automaticCompletion?: boolean;
@@ -38,6 +40,8 @@ export interface RecurringFinancialRecordsExportApiInterface {
     /**
      *
      * @summary Solicita a exportação dos lançamentos recorrentes.
+     * @param {'asc' | 'desc'} [sortOrder] Ordem da ordenação.
+     * @param {'direction' | 'firstOccurrenceDate' | 'contact' | 'description' | 'subcategory' | 'amount' | 'frequency' | 'isActive' | 'createdAt'} [sortBy] Campo para ordenação.
      * @param {'WEEKLY' | 'MONTHLY' | 'YEARLY'} [frequency] Frequência de repetição do lançamento.
      * @param {boolean} [isActive] Indica se o lançamento recorrente está ativo.
      * @param {boolean} [automaticCompletion] Indica se o lançamento será completado automaticamente.
@@ -76,6 +80,29 @@ export declare class RecurringFinancialRecordsExportApi extends runtime.BaseAPI 
      */
     exportRecurringFinancialRecords(requestParameters?: ExportRecurringFinancialRecordsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ExportRecurringFinancialRecordsDto>;
 }
+/**
+ * @export
+ */
+export declare const ExportRecurringFinancialRecordsSortOrderEnum: {
+    readonly Asc: "asc";
+    readonly Desc: "desc";
+};
+export type ExportRecurringFinancialRecordsSortOrderEnum = typeof ExportRecurringFinancialRecordsSortOrderEnum[keyof typeof ExportRecurringFinancialRecordsSortOrderEnum];
+/**
+ * @export
+ */
+export declare const ExportRecurringFinancialRecordsSortByEnum: {
+    readonly Direction: "direction";
+    readonly FirstOccurrenceDate: "firstOccurrenceDate";
+    readonly Contact: "contact";
+    readonly Description: "description";
+    readonly Subcategory: "subcategory";
+    readonly Amount: "amount";
+    readonly Frequency: "frequency";
+    readonly IsActive: "isActive";
+    readonly CreatedAt: "createdAt";
+};
+export type ExportRecurringFinancialRecordsSortByEnum = typeof ExportRecurringFinancialRecordsSortByEnum[keyof typeof ExportRecurringFinancialRecordsSortByEnum];
 /**
  * @export
  */

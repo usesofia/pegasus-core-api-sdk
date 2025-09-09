@@ -64,7 +64,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ExportFinancialRecordsFormatEnum = exports.FinancialRecordsExportApi = void 0;
+exports.ExportFinancialRecordsFormatEnum = exports.ExportFinancialRecordsSortByEnum = exports.FinancialRecordsExportApi = void 0;
 var runtime = require("../runtime");
 var index_1 = require("../models/index");
 /**
@@ -85,6 +85,12 @@ var FinancialRecordsExportApi = /** @class */ (function (_super) {
                 switch (_a.label) {
                     case 0:
                         queryParameters = {};
+                        if (requestParameters['sortOrder'] != null) {
+                            queryParameters['sortOrder'] = requestParameters['sortOrder'];
+                        }
+                        if (requestParameters['sortBy'] != null) {
+                            queryParameters['sortBy'] = requestParameters['sortBy'];
+                        }
                         if (requestParameters['recurringFinancialRecord'] != null) {
                             queryParameters['recurringFinancialRecord'] = requestParameters['recurringFinancialRecord'];
                         }
@@ -181,6 +187,20 @@ var FinancialRecordsExportApi = /** @class */ (function (_super) {
     return FinancialRecordsExportApi;
 }(runtime.BaseAPI));
 exports.FinancialRecordsExportApi = FinancialRecordsExportApi;
+/**
+ * @export
+ */
+exports.ExportFinancialRecordsSortByEnum = {
+    Direction: 'direction',
+    DueDate: 'dueDate',
+    Contact: 'contact',
+    Description: 'description',
+    Subcategory: 'subcategory',
+    Amount: 'amount',
+    CompetenceDate: 'competenceDate',
+    CashDate: 'cashDate',
+    CreatedAt: 'createdAt'
+};
 /**
  * @export
  */

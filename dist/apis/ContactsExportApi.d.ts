@@ -12,6 +12,8 @@
 import * as runtime from '../runtime';
 import type { ExportContactsDto } from '../models/index';
 export interface ExportContactsRequest {
+    sortOrder?: string;
+    sortBy?: string;
     considerNotIdentified?: boolean;
     states?: string;
     country?: string;
@@ -31,6 +33,8 @@ export interface ContactsExportApiInterface {
     /**
      *
      * @summary Solicita a exportação dos contatos.
+     * @param {string} [sortOrder] Ordem de ordenação dos contatos.
+     * @param {string} [sortBy] Campo para ordenação dos contatos.
      * @param {boolean} [considerNotIdentified] Considerar ou não o contato não identificado.
      * @param {string} [states] Estados a serem buscados.
      * @param {string} [country] País a serem buscados.

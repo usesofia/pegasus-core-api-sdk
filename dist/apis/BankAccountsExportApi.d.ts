@@ -12,6 +12,8 @@
 import * as runtime from '../runtime';
 import type { ExportBankAccountsDto } from '../models/index';
 export interface ExportBankAccountsRequest {
+    sortOrder?: string;
+    sortBy?: string;
     providerAccountId?: string;
     provider?: string;
     active?: boolean;
@@ -31,6 +33,8 @@ export interface BankAccountsExportApiInterface {
     /**
      *
      * @summary Solicita a exportação das contas bancárias.
+     * @param {string} [sortOrder] Ordem de ordenação das contas bancárias.
+     * @param {string} [sortBy] Campo para ordenação das contas bancárias.
      * @param {string} [providerAccountId] Identificador da conta bancária no fornecedor.
      * @param {string} [provider] Fornecedor da conta bancária.
      * @param {boolean} [active] Indica se a conta está ativa.

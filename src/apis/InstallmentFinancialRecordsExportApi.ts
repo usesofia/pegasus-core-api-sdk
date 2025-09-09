@@ -26,6 +26,8 @@ import {
 } from '../models/index';
 
 export interface ExportInstallmentFinancialRecordsRequest {
+    sortOrder?: ExportInstallmentFinancialRecordsSortOrderEnum;
+    sortBy?: ExportInstallmentFinancialRecordsSortByEnum;
     completed?: boolean;
     frequency?: ExportInstallmentFinancialRecordsFrequencyEnum;
     competenceDateTo?: Date;
@@ -49,6 +51,8 @@ export interface InstallmentFinancialRecordsExportApiInterface {
     /**
      * 
      * @summary Solicita a exportação dos lançamentos financeiros parcelados.
+     * @param {'asc' | 'desc'} [sortOrder] Ordem da ordenação.
+     * @param {'direction' | 'firstInstallmentDate' | 'contact' | 'description' | 'subcategory' | 'amount' | 'tags' | 'competenceDate' | 'frequency' | 'createdAt'} [sortBy] Campo para ordenação.
      * @param {boolean} [completed] Indica se o lançamento parcelado está completo (todas as parcelas pagas/recebidas).
      * @param {'MONTHLY' | 'WEEKLY' | 'YEARLY'} [frequency] Frequência do lançamento parcelado.
      * @param {Date} [competenceDateTo] Data de competência final (formato ISO YYYY-MM-DD).
@@ -83,6 +87,14 @@ export class InstallmentFinancialRecordsExportApi extends runtime.BaseAPI implem
      */
     async exportInstallmentFinancialRecordsRaw(requestParameters: ExportInstallmentFinancialRecordsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ExportInstallmentFinancialRecordsDto>> {
         const queryParameters: any = {};
+
+        if (requestParameters['sortOrder'] != null) {
+            queryParameters['sortOrder'] = requestParameters['sortOrder'];
+        }
+
+        if (requestParameters['sortBy'] != null) {
+            queryParameters['sortBy'] = requestParameters['sortBy'];
+        }
 
         if (requestParameters['completed'] != null) {
             queryParameters['completed'] = requestParameters['completed'];
@@ -153,6 +165,30 @@ export class InstallmentFinancialRecordsExportApi extends runtime.BaseAPI implem
 
 }
 
+/**
+ * @export
+ */
+export const ExportInstallmentFinancialRecordsSortOrderEnum = {
+    Asc: 'asc',
+    Desc: 'desc'
+} as const;
+export type ExportInstallmentFinancialRecordsSortOrderEnum = typeof ExportInstallmentFinancialRecordsSortOrderEnum[keyof typeof ExportInstallmentFinancialRecordsSortOrderEnum];
+/**
+ * @export
+ */
+export const ExportInstallmentFinancialRecordsSortByEnum = {
+    Direction: 'direction',
+    FirstInstallmentDate: 'firstInstallmentDate',
+    Contact: 'contact',
+    Description: 'description',
+    Subcategory: 'subcategory',
+    Amount: 'amount',
+    Tags: 'tags',
+    CompetenceDate: 'competenceDate',
+    Frequency: 'frequency',
+    CreatedAt: 'createdAt'
+} as const;
+export type ExportInstallmentFinancialRecordsSortByEnum = typeof ExportInstallmentFinancialRecordsSortByEnum[keyof typeof ExportInstallmentFinancialRecordsSortByEnum];
 /**
  * @export
  */

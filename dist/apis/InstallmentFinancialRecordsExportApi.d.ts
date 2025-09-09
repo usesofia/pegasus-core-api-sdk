@@ -12,6 +12,8 @@
 import * as runtime from '../runtime';
 import type { ExportInstallmentFinancialRecordsDto } from '../models/index';
 export interface ExportInstallmentFinancialRecordsRequest {
+    sortOrder?: ExportInstallmentFinancialRecordsSortOrderEnum;
+    sortBy?: ExportInstallmentFinancialRecordsSortByEnum;
     completed?: boolean;
     frequency?: ExportInstallmentFinancialRecordsFrequencyEnum;
     competenceDateTo?: Date;
@@ -34,6 +36,8 @@ export interface InstallmentFinancialRecordsExportApiInterface {
     /**
      *
      * @summary Solicita a exportação dos lançamentos financeiros parcelados.
+     * @param {'asc' | 'desc'} [sortOrder] Ordem da ordenação.
+     * @param {'direction' | 'firstInstallmentDate' | 'contact' | 'description' | 'subcategory' | 'amount' | 'tags' | 'competenceDate' | 'frequency' | 'createdAt'} [sortBy] Campo para ordenação.
      * @param {boolean} [completed] Indica se o lançamento parcelado está completo (todas as parcelas pagas/recebidas).
      * @param {'MONTHLY' | 'WEEKLY' | 'YEARLY'} [frequency] Frequência do lançamento parcelado.
      * @param {Date} [competenceDateTo] Data de competência final (formato ISO YYYY-MM-DD).
@@ -68,6 +72,30 @@ export declare class InstallmentFinancialRecordsExportApi extends runtime.BaseAP
      */
     exportInstallmentFinancialRecords(requestParameters?: ExportInstallmentFinancialRecordsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ExportInstallmentFinancialRecordsDto>;
 }
+/**
+ * @export
+ */
+export declare const ExportInstallmentFinancialRecordsSortOrderEnum: {
+    readonly Asc: "asc";
+    readonly Desc: "desc";
+};
+export type ExportInstallmentFinancialRecordsSortOrderEnum = typeof ExportInstallmentFinancialRecordsSortOrderEnum[keyof typeof ExportInstallmentFinancialRecordsSortOrderEnum];
+/**
+ * @export
+ */
+export declare const ExportInstallmentFinancialRecordsSortByEnum: {
+    readonly Direction: "direction";
+    readonly FirstInstallmentDate: "firstInstallmentDate";
+    readonly Contact: "contact";
+    readonly Description: "description";
+    readonly Subcategory: "subcategory";
+    readonly Amount: "amount";
+    readonly Tags: "tags";
+    readonly CompetenceDate: "competenceDate";
+    readonly Frequency: "frequency";
+    readonly CreatedAt: "createdAt";
+};
+export type ExportInstallmentFinancialRecordsSortByEnum = typeof ExportInstallmentFinancialRecordsSortByEnum[keyof typeof ExportInstallmentFinancialRecordsSortByEnum];
 /**
  * @export
  */
