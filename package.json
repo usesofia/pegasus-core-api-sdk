@@ -1,6 +1,6 @@
 {
   "name": "@usesofia/pegasus-core-api-sdk",
-  "version": "1.12.3",
+  "version": "1.12.4",
   "description": "OpenAPI client for @usesofia/pegasus-core-api-sdk",
   "author": "OpenAPI-Generator",
   "repository": {
@@ -8,7 +8,7 @@
     "url": "https://github.com/GIT_USER_ID/GIT_REPO_ID.git"
   },
   "main": "./dist/index.js",
-  "typings": "./dist/index.d.ts",
+  "types": "./dist/index.d.ts",
   "scripts": {
     "build": "tsc",
     "prepare": "npm run build"
