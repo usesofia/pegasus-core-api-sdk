@@ -20,6 +20,13 @@ import {
     CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitutionToJSON,
     CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitutionToJSONTyped,
 } from './CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitution';
+import type { CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedAutomaticStatus } from './CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedAutomaticStatus';
+import {
+    CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedAutomaticStatusFromJSON,
+    CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedAutomaticStatusFromJSONTyped,
+    CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedAutomaticStatusToJSON,
+    CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedAutomaticStatusToJSONTyped,
+} from './CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedAutomaticStatus';
 
 /**
  * Conta relacionada.
@@ -147,6 +154,12 @@ export interface CreateFinancialRecordRequestBodyDtoPopulatedAccount {
      * @memberof CreateFinancialRecordRequestBodyDtoPopulatedAccount
      */
     populatedInstitution?: CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitution | null;
+    /**
+     * 
+     * @type {CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedAutomaticStatus}
+     * @memberof CreateFinancialRecordRequestBodyDtoPopulatedAccount
+     */
+    populatedAutomaticStatus?: CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedAutomaticStatus | null;
 }
 
 
@@ -222,6 +235,7 @@ export function CreateFinancialRecordRequestBodyDtoPopulatedAccountFromJSONTyped
         'createdAt': json['createdAt'],
         'updatedAt': json['updatedAt'],
         'populatedInstitution': json['populatedInstitution'] == null ? undefined : CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitutionFromJSON(json['populatedInstitution']),
+        'populatedAutomaticStatus': json['populatedAutomaticStatus'] == null ? undefined : CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedAutomaticStatusFromJSON(json['populatedAutomaticStatus']),
     };
 }
 
@@ -256,6 +270,7 @@ export function CreateFinancialRecordRequestBodyDtoPopulatedAccountToJSONTyped(v
         'createdAt': value['createdAt'],
         'updatedAt': value['updatedAt'],
         'populatedInstitution': CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitutionToJSON(value['populatedInstitution']),
+        'populatedAutomaticStatus': CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedAutomaticStatusToJSON(value['populatedAutomaticStatus']),
     };
 }
 

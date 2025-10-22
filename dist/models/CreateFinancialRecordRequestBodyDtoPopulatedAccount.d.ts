@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 import type { CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitution } from './CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitution';
+import type { CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedAutomaticStatus } from './CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedAutomaticStatus';
 /**
  * Conta relacionada.
  * @export
@@ -136,6 +137,12 @@ export interface CreateFinancialRecordRequestBodyDtoPopulatedAccount {
      * @memberof CreateFinancialRecordRequestBodyDtoPopulatedAccount
      */
     populatedInstitution?: CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitution | null;
+    /**
+     *
+     * @type {CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedAutomaticStatus}
+     * @memberof CreateFinancialRecordRequestBodyDtoPopulatedAccount
+     */
+    populatedAutomaticStatus?: CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedAutomaticStatus | null;
 }
 /**
  * @export

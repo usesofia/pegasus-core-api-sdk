@@ -71,6 +71,8 @@ __exportStar(require("./CreateFinancialRecordRadarItemRequestBodyDtoWhatsappMess
 __exportStar(require("./CreateFinancialRecordRadarItemRequestBodyDtoWhatsappMessageDataLastMessagesInner"), exports);
 __exportStar(require("./CreateFinancialRecordRequestBodyDto"), exports);
 __exportStar(require("./CreateFinancialRecordRequestBodyDtoPopulatedAccount"), exports);
+__exportStar(require("./CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedAutomaticStatus"), exports);
+__exportStar(require("./CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedAutomaticStatusError"), exports);
 __exportStar(require("./CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitution"), exports);
 __exportStar(require("./CreateFinancialRecordRequestBodyDtoPopulatedContact"), exports);
 __exportStar(require("./CreateFinancialRecordRequestBodyDtoPopulatedFilesInner"), exports);

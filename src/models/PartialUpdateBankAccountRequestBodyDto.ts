@@ -20,6 +20,13 @@ import {
     CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitutionToJSON,
     CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitutionToJSONTyped,
 } from './CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitution';
+import type { CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedAutomaticStatus } from './CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedAutomaticStatus';
+import {
+    CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedAutomaticStatusFromJSON,
+    CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedAutomaticStatusFromJSONTyped,
+    CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedAutomaticStatusToJSON,
+    CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedAutomaticStatusToJSONTyped,
+} from './CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedAutomaticStatus';
 
 /**
  * 
@@ -88,6 +95,12 @@ export interface PartialUpdateBankAccountRequestBodyDto {
      */
     populatedInstitution?: CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitution | null;
     /**
+     * 
+     * @type {CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedAutomaticStatus}
+     * @memberof PartialUpdateBankAccountRequestBodyDto
+     */
+    populatedAutomaticStatus?: CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedAutomaticStatus | null;
+    /**
      * Canal de origem da operação
      * @type {string}
      * @memberof PartialUpdateBankAccountRequestBodyDto
@@ -136,6 +149,7 @@ export function PartialUpdateBankAccountRequestBodyDtoFromJSONTyped(json: any, i
         'active': json['active'] == null ? undefined : json['active'],
         'searchScore': json['searchScore'] == null ? undefined : json['searchScore'],
         'populatedInstitution': json['populatedInstitution'] == null ? undefined : CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitutionFromJSON(json['populatedInstitution']),
+        'populatedAutomaticStatus': json['populatedAutomaticStatus'] == null ? undefined : CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedAutomaticStatusFromJSON(json['populatedAutomaticStatus']),
         'channel': json['channel'],
     };
 }
@@ -161,6 +175,7 @@ export function PartialUpdateBankAccountRequestBodyDtoToJSONTyped(value?: Partia
         'active': value['active'],
         'searchScore': value['searchScore'],
         'populatedInstitution': CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitutionToJSON(value['populatedInstitution']),
+        'populatedAutomaticStatus': CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedAutomaticStatusToJSON(value['populatedAutomaticStatus']),
         'channel': value['channel'],
     };
 }

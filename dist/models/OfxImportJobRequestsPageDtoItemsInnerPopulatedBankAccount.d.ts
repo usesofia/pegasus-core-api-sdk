@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 import type { CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitution } from './CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitution';
+import type { CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedAutomaticStatus } from './CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedAutomaticStatus';
 /**
  * Conta bancária populada.
  * @export
@@ -136,6 +137,12 @@ export interface OfxImportJobRequestsPageDtoItemsInnerPopulatedBankAccount {
      * @memberof OfxImportJobRequestsPageDtoItemsInnerPopulatedBankAccount
      */
     populatedInstitution?: CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitution | null;
+    /**
+     *
+     * @type {CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedAutomaticStatus}
+     * @memberof OfxImportJobRequestsPageDtoItemsInnerPopulatedBankAccount
+     */
+    populatedAutomaticStatus?: CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedAutomaticStatus | null;
 }
 /**
  * @export

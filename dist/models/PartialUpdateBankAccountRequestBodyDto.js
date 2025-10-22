@@ -20,6 +20,7 @@ exports.PartialUpdateBankAccountRequestBodyDtoFromJSONTyped = PartialUpdateBankA
 exports.PartialUpdateBankAccountRequestBodyDtoToJSON = PartialUpdateBankAccountRequestBodyDtoToJSON;
 exports.PartialUpdateBankAccountRequestBodyDtoToJSONTyped = PartialUpdateBankAccountRequestBodyDtoToJSONTyped;
 var CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitution_1 = require("./CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitution");
+var CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedAutomaticStatus_1 = require("./CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedAutomaticStatus");
 /**
  * @export
  */
@@ -55,6 +56,7 @@ function PartialUpdateBankAccountRequestBodyDtoFromJSONTyped(json, ignoreDiscrim
         'active': json['active'] == null ? undefined : json['active'],
         'searchScore': json['searchScore'] == null ? undefined : json['searchScore'],
         'populatedInstitution': json['populatedInstitution'] == null ? undefined : (0, CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitution_1.CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitutionFromJSON)(json['populatedInstitution']),
+        'populatedAutomaticStatus': json['populatedAutomaticStatus'] == null ? undefined : (0, CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedAutomaticStatus_1.CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedAutomaticStatusFromJSON)(json['populatedAutomaticStatus']),
         'channel': json['channel'],
     };
 }
@@ -77,6 +79,7 @@ function PartialUpdateBankAccountRequestBodyDtoToJSONTyped(value, ignoreDiscrimi
         'active': value['active'],
         'searchScore': value['searchScore'],
         'populatedInstitution': (0, CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitution_1.CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitutionToJSON)(value['populatedInstitution']),
+        'populatedAutomaticStatus': (0, CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedAutomaticStatus_1.CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedAutomaticStatusToJSON)(value['populatedAutomaticStatus']),
         'channel': value['channel'],
     };
 }

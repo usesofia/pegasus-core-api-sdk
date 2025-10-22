@@ -53,6 +53,8 @@ export * from './CreateFinancialRecordRadarItemRequestBodyDtoWhatsappMessageData
 export * from './CreateFinancialRecordRadarItemRequestBodyDtoWhatsappMessageDataLastMessagesInner';
 export * from './CreateFinancialRecordRequestBodyDto';
 export * from './CreateFinancialRecordRequestBodyDtoPopulatedAccount';
+export * from './CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedAutomaticStatus';
+export * from './CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedAutomaticStatusError';
 export * from './CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitution';
 export * from './CreateFinancialRecordRequestBodyDtoPopulatedContact';
 export * from './CreateFinancialRecordRequestBodyDtoPopulatedFilesInner';

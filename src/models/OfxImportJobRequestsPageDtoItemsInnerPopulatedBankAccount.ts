@@ -20,6 +20,13 @@ import {
     CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitutionToJSON,
     CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitutionToJSONTyped,
 } from './CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitution';
+import type { CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedAutomaticStatus } from './CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedAutomaticStatus';
+import {
+    CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedAutomaticStatusFromJSON,
+    CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedAutomaticStatusFromJSONTyped,
+    CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedAutomaticStatusToJSON,
+    CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedAutomaticStatusToJSONTyped,
+} from './CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedAutomaticStatus';
 
 /**
  * Conta bancária populada.
@@ -147,6 +154,12 @@ export interface OfxImportJobRequestsPageDtoItemsInnerPopulatedBankAccount {
      * @memberof OfxImportJobRequestsPageDtoItemsInnerPopulatedBankAccount
      */
     populatedInstitution?: CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitution | null;
+    /**
+     * 
+     * @type {CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedAutomaticStatus}
+     * @memberof OfxImportJobRequestsPageDtoItemsInnerPopulatedBankAccount
+     */
+    populatedAutomaticStatus?: CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedAutomaticStatus | null;
 }
 
 
@@ -222,6 +235,7 @@ export function OfxImportJobRequestsPageDtoItemsInnerPopulatedBankAccountFromJSO
         'createdAt': json['createdAt'],
         'updatedAt': json['updatedAt'],
         'populatedInstitution': json['populatedInstitution'] == null ? undefined : CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitutionFromJSON(json['populatedInstitution']),
+        'populatedAutomaticStatus': json['populatedAutomaticStatus'] == null ? undefined : CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedAutomaticStatusFromJSON(json['populatedAutomaticStatus']),
     };
 }
 
@@ -256,6 +270,7 @@ export function OfxImportJobRequestsPageDtoItemsInnerPopulatedBankAccountToJSONT
         'createdAt': value['createdAt'],
         'updatedAt': value['updatedAt'],
         'populatedInstitution': CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitutionToJSON(value['populatedInstitution']),
+        'populatedAutomaticStatus': CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedAutomaticStatusToJSON(value['populatedAutomaticStatus']),
     };
 }
 

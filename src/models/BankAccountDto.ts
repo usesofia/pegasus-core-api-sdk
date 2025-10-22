@@ -20,6 +20,13 @@ import {
     CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitutionToJSON,
     CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitutionToJSONTyped,
 } from './CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitution';
+import type { CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedAutomaticStatus } from './CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedAutomaticStatus';
+import {
+    CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedAutomaticStatusFromJSON,
+    CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedAutomaticStatusFromJSONTyped,
+    CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedAutomaticStatusToJSON,
+    CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedAutomaticStatusToJSONTyped,
+} from './CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedAutomaticStatus';
 
 /**
  * 
@@ -147,6 +154,12 @@ export interface BankAccountDto {
      * @memberof BankAccountDto
      */
     populatedInstitution?: CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitution | null;
+    /**
+     * 
+     * @type {CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedAutomaticStatus}
+     * @memberof BankAccountDto
+     */
+    populatedAutomaticStatus?: CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedAutomaticStatus | null;
 }
 
 
@@ -222,6 +235,7 @@ export function BankAccountDtoFromJSONTyped(json: any, ignoreDiscriminator: bool
         'createdAt': json['createdAt'],
         'updatedAt': json['updatedAt'],
         'populatedInstitution': json['populatedInstitution'] == null ? undefined : CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitutionFromJSON(json['populatedInstitution']),
+        'populatedAutomaticStatus': json['populatedAutomaticStatus'] == null ? undefined : CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedAutomaticStatusFromJSON(json['populatedAutomaticStatus']),
     };
 }
 
@@ -256,6 +270,7 @@ export function BankAccountDtoToJSONTyped(value?: BankAccountDto | null, ignoreD
         'createdAt': value['createdAt'],
         'updatedAt': value['updatedAt'],
         'populatedInstitution': CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitutionToJSON(value['populatedInstitution']),
+        'populatedAutomaticStatus': CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedAutomaticStatusToJSON(value['populatedAutomaticStatus']),
     };
 }
 

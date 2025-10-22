@@ -20,6 +20,7 @@ exports.BankAccountsPageDtoItemsInnerFromJSONTyped = BankAccountsPageDtoItemsInn
 exports.BankAccountsPageDtoItemsInnerToJSON = BankAccountsPageDtoItemsInnerToJSON;
 exports.BankAccountsPageDtoItemsInnerToJSONTyped = BankAccountsPageDtoItemsInnerToJSONTyped;
 var CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitution_1 = require("./CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitution");
+var CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedAutomaticStatus_1 = require("./CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedAutomaticStatus");
 /**
  * @export
  */
@@ -95,6 +96,7 @@ function BankAccountsPageDtoItemsInnerFromJSONTyped(json, ignoreDiscriminator) {
         'createdAt': json['createdAt'],
         'updatedAt': json['updatedAt'],
         'populatedInstitution': json['populatedInstitution'] == null ? undefined : (0, CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitution_1.CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitutionFromJSON)(json['populatedInstitution']),
+        'populatedAutomaticStatus': json['populatedAutomaticStatus'] == null ? undefined : (0, CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedAutomaticStatus_1.CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedAutomaticStatusFromJSON)(json['populatedAutomaticStatus']),
     };
 }
 function BankAccountsPageDtoItemsInnerToJSON(json) {
@@ -126,5 +128,6 @@ function BankAccountsPageDtoItemsInnerToJSONTyped(value, ignoreDiscriminator) {
         'createdAt': value['createdAt'],
         'updatedAt': value['updatedAt'],
         'populatedInstitution': (0, CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitution_1.CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitutionToJSON)(value['populatedInstitution']),
+        'populatedAutomaticStatus': (0, CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedAutomaticStatus_1.CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedAutomaticStatusToJSON)(value['populatedAutomaticStatus']),
     };
 }
