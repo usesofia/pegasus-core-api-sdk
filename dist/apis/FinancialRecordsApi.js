@@ -737,8 +737,8 @@ var FinancialRecordsApi = /** @class */ (function (_super) {
                         if (requestParameters['nSubcategories'] == null) {
                             throw new runtime.RequiredError('nSubcategories', 'Required parameter "nSubcategories" was null or undefined when calling systemGenerateMostCommonContactsAndSubcategoriesForSimilarFinancialRecordReport().');
                         }
-                        if (requestParameters['nFinancialRecordsConsidered'] == null) {
-                            throw new runtime.RequiredError('nFinancialRecordsConsidered', 'Required parameter "nFinancialRecordsConsidered" was null or undefined when calling systemGenerateMostCommonContactsAndSubcategoriesForSimilarFinancialRecordReport().');
+                        if (requestParameters['nSimilarFinancialRecordsConsidered'] == null) {
+                            throw new runtime.RequiredError('nSimilarFinancialRecordsConsidered', 'Required parameter "nSimilarFinancialRecordsConsidered" was null or undefined when calling systemGenerateMostCommonContactsAndSubcategoriesForSimilarFinancialRecordReport().');
                         }
                         if (requestParameters['ownerOrganizationId'] == null) {
                             throw new runtime.RequiredError('ownerOrganizationId', 'Required parameter "ownerOrganizationId" was null or undefined when calling systemGenerateMostCommonContactsAndSubcategoriesForSimilarFinancialRecordReport().');
@@ -750,8 +750,8 @@ var FinancialRecordsApi = /** @class */ (function (_super) {
                         if (requestParameters['nSubcategories'] != null) {
                             queryParameters['nSubcategories'] = requestParameters['nSubcategories'];
                         }
-                        if (requestParameters['nFinancialRecordsConsidered'] != null) {
-                            queryParameters['nFinancialRecordsConsidered'] = requestParameters['nFinancialRecordsConsidered'];
+                        if (requestParameters['nSimilarFinancialRecordsConsidered'] != null) {
+                            queryParameters['nSimilarFinancialRecordsConsidered'] = requestParameters['nSimilarFinancialRecordsConsidered'];
                         }
                         if (requestParameters['ownerOrganizationId'] != null) {
                             queryParameters['ownerOrganizationId'] = requestParameters['ownerOrganizationId'];

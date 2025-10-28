@@ -27,7 +27,9 @@ function instanceOfSystemGenerateMostCommonContactsForSimilarFinancialRecordRepo
         return false;
     if (!('allFinancialRecordsTotalSearchScore' in value) || value['allFinancialRecordsTotalSearchScore'] === undefined)
         return false;
-    if (!('nFinancialRecordsConsidered' in value) || value['nFinancialRecordsConsidered'] === undefined)
+    if (!('nSimilarFinancialRecordsConsidered' in value) || value['nSimilarFinancialRecordsConsidered'] === undefined)
+        return false;
+    if (!('nTotalFinancialRecords' in value) || value['nTotalFinancialRecords'] === undefined)
         return false;
     return true;
 }
@@ -41,7 +43,8 @@ function SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponse
     return {
         'subcategories': (0, SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoSubcategories_1.SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoSubcategoriesFromJSON)(json['subcategories']),
         'allFinancialRecordsTotalSearchScore': json['allFinancialRecordsTotalSearchScore'],
-        'nFinancialRecordsConsidered': json['nFinancialRecordsConsidered'],
+        'nSimilarFinancialRecordsConsidered': json['nSimilarFinancialRecordsConsidered'],
+        'nTotalFinancialRecords': json['nTotalFinancialRecords'],
     };
 }
 function SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoToJSON(json) {
@@ -55,6 +58,7 @@ function SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponse
     return {
         'subcategories': (0, SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoSubcategories_1.SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoSubcategoriesToJSON)(value['subcategories']),
         'allFinancialRecordsTotalSearchScore': value['allFinancialRecordsTotalSearchScore'],
-        'nFinancialRecordsConsidered': value['nFinancialRecordsConsidered'],
+        'nSimilarFinancialRecordsConsidered': value['nSimilarFinancialRecordsConsidered'],
+        'nTotalFinancialRecords': value['nTotalFinancialRecords'],
     };
 }

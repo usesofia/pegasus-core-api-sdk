@@ -103,7 +103,7 @@ export interface SystemFindByIdFinancialRecordRequest {
 }
 export interface SystemGenerateMostCommonContactsAndSubcategoriesForSimilarFinancialRecordReportRequest {
     nSubcategories: number;
-    nFinancialRecordsConsidered: number;
+    nSimilarFinancialRecordsConsidered: number;
     ownerOrganizationId: string;
     systemGenerateMostCommonContactsForSimilarFinancialRecordReportRequestBodyDto: SystemGenerateMostCommonContactsForSimilarFinancialRecordReportRequestBodyDto;
 }
@@ -308,7 +308,7 @@ export interface FinancialRecordsApiInterface {
      *
      * @summary Gera relatório dos contatos e subcategorias mais comuns para lançamentos financeiros similares.
      * @param {number} nSubcategories Número de subcategorias a retornar
-     * @param {number} nFinancialRecordsConsidered Número máximo de lançamentos financeiros a considerar
+     * @param {number} nSimilarFinancialRecordsConsidered Número máximo de lançamentos financeiros similares a considerar
      * @param {string} ownerOrganizationId Identificador da organização dona do lançamento financeiro
      * @param {SystemGenerateMostCommonContactsForSimilarFinancialRecordReportRequestBodyDto} systemGenerateMostCommonContactsForSimilarFinancialRecordReportRequestBodyDto
      * @param {*} [options] Override http request option.

@@ -29,11 +29,17 @@ export interface SystemGenerateMostCommonContactsForSimilarFinancialRecordReport
      */
     allFinancialRecordsTotalSearchScore: number;
     /**
-     * Número de lançamentos considerados
+     * Número de lançamentos similares considerados
      * @type {number}
      * @memberof SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDto
      */
-    nFinancialRecordsConsidered: number;
+    nSimilarFinancialRecordsConsidered: number;
+    /**
+     * Número total de lançamentos financeiros da organização
+     * @type {number}
+     * @memberof SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDto
+     */
+    nTotalFinancialRecords: number;
 }
 /**
  * Check if a given object implements the SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDto interface.

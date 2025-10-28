@@ -40,11 +40,17 @@ export interface SystemGenerateMostCommonContactsForSimilarFinancialRecordReport
      */
     allFinancialRecordsTotalSearchScore: number;
     /**
-     * Número de lançamentos considerados
+     * Número de lançamentos similares considerados
      * @type {number}
      * @memberof SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDto
      */
-    nFinancialRecordsConsidered: number;
+    nSimilarFinancialRecordsConsidered: number;
+    /**
+     * Número total de lançamentos financeiros da organização
+     * @type {number}
+     * @memberof SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDto
+     */
+    nTotalFinancialRecords: number;
 }
 
 /**
@@ -53,7 +59,8 @@ export interface SystemGenerateMostCommonContactsForSimilarFinancialRecordReport
 export function instanceOfSystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDto(value: object): value is SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDto {
     if (!('subcategories' in value) || value['subcategories'] === undefined) return false;
     if (!('allFinancialRecordsTotalSearchScore' in value) || value['allFinancialRecordsTotalSearchScore'] === undefined) return false;
-    if (!('nFinancialRecordsConsidered' in value) || value['nFinancialRecordsConsidered'] === undefined) return false;
+    if (!('nSimilarFinancialRecordsConsidered' in value) || value['nSimilarFinancialRecordsConsidered'] === undefined) return false;
+    if (!('nTotalFinancialRecords' in value) || value['nTotalFinancialRecords'] === undefined) return false;
     return true;
 }
 
@@ -69,7 +76,8 @@ export function SystemGenerateMostCommonContactsForSimilarFinancialRecordReportR
         
         'subcategories': SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoSubcategoriesFromJSON(json['subcategories']),
         'allFinancialRecordsTotalSearchScore': json['allFinancialRecordsTotalSearchScore'],
-        'nFinancialRecordsConsidered': json['nFinancialRecordsConsidered'],
+        'nSimilarFinancialRecordsConsidered': json['nSimilarFinancialRecordsConsidered'],
+        'nTotalFinancialRecords': json['nTotalFinancialRecords'],
     };
 }
 
@@ -86,7 +94,8 @@ export function SystemGenerateMostCommonContactsForSimilarFinancialRecordReportR
         
         'subcategories': SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoSubcategoriesToJSON(value['subcategories']),
         'allFinancialRecordsTotalSearchScore': value['allFinancialRecordsTotalSearchScore'],
-        'nFinancialRecordsConsidered': value['nFinancialRecordsConsidered'],
+        'nSimilarFinancialRecordsConsidered': value['nSimilarFinancialRecordsConsidered'],
+        'nTotalFinancialRecords': value['nTotalFinancialRecords'],
     };
 }
 
