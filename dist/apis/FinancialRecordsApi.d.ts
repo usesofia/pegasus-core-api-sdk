@@ -106,6 +106,7 @@ export interface SystemGenerateMostCommonContactsAndSubcategoriesForSimilarFinan
     nSimilarFinancialRecordsConsidered: number;
     ownerOrganizationId: string;
     systemGenerateMostCommonContactsForSimilarFinancialRecordReportRequestBodyDto: SystemGenerateMostCommonContactsForSimilarFinancialRecordReportRequestBodyDto;
+    readPreference?: SystemGenerateMostCommonContactsAndSubcategoriesForSimilarFinancialRecordReportReadPreferenceEnum;
 }
 /**
  * FinancialRecordsApi - interface
@@ -311,6 +312,7 @@ export interface FinancialRecordsApiInterface {
      * @param {number} nSimilarFinancialRecordsConsidered Número máximo de lançamentos financeiros similares a considerar
      * @param {string} ownerOrganizationId Identificador da organização dona do lançamento financeiro
      * @param {SystemGenerateMostCommonContactsForSimilarFinancialRecordReportRequestBodyDto} systemGenerateMostCommonContactsForSimilarFinancialRecordReportRequestBodyDto
+     * @param {'primary' | 'primaryPreferred' | 'secondary' | 'secondaryPreferred' | 'nearest'} [readPreference] Preferência de leitura dos lançamentos financeiros.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof FinancialRecordsApiInterface
@@ -455,3 +457,14 @@ export declare const SystemFindAllFinancialRecordsSortByEnum: {
     readonly CreatedAt: "createdAt";
 };
 export type SystemFindAllFinancialRecordsSortByEnum = typeof SystemFindAllFinancialRecordsSortByEnum[keyof typeof SystemFindAllFinancialRecordsSortByEnum];
+/**
+ * @export
+ */
+export declare const SystemGenerateMostCommonContactsAndSubcategoriesForSimilarFinancialRecordReportReadPreferenceEnum: {
+    readonly Primary: "primary";
+    readonly PrimaryPreferred: "primaryPreferred";
+    readonly Secondary: "secondary";
+    readonly SecondaryPreferred: "secondaryPreferred";
+    readonly Nearest: "nearest";
+};
+export type SystemGenerateMostCommonContactsAndSubcategoriesForSimilarFinancialRecordReportReadPreferenceEnum = typeof SystemGenerateMostCommonContactsAndSubcategoriesForSimilarFinancialRecordReportReadPreferenceEnum[keyof typeof SystemGenerateMostCommonContactsAndSubcategoriesForSimilarFinancialRecordReportReadPreferenceEnum];

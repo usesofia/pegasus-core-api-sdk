@@ -64,7 +64,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.SystemFindAllFinancialRecordsSortByEnum = exports.SystemFindAllFinancialRecordsReadPreferenceEnum = exports.FindAllFinancialRecordsSortByEnum = exports.FinancialRecordsApi = void 0;
+exports.SystemGenerateMostCommonContactsAndSubcategoriesForSimilarFinancialRecordReportReadPreferenceEnum = exports.SystemFindAllFinancialRecordsSortByEnum = exports.SystemFindAllFinancialRecordsReadPreferenceEnum = exports.FindAllFinancialRecordsSortByEnum = exports.FinancialRecordsApi = void 0;
 var runtime = require("../runtime");
 var index_1 = require("../models/index");
 /**
@@ -756,6 +756,9 @@ var FinancialRecordsApi = /** @class */ (function (_super) {
                         if (requestParameters['ownerOrganizationId'] != null) {
                             queryParameters['ownerOrganizationId'] = requestParameters['ownerOrganizationId'];
                         }
+                        if (requestParameters['readPreference'] != null) {
+                            queryParameters['readPreference'] = requestParameters['readPreference'];
+                        }
                         headerParameters = {};
                         headerParameters['Content-Type'] = 'application/json';
                         urlPath = "/internal/financial-records/system-generate-most-common-subcategories-for-similar-financial-record-report";
@@ -830,4 +833,14 @@ exports.SystemFindAllFinancialRecordsSortByEnum = {
     CompetenceDate: 'competenceDate',
     CashDate: 'cashDate',
     CreatedAt: 'createdAt'
+};
+/**
+ * @export
+ */
+exports.SystemGenerateMostCommonContactsAndSubcategoriesForSimilarFinancialRecordReportReadPreferenceEnum = {
+    Primary: 'primary',
+    PrimaryPreferred: 'primaryPreferred',
+    Secondary: 'secondary',
+    SecondaryPreferred: 'secondaryPreferred',
+    Nearest: 'nearest'
 };

@@ -154,6 +154,7 @@ export interface SystemGenerateMostCommonContactsAndSubcategoriesForSimilarFinan
     nSimilarFinancialRecordsConsidered: number;
     ownerOrganizationId: string;
     systemGenerateMostCommonContactsForSimilarFinancialRecordReportRequestBodyDto: SystemGenerateMostCommonContactsForSimilarFinancialRecordReportRequestBodyDto;
+    readPreference?: SystemGenerateMostCommonContactsAndSubcategoriesForSimilarFinancialRecordReportReadPreferenceEnum;
 }
 
 /**
@@ -380,6 +381,7 @@ export interface FinancialRecordsApiInterface {
      * @param {number} nSimilarFinancialRecordsConsidered Número máximo de lançamentos financeiros similares a considerar
      * @param {string} ownerOrganizationId Identificador da organização dona do lançamento financeiro
      * @param {SystemGenerateMostCommonContactsForSimilarFinancialRecordReportRequestBodyDto} systemGenerateMostCommonContactsForSimilarFinancialRecordReportRequestBodyDto 
+     * @param {'primary' | 'primaryPreferred' | 'secondary' | 'secondaryPreferred' | 'nearest'} [readPreference] Preferência de leitura dos lançamentos financeiros.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof FinancialRecordsApiInterface
@@ -1080,6 +1082,10 @@ export class FinancialRecordsApi extends runtime.BaseAPI implements FinancialRec
             queryParameters['ownerOrganizationId'] = requestParameters['ownerOrganizationId'];
         }
 
+        if (requestParameters['readPreference'] != null) {
+            queryParameters['readPreference'] = requestParameters['readPreference'];
+        }
+
         const headerParameters: runtime.HTTPHeaders = {};
 
         headerParameters['Content-Type'] = 'application/json';
@@ -1149,3 +1155,14 @@ export const SystemFindAllFinancialRecordsSortByEnum = {
     CreatedAt: 'createdAt'
 } as const;
 export type SystemFindAllFinancialRecordsSortByEnum = typeof SystemFindAllFinancialRecordsSortByEnum[keyof typeof SystemFindAllFinancialRecordsSortByEnum];
+/**
+ * @export
+ */
+export const SystemGenerateMostCommonContactsAndSubcategoriesForSimilarFinancialRecordReportReadPreferenceEnum = {
+    Primary: 'primary',
+    PrimaryPreferred: 'primaryPreferred',
+    Secondary: 'secondary',
+    SecondaryPreferred: 'secondaryPreferred',
+    Nearest: 'nearest'
+} as const;
+export type SystemGenerateMostCommonContactsAndSubcategoriesForSimilarFinancialRecordReportReadPreferenceEnum = typeof SystemGenerateMostCommonContactsAndSubcategoriesForSimilarFinancialRecordReportReadPreferenceEnum[keyof typeof SystemGenerateMostCommonContactsAndSubcategoriesForSimilarFinancialRecordReportReadPreferenceEnum];
