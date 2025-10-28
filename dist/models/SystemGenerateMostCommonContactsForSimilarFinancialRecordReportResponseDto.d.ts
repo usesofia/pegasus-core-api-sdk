@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoContactsInner } from './SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoContactsInner';
+import type { SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoContacts } from './SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoContacts';
 /**
  *
  * @export
@@ -17,11 +17,11 @@ import type { SystemGenerateMostCommonContactsForSimilarFinancialRecordReportRes
  */
 export interface SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDto {
     /**
-     * Lista de contatos ordenados por similaridade
-     * @type {Array<SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoContactsInner>}
+     *
+     * @type {SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoContacts}
      * @memberof SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDto
      */
-    contacts: Array<SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoContactsInner>;
+    contacts: SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoContacts;
     /**
      * Soma total dos scores de todos os lançamentos encontrados
      * @type {number}

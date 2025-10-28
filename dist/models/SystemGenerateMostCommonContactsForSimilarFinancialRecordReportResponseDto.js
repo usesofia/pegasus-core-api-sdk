@@ -18,7 +18,7 @@ exports.SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseD
 exports.SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoFromJSONTyped = SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoFromJSONTyped;
 exports.SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoToJSON = SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoToJSON;
 exports.SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoToJSONTyped = SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoToJSONTyped;
-var SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoContactsInner_1 = require("./SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoContactsInner");
+var SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoContacts_1 = require("./SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoContacts");
 /**
  * Check if a given object implements the SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDto interface.
  */
@@ -39,7 +39,7 @@ function SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponse
         return json;
     }
     return {
-        'contacts': (json['contacts'].map(SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoContactsInner_1.SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoContactsInnerFromJSON)),
+        'contacts': (0, SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoContacts_1.SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoContactsFromJSON)(json['contacts']),
         'allFinancialRecordsTotalSearchScore': json['allFinancialRecordsTotalSearchScore'],
         'nFinancialRecordsFound': json['nFinancialRecordsFound'],
     };
@@ -53,7 +53,7 @@ function SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponse
         return value;
     }
     return {
-        'contacts': (value['contacts'].map(SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoContactsInner_1.SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoContactsInnerToJSON)),
+        'contacts': (0, SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoContacts_1.SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoContactsToJSON)(value['contacts']),
         'allFinancialRecordsTotalSearchScore': value['allFinancialRecordsTotalSearchScore'],
         'nFinancialRecordsFound': value['nFinancialRecordsFound'],
     };

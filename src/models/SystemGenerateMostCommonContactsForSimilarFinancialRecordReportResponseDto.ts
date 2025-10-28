@@ -13,13 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
-import type { SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoContactsInner } from './SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoContactsInner';
+import type { SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoContacts } from './SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoContacts';
 import {
-    SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoContactsInnerFromJSON,
-    SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoContactsInnerFromJSONTyped,
-    SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoContactsInnerToJSON,
-    SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoContactsInnerToJSONTyped,
-} from './SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoContactsInner';
+    SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoContactsFromJSON,
+    SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoContactsFromJSONTyped,
+    SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoContactsToJSON,
+    SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoContactsToJSONTyped,
+} from './SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoContacts';
 
 /**
  * 
@@ -28,11 +28,11 @@ import {
  */
 export interface SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDto {
     /**
-     * Lista de contatos ordenados por similaridade
-     * @type {Array<SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoContactsInner>}
+     * 
+     * @type {SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoContacts}
      * @memberof SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDto
      */
-    contacts: Array<SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoContactsInner>;
+    contacts: SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoContacts;
     /**
      * Soma total dos scores de todos os lançamentos encontrados
      * @type {number}
@@ -67,7 +67,7 @@ export function SystemGenerateMostCommonContactsForSimilarFinancialRecordReportR
     }
     return {
         
-        'contacts': ((json['contacts'] as Array<any>).map(SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoContactsInnerFromJSON)),
+        'contacts': SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoContactsFromJSON(json['contacts']),
         'allFinancialRecordsTotalSearchScore': json['allFinancialRecordsTotalSearchScore'],
         'nFinancialRecordsFound': json['nFinancialRecordsFound'],
     };
@@ -84,7 +84,7 @@ export function SystemGenerateMostCommonContactsForSimilarFinancialRecordReportR
 
     return {
         
-        'contacts': ((value['contacts'] as Array<any>).map(SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoContactsInnerToJSON)),
+        'contacts': SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoContactsToJSON(value['contacts']),
         'allFinancialRecordsTotalSearchScore': value['allFinancialRecordsTotalSearchScore'],
         'nFinancialRecordsFound': value['nFinancialRecordsFound'],
     };
