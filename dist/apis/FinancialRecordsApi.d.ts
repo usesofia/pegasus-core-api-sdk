@@ -101,8 +101,9 @@ export interface SystemFindByIdFinancialRecordRequest {
     financialRecordId: string;
     populate?: string;
 }
-export interface SystemGenerateMostCommonContactsForSimilarFinancialRecordReportRequest {
-    nContacts: number;
+export interface SystemGenerateMostCommonContactsAndSubcategoriesForSimilarFinancialRecordReportRequest {
+    nSubcategories: number;
+    nFinancialRecordsConsidered: number;
     ownerOrganizationId: string;
     systemGenerateMostCommonContactsForSimilarFinancialRecordReportRequestBodyDto: SystemGenerateMostCommonContactsForSimilarFinancialRecordReportRequestBodyDto;
 }
@@ -305,19 +306,20 @@ export interface FinancialRecordsApiInterface {
     systemFindByIdFinancialRecord(requestParameters: SystemFindByIdFinancialRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialRecordDto>;
     /**
      *
-     * @summary Gera relatório dos contatos mais comuns para lançamentos financeiros similares.
-     * @param {number} nContacts Número de contatos a retornar
+     * @summary Gera relatório dos contatos e subcategorias mais comuns para lançamentos financeiros similares.
+     * @param {number} nSubcategories Número de subcategorias a retornar
+     * @param {number} nFinancialRecordsConsidered Número máximo de lançamentos financeiros a considerar
      * @param {string} ownerOrganizationId Identificador da organização dona do lançamento financeiro
      * @param {SystemGenerateMostCommonContactsForSimilarFinancialRecordReportRequestBodyDto} systemGenerateMostCommonContactsForSimilarFinancialRecordReportRequestBodyDto
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof FinancialRecordsApiInterface
      */
-    systemGenerateMostCommonContactsForSimilarFinancialRecordReportRaw(requestParameters: SystemGenerateMostCommonContactsForSimilarFinancialRecordReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDto>>;
+    systemGenerateMostCommonContactsAndSubcategoriesForSimilarFinancialRecordReportRaw(requestParameters: SystemGenerateMostCommonContactsAndSubcategoriesForSimilarFinancialRecordReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDto>>;
     /**
-     * Gera relatório dos contatos mais comuns para lançamentos financeiros similares.
+     * Gera relatório dos contatos e subcategorias mais comuns para lançamentos financeiros similares.
      */
-    systemGenerateMostCommonContactsForSimilarFinancialRecordReport(requestParameters: SystemGenerateMostCommonContactsForSimilarFinancialRecordReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDto>;
+    systemGenerateMostCommonContactsAndSubcategoriesForSimilarFinancialRecordReport(requestParameters: SystemGenerateMostCommonContactsAndSubcategoriesForSimilarFinancialRecordReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDto>;
 }
 /**
  *
@@ -404,13 +406,13 @@ export declare class FinancialRecordsApi extends runtime.BaseAPI implements Fina
      */
     systemFindByIdFinancialRecord(requestParameters: SystemFindByIdFinancialRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialRecordDto>;
     /**
-     * Gera relatório dos contatos mais comuns para lançamentos financeiros similares.
+     * Gera relatório dos contatos e subcategorias mais comuns para lançamentos financeiros similares.
      */
-    systemGenerateMostCommonContactsForSimilarFinancialRecordReportRaw(requestParameters: SystemGenerateMostCommonContactsForSimilarFinancialRecordReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDto>>;
+    systemGenerateMostCommonContactsAndSubcategoriesForSimilarFinancialRecordReportRaw(requestParameters: SystemGenerateMostCommonContactsAndSubcategoriesForSimilarFinancialRecordReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDto>>;
     /**
-     * Gera relatório dos contatos mais comuns para lançamentos financeiros similares.
+     * Gera relatório dos contatos e subcategorias mais comuns para lançamentos financeiros similares.
      */
-    systemGenerateMostCommonContactsForSimilarFinancialRecordReport(requestParameters: SystemGenerateMostCommonContactsForSimilarFinancialRecordReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDto>;
+    systemGenerateMostCommonContactsAndSubcategoriesForSimilarFinancialRecordReport(requestParameters: SystemGenerateMostCommonContactsAndSubcategoriesForSimilarFinancialRecordReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDto>;
 }
 /**
  * @export

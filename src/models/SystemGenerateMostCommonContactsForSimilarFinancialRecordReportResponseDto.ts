@@ -13,13 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
-import type { SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoContacts } from './SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoContacts';
+import type { SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoSubcategories } from './SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoSubcategories';
 import {
-    SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoContactsFromJSON,
-    SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoContactsFromJSONTyped,
-    SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoContactsToJSON,
-    SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoContactsToJSONTyped,
-} from './SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoContacts';
+    SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoSubcategoriesFromJSON,
+    SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoSubcategoriesFromJSONTyped,
+    SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoSubcategoriesToJSON,
+    SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoSubcategoriesToJSONTyped,
+} from './SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoSubcategories';
 
 /**
  * 
@@ -29,10 +29,10 @@ import {
 export interface SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDto {
     /**
      * 
-     * @type {SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoContacts}
+     * @type {SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoSubcategories}
      * @memberof SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDto
      */
-    contacts: SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoContacts;
+    subcategories: SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoSubcategories;
     /**
      * Soma total dos scores de todos os lançamentos encontrados
      * @type {number}
@@ -40,20 +40,20 @@ export interface SystemGenerateMostCommonContactsForSimilarFinancialRecordReport
      */
     allFinancialRecordsTotalSearchScore: number;
     /**
-     * Número de lançamentos encontrados (até 256)
+     * Número de lançamentos considerados
      * @type {number}
      * @memberof SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDto
      */
-    nFinancialRecordsFound: number;
+    nFinancialRecordsConsidered: number;
 }
 
 /**
  * Check if a given object implements the SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDto interface.
  */
 export function instanceOfSystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDto(value: object): value is SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDto {
-    if (!('contacts' in value) || value['contacts'] === undefined) return false;
+    if (!('subcategories' in value) || value['subcategories'] === undefined) return false;
     if (!('allFinancialRecordsTotalSearchScore' in value) || value['allFinancialRecordsTotalSearchScore'] === undefined) return false;
-    if (!('nFinancialRecordsFound' in value) || value['nFinancialRecordsFound'] === undefined) return false;
+    if (!('nFinancialRecordsConsidered' in value) || value['nFinancialRecordsConsidered'] === undefined) return false;
     return true;
 }
 
@@ -67,9 +67,9 @@ export function SystemGenerateMostCommonContactsForSimilarFinancialRecordReportR
     }
     return {
         
-        'contacts': SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoContactsFromJSON(json['contacts']),
+        'subcategories': SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoSubcategoriesFromJSON(json['subcategories']),
         'allFinancialRecordsTotalSearchScore': json['allFinancialRecordsTotalSearchScore'],
-        'nFinancialRecordsFound': json['nFinancialRecordsFound'],
+        'nFinancialRecordsConsidered': json['nFinancialRecordsConsidered'],
     };
 }
 
@@ -84,9 +84,9 @@ export function SystemGenerateMostCommonContactsForSimilarFinancialRecordReportR
 
     return {
         
-        'contacts': SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoContactsToJSON(value['contacts']),
+        'subcategories': SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoSubcategoriesToJSON(value['subcategories']),
         'allFinancialRecordsTotalSearchScore': value['allFinancialRecordsTotalSearchScore'],
-        'nFinancialRecordsFound': value['nFinancialRecordsFound'],
+        'nFinancialRecordsConsidered': value['nFinancialRecordsConsidered'],
     };
 }
 

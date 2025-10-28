@@ -18,16 +18,16 @@ exports.SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseD
 exports.SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoFromJSONTyped = SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoFromJSONTyped;
 exports.SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoToJSON = SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoToJSON;
 exports.SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoToJSONTyped = SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoToJSONTyped;
-var SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoContacts_1 = require("./SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoContacts");
+var SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoSubcategories_1 = require("./SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoSubcategories");
 /**
  * Check if a given object implements the SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDto interface.
  */
 function instanceOfSystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDto(value) {
-    if (!('contacts' in value) || value['contacts'] === undefined)
+    if (!('subcategories' in value) || value['subcategories'] === undefined)
         return false;
     if (!('allFinancialRecordsTotalSearchScore' in value) || value['allFinancialRecordsTotalSearchScore'] === undefined)
         return false;
-    if (!('nFinancialRecordsFound' in value) || value['nFinancialRecordsFound'] === undefined)
+    if (!('nFinancialRecordsConsidered' in value) || value['nFinancialRecordsConsidered'] === undefined)
         return false;
     return true;
 }
@@ -39,9 +39,9 @@ function SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponse
         return json;
     }
     return {
-        'contacts': (0, SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoContacts_1.SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoContactsFromJSON)(json['contacts']),
+        'subcategories': (0, SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoSubcategories_1.SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoSubcategoriesFromJSON)(json['subcategories']),
         'allFinancialRecordsTotalSearchScore': json['allFinancialRecordsTotalSearchScore'],
-        'nFinancialRecordsFound': json['nFinancialRecordsFound'],
+        'nFinancialRecordsConsidered': json['nFinancialRecordsConsidered'],
     };
 }
 function SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoToJSON(json) {
@@ -53,8 +53,8 @@ function SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponse
         return value;
     }
     return {
-        'contacts': (0, SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoContacts_1.SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoContactsToJSON)(value['contacts']),
+        'subcategories': (0, SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoSubcategories_1.SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoSubcategoriesToJSON)(value['subcategories']),
         'allFinancialRecordsTotalSearchScore': value['allFinancialRecordsTotalSearchScore'],
-        'nFinancialRecordsFound': value['nFinancialRecordsFound'],
+        'nFinancialRecordsConsidered': value['nFinancialRecordsConsidered'],
     };
 }

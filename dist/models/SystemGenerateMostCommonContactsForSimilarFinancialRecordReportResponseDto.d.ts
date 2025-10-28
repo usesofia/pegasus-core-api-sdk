@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoContacts } from './SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoContacts';
+import type { SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoSubcategories } from './SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoSubcategories';
 /**
  *
  * @export
@@ -18,10 +18,10 @@ import type { SystemGenerateMostCommonContactsForSimilarFinancialRecordReportRes
 export interface SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDto {
     /**
      *
-     * @type {SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoContacts}
+     * @type {SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoSubcategories}
      * @memberof SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDto
      */
-    contacts: SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoContacts;
+    subcategories: SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoSubcategories;
     /**
      * Soma total dos scores de todos os lançamentos encontrados
      * @type {number}
@@ -29,11 +29,11 @@ export interface SystemGenerateMostCommonContactsForSimilarFinancialRecordReport
      */
     allFinancialRecordsTotalSearchScore: number;
     /**
-     * Número de lançamentos encontrados (até 256)
+     * Número de lançamentos considerados
      * @type {number}
      * @memberof SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDto
      */
-    nFinancialRecordsFound: number;
+    nFinancialRecordsConsidered: number;
 }
 /**
  * Check if a given object implements the SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDto interface.
