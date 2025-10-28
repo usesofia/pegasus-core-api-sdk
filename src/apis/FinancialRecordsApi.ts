@@ -23,6 +23,8 @@ import type {
   PartialUpdateFinancialRecordRequestBodyDto,
   PartialUpdateManyFinancialRecordsRequestBodyDto,
   RemoveFinancialRecordRequestBodyDto,
+  SystemGenerateMostCommonContactsForSimilarFinancialRecordReportRequestBodyDto,
+  SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDto,
 } from '../models/index';
 import {
     CreateFinancialRecordRequestBodyDtoFromJSON,
@@ -41,6 +43,10 @@ import {
     PartialUpdateManyFinancialRecordsRequestBodyDtoToJSON,
     RemoveFinancialRecordRequestBodyDtoFromJSON,
     RemoveFinancialRecordRequestBodyDtoToJSON,
+    SystemGenerateMostCommonContactsForSimilarFinancialRecordReportRequestBodyDtoFromJSON,
+    SystemGenerateMostCommonContactsForSimilarFinancialRecordReportRequestBodyDtoToJSON,
+    SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoFromJSON,
+    SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoToJSON,
 } from '../models/index';
 
 export interface CreateFinancialRecordRequest {
@@ -141,6 +147,12 @@ export interface SystemFindByIdFinancialRecordRequest {
     organizationId: string;
     financialRecordId: string;
     populate?: string;
+}
+
+export interface SystemGenerateMostCommonContactsForSimilarFinancialRecordReportRequest {
+    nContacts: number;
+    ownerOrganizationId: string;
+    systemGenerateMostCommonContactsForSimilarFinancialRecordReportRequestBodyDto: SystemGenerateMostCommonContactsForSimilarFinancialRecordReportRequestBodyDto;
 }
 
 /**
@@ -359,6 +371,23 @@ export interface FinancialRecordsApiInterface {
      * Busca um lançamento financeiro pelo identificador.
      */
     systemFindByIdFinancialRecord(requestParameters: SystemFindByIdFinancialRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialRecordDto>;
+
+    /**
+     * 
+     * @summary Gera relatório dos contatos mais comuns para lançamentos financeiros similares.
+     * @param {number} nContacts Número de contatos a retornar
+     * @param {string} ownerOrganizationId Identificador da organização dona do lançamento financeiro
+     * @param {SystemGenerateMostCommonContactsForSimilarFinancialRecordReportRequestBodyDto} systemGenerateMostCommonContactsForSimilarFinancialRecordReportRequestBodyDto 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof FinancialRecordsApiInterface
+     */
+    systemGenerateMostCommonContactsForSimilarFinancialRecordReportRaw(requestParameters: SystemGenerateMostCommonContactsForSimilarFinancialRecordReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDto>>;
+
+    /**
+     * Gera relatório dos contatos mais comuns para lançamentos financeiros similares.
+     */
+    systemGenerateMostCommonContactsForSimilarFinancialRecordReport(requestParameters: SystemGenerateMostCommonContactsForSimilarFinancialRecordReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDto>;
 
 }
 
@@ -1000,6 +1029,67 @@ export class FinancialRecordsApi extends runtime.BaseAPI implements FinancialRec
      */
     async systemFindByIdFinancialRecord(requestParameters: SystemFindByIdFinancialRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialRecordDto> {
         const response = await this.systemFindByIdFinancialRecordRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Gera relatório dos contatos mais comuns para lançamentos financeiros similares.
+     */
+    async systemGenerateMostCommonContactsForSimilarFinancialRecordReportRaw(requestParameters: SystemGenerateMostCommonContactsForSimilarFinancialRecordReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDto>> {
+        if (requestParameters['nContacts'] == null) {
+            throw new runtime.RequiredError(
+                'nContacts',
+                'Required parameter "nContacts" was null or undefined when calling systemGenerateMostCommonContactsForSimilarFinancialRecordReport().'
+            );
+        }
+
+        if (requestParameters['ownerOrganizationId'] == null) {
+            throw new runtime.RequiredError(
+                'ownerOrganizationId',
+                'Required parameter "ownerOrganizationId" was null or undefined when calling systemGenerateMostCommonContactsForSimilarFinancialRecordReport().'
+            );
+        }
+
+        if (requestParameters['systemGenerateMostCommonContactsForSimilarFinancialRecordReportRequestBodyDto'] == null) {
+            throw new runtime.RequiredError(
+                'systemGenerateMostCommonContactsForSimilarFinancialRecordReportRequestBodyDto',
+                'Required parameter "systemGenerateMostCommonContactsForSimilarFinancialRecordReportRequestBodyDto" was null or undefined when calling systemGenerateMostCommonContactsForSimilarFinancialRecordReport().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['nContacts'] != null) {
+            queryParameters['nContacts'] = requestParameters['nContacts'];
+        }
+
+        if (requestParameters['ownerOrganizationId'] != null) {
+            queryParameters['ownerOrganizationId'] = requestParameters['ownerOrganizationId'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+
+        let urlPath = `/internal/financial-records/system-generate-most-common-contacts-for-similar-financial-record-report`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: SystemGenerateMostCommonContactsForSimilarFinancialRecordReportRequestBodyDtoToJSON(requestParameters['systemGenerateMostCommonContactsForSimilarFinancialRecordReportRequestBodyDto']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoFromJSON(jsonValue));
+    }
+
+    /**
+     * Gera relatório dos contatos mais comuns para lançamentos financeiros similares.
+     */
+    async systemGenerateMostCommonContactsForSimilarFinancialRecordReport(requestParameters: SystemGenerateMostCommonContactsForSimilarFinancialRecordReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDto> {
+        const response = await this.systemGenerateMostCommonContactsForSimilarFinancialRecordReportRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

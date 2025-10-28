@@ -725,6 +725,65 @@ var FinancialRecordsApi = /** @class */ (function (_super) {
             });
         });
     };
+    /**
+     * Gera relatório dos contatos mais comuns para lançamentos financeiros similares.
+     */
+    FinancialRecordsApi.prototype.systemGenerateMostCommonContactsForSimilarFinancialRecordReportRaw = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (requestParameters['nContacts'] == null) {
+                            throw new runtime.RequiredError('nContacts', 'Required parameter "nContacts" was null or undefined when calling systemGenerateMostCommonContactsForSimilarFinancialRecordReport().');
+                        }
+                        if (requestParameters['ownerOrganizationId'] == null) {
+                            throw new runtime.RequiredError('ownerOrganizationId', 'Required parameter "ownerOrganizationId" was null or undefined when calling systemGenerateMostCommonContactsForSimilarFinancialRecordReport().');
+                        }
+                        if (requestParameters['systemGenerateMostCommonContactsForSimilarFinancialRecordReportRequestBodyDto'] == null) {
+                            throw new runtime.RequiredError('systemGenerateMostCommonContactsForSimilarFinancialRecordReportRequestBodyDto', 'Required parameter "systemGenerateMostCommonContactsForSimilarFinancialRecordReportRequestBodyDto" was null or undefined when calling systemGenerateMostCommonContactsForSimilarFinancialRecordReport().');
+                        }
+                        queryParameters = {};
+                        if (requestParameters['nContacts'] != null) {
+                            queryParameters['nContacts'] = requestParameters['nContacts'];
+                        }
+                        if (requestParameters['ownerOrganizationId'] != null) {
+                            queryParameters['ownerOrganizationId'] = requestParameters['ownerOrganizationId'];
+                        }
+                        headerParameters = {};
+                        headerParameters['Content-Type'] = 'application/json';
+                        urlPath = "/internal/financial-records/system-generate-most-common-contacts-for-similar-financial-record-report";
+                        return [4 /*yield*/, this.request({
+                                path: urlPath,
+                                method: 'POST',
+                                headers: headerParameters,
+                                query: queryParameters,
+                                body: (0, index_1.SystemGenerateMostCommonContactsForSimilarFinancialRecordReportRequestBodyDtoToJSON)(requestParameters['systemGenerateMostCommonContactsForSimilarFinancialRecordReportRequestBodyDto']),
+                            }, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoFromJSON)(jsonValue); })];
+                }
+            });
+        });
+    };
+    /**
+     * Gera relatório dos contatos mais comuns para lançamentos financeiros similares.
+     */
+    FinancialRecordsApi.prototype.systemGenerateMostCommonContactsForSimilarFinancialRecordReport = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.systemGenerateMostCommonContactsForSimilarFinancialRecordReportRaw(requestParameters, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [4 /*yield*/, response.value()];
+                    case 2: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
     return FinancialRecordsApi;
 }(runtime.BaseAPI));
 exports.FinancialRecordsApi = FinancialRecordsApi;
