@@ -12,8 +12,8 @@
 import * as runtime from '../runtime';
 import type { ExportBankAccountsDto } from '../models/index';
 export interface ExportBankAccountsRequest {
-    sortOrder?: string;
-    sortBy?: string;
+    sortOrder?: ExportBankAccountsSortOrderEnum;
+    sortBy?: ExportBankAccountsSortByEnum;
     providerAccountId?: string;
     provider?: string;
     active?: boolean;
@@ -33,8 +33,8 @@ export interface BankAccountsExportApiInterface {
     /**
      *
      * @summary Solicita a exportação das contas bancárias.
-     * @param {string} [sortOrder] Ordem de ordenação das contas bancárias.
-     * @param {string} [sortBy] Campo para ordenação das contas bancárias.
+     * @param {'asc' | 'desc'} [sortOrder] Ordem de ordenação das contas bancárias.
+     * @param {'name' | 'type' | 'institution' | 'createdAt' | 'updatedAt'} [sortBy] Campo para ordenação das contas bancárias.
      * @param {string} [providerAccountId] Identificador da conta bancária no fornecedor.
      * @param {string} [provider] Fornecedor da conta bancária.
      * @param {boolean} [active] Indica se a conta está ativa.
@@ -66,6 +66,25 @@ export declare class BankAccountsExportApi extends runtime.BaseAPI implements Ba
      */
     exportBankAccounts(requestParameters?: ExportBankAccountsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ExportBankAccountsDto>;
 }
+/**
+ * @export
+ */
+export declare const ExportBankAccountsSortOrderEnum: {
+    readonly Asc: "asc";
+    readonly Desc: "desc";
+};
+export type ExportBankAccountsSortOrderEnum = typeof ExportBankAccountsSortOrderEnum[keyof typeof ExportBankAccountsSortOrderEnum];
+/**
+ * @export
+ */
+export declare const ExportBankAccountsSortByEnum: {
+    readonly Name: "name";
+    readonly Type: "type";
+    readonly Institution: "institution";
+    readonly CreatedAt: "createdAt";
+    readonly UpdatedAt: "updatedAt";
+};
+export type ExportBankAccountsSortByEnum = typeof ExportBankAccountsSortByEnum[keyof typeof ExportBankAccountsSortByEnum];
 /**
  * @export
  */

@@ -12,8 +12,8 @@
 import * as runtime from '../runtime';
 import type { ExportContactsDto } from '../models/index';
 export interface ExportContactsRequest {
-    sortOrder?: string;
-    sortBy?: string;
+    sortOrder?: ExportContactsSortOrderEnum;
+    sortBy?: ExportContactsSortByEnum;
     considerNotIdentified?: boolean;
     states?: string;
     country?: string;
@@ -33,8 +33,8 @@ export interface ContactsExportApiInterface {
     /**
      *
      * @summary Solicita a exportação dos contatos.
-     * @param {string} [sortOrder] Ordem de ordenação dos contatos.
-     * @param {string} [sortBy] Campo para ordenação dos contatos.
+     * @param {'asc' | 'desc'} [sortOrder] Ordem de ordenação dos contatos.
+     * @param {'name' | 'document' | 'email' | 'birthDate' | 'createdAt'} [sortBy] Campo para ordenação dos contatos.
      * @param {boolean} [considerNotIdentified] Considerar ou não o contato não identificado.
      * @param {string} [states] Estados a serem buscados.
      * @param {string} [country] País a serem buscados.
@@ -66,6 +66,25 @@ export declare class ContactsExportApi extends runtime.BaseAPI implements Contac
      */
     exportContacts(requestParameters?: ExportContactsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ExportContactsDto>;
 }
+/**
+ * @export
+ */
+export declare const ExportContactsSortOrderEnum: {
+    readonly Asc: "asc";
+    readonly Desc: "desc";
+};
+export type ExportContactsSortOrderEnum = typeof ExportContactsSortOrderEnum[keyof typeof ExportContactsSortOrderEnum];
+/**
+ * @export
+ */
+export declare const ExportContactsSortByEnum: {
+    readonly Name: "name";
+    readonly Document: "document";
+    readonly Email: "email";
+    readonly BirthDate: "birthDate";
+    readonly CreatedAt: "createdAt";
+};
+export type ExportContactsSortByEnum = typeof ExportContactsSortByEnum[keyof typeof ExportContactsSortByEnum];
 /**
  * @export
  */

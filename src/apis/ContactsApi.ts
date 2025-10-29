@@ -49,8 +49,8 @@ export interface CreateContactRequest {
 }
 
 export interface FindAllContactsRequest {
-    sortOrder?: string;
-    sortBy?: string;
+    sortOrder?: FindAllContactsSortOrderEnum;
+    sortBy?: FindAllContactsSortByEnum;
     populate?: string;
     considerNotIdentified?: boolean;
     states?: string;
@@ -88,8 +88,8 @@ export interface RemoveContactRequest {
 export interface SystemFindAllContactsRequest {
     ownerOrganizationId: string;
     readPreference?: SystemFindAllContactsReadPreferenceEnum;
-    sortOrder?: string;
-    sortBy?: string;
+    sortOrder?: SystemFindAllContactsSortOrderEnum;
+    sortBy?: SystemFindAllContactsSortByEnum;
     populate?: string;
     considerNotIdentified?: boolean;
     states?: string;
@@ -164,8 +164,8 @@ export interface ContactsApiInterface {
     /**
      * 
      * @summary Busca todos os contatos.
-     * @param {string} [sortOrder] Ordem de ordenação dos contatos.
-     * @param {string} [sortBy] Campo para ordenação dos contatos.
+     * @param {'asc' | 'desc'} [sortOrder] Ordem de ordenação dos contatos.
+     * @param {'name' | 'document' | 'email' | 'birthDate' | 'createdAt'} [sortBy] Campo para ordenação dos contatos.
      * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
      * @param {boolean} [considerNotIdentified] Considerar ou não o contato não identificado.
      * @param {string} [states] Estados a serem buscados.
@@ -258,8 +258,8 @@ export interface ContactsApiInterface {
      * @summary Busca todos os contatos pelo sistema.
      * @param {string} ownerOrganizationId Identificador da organização proprietária dos contatos.
      * @param {'primary' | 'primaryPreferred' | 'secondary' | 'secondaryPreferred' | 'nearest'} [readPreference] Preferência de leitura dos contatos.
-     * @param {string} [sortOrder] Ordem de ordenação dos contatos.
-     * @param {string} [sortBy] Campo para ordenação dos contatos.
+     * @param {'asc' | 'desc'} [sortOrder] Ordem de ordenação dos contatos.
+     * @param {'name' | 'document' | 'email' | 'birthDate' | 'createdAt'} [sortBy] Campo para ordenação dos contatos.
      * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
      * @param {boolean} [considerNotIdentified] Considerar ou não o contato não identificado.
      * @param {string} [states] Estados a serem buscados.
@@ -822,6 +822,25 @@ export class ContactsApi extends runtime.BaseAPI implements ContactsApiInterface
 /**
  * @export
  */
+export const FindAllContactsSortOrderEnum = {
+    Asc: 'asc',
+    Desc: 'desc'
+} as const;
+export type FindAllContactsSortOrderEnum = typeof FindAllContactsSortOrderEnum[keyof typeof FindAllContactsSortOrderEnum];
+/**
+ * @export
+ */
+export const FindAllContactsSortByEnum = {
+    Name: 'name',
+    Document: 'document',
+    Email: 'email',
+    BirthDate: 'birthDate',
+    CreatedAt: 'createdAt'
+} as const;
+export type FindAllContactsSortByEnum = typeof FindAllContactsSortByEnum[keyof typeof FindAllContactsSortByEnum];
+/**
+ * @export
+ */
 export const SystemFindAllContactsReadPreferenceEnum = {
     Primary: 'primary',
     PrimaryPreferred: 'primaryPreferred',
@@ -830,3 +849,22 @@ export const SystemFindAllContactsReadPreferenceEnum = {
     Nearest: 'nearest'
 } as const;
 export type SystemFindAllContactsReadPreferenceEnum = typeof SystemFindAllContactsReadPreferenceEnum[keyof typeof SystemFindAllContactsReadPreferenceEnum];
+/**
+ * @export
+ */
+export const SystemFindAllContactsSortOrderEnum = {
+    Asc: 'asc',
+    Desc: 'desc'
+} as const;
+export type SystemFindAllContactsSortOrderEnum = typeof SystemFindAllContactsSortOrderEnum[keyof typeof SystemFindAllContactsSortOrderEnum];
+/**
+ * @export
+ */
+export const SystemFindAllContactsSortByEnum = {
+    Name: 'name',
+    Document: 'document',
+    Email: 'email',
+    BirthDate: 'birthDate',
+    CreatedAt: 'createdAt'
+} as const;
+export type SystemFindAllContactsSortByEnum = typeof SystemFindAllContactsSortByEnum[keyof typeof SystemFindAllContactsSortByEnum];

@@ -45,6 +45,19 @@ export interface PreviewBulkCreateFileRequest {
     radarItemId: string;
     limit?: number;
 }
+export interface SystemFindAllFinancialRecordRadarItemsRequest {
+    organizationId: string;
+    sortOrder?: string;
+    sortBy?: string;
+    hasAutoExecute?: boolean;
+    populate?: string;
+    nature?: SystemFindAllFinancialRecordRadarItemsNatureEnum;
+    origin?: SystemFindAllFinancialRecordRadarItemsOriginEnum;
+    status?: SystemFindAllFinancialRecordRadarItemsStatusEnum;
+    folder?: SystemFindAllFinancialRecordRadarItemsFolderEnum;
+    pageSize?: number;
+    pageIndex?: number;
+}
 export interface SystemFindByIdFinancialRecordRadarItemRequest {
     organizationId: string;
     radarItemId: string;
@@ -169,6 +182,29 @@ export interface FinancialRecordRadarItemsApiInterface {
     previewBulkCreateFile(requestParameters: PreviewBulkCreateFileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialRecordsBulkCreateFilePreviewEntity>;
     /**
      *
+     * @summary Busca todos os registros do radar (sistema).
+     * @param {string} organizationId Identificador da organização
+     * @param {string} [sortOrder] Ordem de ordenação.
+     * @param {string} [sortBy] Campo de ordenação.
+     * @param {boolean} [hasAutoExecute] Se possui auto-execute.
+     * @param {string} [populate] População do registro.
+     * @param {'WHATSAPP_MESSAGE' | 'EMAIL_MESSAGE'} [nature] Natureza do registro.
+     * @param {'WHATSAPP_AGENT' | 'EMAIL_FORWARDING_INTEGRATION'} [origin] Origem do registro.
+     * @param {'PENDING' | 'LINKED' | 'ARCHIVED'} [status] Status do registro.
+     * @param {'MAIN' | 'SPAM'} [folder] Pasta do registro.
+     * @param {number} [pageSize] Quantidade de itens por página.
+     * @param {number} [pageIndex] Índice da página.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof FinancialRecordRadarItemsApiInterface
+     */
+    systemFindAllFinancialRecordRadarItemsRaw(requestParameters: SystemFindAllFinancialRecordRadarItemsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FinancialRecordRadarItemsPageDto>>;
+    /**
+     * Busca todos os registros do radar (sistema).
+     */
+    systemFindAllFinancialRecordRadarItems(requestParameters: SystemFindAllFinancialRecordRadarItemsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialRecordRadarItemsPageDto>;
+    /**
+     *
      * @summary Busca um registro de radar pelo identificador.
      * @param {string} organizationId Identificador da organização
      * @param {string} radarItemId Identificador do registro de radar
@@ -263,6 +299,14 @@ export declare class FinancialRecordRadarItemsApi extends runtime.BaseAPI implem
      */
     previewBulkCreateFile(requestParameters: PreviewBulkCreateFileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialRecordsBulkCreateFilePreviewEntity>;
     /**
+     * Busca todos os registros do radar (sistema).
+     */
+    systemFindAllFinancialRecordRadarItemsRaw(requestParameters: SystemFindAllFinancialRecordRadarItemsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FinancialRecordRadarItemsPageDto>>;
+    /**
+     * Busca todos os registros do radar (sistema).
+     */
+    systemFindAllFinancialRecordRadarItems(requestParameters: SystemFindAllFinancialRecordRadarItemsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialRecordRadarItemsPageDto>;
+    /**
      * Busca um registro de radar pelo identificador.
      */
     systemFindByIdFinancialRecordRadarItemRaw(requestParameters: SystemFindByIdFinancialRecordRadarItemRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FinancialRecordRadarItemEntity>>;
@@ -314,3 +358,36 @@ export declare const FindAllFinancialRecordRadarItemsFolderEnum: {
     readonly Spam: "SPAM";
 };
 export type FindAllFinancialRecordRadarItemsFolderEnum = typeof FindAllFinancialRecordRadarItemsFolderEnum[keyof typeof FindAllFinancialRecordRadarItemsFolderEnum];
+/**
+ * @export
+ */
+export declare const SystemFindAllFinancialRecordRadarItemsNatureEnum: {
+    readonly WhatsappMessage: "WHATSAPP_MESSAGE";
+    readonly EmailMessage: "EMAIL_MESSAGE";
+};
+export type SystemFindAllFinancialRecordRadarItemsNatureEnum = typeof SystemFindAllFinancialRecordRadarItemsNatureEnum[keyof typeof SystemFindAllFinancialRecordRadarItemsNatureEnum];
+/**
+ * @export
+ */
+export declare const SystemFindAllFinancialRecordRadarItemsOriginEnum: {
+    readonly WhatsappAgent: "WHATSAPP_AGENT";
+    readonly EmailForwardingIntegration: "EMAIL_FORWARDING_INTEGRATION";
+};
+export type SystemFindAllFinancialRecordRadarItemsOriginEnum = typeof SystemFindAllFinancialRecordRadarItemsOriginEnum[keyof typeof SystemFindAllFinancialRecordRadarItemsOriginEnum];
+/**
+ * @export
+ */
+export declare const SystemFindAllFinancialRecordRadarItemsStatusEnum: {
+    readonly Pending: "PENDING";
+    readonly Linked: "LINKED";
+    readonly Archived: "ARCHIVED";
+};
+export type SystemFindAllFinancialRecordRadarItemsStatusEnum = typeof SystemFindAllFinancialRecordRadarItemsStatusEnum[keyof typeof SystemFindAllFinancialRecordRadarItemsStatusEnum];
+/**
+ * @export
+ */
+export declare const SystemFindAllFinancialRecordRadarItemsFolderEnum: {
+    readonly Main: "MAIN";
+    readonly Spam: "SPAM";
+};
+export type SystemFindAllFinancialRecordRadarItemsFolderEnum = typeof SystemFindAllFinancialRecordRadarItemsFolderEnum[keyof typeof SystemFindAllFinancialRecordRadarItemsFolderEnum];

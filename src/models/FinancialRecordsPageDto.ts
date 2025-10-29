@@ -13,6 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
+import type { CreateFinancialRecordRequestBodyDtoPopulatedFilesInner } from './CreateFinancialRecordRequestBodyDtoPopulatedFilesInner';
+import {
+    CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerFromJSON,
+    CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerFromJSONTyped,
+    CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerToJSON,
+    CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerToJSONTyped,
+} from './CreateFinancialRecordRequestBodyDtoPopulatedFilesInner';
 import type { ContactsPageDtoPageInfo } from './ContactsPageDtoPageInfo';
 import {
     ContactsPageDtoPageInfoFromJSON,
@@ -46,6 +53,24 @@ export interface FinancialRecordsPageDto {
      * @memberof FinancialRecordsPageDto
      */
     pageInfo: ContactsPageDtoPageInfo;
+    /**
+     * 
+     * @type {CreateFinancialRecordRequestBodyDtoPopulatedFilesInner}
+     * @memberof FinancialRecordsPageDto
+     */
+    exportedExcelFile?: CreateFinancialRecordRequestBodyDtoPopulatedFilesInner;
+    /**
+     * 
+     * @type {CreateFinancialRecordRequestBodyDtoPopulatedFilesInner}
+     * @memberof FinancialRecordsPageDto
+     */
+    exportedPdfTableFile?: CreateFinancialRecordRequestBodyDtoPopulatedFilesInner;
+    /**
+     * 
+     * @type {CreateFinancialRecordRequestBodyDtoPopulatedFilesInner}
+     * @memberof FinancialRecordsPageDto
+     */
+    exportedPdfListFile?: CreateFinancialRecordRequestBodyDtoPopulatedFilesInner;
 }
 
 /**
@@ -69,6 +94,9 @@ export function FinancialRecordsPageDtoFromJSONTyped(json: any, ignoreDiscrimina
         
         'items': ((json['items'] as Array<any>).map(FinancialRecordsPageDtoItemsInnerFromJSON)),
         'pageInfo': ContactsPageDtoPageInfoFromJSON(json['pageInfo']),
+        'exportedExcelFile': json['exportedExcelFile'] == null ? undefined : CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerFromJSON(json['exportedExcelFile']),
+        'exportedPdfTableFile': json['exportedPdfTableFile'] == null ? undefined : CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerFromJSON(json['exportedPdfTableFile']),
+        'exportedPdfListFile': json['exportedPdfListFile'] == null ? undefined : CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerFromJSON(json['exportedPdfListFile']),
     };
 }
 
@@ -85,6 +113,9 @@ export function FinancialRecordsPageDtoToJSONTyped(value?: FinancialRecordsPageD
         
         'items': ((value['items'] as Array<any>).map(FinancialRecordsPageDtoItemsInnerToJSON)),
         'pageInfo': ContactsPageDtoPageInfoToJSON(value['pageInfo']),
+        'exportedExcelFile': CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerToJSON(value['exportedExcelFile']),
+        'exportedPdfTableFile': CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerToJSON(value['exportedPdfTableFile']),
+        'exportedPdfListFile': CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerToJSON(value['exportedPdfListFile']),
     };
 }
 

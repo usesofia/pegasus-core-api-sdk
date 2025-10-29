@@ -17,8 +17,8 @@ export interface CreateSubcategoryRequest {
 }
 export interface FindAllSubcategoriesRequest {
     active?: boolean;
-    sortOrder?: string;
-    sortBy?: string;
+    sortOrder?: FindAllSubcategoriesSortOrderEnum;
+    sortBy?: FindAllSubcategoriesSortByEnum;
     populate?: string;
     categoryId?: string;
     direction?: string;
@@ -49,8 +49,8 @@ export interface SystemFindAllSubcategoriesRequest {
     readPreference?: SystemFindAllSubcategoriesReadPreferenceEnum;
     direction?: string;
     active?: boolean;
-    sortOrder?: string;
-    sortBy?: string;
+    sortOrder?: SystemFindAllSubcategoriesSortOrderEnum;
+    sortBy?: SystemFindAllSubcategoriesSortByEnum;
     populate?: string;
     categoryId?: string;
     semanticSearchTermInBase64?: string;
@@ -88,8 +88,8 @@ export interface SubcategoriesApiInterface {
      *
      * @summary Busca todas as subcategorias.
      * @param {boolean} [active] Filtra subcategorias ativas ou inativas.
-     * @param {string} [sortOrder] Ordem de ordenação das subcategorias.
-     * @param {string} [sortBy] Campo para ordenar as subcategorias.
+     * @param {'asc' | 'desc'} [sortOrder] Ordem de ordenação das subcategorias.
+     * @param {'name' | 'createdAt' | 'index'} [sortBy] Campo para ordenar as subcategorias.
      * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
      * @param {string} [categoryId] ID da categoria para filtrar subcategorias.
      * @param {string} [direction] Direção da subcategoria.
@@ -170,8 +170,8 @@ export interface SubcategoriesApiInterface {
      * @param {'primary' | 'primaryPreferred' | 'secondary' | 'secondaryPreferred' | 'nearest'} [readPreference] Preferência de leitura das subcategorias.
      * @param {string} [direction] Direção da subcategoria.
      * @param {boolean} [active] Filtra subcategorias ativas ou inativas.
-     * @param {string} [sortOrder] Ordem de ordenação das subcategorias.
-     * @param {string} [sortBy] Campo para ordenar as subcategorias.
+     * @param {'asc' | 'desc'} [sortOrder] Ordem de ordenação das subcategorias.
+     * @param {'name' | 'createdAt' | 'index'} [sortBy] Campo para ordenar as subcategorias.
      * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
      * @param {string} [categoryId] ID da categoria para filtrar subcategorias.
      * @param {string} [semanticSearchTermInBase64] Termo para busca semântica codificado em base64.
@@ -275,6 +275,23 @@ export declare class SubcategoriesApi extends runtime.BaseAPI implements Subcate
 /**
  * @export
  */
+export declare const FindAllSubcategoriesSortOrderEnum: {
+    readonly Asc: "asc";
+    readonly Desc: "desc";
+};
+export type FindAllSubcategoriesSortOrderEnum = typeof FindAllSubcategoriesSortOrderEnum[keyof typeof FindAllSubcategoriesSortOrderEnum];
+/**
+ * @export
+ */
+export declare const FindAllSubcategoriesSortByEnum: {
+    readonly Name: "name";
+    readonly CreatedAt: "createdAt";
+    readonly Index: "index";
+};
+export type FindAllSubcategoriesSortByEnum = typeof FindAllSubcategoriesSortByEnum[keyof typeof FindAllSubcategoriesSortByEnum];
+/**
+ * @export
+ */
 export declare const SystemFindAllSubcategoriesReadPreferenceEnum: {
     readonly Primary: "primary";
     readonly PrimaryPreferred: "primaryPreferred";
@@ -283,3 +300,20 @@ export declare const SystemFindAllSubcategoriesReadPreferenceEnum: {
     readonly Nearest: "nearest";
 };
 export type SystemFindAllSubcategoriesReadPreferenceEnum = typeof SystemFindAllSubcategoriesReadPreferenceEnum[keyof typeof SystemFindAllSubcategoriesReadPreferenceEnum];
+/**
+ * @export
+ */
+export declare const SystemFindAllSubcategoriesSortOrderEnum: {
+    readonly Asc: "asc";
+    readonly Desc: "desc";
+};
+export type SystemFindAllSubcategoriesSortOrderEnum = typeof SystemFindAllSubcategoriesSortOrderEnum[keyof typeof SystemFindAllSubcategoriesSortOrderEnum];
+/**
+ * @export
+ */
+export declare const SystemFindAllSubcategoriesSortByEnum: {
+    readonly Name: "name";
+    readonly CreatedAt: "createdAt";
+    readonly Index: "index";
+};
+export type SystemFindAllSubcategoriesSortByEnum = typeof SystemFindAllSubcategoriesSortByEnum[keyof typeof SystemFindAllSubcategoriesSortByEnum];

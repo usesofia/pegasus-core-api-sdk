@@ -26,8 +26,8 @@ import {
 } from '../models/index';
 
 export interface ExportTagsRequest {
-    sortOrder?: string;
-    sortBy?: string;
+    sortOrder?: ExportTagsSortOrderEnum;
+    sortBy?: ExportTagsSortByEnum;
     format?: ExportTagsFormatEnum;
 }
 
@@ -41,8 +41,8 @@ export interface TagsExportApiInterface {
     /**
      * 
      * @summary Solicita a exportação das tags.
-     * @param {string} [sortOrder] Ordem de ordenação dos resultados. Valores possíveis: asc ou desc.
-     * @param {string} [sortBy] Campo para ordenação dos resultados. Valores possíveis: name ou createdAt.
+     * @param {'asc' | 'desc'} [sortOrder] Ordem de ordenação dos resultados.
+     * @param {'name' | 'createdAt'} [sortBy] Campo para ordenação dos resultados.
      * @param {'csv' | 'xlsx'} [format] Formato de exportação dos dados.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -105,6 +105,22 @@ export class TagsExportApi extends runtime.BaseAPI implements TagsExportApiInter
 
 }
 
+/**
+ * @export
+ */
+export const ExportTagsSortOrderEnum = {
+    Asc: 'asc',
+    Desc: 'desc'
+} as const;
+export type ExportTagsSortOrderEnum = typeof ExportTagsSortOrderEnum[keyof typeof ExportTagsSortOrderEnum];
+/**
+ * @export
+ */
+export const ExportTagsSortByEnum = {
+    Name: 'name',
+    CreatedAt: 'createdAt'
+} as const;
+export type ExportTagsSortByEnum = typeof ExportTagsSortByEnum[keyof typeof ExportTagsSortByEnum];
 /**
  * @export
  */

@@ -26,8 +26,8 @@ import {
 } from '../models/index';
 
 export interface ExportSubcategoriesRequest {
-    sortOrder?: string;
-    sortBy?: string;
+    sortOrder?: ExportSubcategoriesSortOrderEnum;
+    sortBy?: ExportSubcategoriesSortByEnum;
     active?: boolean;
     categoryId?: string;
     direction?: string;
@@ -44,8 +44,8 @@ export interface SubcategoriesExportApiInterface {
     /**
      * 
      * @summary Solicita a exportação das subcategorias.
-     * @param {string} [sortOrder] Ordem de ordenação das subcategorias.
-     * @param {string} [sortBy] Campo para ordenar as subcategorias.
+     * @param {'asc' | 'desc'} [sortOrder] Ordem de ordenação das subcategorias.
+     * @param {'name' | 'createdAt' | 'index'} [sortBy] Campo para ordenar as subcategorias.
      * @param {boolean} [active] Filtra subcategorias ativas ou inativas.
      * @param {string} [categoryId] ID da categoria para filtrar subcategorias.
      * @param {string} [direction] Direção da subcategoria.
@@ -123,6 +123,23 @@ export class SubcategoriesExportApi extends runtime.BaseAPI implements Subcatego
 
 }
 
+/**
+ * @export
+ */
+export const ExportSubcategoriesSortOrderEnum = {
+    Asc: 'asc',
+    Desc: 'desc'
+} as const;
+export type ExportSubcategoriesSortOrderEnum = typeof ExportSubcategoriesSortOrderEnum[keyof typeof ExportSubcategoriesSortOrderEnum];
+/**
+ * @export
+ */
+export const ExportSubcategoriesSortByEnum = {
+    Name: 'name',
+    CreatedAt: 'createdAt',
+    Index: 'index'
+} as const;
+export type ExportSubcategoriesSortByEnum = typeof ExportSubcategoriesSortByEnum[keyof typeof ExportSubcategoriesSortByEnum];
 /**
  * @export
  */

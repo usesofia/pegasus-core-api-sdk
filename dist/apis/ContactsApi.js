@@ -64,7 +64,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.SystemFindAllContactsReadPreferenceEnum = exports.ContactsApi = void 0;
+exports.SystemFindAllContactsSortByEnum = exports.SystemFindAllContactsSortOrderEnum = exports.SystemFindAllContactsReadPreferenceEnum = exports.FindAllContactsSortByEnum = exports.FindAllContactsSortOrderEnum = exports.ContactsApi = void 0;
 var runtime = require("../runtime");
 var index_1 = require("../models/index");
 /**
@@ -644,10 +644,44 @@ exports.ContactsApi = ContactsApi;
 /**
  * @export
  */
+exports.FindAllContactsSortOrderEnum = {
+    Asc: 'asc',
+    Desc: 'desc'
+};
+/**
+ * @export
+ */
+exports.FindAllContactsSortByEnum = {
+    Name: 'name',
+    Document: 'document',
+    Email: 'email',
+    BirthDate: 'birthDate',
+    CreatedAt: 'createdAt'
+};
+/**
+ * @export
+ */
 exports.SystemFindAllContactsReadPreferenceEnum = {
     Primary: 'primary',
     PrimaryPreferred: 'primaryPreferred',
     Secondary: 'secondary',
     SecondaryPreferred: 'secondaryPreferred',
     Nearest: 'nearest'
+};
+/**
+ * @export
+ */
+exports.SystemFindAllContactsSortOrderEnum = {
+    Asc: 'asc',
+    Desc: 'desc'
+};
+/**
+ * @export
+ */
+exports.SystemFindAllContactsSortByEnum = {
+    Name: 'name',
+    Document: 'document',
+    Email: 'email',
+    BirthDate: 'birthDate',
+    CreatedAt: 'createdAt'
 };

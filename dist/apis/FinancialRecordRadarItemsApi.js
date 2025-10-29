@@ -64,7 +64,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.FindAllFinancialRecordRadarItemsFolderEnum = exports.FindAllFinancialRecordRadarItemsStatusEnum = exports.FindAllFinancialRecordRadarItemsOriginEnum = exports.FindAllFinancialRecordRadarItemsNatureEnum = exports.FinancialRecordRadarItemsApi = void 0;
+exports.SystemFindAllFinancialRecordRadarItemsFolderEnum = exports.SystemFindAllFinancialRecordRadarItemsStatusEnum = exports.SystemFindAllFinancialRecordRadarItemsOriginEnum = exports.SystemFindAllFinancialRecordRadarItemsNatureEnum = exports.FindAllFinancialRecordRadarItemsFolderEnum = exports.FindAllFinancialRecordRadarItemsStatusEnum = exports.FindAllFinancialRecordRadarItemsOriginEnum = exports.FindAllFinancialRecordRadarItemsNatureEnum = exports.FinancialRecordRadarItemsApi = void 0;
 var runtime = require("../runtime");
 var index_1 = require("../models/index");
 /**
@@ -446,6 +446,82 @@ var FinancialRecordRadarItemsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Busca todos os registros do radar (sistema).
+     */
+    FinancialRecordRadarItemsApi.prototype.systemFindAllFinancialRecordRadarItemsRaw = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (requestParameters['organizationId'] == null) {
+                            throw new runtime.RequiredError('organizationId', 'Required parameter "organizationId" was null or undefined when calling systemFindAllFinancialRecordRadarItems().');
+                        }
+                        queryParameters = {};
+                        if (requestParameters['sortOrder'] != null) {
+                            queryParameters['sortOrder'] = requestParameters['sortOrder'];
+                        }
+                        if (requestParameters['sortBy'] != null) {
+                            queryParameters['sortBy'] = requestParameters['sortBy'];
+                        }
+                        if (requestParameters['hasAutoExecute'] != null) {
+                            queryParameters['hasAutoExecute'] = requestParameters['hasAutoExecute'];
+                        }
+                        if (requestParameters['populate'] != null) {
+                            queryParameters['populate'] = requestParameters['populate'];
+                        }
+                        if (requestParameters['nature'] != null) {
+                            queryParameters['nature'] = requestParameters['nature'];
+                        }
+                        if (requestParameters['origin'] != null) {
+                            queryParameters['origin'] = requestParameters['origin'];
+                        }
+                        if (requestParameters['status'] != null) {
+                            queryParameters['status'] = requestParameters['status'];
+                        }
+                        if (requestParameters['folder'] != null) {
+                            queryParameters['folder'] = requestParameters['folder'];
+                        }
+                        if (requestParameters['pageSize'] != null) {
+                            queryParameters['pageSize'] = requestParameters['pageSize'];
+                        }
+                        if (requestParameters['pageIndex'] != null) {
+                            queryParameters['pageIndex'] = requestParameters['pageIndex'];
+                        }
+                        headerParameters = {};
+                        urlPath = "/internal/organizations/{organizationId}/financial-records/radar/items";
+                        urlPath = urlPath.replace("{".concat("organizationId", "}"), encodeURIComponent(String(requestParameters['organizationId'])));
+                        return [4 /*yield*/, this.request({
+                                path: urlPath,
+                                method: 'GET',
+                                headers: headerParameters,
+                                query: queryParameters,
+                            }, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.FinancialRecordRadarItemsPageDtoFromJSON)(jsonValue); })];
+                }
+            });
+        });
+    };
+    /**
+     * Busca todos os registros do radar (sistema).
+     */
+    FinancialRecordRadarItemsApi.prototype.systemFindAllFinancialRecordRadarItems = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.systemFindAllFinancialRecordRadarItemsRaw(requestParameters, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [4 /*yield*/, response.value()];
+                    case 2: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
+    /**
      * Busca um registro de radar pelo identificador.
      */
     FinancialRecordRadarItemsApi.prototype.systemFindByIdFinancialRecordRadarItemRaw = function (requestParameters, initOverrides) {
@@ -580,6 +656,35 @@ exports.FindAllFinancialRecordRadarItemsStatusEnum = {
  * @export
  */
 exports.FindAllFinancialRecordRadarItemsFolderEnum = {
+    Main: 'MAIN',
+    Spam: 'SPAM'
+};
+/**
+ * @export
+ */
+exports.SystemFindAllFinancialRecordRadarItemsNatureEnum = {
+    WhatsappMessage: 'WHATSAPP_MESSAGE',
+    EmailMessage: 'EMAIL_MESSAGE'
+};
+/**
+ * @export
+ */
+exports.SystemFindAllFinancialRecordRadarItemsOriginEnum = {
+    WhatsappAgent: 'WHATSAPP_AGENT',
+    EmailForwardingIntegration: 'EMAIL_FORWARDING_INTEGRATION'
+};
+/**
+ * @export
+ */
+exports.SystemFindAllFinancialRecordRadarItemsStatusEnum = {
+    Pending: 'PENDING',
+    Linked: 'LINKED',
+    Archived: 'ARCHIVED'
+};
+/**
+ * @export
+ */
+exports.SystemFindAllFinancialRecordRadarItemsFolderEnum = {
     Main: 'MAIN',
     Spam: 'SPAM'
 };

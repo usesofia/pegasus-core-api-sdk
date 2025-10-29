@@ -26,8 +26,8 @@ import {
 } from '../models/index';
 
 export interface ExportContactsRequest {
-    sortOrder?: string;
-    sortBy?: string;
+    sortOrder?: ExportContactsSortOrderEnum;
+    sortBy?: ExportContactsSortByEnum;
     considerNotIdentified?: boolean;
     states?: string;
     country?: string;
@@ -48,8 +48,8 @@ export interface ContactsExportApiInterface {
     /**
      * 
      * @summary Solicita a exportação dos contatos.
-     * @param {string} [sortOrder] Ordem de ordenação dos contatos.
-     * @param {string} [sortBy] Campo para ordenação dos contatos.
+     * @param {'asc' | 'desc'} [sortOrder] Ordem de ordenação dos contatos.
+     * @param {'name' | 'document' | 'email' | 'birthDate' | 'createdAt'} [sortBy] Campo para ordenação dos contatos.
      * @param {boolean} [considerNotIdentified] Considerar ou não o contato não identificado.
      * @param {string} [states] Estados a serem buscados.
      * @param {string} [country] País a serem buscados.
@@ -147,6 +147,25 @@ export class ContactsExportApi extends runtime.BaseAPI implements ContactsExport
 
 }
 
+/**
+ * @export
+ */
+export const ExportContactsSortOrderEnum = {
+    Asc: 'asc',
+    Desc: 'desc'
+} as const;
+export type ExportContactsSortOrderEnum = typeof ExportContactsSortOrderEnum[keyof typeof ExportContactsSortOrderEnum];
+/**
+ * @export
+ */
+export const ExportContactsSortByEnum = {
+    Name: 'name',
+    Document: 'document',
+    Email: 'email',
+    BirthDate: 'birthDate',
+    CreatedAt: 'createdAt'
+} as const;
+export type ExportContactsSortByEnum = typeof ExportContactsSortByEnum[keyof typeof ExportContactsSortByEnum];
 /**
  * @export
  */

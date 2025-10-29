@@ -64,7 +64,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.SystemFindAllBankTransactionsTypeEnum = exports.SystemFindAllBankTransactionsOriginEnum = exports.SystemFindAllBankTransactionsSortByEnum = exports.SystemFindAllBankTransactionsSortOrderEnum = exports.FindAllOfxImportJobRequestsSortByEnum = exports.FindAllOfxImportJobRequestsSortOrderEnum = exports.FindAllBankTransactionsTypeEnum = exports.FindAllBankTransactionsOriginEnum = exports.FindAllBankTransactionsSortByEnum = exports.FindAllBankTransactionsSortOrderEnum = exports.BankTransactionsApi = void 0;
+exports.SystemOrganizationFindAllBankTransactionsTypeEnum = exports.SystemOrganizationFindAllBankTransactionsOriginEnum = exports.SystemOrganizationFindAllBankTransactionsSortByEnum = exports.SystemOrganizationFindAllBankTransactionsSortOrderEnum = exports.SystemFindAllBankTransactionsTypeEnum = exports.SystemFindAllBankTransactionsOriginEnum = exports.SystemFindAllBankTransactionsSortByEnum = exports.SystemFindAllBankTransactionsSortOrderEnum = exports.FindAllOfxImportJobRequestsSortByEnum = exports.FindAllOfxImportJobRequestsSortOrderEnum = exports.FindAllBankTransactionsTypeEnum = exports.FindAllBankTransactionsOriginEnum = exports.FindAllBankTransactionsSortByEnum = exports.FindAllBankTransactionsSortOrderEnum = exports.BankTransactionsApi = void 0;
 var runtime = require("../runtime");
 var index_1 = require("../models/index");
 /**
@@ -250,10 +250,10 @@ var BankTransactionsApi = /** @class */ (function (_super) {
                             queryParameters['type'] = requestParameters['type'];
                         }
                         if (requestParameters['dateTo'] != null) {
-                            queryParameters['dateTo'] = requestParameters['dateTo'].toISOString();
+                            queryParameters['dateTo'] = requestParameters['dateTo'];
                         }
                         if (requestParameters['dateFrom'] != null) {
-                            queryParameters['dateFrom'] = requestParameters['dateFrom'].toISOString();
+                            queryParameters['dateFrom'] = requestParameters['dateFrom'];
                         }
                         if (requestParameters['bankAccount'] != null) {
                             queryParameters['bankAccount'] = requestParameters['bankAccount'];
@@ -779,10 +779,10 @@ var BankTransactionsApi = /** @class */ (function (_super) {
                             queryParameters['type'] = requestParameters['type'];
                         }
                         if (requestParameters['dateTo'] != null) {
-                            queryParameters['dateTo'] = requestParameters['dateTo'].toISOString();
+                            queryParameters['dateTo'] = requestParameters['dateTo'];
                         }
                         if (requestParameters['dateFrom'] != null) {
-                            queryParameters['dateFrom'] = requestParameters['dateFrom'].toISOString();
+                            queryParameters['dateFrom'] = requestParameters['dateFrom'];
                         }
                         if (requestParameters['bankAccount'] != null) {
                             queryParameters['bankAccount'] = requestParameters['bankAccount'];
@@ -872,6 +872,94 @@ var BankTransactionsApi = /** @class */ (function (_super) {
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, this.systemFindBankTransactionByIdRaw(requestParameters, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [4 /*yield*/, response.value()];
+                    case 2: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
+    /**
+     * Busca todas as movimentações financeiras pelo sistema (por organização).
+     */
+    BankTransactionsApi.prototype.systemOrganizationFindAllBankTransactionsRaw = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (requestParameters['organizationId'] == null) {
+                            throw new runtime.RequiredError('organizationId', 'Required parameter "organizationId" was null or undefined when calling systemOrganizationFindAllBankTransactions().');
+                        }
+                        queryParameters = {};
+                        if (requestParameters['populate'] != null) {
+                            queryParameters['populate'] = requestParameters['populate'];
+                        }
+                        if (requestParameters['sortOrder'] != null) {
+                            queryParameters['sortOrder'] = requestParameters['sortOrder'];
+                        }
+                        if (requestParameters['sortBy'] != null) {
+                            queryParameters['sortBy'] = requestParameters['sortBy'];
+                        }
+                        if (requestParameters['ignored'] != null) {
+                            queryParameters['ignored'] = requestParameters['ignored'];
+                        }
+                        if (requestParameters['origin'] != null) {
+                            queryParameters['origin'] = requestParameters['origin'];
+                        }
+                        if (requestParameters['reconciled'] != null) {
+                            queryParameters['reconciled'] = requestParameters['reconciled'];
+                        }
+                        if (requestParameters['type'] != null) {
+                            queryParameters['type'] = requestParameters['type'];
+                        }
+                        if (requestParameters['dateTo'] != null) {
+                            queryParameters['dateTo'] = requestParameters['dateTo'];
+                        }
+                        if (requestParameters['dateFrom'] != null) {
+                            queryParameters['dateFrom'] = requestParameters['dateFrom'];
+                        }
+                        if (requestParameters['bankAccount'] != null) {
+                            queryParameters['bankAccount'] = requestParameters['bankAccount'];
+                        }
+                        if (requestParameters['semanticSearchTermInBase64'] != null) {
+                            queryParameters['semanticSearchTermInBase64'] = requestParameters['semanticSearchTermInBase64'];
+                        }
+                        if (requestParameters['textSearchTerm'] != null) {
+                            queryParameters['textSearchTerm'] = requestParameters['textSearchTerm'];
+                        }
+                        if (requestParameters['pageSize'] != null) {
+                            queryParameters['pageSize'] = requestParameters['pageSize'];
+                        }
+                        if (requestParameters['pageIndex'] != null) {
+                            queryParameters['pageIndex'] = requestParameters['pageIndex'];
+                        }
+                        headerParameters = {};
+                        urlPath = "/internal/organizations/{organizationId}/bank-transactions";
+                        urlPath = urlPath.replace("{".concat("organizationId", "}"), encodeURIComponent(String(requestParameters['organizationId'])));
+                        return [4 /*yield*/, this.request({
+                                path: urlPath,
+                                method: 'GET',
+                                headers: headerParameters,
+                                query: queryParameters,
+                            }, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.BankTransactionsPageDtoFromJSON)(jsonValue); })];
+                }
+            });
+        });
+    };
+    /**
+     * Busca todas as movimentações financeiras pelo sistema (por organização).
+     */
+    BankTransactionsApi.prototype.systemOrganizationFindAllBankTransactions = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.systemOrganizationFindAllBankTransactionsRaw(requestParameters, initOverrides)];
                     case 1:
                         response = _a.sent();
                         return [4 /*yield*/, response.value()];
@@ -1003,6 +1091,37 @@ exports.SystemFindAllBankTransactionsOriginEnum = {
  * @export
  */
 exports.SystemFindAllBankTransactionsTypeEnum = {
+    Debit: 'DEBIT',
+    Credit: 'CREDIT'
+};
+/**
+ * @export
+ */
+exports.SystemOrganizationFindAllBankTransactionsSortOrderEnum = {
+    Asc: 'asc',
+    Desc: 'desc'
+};
+/**
+ * @export
+ */
+exports.SystemOrganizationFindAllBankTransactionsSortByEnum = {
+    Date: 'date',
+    AmountInBrl: 'amountInBrl',
+    Description: 'description',
+    CreatedAt: 'createdAt',
+    Reconciled: 'reconciled'
+};
+/**
+ * @export
+ */
+exports.SystemOrganizationFindAllBankTransactionsOriginEnum = {
+    AutomaticIntegration: 'AUTOMATIC_INTEGRATION',
+    ManualOfxImport: 'MANUAL_OFX_IMPORT'
+};
+/**
+ * @export
+ */
+exports.SystemOrganizationFindAllBankTransactionsTypeEnum = {
     Debit: 'DEBIT',
     Credit: 'CREDIT'
 };

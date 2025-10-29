@@ -64,7 +64,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ExportTagsFormatEnum = exports.TagsExportApi = void 0;
+exports.ExportTagsFormatEnum = exports.ExportTagsSortByEnum = exports.ExportTagsSortOrderEnum = exports.TagsExportApi = void 0;
 var runtime = require("../runtime");
 var index_1 = require("../models/index");
 /**
@@ -130,6 +130,20 @@ var TagsExportApi = /** @class */ (function (_super) {
     return TagsExportApi;
 }(runtime.BaseAPI));
 exports.TagsExportApi = TagsExportApi;
+/**
+ * @export
+ */
+exports.ExportTagsSortOrderEnum = {
+    Asc: 'asc',
+    Desc: 'desc'
+};
+/**
+ * @export
+ */
+exports.ExportTagsSortByEnum = {
+    Name: 'name',
+    CreatedAt: 'createdAt'
+};
 /**
  * @export
  */

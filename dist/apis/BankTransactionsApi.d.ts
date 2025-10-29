@@ -92,6 +92,23 @@ export interface SystemFindBankTransactionByIdRequest {
     id: string;
     populate?: string;
 }
+export interface SystemOrganizationFindAllBankTransactionsRequest {
+    organizationId: string;
+    populate?: string;
+    sortOrder?: SystemOrganizationFindAllBankTransactionsSortOrderEnum;
+    sortBy?: SystemOrganizationFindAllBankTransactionsSortByEnum;
+    ignored?: boolean;
+    origin?: SystemOrganizationFindAllBankTransactionsOriginEnum;
+    reconciled?: boolean;
+    type?: SystemOrganizationFindAllBankTransactionsTypeEnum;
+    dateTo?: Date;
+    dateFrom?: Date;
+    bankAccount?: string;
+    semanticSearchTermInBase64?: string;
+    textSearchTerm?: string;
+    pageSize?: number;
+    pageIndex?: number;
+}
 export interface UnreconcileBankTransactionRequest {
     bankTransactionId: string;
 }
@@ -335,6 +352,33 @@ export interface BankTransactionsApiInterface {
     systemFindBankTransactionById(requestParameters: SystemFindBankTransactionByIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankTransactionEntity>;
     /**
      *
+     * @summary Busca todas as movimentações financeiras pelo sistema (por organização).
+     * @param {string} organizationId Identificador da organização
+     * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
+     * @param {'asc' | 'desc'} [sortOrder] Ordem da ordenação. Valores possíveis: \&#39;asc\&#39;, \&#39;desc\&#39;.
+     * @param {'date' | 'amountInBrl' | 'description' | 'createdAt' | 'reconciled'} [sortBy] Campo para ordenação
+     * @param {boolean} [ignored] Filtrar por transações ignoradas/arquivadas. (true/false)
+     * @param {'AUTOMATIC_INTEGRATION' | 'MANUAL_OFX_IMPORT'} [origin] Filtrar pela origem da transação.
+     * @param {boolean} [reconciled] Filtrar por transações reconciliadas. (true/false)
+     * @param {'DEBIT' | 'CREDIT'} [type] Tipo da movimentação.
+     * @param {Date} [dateTo] Data final para filtrar.
+     * @param {Date} [dateFrom] Data inicial para filtrar.
+     * @param {string} [bankAccount] ID da conta bancária para filtrar.
+     * @param {string} [semanticSearchTermInBase64] Termo para busca semântica em base64.
+     * @param {string} [textSearchTerm] Termo para busca textual.
+     * @param {number} [pageSize] Quantidade de itens por página.
+     * @param {number} [pageIndex] Índice da página.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof BankTransactionsApiInterface
+     */
+    systemOrganizationFindAllBankTransactionsRaw(requestParameters: SystemOrganizationFindAllBankTransactionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankTransactionsPageDto>>;
+    /**
+     * Busca todas as movimentações financeiras pelo sistema (por organização).
+     */
+    systemOrganizationFindAllBankTransactions(requestParameters: SystemOrganizationFindAllBankTransactionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankTransactionsPageDto>;
+    /**
+     *
      * @summary Desfaz a reconciliação de uma transação bancária.
      * @param {string} bankTransactionId ID da transação bancária para desfazer a reconciliação.
      * @param {*} [options] Override http request option.
@@ -472,6 +516,14 @@ export declare class BankTransactionsApi extends runtime.BaseAPI implements Bank
      */
     systemFindBankTransactionById(requestParameters: SystemFindBankTransactionByIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankTransactionEntity>;
     /**
+     * Busca todas as movimentações financeiras pelo sistema (por organização).
+     */
+    systemOrganizationFindAllBankTransactionsRaw(requestParameters: SystemOrganizationFindAllBankTransactionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankTransactionsPageDto>>;
+    /**
+     * Busca todas as movimentações financeiras pelo sistema (por organização).
+     */
+    systemOrganizationFindAllBankTransactions(requestParameters: SystemOrganizationFindAllBankTransactionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankTransactionsPageDto>;
+    /**
      * Desfaz a reconciliação de uma transação bancária.
      */
     unreconcileBankTransactionRaw(requestParameters: UnreconcileBankTransactionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankTransactionEntity>>;
@@ -567,3 +619,38 @@ export declare const SystemFindAllBankTransactionsTypeEnum: {
     readonly Credit: "CREDIT";
 };
 export type SystemFindAllBankTransactionsTypeEnum = typeof SystemFindAllBankTransactionsTypeEnum[keyof typeof SystemFindAllBankTransactionsTypeEnum];
+/**
+ * @export
+ */
+export declare const SystemOrganizationFindAllBankTransactionsSortOrderEnum: {
+    readonly Asc: "asc";
+    readonly Desc: "desc";
+};
+export type SystemOrganizationFindAllBankTransactionsSortOrderEnum = typeof SystemOrganizationFindAllBankTransactionsSortOrderEnum[keyof typeof SystemOrganizationFindAllBankTransactionsSortOrderEnum];
+/**
+ * @export
+ */
+export declare const SystemOrganizationFindAllBankTransactionsSortByEnum: {
+    readonly Date: "date";
+    readonly AmountInBrl: "amountInBrl";
+    readonly Description: "description";
+    readonly CreatedAt: "createdAt";
+    readonly Reconciled: "reconciled";
+};
+export type SystemOrganizationFindAllBankTransactionsSortByEnum = typeof SystemOrganizationFindAllBankTransactionsSortByEnum[keyof typeof SystemOrganizationFindAllBankTransactionsSortByEnum];
+/**
+ * @export
+ */
+export declare const SystemOrganizationFindAllBankTransactionsOriginEnum: {
+    readonly AutomaticIntegration: "AUTOMATIC_INTEGRATION";
+    readonly ManualOfxImport: "MANUAL_OFX_IMPORT";
+};
+export type SystemOrganizationFindAllBankTransactionsOriginEnum = typeof SystemOrganizationFindAllBankTransactionsOriginEnum[keyof typeof SystemOrganizationFindAllBankTransactionsOriginEnum];
+/**
+ * @export
+ */
+export declare const SystemOrganizationFindAllBankTransactionsTypeEnum: {
+    readonly Debit: "DEBIT";
+    readonly Credit: "CREDIT";
+};
+export type SystemOrganizationFindAllBankTransactionsTypeEnum = typeof SystemOrganizationFindAllBankTransactionsTypeEnum[keyof typeof SystemOrganizationFindAllBankTransactionsTypeEnum];

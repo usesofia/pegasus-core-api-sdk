@@ -64,7 +64,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.SystemFindAllBankAccountsReadPreferenceEnum = exports.BankAccountsApi = void 0;
+exports.SystemFindAllBankAccountsSortByEnum = exports.SystemFindAllBankAccountsSortOrderEnum = exports.SystemFindAllBankAccountsReadPreferenceEnum = exports.FindAllBankAccountsSortByEnum = exports.FindAllBankAccountsSortOrderEnum = exports.BankAccountsApi = void 0;
 var runtime = require("../runtime");
 var index_1 = require("../models/index");
 /**
@@ -598,10 +598,44 @@ exports.BankAccountsApi = BankAccountsApi;
 /**
  * @export
  */
+exports.FindAllBankAccountsSortOrderEnum = {
+    Asc: 'asc',
+    Desc: 'desc'
+};
+/**
+ * @export
+ */
+exports.FindAllBankAccountsSortByEnum = {
+    Name: 'name',
+    Type: 'type',
+    Institution: 'institution',
+    CreatedAt: 'createdAt',
+    UpdatedAt: 'updatedAt'
+};
+/**
+ * @export
+ */
 exports.SystemFindAllBankAccountsReadPreferenceEnum = {
     Primary: 'primary',
     PrimaryPreferred: 'primaryPreferred',
     Secondary: 'secondary',
     SecondaryPreferred: 'secondaryPreferred',
     Nearest: 'nearest'
+};
+/**
+ * @export
+ */
+exports.SystemFindAllBankAccountsSortOrderEnum = {
+    Asc: 'asc',
+    Desc: 'desc'
+};
+/**
+ * @export
+ */
+exports.SystemFindAllBankAccountsSortByEnum = {
+    Name: 'name',
+    Type: 'type',
+    Institution: 'institution',
+    CreatedAt: 'createdAt',
+    UpdatedAt: 'updatedAt'
 };

@@ -64,7 +64,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.SystemGenerateMostCommonContactsAndSubcategoriesForSimilarFinancialRecordReportReadPreferenceEnum = exports.SystemFindAllFinancialRecordsSortByEnum = exports.SystemFindAllFinancialRecordsReadPreferenceEnum = exports.FindAllFinancialRecordsSortByEnum = exports.FinancialRecordsApi = void 0;
+exports.SystemGenerateMostCommonContactsAndSubcategoriesForSimilarFinancialRecordReportReadPreferenceEnum = exports.SystemFindAllFinancialRecordsSortByEnum = exports.SystemFindAllFinancialRecordsSortOrderEnum = exports.SystemFindAllFinancialRecordsReadPreferenceEnum = exports.FindAllFinancialRecordsSortByEnum = exports.FindAllFinancialRecordsSortOrderEnum = exports.FinancialRecordsApi = void 0;
 var runtime = require("../runtime");
 var index_1 = require("../models/index");
 /**
@@ -559,6 +559,15 @@ var FinancialRecordsApi = /** @class */ (function (_super) {
                             throw new runtime.RequiredError('ownerOrganizationId', 'Required parameter "ownerOrganizationId" was null or undefined when calling systemFindAllFinancialRecords().');
                         }
                         queryParameters = {};
+                        if (requestParameters['generatePdfListExport'] != null) {
+                            queryParameters['generatePdfListExport'] = requestParameters['generatePdfListExport'];
+                        }
+                        if (requestParameters['generatePdfTableExport'] != null) {
+                            queryParameters['generatePdfTableExport'] = requestParameters['generatePdfTableExport'];
+                        }
+                        if (requestParameters['generateExcelExport'] != null) {
+                            queryParameters['generateExcelExport'] = requestParameters['generateExcelExport'];
+                        }
                         if (requestParameters['readPreference'] != null) {
                             queryParameters['readPreference'] = requestParameters['readPreference'];
                         }
@@ -799,6 +808,13 @@ exports.FinancialRecordsApi = FinancialRecordsApi;
 /**
  * @export
  */
+exports.FindAllFinancialRecordsSortOrderEnum = {
+    Asc: 'asc',
+    Desc: 'desc'
+};
+/**
+ * @export
+ */
 exports.FindAllFinancialRecordsSortByEnum = {
     Direction: 'direction',
     DueDate: 'dueDate',
@@ -819,6 +835,13 @@ exports.SystemFindAllFinancialRecordsReadPreferenceEnum = {
     Secondary: 'secondary',
     SecondaryPreferred: 'secondaryPreferred',
     Nearest: 'nearest'
+};
+/**
+ * @export
+ */
+exports.SystemFindAllFinancialRecordsSortOrderEnum = {
+    Asc: 'asc',
+    Desc: 'desc'
 };
 /**
  * @export

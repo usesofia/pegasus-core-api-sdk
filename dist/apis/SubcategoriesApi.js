@@ -64,7 +64,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.SystemFindAllSubcategoriesReadPreferenceEnum = exports.SubcategoriesApi = void 0;
+exports.SystemFindAllSubcategoriesSortByEnum = exports.SystemFindAllSubcategoriesSortOrderEnum = exports.SystemFindAllSubcategoriesReadPreferenceEnum = exports.FindAllSubcategoriesSortByEnum = exports.FindAllSubcategoriesSortOrderEnum = exports.SubcategoriesApi = void 0;
 var runtime = require("../runtime");
 var index_1 = require("../models/index");
 /**
@@ -539,10 +539,40 @@ exports.SubcategoriesApi = SubcategoriesApi;
 /**
  * @export
  */
+exports.FindAllSubcategoriesSortOrderEnum = {
+    Asc: 'asc',
+    Desc: 'desc'
+};
+/**
+ * @export
+ */
+exports.FindAllSubcategoriesSortByEnum = {
+    Name: 'name',
+    CreatedAt: 'createdAt',
+    Index: 'index'
+};
+/**
+ * @export
+ */
 exports.SystemFindAllSubcategoriesReadPreferenceEnum = {
     Primary: 'primary',
     PrimaryPreferred: 'primaryPreferred',
     Secondary: 'secondary',
     SecondaryPreferred: 'secondaryPreferred',
     Nearest: 'nearest'
+};
+/**
+ * @export
+ */
+exports.SystemFindAllSubcategoriesSortOrderEnum = {
+    Asc: 'asc',
+    Desc: 'desc'
+};
+/**
+ * @export
+ */
+exports.SystemFindAllSubcategoriesSortByEnum = {
+    Name: 'name',
+    CreatedAt: 'createdAt',
+    Index: 'index'
 };

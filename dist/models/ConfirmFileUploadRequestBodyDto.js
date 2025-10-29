@@ -56,6 +56,7 @@ function ConfirmFileUploadRequestBodyDtoFromJSONTyped(json, ignoreDiscriminator)
     }
     return {
         'id': json['id'],
+        'size': json['size'] == null ? undefined : json['size'],
         'status': json['status'],
         'caption': json['caption'] == null ? undefined : json['caption'],
         'deletedAt': json['deletedAt'] == null ? undefined : json['deletedAt'],
@@ -72,6 +73,7 @@ function ConfirmFileUploadRequestBodyDtoToJSONTyped(value, ignoreDiscriminator) 
     }
     return {
         'id': value['id'],
+        'size': value['size'],
         'status': value['status'],
         'caption': value['caption'],
         'deletedAt': value['deletedAt'],

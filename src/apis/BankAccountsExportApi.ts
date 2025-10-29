@@ -26,8 +26,8 @@ import {
 } from '../models/index';
 
 export interface ExportBankAccountsRequest {
-    sortOrder?: string;
-    sortBy?: string;
+    sortOrder?: ExportBankAccountsSortOrderEnum;
+    sortBy?: ExportBankAccountsSortByEnum;
     providerAccountId?: string;
     provider?: string;
     active?: boolean;
@@ -48,8 +48,8 @@ export interface BankAccountsExportApiInterface {
     /**
      * 
      * @summary Solicita a exportação das contas bancárias.
-     * @param {string} [sortOrder] Ordem de ordenação das contas bancárias.
-     * @param {string} [sortBy] Campo para ordenação das contas bancárias.
+     * @param {'asc' | 'desc'} [sortOrder] Ordem de ordenação das contas bancárias.
+     * @param {'name' | 'type' | 'institution' | 'createdAt' | 'updatedAt'} [sortBy] Campo para ordenação das contas bancárias.
      * @param {string} [providerAccountId] Identificador da conta bancária no fornecedor.
      * @param {string} [provider] Fornecedor da conta bancária.
      * @param {boolean} [active] Indica se a conta está ativa.
@@ -147,6 +147,25 @@ export class BankAccountsExportApi extends runtime.BaseAPI implements BankAccoun
 
 }
 
+/**
+ * @export
+ */
+export const ExportBankAccountsSortOrderEnum = {
+    Asc: 'asc',
+    Desc: 'desc'
+} as const;
+export type ExportBankAccountsSortOrderEnum = typeof ExportBankAccountsSortOrderEnum[keyof typeof ExportBankAccountsSortOrderEnum];
+/**
+ * @export
+ */
+export const ExportBankAccountsSortByEnum = {
+    Name: 'name',
+    Type: 'type',
+    Institution: 'institution',
+    CreatedAt: 'createdAt',
+    UpdatedAt: 'updatedAt'
+} as const;
+export type ExportBankAccountsSortByEnum = typeof ExportBankAccountsSortByEnum[keyof typeof ExportBankAccountsSortByEnum];
 /**
  * @export
  */

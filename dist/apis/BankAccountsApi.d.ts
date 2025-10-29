@@ -16,8 +16,8 @@ export interface CreateBankAccountRequest {
     populate?: string;
 }
 export interface FindAllBankAccountsRequest {
-    sortOrder?: string;
-    sortBy?: string;
+    sortOrder?: FindAllBankAccountsSortOrderEnum;
+    sortBy?: FindAllBankAccountsSortByEnum;
     populate?: string;
     providerAccountId?: string;
     provider?: string;
@@ -51,8 +51,8 @@ export interface RemoveBankAccountRequest {
 export interface SystemFindAllBankAccountsRequest {
     ownerOrganizationId: string;
     readPreference?: SystemFindAllBankAccountsReadPreferenceEnum;
-    sortOrder?: string;
-    sortBy?: string;
+    sortOrder?: SystemFindAllBankAccountsSortOrderEnum;
+    sortBy?: SystemFindAllBankAccountsSortByEnum;
     populate?: string;
     providerAccountId?: string;
     provider?: string;
@@ -105,8 +105,8 @@ export interface BankAccountsApiInterface {
     /**
      *
      * @summary Busca todas as contas bancárias.
-     * @param {string} [sortOrder] Ordem de ordenação das contas bancárias.
-     * @param {string} [sortBy] Campo para ordenação das contas bancárias.
+     * @param {'asc' | 'desc'} [sortOrder] Ordem de ordenação das contas bancárias.
+     * @param {'name' | 'type' | 'institution' | 'createdAt' | 'updatedAt'} [sortBy] Campo para ordenação das contas bancárias.
      * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
      * @param {string} [providerAccountId] Identificador da conta bancária no fornecedor.
      * @param {string} [provider] Fornecedor da conta bancária.
@@ -190,8 +190,8 @@ export interface BankAccountsApiInterface {
      * @summary Busca todas as contas bancárias.
      * @param {string} ownerOrganizationId Identificador da organização proprietária das contas bancárias.
      * @param {'primary' | 'primaryPreferred' | 'secondary' | 'secondaryPreferred' | 'nearest'} [readPreference] Preferência de leitura das contas bancárias.
-     * @param {string} [sortOrder] Ordem de ordenação das contas bancárias.
-     * @param {string} [sortBy] Campo para ordenação das contas bancárias.
+     * @param {'asc' | 'desc'} [sortOrder] Ordem de ordenação das contas bancárias.
+     * @param {'name' | 'type' | 'institution' | 'createdAt' | 'updatedAt'} [sortBy] Campo para ordenação das contas bancárias.
      * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
      * @param {string} [providerAccountId] Identificador da conta bancária no fornecedor.
      * @param {string} [provider] Fornecedor da conta bancária.
@@ -307,6 +307,25 @@ export declare class BankAccountsApi extends runtime.BaseAPI implements BankAcco
 /**
  * @export
  */
+export declare const FindAllBankAccountsSortOrderEnum: {
+    readonly Asc: "asc";
+    readonly Desc: "desc";
+};
+export type FindAllBankAccountsSortOrderEnum = typeof FindAllBankAccountsSortOrderEnum[keyof typeof FindAllBankAccountsSortOrderEnum];
+/**
+ * @export
+ */
+export declare const FindAllBankAccountsSortByEnum: {
+    readonly Name: "name";
+    readonly Type: "type";
+    readonly Institution: "institution";
+    readonly CreatedAt: "createdAt";
+    readonly UpdatedAt: "updatedAt";
+};
+export type FindAllBankAccountsSortByEnum = typeof FindAllBankAccountsSortByEnum[keyof typeof FindAllBankAccountsSortByEnum];
+/**
+ * @export
+ */
 export declare const SystemFindAllBankAccountsReadPreferenceEnum: {
     readonly Primary: "primary";
     readonly PrimaryPreferred: "primaryPreferred";
@@ -315,3 +334,22 @@ export declare const SystemFindAllBankAccountsReadPreferenceEnum: {
     readonly Nearest: "nearest";
 };
 export type SystemFindAllBankAccountsReadPreferenceEnum = typeof SystemFindAllBankAccountsReadPreferenceEnum[keyof typeof SystemFindAllBankAccountsReadPreferenceEnum];
+/**
+ * @export
+ */
+export declare const SystemFindAllBankAccountsSortOrderEnum: {
+    readonly Asc: "asc";
+    readonly Desc: "desc";
+};
+export type SystemFindAllBankAccountsSortOrderEnum = typeof SystemFindAllBankAccountsSortOrderEnum[keyof typeof SystemFindAllBankAccountsSortOrderEnum];
+/**
+ * @export
+ */
+export declare const SystemFindAllBankAccountsSortByEnum: {
+    readonly Name: "name";
+    readonly Type: "type";
+    readonly Institution: "institution";
+    readonly CreatedAt: "createdAt";
+    readonly UpdatedAt: "updatedAt";
+};
+export type SystemFindAllBankAccountsSortByEnum = typeof SystemFindAllBankAccountsSortByEnum[keyof typeof SystemFindAllBankAccountsSortByEnum];

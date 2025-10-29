@@ -64,7 +64,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ExportBankAccountsFormatEnum = exports.BankAccountsExportApi = void 0;
+exports.ExportBankAccountsFormatEnum = exports.ExportBankAccountsSortByEnum = exports.ExportBankAccountsSortOrderEnum = exports.BankAccountsExportApi = void 0;
 var runtime = require("../runtime");
 var index_1 = require("../models/index");
 /**
@@ -151,6 +151,23 @@ var BankAccountsExportApi = /** @class */ (function (_super) {
     return BankAccountsExportApi;
 }(runtime.BaseAPI));
 exports.BankAccountsExportApi = BankAccountsExportApi;
+/**
+ * @export
+ */
+exports.ExportBankAccountsSortOrderEnum = {
+    Asc: 'asc',
+    Desc: 'desc'
+};
+/**
+ * @export
+ */
+exports.ExportBankAccountsSortByEnum = {
+    Name: 'name',
+    Type: 'type',
+    Institution: 'institution',
+    CreatedAt: 'createdAt',
+    UpdatedAt: 'updatedAt'
+};
 /**
  * @export
  */

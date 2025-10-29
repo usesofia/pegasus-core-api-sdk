@@ -90,6 +90,20 @@ export interface PreviewBulkCreateFileRequest {
     limit?: number;
 }
 
+export interface SystemFindAllFinancialRecordRadarItemsRequest {
+    organizationId: string;
+    sortOrder?: string;
+    sortBy?: string;
+    hasAutoExecute?: boolean;
+    populate?: string;
+    nature?: SystemFindAllFinancialRecordRadarItemsNatureEnum;
+    origin?: SystemFindAllFinancialRecordRadarItemsOriginEnum;
+    status?: SystemFindAllFinancialRecordRadarItemsStatusEnum;
+    folder?: SystemFindAllFinancialRecordRadarItemsFolderEnum;
+    pageSize?: number;
+    pageIndex?: number;
+}
+
 export interface SystemFindByIdFinancialRecordRadarItemRequest {
     organizationId: string;
     radarItemId: string;
@@ -227,6 +241,31 @@ export interface FinancialRecordRadarItemsApiInterface {
      * Obtém o preview de um arquivo .csv para criação em lote.
      */
     previewBulkCreateFile(requestParameters: PreviewBulkCreateFileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialRecordsBulkCreateFilePreviewEntity>;
+
+    /**
+     * 
+     * @summary Busca todos os registros do radar (sistema).
+     * @param {string} organizationId Identificador da organização
+     * @param {string} [sortOrder] Ordem de ordenação.
+     * @param {string} [sortBy] Campo de ordenação.
+     * @param {boolean} [hasAutoExecute] Se possui auto-execute.
+     * @param {string} [populate] População do registro.
+     * @param {'WHATSAPP_MESSAGE' | 'EMAIL_MESSAGE'} [nature] Natureza do registro.
+     * @param {'WHATSAPP_AGENT' | 'EMAIL_FORWARDING_INTEGRATION'} [origin] Origem do registro.
+     * @param {'PENDING' | 'LINKED' | 'ARCHIVED'} [status] Status do registro.
+     * @param {'MAIN' | 'SPAM'} [folder] Pasta do registro.
+     * @param {number} [pageSize] Quantidade de itens por página.
+     * @param {number} [pageIndex] Índice da página.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof FinancialRecordRadarItemsApiInterface
+     */
+    systemFindAllFinancialRecordRadarItemsRaw(requestParameters: SystemFindAllFinancialRecordRadarItemsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FinancialRecordRadarItemsPageDto>>;
+
+    /**
+     * Busca todos os registros do radar (sistema).
+     */
+    systemFindAllFinancialRecordRadarItems(requestParameters: SystemFindAllFinancialRecordRadarItemsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialRecordRadarItemsPageDto>;
 
     /**
      * 
@@ -595,6 +634,83 @@ export class FinancialRecordRadarItemsApi extends runtime.BaseAPI implements Fin
     }
 
     /**
+     * Busca todos os registros do radar (sistema).
+     */
+    async systemFindAllFinancialRecordRadarItemsRaw(requestParameters: SystemFindAllFinancialRecordRadarItemsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FinancialRecordRadarItemsPageDto>> {
+        if (requestParameters['organizationId'] == null) {
+            throw new runtime.RequiredError(
+                'organizationId',
+                'Required parameter "organizationId" was null or undefined when calling systemFindAllFinancialRecordRadarItems().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['sortOrder'] != null) {
+            queryParameters['sortOrder'] = requestParameters['sortOrder'];
+        }
+
+        if (requestParameters['sortBy'] != null) {
+            queryParameters['sortBy'] = requestParameters['sortBy'];
+        }
+
+        if (requestParameters['hasAutoExecute'] != null) {
+            queryParameters['hasAutoExecute'] = requestParameters['hasAutoExecute'];
+        }
+
+        if (requestParameters['populate'] != null) {
+            queryParameters['populate'] = requestParameters['populate'];
+        }
+
+        if (requestParameters['nature'] != null) {
+            queryParameters['nature'] = requestParameters['nature'];
+        }
+
+        if (requestParameters['origin'] != null) {
+            queryParameters['origin'] = requestParameters['origin'];
+        }
+
+        if (requestParameters['status'] != null) {
+            queryParameters['status'] = requestParameters['status'];
+        }
+
+        if (requestParameters['folder'] != null) {
+            queryParameters['folder'] = requestParameters['folder'];
+        }
+
+        if (requestParameters['pageSize'] != null) {
+            queryParameters['pageSize'] = requestParameters['pageSize'];
+        }
+
+        if (requestParameters['pageIndex'] != null) {
+            queryParameters['pageIndex'] = requestParameters['pageIndex'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+
+        let urlPath = `/internal/organizations/{organizationId}/financial-records/radar/items`;
+        urlPath = urlPath.replace(`{${"organizationId"}}`, encodeURIComponent(String(requestParameters['organizationId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => FinancialRecordRadarItemsPageDtoFromJSON(jsonValue));
+    }
+
+    /**
+     * Busca todos os registros do radar (sistema).
+     */
+    async systemFindAllFinancialRecordRadarItems(requestParameters: SystemFindAllFinancialRecordRadarItemsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialRecordRadarItemsPageDto> {
+        const response = await this.systemFindAllFinancialRecordRadarItemsRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
      * Busca um registro de radar pelo identificador.
      */
     async systemFindByIdFinancialRecordRadarItemRaw(requestParameters: SystemFindByIdFinancialRecordRadarItemRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FinancialRecordRadarItemEntity>> {
@@ -727,3 +843,36 @@ export const FindAllFinancialRecordRadarItemsFolderEnum = {
     Spam: 'SPAM'
 } as const;
 export type FindAllFinancialRecordRadarItemsFolderEnum = typeof FindAllFinancialRecordRadarItemsFolderEnum[keyof typeof FindAllFinancialRecordRadarItemsFolderEnum];
+/**
+ * @export
+ */
+export const SystemFindAllFinancialRecordRadarItemsNatureEnum = {
+    WhatsappMessage: 'WHATSAPP_MESSAGE',
+    EmailMessage: 'EMAIL_MESSAGE'
+} as const;
+export type SystemFindAllFinancialRecordRadarItemsNatureEnum = typeof SystemFindAllFinancialRecordRadarItemsNatureEnum[keyof typeof SystemFindAllFinancialRecordRadarItemsNatureEnum];
+/**
+ * @export
+ */
+export const SystemFindAllFinancialRecordRadarItemsOriginEnum = {
+    WhatsappAgent: 'WHATSAPP_AGENT',
+    EmailForwardingIntegration: 'EMAIL_FORWARDING_INTEGRATION'
+} as const;
+export type SystemFindAllFinancialRecordRadarItemsOriginEnum = typeof SystemFindAllFinancialRecordRadarItemsOriginEnum[keyof typeof SystemFindAllFinancialRecordRadarItemsOriginEnum];
+/**
+ * @export
+ */
+export const SystemFindAllFinancialRecordRadarItemsStatusEnum = {
+    Pending: 'PENDING',
+    Linked: 'LINKED',
+    Archived: 'ARCHIVED'
+} as const;
+export type SystemFindAllFinancialRecordRadarItemsStatusEnum = typeof SystemFindAllFinancialRecordRadarItemsStatusEnum[keyof typeof SystemFindAllFinancialRecordRadarItemsStatusEnum];
+/**
+ * @export
+ */
+export const SystemFindAllFinancialRecordRadarItemsFolderEnum = {
+    Main: 'MAIN',
+    Spam: 'SPAM'
+} as const;
+export type SystemFindAllFinancialRecordRadarItemsFolderEnum = typeof SystemFindAllFinancialRecordRadarItemsFolderEnum[keyof typeof SystemFindAllFinancialRecordRadarItemsFolderEnum];

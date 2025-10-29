@@ -98,10 +98,10 @@ var InstallmentFinancialRecordsExportApi = /** @class */ (function (_super) {
                             queryParameters['frequency'] = requestParameters['frequency'];
                         }
                         if (requestParameters['competenceDateTo'] != null) {
-                            queryParameters['competenceDateTo'] = requestParameters['competenceDateTo'].toISOString().substring(0, 10);
+                            queryParameters['competenceDateTo'] = requestParameters['competenceDateTo'];
                         }
                         if (requestParameters['competenceDateFrom'] != null) {
-                            queryParameters['competenceDateFrom'] = requestParameters['competenceDateFrom'].toISOString().substring(0, 10);
+                            queryParameters['competenceDateFrom'] = requestParameters['competenceDateFrom'];
                         }
                         if (requestParameters['tags'] != null) {
                             queryParameters['tags'] = requestParameters['tags'];
@@ -113,10 +113,10 @@ var InstallmentFinancialRecordsExportApi = /** @class */ (function (_super) {
                             queryParameters['contact'] = requestParameters['contact'];
                         }
                         if (requestParameters['firstInstallmentDateTo'] != null) {
-                            queryParameters['firstInstallmentDateTo'] = requestParameters['firstInstallmentDateTo'].toISOString().substring(0, 10);
+                            queryParameters['firstInstallmentDateTo'] = requestParameters['firstInstallmentDateTo'];
                         }
                         if (requestParameters['firstInstallmentDateFrom'] != null) {
-                            queryParameters['firstInstallmentDateFrom'] = requestParameters['firstInstallmentDateFrom'].toISOString().substring(0, 10);
+                            queryParameters['firstInstallmentDateFrom'] = requestParameters['firstInstallmentDateFrom'];
                         }
                         if (requestParameters['direction'] != null) {
                             queryParameters['direction'] = requestParameters['direction'];

@@ -64,7 +64,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ExportContactsFormatEnum = exports.ContactsExportApi = void 0;
+exports.ExportContactsFormatEnum = exports.ExportContactsSortByEnum = exports.ExportContactsSortOrderEnum = exports.ContactsExportApi = void 0;
 var runtime = require("../runtime");
 var index_1 = require("../models/index");
 /**
@@ -151,6 +151,23 @@ var ContactsExportApi = /** @class */ (function (_super) {
     return ContactsExportApi;
 }(runtime.BaseAPI));
 exports.ContactsExportApi = ContactsExportApi;
+/**
+ * @export
+ */
+exports.ExportContactsSortOrderEnum = {
+    Asc: 'asc',
+    Desc: 'desc'
+};
+/**
+ * @export
+ */
+exports.ExportContactsSortByEnum = {
+    Name: 'name',
+    Document: 'document',
+    Email: 'email',
+    BirthDate: 'birthDate',
+    CreatedAt: 'createdAt'
+};
 /**
  * @export
  */

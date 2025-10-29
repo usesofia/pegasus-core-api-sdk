@@ -245,11 +245,11 @@ export class InstallmentFinancialRecordsApi extends runtime.BaseAPI implements I
         }
 
         if (requestParameters['competenceDateTo'] != null) {
-            queryParameters['competenceDateTo'] = (requestParameters['competenceDateTo'] as any).toISOString().substring(0,10);
+            queryParameters['competenceDateTo'] = requestParameters['competenceDateTo'];
         }
 
         if (requestParameters['competenceDateFrom'] != null) {
-            queryParameters['competenceDateFrom'] = (requestParameters['competenceDateFrom'] as any).toISOString().substring(0,10);
+            queryParameters['competenceDateFrom'] = requestParameters['competenceDateFrom'];
         }
 
         if (requestParameters['tags'] != null) {
@@ -265,11 +265,11 @@ export class InstallmentFinancialRecordsApi extends runtime.BaseAPI implements I
         }
 
         if (requestParameters['firstInstallmentDateTo'] != null) {
-            queryParameters['firstInstallmentDateTo'] = (requestParameters['firstInstallmentDateTo'] as any).toISOString().substring(0,10);
+            queryParameters['firstInstallmentDateTo'] = requestParameters['firstInstallmentDateTo'];
         }
 
         if (requestParameters['firstInstallmentDateFrom'] != null) {
-            queryParameters['firstInstallmentDateFrom'] = (requestParameters['firstInstallmentDateFrom'] as any).toISOString().substring(0,10);
+            queryParameters['firstInstallmentDateFrom'] = requestParameters['firstInstallmentDateFrom'];
         }
 
         if (requestParameters['direction'] != null) {

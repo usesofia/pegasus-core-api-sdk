@@ -59,7 +59,7 @@ export interface CreateManyFinancialRecordsRequest {
 }
 
 export interface FindAllFinancialRecordsRequest {
-    sortOrder?: string;
+    sortOrder?: FindAllFinancialRecordsSortOrderEnum;
     sortBy?: FindAllFinancialRecordsSortByEnum;
     recurringFinancialRecord?: string;
     installmentFinancialRecord?: string;
@@ -115,8 +115,11 @@ export interface SystemCreateManyFinancialRecordsRequest {
 
 export interface SystemFindAllFinancialRecordsRequest {
     ownerOrganizationId: string;
+    generatePdfListExport?: boolean;
+    generatePdfTableExport?: boolean;
+    generateExcelExport?: boolean;
     readPreference?: SystemFindAllFinancialRecordsReadPreferenceEnum;
-    sortOrder?: string;
+    sortOrder?: SystemFindAllFinancialRecordsSortOrderEnum;
     sortBy?: SystemFindAllFinancialRecordsSortByEnum;
     account?: string;
     reconciled?: boolean;
@@ -198,7 +201,7 @@ export interface FinancialRecordsApiInterface {
     /**
      * 
      * @summary Busca todos os lançamentos financeiros.
-     * @param {string} [sortOrder] Ordem de ordenação dos lançamentos financeiros.
+     * @param {'asc' | 'desc'} [sortOrder] Ordem de ordenação dos lançamentos financeiros.
      * @param {'direction' | 'dueDate' | 'contact' | 'description' | 'subcategory' | 'amount' | 'competenceDate' | 'cashDate' | 'createdAt'} [sortBy] Campo para ordenação dos lançamentos financeiros.
      * @param {string} [recurringFinancialRecord] ID da recorrência financeira.
      * @param {string} [installmentFinancialRecord] ID do parcelamento financeiro.
@@ -320,8 +323,11 @@ export interface FinancialRecordsApiInterface {
      * 
      * @summary Busca todos os lançamentos financeiros pelo sistema.
      * @param {string} ownerOrganizationId Identificador da organização proprietária dos lançamentos financeiros.
+     * @param {boolean} [generatePdfListExport] Se true, gera um export em PDF com layout em lista dos resultados.
+     * @param {boolean} [generatePdfTableExport] Se true, gera um export em PDF dos resultados.
+     * @param {boolean} [generateExcelExport] Se true, gera um export em Excel dos resultados.
      * @param {'primary' | 'primaryPreferred' | 'secondary' | 'secondaryPreferred' | 'nearest'} [readPreference] Preferência de leitura dos lançamentos financeiros.
-     * @param {string} [sortOrder] Ordem de ordenação dos lançamentos financeiros.
+     * @param {'asc' | 'desc'} [sortOrder] Ordem de ordenação dos lançamentos financeiros.
      * @param {'direction' | 'dueDate' | 'contact' | 'description' | 'subcategory' | 'amount' | 'competenceDate' | 'cashDate' | 'createdAt'} [sortBy] Campo para ordenação dos lançamentos financeiros.
      * @param {string} [account] Conta do lançamento financeiro.
      * @param {boolean} [reconciled] Indica se o lançamento financeiro foi reconciliado.
@@ -856,6 +862,18 @@ export class FinancialRecordsApi extends runtime.BaseAPI implements FinancialRec
 
         const queryParameters: any = {};
 
+        if (requestParameters['generatePdfListExport'] != null) {
+            queryParameters['generatePdfListExport'] = requestParameters['generatePdfListExport'];
+        }
+
+        if (requestParameters['generatePdfTableExport'] != null) {
+            queryParameters['generatePdfTableExport'] = requestParameters['generatePdfTableExport'];
+        }
+
+        if (requestParameters['generateExcelExport'] != null) {
+            queryParameters['generateExcelExport'] = requestParameters['generateExcelExport'];
+        }
+
         if (requestParameters['readPreference'] != null) {
             queryParameters['readPreference'] = requestParameters['readPreference'];
         }
@@ -1117,6 +1135,14 @@ export class FinancialRecordsApi extends runtime.BaseAPI implements FinancialRec
 /**
  * @export
  */
+export const FindAllFinancialRecordsSortOrderEnum = {
+    Asc: 'asc',
+    Desc: 'desc'
+} as const;
+export type FindAllFinancialRecordsSortOrderEnum = typeof FindAllFinancialRecordsSortOrderEnum[keyof typeof FindAllFinancialRecordsSortOrderEnum];
+/**
+ * @export
+ */
 export const FindAllFinancialRecordsSortByEnum = {
     Direction: 'direction',
     DueDate: 'dueDate',
@@ -1140,6 +1166,14 @@ export const SystemFindAllFinancialRecordsReadPreferenceEnum = {
     Nearest: 'nearest'
 } as const;
 export type SystemFindAllFinancialRecordsReadPreferenceEnum = typeof SystemFindAllFinancialRecordsReadPreferenceEnum[keyof typeof SystemFindAllFinancialRecordsReadPreferenceEnum];
+/**
+ * @export
+ */
+export const SystemFindAllFinancialRecordsSortOrderEnum = {
+    Asc: 'asc',
+    Desc: 'desc'
+} as const;
+export type SystemFindAllFinancialRecordsSortOrderEnum = typeof SystemFindAllFinancialRecordsSortOrderEnum[keyof typeof SystemFindAllFinancialRecordsSortOrderEnum];
 /**
  * @export
  */

@@ -44,8 +44,8 @@ export interface CreateTagRequest {
 
 export interface FindAllTagsRequest {
     populate?: string;
-    sortOrder?: string;
-    sortBy?: string;
+    sortOrder?: FindAllTagsSortOrderEnum;
+    sortBy?: FindAllTagsSortByEnum;
     textSearchTerm?: string;
     pageSize?: number;
     pageIndex?: number;
@@ -65,6 +65,16 @@ export interface PartialUpdateTagRequest {
 export interface RemoveTagRequest {
     id: string;
     removeTagRequestBodyDto: RemoveTagRequestBodyDto;
+}
+
+export interface SystemFindAllTagsRequest {
+    ownerOrganizationId: string;
+    populate?: string;
+    sortOrder?: SystemFindAllTagsSortOrderEnum;
+    sortBy?: SystemFindAllTagsSortByEnum;
+    textSearchTerm?: string;
+    pageSize?: number;
+    pageIndex?: number;
 }
 
 /**
@@ -94,8 +104,8 @@ export interface TagsApiInterface {
      * 
      * @summary Busca todas as tags.
      * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
-     * @param {string} [sortOrder] Ordem de ordenação dos resultados. Valores possíveis: asc ou desc.
-     * @param {string} [sortBy] Campo para ordenação dos resultados. Valores possíveis: name ou createdAt.
+     * @param {'asc' | 'desc'} [sortOrder] Ordem de ordenação dos resultados.
+     * @param {'name' | 'createdAt'} [sortBy] Campo para ordenação dos resultados.
      * @param {string} [textSearchTerm] Termo para busca por nome da tag.
      * @param {number} [pageSize] Quantidade de itens por página.
      * @param {number} [pageIndex] Índice da página.
@@ -158,6 +168,27 @@ export interface TagsApiInterface {
      * Remove uma tag.
      */
     removeTag(requestParameters: RemoveTagRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+
+    /**
+     * 
+     * @summary Busca todas as tags pelo sistema.
+     * @param {string} ownerOrganizationId Identificador da organização proprietária das tags.
+     * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
+     * @param {'asc' | 'desc'} [sortOrder] Ordem de ordenação dos resultados.
+     * @param {'name' | 'createdAt'} [sortBy] Campo para ordenação dos resultados.
+     * @param {string} [textSearchTerm] Termo para busca por nome da tag.
+     * @param {number} [pageSize] Quantidade de itens por página.
+     * @param {number} [pageIndex] Índice da página.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TagsApiInterface
+     */
+    systemFindAllTagsRaw(requestParameters: SystemFindAllTagsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TagsPageEntity>>;
+
+    /**
+     * Busca todas as tags pelo sistema.
+     */
+    systemFindAllTags(requestParameters: SystemFindAllTagsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<TagsPageEntity>;
 
 }
 
@@ -400,4 +431,101 @@ export class TagsApi extends runtime.BaseAPI implements TagsApiInterface {
         await this.removeTagRaw(requestParameters, initOverrides);
     }
 
+    /**
+     * Busca todas as tags pelo sistema.
+     */
+    async systemFindAllTagsRaw(requestParameters: SystemFindAllTagsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TagsPageEntity>> {
+        if (requestParameters['ownerOrganizationId'] == null) {
+            throw new runtime.RequiredError(
+                'ownerOrganizationId',
+                'Required parameter "ownerOrganizationId" was null or undefined when calling systemFindAllTags().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['ownerOrganizationId'] != null) {
+            queryParameters['ownerOrganizationId'] = requestParameters['ownerOrganizationId'];
+        }
+
+        if (requestParameters['populate'] != null) {
+            queryParameters['populate'] = requestParameters['populate'];
+        }
+
+        if (requestParameters['sortOrder'] != null) {
+            queryParameters['sortOrder'] = requestParameters['sortOrder'];
+        }
+
+        if (requestParameters['sortBy'] != null) {
+            queryParameters['sortBy'] = requestParameters['sortBy'];
+        }
+
+        if (requestParameters['textSearchTerm'] != null) {
+            queryParameters['textSearchTerm'] = requestParameters['textSearchTerm'];
+        }
+
+        if (requestParameters['pageSize'] != null) {
+            queryParameters['pageSize'] = requestParameters['pageSize'];
+        }
+
+        if (requestParameters['pageIndex'] != null) {
+            queryParameters['pageIndex'] = requestParameters['pageIndex'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+
+        let urlPath = `/internal/tags`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => TagsPageEntityFromJSON(jsonValue));
+    }
+
+    /**
+     * Busca todas as tags pelo sistema.
+     */
+    async systemFindAllTags(requestParameters: SystemFindAllTagsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<TagsPageEntity> {
+        const response = await this.systemFindAllTagsRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
 }
+
+/**
+ * @export
+ */
+export const FindAllTagsSortOrderEnum = {
+    Asc: 'asc',
+    Desc: 'desc'
+} as const;
+export type FindAllTagsSortOrderEnum = typeof FindAllTagsSortOrderEnum[keyof typeof FindAllTagsSortOrderEnum];
+/**
+ * @export
+ */
+export const FindAllTagsSortByEnum = {
+    Name: 'name',
+    CreatedAt: 'createdAt'
+} as const;
+export type FindAllTagsSortByEnum = typeof FindAllTagsSortByEnum[keyof typeof FindAllTagsSortByEnum];
+/**
+ * @export
+ */
+export const SystemFindAllTagsSortOrderEnum = {
+    Asc: 'asc',
+    Desc: 'desc'
+} as const;
+export type SystemFindAllTagsSortOrderEnum = typeof SystemFindAllTagsSortOrderEnum[keyof typeof SystemFindAllTagsSortOrderEnum];
+/**
+ * @export
+ */
+export const SystemFindAllTagsSortByEnum = {
+    Name: 'name',
+    CreatedAt: 'createdAt'
+} as const;
+export type SystemFindAllTagsSortByEnum = typeof SystemFindAllTagsSortByEnum[keyof typeof SystemFindAllTagsSortByEnum];

@@ -12,7 +12,7 @@
 import * as runtime from '../runtime';
 import type { ExportFinancialRecordsDto } from '../models/index';
 export interface ExportFinancialRecordsRequest {
-    sortOrder?: string;
+    sortOrder?: ExportFinancialRecordsSortOrderEnum;
     sortBy?: ExportFinancialRecordsSortByEnum;
     recurringFinancialRecord?: string;
     installmentFinancialRecord?: string;
@@ -45,7 +45,7 @@ export interface FinancialRecordsExportApiInterface {
     /**
      *
      * @summary Solicita a exportação dos lançamentos financeiros.
-     * @param {string} [sortOrder] Ordem de ordenação dos lançamentos financeiros.
+     * @param {'asc' | 'desc'} [sortOrder] Ordem de ordenação dos lançamentos financeiros.
      * @param {'direction' | 'dueDate' | 'contact' | 'description' | 'subcategory' | 'amount' | 'competenceDate' | 'cashDate' | 'createdAt'} [sortBy] Campo para ordenação dos lançamentos financeiros.
      * @param {string} [recurringFinancialRecord] ID da recorrência financeira.
      * @param {string} [installmentFinancialRecord] ID do parcelamento financeiro.
@@ -90,6 +90,14 @@ export declare class FinancialRecordsExportApi extends runtime.BaseAPI implement
      */
     exportFinancialRecords(requestParameters?: ExportFinancialRecordsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ExportFinancialRecordsDto>;
 }
+/**
+ * @export
+ */
+export declare const ExportFinancialRecordsSortOrderEnum: {
+    readonly Asc: "asc";
+    readonly Desc: "desc";
+};
+export type ExportFinancialRecordsSortOrderEnum = typeof ExportFinancialRecordsSortOrderEnum[keyof typeof ExportFinancialRecordsSortOrderEnum];
 /**
  * @export
  */

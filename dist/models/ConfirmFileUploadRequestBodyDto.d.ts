@@ -22,6 +22,12 @@ export interface ConfirmFileUploadRequestBodyDto {
      */
     id: string;
     /**
+     * Tamanho do arquivo em bytes.
+     * @type {number}
+     * @memberof ConfirmFileUploadRequestBodyDto
+     */
+    size?: number;
+    /**
      *
      * @type {string}
      * @memberof ConfirmFileUploadRequestBodyDto

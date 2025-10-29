@@ -149,11 +149,11 @@ export class RecurringFinancialRecordsExportApi extends runtime.BaseAPI implemen
         }
 
         if (requestParameters['firstOccurrenceDateTo'] != null) {
-            queryParameters['firstOccurrenceDateTo'] = (requestParameters['firstOccurrenceDateTo'] as any).toISOString().substring(0,10);
+            queryParameters['firstOccurrenceDateTo'] = requestParameters['firstOccurrenceDateTo'];
         }
 
         if (requestParameters['firstOccurrenceDateFrom'] != null) {
-            queryParameters['firstOccurrenceDateFrom'] = (requestParameters['firstOccurrenceDateFrom'] as any).toISOString().substring(0,10);
+            queryParameters['firstOccurrenceDateFrom'] = requestParameters['firstOccurrenceDateFrom'];
         }
 
         if (requestParameters['direction'] != null) {

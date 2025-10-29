@@ -26,6 +26,12 @@ export interface ConfirmFileUploadRequestBodyDto {
      */
     id: string;
     /**
+     * Tamanho do arquivo em bytes.
+     * @type {number}
+     * @memberof ConfirmFileUploadRequestBodyDto
+     */
+    size?: number;
+    /**
      * 
      * @type {string}
      * @memberof ConfirmFileUploadRequestBodyDto
@@ -94,6 +100,7 @@ export function ConfirmFileUploadRequestBodyDtoFromJSONTyped(json: any, ignoreDi
     return {
         
         'id': json['id'],
+        'size': json['size'] == null ? undefined : json['size'],
         'status': json['status'],
         'caption': json['caption'] == null ? undefined : json['caption'],
         'deletedAt': json['deletedAt'] == null ? undefined : json['deletedAt'],
@@ -113,6 +120,7 @@ export function ConfirmFileUploadRequestBodyDtoToJSONTyped(value?: ConfirmFileUp
     return {
         
         'id': value['id'],
+        'size': value['size'],
         'status': value['status'],
         'caption': value['caption'],
         'deletedAt': value['deletedAt'],

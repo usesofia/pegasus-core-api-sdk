@@ -64,7 +64,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.TagsApi = void 0;
+exports.SystemFindAllTagsSortByEnum = exports.SystemFindAllTagsSortOrderEnum = exports.FindAllTagsSortByEnum = exports.FindAllTagsSortOrderEnum = exports.TagsApi = void 0;
 var runtime = require("../runtime");
 var index_1 = require("../models/index");
 /**
@@ -338,6 +338,100 @@ var TagsApi = /** @class */ (function (_super) {
             });
         });
     };
+    /**
+     * Busca todas as tags pelo sistema.
+     */
+    TagsApi.prototype.systemFindAllTagsRaw = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (requestParameters['ownerOrganizationId'] == null) {
+                            throw new runtime.RequiredError('ownerOrganizationId', 'Required parameter "ownerOrganizationId" was null or undefined when calling systemFindAllTags().');
+                        }
+                        queryParameters = {};
+                        if (requestParameters['ownerOrganizationId'] != null) {
+                            queryParameters['ownerOrganizationId'] = requestParameters['ownerOrganizationId'];
+                        }
+                        if (requestParameters['populate'] != null) {
+                            queryParameters['populate'] = requestParameters['populate'];
+                        }
+                        if (requestParameters['sortOrder'] != null) {
+                            queryParameters['sortOrder'] = requestParameters['sortOrder'];
+                        }
+                        if (requestParameters['sortBy'] != null) {
+                            queryParameters['sortBy'] = requestParameters['sortBy'];
+                        }
+                        if (requestParameters['textSearchTerm'] != null) {
+                            queryParameters['textSearchTerm'] = requestParameters['textSearchTerm'];
+                        }
+                        if (requestParameters['pageSize'] != null) {
+                            queryParameters['pageSize'] = requestParameters['pageSize'];
+                        }
+                        if (requestParameters['pageIndex'] != null) {
+                            queryParameters['pageIndex'] = requestParameters['pageIndex'];
+                        }
+                        headerParameters = {};
+                        urlPath = "/internal/tags";
+                        return [4 /*yield*/, this.request({
+                                path: urlPath,
+                                method: 'GET',
+                                headers: headerParameters,
+                                query: queryParameters,
+                            }, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.TagsPageEntityFromJSON)(jsonValue); })];
+                }
+            });
+        });
+    };
+    /**
+     * Busca todas as tags pelo sistema.
+     */
+    TagsApi.prototype.systemFindAllTags = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.systemFindAllTagsRaw(requestParameters, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [4 /*yield*/, response.value()];
+                    case 2: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
     return TagsApi;
 }(runtime.BaseAPI));
 exports.TagsApi = TagsApi;
+/**
+ * @export
+ */
+exports.FindAllTagsSortOrderEnum = {
+    Asc: 'asc',
+    Desc: 'desc'
+};
+/**
+ * @export
+ */
+exports.FindAllTagsSortByEnum = {
+    Name: 'name',
+    CreatedAt: 'createdAt'
+};
+/**
+ * @export
+ */
+exports.SystemFindAllTagsSortOrderEnum = {
+    Asc: 'asc',
+    Desc: 'desc'
+};
+/**
+ * @export
+ */
+exports.SystemFindAllTagsSortByEnum = {
+    Name: 'name',
+    CreatedAt: 'createdAt'
+};

@@ -12,8 +12,8 @@
 import * as runtime from '../runtime';
 import type { ExportTagsDto } from '../models/index';
 export interface ExportTagsRequest {
-    sortOrder?: string;
-    sortBy?: string;
+    sortOrder?: ExportTagsSortOrderEnum;
+    sortBy?: ExportTagsSortByEnum;
     format?: ExportTagsFormatEnum;
 }
 /**
@@ -26,8 +26,8 @@ export interface TagsExportApiInterface {
     /**
      *
      * @summary Solicita a exportação das tags.
-     * @param {string} [sortOrder] Ordem de ordenação dos resultados. Valores possíveis: asc ou desc.
-     * @param {string} [sortBy] Campo para ordenação dos resultados. Valores possíveis: name ou createdAt.
+     * @param {'asc' | 'desc'} [sortOrder] Ordem de ordenação dos resultados.
+     * @param {'name' | 'createdAt'} [sortBy] Campo para ordenação dos resultados.
      * @param {'csv' | 'xlsx'} [format] Formato de exportação dos dados.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -52,6 +52,22 @@ export declare class TagsExportApi extends runtime.BaseAPI implements TagsExport
      */
     exportTags(requestParameters?: ExportTagsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ExportTagsDto>;
 }
+/**
+ * @export
+ */
+export declare const ExportTagsSortOrderEnum: {
+    readonly Asc: "asc";
+    readonly Desc: "desc";
+};
+export type ExportTagsSortOrderEnum = typeof ExportTagsSortOrderEnum[keyof typeof ExportTagsSortOrderEnum];
+/**
+ * @export
+ */
+export declare const ExportTagsSortByEnum: {
+    readonly Name: "name";
+    readonly CreatedAt: "createdAt";
+};
+export type ExportTagsSortByEnum = typeof ExportTagsSortByEnum[keyof typeof ExportTagsSortByEnum];
 /**
  * @export
  */

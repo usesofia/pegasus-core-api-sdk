@@ -125,10 +125,10 @@ var RecurringFinancialRecordsExportApi = /** @class */ (function (_super) {
                             queryParameters['contact'] = requestParameters['contact'];
                         }
                         if (requestParameters['firstOccurrenceDateTo'] != null) {
-                            queryParameters['firstOccurrenceDateTo'] = requestParameters['firstOccurrenceDateTo'].toISOString().substring(0, 10);
+                            queryParameters['firstOccurrenceDateTo'] = requestParameters['firstOccurrenceDateTo'];
                         }
                         if (requestParameters['firstOccurrenceDateFrom'] != null) {
-                            queryParameters['firstOccurrenceDateFrom'] = requestParameters['firstOccurrenceDateFrom'].toISOString().substring(0, 10);
+                            queryParameters['firstOccurrenceDateFrom'] = requestParameters['firstOccurrenceDateFrom'];
                         }
                         if (requestParameters['direction'] != null) {
                             queryParameters['direction'] = requestParameters['direction'];

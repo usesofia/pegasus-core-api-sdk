@@ -9,6 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import type { CreateFinancialRecordRequestBodyDtoPopulatedFilesInner } from './CreateFinancialRecordRequestBodyDtoPopulatedFilesInner';
 import type { ContactsPageDtoPageInfo } from './ContactsPageDtoPageInfo';
 import type { FinancialRecordsPageDtoItemsInner } from './FinancialRecordsPageDtoItemsInner';
 /**
@@ -29,6 +30,24 @@ export interface FinancialRecordsPageDto {
      * @memberof FinancialRecordsPageDto
      */
     pageInfo: ContactsPageDtoPageInfo;
+    /**
+     *
+     * @type {CreateFinancialRecordRequestBodyDtoPopulatedFilesInner}
+     * @memberof FinancialRecordsPageDto
+     */
+    exportedExcelFile?: CreateFinancialRecordRequestBodyDtoPopulatedFilesInner;
+    /**
+     *
+     * @type {CreateFinancialRecordRequestBodyDtoPopulatedFilesInner}
+     * @memberof FinancialRecordsPageDto
+     */
+    exportedPdfTableFile?: CreateFinancialRecordRequestBodyDtoPopulatedFilesInner;
+    /**
+     *
+     * @type {CreateFinancialRecordRequestBodyDtoPopulatedFilesInner}
+     * @memberof FinancialRecordsPageDto
+     */
+    exportedPdfListFile?: CreateFinancialRecordRequestBodyDtoPopulatedFilesInner;
 }
 /**
  * Check if a given object implements the FinancialRecordsPageDto interface.

@@ -64,7 +64,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ExportFinancialRecordsFormatEnum = exports.ExportFinancialRecordsSortByEnum = exports.FinancialRecordsExportApi = void 0;
+exports.ExportFinancialRecordsFormatEnum = exports.ExportFinancialRecordsSortByEnum = exports.ExportFinancialRecordsSortOrderEnum = exports.FinancialRecordsExportApi = void 0;
 var runtime = require("../runtime");
 var index_1 = require("../models/index");
 /**
@@ -187,6 +187,13 @@ var FinancialRecordsExportApi = /** @class */ (function (_super) {
     return FinancialRecordsExportApi;
 }(runtime.BaseAPI));
 exports.FinancialRecordsExportApi = FinancialRecordsExportApi;
+/**
+ * @export
+ */
+exports.ExportFinancialRecordsSortOrderEnum = {
+    Asc: 'asc',
+    Desc: 'desc'
+};
 /**
  * @export
  */
