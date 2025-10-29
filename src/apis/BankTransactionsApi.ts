@@ -232,7 +232,7 @@ export interface BankTransactionsApiInterface {
      * @param {'DEBIT' | 'CREDIT'} [type] Tipo da movimentação.
      * @param {Date} [dateTo] Data final para filtrar.
      * @param {Date} [dateFrom] Data inicial para filtrar.
-     * @param {string} [bankAccount] ID da conta bancária para filtrar.
+     * @param {string} [bankAccount] IDs das contas bancárias separadas por vírgula para filtrar.
      * @param {string} [semanticSearchTermInBase64] Termo para busca semântica em base64.
      * @param {string} [textSearchTerm] Termo para busca textual.
      * @param {number} [pageSize] Quantidade de itens por página.
