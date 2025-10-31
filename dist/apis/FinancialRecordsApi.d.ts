@@ -152,18 +152,18 @@ export interface FinancialRecordsApiInterface {
      * @param {'direction' | 'dueDate' | 'contact' | 'description' | 'subcategory' | 'amount' | 'competenceDate' | 'cashDate' | 'createdAt'} [sortBy] Campo para ordenação dos lançamentos financeiros.
      * @param {string} [recurringFinancialRecord] ID da recorrência financeira.
      * @param {string} [installmentFinancialRecord] ID do parcelamento financeiro.
-     * @param {string} [account] Conta do lançamento financeiro.
+     * @param {string} [account] ID da conta do lançamento financeiro.
      * @param {boolean} [reconciled] Indica se o lançamento financeiro foi reconciliado.
      * @param {boolean} [completed] Indica se o lançamento financeiro foi completado.
-     * @param {string} [tags] Tags do lançamento financeiro.
+     * @param {string} [tags] IDs das tags do lançamento financeiro separados por vírgula.
      * @param {string} [createdAtTo] Data de criação final.
      * @param {string} [createdAtFrom] Data de criação inicial.
      * @param {string} [cashDateTo] Data de pagamento final.
      * @param {string} [cashDateFrom] Data de pagamento inicial.
      * @param {string} [competenceDateTo] Data de competência final.
      * @param {string} [competenceDateFrom] Data de competência inicial.
-     * @param {string} [subcategory] Subcategoria do lançamento financeiro.
-     * @param {string} [contact] Contato do lançamento financeiro.
+     * @param {string} [subcategory] ID da subcategoria do lançamento financeiro.
+     * @param {string} [contact] ID do contato do lançamento financeiro.
      * @param {string} [dueDateTo] Data de vencimento final.
      * @param {string} [dueDateFrom] Data de vencimento inicial.
      * @param {string} [amountTo] Valor do lançamento financeiro máximo.
@@ -264,18 +264,18 @@ export interface FinancialRecordsApiInterface {
      * @param {'primary' | 'primaryPreferred' | 'secondary' | 'secondaryPreferred' | 'nearest'} [readPreference] Preferência de leitura dos lançamentos financeiros.
      * @param {'asc' | 'desc'} [sortOrder] Ordem de ordenação dos lançamentos financeiros.
      * @param {'direction' | 'dueDate' | 'contact' | 'description' | 'subcategory' | 'amount' | 'competenceDate' | 'cashDate' | 'createdAt'} [sortBy] Campo para ordenação dos lançamentos financeiros.
-     * @param {string} [account] Conta do lançamento financeiro.
+     * @param {string} [account] ID da conta do lançamento financeiro.
      * @param {boolean} [reconciled] Indica se o lançamento financeiro foi reconciliado.
      * @param {boolean} [completed] Indica se o lançamento financeiro foi completado.
-     * @param {string} [tags] Tags do lançamento financeiro.
+     * @param {string} [tags] IDs das tags do lançamento financeiro separados por vírgula.
      * @param {string} [createdAtTo] Data de criação final.
      * @param {string} [createdAtFrom] Data de criação inicial.
      * @param {string} [cashDateTo] Data de pagamento final.
      * @param {string} [cashDateFrom] Data de pagamento inicial.
      * @param {string} [competenceDateTo] Data de competência final.
      * @param {string} [competenceDateFrom] Data de competência inicial.
-     * @param {string} [subcategory] Subcategoria do lançamento financeiro.
-     * @param {string} [contact] Contato do lançamento financeiro.
+     * @param {string} [subcategory] ID da subcategoria do lançamento financeiro.
+     * @param {string} [contact] ID do contato do lançamento financeiro.
      * @param {string} [dueDateTo] Data de vencimento final.
      * @param {string} [dueDateFrom] Data de vencimento inicial.
      * @param {string} [amountTo] Valor do lançamento financeiro máximo.

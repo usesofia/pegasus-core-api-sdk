@@ -6,7 +6,7 @@ All URIs are relative to *http://localhost*
 |------------- | ------------- | -------------|
 | [**createInstallmentFinancialRecord**](InstallmentFinancialRecordsApi.md#createinstallmentfinancialrecord) | **POST** /external/installment-financial-records | Cria um novo lançamento financeiro parcelado. |
 | [**findAllInstallmentFinancialRecords**](InstallmentFinancialRecordsApi.md#findallinstallmentfinancialrecords) | **GET** /external/installment-financial-records | Busca todos os lançamentos financeiros parcelados. |
-| [**findByIdInstallmentFinancialRecord**](InstallmentFinancialRecordsApi.md#findbyidinstallmentfinancialrecord) | **GET** /external/installment-financial-records/{id} | Busca um lançamento financeiro parcelado pelo identificador. |
+| [**findByIdInstallmentFinancialRecord**](InstallmentFinancialRecordsApi.md#findbyidinstallmentfinancialrecord) | **GET** /external/installment-financial-records/{id} | Busca um lançamento financeiro parcelado pelo ID. |
 | [**partialUpdateInstallmentFinancialRecord**](InstallmentFinancialRecordsApi.md#partialupdateinstallmentfinancialrecord) | **PATCH** /external/installment-financial-records/{id} | Atualiza parcialmente um lançamento financeiro parcelado. |
 | [**removeInstallmentFinancialRecord**](InstallmentFinancialRecordsApi.md#removeinstallmentfinancialrecord) | **DELETE** /external/installment-financial-records/{id} | Remove um lançamento financeiro parcelado. |
 
@@ -109,11 +109,11 @@ async function example() {
     competenceDateTo: 2013-10-20,
     // Date | Data de competência inicial (formato ISO YYYY-MM-DD). (optional)
     competenceDateFrom: 2013-10-20,
-    // Array<any> | Identificadores das tags. (optional)
+    // Array<any> | IDs das tags. (optional)
     tags: ...,
-    // string | Identificador da subcategoria. (optional)
+    // string | ID da subcategoria. (optional)
     subcategory: subcategory_example,
-    // string | Identificador do contato. (optional)
+    // string | ID do contato. (optional)
     contact: contact_example,
     // Date | Data final da primeira parcela (formato ISO YYYY-MM-DD). (optional)
     firstInstallmentDateTo: 2013-10-20,
@@ -156,9 +156,9 @@ example().catch(console.error);
 | **frequency** | `MONTHLY`, `WEEKLY`, `YEARLY` | Frequência do lançamento parcelado. | [Optional] [Defaults to `undefined`] [Enum: MONTHLY, WEEKLY, YEARLY] |
 | **competenceDateTo** | `Date` | Data de competência final (formato ISO YYYY-MM-DD). | [Optional] [Defaults to `undefined`] |
 | **competenceDateFrom** | `Date` | Data de competência inicial (formato ISO YYYY-MM-DD). | [Optional] [Defaults to `undefined`] |
-| **tags** | `Array<any>` | Identificadores das tags. | [Optional] |
-| **subcategory** | `string` | Identificador da subcategoria. | [Optional] [Defaults to `undefined`] |
-| **contact** | `string` | Identificador do contato. | [Optional] [Defaults to `undefined`] |
+| **tags** | `Array<any>` | IDs das tags. | [Optional] |
+| **subcategory** | `string` | ID da subcategoria. | [Optional] [Defaults to `undefined`] |
+| **contact** | `string` | ID do contato. | [Optional] [Defaults to `undefined`] |
 | **firstInstallmentDateTo** | `Date` | Data final da primeira parcela (formato ISO YYYY-MM-DD). | [Optional] [Defaults to `undefined`] |
 | **firstInstallmentDateFrom** | `Date` | Data inicial da primeira parcela (formato ISO YYYY-MM-DD). | [Optional] [Defaults to `undefined`] |
 | **direction** | `IN`, `OUT` | Direção do lançamento (entrada/saída). | [Optional] [Defaults to `undefined`] [Enum: IN, OUT] |
@@ -196,7 +196,7 @@ No authorization required
 
 > InstallmentFinancialRecordDto findByIdInstallmentFinancialRecord(id, populate)
 
-Busca um lançamento financeiro parcelado pelo identificador.
+Busca um lançamento financeiro parcelado pelo ID.
 
 ### Example
 
@@ -212,7 +212,7 @@ async function example() {
   const api = new InstallmentFinancialRecordsApi();
 
   const body = {
-    // string | Identificador do lançamento financeiro parcelado.
+    // string | ID do lançamento financeiro parcelado.
     id: id_example,
     // string | Campos relacionados a serem populados separados por vírgula. (optional)
     populate: populate_example,
@@ -235,7 +235,7 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | `string` | Identificador do lançamento financeiro parcelado. | [Defaults to `undefined`] |
+| **id** | `string` | ID do lançamento financeiro parcelado. | [Defaults to `undefined`] |
 | **populate** | `string` | Campos relacionados a serem populados separados por vírgula. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
@@ -281,7 +281,7 @@ async function example() {
   const api = new InstallmentFinancialRecordsApi();
 
   const body = {
-    // string | Identificador do lançamento financeiro parcelado.
+    // string | ID do lançamento financeiro parcelado.
     id: id_example,
     // PartialUpdateInstallmentFinancialRecordRequestBodyDto
     partialUpdateInstallmentFinancialRecordRequestBodyDto: ...,
@@ -306,7 +306,7 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | `string` | Identificador do lançamento financeiro parcelado. | [Defaults to `undefined`] |
+| **id** | `string` | ID do lançamento financeiro parcelado. | [Defaults to `undefined`] |
 | **partialUpdateInstallmentFinancialRecordRequestBodyDto** | [PartialUpdateInstallmentFinancialRecordRequestBodyDto](PartialUpdateInstallmentFinancialRecordRequestBodyDto.md) |  | |
 | **populate** | `string` | Campos relacionados a serem populados separados por vírgula. | [Optional] [Defaults to `undefined`] |
 
@@ -355,7 +355,7 @@ async function example() {
   const api = new InstallmentFinancialRecordsApi();
 
   const body = {
-    // string | Identificador do lançamento financeiro parcelado.
+    // string | ID do lançamento financeiro parcelado.
     id: id_example,
     // RemoveInstallmentFinancialRecordRequestBodyDto
     removeInstallmentFinancialRecordRequestBodyDto: ...,
@@ -378,7 +378,7 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | `string` | Identificador do lançamento financeiro parcelado. | [Defaults to `undefined`] |
+| **id** | `string` | ID do lançamento financeiro parcelado. | [Defaults to `undefined`] |
 | **removeInstallmentFinancialRecordRequestBodyDto** | [RemoveInstallmentFinancialRecordRequestBodyDto](RemoveInstallmentFinancialRecordRequestBodyDto.md) |  | |
 
 ### Return type

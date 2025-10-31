@@ -276,7 +276,7 @@ var RecurringFinancialRecordsApi = /** @class */ (function (_super) {
         });
     };
     /**
-     * Busca um lançamento financeiro recorrente pelo identificador.
+     * Busca um lançamento financeiro recorrente pelo ID.
      */
     RecurringFinancialRecordsApi.prototype.findByIdRecurringFinancialRecordRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -308,7 +308,7 @@ var RecurringFinancialRecordsApi = /** @class */ (function (_super) {
         });
     };
     /**
-     * Busca um lançamento financeiro recorrente pelo identificador.
+     * Busca um lançamento financeiro recorrente pelo ID.
      */
     RecurringFinancialRecordsApi.prototype.findByIdRecurringFinancialRecord = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {

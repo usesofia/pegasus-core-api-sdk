@@ -7,7 +7,7 @@ All URIs are relative to *http://localhost*
 | [**createManyRecurringFinancialRecords**](RecurringFinancialRecordsApi.md#createmanyrecurringfinancialrecords) | **POST** /external/recurring-financial-records/many | Cria múltiplos lançamentos financeiros recorrentes. |
 | [**createRecurringFinancialRecord**](RecurringFinancialRecordsApi.md#createrecurringfinancialrecord) | **POST** /external/recurring-financial-records | Cria um novo lançamento financeiro recorrente. |
 | [**findAllRecurringFinancialRecords**](RecurringFinancialRecordsApi.md#findallrecurringfinancialrecords) | **GET** /external/recurring-financial-records | Busca todos os lançamentos financeiros recorrentes. |
-| [**findByIdRecurringFinancialRecord**](RecurringFinancialRecordsApi.md#findbyidrecurringfinancialrecord) | **GET** /external/recurring-financial-records/{id} | Busca um lançamento financeiro recorrente pelo identificador. |
+| [**findByIdRecurringFinancialRecord**](RecurringFinancialRecordsApi.md#findbyidrecurringfinancialrecord) | **GET** /external/recurring-financial-records/{id} | Busca um lançamento financeiro recorrente pelo ID. |
 | [**partialUpdateRecurringFinancialRecord**](RecurringFinancialRecordsApi.md#partialupdaterecurringfinancialrecord) | **PATCH** /external/recurring-financial-records/{id} | Atualiza parcialmente um lançamento financeiro recorrente. |
 | [**removeRecurringFinancialRecord**](RecurringFinancialRecordsApi.md#removerecurringfinancialrecord) | **DELETE** /external/recurring-financial-records/{id} | Remove um lançamento financeiro recorrente. |
 | [**scheduleRecurringFinancialRecordsSeeding**](RecurringFinancialRecordsApi.md#schedulerecurringfinancialrecordsseeding) | **POST** /internal/recurring-financial-records/seed | Agenda o seeder de lançamentos financeiros recorrentes. |
@@ -182,15 +182,15 @@ async function example() {
     repetitionMonth: 8.14,
     // number | Dia de repetição do lançamento. (optional)
     repetitionDay: 8.14,
-    // Array<any> | Identificadores das tags. (optional)
+    // Array<any> | IDs das tags. (optional)
     tags: ...,
     // string | Valor máximo do lançamento. (optional)
     amountTo: amountTo_example,
     // string | Valor mínimo do lançamento. (optional)
     amountFrom: amountFrom_example,
-    // string | Identificador da subcategoria. (optional)
+    // string | ID da subcategoria. (optional)
     subcategory: subcategory_example,
-    // string | Identificador do contato. (optional)
+    // string | ID do contato. (optional)
     contact: contact_example,
     // Date | Data final da primeira ocorrência (formato ISO YYYY-MM-DD). (optional)
     firstOccurrenceDateTo: 2013-10-20,
@@ -235,11 +235,11 @@ example().catch(console.error);
 | **onlyBusinessDays** | `boolean` | Indica se o lançamento será apenas em dias úteis. | [Optional] [Defaults to `undefined`] |
 | **repetitionMonth** | `number` | Mês de repetição do lançamento. | [Optional] [Defaults to `undefined`] |
 | **repetitionDay** | `number` | Dia de repetição do lançamento. | [Optional] [Defaults to `undefined`] |
-| **tags** | `Array<any>` | Identificadores das tags. | [Optional] |
+| **tags** | `Array<any>` | IDs das tags. | [Optional] |
 | **amountTo** | `string` | Valor máximo do lançamento. | [Optional] [Defaults to `undefined`] |
 | **amountFrom** | `string` | Valor mínimo do lançamento. | [Optional] [Defaults to `undefined`] |
-| **subcategory** | `string` | Identificador da subcategoria. | [Optional] [Defaults to `undefined`] |
-| **contact** | `string` | Identificador do contato. | [Optional] [Defaults to `undefined`] |
+| **subcategory** | `string` | ID da subcategoria. | [Optional] [Defaults to `undefined`] |
+| **contact** | `string` | ID do contato. | [Optional] [Defaults to `undefined`] |
 | **firstOccurrenceDateTo** | `Date` | Data final da primeira ocorrência (formato ISO YYYY-MM-DD). | [Optional] [Defaults to `undefined`] |
 | **firstOccurrenceDateFrom** | `Date` | Data inicial da primeira ocorrência (formato ISO YYYY-MM-DD). | [Optional] [Defaults to `undefined`] |
 | **direction** | `IN`, `OUT` | Direção do lançamento (entrada/saída). | [Optional] [Defaults to `undefined`] [Enum: IN, OUT] |
@@ -277,7 +277,7 @@ No authorization required
 
 > RecurringFinancialRecordDto findByIdRecurringFinancialRecord(id, populate)
 
-Busca um lançamento financeiro recorrente pelo identificador.
+Busca um lançamento financeiro recorrente pelo ID.
 
 ### Example
 
@@ -293,7 +293,7 @@ async function example() {
   const api = new RecurringFinancialRecordsApi();
 
   const body = {
-    // string | Identificador do lançamento financeiro recorrente.
+    // string | ID do lançamento financeiro recorrente.
     id: id_example,
     // string | Campos relacionados a serem populados separados por vírgula. (optional)
     populate: populate_example,
@@ -316,7 +316,7 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | `string` | Identificador do lançamento financeiro recorrente. | [Defaults to `undefined`] |
+| **id** | `string` | ID do lançamento financeiro recorrente. | [Defaults to `undefined`] |
 | **populate** | `string` | Campos relacionados a serem populados separados por vírgula. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
@@ -362,7 +362,7 @@ async function example() {
   const api = new RecurringFinancialRecordsApi();
 
   const body = {
-    // string | Identificador do lançamento financeiro recorrente.
+    // string | ID do lançamento financeiro recorrente.
     id: id_example,
     // PartialUpdateRecurringFinancialRecordRequestBodyDto
     partialUpdateRecurringFinancialRecordRequestBodyDto: ...,
@@ -387,7 +387,7 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | `string` | Identificador do lançamento financeiro recorrente. | [Defaults to `undefined`] |
+| **id** | `string` | ID do lançamento financeiro recorrente. | [Defaults to `undefined`] |
 | **partialUpdateRecurringFinancialRecordRequestBodyDto** | [PartialUpdateRecurringFinancialRecordRequestBodyDto](PartialUpdateRecurringFinancialRecordRequestBodyDto.md) |  | |
 | **populate** | `string` | Campos relacionados a serem populados separados por vírgula. | [Optional] [Defaults to `undefined`] |
 
@@ -434,7 +434,7 @@ async function example() {
   const api = new RecurringFinancialRecordsApi();
 
   const body = {
-    // string | Identificador do lançamento financeiro recorrente.
+    // string | ID do lançamento financeiro recorrente.
     id: id_example,
     // RemoveRecurringFinancialRecordRequestBodyDto
     removeRecurringFinancialRecordRequestBodyDto: ...,
@@ -457,7 +457,7 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | `string` | Identificador do lançamento financeiro recorrente. | [Defaults to `undefined`] |
+| **id** | `string` | ID do lançamento financeiro recorrente. | [Defaults to `undefined`] |
 | **removeRecurringFinancialRecordRequestBodyDto** | [RemoveRecurringFinancialRecordRequestBodyDto](RemoveRecurringFinancialRecordRequestBodyDto.md) |  | |
 
 ### Return type

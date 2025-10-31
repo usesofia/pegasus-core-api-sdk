@@ -217,7 +217,7 @@ var InstallmentFinancialRecordsApi = /** @class */ (function (_super) {
         });
     };
     /**
-     * Busca um lançamento financeiro parcelado pelo identificador.
+     * Busca um lançamento financeiro parcelado pelo ID.
      */
     InstallmentFinancialRecordsApi.prototype.findByIdInstallmentFinancialRecordRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
@@ -249,7 +249,7 @@ var InstallmentFinancialRecordsApi = /** @class */ (function (_super) {
         });
     };
     /**
-     * Busca um lançamento financeiro parcelado pelo identificador.
+     * Busca um lançamento financeiro parcelado pelo ID.
      */
     InstallmentFinancialRecordsApi.prototype.findByIdInstallmentFinancialRecord = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {

@@ -107,9 +107,9 @@ export interface InstallmentFinancialRecordsApiInterface {
      * @param {'MONTHLY' | 'WEEKLY' | 'YEARLY'} [frequency] Frequência do lançamento parcelado.
      * @param {Date} [competenceDateTo] Data de competência final (formato ISO YYYY-MM-DD).
      * @param {Date} [competenceDateFrom] Data de competência inicial (formato ISO YYYY-MM-DD).
-     * @param {Array<any>} [tags] Identificadores das tags.
-     * @param {string} [subcategory] Identificador da subcategoria.
-     * @param {string} [contact] Identificador do contato.
+     * @param {Array<any>} [tags] IDs das tags.
+     * @param {string} [subcategory] ID da subcategoria.
+     * @param {string} [contact] ID do contato.
      * @param {Date} [firstInstallmentDateTo] Data final da primeira parcela (formato ISO YYYY-MM-DD).
      * @param {Date} [firstInstallmentDateFrom] Data inicial da primeira parcela (formato ISO YYYY-MM-DD).
      * @param {'IN' | 'OUT'} [direction] Direção do lançamento (entrada/saída).
@@ -132,8 +132,8 @@ export interface InstallmentFinancialRecordsApiInterface {
 
     /**
      * 
-     * @summary Busca um lançamento financeiro parcelado pelo identificador.
-     * @param {string} id Identificador do lançamento financeiro parcelado.
+     * @summary Busca um lançamento financeiro parcelado pelo ID.
+     * @param {string} id ID do lançamento financeiro parcelado.
      * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -142,14 +142,14 @@ export interface InstallmentFinancialRecordsApiInterface {
     findByIdInstallmentFinancialRecordRaw(requestParameters: FindByIdInstallmentFinancialRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<InstallmentFinancialRecordDto>>;
 
     /**
-     * Busca um lançamento financeiro parcelado pelo identificador.
+     * Busca um lançamento financeiro parcelado pelo ID.
      */
     findByIdInstallmentFinancialRecord(requestParameters: FindByIdInstallmentFinancialRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<InstallmentFinancialRecordDto>;
 
     /**
      * 
      * @summary Atualiza parcialmente um lançamento financeiro parcelado.
-     * @param {string} id Identificador do lançamento financeiro parcelado.
+     * @param {string} id ID do lançamento financeiro parcelado.
      * @param {PartialUpdateInstallmentFinancialRecordRequestBodyDto} partialUpdateInstallmentFinancialRecordRequestBodyDto 
      * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
      * @param {*} [options] Override http request option.
@@ -166,7 +166,7 @@ export interface InstallmentFinancialRecordsApiInterface {
     /**
      * Remove um lançamento financeiro parcelado. Opcionalmente, pode remover todos os lançamentos financeiros não concluídos relacionados através do query parameter \"removeNotCompletedFinancialRecords=true\".
      * @summary Remove um lançamento financeiro parcelado.
-     * @param {string} id Identificador do lançamento financeiro parcelado.
+     * @param {string} id ID do lançamento financeiro parcelado.
      * @param {RemoveInstallmentFinancialRecordRequestBodyDto} removeInstallmentFinancialRecordRequestBodyDto 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -324,7 +324,7 @@ export class InstallmentFinancialRecordsApi extends runtime.BaseAPI implements I
     }
 
     /**
-     * Busca um lançamento financeiro parcelado pelo identificador.
+     * Busca um lançamento financeiro parcelado pelo ID.
      */
     async findByIdInstallmentFinancialRecordRaw(requestParameters: FindByIdInstallmentFinancialRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<InstallmentFinancialRecordDto>> {
         if (requestParameters['id'] == null) {
@@ -357,7 +357,7 @@ export class InstallmentFinancialRecordsApi extends runtime.BaseAPI implements I
     }
 
     /**
-     * Busca um lançamento financeiro parcelado pelo identificador.
+     * Busca um lançamento financeiro parcelado pelo ID.
      */
     async findByIdInstallmentFinancialRecord(requestParameters: FindByIdInstallmentFinancialRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<InstallmentFinancialRecordDto> {
         const response = await this.findByIdInstallmentFinancialRecordRaw(requestParameters, initOverrides);

@@ -36,13 +36,13 @@ async function example() {
     recurringFinancialRecord: recurringFinancialRecord_example,
     // string | ID do parcelamento financeiro. (optional)
     installmentFinancialRecord: installmentFinancialRecord_example,
-    // string | Conta do lançamento financeiro. (optional)
+    // string | ID da conta do lançamento financeiro. (optional)
     account: account_example,
     // boolean | Indica se o lançamento financeiro foi reconciliado. (optional)
     reconciled: true,
     // boolean | Indica se o lançamento financeiro foi completado. (optional)
     completed: true,
-    // string | Tags do lançamento financeiro. (optional)
+    // string | IDs das tags do lançamento financeiro separados por vírgula. (optional)
     tags: tags_example,
     // string | Data de criação final. (optional)
     createdAtTo: createdAtTo_example,
@@ -56,9 +56,9 @@ async function example() {
     competenceDateTo: competenceDateTo_example,
     // string | Data de competência inicial. (optional)
     competenceDateFrom: competenceDateFrom_example,
-    // string | Subcategoria do lançamento financeiro. (optional)
+    // string | ID da subcategoria do lançamento financeiro. (optional)
     subcategory: subcategory_example,
-    // string | Contato do lançamento financeiro. (optional)
+    // string | ID do contato do lançamento financeiro. (optional)
     contact: contact_example,
     // string | Data de vencimento final. (optional)
     dueDateTo: dueDateTo_example,
@@ -95,18 +95,18 @@ example().catch(console.error);
 | **sortBy** | `direction`, `dueDate`, `contact`, `description`, `subcategory`, `amount`, `competenceDate`, `cashDate`, `createdAt` | Campo para ordenação dos lançamentos financeiros. | [Optional] [Defaults to `undefined`] [Enum: direction, dueDate, contact, description, subcategory, amount, competenceDate, cashDate, createdAt] |
 | **recurringFinancialRecord** | `string` | ID da recorrência financeira. | [Optional] [Defaults to `undefined`] |
 | **installmentFinancialRecord** | `string` | ID do parcelamento financeiro. | [Optional] [Defaults to `undefined`] |
-| **account** | `string` | Conta do lançamento financeiro. | [Optional] [Defaults to `undefined`] |
+| **account** | `string` | ID da conta do lançamento financeiro. | [Optional] [Defaults to `undefined`] |
 | **reconciled** | `boolean` | Indica se o lançamento financeiro foi reconciliado. | [Optional] [Defaults to `undefined`] |
 | **completed** | `boolean` | Indica se o lançamento financeiro foi completado. | [Optional] [Defaults to `undefined`] |
-| **tags** | `string` | Tags do lançamento financeiro. | [Optional] [Defaults to `undefined`] |
+| **tags** | `string` | IDs das tags do lançamento financeiro separados por vírgula. | [Optional] [Defaults to `undefined`] |
 | **createdAtTo** | `string` | Data de criação final. | [Optional] [Defaults to `undefined`] |
 | **createdAtFrom** | `string` | Data de criação inicial. | [Optional] [Defaults to `undefined`] |
 | **cashDateTo** | `string` | Data de pagamento final. | [Optional] [Defaults to `undefined`] |
 | **cashDateFrom** | `string` | Data de pagamento inicial. | [Optional] [Defaults to `undefined`] |
 | **competenceDateTo** | `string` | Data de competência final. | [Optional] [Defaults to `undefined`] |
 | **competenceDateFrom** | `string` | Data de competência inicial. | [Optional] [Defaults to `undefined`] |
-| **subcategory** | `string` | Subcategoria do lançamento financeiro. | [Optional] [Defaults to `undefined`] |
-| **contact** | `string` | Contato do lançamento financeiro. | [Optional] [Defaults to `undefined`] |
+| **subcategory** | `string` | ID da subcategoria do lançamento financeiro. | [Optional] [Defaults to `undefined`] |
+| **contact** | `string` | ID do contato do lançamento financeiro. | [Optional] [Defaults to `undefined`] |
 | **dueDateTo** | `string` | Data de vencimento final. | [Optional] [Defaults to `undefined`] |
 | **dueDateFrom** | `string` | Data de vencimento inicial. | [Optional] [Defaults to `undefined`] |
 | **amountTo** | `string` | Valor do lançamento financeiro máximo. | [Optional] [Defaults to `undefined`] |

@@ -149,11 +149,11 @@ export interface RecurringFinancialRecordsApiInterface {
      * @param {boolean} [onlyBusinessDays] Indica se o lançamento será apenas em dias úteis.
      * @param {number} [repetitionMonth] Mês de repetição do lançamento.
      * @param {number} [repetitionDay] Dia de repetição do lançamento.
-     * @param {Array<any>} [tags] Identificadores das tags.
+     * @param {Array<any>} [tags] IDs das tags.
      * @param {string} [amountTo] Valor máximo do lançamento.
      * @param {string} [amountFrom] Valor mínimo do lançamento.
-     * @param {string} [subcategory] Identificador da subcategoria.
-     * @param {string} [contact] Identificador do contato.
+     * @param {string} [subcategory] ID da subcategoria.
+     * @param {string} [contact] ID do contato.
      * @param {Date} [firstOccurrenceDateTo] Data final da primeira ocorrência (formato ISO YYYY-MM-DD).
      * @param {Date} [firstOccurrenceDateFrom] Data inicial da primeira ocorrência (formato ISO YYYY-MM-DD).
      * @param {'IN' | 'OUT'} [direction] Direção do lançamento (entrada/saída).
@@ -176,8 +176,8 @@ export interface RecurringFinancialRecordsApiInterface {
 
     /**
      * 
-     * @summary Busca um lançamento financeiro recorrente pelo identificador.
-     * @param {string} id Identificador do lançamento financeiro recorrente.
+     * @summary Busca um lançamento financeiro recorrente pelo ID.
+     * @param {string} id ID do lançamento financeiro recorrente.
      * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -186,14 +186,14 @@ export interface RecurringFinancialRecordsApiInterface {
     findByIdRecurringFinancialRecordRaw(requestParameters: FindByIdRecurringFinancialRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RecurringFinancialRecordDto>>;
 
     /**
-     * Busca um lançamento financeiro recorrente pelo identificador.
+     * Busca um lançamento financeiro recorrente pelo ID.
      */
     findByIdRecurringFinancialRecord(requestParameters: FindByIdRecurringFinancialRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RecurringFinancialRecordDto>;
 
     /**
      * 
      * @summary Atualiza parcialmente um lançamento financeiro recorrente.
-     * @param {string} id Identificador do lançamento financeiro recorrente.
+     * @param {string} id ID do lançamento financeiro recorrente.
      * @param {PartialUpdateRecurringFinancialRecordRequestBodyDto} partialUpdateRecurringFinancialRecordRequestBodyDto 
      * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
      * @param {*} [options] Override http request option.
@@ -210,7 +210,7 @@ export interface RecurringFinancialRecordsApiInterface {
     /**
      * 
      * @summary Remove um lançamento financeiro recorrente.
-     * @param {string} id Identificador do lançamento financeiro recorrente.
+     * @param {string} id ID do lançamento financeiro recorrente.
      * @param {RemoveRecurringFinancialRecordRequestBodyDto} removeRecurringFinancialRecordRequestBodyDto 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -452,7 +452,7 @@ export class RecurringFinancialRecordsApi extends runtime.BaseAPI implements Rec
     }
 
     /**
-     * Busca um lançamento financeiro recorrente pelo identificador.
+     * Busca um lançamento financeiro recorrente pelo ID.
      */
     async findByIdRecurringFinancialRecordRaw(requestParameters: FindByIdRecurringFinancialRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RecurringFinancialRecordDto>> {
         if (requestParameters['id'] == null) {
@@ -485,7 +485,7 @@ export class RecurringFinancialRecordsApi extends runtime.BaseAPI implements Rec
     }
 
     /**
-     * Busca um lançamento financeiro recorrente pelo identificador.
+     * Busca um lançamento financeiro recorrente pelo ID.
      */
     async findByIdRecurringFinancialRecord(requestParameters: FindByIdRecurringFinancialRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RecurringFinancialRecordDto> {
         const response = await this.findByIdRecurringFinancialRecordRaw(requestParameters, initOverrides);
