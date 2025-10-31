@@ -39,7 +39,7 @@ export interface FindAllFinancialRecordsRequest {
     dueDateFrom?: string;
     amountTo?: string;
     amountFrom?: string;
-    direction?: string;
+    direction?: FindAllFinancialRecordsDirectionEnum;
     ids?: string;
     populate?: string;
     semanticSearchTermInBase64?: string;
@@ -91,7 +91,7 @@ export interface SystemFindAllFinancialRecordsRequest {
     dueDateFrom?: string;
     amountTo?: string;
     amountFrom?: string;
-    direction?: string;
+    direction?: SystemFindAllFinancialRecordsDirectionEnum;
     ids?: string;
     populate?: string;
     semanticSearchTermInBase64?: string;
@@ -168,7 +168,7 @@ export interface FinancialRecordsApiInterface {
      * @param {string} [dueDateFrom] Data de vencimento inicial.
      * @param {string} [amountTo] Valor do lançamento financeiro máximo.
      * @param {string} [amountFrom] Valor do lançamento financeiro mínimo.
-     * @param {string} [direction] Direção do lançamento financeiro.
+     * @param {'IN' | 'OUT'} [direction] Direção do lançamento financeiro.
      * @param {string} [ids] Lista de IDs de lançamentos financeiros para filtrar separados por vírgula.
      * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
      * @param {string} [semanticSearchTermInBase64] Termo para busca semântica.
@@ -280,7 +280,7 @@ export interface FinancialRecordsApiInterface {
      * @param {string} [dueDateFrom] Data de vencimento inicial.
      * @param {string} [amountTo] Valor do lançamento financeiro máximo.
      * @param {string} [amountFrom] Valor do lançamento financeiro mínimo.
-     * @param {string} [direction] Direção do lançamento financeiro.
+     * @param {'IN' | 'OUT'} [direction] Direção do lançamento financeiro.
      * @param {string} [ids] Lista de IDs de lançamentos financeiros para filtrar separados por vírgula.
      * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
      * @param {string} [semanticSearchTermInBase64] Termo para busca semântica.
@@ -448,6 +448,14 @@ export type FindAllFinancialRecordsSortByEnum = typeof FindAllFinancialRecordsSo
 /**
  * @export
  */
+export declare const FindAllFinancialRecordsDirectionEnum: {
+    readonly In: "IN";
+    readonly Out: "OUT";
+};
+export type FindAllFinancialRecordsDirectionEnum = typeof FindAllFinancialRecordsDirectionEnum[keyof typeof FindAllFinancialRecordsDirectionEnum];
+/**
+ * @export
+ */
 export declare const SystemFindAllFinancialRecordsReadPreferenceEnum: {
     readonly Primary: "primary";
     readonly PrimaryPreferred: "primaryPreferred";
@@ -479,6 +487,14 @@ export declare const SystemFindAllFinancialRecordsSortByEnum: {
     readonly CreatedAt: "createdAt";
 };
 export type SystemFindAllFinancialRecordsSortByEnum = typeof SystemFindAllFinancialRecordsSortByEnum[keyof typeof SystemFindAllFinancialRecordsSortByEnum];
+/**
+ * @export
+ */
+export declare const SystemFindAllFinancialRecordsDirectionEnum: {
+    readonly In: "IN";
+    readonly Out: "OUT";
+};
+export type SystemFindAllFinancialRecordsDirectionEnum = typeof SystemFindAllFinancialRecordsDirectionEnum[keyof typeof SystemFindAllFinancialRecordsDirectionEnum];
 /**
  * @export
  */

@@ -64,7 +64,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ExportFinancialRecordsFormatEnum = exports.ExportFinancialRecordsSortByEnum = exports.ExportFinancialRecordsSortOrderEnum = exports.FinancialRecordsExportApi = void 0;
+exports.ExportFinancialRecordsFormatEnum = exports.ExportFinancialRecordsDirectionEnum = exports.ExportFinancialRecordsSortByEnum = exports.ExportFinancialRecordsSortOrderEnum = exports.FinancialRecordsExportApi = void 0;
 var runtime = require("../runtime");
 var index_1 = require("../models/index");
 /**
@@ -207,6 +207,13 @@ exports.ExportFinancialRecordsSortByEnum = {
     CompetenceDate: 'competenceDate',
     CashDate: 'cashDate',
     CreatedAt: 'createdAt'
+};
+/**
+ * @export
+ */
+exports.ExportFinancialRecordsDirectionEnum = {
+    In: 'IN',
+    Out: 'OUT'
 };
 /**
  * @export

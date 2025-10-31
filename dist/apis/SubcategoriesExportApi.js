@@ -64,7 +64,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ExportSubcategoriesFormatEnum = exports.ExportSubcategoriesSortByEnum = exports.ExportSubcategoriesSortOrderEnum = exports.SubcategoriesExportApi = void 0;
+exports.ExportSubcategoriesFormatEnum = exports.ExportSubcategoriesDirectionEnum = exports.ExportSubcategoriesSortByEnum = exports.ExportSubcategoriesSortOrderEnum = exports.SubcategoriesExportApi = void 0;
 var runtime = require("../runtime");
 var index_1 = require("../models/index");
 /**
@@ -153,6 +153,13 @@ exports.ExportSubcategoriesSortByEnum = {
     Name: 'name',
     CreatedAt: 'createdAt',
     Index: 'index'
+};
+/**
+ * @export
+ */
+exports.ExportSubcategoriesDirectionEnum = {
+    In: 'IN',
+    Out: 'OUT'
 };
 /**
  * @export

@@ -32,7 +32,7 @@ export interface ExportFinancialRecordsRequest {
     dueDateFrom?: string;
     amountTo?: string;
     amountFrom?: string;
-    direction?: string;
+    direction?: ExportFinancialRecordsDirectionEnum;
     format?: ExportFinancialRecordsFormatEnum;
 }
 /**
@@ -65,7 +65,7 @@ export interface FinancialRecordsExportApiInterface {
      * @param {string} [dueDateFrom] Data de vencimento inicial.
      * @param {string} [amountTo] Valor do lançamento financeiro máximo.
      * @param {string} [amountFrom] Valor do lançamento financeiro mínimo.
-     * @param {string} [direction] Direção do lançamento financeiro.
+     * @param {'IN' | 'OUT'} [direction] Direção do lançamento financeiro.
      * @param {'csv' | 'xlsx'} [format] Formato de exportação dos dados.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -113,6 +113,14 @@ export declare const ExportFinancialRecordsSortByEnum: {
     readonly CreatedAt: "createdAt";
 };
 export type ExportFinancialRecordsSortByEnum = typeof ExportFinancialRecordsSortByEnum[keyof typeof ExportFinancialRecordsSortByEnum];
+/**
+ * @export
+ */
+export declare const ExportFinancialRecordsDirectionEnum: {
+    readonly In: "IN";
+    readonly Out: "OUT";
+};
+export type ExportFinancialRecordsDirectionEnum = typeof ExportFinancialRecordsDirectionEnum[keyof typeof ExportFinancialRecordsDirectionEnum];
 /**
  * @export
  */

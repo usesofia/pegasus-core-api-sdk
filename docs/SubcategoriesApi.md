@@ -114,7 +114,7 @@ async function example() {
     populate: populate_example,
     // string | ID da categoria para filtrar subcategorias. (optional)
     categoryId: categoryId_example,
-    // string | Direção da subcategoria. (optional)
+    // 'IN' | 'OUT' | Direção da subcategoria. (optional)
     direction: direction_example,
     // string | Termo para busca semântica codificado em base64. (optional)
     semanticSearchTermInBase64: semanticSearchTermInBase64_example,
@@ -148,7 +148,7 @@ example().catch(console.error);
 | **sortBy** | `name`, `createdAt`, `index` | Campo para ordenar as subcategorias. | [Optional] [Defaults to `undefined`] [Enum: name, createdAt, index] |
 | **populate** | `string` | Campos relacionados a serem populados separados por vírgula. | [Optional] [Defaults to `undefined`] |
 | **categoryId** | `string` | ID da categoria para filtrar subcategorias. | [Optional] [Defaults to `undefined`] |
-| **direction** | `string` | Direção da subcategoria. | [Optional] [Defaults to `undefined`] |
+| **direction** | `IN`, `OUT` | Direção da subcategoria. | [Optional] [Defaults to `undefined`] [Enum: IN, OUT] |
 | **semanticSearchTermInBase64** | `string` | Termo para busca semântica codificado em base64. | [Optional] [Defaults to `undefined`] |
 | **textSearchTerm** | `string` | Termo para busca textual por nome, descrição ou slug da subcategoria. | [Optional] [Defaults to `undefined`] |
 | **pageSize** | `number` | Quantidade de itens por página. | [Optional] [Defaults to `undefined`] |
@@ -480,7 +480,7 @@ async function example() {
     ownerOrganizationId: ownerOrganizationId_example,
     // 'primary' | 'primaryPreferred' | 'secondary' | 'secondaryPreferred' | 'nearest' | Preferência de leitura das subcategorias. (optional)
     readPreference: readPreference_example,
-    // string | Direção da subcategoria. (optional)
+    // 'IN' | 'OUT' | Direção da subcategoria. (optional)
     direction: direction_example,
     // boolean | Filtra subcategorias ativas ou inativas. (optional)
     active: true,
@@ -521,7 +521,7 @@ example().catch(console.error);
 |------------- | ------------- | ------------- | -------------|
 | **ownerOrganizationId** | `string` | Identificador da organização proprietária das subcategorias. | [Defaults to `undefined`] |
 | **readPreference** | `primary`, `primaryPreferred`, `secondary`, `secondaryPreferred`, `nearest` | Preferência de leitura das subcategorias. | [Optional] [Defaults to `undefined`] [Enum: primary, primaryPreferred, secondary, secondaryPreferred, nearest] |
-| **direction** | `string` | Direção da subcategoria. | [Optional] [Defaults to `undefined`] |
+| **direction** | `IN`, `OUT` | Direção da subcategoria. | [Optional] [Defaults to `undefined`] [Enum: IN, OUT] |
 | **active** | `boolean` | Filtra subcategorias ativas ou inativas. | [Optional] [Defaults to `undefined`] |
 | **sortOrder** | `asc`, `desc` | Ordem de ordenação das subcategorias. | [Optional] [Defaults to `undefined`] [Enum: asc, desc] |
 | **sortBy** | `name`, `createdAt`, `index` | Campo para ordenar as subcategorias. | [Optional] [Defaults to `undefined`] [Enum: name, createdAt, index] |

@@ -64,7 +64,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.SystemGenerateMostCommonContactsAndSubcategoriesForSimilarFinancialRecordReportReadPreferenceEnum = exports.SystemFindAllFinancialRecordsSortByEnum = exports.SystemFindAllFinancialRecordsSortOrderEnum = exports.SystemFindAllFinancialRecordsReadPreferenceEnum = exports.FindAllFinancialRecordsSortByEnum = exports.FindAllFinancialRecordsSortOrderEnum = exports.FinancialRecordsApi = void 0;
+exports.SystemGenerateMostCommonContactsAndSubcategoriesForSimilarFinancialRecordReportReadPreferenceEnum = exports.SystemFindAllFinancialRecordsDirectionEnum = exports.SystemFindAllFinancialRecordsSortByEnum = exports.SystemFindAllFinancialRecordsSortOrderEnum = exports.SystemFindAllFinancialRecordsReadPreferenceEnum = exports.FindAllFinancialRecordsDirectionEnum = exports.FindAllFinancialRecordsSortByEnum = exports.FindAllFinancialRecordsSortOrderEnum = exports.FinancialRecordsApi = void 0;
 var runtime = require("../runtime");
 var index_1 = require("../models/index");
 /**
@@ -829,6 +829,13 @@ exports.FindAllFinancialRecordsSortByEnum = {
 /**
  * @export
  */
+exports.FindAllFinancialRecordsDirectionEnum = {
+    In: 'IN',
+    Out: 'OUT'
+};
+/**
+ * @export
+ */
 exports.SystemFindAllFinancialRecordsReadPreferenceEnum = {
     Primary: 'primary',
     PrimaryPreferred: 'primaryPreferred',
@@ -856,6 +863,13 @@ exports.SystemFindAllFinancialRecordsSortByEnum = {
     CompetenceDate: 'competenceDate',
     CashDate: 'cashDate',
     CreatedAt: 'createdAt'
+};
+/**
+ * @export
+ */
+exports.SystemFindAllFinancialRecordsDirectionEnum = {
+    In: 'IN',
+    Out: 'OUT'
 };
 /**
  * @export

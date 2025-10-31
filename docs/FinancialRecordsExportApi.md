@@ -68,7 +68,7 @@ async function example() {
     amountTo: amountTo_example,
     // string | Valor do lançamento financeiro mínimo. (optional)
     amountFrom: amountFrom_example,
-    // string | Direção do lançamento financeiro. (optional)
+    // 'IN' | 'OUT' | Direção do lançamento financeiro. (optional)
     direction: direction_example,
     // 'csv' | 'xlsx' | Formato de exportação dos dados. (optional)
     format: format_example,
@@ -111,7 +111,7 @@ example().catch(console.error);
 | **dueDateFrom** | `string` | Data de vencimento inicial. | [Optional] [Defaults to `undefined`] |
 | **amountTo** | `string` | Valor do lançamento financeiro máximo. | [Optional] [Defaults to `undefined`] |
 | **amountFrom** | `string` | Valor do lançamento financeiro mínimo. | [Optional] [Defaults to `undefined`] |
-| **direction** | `string` | Direção do lançamento financeiro. | [Optional] [Defaults to `undefined`] |
+| **direction** | `IN`, `OUT` | Direção do lançamento financeiro. | [Optional] [Defaults to `undefined`] [Enum: IN, OUT] |
 | **format** | `csv`, `xlsx` | Formato de exportação dos dados. | [Optional] [Defaults to `undefined`] [Enum: csv, xlsx] |
 
 ### Return type

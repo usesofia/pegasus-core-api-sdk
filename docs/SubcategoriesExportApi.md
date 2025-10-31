@@ -36,7 +36,7 @@ async function example() {
     active: true,
     // string | ID da categoria para filtrar subcategorias. (optional)
     categoryId: categoryId_example,
-    // string | Direção da subcategoria. (optional)
+    // 'IN' | 'OUT' | Direção da subcategoria. (optional)
     direction: direction_example,
     // 'csv' | 'xlsx' | Formato de exportação dos dados. (optional)
     format: format_example,
@@ -63,7 +63,7 @@ example().catch(console.error);
 | **sortBy** | `name`, `createdAt`, `index` | Campo para ordenar as subcategorias. | [Optional] [Defaults to `undefined`] [Enum: name, createdAt, index] |
 | **active** | `boolean` | Filtra subcategorias ativas ou inativas. | [Optional] [Defaults to `undefined`] |
 | **categoryId** | `string` | ID da categoria para filtrar subcategorias. | [Optional] [Defaults to `undefined`] |
-| **direction** | `string` | Direção da subcategoria. | [Optional] [Defaults to `undefined`] |
+| **direction** | `IN`, `OUT` | Direção da subcategoria. | [Optional] [Defaults to `undefined`] [Enum: IN, OUT] |
 | **format** | `csv`, `xlsx` | Formato de exportação dos dados. | [Optional] [Defaults to `undefined`] [Enum: csv, xlsx] |
 
 ### Return type

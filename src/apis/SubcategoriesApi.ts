@@ -48,7 +48,7 @@ export interface FindAllSubcategoriesRequest {
     sortBy?: FindAllSubcategoriesSortByEnum;
     populate?: string;
     categoryId?: string;
-    direction?: string;
+    direction?: FindAllSubcategoriesDirectionEnum;
     semanticSearchTermInBase64?: string;
     textSearchTerm?: string;
     pageSize?: number;
@@ -79,7 +79,7 @@ export interface RemoveSubcategoryRequest {
 export interface SystemFindAllSubcategoriesRequest {
     ownerOrganizationId: string;
     readPreference?: SystemFindAllSubcategoriesReadPreferenceEnum;
-    direction?: string;
+    direction?: SystemFindAllSubcategoriesDirectionEnum;
     active?: boolean;
     sortOrder?: SystemFindAllSubcategoriesSortOrderEnum;
     sortBy?: SystemFindAllSubcategoriesSortByEnum;
@@ -128,7 +128,7 @@ export interface SubcategoriesApiInterface {
      * @param {'name' | 'createdAt' | 'index'} [sortBy] Campo para ordenar as subcategorias.
      * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
      * @param {string} [categoryId] ID da categoria para filtrar subcategorias.
-     * @param {string} [direction] Direção da subcategoria.
+     * @param {'IN' | 'OUT'} [direction] Direção da subcategoria.
      * @param {string} [semanticSearchTermInBase64] Termo para busca semântica codificado em base64.
      * @param {string} [textSearchTerm] Termo para busca textual por nome, descrição ou slug da subcategoria.
      * @param {number} [pageSize] Quantidade de itens por página.
@@ -214,7 +214,7 @@ export interface SubcategoriesApiInterface {
      * @summary Busca todas as subcategorias pelo sistema.
      * @param {string} ownerOrganizationId Identificador da organização proprietária das subcategorias.
      * @param {'primary' | 'primaryPreferred' | 'secondary' | 'secondaryPreferred' | 'nearest'} [readPreference] Preferência de leitura das subcategorias.
-     * @param {string} [direction] Direção da subcategoria.
+     * @param {'IN' | 'OUT'} [direction] Direção da subcategoria.
      * @param {boolean} [active] Filtra subcategorias ativas ou inativas.
      * @param {'asc' | 'desc'} [sortOrder] Ordem de ordenação das subcategorias.
      * @param {'name' | 'createdAt' | 'index'} [sortBy] Campo para ordenar as subcategorias.
@@ -705,6 +705,14 @@ export type FindAllSubcategoriesSortByEnum = typeof FindAllSubcategoriesSortByEn
 /**
  * @export
  */
+export const FindAllSubcategoriesDirectionEnum = {
+    In: 'IN',
+    Out: 'OUT'
+} as const;
+export type FindAllSubcategoriesDirectionEnum = typeof FindAllSubcategoriesDirectionEnum[keyof typeof FindAllSubcategoriesDirectionEnum];
+/**
+ * @export
+ */
 export const SystemFindAllSubcategoriesReadPreferenceEnum = {
     Primary: 'primary',
     PrimaryPreferred: 'primaryPreferred',
@@ -713,6 +721,14 @@ export const SystemFindAllSubcategoriesReadPreferenceEnum = {
     Nearest: 'nearest'
 } as const;
 export type SystemFindAllSubcategoriesReadPreferenceEnum = typeof SystemFindAllSubcategoriesReadPreferenceEnum[keyof typeof SystemFindAllSubcategoriesReadPreferenceEnum];
+/**
+ * @export
+ */
+export const SystemFindAllSubcategoriesDirectionEnum = {
+    In: 'IN',
+    Out: 'OUT'
+} as const;
+export type SystemFindAllSubcategoriesDirectionEnum = typeof SystemFindAllSubcategoriesDirectionEnum[keyof typeof SystemFindAllSubcategoriesDirectionEnum];
 /**
  * @export
  */

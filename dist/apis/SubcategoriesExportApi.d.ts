@@ -16,7 +16,7 @@ export interface ExportSubcategoriesRequest {
     sortBy?: ExportSubcategoriesSortByEnum;
     active?: boolean;
     categoryId?: string;
-    direction?: string;
+    direction?: ExportSubcategoriesDirectionEnum;
     format?: ExportSubcategoriesFormatEnum;
 }
 /**
@@ -33,7 +33,7 @@ export interface SubcategoriesExportApiInterface {
      * @param {'name' | 'createdAt' | 'index'} [sortBy] Campo para ordenar as subcategorias.
      * @param {boolean} [active] Filtra subcategorias ativas ou inativas.
      * @param {string} [categoryId] ID da categoria para filtrar subcategorias.
-     * @param {string} [direction] Direção da subcategoria.
+     * @param {'IN' | 'OUT'} [direction] Direção da subcategoria.
      * @param {'csv' | 'xlsx'} [format] Formato de exportação dos dados.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -75,6 +75,14 @@ export declare const ExportSubcategoriesSortByEnum: {
     readonly Index: "index";
 };
 export type ExportSubcategoriesSortByEnum = typeof ExportSubcategoriesSortByEnum[keyof typeof ExportSubcategoriesSortByEnum];
+/**
+ * @export
+ */
+export declare const ExportSubcategoriesDirectionEnum: {
+    readonly In: "IN";
+    readonly Out: "OUT";
+};
+export type ExportSubcategoriesDirectionEnum = typeof ExportSubcategoriesDirectionEnum[keyof typeof ExportSubcategoriesDirectionEnum];
 /**
  * @export
  */

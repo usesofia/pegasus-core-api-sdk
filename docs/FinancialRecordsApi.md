@@ -213,7 +213,7 @@ async function example() {
     amountTo: amountTo_example,
     // string | Valor do lançamento financeiro mínimo. (optional)
     amountFrom: amountFrom_example,
-    // string | Direção do lançamento financeiro. (optional)
+    // 'IN' | 'OUT' | Direção do lançamento financeiro. (optional)
     direction: direction_example,
     // string | Lista de IDs de lançamentos financeiros para filtrar separados por vírgula. (optional)
     ids: ids_example,
@@ -266,7 +266,7 @@ example().catch(console.error);
 | **dueDateFrom** | `string` | Data de vencimento inicial. | [Optional] [Defaults to `undefined`] |
 | **amountTo** | `string` | Valor do lançamento financeiro máximo. | [Optional] [Defaults to `undefined`] |
 | **amountFrom** | `string` | Valor do lançamento financeiro mínimo. | [Optional] [Defaults to `undefined`] |
-| **direction** | `string` | Direção do lançamento financeiro. | [Optional] [Defaults to `undefined`] |
+| **direction** | `IN`, `OUT` | Direção do lançamento financeiro. | [Optional] [Defaults to `undefined`] [Enum: IN, OUT] |
 | **ids** | `string` | Lista de IDs de lançamentos financeiros para filtrar separados por vírgula. | [Optional] [Defaults to `undefined`] |
 | **populate** | `string` | Campos relacionados a serem populados separados por vírgula. | [Optional] [Defaults to `undefined`] |
 | **semanticSearchTermInBase64** | `string` | Termo para busca semântica. | [Optional] [Defaults to `undefined`] |
@@ -708,7 +708,7 @@ async function example() {
     amountTo: amountTo_example,
     // string | Valor do lançamento financeiro mínimo. (optional)
     amountFrom: amountFrom_example,
-    // string | Direção do lançamento financeiro. (optional)
+    // 'IN' | 'OUT' | Direção do lançamento financeiro. (optional)
     direction: direction_example,
     // string | Lista de IDs de lançamentos financeiros para filtrar separados por vírgula. (optional)
     ids: ids_example,
@@ -764,7 +764,7 @@ example().catch(console.error);
 | **dueDateFrom** | `string` | Data de vencimento inicial. | [Optional] [Defaults to `undefined`] |
 | **amountTo** | `string` | Valor do lançamento financeiro máximo. | [Optional] [Defaults to `undefined`] |
 | **amountFrom** | `string` | Valor do lançamento financeiro mínimo. | [Optional] [Defaults to `undefined`] |
-| **direction** | `string` | Direção do lançamento financeiro. | [Optional] [Defaults to `undefined`] |
+| **direction** | `IN`, `OUT` | Direção do lançamento financeiro. | [Optional] [Defaults to `undefined`] [Enum: IN, OUT] |
 | **ids** | `string` | Lista de IDs de lançamentos financeiros para filtrar separados por vírgula. | [Optional] [Defaults to `undefined`] |
 | **populate** | `string` | Campos relacionados a serem populados separados por vírgula. | [Optional] [Defaults to `undefined`] |
 | **semanticSearchTermInBase64** | `string` | Termo para busca semântica. | [Optional] [Defaults to `undefined`] |
