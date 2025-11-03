@@ -155,7 +155,7 @@ No authorization required
 
 ## findAllFinancialRecords
 
-> FinancialRecordsPageDto findAllFinancialRecords(sortOrder, sortBy, recurringFinancialRecord, installmentFinancialRecord, account, reconciled, completed, tags, createdAtTo, createdAtFrom, cashDateTo, cashDateFrom, competenceDateTo, competenceDateFrom, subcategory, contact, dueDateTo, dueDateFrom, amountTo, amountFrom, direction, ids, populate, semanticSearchTermInBase64, textSearchTerm, pageSize, pageIndex)
+> FinancialRecordsPageDto findAllFinancialRecords(sortOrder, sortBy, recurringFinancialRecord, installmentFinancialRecord, account, reconciled, completed, tags, createdAtTo, createdAtFrom, cashDateTo, cashDateFrom, competenceDateTo, competenceDateFrom, subcategory, contact, dueDateTo, dueDateFrom, finalAmountTo, finalAmountFrom, amountTo, amountFrom, direction, ids, populate, semanticSearchTermInBase64, textSearchTerm, pageSize, pageIndex)
 
 Busca todos os lançamentos financeiros.
 
@@ -209,6 +209,10 @@ async function example() {
     dueDateTo: dueDateTo_example,
     // string | Data de vencimento inicial. (optional)
     dueDateFrom: dueDateFrom_example,
+    // string | Valor final do lançamento financeiro máximo. (optional)
+    finalAmountTo: finalAmountTo_example,
+    // string | Valor final do lançamento financeiro mínimo. (optional)
+    finalAmountFrom: finalAmountFrom_example,
     // string | Valor do lançamento financeiro máximo. (optional)
     amountTo: amountTo_example,
     // string | Valor do lançamento financeiro mínimo. (optional)
@@ -264,6 +268,8 @@ example().catch(console.error);
 | **contact** | `string` | ID do contato do lançamento financeiro. | [Optional] [Defaults to `undefined`] |
 | **dueDateTo** | `string` | Data de vencimento final. | [Optional] [Defaults to `undefined`] |
 | **dueDateFrom** | `string` | Data de vencimento inicial. | [Optional] [Defaults to `undefined`] |
+| **finalAmountTo** | `string` | Valor final do lançamento financeiro máximo. | [Optional] [Defaults to `undefined`] |
+| **finalAmountFrom** | `string` | Valor final do lançamento financeiro mínimo. | [Optional] [Defaults to `undefined`] |
 | **amountTo** | `string` | Valor do lançamento financeiro máximo. | [Optional] [Defaults to `undefined`] |
 | **amountFrom** | `string` | Valor do lançamento financeiro mínimo. | [Optional] [Defaults to `undefined`] |
 | **direction** | `IN`, `OUT` | Direção do lançamento financeiro. | [Optional] [Defaults to `undefined`] [Enum: IN, OUT] |
@@ -644,7 +650,7 @@ No authorization required
 
 ## systemFindAllFinancialRecords
 
-> FinancialRecordsPageDto systemFindAllFinancialRecords(ownerOrganizationId, generatePdfListExport, generatePdfTableExport, generateExcelExport, readPreference, sortOrder, sortBy, account, reconciled, completed, tags, createdAtTo, createdAtFrom, cashDateTo, cashDateFrom, competenceDateTo, competenceDateFrom, subcategory, contact, dueDateTo, dueDateFrom, amountTo, amountFrom, direction, ids, populate, semanticSearchTermInBase64, textSearchTerm, pageSize, pageIndex)
+> FinancialRecordsPageDto systemFindAllFinancialRecords(ownerOrganizationId, generatePdfListExport, generatePdfTableExport, generateExcelExport, readPreference, sortOrder, sortBy, account, reconciled, completed, tags, createdAtTo, createdAtFrom, cashDateTo, cashDateFrom, competenceDateTo, competenceDateFrom, subcategory, contact, dueDateTo, dueDateFrom, finalAmountTo, finalAmountFrom, amountTo, amountFrom, direction, ids, populate, semanticSearchTermInBase64, textSearchTerm, pageSize, pageIndex)
 
 Busca todos os lançamentos financeiros pelo sistema.
 
@@ -704,6 +710,10 @@ async function example() {
     dueDateTo: dueDateTo_example,
     // string | Data de vencimento inicial. (optional)
     dueDateFrom: dueDateFrom_example,
+    // string | Valor final do lançamento financeiro máximo. (optional)
+    finalAmountTo: finalAmountTo_example,
+    // string | Valor final do lançamento financeiro mínimo. (optional)
+    finalAmountFrom: finalAmountFrom_example,
     // string | Valor do lançamento financeiro máximo. (optional)
     amountTo: amountTo_example,
     // string | Valor do lançamento financeiro mínimo. (optional)
@@ -762,6 +772,8 @@ example().catch(console.error);
 | **contact** | `string` | ID do contato do lançamento financeiro. | [Optional] [Defaults to `undefined`] |
 | **dueDateTo** | `string` | Data de vencimento final. | [Optional] [Defaults to `undefined`] |
 | **dueDateFrom** | `string` | Data de vencimento inicial. | [Optional] [Defaults to `undefined`] |
+| **finalAmountTo** | `string` | Valor final do lançamento financeiro máximo. | [Optional] [Defaults to `undefined`] |
+| **finalAmountFrom** | `string` | Valor final do lançamento financeiro mínimo. | [Optional] [Defaults to `undefined`] |
 | **amountTo** | `string` | Valor do lançamento financeiro máximo. | [Optional] [Defaults to `undefined`] |
 | **amountFrom** | `string` | Valor do lançamento financeiro mínimo. | [Optional] [Defaults to `undefined`] |
 | **direction** | `IN`, `OUT` | Direção do lançamento financeiro. | [Optional] [Defaults to `undefined`] [Enum: IN, OUT] |

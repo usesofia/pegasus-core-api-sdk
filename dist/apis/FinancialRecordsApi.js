@@ -236,6 +236,12 @@ var FinancialRecordsApi = /** @class */ (function (_super) {
                         if (requestParameters['dueDateFrom'] != null) {
                             queryParameters['dueDateFrom'] = requestParameters['dueDateFrom'];
                         }
+                        if (requestParameters['finalAmountTo'] != null) {
+                            queryParameters['finalAmountTo'] = requestParameters['finalAmountTo'];
+                        }
+                        if (requestParameters['finalAmountFrom'] != null) {
+                            queryParameters['finalAmountFrom'] = requestParameters['finalAmountFrom'];
+                        }
                         if (requestParameters['amountTo'] != null) {
                             queryParameters['amountTo'] = requestParameters['amountTo'];
                         }
@@ -621,6 +627,12 @@ var FinancialRecordsApi = /** @class */ (function (_super) {
                         }
                         if (requestParameters['dueDateFrom'] != null) {
                             queryParameters['dueDateFrom'] = requestParameters['dueDateFrom'];
+                        }
+                        if (requestParameters['finalAmountTo'] != null) {
+                            queryParameters['finalAmountTo'] = requestParameters['finalAmountTo'];
+                        }
+                        if (requestParameters['finalAmountFrom'] != null) {
+                            queryParameters['finalAmountFrom'] = requestParameters['finalAmountFrom'];
                         }
                         if (requestParameters['amountTo'] != null) {
                             queryParameters['amountTo'] = requestParameters['amountTo'];

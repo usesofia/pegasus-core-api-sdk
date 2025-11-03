@@ -10,7 +10,7 @@ All URIs are relative to *http://localhost*
 
 ## exportFinancialRecords
 
-> ExportFinancialRecordsDto exportFinancialRecords(sortOrder, sortBy, recurringFinancialRecord, installmentFinancialRecord, account, reconciled, completed, tags, createdAtTo, createdAtFrom, cashDateTo, cashDateFrom, competenceDateTo, competenceDateFrom, subcategory, contact, dueDateTo, dueDateFrom, amountTo, amountFrom, direction, format)
+> ExportFinancialRecordsDto exportFinancialRecords(sortOrder, sortBy, recurringFinancialRecord, installmentFinancialRecord, account, reconciled, completed, tags, createdAtTo, createdAtFrom, cashDateTo, cashDateFrom, competenceDateTo, competenceDateFrom, subcategory, contact, dueDateTo, dueDateFrom, finalAmountTo, finalAmountFrom, amountTo, amountFrom, direction, format)
 
 Solicita a exportação dos lançamentos financeiros.
 
@@ -64,6 +64,10 @@ async function example() {
     dueDateTo: dueDateTo_example,
     // string | Data de vencimento inicial. (optional)
     dueDateFrom: dueDateFrom_example,
+    // string | Valor final do lançamento financeiro máximo. (optional)
+    finalAmountTo: finalAmountTo_example,
+    // string | Valor final do lançamento financeiro mínimo. (optional)
+    finalAmountFrom: finalAmountFrom_example,
     // string | Valor do lançamento financeiro máximo. (optional)
     amountTo: amountTo_example,
     // string | Valor do lançamento financeiro mínimo. (optional)
@@ -109,6 +113,8 @@ example().catch(console.error);
 | **contact** | `string` | ID do contato do lançamento financeiro. | [Optional] [Defaults to `undefined`] |
 | **dueDateTo** | `string` | Data de vencimento final. | [Optional] [Defaults to `undefined`] |
 | **dueDateFrom** | `string` | Data de vencimento inicial. | [Optional] [Defaults to `undefined`] |
+| **finalAmountTo** | `string` | Valor final do lançamento financeiro máximo. | [Optional] [Defaults to `undefined`] |
+| **finalAmountFrom** | `string` | Valor final do lançamento financeiro mínimo. | [Optional] [Defaults to `undefined`] |
 | **amountTo** | `string` | Valor do lançamento financeiro máximo. | [Optional] [Defaults to `undefined`] |
 | **amountFrom** | `string` | Valor do lançamento financeiro mínimo. | [Optional] [Defaults to `undefined`] |
 | **direction** | `IN`, `OUT` | Direção do lançamento financeiro. | [Optional] [Defaults to `undefined`] [Enum: IN, OUT] |

@@ -77,6 +77,8 @@ export interface FindAllFinancialRecordsRequest {
     contact?: string;
     dueDateTo?: string;
     dueDateFrom?: string;
+    finalAmountTo?: string;
+    finalAmountFrom?: string;
     amountTo?: string;
     amountFrom?: string;
     direction?: FindAllFinancialRecordsDirectionEnum;
@@ -135,6 +137,8 @@ export interface SystemFindAllFinancialRecordsRequest {
     contact?: string;
     dueDateTo?: string;
     dueDateFrom?: string;
+    finalAmountTo?: string;
+    finalAmountFrom?: string;
     amountTo?: string;
     amountFrom?: string;
     direction?: SystemFindAllFinancialRecordsDirectionEnum;
@@ -219,6 +223,8 @@ export interface FinancialRecordsApiInterface {
      * @param {string} [contact] ID do contato do lançamento financeiro.
      * @param {string} [dueDateTo] Data de vencimento final.
      * @param {string} [dueDateFrom] Data de vencimento inicial.
+     * @param {string} [finalAmountTo] Valor final do lançamento financeiro máximo.
+     * @param {string} [finalAmountFrom] Valor final do lançamento financeiro mínimo.
      * @param {string} [amountTo] Valor do lançamento financeiro máximo.
      * @param {string} [amountFrom] Valor do lançamento financeiro mínimo.
      * @param {'IN' | 'OUT'} [direction] Direção do lançamento financeiro.
@@ -343,6 +349,8 @@ export interface FinancialRecordsApiInterface {
      * @param {string} [contact] ID do contato do lançamento financeiro.
      * @param {string} [dueDateTo] Data de vencimento final.
      * @param {string} [dueDateFrom] Data de vencimento inicial.
+     * @param {string} [finalAmountTo] Valor final do lançamento financeiro máximo.
+     * @param {string} [finalAmountFrom] Valor final do lançamento financeiro mínimo.
      * @param {string} [amountTo] Valor do lançamento financeiro máximo.
      * @param {string} [amountFrom] Valor do lançamento financeiro mínimo.
      * @param {'IN' | 'OUT'} [direction] Direção do lançamento financeiro.
@@ -564,6 +572,14 @@ export class FinancialRecordsApi extends runtime.BaseAPI implements FinancialRec
 
         if (requestParameters['dueDateFrom'] != null) {
             queryParameters['dueDateFrom'] = requestParameters['dueDateFrom'];
+        }
+
+        if (requestParameters['finalAmountTo'] != null) {
+            queryParameters['finalAmountTo'] = requestParameters['finalAmountTo'];
+        }
+
+        if (requestParameters['finalAmountFrom'] != null) {
+            queryParameters['finalAmountFrom'] = requestParameters['finalAmountFrom'];
         }
 
         if (requestParameters['amountTo'] != null) {
@@ -944,6 +960,14 @@ export class FinancialRecordsApi extends runtime.BaseAPI implements FinancialRec
 
         if (requestParameters['dueDateFrom'] != null) {
             queryParameters['dueDateFrom'] = requestParameters['dueDateFrom'];
+        }
+
+        if (requestParameters['finalAmountTo'] != null) {
+            queryParameters['finalAmountTo'] = requestParameters['finalAmountTo'];
+        }
+
+        if (requestParameters['finalAmountFrom'] != null) {
+            queryParameters['finalAmountFrom'] = requestParameters['finalAmountFrom'];
         }
 
         if (requestParameters['amountTo'] != null) {
