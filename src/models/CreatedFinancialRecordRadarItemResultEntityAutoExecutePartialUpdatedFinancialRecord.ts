@@ -98,7 +98,7 @@ export interface CreatedFinancialRecordRadarItemResultEntityAutoExecutePartialUp
      */
     subcategory: string;
     /**
-     * Valor do lançamento.
+     * Valor do lançamento. É o valor em centavos. Exemplo: 10032 para R$ 100,32
      * @type {number}
      * @memberof CreatedFinancialRecordRadarItemResultEntityAutoExecutePartialUpdatedFinancialRecord
      */
@@ -170,19 +170,19 @@ export interface CreatedFinancialRecordRadarItemResultEntityAutoExecutePartialUp
      */
     account?: string | null;
     /**
-     * Valor do desconto.
+     * Valor do desconto. É o valor em centavos. Exemplo: 1000 para R$ 10,00
      * @type {number}
      * @memberof CreatedFinancialRecordRadarItemResultEntityAutoExecutePartialUpdatedFinancialRecord
      */
     discount?: number | null;
     /**
-     * Valor de multas e juros.
+     * Valor de multas e juros. É o valor em centavos. Exemplo: 1000 para R$ 10,00
      * @type {number}
      * @memberof CreatedFinancialRecordRadarItemResultEntityAutoExecutePartialUpdatedFinancialRecord
      */
     finesAndInterest?: number | null;
     /**
-     * Valor final do lançamento.
+     * Valor final do lançamento. É o valor em centavos. Exemplo: 10000 para R$ 100,00
      * @type {number}
      * @memberof CreatedFinancialRecordRadarItemResultEntityAutoExecutePartialUpdatedFinancialRecord
      */
