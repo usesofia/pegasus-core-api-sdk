@@ -529,7 +529,7 @@ No authorization required
 
 ## systemFindAllBankAccounts
 
-> BankAccountsPageDto systemFindAllBankAccounts(ownerOrganizationId, readPreference, sortOrder, sortBy, populate, providerAccountId, provider, active, isDefault, isAutomatic, type, semanticSearchTermInBase64, textSearchTerm, pageSize, pageIndex)
+> BankAccountsPageDto systemFindAllBankAccounts(ownerOrganizationId, readPreference, sortOrder, sortBy, populate, providerAccountId, provider, active, ids, isDefault, isAutomatic, type, semanticSearchTermInBase64, textSearchTerm, pageSize, pageIndex)
 
 Busca todas as contas bancárias.
 
@@ -563,6 +563,8 @@ async function example() {
     provider: provider_example,
     // boolean | Indica se a conta está ativa. (optional)
     active: true,
+    // string | Lista de IDs de contas bancárias para filtrar separados por vírgula. (optional)
+    ids: ids_example,
     // boolean | Indica se a conta é a padrão. (optional)
     isDefault: true,
     // boolean | Indica se a conta é automática ou manual. (optional)
@@ -604,6 +606,7 @@ example().catch(console.error);
 | **providerAccountId** | `string` | Identificador da conta bancária no fornecedor. | [Optional] [Defaults to `undefined`] |
 | **provider** | `string` | Fornecedor da conta bancária. | [Optional] [Defaults to `undefined`] |
 | **active** | `boolean` | Indica se a conta está ativa. | [Optional] [Defaults to `undefined`] |
+| **ids** | `string` | Lista de IDs de contas bancárias para filtrar separados por vírgula. | [Optional] [Defaults to `undefined`] |
 | **isDefault** | `boolean` | Indica se a conta é a padrão. | [Optional] [Defaults to `undefined`] |
 | **isAutomatic** | `boolean` | Indica se a conta é automática ou manual. | [Optional] [Defaults to `undefined`] |
 | **type** | `string` | Tipo de conta bancária a ser buscada. | [Optional] [Defaults to `undefined`] |

@@ -59,6 +59,7 @@ export interface FindAllContactsRequest {
     birthdayFrom?: string;
     origins?: string;
     types?: string;
+    ids?: string;
     semanticSearchTermInBase64?: string;
     textSearchTerm?: string;
     pageSize?: number;
@@ -98,6 +99,7 @@ export interface SystemFindAllContactsRequest {
     birthdayFrom?: string;
     origins?: string;
     types?: string;
+    ids?: string;
     semanticSearchTermInBase64?: string;
     textSearchTerm?: string;
     pageSize?: number;
@@ -174,6 +176,7 @@ export interface ContactsApiInterface {
      * @param {string} [birthdayFrom] Data de nascimento inicial a serem buscadas.
      * @param {string} [origins] Origens de contato a serem buscadas.
      * @param {string} [types] Tipos de contato a serem buscados.
+     * @param {string} [ids] Lista de IDs de contatos para filtrar separados por vírgula.
      * @param {string} [semanticSearchTermInBase64] Termo para busca semântica.
      * @param {string} [textSearchTerm] Termo para busca textual.
      * @param {number} [pageSize] Quantidade de itens por página.
@@ -268,6 +271,7 @@ export interface ContactsApiInterface {
      * @param {string} [birthdayFrom] Data de nascimento inicial a serem buscadas.
      * @param {string} [origins] Origens de contato a serem buscadas.
      * @param {string} [types] Tipos de contato a serem buscados.
+     * @param {string} [ids] Lista de IDs de contatos para filtrar separados por vírgula.
      * @param {string} [semanticSearchTermInBase64] Termo para busca semântica.
      * @param {string} [textSearchTerm] Termo para busca textual.
      * @param {number} [pageSize] Quantidade de itens por página.
@@ -452,6 +456,10 @@ export class ContactsApi extends runtime.BaseAPI implements ContactsApiInterface
 
         if (requestParameters['types'] != null) {
             queryParameters['types'] = requestParameters['types'];
+        }
+
+        if (requestParameters['ids'] != null) {
+            queryParameters['ids'] = requestParameters['ids'];
         }
 
         if (requestParameters['semanticSearchTermInBase64'] != null) {
@@ -727,6 +735,10 @@ export class ContactsApi extends runtime.BaseAPI implements ContactsApiInterface
 
         if (requestParameters['types'] != null) {
             queryParameters['types'] = requestParameters['types'];
+        }
+
+        if (requestParameters['ids'] != null) {
+            queryParameters['ids'] = requestParameters['ids'];
         }
 
         if (requestParameters['semanticSearchTermInBase64'] != null) {

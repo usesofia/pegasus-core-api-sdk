@@ -84,7 +84,7 @@ No authorization required
 
 ## findAllTags
 
-> TagsPageEntity findAllTags(populate, sortOrder, sortBy, textSearchTerm, pageSize, pageIndex)
+> TagsPageEntity findAllTags(populate, sortOrder, sortBy, ids, textSearchTerm, pageSize, pageIndex)
 
 Busca todas as tags.
 
@@ -108,6 +108,8 @@ async function example() {
     sortOrder: sortOrder_example,
     // 'name' | 'createdAt' | Campo para ordenação dos resultados. (optional)
     sortBy: sortBy_example,
+    // string | Lista de IDs de tags para filtrar separados por vírgula. (optional)
+    ids: ids_example,
     // string | Termo para busca por nome da tag. (optional)
     textSearchTerm: textSearchTerm_example,
     // number | Quantidade de itens por página. (optional)
@@ -136,6 +138,7 @@ example().catch(console.error);
 | **populate** | `string` | Campos relacionados a serem populados separados por vírgula. | [Optional] [Defaults to `undefined`] |
 | **sortOrder** | `asc`, `desc` | Ordem de ordenação dos resultados. | [Optional] [Defaults to `undefined`] [Enum: asc, desc] |
 | **sortBy** | `name`, `createdAt` | Campo para ordenação dos resultados. | [Optional] [Defaults to `undefined`] [Enum: name, createdAt] |
+| **ids** | `string` | Lista de IDs de tags para filtrar separados por vírgula. | [Optional] [Defaults to `undefined`] |
 | **textSearchTerm** | `string` | Termo para busca por nome da tag. | [Optional] [Defaults to `undefined`] |
 | **pageSize** | `number` | Quantidade de itens por página. | [Optional] [Defaults to `undefined`] |
 | **pageIndex** | `number` | Índice da página. | [Optional] [Defaults to `undefined`] |
@@ -375,7 +378,7 @@ No authorization required
 
 ## systemFindAllTags
 
-> TagsPageEntity systemFindAllTags(ownerOrganizationId, populate, sortOrder, sortBy, textSearchTerm, pageSize, pageIndex)
+> TagsPageEntity systemFindAllTags(ownerOrganizationId, populate, sortOrder, sortBy, ids, textSearchTerm, pageSize, pageIndex)
 
 Busca todas as tags pelo sistema.
 
@@ -401,6 +404,8 @@ async function example() {
     sortOrder: sortOrder_example,
     // 'name' | 'createdAt' | Campo para ordenação dos resultados. (optional)
     sortBy: sortBy_example,
+    // string | Lista de IDs de tags para filtrar separados por vírgula. (optional)
+    ids: ids_example,
     // string | Termo para busca por nome da tag. (optional)
     textSearchTerm: textSearchTerm_example,
     // number | Quantidade de itens por página. (optional)
@@ -430,6 +435,7 @@ example().catch(console.error);
 | **populate** | `string` | Campos relacionados a serem populados separados por vírgula. | [Optional] [Defaults to `undefined`] |
 | **sortOrder** | `asc`, `desc` | Ordem de ordenação dos resultados. | [Optional] [Defaults to `undefined`] [Enum: asc, desc] |
 | **sortBy** | `name`, `createdAt` | Campo para ordenação dos resultados. | [Optional] [Defaults to `undefined`] [Enum: name, createdAt] |
+| **ids** | `string` | Lista de IDs de tags para filtrar separados por vírgula. | [Optional] [Defaults to `undefined`] |
 | **textSearchTerm** | `string` | Termo para busca por nome da tag. | [Optional] [Defaults to `undefined`] |
 | **pageSize** | `number` | Quantidade de itens por página. | [Optional] [Defaults to `undefined`] |
 | **pageIndex** | `number` | Índice da página. | [Optional] [Defaults to `undefined`] |

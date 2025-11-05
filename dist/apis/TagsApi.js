@@ -144,6 +144,9 @@ var TagsApi = /** @class */ (function (_super) {
                         if (requestParameters['sortBy'] != null) {
                             queryParameters['sortBy'] = requestParameters['sortBy'];
                         }
+                        if (requestParameters['ids'] != null) {
+                            queryParameters['ids'] = requestParameters['ids'];
+                        }
                         if (requestParameters['textSearchTerm'] != null) {
                             queryParameters['textSearchTerm'] = requestParameters['textSearchTerm'];
                         }
@@ -362,6 +365,9 @@ var TagsApi = /** @class */ (function (_super) {
                         }
                         if (requestParameters['sortBy'] != null) {
                             queryParameters['sortBy'] = requestParameters['sortBy'];
+                        }
+                        if (requestParameters['ids'] != null) {
+                            queryParameters['ids'] = requestParameters['ids'];
                         }
                         if (requestParameters['textSearchTerm'] != null) {
                             queryParameters['textSearchTerm'] = requestParameters['textSearchTerm'];

@@ -204,7 +204,7 @@ No authorization required
 
 ## findAllContacts
 
-> ContactsPageDto findAllContacts(sortOrder, sortBy, populate, considerNotIdentified, states, country, birthdayTo, birthdayFrom, origins, types, semanticSearchTermInBase64, textSearchTerm, pageSize, pageIndex)
+> ContactsPageDto findAllContacts(sortOrder, sortBy, populate, considerNotIdentified, states, country, birthdayTo, birthdayFrom, origins, types, ids, semanticSearchTermInBase64, textSearchTerm, pageSize, pageIndex)
 
 Busca todos os contatos.
 
@@ -242,6 +242,8 @@ async function example() {
     origins: origins_example,
     // string | Tipos de contato a serem buscados. (optional)
     types: types_example,
+    // string | Lista de IDs de contatos para filtrar separados por vírgula. (optional)
+    ids: ids_example,
     // string | Termo para busca semântica. (optional)
     semanticSearchTermInBase64: semanticSearchTermInBase64_example,
     // string | Termo para busca textual. (optional)
@@ -279,6 +281,7 @@ example().catch(console.error);
 | **birthdayFrom** | `string` | Data de nascimento inicial a serem buscadas. | [Optional] [Defaults to `undefined`] |
 | **origins** | `string` | Origens de contato a serem buscadas. | [Optional] [Defaults to `undefined`] |
 | **types** | `string` | Tipos de contato a serem buscados. | [Optional] [Defaults to `undefined`] |
+| **ids** | `string` | Lista de IDs de contatos para filtrar separados por vírgula. | [Optional] [Defaults to `undefined`] |
 | **semanticSearchTermInBase64** | `string` | Termo para busca semântica. | [Optional] [Defaults to `undefined`] |
 | **textSearchTerm** | `string` | Termo para busca textual. | [Optional] [Defaults to `undefined`] |
 | **pageSize** | `number` | Quantidade de itens por página. | [Optional] [Defaults to `undefined`] |
@@ -585,7 +588,7 @@ No authorization required
 
 ## systemFindAllContacts
 
-> ContactsPageDto systemFindAllContacts(ownerOrganizationId, readPreference, sortOrder, sortBy, populate, considerNotIdentified, states, country, birthdayTo, birthdayFrom, origins, types, semanticSearchTermInBase64, textSearchTerm, pageSize, pageIndex)
+> ContactsPageDto systemFindAllContacts(ownerOrganizationId, readPreference, sortOrder, sortBy, populate, considerNotIdentified, states, country, birthdayTo, birthdayFrom, origins, types, ids, semanticSearchTermInBase64, textSearchTerm, pageSize, pageIndex)
 
 Busca todos os contatos pelo sistema.
 
@@ -627,6 +630,8 @@ async function example() {
     origins: origins_example,
     // string | Tipos de contato a serem buscados. (optional)
     types: types_example,
+    // string | Lista de IDs de contatos para filtrar separados por vírgula. (optional)
+    ids: ids_example,
     // string | Termo para busca semântica. (optional)
     semanticSearchTermInBase64: semanticSearchTermInBase64_example,
     // string | Termo para busca textual. (optional)
@@ -666,6 +671,7 @@ example().catch(console.error);
 | **birthdayFrom** | `string` | Data de nascimento inicial a serem buscadas. | [Optional] [Defaults to `undefined`] |
 | **origins** | `string` | Origens de contato a serem buscadas. | [Optional] [Defaults to `undefined`] |
 | **types** | `string` | Tipos de contato a serem buscados. | [Optional] [Defaults to `undefined`] |
+| **ids** | `string` | Lista de IDs de contatos para filtrar separados por vírgula. | [Optional] [Defaults to `undefined`] |
 | **semanticSearchTermInBase64** | `string` | Termo para busca semântica. | [Optional] [Defaults to `undefined`] |
 | **textSearchTerm** | `string` | Termo para busca textual. | [Optional] [Defaults to `undefined`] |
 | **pageSize** | `number` | Quantidade de itens por página. | [Optional] [Defaults to `undefined`] |

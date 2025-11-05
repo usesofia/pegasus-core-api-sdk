@@ -249,6 +249,9 @@ var ContactsApi = /** @class */ (function (_super) {
                         if (requestParameters['types'] != null) {
                             queryParameters['types'] = requestParameters['types'];
                         }
+                        if (requestParameters['ids'] != null) {
+                            queryParameters['ids'] = requestParameters['ids'];
+                        }
                         if (requestParameters['semanticSearchTermInBase64'] != null) {
                             queryParameters['semanticSearchTermInBase64'] = requestParameters['semanticSearchTermInBase64'];
                         }
@@ -540,6 +543,9 @@ var ContactsApi = /** @class */ (function (_super) {
                         }
                         if (requestParameters['types'] != null) {
                             queryParameters['types'] = requestParameters['types'];
+                        }
+                        if (requestParameters['ids'] != null) {
+                            queryParameters['ids'] = requestParameters['ids'];
                         }
                         if (requestParameters['semanticSearchTermInBase64'] != null) {
                             queryParameters['semanticSearchTermInBase64'] = requestParameters['semanticSearchTermInBase64'];

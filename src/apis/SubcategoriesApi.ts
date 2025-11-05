@@ -49,6 +49,7 @@ export interface FindAllSubcategoriesRequest {
     populate?: string;
     categoryId?: string;
     direction?: FindAllSubcategoriesDirectionEnum;
+    ids?: string;
     semanticSearchTermInBase64?: string;
     textSearchTerm?: string;
     pageSize?: number;
@@ -85,6 +86,7 @@ export interface SystemFindAllSubcategoriesRequest {
     sortBy?: SystemFindAllSubcategoriesSortByEnum;
     populate?: string;
     categoryId?: string;
+    ids?: string;
     semanticSearchTermInBase64?: string;
     textSearchTerm?: string;
     pageSize?: number;
@@ -129,6 +131,7 @@ export interface SubcategoriesApiInterface {
      * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
      * @param {string} [categoryId] ID da categoria para filtrar subcategorias.
      * @param {'IN' | 'OUT'} [direction] Direção da subcategoria.
+     * @param {string} [ids] Lista de IDs de subcategorias para filtrar separados por vírgula.
      * @param {string} [semanticSearchTermInBase64] Termo para busca semântica codificado em base64.
      * @param {string} [textSearchTerm] Termo para busca textual por nome, descrição ou slug da subcategoria.
      * @param {number} [pageSize] Quantidade de itens por página.
@@ -220,6 +223,7 @@ export interface SubcategoriesApiInterface {
      * @param {'name' | 'createdAt' | 'index'} [sortBy] Campo para ordenar as subcategorias.
      * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
      * @param {string} [categoryId] ID da categoria para filtrar subcategorias.
+     * @param {string} [ids] Lista de IDs de subcategorias para filtrar separados por vírgula.
      * @param {string} [semanticSearchTermInBase64] Termo para busca semântica codificado em base64.
      * @param {string} [textSearchTerm] Termo para busca textual por nome, descrição ou slug da subcategoria.
      * @param {number} [pageSize] Quantidade de itens por página.
@@ -330,6 +334,10 @@ export class SubcategoriesApi extends runtime.BaseAPI implements SubcategoriesAp
 
         if (requestParameters['direction'] != null) {
             queryParameters['direction'] = requestParameters['direction'];
+        }
+
+        if (requestParameters['ids'] != null) {
+            queryParameters['ids'] = requestParameters['ids'];
         }
 
         if (requestParameters['semanticSearchTermInBase64'] != null) {
@@ -593,6 +601,10 @@ export class SubcategoriesApi extends runtime.BaseAPI implements SubcategoriesAp
 
         if (requestParameters['categoryId'] != null) {
             queryParameters['categoryId'] = requestParameters['categoryId'];
+        }
+
+        if (requestParameters['ids'] != null) {
+            queryParameters['ids'] = requestParameters['ids'];
         }
 
         if (requestParameters['semanticSearchTermInBase64'] != null) {

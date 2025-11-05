@@ -153,6 +153,9 @@ var SubcategoriesApi = /** @class */ (function (_super) {
                         if (requestParameters['direction'] != null) {
                             queryParameters['direction'] = requestParameters['direction'];
                         }
+                        if (requestParameters['ids'] != null) {
+                            queryParameters['ids'] = requestParameters['ids'];
+                        }
                         if (requestParameters['semanticSearchTermInBase64'] != null) {
                             queryParameters['semanticSearchTermInBase64'] = requestParameters['semanticSearchTermInBase64'];
                         }
@@ -435,6 +438,9 @@ var SubcategoriesApi = /** @class */ (function (_super) {
                         }
                         if (requestParameters['categoryId'] != null) {
                             queryParameters['categoryId'] = requestParameters['categoryId'];
+                        }
+                        if (requestParameters['ids'] != null) {
+                            queryParameters['ids'] = requestParameters['ids'];
                         }
                         if (requestParameters['semanticSearchTermInBase64'] != null) {
                             queryParameters['semanticSearchTermInBase64'] = requestParameters['semanticSearchTermInBase64'];

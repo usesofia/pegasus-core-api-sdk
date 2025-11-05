@@ -86,7 +86,7 @@ No authorization required
 
 ## findAllSubcategories
 
-> SubcategoriesPageEntity findAllSubcategories(active, sortOrder, sortBy, populate, categoryId, direction, semanticSearchTermInBase64, textSearchTerm, pageSize, pageIndex)
+> SubcategoriesPageEntity findAllSubcategories(active, sortOrder, sortBy, populate, categoryId, direction, ids, semanticSearchTermInBase64, textSearchTerm, pageSize, pageIndex)
 
 Busca todas as subcategorias.
 
@@ -116,6 +116,8 @@ async function example() {
     categoryId: categoryId_example,
     // 'IN' | 'OUT' | Direção da subcategoria. (optional)
     direction: direction_example,
+    // string | Lista de IDs de subcategorias para filtrar separados por vírgula. (optional)
+    ids: ids_example,
     // string | Termo para busca semântica codificado em base64. (optional)
     semanticSearchTermInBase64: semanticSearchTermInBase64_example,
     // string | Termo para busca textual por nome, descrição ou slug da subcategoria. (optional)
@@ -149,6 +151,7 @@ example().catch(console.error);
 | **populate** | `string` | Campos relacionados a serem populados separados por vírgula. | [Optional] [Defaults to `undefined`] |
 | **categoryId** | `string` | ID da categoria para filtrar subcategorias. | [Optional] [Defaults to `undefined`] |
 | **direction** | `IN`, `OUT` | Direção da subcategoria. | [Optional] [Defaults to `undefined`] [Enum: IN, OUT] |
+| **ids** | `string` | Lista de IDs de subcategorias para filtrar separados por vírgula. | [Optional] [Defaults to `undefined`] |
 | **semanticSearchTermInBase64** | `string` | Termo para busca semântica codificado em base64. | [Optional] [Defaults to `undefined`] |
 | **textSearchTerm** | `string` | Termo para busca textual por nome, descrição ou slug da subcategoria. | [Optional] [Defaults to `undefined`] |
 | **pageSize** | `number` | Quantidade de itens por página. | [Optional] [Defaults to `undefined`] |
@@ -458,7 +461,7 @@ No authorization required
 
 ## systemFindAllSubcategories
 
-> SubcategoriesPageEntity systemFindAllSubcategories(ownerOrganizationId, readPreference, direction, active, sortOrder, sortBy, populate, categoryId, semanticSearchTermInBase64, textSearchTerm, pageSize, pageIndex)
+> SubcategoriesPageEntity systemFindAllSubcategories(ownerOrganizationId, readPreference, direction, active, sortOrder, sortBy, populate, categoryId, ids, semanticSearchTermInBase64, textSearchTerm, pageSize, pageIndex)
 
 Busca todas as subcategorias pelo sistema.
 
@@ -492,6 +495,8 @@ async function example() {
     populate: populate_example,
     // string | ID da categoria para filtrar subcategorias. (optional)
     categoryId: categoryId_example,
+    // string | Lista de IDs de subcategorias para filtrar separados por vírgula. (optional)
+    ids: ids_example,
     // string | Termo para busca semântica codificado em base64. (optional)
     semanticSearchTermInBase64: semanticSearchTermInBase64_example,
     // string | Termo para busca textual por nome, descrição ou slug da subcategoria. (optional)
@@ -527,6 +532,7 @@ example().catch(console.error);
 | **sortBy** | `name`, `createdAt`, `index` | Campo para ordenar as subcategorias. | [Optional] [Defaults to `undefined`] [Enum: name, createdAt, index] |
 | **populate** | `string` | Campos relacionados a serem populados separados por vírgula. | [Optional] [Defaults to `undefined`] |
 | **categoryId** | `string` | ID da categoria para filtrar subcategorias. | [Optional] [Defaults to `undefined`] |
+| **ids** | `string` | Lista de IDs de subcategorias para filtrar separados por vírgula. | [Optional] [Defaults to `undefined`] |
 | **semanticSearchTermInBase64** | `string` | Termo para busca semântica codificado em base64. | [Optional] [Defaults to `undefined`] |
 | **textSearchTerm** | `string` | Termo para busca textual por nome, descrição ou slug da subcategoria. | [Optional] [Defaults to `undefined`] |
 | **pageSize** | `number` | Quantidade de itens por página. | [Optional] [Defaults to `undefined`] |
