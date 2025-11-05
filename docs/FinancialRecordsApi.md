@@ -181,7 +181,7 @@ async function example() {
     recurringFinancialRecord: recurringFinancialRecord_example,
     // string | ID do parcelamento financeiro. (optional)
     installmentFinancialRecord: installmentFinancialRecord_example,
-    // string | ID da conta do lançamento financeiro. (optional)
+    // string | IDs de contas bancárias do lançamento financeiro separados por vírgula. (optional)
     account: account_example,
     // boolean | Indica se o lançamento financeiro foi reconciliado. (optional)
     reconciled: true,
@@ -201,9 +201,9 @@ async function example() {
     competenceDateTo: competenceDateTo_example,
     // string | Data de competência inicial. (optional)
     competenceDateFrom: competenceDateFrom_example,
-    // string | ID da subcategoria do lançamento financeiro. (optional)
+    // string | IDs de subcategorias do lançamento financeiro separados por vírgula. (optional)
     subcategory: subcategory_example,
-    // string | ID do contato do lançamento financeiro. (optional)
+    // string | IDs de contatos do lançamento financeiro separados por vírgula. (optional)
     contact: contact_example,
     // string | Data de vencimento final. (optional)
     dueDateTo: dueDateTo_example,
@@ -254,7 +254,7 @@ example().catch(console.error);
 | **sortBy** | `direction`, `dueDate`, `contact`, `description`, `subcategory`, `amount`, `competenceDate`, `cashDate`, `createdAt` | Campo para ordenação dos lançamentos financeiros. | [Optional] [Defaults to `undefined`] [Enum: direction, dueDate, contact, description, subcategory, amount, competenceDate, cashDate, createdAt] |
 | **recurringFinancialRecord** | `string` | ID da recorrência financeira. | [Optional] [Defaults to `undefined`] |
 | **installmentFinancialRecord** | `string` | ID do parcelamento financeiro. | [Optional] [Defaults to `undefined`] |
-| **account** | `string` | ID da conta do lançamento financeiro. | [Optional] [Defaults to `undefined`] |
+| **account** | `string` | IDs de contas bancárias do lançamento financeiro separados por vírgula. | [Optional] [Defaults to `undefined`] |
 | **reconciled** | `boolean` | Indica se o lançamento financeiro foi reconciliado. | [Optional] [Defaults to `undefined`] |
 | **completed** | `boolean` | Indica se o lançamento financeiro foi completado. | [Optional] [Defaults to `undefined`] |
 | **tags** | `string` | IDs das tags do lançamento financeiro separados por vírgula. | [Optional] [Defaults to `undefined`] |
@@ -264,8 +264,8 @@ example().catch(console.error);
 | **cashDateFrom** | `string` | Data de pagamento inicial. | [Optional] [Defaults to `undefined`] |
 | **competenceDateTo** | `string` | Data de competência final. | [Optional] [Defaults to `undefined`] |
 | **competenceDateFrom** | `string` | Data de competência inicial. | [Optional] [Defaults to `undefined`] |
-| **subcategory** | `string` | ID da subcategoria do lançamento financeiro. | [Optional] [Defaults to `undefined`] |
-| **contact** | `string` | ID do contato do lançamento financeiro. | [Optional] [Defaults to `undefined`] |
+| **subcategory** | `string` | IDs de subcategorias do lançamento financeiro separados por vírgula. | [Optional] [Defaults to `undefined`] |
+| **contact** | `string` | IDs de contatos do lançamento financeiro separados por vírgula. | [Optional] [Defaults to `undefined`] |
 | **dueDateTo** | `string` | Data de vencimento final. | [Optional] [Defaults to `undefined`] |
 | **dueDateFrom** | `string` | Data de vencimento inicial. | [Optional] [Defaults to `undefined`] |
 | **finalAmountTo** | `string` | Valor final do lançamento financeiro máximo. | [Optional] [Defaults to `undefined`] |
@@ -682,7 +682,7 @@ async function example() {
     sortOrder: sortOrder_example,
     // 'direction' | 'dueDate' | 'contact' | 'description' | 'subcategory' | 'amount' | 'competenceDate' | 'cashDate' | 'createdAt' | Campo para ordenação dos lançamentos financeiros. (optional)
     sortBy: sortBy_example,
-    // string | ID da conta do lançamento financeiro. (optional)
+    // string | IDs de contas bancárias do lançamento financeiro separados por vírgula. (optional)
     account: account_example,
     // boolean | Indica se o lançamento financeiro foi reconciliado. (optional)
     reconciled: true,
@@ -702,9 +702,9 @@ async function example() {
     competenceDateTo: competenceDateTo_example,
     // string | Data de competência inicial. (optional)
     competenceDateFrom: competenceDateFrom_example,
-    // string | ID da subcategoria do lançamento financeiro. (optional)
+    // string | IDs de subcategorias do lançamento financeiro separados por vírgula. (optional)
     subcategory: subcategory_example,
-    // string | ID do contato do lançamento financeiro. (optional)
+    // string | IDs de contatos do lançamento financeiro separados por vírgula. (optional)
     contact: contact_example,
     // string | Data de vencimento final. (optional)
     dueDateTo: dueDateTo_example,
@@ -758,7 +758,7 @@ example().catch(console.error);
 | **readPreference** | `primary`, `primaryPreferred`, `secondary`, `secondaryPreferred`, `nearest` | Preferência de leitura dos lançamentos financeiros. | [Optional] [Defaults to `undefined`] [Enum: primary, primaryPreferred, secondary, secondaryPreferred, nearest] |
 | **sortOrder** | `asc`, `desc` | Ordem de ordenação dos lançamentos financeiros. | [Optional] [Defaults to `undefined`] [Enum: asc, desc] |
 | **sortBy** | `direction`, `dueDate`, `contact`, `description`, `subcategory`, `amount`, `competenceDate`, `cashDate`, `createdAt` | Campo para ordenação dos lançamentos financeiros. | [Optional] [Defaults to `undefined`] [Enum: direction, dueDate, contact, description, subcategory, amount, competenceDate, cashDate, createdAt] |
-| **account** | `string` | ID da conta do lançamento financeiro. | [Optional] [Defaults to `undefined`] |
+| **account** | `string` | IDs de contas bancárias do lançamento financeiro separados por vírgula. | [Optional] [Defaults to `undefined`] |
 | **reconciled** | `boolean` | Indica se o lançamento financeiro foi reconciliado. | [Optional] [Defaults to `undefined`] |
 | **completed** | `boolean` | Indica se o lançamento financeiro foi completado. | [Optional] [Defaults to `undefined`] |
 | **tags** | `string` | IDs das tags do lançamento financeiro separados por vírgula. | [Optional] [Defaults to `undefined`] |
@@ -768,8 +768,8 @@ example().catch(console.error);
 | **cashDateFrom** | `string` | Data de pagamento inicial. | [Optional] [Defaults to `undefined`] |
 | **competenceDateTo** | `string` | Data de competência final. | [Optional] [Defaults to `undefined`] |
 | **competenceDateFrom** | `string` | Data de competência inicial. | [Optional] [Defaults to `undefined`] |
-| **subcategory** | `string` | ID da subcategoria do lançamento financeiro. | [Optional] [Defaults to `undefined`] |
-| **contact** | `string` | ID do contato do lançamento financeiro. | [Optional] [Defaults to `undefined`] |
+| **subcategory** | `string` | IDs de subcategorias do lançamento financeiro separados por vírgula. | [Optional] [Defaults to `undefined`] |
+| **contact** | `string` | IDs de contatos do lançamento financeiro separados por vírgula. | [Optional] [Defaults to `undefined`] |
 | **dueDateTo** | `string` | Data de vencimento final. | [Optional] [Defaults to `undefined`] |
 | **dueDateFrom** | `string` | Data de vencimento inicial. | [Optional] [Defaults to `undefined`] |
 | **finalAmountTo** | `string` | Valor final do lançamento financeiro máximo. | [Optional] [Defaults to `undefined`] |
