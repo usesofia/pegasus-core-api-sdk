@@ -20,6 +20,7 @@ Name | Type
 `updatedAt` | any
 `description` | string
 `groupSettings` | [CreateOrganizationRequestBodyDtoGroupSettings](CreateOrganizationRequestBodyDtoGroupSettings.md)
+`publicMetadata` | { [key: string]: any; }
 
 ## Example
 
@@ -42,6 +43,7 @@ const example = {
   "updatedAt": null,
   "description": null,
   "groupSettings": null,
+  "publicMetadata": null,
 } satisfies OrganizationEntity
 
 console.log(example)

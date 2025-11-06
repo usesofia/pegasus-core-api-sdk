@@ -102,6 +102,14 @@ export interface OrganizationEntity {
      * @memberof OrganizationEntity
      */
     groupSettings?: CreateOrganizationRequestBodyDtoGroupSettings;
+    /**
+     * Metadados públicos da organização.
+     * @type {{ [key: string]: any; }}
+     * @memberof OrganizationEntity
+     */
+    publicMetadata?: {
+        [key: string]: any;
+    } | null;
 }
 /**
  * @export

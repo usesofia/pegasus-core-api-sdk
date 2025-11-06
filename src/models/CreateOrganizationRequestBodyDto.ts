@@ -102,6 +102,12 @@ export interface CreateOrganizationRequestBodyDto {
      */
     groupSettings?: CreateOrganizationRequestBodyDtoGroupSettings;
     /**
+     * Metadados públicos da organização.
+     * @type {{ [key: string]: any; }}
+     * @memberof CreateOrganizationRequestBodyDto
+     */
+    publicMetadata?: { [key: string]: any; } | null;
+    /**
      * Imagem do logo em base64.
      * @type {string}
      * @memberof CreateOrganizationRequestBodyDto
@@ -150,6 +156,7 @@ export function CreateOrganizationRequestBodyDtoFromJSONTyped(json: any, ignoreD
         'populatedChildren': json['populatedChildren'] == null ? undefined : ((json['populatedChildren'] as Array<any>).map(CreateOrganizationRequestBodyDtoPopulatedChildrenInnerFromJSON)),
         'description': json['description'] == null ? undefined : json['description'],
         'groupSettings': json['groupSettings'] == null ? undefined : CreateOrganizationRequestBodyDtoGroupSettingsFromJSON(json['groupSettings']),
+        'publicMetadata': json['publicMetadata'] == null ? undefined : json['publicMetadata'],
         'imageInBase64': json['imageInBase64'] == null ? undefined : json['imageInBase64'],
     };
 }
@@ -175,6 +182,7 @@ export function CreateOrganizationRequestBodyDtoToJSONTyped(value?: CreateOrgani
         'populatedChildren': value['populatedChildren'] == null ? undefined : ((value['populatedChildren'] as Array<any>).map(CreateOrganizationRequestBodyDtoPopulatedChildrenInnerToJSON)),
         'description': value['description'],
         'groupSettings': CreateOrganizationRequestBodyDtoGroupSettingsToJSON(value['groupSettings']),
+        'publicMetadata': value['publicMetadata'],
         'imageInBase64': value['imageInBase64'],
     };
 }

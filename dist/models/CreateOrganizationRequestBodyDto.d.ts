@@ -79,6 +79,14 @@ export interface CreateOrganizationRequestBodyDto {
      */
     groupSettings?: CreateOrganizationRequestBodyDtoGroupSettings;
     /**
+     * Metadados públicos da organização.
+     * @type {{ [key: string]: any; }}
+     * @memberof CreateOrganizationRequestBodyDto
+     */
+    publicMetadata?: {
+        [key: string]: any;
+    } | null;
+    /**
      * Imagem do logo em base64.
      * @type {string}
      * @memberof CreateOrganizationRequestBodyDto

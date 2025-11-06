@@ -69,6 +69,7 @@ function OrganizationEntityFromJSONTyped(json, ignoreDiscriminator) {
         'updatedAt': json['updatedAt'],
         'description': json['description'] == null ? undefined : json['description'],
         'groupSettings': json['groupSettings'] == null ? undefined : (0, CreateOrganizationRequestBodyDtoGroupSettings_1.CreateOrganizationRequestBodyDtoGroupSettingsFromJSON)(json['groupSettings']),
+        'publicMetadata': json['publicMetadata'] == null ? undefined : json['publicMetadata'],
     };
 }
 function OrganizationEntityToJSON(json) {
@@ -94,5 +95,6 @@ function OrganizationEntityToJSONTyped(value, ignoreDiscriminator) {
         'updatedAt': value['updatedAt'],
         'description': value['description'],
         'groupSettings': (0, CreateOrganizationRequestBodyDtoGroupSettings_1.CreateOrganizationRequestBodyDtoGroupSettingsToJSON)(value['groupSettings']),
+        'publicMetadata': value['publicMetadata'],
     };
 }

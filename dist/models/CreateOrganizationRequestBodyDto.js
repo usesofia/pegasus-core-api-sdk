@@ -59,6 +59,7 @@ function CreateOrganizationRequestBodyDtoFromJSONTyped(json, ignoreDiscriminator
         'populatedChildren': json['populatedChildren'] == null ? undefined : (json['populatedChildren'].map(CreateOrganizationRequestBodyDtoPopulatedChildrenInner_1.CreateOrganizationRequestBodyDtoPopulatedChildrenInnerFromJSON)),
         'description': json['description'] == null ? undefined : json['description'],
         'groupSettings': json['groupSettings'] == null ? undefined : (0, CreateOrganizationRequestBodyDtoGroupSettings_1.CreateOrganizationRequestBodyDtoGroupSettingsFromJSON)(json['groupSettings']),
+        'publicMetadata': json['publicMetadata'] == null ? undefined : json['publicMetadata'],
         'imageInBase64': json['imageInBase64'] == null ? undefined : json['imageInBase64'],
     };
 }
@@ -81,6 +82,7 @@ function CreateOrganizationRequestBodyDtoToJSONTyped(value, ignoreDiscriminator)
         'populatedChildren': value['populatedChildren'] == null ? undefined : (value['populatedChildren'].map(CreateOrganizationRequestBodyDtoPopulatedChildrenInner_1.CreateOrganizationRequestBodyDtoPopulatedChildrenInnerToJSON)),
         'description': value['description'],
         'groupSettings': (0, CreateOrganizationRequestBodyDtoGroupSettings_1.CreateOrganizationRequestBodyDtoGroupSettingsToJSON)(value['groupSettings']),
+        'publicMetadata': value['publicMetadata'],
         'imageInBase64': value['imageInBase64'],
     };
 }

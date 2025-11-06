@@ -125,6 +125,12 @@ export interface OrganizationEntity {
      * @memberof OrganizationEntity
      */
     groupSettings?: CreateOrganizationRequestBodyDtoGroupSettings;
+    /**
+     * Metadados públicos da organização.
+     * @type {{ [key: string]: any; }}
+     * @memberof OrganizationEntity
+     */
+    publicMetadata?: { [key: string]: any; } | null;
 }
 
 
@@ -175,6 +181,7 @@ export function OrganizationEntityFromJSONTyped(json: any, ignoreDiscriminator: 
         'updatedAt': json['updatedAt'],
         'description': json['description'] == null ? undefined : json['description'],
         'groupSettings': json['groupSettings'] == null ? undefined : CreateOrganizationRequestBodyDtoGroupSettingsFromJSON(json['groupSettings']),
+        'publicMetadata': json['publicMetadata'] == null ? undefined : json['publicMetadata'],
     };
 }
 
@@ -203,6 +210,7 @@ export function OrganizationEntityToJSONTyped(value?: OrganizationEntity | null,
         'updatedAt': value['updatedAt'],
         'description': value['description'],
         'groupSettings': CreateOrganizationRequestBodyDtoGroupSettingsToJSON(value['groupSettings']),
+        'publicMetadata': value['publicMetadata'],
     };
 }
 

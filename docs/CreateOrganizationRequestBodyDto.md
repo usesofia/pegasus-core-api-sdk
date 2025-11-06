@@ -16,6 +16,7 @@ Name | Type
 `populatedChildren` | [Array&lt;CreateOrganizationRequestBodyDtoPopulatedChildrenInner&gt;](CreateOrganizationRequestBodyDtoPopulatedChildrenInner.md)
 `description` | string
 `groupSettings` | [CreateOrganizationRequestBodyDtoGroupSettings](CreateOrganizationRequestBodyDtoGroupSettings.md)
+`publicMetadata` | { [key: string]: any; }
 `imageInBase64` | string
 
 ## Example
@@ -35,6 +36,7 @@ const example = {
   "populatedChildren": null,
   "description": null,
   "groupSettings": null,
+  "publicMetadata": null,
   "imageInBase64": null,
 } satisfies CreateOrganizationRequestBodyDto
 
