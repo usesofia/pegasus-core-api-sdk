@@ -18,7 +18,6 @@ exports.FinancialRecordsPageDtoFromJSON = FinancialRecordsPageDtoFromJSON;
 exports.FinancialRecordsPageDtoFromJSONTyped = FinancialRecordsPageDtoFromJSONTyped;
 exports.FinancialRecordsPageDtoToJSON = FinancialRecordsPageDtoToJSON;
 exports.FinancialRecordsPageDtoToJSONTyped = FinancialRecordsPageDtoToJSONTyped;
-var CreateFinancialRecordRequestBodyDtoPopulatedFilesInner_1 = require("./CreateFinancialRecordRequestBodyDtoPopulatedFilesInner");
 var ContactsPageDtoPageInfo_1 = require("./ContactsPageDtoPageInfo");
 var FinancialRecordsPageDtoItemsInner_1 = require("./FinancialRecordsPageDtoItemsInner");
 /**
@@ -41,9 +40,6 @@ function FinancialRecordsPageDtoFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'items': (json['items'].map(FinancialRecordsPageDtoItemsInner_1.FinancialRecordsPageDtoItemsInnerFromJSON)),
         'pageInfo': (0, ContactsPageDtoPageInfo_1.ContactsPageDtoPageInfoFromJSON)(json['pageInfo']),
-        'exportedExcelFile': json['exportedExcelFile'] == null ? undefined : (0, CreateFinancialRecordRequestBodyDtoPopulatedFilesInner_1.CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerFromJSON)(json['exportedExcelFile']),
-        'exportedPdfTableFile': json['exportedPdfTableFile'] == null ? undefined : (0, CreateFinancialRecordRequestBodyDtoPopulatedFilesInner_1.CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerFromJSON)(json['exportedPdfTableFile']),
-        'exportedPdfListFile': json['exportedPdfListFile'] == null ? undefined : (0, CreateFinancialRecordRequestBodyDtoPopulatedFilesInner_1.CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerFromJSON)(json['exportedPdfListFile']),
     };
 }
 function FinancialRecordsPageDtoToJSON(json) {
@@ -57,8 +53,5 @@ function FinancialRecordsPageDtoToJSONTyped(value, ignoreDiscriminator) {
     return {
         'items': (value['items'].map(FinancialRecordsPageDtoItemsInner_1.FinancialRecordsPageDtoItemsInnerToJSON)),
         'pageInfo': (0, ContactsPageDtoPageInfo_1.ContactsPageDtoPageInfoToJSON)(value['pageInfo']),
-        'exportedExcelFile': (0, CreateFinancialRecordRequestBodyDtoPopulatedFilesInner_1.CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerToJSON)(value['exportedExcelFile']),
-        'exportedPdfTableFile': (0, CreateFinancialRecordRequestBodyDtoPopulatedFilesInner_1.CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerToJSON)(value['exportedPdfTableFile']),
-        'exportedPdfListFile': (0, CreateFinancialRecordRequestBodyDtoPopulatedFilesInner_1.CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerToJSON)(value['exportedPdfListFile']),
     };
 }

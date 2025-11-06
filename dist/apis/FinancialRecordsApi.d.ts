@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { CreateFinancialRecordRequestBodyDto, CreateManyFinancialRecordsRequestBodyDto, FinancialRecordDto, FinancialRecordsPageDto, PartialUpdateFinancialRecordRequestBodyDto, PartialUpdateManyFinancialRecordsRequestBodyDto, RemoveFinancialRecordRequestBodyDto, SystemCalculateSearchVariationsRequestBodyDto, SystemGenerateMostCommonContactsForSimilarFinancialRecordReportRequestBodyDto, SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDto } from '../models/index';
+import type { CreateFinancialRecordRequestBodyDto, CreateManyFinancialRecordsRequestBodyDto, FinancialRecordDto, FinancialRecordsPageDto, PartialUpdateFinancialRecordRequestBodyDto, PartialUpdateManyFinancialRecordsRequestBodyDto, RemoveFinancialRecordRequestBodyDto, SystemCalculateSearchVariationsRequestBodyDto, SystemFinancialRecordsPageDto, SystemGenerateMostCommonContactsForSimilarFinancialRecordReportRequestBodyDto, SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDto } from '../models/index';
 export interface CreateFinancialRecordRequest {
     createFinancialRecordRequestBodyDto: CreateFinancialRecordRequestBodyDto;
     populate?: string;
@@ -315,11 +315,11 @@ export interface FinancialRecordsApiInterface {
      * @throws {RequiredError}
      * @memberof FinancialRecordsApiInterface
      */
-    systemFindAllFinancialRecordsRaw(requestParameters: SystemFindAllFinancialRecordsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FinancialRecordsPageDto>>;
+    systemFindAllFinancialRecordsRaw(requestParameters: SystemFindAllFinancialRecordsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SystemFinancialRecordsPageDto>>;
     /**
      * Busca todos os lançamentos financeiros pelo sistema.
      */
-    systemFindAllFinancialRecords(requestParameters: SystemFindAllFinancialRecordsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialRecordsPageDto>;
+    systemFindAllFinancialRecords(requestParameters: SystemFindAllFinancialRecordsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SystemFinancialRecordsPageDto>;
     /**
      *
      * @summary Busca um lançamento financeiro pelo identificador.
@@ -432,11 +432,11 @@ export declare class FinancialRecordsApi extends runtime.BaseAPI implements Fina
     /**
      * Busca todos os lançamentos financeiros pelo sistema.
      */
-    systemFindAllFinancialRecordsRaw(requestParameters: SystemFindAllFinancialRecordsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FinancialRecordsPageDto>>;
+    systemFindAllFinancialRecordsRaw(requestParameters: SystemFindAllFinancialRecordsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SystemFinancialRecordsPageDto>>;
     /**
      * Busca todos os lançamentos financeiros pelo sistema.
      */
-    systemFindAllFinancialRecords(requestParameters: SystemFindAllFinancialRecordsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialRecordsPageDto>;
+    systemFindAllFinancialRecords(requestParameters: SystemFindAllFinancialRecordsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SystemFinancialRecordsPageDto>;
     /**
      * Busca um lançamento financeiro pelo identificador.
      */

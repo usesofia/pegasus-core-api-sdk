@@ -8,9 +8,6 @@ Name | Type
 ------------ | -------------
 `items` | [Array&lt;FinancialRecordsPageDtoItemsInner&gt;](FinancialRecordsPageDtoItemsInner.md)
 `pageInfo` | [ContactsPageDtoPageInfo](ContactsPageDtoPageInfo.md)
-`exportedExcelFile` | [CreateFinancialRecordRequestBodyDtoPopulatedFilesInner](CreateFinancialRecordRequestBodyDtoPopulatedFilesInner.md)
-`exportedPdfTableFile` | [CreateFinancialRecordRequestBodyDtoPopulatedFilesInner](CreateFinancialRecordRequestBodyDtoPopulatedFilesInner.md)
-`exportedPdfListFile` | [CreateFinancialRecordRequestBodyDtoPopulatedFilesInner](CreateFinancialRecordRequestBodyDtoPopulatedFilesInner.md)
 
 ## Example
 
@@ -21,9 +18,6 @@ import type { FinancialRecordsPageDto } from '@usesofia/pegasus-core-api-sdk'
 const example = {
   "items": null,
   "pageInfo": null,
-  "exportedExcelFile": null,
-  "exportedPdfTableFile": null,
-  "exportedPdfListFile": null,
 } satisfies FinancialRecordsPageDto
 
 console.log(example)

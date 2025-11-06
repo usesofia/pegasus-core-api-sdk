@@ -717,7 +717,7 @@ No authorization required
 
 ## systemFindAllFinancialRecords
 
-> FinancialRecordsPageDto systemFindAllFinancialRecords(ownerOrganizationId, generatePdfListExport, generatePdfTableExport, generateExcelExport, readPreference, sortOrder, sortBy, account, reconciled, completed, tags, createdAtTo, createdAtFrom, cashDateTo, cashDateFrom, competenceDateTo, competenceDateFrom, subcategory, contact, dueDateTo, dueDateFrom, finalAmountTo, finalAmountFrom, amountTo, amountFrom, direction, ids, populate, semanticSearchTermInBase64, textSearchTerm, pageSize, pageIndex)
+> SystemFinancialRecordsPageDto systemFindAllFinancialRecords(ownerOrganizationId, generatePdfListExport, generatePdfTableExport, generateExcelExport, readPreference, sortOrder, sortBy, account, reconciled, completed, tags, createdAtTo, createdAtFrom, cashDateTo, cashDateFrom, competenceDateTo, competenceDateFrom, subcategory, contact, dueDateTo, dueDateFrom, finalAmountTo, finalAmountFrom, amountTo, amountFrom, direction, ids, populate, semanticSearchTermInBase64, textSearchTerm, pageSize, pageIndex)
 
 Busca todos os lançamentos financeiros pelo sistema.
 
@@ -853,7 +853,7 @@ example().catch(console.error);
 
 ### Return type
 
-[**FinancialRecordsPageDto**](FinancialRecordsPageDto.md)
+[**SystemFinancialRecordsPageDto**](SystemFinancialRecordsPageDto.md)
 
 ### Authorization
 
