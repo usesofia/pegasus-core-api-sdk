@@ -45,6 +45,12 @@ export interface FinancialRecordsPageDtoItemsInner {
      */
     dueDate: string;
     /**
+     * Variações da data de vencimento.
+     * @type {string}
+     * @memberof FinancialRecordsPageDtoItemsInner
+     */
+    dueDateVariations?: string | null;
+    /**
      * Identificador do contato relacionado.
      * @type {string}
      * @memberof FinancialRecordsPageDtoItemsInner
@@ -69,6 +75,12 @@ export interface FinancialRecordsPageDtoItemsInner {
      */
     amount: string;
     /**
+     * Variações do valor do lançamento.
+     * @type {string}
+     * @memberof FinancialRecordsPageDtoItemsInner
+     */
+    amountVariations?: string | null;
+    /**
      * Tags relacionadas.
      * @type {Array<string>}
      * @memberof FinancialRecordsPageDtoItemsInner
@@ -80,6 +92,12 @@ export interface FinancialRecordsPageDtoItemsInner {
      * @memberof FinancialRecordsPageDtoItemsInner
      */
     competenceDate?: string | null;
+    /**
+     * Variações da data de competência.
+     * @type {string}
+     * @memberof FinancialRecordsPageDtoItemsInner
+     */
+    competenceDateVariations?: string | null;
     /**
      * Arquivos anexados.
      * @type {Array<string>}
@@ -129,6 +147,12 @@ export interface FinancialRecordsPageDtoItemsInner {
      */
     cashDate?: string | null;
     /**
+     * Variações da data de pagamento.
+     * @type {string}
+     * @memberof FinancialRecordsPageDtoItemsInner
+     */
+    cashDateVariations?: string | null;
+    /**
      * Identificador da conta.
      * @type {string}
      * @memberof FinancialRecordsPageDtoItemsInner
@@ -152,6 +176,36 @@ export interface FinancialRecordsPageDtoItemsInner {
      * @memberof FinancialRecordsPageDtoItemsInner
      */
     finalAmount: string;
+    /**
+     * Variações do valor final do lançamento.
+     * @type {string}
+     * @memberof FinancialRecordsPageDtoItemsInner
+     */
+    finalAmountVariations?: string | null;
+    /**
+     * Dicas de busca com nomes de contatos para facilitar buscas textuais.
+     * @type {string}
+     * @memberof FinancialRecordsPageDtoItemsInner
+     */
+    contactHints?: string | null;
+    /**
+     * Dicas de busca com nomes de subcategorias/categorias para facilitar buscas textuais.
+     * @type {string}
+     * @memberof FinancialRecordsPageDtoItemsInner
+     */
+    subcategoryHints?: string | null;
+    /**
+     * Dicas de busca com nomes e números de contas bancárias para facilitar buscas textuais.
+     * @type {string}
+     * @memberof FinancialRecordsPageDtoItemsInner
+     */
+    bankAccountHints?: string | null;
+    /**
+     * Dicas de busca com nomes de tags para facilitar buscas textuais.
+     * @type {string}
+     * @memberof FinancialRecordsPageDtoItemsInner
+     */
+    tagsHints?: string | null;
     /**
      * Indica se foi reconciliado com uma transação bancária.
      * @type {boolean}

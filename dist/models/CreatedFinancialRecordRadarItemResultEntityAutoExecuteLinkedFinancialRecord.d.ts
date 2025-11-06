@@ -45,6 +45,12 @@ export interface CreatedFinancialRecordRadarItemResultEntityAutoExecuteLinkedFin
      */
     dueDate: any | null;
     /**
+     * Variações da data de vencimento.
+     * @type {string}
+     * @memberof CreatedFinancialRecordRadarItemResultEntityAutoExecuteLinkedFinancialRecord
+     */
+    dueDateVariations?: string | null;
+    /**
      * Identificador do contato relacionado.
      * @type {string}
      * @memberof CreatedFinancialRecordRadarItemResultEntityAutoExecuteLinkedFinancialRecord
@@ -69,6 +75,12 @@ export interface CreatedFinancialRecordRadarItemResultEntityAutoExecuteLinkedFin
      */
     amount: number;
     /**
+     * Variações do valor do lançamento.
+     * @type {string}
+     * @memberof CreatedFinancialRecordRadarItemResultEntityAutoExecuteLinkedFinancialRecord
+     */
+    amountVariations?: string | null;
+    /**
      * Tags relacionadas.
      * @type {Array<string>}
      * @memberof CreatedFinancialRecordRadarItemResultEntityAutoExecuteLinkedFinancialRecord
@@ -80,6 +92,12 @@ export interface CreatedFinancialRecordRadarItemResultEntityAutoExecuteLinkedFin
      * @memberof CreatedFinancialRecordRadarItemResultEntityAutoExecuteLinkedFinancialRecord
      */
     competenceDate?: any | null;
+    /**
+     * Variações da data de competência.
+     * @type {string}
+     * @memberof CreatedFinancialRecordRadarItemResultEntityAutoExecuteLinkedFinancialRecord
+     */
+    competenceDateVariations?: string | null;
     /**
      * Arquivos anexados.
      * @type {Array<string>}
@@ -129,6 +147,12 @@ export interface CreatedFinancialRecordRadarItemResultEntityAutoExecuteLinkedFin
      */
     cashDate?: any | null;
     /**
+     * Variações da data de pagamento.
+     * @type {string}
+     * @memberof CreatedFinancialRecordRadarItemResultEntityAutoExecuteLinkedFinancialRecord
+     */
+    cashDateVariations?: string | null;
+    /**
      * Identificador da conta.
      * @type {string}
      * @memberof CreatedFinancialRecordRadarItemResultEntityAutoExecuteLinkedFinancialRecord
@@ -152,6 +176,36 @@ export interface CreatedFinancialRecordRadarItemResultEntityAutoExecuteLinkedFin
      * @memberof CreatedFinancialRecordRadarItemResultEntityAutoExecuteLinkedFinancialRecord
      */
     finalAmount: number;
+    /**
+     * Variações do valor final do lançamento.
+     * @type {string}
+     * @memberof CreatedFinancialRecordRadarItemResultEntityAutoExecuteLinkedFinancialRecord
+     */
+    finalAmountVariations?: string | null;
+    /**
+     * Dicas de busca com nomes de contatos para facilitar buscas textuais.
+     * @type {string}
+     * @memberof CreatedFinancialRecordRadarItemResultEntityAutoExecuteLinkedFinancialRecord
+     */
+    contactHints?: string | null;
+    /**
+     * Dicas de busca com nomes de subcategorias/categorias para facilitar buscas textuais.
+     * @type {string}
+     * @memberof CreatedFinancialRecordRadarItemResultEntityAutoExecuteLinkedFinancialRecord
+     */
+    subcategoryHints?: string | null;
+    /**
+     * Dicas de busca com nomes e números de contas bancárias para facilitar buscas textuais.
+     * @type {string}
+     * @memberof CreatedFinancialRecordRadarItemResultEntityAutoExecuteLinkedFinancialRecord
+     */
+    bankAccountHints?: string | null;
+    /**
+     * Dicas de busca com nomes de tags para facilitar buscas textuais.
+     * @type {string}
+     * @memberof CreatedFinancialRecordRadarItemResultEntityAutoExecuteLinkedFinancialRecord
+     */
+    tagsHints?: string | null;
     /**
      * Indica se foi reconciliado com uma transação bancária.
      * @type {boolean}

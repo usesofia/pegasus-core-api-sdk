@@ -24,6 +24,10 @@ Name | Type
 `account` | string
 `discount` | string
 `finesAndInterest` | string
+`contactHints` | string
+`subcategoryHints` | string
+`bankAccountHints` | string
+`tagsHints` | string
 `bankTransaction` | string
 `installmentFinancialRecord` | string
 `installmentNumber` | number
@@ -62,6 +66,10 @@ const example = {
   "account": null,
   "discount": null,
   "finesAndInterest": null,
+  "contactHints": null,
+  "subcategoryHints": null,
+  "bankAccountHints": null,
+  "tagsHints": null,
   "bankTransaction": null,
   "installmentFinancialRecord": null,
   "installmentNumber": null,

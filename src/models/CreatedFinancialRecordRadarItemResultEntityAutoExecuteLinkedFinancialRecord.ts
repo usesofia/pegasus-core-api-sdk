@@ -80,6 +80,12 @@ export interface CreatedFinancialRecordRadarItemResultEntityAutoExecuteLinkedFin
      */
     dueDate: any | null;
     /**
+     * Variações da data de vencimento.
+     * @type {string}
+     * @memberof CreatedFinancialRecordRadarItemResultEntityAutoExecuteLinkedFinancialRecord
+     */
+    dueDateVariations?: string | null;
+    /**
      * Identificador do contato relacionado.
      * @type {string}
      * @memberof CreatedFinancialRecordRadarItemResultEntityAutoExecuteLinkedFinancialRecord
@@ -104,6 +110,12 @@ export interface CreatedFinancialRecordRadarItemResultEntityAutoExecuteLinkedFin
      */
     amount: number;
     /**
+     * Variações do valor do lançamento.
+     * @type {string}
+     * @memberof CreatedFinancialRecordRadarItemResultEntityAutoExecuteLinkedFinancialRecord
+     */
+    amountVariations?: string | null;
+    /**
      * Tags relacionadas.
      * @type {Array<string>}
      * @memberof CreatedFinancialRecordRadarItemResultEntityAutoExecuteLinkedFinancialRecord
@@ -115,6 +127,12 @@ export interface CreatedFinancialRecordRadarItemResultEntityAutoExecuteLinkedFin
      * @memberof CreatedFinancialRecordRadarItemResultEntityAutoExecuteLinkedFinancialRecord
      */
     competenceDate?: any | null;
+    /**
+     * Variações da data de competência.
+     * @type {string}
+     * @memberof CreatedFinancialRecordRadarItemResultEntityAutoExecuteLinkedFinancialRecord
+     */
+    competenceDateVariations?: string | null;
     /**
      * Arquivos anexados.
      * @type {Array<string>}
@@ -164,6 +182,12 @@ export interface CreatedFinancialRecordRadarItemResultEntityAutoExecuteLinkedFin
      */
     cashDate?: any | null;
     /**
+     * Variações da data de pagamento.
+     * @type {string}
+     * @memberof CreatedFinancialRecordRadarItemResultEntityAutoExecuteLinkedFinancialRecord
+     */
+    cashDateVariations?: string | null;
+    /**
      * Identificador da conta.
      * @type {string}
      * @memberof CreatedFinancialRecordRadarItemResultEntityAutoExecuteLinkedFinancialRecord
@@ -187,6 +211,36 @@ export interface CreatedFinancialRecordRadarItemResultEntityAutoExecuteLinkedFin
      * @memberof CreatedFinancialRecordRadarItemResultEntityAutoExecuteLinkedFinancialRecord
      */
     finalAmount: number;
+    /**
+     * Variações do valor final do lançamento.
+     * @type {string}
+     * @memberof CreatedFinancialRecordRadarItemResultEntityAutoExecuteLinkedFinancialRecord
+     */
+    finalAmountVariations?: string | null;
+    /**
+     * Dicas de busca com nomes de contatos para facilitar buscas textuais.
+     * @type {string}
+     * @memberof CreatedFinancialRecordRadarItemResultEntityAutoExecuteLinkedFinancialRecord
+     */
+    contactHints?: string | null;
+    /**
+     * Dicas de busca com nomes de subcategorias/categorias para facilitar buscas textuais.
+     * @type {string}
+     * @memberof CreatedFinancialRecordRadarItemResultEntityAutoExecuteLinkedFinancialRecord
+     */
+    subcategoryHints?: string | null;
+    /**
+     * Dicas de busca com nomes e números de contas bancárias para facilitar buscas textuais.
+     * @type {string}
+     * @memberof CreatedFinancialRecordRadarItemResultEntityAutoExecuteLinkedFinancialRecord
+     */
+    bankAccountHints?: string | null;
+    /**
+     * Dicas de busca com nomes de tags para facilitar buscas textuais.
+     * @type {string}
+     * @memberof CreatedFinancialRecordRadarItemResultEntityAutoExecuteLinkedFinancialRecord
+     */
+    tagsHints?: string | null;
     /**
      * Indica se foi reconciliado com uma transação bancária.
      * @type {boolean}
@@ -308,12 +362,15 @@ export function CreatedFinancialRecordRadarItemResultEntityAutoExecuteLinkedFina
         'ownerOrganization': json['ownerOrganization'],
         'direction': json['direction'],
         'dueDate': json['dueDate'],
+        'dueDateVariations': json['dueDateVariations'] == null ? undefined : json['dueDateVariations'],
         'contact': json['contact'],
         'description': json['description'],
         'subcategory': json['subcategory'],
         'amount': json['amount'],
+        'amountVariations': json['amountVariations'] == null ? undefined : json['amountVariations'],
         'tags': json['tags'] == null ? undefined : json['tags'],
         'competenceDate': json['competenceDate'] == null ? undefined : json['competenceDate'],
+        'competenceDateVariations': json['competenceDateVariations'] == null ? undefined : json['competenceDateVariations'],
         'files': json['files'] == null ? undefined : json['files'],
         'radarItems': json['radarItems'] == null ? undefined : json['radarItems'],
         'pixKey': json['pixKey'] == null ? undefined : json['pixKey'],
@@ -322,10 +379,16 @@ export function CreatedFinancialRecordRadarItemResultEntityAutoExecuteLinkedFina
         'invoiceNumber': json['invoiceNumber'] == null ? undefined : json['invoiceNumber'],
         'completed': json['completed'] == null ? undefined : json['completed'],
         'cashDate': json['cashDate'] == null ? undefined : json['cashDate'],
+        'cashDateVariations': json['cashDateVariations'] == null ? undefined : json['cashDateVariations'],
         'account': json['account'] == null ? undefined : json['account'],
         'discount': json['discount'] == null ? undefined : json['discount'],
         'finesAndInterest': json['finesAndInterest'] == null ? undefined : json['finesAndInterest'],
         'finalAmount': json['finalAmount'],
+        'finalAmountVariations': json['finalAmountVariations'] == null ? undefined : json['finalAmountVariations'],
+        'contactHints': json['contactHints'] == null ? undefined : json['contactHints'],
+        'subcategoryHints': json['subcategoryHints'] == null ? undefined : json['subcategoryHints'],
+        'bankAccountHints': json['bankAccountHints'] == null ? undefined : json['bankAccountHints'],
+        'tagsHints': json['tagsHints'] == null ? undefined : json['tagsHints'],
         'reconciled': json['reconciled'] == null ? undefined : json['reconciled'],
         'bankTransaction': json['bankTransaction'] == null ? undefined : json['bankTransaction'],
         'installmentFinancialRecord': json['installmentFinancialRecord'] == null ? undefined : json['installmentFinancialRecord'],
@@ -357,12 +420,15 @@ export function CreatedFinancialRecordRadarItemResultEntityAutoExecuteLinkedFina
         'ownerOrganization': value['ownerOrganization'],
         'direction': value['direction'],
         'dueDate': value['dueDate'],
+        'dueDateVariations': value['dueDateVariations'],
         'contact': value['contact'],
         'description': value['description'],
         'subcategory': value['subcategory'],
         'amount': value['amount'],
+        'amountVariations': value['amountVariations'],
         'tags': value['tags'],
         'competenceDate': value['competenceDate'],
+        'competenceDateVariations': value['competenceDateVariations'],
         'files': value['files'],
         'radarItems': value['radarItems'],
         'pixKey': value['pixKey'],
@@ -371,10 +437,16 @@ export function CreatedFinancialRecordRadarItemResultEntityAutoExecuteLinkedFina
         'invoiceNumber': value['invoiceNumber'],
         'completed': value['completed'],
         'cashDate': value['cashDate'],
+        'cashDateVariations': value['cashDateVariations'],
         'account': value['account'],
         'discount': value['discount'],
         'finesAndInterest': value['finesAndInterest'],
         'finalAmount': value['finalAmount'],
+        'finalAmountVariations': value['finalAmountVariations'],
+        'contactHints': value['contactHints'],
+        'subcategoryHints': value['subcategoryHints'],
+        'bankAccountHints': value['bankAccountHints'],
+        'tagsHints': value['tagsHints'],
         'reconciled': value['reconciled'],
         'bankTransaction': value['bankTransaction'],
         'installmentFinancialRecord': value['installmentFinancialRecord'],

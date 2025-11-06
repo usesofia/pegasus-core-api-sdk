@@ -129,6 +129,30 @@ export interface CreateFinancialRecordRadarItemRequestBodyDtoBestSuggestedAction
      */
     finesAndInterest?: string;
     /**
+     * Dicas de busca com nomes de contatos para facilitar buscas textuais.
+     * @type {string}
+     * @memberof CreateFinancialRecordRadarItemRequestBodyDtoBestSuggestedActionFinancialRecordRadarRawPartialUpdateFinancialRecordRequestData
+     */
+    contactHints?: string | null;
+    /**
+     * Dicas de busca com nomes de subcategorias/categorias para facilitar buscas textuais.
+     * @type {string}
+     * @memberof CreateFinancialRecordRadarItemRequestBodyDtoBestSuggestedActionFinancialRecordRadarRawPartialUpdateFinancialRecordRequestData
+     */
+    subcategoryHints?: string | null;
+    /**
+     * Dicas de busca com nomes e números de contas bancárias para facilitar buscas textuais.
+     * @type {string}
+     * @memberof CreateFinancialRecordRadarItemRequestBodyDtoBestSuggestedActionFinancialRecordRadarRawPartialUpdateFinancialRecordRequestData
+     */
+    bankAccountHints?: string | null;
+    /**
+     * Dicas de busca com nomes de tags para facilitar buscas textuais.
+     * @type {string}
+     * @memberof CreateFinancialRecordRadarItemRequestBodyDtoBestSuggestedActionFinancialRecordRadarRawPartialUpdateFinancialRecordRequestData
+     */
+    tagsHints?: string | null;
+    /**
      * Identificador do lançamento financeiro parcelado.
      * @type {string}
      * @memberof CreateFinancialRecordRadarItemRequestBodyDtoBestSuggestedActionFinancialRecordRadarRawPartialUpdateFinancialRecordRequestData

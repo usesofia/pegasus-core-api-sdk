@@ -129,6 +129,30 @@ export interface CreateFinancialRecordRequestBodyDto {
      */
     finesAndInterest?: string | null;
     /**
+     * Dicas de busca com nomes de contatos para facilitar buscas textuais.
+     * @type {string}
+     * @memberof CreateFinancialRecordRequestBodyDto
+     */
+    contactHints?: string | null;
+    /**
+     * Dicas de busca com nomes de subcategorias/categorias para facilitar buscas textuais.
+     * @type {string}
+     * @memberof CreateFinancialRecordRequestBodyDto
+     */
+    subcategoryHints?: string | null;
+    /**
+     * Dicas de busca com nomes e números de contas bancárias para facilitar buscas textuais.
+     * @type {string}
+     * @memberof CreateFinancialRecordRequestBodyDto
+     */
+    bankAccountHints?: string | null;
+    /**
+     * Dicas de busca com nomes de tags para facilitar buscas textuais.
+     * @type {string}
+     * @memberof CreateFinancialRecordRequestBodyDto
+     */
+    tagsHints?: string | null;
+    /**
      * Identificador da transação bancária vinculada.
      * @type {string}
      * @memberof CreateFinancialRecordRequestBodyDto

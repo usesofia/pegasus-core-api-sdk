@@ -164,6 +164,30 @@ export interface PartialUpdateManyFinancialRecordsRequestBodyDtoData {
      */
     finesAndInterest?: string;
     /**
+     * Dicas de busca com nomes de contatos para facilitar buscas textuais.
+     * @type {string}
+     * @memberof PartialUpdateManyFinancialRecordsRequestBodyDtoData
+     */
+    contactHints?: string | null;
+    /**
+     * Dicas de busca com nomes de subcategorias/categorias para facilitar buscas textuais.
+     * @type {string}
+     * @memberof PartialUpdateManyFinancialRecordsRequestBodyDtoData
+     */
+    subcategoryHints?: string | null;
+    /**
+     * Dicas de busca com nomes e números de contas bancárias para facilitar buscas textuais.
+     * @type {string}
+     * @memberof PartialUpdateManyFinancialRecordsRequestBodyDtoData
+     */
+    bankAccountHints?: string | null;
+    /**
+     * Dicas de busca com nomes de tags para facilitar buscas textuais.
+     * @type {string}
+     * @memberof PartialUpdateManyFinancialRecordsRequestBodyDtoData
+     */
+    tagsHints?: string | null;
+    /**
      * Identificador do lançamento financeiro parcelado.
      * @type {string}
      * @memberof PartialUpdateManyFinancialRecordsRequestBodyDtoData
@@ -271,6 +295,10 @@ export function PartialUpdateManyFinancialRecordsRequestBodyDtoDataFromJSONTyped
         'account': json['account'] == null ? undefined : json['account'],
         'discount': json['discount'] == null ? undefined : json['discount'],
         'finesAndInterest': json['finesAndInterest'] == null ? undefined : json['finesAndInterest'],
+        'contactHints': json['contactHints'] == null ? undefined : json['contactHints'],
+        'subcategoryHints': json['subcategoryHints'] == null ? undefined : json['subcategoryHints'],
+        'bankAccountHints': json['bankAccountHints'] == null ? undefined : json['bankAccountHints'],
+        'tagsHints': json['tagsHints'] == null ? undefined : json['tagsHints'],
         'installmentFinancialRecord': json['installmentFinancialRecord'] == null ? undefined : json['installmentFinancialRecord'],
         'installmentNumber': json['installmentNumber'] == null ? undefined : json['installmentNumber'],
         'recurringFinancialRecord': json['recurringFinancialRecord'] == null ? undefined : json['recurringFinancialRecord'],
@@ -313,6 +341,10 @@ export function PartialUpdateManyFinancialRecordsRequestBodyDtoDataToJSONTyped(v
         'account': value['account'],
         'discount': value['discount'],
         'finesAndInterest': value['finesAndInterest'],
+        'contactHints': value['contactHints'],
+        'subcategoryHints': value['subcategoryHints'],
+        'bankAccountHints': value['bankAccountHints'],
+        'tagsHints': value['tagsHints'],
         'installmentFinancialRecord': value['installmentFinancialRecord'],
         'installmentNumber': value['installmentNumber'],
         'recurringFinancialRecord': value['recurringFinancialRecord'],

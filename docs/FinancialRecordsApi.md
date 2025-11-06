@@ -11,6 +11,7 @@ All URIs are relative to *http://localhost*
 | [**partialUpdateFinancialRecord**](FinancialRecordsApi.md#partialupdatefinancialrecord) | **PATCH** /external/financial-records/{id} | Atualiza parcialmente um lançamento financeiro. |
 | [**partialUpdateManyFinancialRecords**](FinancialRecordsApi.md#partialupdatemanyfinancialrecords) | **PATCH** /external/financial-records/many | Atualiza parcialmente múltiplos lançamentos financeiros. |
 | [**removeFinancialRecord**](FinancialRecordsApi.md#removefinancialrecord) | **DELETE** /external/financial-records/{id} | Remove um lançamento financeiro. |
+| [**systemCalculateAndUpdateTextSearchVariationsAndHints**](FinancialRecordsApi.md#systemcalculateandupdatetextsearchvariationsandhints) | **POST** /external/financial-records/calculate-and-update-text-search-variations-and-hints | Calcula e atualiza os campos de variações de busca textual e dicas de busca para múltiplos lançamentos financeiros. |
 | [**systemCreateManyFinancialRecords**](FinancialRecordsApi.md#systemcreatemanyfinancialrecords) | **POST** /internal/organizations/{organizationId}/financial-records/many | Cria múltiplos lançamentos financeiros. |
 | [**systemFindAllFinancialRecords**](FinancialRecordsApi.md#systemfindallfinancialrecords) | **GET** /internal/financial-records | Busca todos os lançamentos financeiros pelo sistema. |
 | [**systemFindByIdFinancialRecord**](FinancialRecordsApi.md#systemfindbyidfinancialrecord) | **GET** /internal/organizations/{organizationId}/financial-records/{financialRecordId} | Busca um lançamento financeiro pelo identificador. |
@@ -574,6 +575,72 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** |  |  -  |
+| **0** |  |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## systemCalculateAndUpdateTextSearchVariationsAndHints
+
+> systemCalculateAndUpdateTextSearchVariationsAndHints(systemCalculateSearchVariationsRequestBodyDto)
+
+Calcula e atualiza os campos de variações de busca textual e dicas de busca para múltiplos lançamentos financeiros.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  FinancialRecordsApi,
+} from '@usesofia/pegasus-core-api-sdk';
+import type { SystemCalculateAndUpdateTextSearchVariationsAndHintsRequest } from '@usesofia/pegasus-core-api-sdk';
+
+async function example() {
+  console.log("🚀 Testing @usesofia/pegasus-core-api-sdk SDK...");
+  const api = new FinancialRecordsApi();
+
+  const body = {
+    // SystemCalculateSearchVariationsRequestBodyDto
+    systemCalculateSearchVariationsRequestBodyDto: ...,
+  } satisfies SystemCalculateAndUpdateTextSearchVariationsAndHintsRequest;
+
+  try {
+    const data = await api.systemCalculateAndUpdateTextSearchVariationsAndHints(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **systemCalculateSearchVariationsRequestBodyDto** | [SystemCalculateSearchVariationsRequestBodyDto](SystemCalculateSearchVariationsRequestBodyDto.md) |  | |
+
+### Return type
+
+`void` (Empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Variations and hints calculated and updated for all financial records. |  -  |
 | **0** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)

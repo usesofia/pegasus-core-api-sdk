@@ -129,6 +129,30 @@ export interface CreatedFinancialRecordRadarItemResultEntityRadarItemExtractedFi
      */
     finesAndInterest?: string;
     /**
+     * Dicas de busca com nomes de contatos para facilitar buscas textuais.
+     * @type {string}
+     * @memberof CreatedFinancialRecordRadarItemResultEntityRadarItemExtractedFinancialRecordData
+     */
+    contactHints?: string | null;
+    /**
+     * Dicas de busca com nomes de subcategorias/categorias para facilitar buscas textuais.
+     * @type {string}
+     * @memberof CreatedFinancialRecordRadarItemResultEntityRadarItemExtractedFinancialRecordData
+     */
+    subcategoryHints?: string | null;
+    /**
+     * Dicas de busca com nomes e números de contas bancárias para facilitar buscas textuais.
+     * @type {string}
+     * @memberof CreatedFinancialRecordRadarItemResultEntityRadarItemExtractedFinancialRecordData
+     */
+    bankAccountHints?: string | null;
+    /**
+     * Dicas de busca com nomes de tags para facilitar buscas textuais.
+     * @type {string}
+     * @memberof CreatedFinancialRecordRadarItemResultEntityRadarItemExtractedFinancialRecordData
+     */
+    tagsHints?: string | null;
+    /**
      * Identificador da transação bancária vinculada.
      * @type {string}
      * @memberof CreatedFinancialRecordRadarItemResultEntityRadarItemExtractedFinancialRecordData

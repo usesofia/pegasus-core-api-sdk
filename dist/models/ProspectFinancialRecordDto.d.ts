@@ -129,6 +129,30 @@ export interface ProspectFinancialRecordDto {
      */
     finesAndInterest?: string | null;
     /**
+     * Dicas de busca com nomes de contatos para facilitar buscas textuais.
+     * @type {string}
+     * @memberof ProspectFinancialRecordDto
+     */
+    contactHints?: string | null;
+    /**
+     * Dicas de busca com nomes de subcategorias/categorias para facilitar buscas textuais.
+     * @type {string}
+     * @memberof ProspectFinancialRecordDto
+     */
+    subcategoryHints?: string | null;
+    /**
+     * Dicas de busca com nomes e números de contas bancárias para facilitar buscas textuais.
+     * @type {string}
+     * @memberof ProspectFinancialRecordDto
+     */
+    bankAccountHints?: string | null;
+    /**
+     * Dicas de busca com nomes de tags para facilitar buscas textuais.
+     * @type {string}
+     * @memberof ProspectFinancialRecordDto
+     */
+    tagsHints?: string | null;
+    /**
      * Identificador da transação bancária vinculada.
      * @type {string}
      * @memberof ProspectFinancialRecordDto

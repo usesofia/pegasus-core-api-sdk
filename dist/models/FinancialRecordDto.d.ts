@@ -45,6 +45,12 @@ export interface FinancialRecordDto {
      */
     dueDate: string;
     /**
+     * Variações da data de vencimento.
+     * @type {string}
+     * @memberof FinancialRecordDto
+     */
+    dueDateVariations?: string | null;
+    /**
      * Identificador do contato relacionado.
      * @type {string}
      * @memberof FinancialRecordDto
@@ -69,6 +75,12 @@ export interface FinancialRecordDto {
      */
     amount: string;
     /**
+     * Variações do valor do lançamento.
+     * @type {string}
+     * @memberof FinancialRecordDto
+     */
+    amountVariations?: string | null;
+    /**
      * Tags relacionadas.
      * @type {Array<string>}
      * @memberof FinancialRecordDto
@@ -80,6 +92,12 @@ export interface FinancialRecordDto {
      * @memberof FinancialRecordDto
      */
     competenceDate?: string | null;
+    /**
+     * Variações da data de competência.
+     * @type {string}
+     * @memberof FinancialRecordDto
+     */
+    competenceDateVariations?: string | null;
     /**
      * Arquivos anexados.
      * @type {Array<string>}
@@ -129,6 +147,12 @@ export interface FinancialRecordDto {
      */
     cashDate?: string | null;
     /**
+     * Variações da data de pagamento.
+     * @type {string}
+     * @memberof FinancialRecordDto
+     */
+    cashDateVariations?: string | null;
+    /**
      * Identificador da conta.
      * @type {string}
      * @memberof FinancialRecordDto
@@ -152,6 +176,36 @@ export interface FinancialRecordDto {
      * @memberof FinancialRecordDto
      */
     finalAmount: string;
+    /**
+     * Variações do valor final do lançamento.
+     * @type {string}
+     * @memberof FinancialRecordDto
+     */
+    finalAmountVariations?: string | null;
+    /**
+     * Dicas de busca com nomes de contatos para facilitar buscas textuais.
+     * @type {string}
+     * @memberof FinancialRecordDto
+     */
+    contactHints?: string | null;
+    /**
+     * Dicas de busca com nomes de subcategorias/categorias para facilitar buscas textuais.
+     * @type {string}
+     * @memberof FinancialRecordDto
+     */
+    subcategoryHints?: string | null;
+    /**
+     * Dicas de busca com nomes e números de contas bancárias para facilitar buscas textuais.
+     * @type {string}
+     * @memberof FinancialRecordDto
+     */
+    bankAccountHints?: string | null;
+    /**
+     * Dicas de busca com nomes de tags para facilitar buscas textuais.
+     * @type {string}
+     * @memberof FinancialRecordDto
+     */
+    tagsHints?: string | null;
     /**
      * Indica se foi reconciliado com uma transação bancária.
      * @type {boolean}

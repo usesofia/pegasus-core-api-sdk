@@ -130,6 +130,7 @@ All URIs are relative to *http://localhost*
 *FinancialRecordsApi* | [**partialUpdateFinancialRecord**](docs/FinancialRecordsApi.md#partialupdatefinancialrecord) | **PATCH** /external/financial-records/{id} | Atualiza parcialmente um lançamento financeiro.
 *FinancialRecordsApi* | [**partialUpdateManyFinancialRecords**](docs/FinancialRecordsApi.md#partialupdatemanyfinancialrecords) | **PATCH** /external/financial-records/many | Atualiza parcialmente múltiplos lançamentos financeiros.
 *FinancialRecordsApi* | [**removeFinancialRecord**](docs/FinancialRecordsApi.md#removefinancialrecord) | **DELETE** /external/financial-records/{id} | Remove um lançamento financeiro.
+*FinancialRecordsApi* | [**systemCalculateAndUpdateTextSearchVariationsAndHints**](docs/FinancialRecordsApi.md#systemcalculateandupdatetextsearchvariationsandhints) | **POST** /external/financial-records/calculate-and-update-text-search-variations-and-hints | Calcula e atualiza os campos de variações de busca textual e dicas de busca para múltiplos lançamentos financeiros.
 *FinancialRecordsApi* | [**systemCreateManyFinancialRecords**](docs/FinancialRecordsApi.md#systemcreatemanyfinancialrecords) | **POST** /internal/organizations/{organizationId}/financial-records/many | Cria múltiplos lançamentos financeiros.
 *FinancialRecordsApi* | [**systemFindAllFinancialRecords**](docs/FinancialRecordsApi.md#systemfindallfinancialrecords) | **GET** /internal/financial-records | Busca todos os lançamentos financeiros pelo sistema.
 *FinancialRecordsApi* | [**systemFindByIdFinancialRecord**](docs/FinancialRecordsApi.md#systemfindbyidfinancialrecord) | **GET** /internal/organizations/{organizationId}/financial-records/{financialRecordId} | Busca um lançamento financeiro pelo identificador.
@@ -403,6 +404,7 @@ All URIs are relative to *http://localhost*
 - [SubcategoriesPageEntity](docs/SubcategoriesPageEntity.md)
 - [SubcategoriesPageEntityItemsInner](docs/SubcategoriesPageEntityItemsInner.md)
 - [SubcategoryEntity](docs/SubcategoryEntity.md)
+- [SystemCalculateSearchVariationsRequestBodyDto](docs/SystemCalculateSearchVariationsRequestBodyDto.md)
 - [SystemGenerateMostCommonContactsForSimilarFinancialRecordReportRequestBodyDto](docs/SystemGenerateMostCommonContactsForSimilarFinancialRecordReportRequestBodyDto.md)
 - [SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDto](docs/SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDto.md)
 - [SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoSubcategories](docs/SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoSubcategories.md)

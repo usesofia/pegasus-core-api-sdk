@@ -164,6 +164,30 @@ export interface CreateFinancialRecordRadarItemRequestBodyDtoBestSuggestedAction
      */
     finesAndInterest?: string | null;
     /**
+     * Dicas de busca com nomes de contatos para facilitar buscas textuais.
+     * @type {string}
+     * @memberof CreateFinancialRecordRadarItemRequestBodyDtoBestSuggestedActionFinancialRecordRadarRawCreateFinancialRecordRequest
+     */
+    contactHints?: string | null;
+    /**
+     * Dicas de busca com nomes de subcategorias/categorias para facilitar buscas textuais.
+     * @type {string}
+     * @memberof CreateFinancialRecordRadarItemRequestBodyDtoBestSuggestedActionFinancialRecordRadarRawCreateFinancialRecordRequest
+     */
+    subcategoryHints?: string | null;
+    /**
+     * Dicas de busca com nomes e números de contas bancárias para facilitar buscas textuais.
+     * @type {string}
+     * @memberof CreateFinancialRecordRadarItemRequestBodyDtoBestSuggestedActionFinancialRecordRadarRawCreateFinancialRecordRequest
+     */
+    bankAccountHints?: string | null;
+    /**
+     * Dicas de busca com nomes de tags para facilitar buscas textuais.
+     * @type {string}
+     * @memberof CreateFinancialRecordRadarItemRequestBodyDtoBestSuggestedActionFinancialRecordRadarRawCreateFinancialRecordRequest
+     */
+    tagsHints?: string | null;
+    /**
      * Identificador da transação bancária vinculada.
      * @type {string}
      * @memberof CreateFinancialRecordRadarItemRequestBodyDtoBestSuggestedActionFinancialRecordRadarRawCreateFinancialRecordRequest
@@ -288,6 +312,10 @@ export function CreateFinancialRecordRadarItemRequestBodyDtoBestSuggestedActionF
         'account': json['account'] == null ? undefined : json['account'],
         'discount': json['discount'] == null ? undefined : json['discount'],
         'finesAndInterest': json['finesAndInterest'] == null ? undefined : json['finesAndInterest'],
+        'contactHints': json['contactHints'] == null ? undefined : json['contactHints'],
+        'subcategoryHints': json['subcategoryHints'] == null ? undefined : json['subcategoryHints'],
+        'bankAccountHints': json['bankAccountHints'] == null ? undefined : json['bankAccountHints'],
+        'tagsHints': json['tagsHints'] == null ? undefined : json['tagsHints'],
         'bankTransaction': json['bankTransaction'] == null ? undefined : json['bankTransaction'],
         'installmentFinancialRecord': json['installmentFinancialRecord'] == null ? undefined : json['installmentFinancialRecord'],
         'installmentNumber': json['installmentNumber'] == null ? undefined : json['installmentNumber'],
@@ -332,6 +360,10 @@ export function CreateFinancialRecordRadarItemRequestBodyDtoBestSuggestedActionF
         'account': value['account'],
         'discount': value['discount'],
         'finesAndInterest': value['finesAndInterest'],
+        'contactHints': value['contactHints'],
+        'subcategoryHints': value['subcategoryHints'],
+        'bankAccountHints': value['bankAccountHints'],
+        'tagsHints': value['tagsHints'],
         'bankTransaction': value['bankTransaction'],
         'installmentFinancialRecord': value['installmentFinancialRecord'],
         'installmentNumber': value['installmentNumber'],

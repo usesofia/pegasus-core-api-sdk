@@ -10,12 +10,15 @@ Name | Type
 `ownerOrganization` | string
 `direction` | string
 `dueDate` | string
+`dueDateVariations` | string
 `contact` | string
 `description` | string
 `subcategory` | string
 `amount` | string
+`amountVariations` | string
 `tags` | Array&lt;string&gt;
 `competenceDate` | string
+`competenceDateVariations` | string
 `files` | Array&lt;string&gt;
 `radarItems` | Array&lt;string&gt;
 `pixKey` | string
@@ -24,10 +27,16 @@ Name | Type
 `invoiceNumber` | string
 `completed` | boolean
 `cashDate` | string
+`cashDateVariations` | string
 `account` | string
 `discount` | string
 `finesAndInterest` | string
 `finalAmount` | string
+`finalAmountVariations` | string
+`contactHints` | string
+`subcategoryHints` | string
+`bankAccountHints` | string
+`tagsHints` | string
 `reconciled` | boolean
 `bankTransaction` | string
 `installmentFinancialRecord` | string
@@ -53,12 +62,15 @@ const example = {
   "ownerOrganization": null,
   "direction": null,
   "dueDate": null,
+  "dueDateVariations": null,
   "contact": null,
   "description": null,
   "subcategory": null,
   "amount": null,
+  "amountVariations": null,
   "tags": null,
   "competenceDate": null,
+  "competenceDateVariations": null,
   "files": null,
   "radarItems": null,
   "pixKey": null,
@@ -67,10 +79,16 @@ const example = {
   "invoiceNumber": null,
   "completed": null,
   "cashDate": null,
+  "cashDateVariations": null,
   "account": null,
   "discount": null,
   "finesAndInterest": null,
   "finalAmount": null,
+  "finalAmountVariations": null,
+  "contactHints": null,
+  "subcategoryHints": null,
+  "bankAccountHints": null,
+  "tagsHints": null,
   "reconciled": null,
   "bankTransaction": null,
   "installmentFinancialRecord": null,

@@ -502,6 +502,51 @@ var FinancialRecordsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Calcula e atualiza os campos de variações de busca textual e dicas de busca para múltiplos lançamentos financeiros.
+     */
+    FinancialRecordsApi.prototype.systemCalculateAndUpdateTextSearchVariationsAndHintsRaw = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (requestParameters['systemCalculateSearchVariationsRequestBodyDto'] == null) {
+                            throw new runtime.RequiredError('systemCalculateSearchVariationsRequestBodyDto', 'Required parameter "systemCalculateSearchVariationsRequestBodyDto" was null or undefined when calling systemCalculateAndUpdateTextSearchVariationsAndHints().');
+                        }
+                        queryParameters = {};
+                        headerParameters = {};
+                        headerParameters['Content-Type'] = 'application/json';
+                        urlPath = "/external/financial-records/calculate-and-update-text-search-variations-and-hints";
+                        return [4 /*yield*/, this.request({
+                                path: urlPath,
+                                method: 'POST',
+                                headers: headerParameters,
+                                query: queryParameters,
+                                body: (0, index_1.SystemCalculateSearchVariationsRequestBodyDtoToJSON)(requestParameters['systemCalculateSearchVariationsRequestBodyDto']),
+                            }, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [2 /*return*/, new runtime.VoidApiResponse(response)];
+                }
+            });
+        });
+    };
+    /**
+     * Calcula e atualiza os campos de variações de busca textual e dicas de busca para múltiplos lançamentos financeiros.
+     */
+    FinancialRecordsApi.prototype.systemCalculateAndUpdateTextSearchVariationsAndHints = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.systemCalculateAndUpdateTextSearchVariationsAndHintsRaw(requestParameters, initOverrides)];
+                    case 1:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    /**
      * Cria múltiplos lançamentos financeiros.
      */
     FinancialRecordsApi.prototype.systemCreateManyFinancialRecordsRaw = function (requestParameters, initOverrides) {

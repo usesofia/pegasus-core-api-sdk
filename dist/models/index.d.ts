@@ -211,6 +211,7 @@ export * from './SignedUrlEntity';
 export * from './SubcategoriesPageEntity';
 export * from './SubcategoriesPageEntityItemsInner';
 export * from './SubcategoryEntity';
+export * from './SystemCalculateSearchVariationsRequestBodyDto';
 export * from './SystemGenerateMostCommonContactsForSimilarFinancialRecordReportRequestBodyDto';
 export * from './SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDto';
 export * from './SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoSubcategories';

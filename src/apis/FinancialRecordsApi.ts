@@ -23,6 +23,7 @@ import type {
   PartialUpdateFinancialRecordRequestBodyDto,
   PartialUpdateManyFinancialRecordsRequestBodyDto,
   RemoveFinancialRecordRequestBodyDto,
+  SystemCalculateSearchVariationsRequestBodyDto,
   SystemGenerateMostCommonContactsForSimilarFinancialRecordReportRequestBodyDto,
   SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDto,
 } from '../models/index';
@@ -43,6 +44,8 @@ import {
     PartialUpdateManyFinancialRecordsRequestBodyDtoToJSON,
     RemoveFinancialRecordRequestBodyDtoFromJSON,
     RemoveFinancialRecordRequestBodyDtoToJSON,
+    SystemCalculateSearchVariationsRequestBodyDtoFromJSON,
+    SystemCalculateSearchVariationsRequestBodyDtoToJSON,
     SystemGenerateMostCommonContactsForSimilarFinancialRecordReportRequestBodyDtoFromJSON,
     SystemGenerateMostCommonContactsForSimilarFinancialRecordReportRequestBodyDtoToJSON,
     SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoFromJSON,
@@ -108,6 +111,10 @@ export interface PartialUpdateManyFinancialRecordsRequest {
 export interface RemoveFinancialRecordRequest {
     id: string;
     removeFinancialRecordRequestBodyDto: RemoveFinancialRecordRequestBodyDto;
+}
+
+export interface SystemCalculateAndUpdateTextSearchVariationsAndHintsRequest {
+    systemCalculateSearchVariationsRequestBodyDto: SystemCalculateSearchVariationsRequestBodyDto;
 }
 
 export interface SystemCreateManyFinancialRecordsRequest {
@@ -308,6 +315,21 @@ export interface FinancialRecordsApiInterface {
      * Remove um lançamento financeiro.
      */
     removeFinancialRecord(requestParameters: RemoveFinancialRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+
+    /**
+     * 
+     * @summary Calcula e atualiza os campos de variações de busca textual e dicas de busca para múltiplos lançamentos financeiros.
+     * @param {SystemCalculateSearchVariationsRequestBodyDto} systemCalculateSearchVariationsRequestBodyDto 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof FinancialRecordsApiInterface
+     */
+    systemCalculateAndUpdateTextSearchVariationsAndHintsRaw(requestParameters: SystemCalculateAndUpdateTextSearchVariationsAndHintsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
+
+    /**
+     * Calcula e atualiza os campos de variações de busca textual e dicas de busca para múltiplos lançamentos financeiros.
+     */
+    systemCalculateAndUpdateTextSearchVariationsAndHints(requestParameters: SystemCalculateAndUpdateTextSearchVariationsAndHintsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
 
     /**
      * 
@@ -816,6 +838,44 @@ export class FinancialRecordsApi extends runtime.BaseAPI implements FinancialRec
      */
     async removeFinancialRecord(requestParameters: RemoveFinancialRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.removeFinancialRecordRaw(requestParameters, initOverrides);
+    }
+
+    /**
+     * Calcula e atualiza os campos de variações de busca textual e dicas de busca para múltiplos lançamentos financeiros.
+     */
+    async systemCalculateAndUpdateTextSearchVariationsAndHintsRaw(requestParameters: SystemCalculateAndUpdateTextSearchVariationsAndHintsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        if (requestParameters['systemCalculateSearchVariationsRequestBodyDto'] == null) {
+            throw new runtime.RequiredError(
+                'systemCalculateSearchVariationsRequestBodyDto',
+                'Required parameter "systemCalculateSearchVariationsRequestBodyDto" was null or undefined when calling systemCalculateAndUpdateTextSearchVariationsAndHints().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+
+        let urlPath = `/external/financial-records/calculate-and-update-text-search-variations-and-hints`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: SystemCalculateSearchVariationsRequestBodyDtoToJSON(requestParameters['systemCalculateSearchVariationsRequestBodyDto']),
+        }, initOverrides);
+
+        return new runtime.VoidApiResponse(response);
+    }
+
+    /**
+     * Calcula e atualiza os campos de variações de busca textual e dicas de busca para múltiplos lançamentos financeiros.
+     */
+    async systemCalculateAndUpdateTextSearchVariationsAndHints(requestParameters: SystemCalculateAndUpdateTextSearchVariationsAndHintsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+        await this.systemCalculateAndUpdateTextSearchVariationsAndHintsRaw(requestParameters, initOverrides);
     }
 
     /**

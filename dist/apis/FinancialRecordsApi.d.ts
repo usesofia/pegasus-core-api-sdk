@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { CreateFinancialRecordRequestBodyDto, CreateManyFinancialRecordsRequestBodyDto, FinancialRecordDto, FinancialRecordsPageDto, PartialUpdateFinancialRecordRequestBodyDto, PartialUpdateManyFinancialRecordsRequestBodyDto, RemoveFinancialRecordRequestBodyDto, SystemGenerateMostCommonContactsForSimilarFinancialRecordReportRequestBodyDto, SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDto } from '../models/index';
+import type { CreateFinancialRecordRequestBodyDto, CreateManyFinancialRecordsRequestBodyDto, FinancialRecordDto, FinancialRecordsPageDto, PartialUpdateFinancialRecordRequestBodyDto, PartialUpdateManyFinancialRecordsRequestBodyDto, RemoveFinancialRecordRequestBodyDto, SystemCalculateSearchVariationsRequestBodyDto, SystemGenerateMostCommonContactsForSimilarFinancialRecordReportRequestBodyDto, SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDto } from '../models/index';
 export interface CreateFinancialRecordRequest {
     createFinancialRecordRequestBodyDto: CreateFinancialRecordRequestBodyDto;
     populate?: string;
@@ -64,6 +64,9 @@ export interface PartialUpdateManyFinancialRecordsRequest {
 export interface RemoveFinancialRecordRequest {
     id: string;
     removeFinancialRecordRequestBodyDto: RemoveFinancialRecordRequestBodyDto;
+}
+export interface SystemCalculateAndUpdateTextSearchVariationsAndHintsRequest {
+    systemCalculateSearchVariationsRequestBodyDto: SystemCalculateSearchVariationsRequestBodyDto;
 }
 export interface SystemCreateManyFinancialRecordsRequest {
     organizationId: string;
@@ -248,6 +251,19 @@ export interface FinancialRecordsApiInterface {
     removeFinancialRecord(requestParameters: RemoveFinancialRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
     /**
      *
+     * @summary Calcula e atualiza os campos de variações de busca textual e dicas de busca para múltiplos lançamentos financeiros.
+     * @param {SystemCalculateSearchVariationsRequestBodyDto} systemCalculateSearchVariationsRequestBodyDto
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof FinancialRecordsApiInterface
+     */
+    systemCalculateAndUpdateTextSearchVariationsAndHintsRaw(requestParameters: SystemCalculateAndUpdateTextSearchVariationsAndHintsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
+    /**
+     * Calcula e atualiza os campos de variações de busca textual e dicas de busca para múltiplos lançamentos financeiros.
+     */
+    systemCalculateAndUpdateTextSearchVariationsAndHints(requestParameters: SystemCalculateAndUpdateTextSearchVariationsAndHintsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+    /**
+     *
      * @summary Cria múltiplos lançamentos financeiros.
      * @param {string} organizationId Identificador da organização.
      * @param {CreateManyFinancialRecordsRequestBodyDto} createManyFinancialRecordsRequestBodyDto
@@ -397,6 +413,14 @@ export declare class FinancialRecordsApi extends runtime.BaseAPI implements Fina
      * Remove um lançamento financeiro.
      */
     removeFinancialRecord(requestParameters: RemoveFinancialRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+    /**
+     * Calcula e atualiza os campos de variações de busca textual e dicas de busca para múltiplos lançamentos financeiros.
+     */
+    systemCalculateAndUpdateTextSearchVariationsAndHintsRaw(requestParameters: SystemCalculateAndUpdateTextSearchVariationsAndHintsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
+    /**
+     * Calcula e atualiza os campos de variações de busca textual e dicas de busca para múltiplos lançamentos financeiros.
+     */
+    systemCalculateAndUpdateTextSearchVariationsAndHints(requestParameters: SystemCalculateAndUpdateTextSearchVariationsAndHintsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
     /**
      * Cria múltiplos lançamentos financeiros.
      */

@@ -129,6 +129,30 @@ export interface PartialUpdateManyFinancialRecordsRequestBodyDtoData {
      */
     finesAndInterest?: string;
     /**
+     * Dicas de busca com nomes de contatos para facilitar buscas textuais.
+     * @type {string}
+     * @memberof PartialUpdateManyFinancialRecordsRequestBodyDtoData
+     */
+    contactHints?: string | null;
+    /**
+     * Dicas de busca com nomes de subcategorias/categorias para facilitar buscas textuais.
+     * @type {string}
+     * @memberof PartialUpdateManyFinancialRecordsRequestBodyDtoData
+     */
+    subcategoryHints?: string | null;
+    /**
+     * Dicas de busca com nomes e números de contas bancárias para facilitar buscas textuais.
+     * @type {string}
+     * @memberof PartialUpdateManyFinancialRecordsRequestBodyDtoData
+     */
+    bankAccountHints?: string | null;
+    /**
+     * Dicas de busca com nomes de tags para facilitar buscas textuais.
+     * @type {string}
+     * @memberof PartialUpdateManyFinancialRecordsRequestBodyDtoData
+     */
+    tagsHints?: string | null;
+    /**
      * Identificador do lançamento financeiro parcelado.
      * @type {string}
      * @memberof PartialUpdateManyFinancialRecordsRequestBodyDtoData
