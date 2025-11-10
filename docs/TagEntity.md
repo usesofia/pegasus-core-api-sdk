@@ -12,6 +12,8 @@ Name | Type
 `createdAt` | any
 `updatedAt` | any
 `searchScore` | number
+`importedAt` | any
+`importedBy` | string
 
 ## Example
 
@@ -26,6 +28,8 @@ const example = {
   "createdAt": null,
   "updatedAt": null,
   "searchScore": null,
+  "importedAt": null,
+  "importedBy": null,
 } satisfies TagEntity
 
 console.log(example)

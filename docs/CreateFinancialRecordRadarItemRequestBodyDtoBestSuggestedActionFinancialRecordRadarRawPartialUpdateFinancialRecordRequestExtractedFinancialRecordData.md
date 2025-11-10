@@ -38,6 +38,9 @@ Name | Type
 `populatedTags` | [Array&lt;CreateFinancialRecordRequestBodyDtoPopulatedTagsInner&gt;](CreateFinancialRecordRequestBodyDtoPopulatedTagsInner.md)
 `populatedAccount` | [CreateFinancialRecordRequestBodyDtoPopulatedAccount](CreateFinancialRecordRequestBodyDtoPopulatedAccount.md)
 `searchScore` | number
+`observations` | string
+`importedAt` | any
+`importedBy` | string
 `finalAmount` | number
 `radarItem` | string
 
@@ -80,6 +83,9 @@ const example = {
   "populatedTags": null,
   "populatedAccount": null,
   "searchScore": null,
+  "observations": null,
+  "importedAt": null,
+  "importedBy": null,
   "finalAmount": null,
   "radarItem": null,
 } satisfies CreateFinancialRecordRadarItemRequestBodyDtoBestSuggestedActionFinancialRecordRadarRawPartialUpdateFinancialRecordRequestExtractedFinancialRecordData

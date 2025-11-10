@@ -17,6 +17,8 @@ Name | Type
 `description` | string
 `active` | boolean
 `searchScore` | number
+`importedAt` | any
+`importedBy` | string
 `channel` | string
 
 ## Example
@@ -37,6 +39,8 @@ const example = {
   "description": null,
   "active": null,
   "searchScore": null,
+  "importedAt": null,
+  "importedBy": null,
   "channel": null,
 } satisfies ExternalCreateSubcategoryRequestBodyDto
 

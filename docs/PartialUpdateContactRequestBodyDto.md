@@ -17,6 +17,8 @@ Name | Type
 `origin` | string
 `address` | [CreateContactRequestBodyDtoAddress](CreateContactRequestBodyDtoAddress.md)
 `searchScore` | number
+`importedAt` | any
+`importedBy` | string
 `channel` | string
 
 ## Example
@@ -37,6 +39,8 @@ const example = {
   "origin": null,
   "address": null,
   "searchScore": null,
+  "importedAt": null,
+  "importedBy": null,
   "channel": null,
 } satisfies PartialUpdateContactRequestBodyDto
 

@@ -27,6 +27,8 @@ Name | Type
 `updatedAt` | any
 `populatedInstitution` | [CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitution](CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitution.md)
 `populatedAutomaticStatus` | [CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedAutomaticStatus](CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedAutomaticStatus.md)
+`importedAt` | any
+`importedBy` | string
 
 ## Example
 
@@ -56,6 +58,8 @@ const example = {
   "updatedAt": null,
   "populatedInstitution": null,
   "populatedAutomaticStatus": null,
+  "importedAt": null,
+  "importedBy": null,
 } satisfies BankAccountsPageDtoItemsInner
 
 console.log(example)

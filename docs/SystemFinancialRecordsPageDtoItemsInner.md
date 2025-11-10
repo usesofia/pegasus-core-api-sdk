@@ -50,6 +50,9 @@ Name | Type
 `populatedTags` | [Array&lt;CreateFinancialRecordRequestBodyDtoPopulatedTagsInner&gt;](CreateFinancialRecordRequestBodyDtoPopulatedTagsInner.md)
 `populatedAccount` | [CreateFinancialRecordRequestBodyDtoPopulatedAccount](CreateFinancialRecordRequestBodyDtoPopulatedAccount.md)
 `searchScore` | number
+`observations` | string
+`importedAt` | any
+`importedBy` | string
 
 ## Example
 
@@ -102,6 +105,9 @@ const example = {
   "populatedTags": null,
   "populatedAccount": null,
   "searchScore": null,
+  "observations": null,
+  "importedAt": null,
+  "importedBy": null,
 } satisfies SystemFinancialRecordsPageDtoItemsInner
 
 console.log(example)

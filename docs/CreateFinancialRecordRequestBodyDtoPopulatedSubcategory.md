@@ -22,6 +22,8 @@ Name | Type
 `searchScore` | number
 `createdAt` | any
 `updatedAt` | any
+`importedAt` | any
+`importedBy` | string
 
 ## Example
 
@@ -45,6 +47,8 @@ const example = {
   "searchScore": null,
   "createdAt": null,
   "updatedAt": null,
+  "importedAt": null,
+  "importedBy": null,
 } satisfies CreateFinancialRecordRequestBodyDtoPopulatedSubcategory
 
 console.log(example)

@@ -32,6 +32,8 @@ Name | Type
 `categoryId` | string
 `operationType` | string
 `searchScore` | number
+`importedAt` | any
+`importedBy` | string
 `requester` | [ProcessExportResourceJobRequestBodyDtoRequester](ProcessExportResourceJobRequestBodyDtoRequester.md)
 
 ## Example
@@ -67,6 +69,8 @@ const example = {
   "categoryId": null,
   "operationType": null,
   "searchScore": null,
+  "importedAt": null,
+  "importedBy": null,
   "requester": null,
 } satisfies CreateOrUpdateBankTransactionRequestBodyDto
 

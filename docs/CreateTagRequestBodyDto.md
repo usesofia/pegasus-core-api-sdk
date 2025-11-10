@@ -8,6 +8,8 @@ Name | Type
 ------------ | -------------
 `name` | string
 `searchScore` | number
+`importedAt` | any
+`importedBy` | string
 `channel` | string
 
 ## Example
@@ -19,6 +21,8 @@ import type { CreateTagRequestBodyDto } from '@usesofia/pegasus-core-api-sdk'
 const example = {
   "name": null,
   "searchScore": null,
+  "importedAt": null,
+  "importedBy": null,
   "channel": null,
 } satisfies CreateTagRequestBodyDto
 

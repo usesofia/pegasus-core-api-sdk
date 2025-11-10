@@ -8,6 +8,8 @@ Name | Type
 ------------ | -------------
 `name` | string
 `searchScore` | number
+`importedAt` | any
+`importedBy` | string
 `channel` | string
 
 ## Example
@@ -19,6 +21,8 @@ import type { PartialUpdateTagRequestBodyDto } from '@usesofia/pegasus-core-api-
 const example = {
   "name": null,
   "searchScore": null,
+  "importedAt": null,
+  "importedBy": null,
   "channel": null,
 } satisfies PartialUpdateTagRequestBodyDto
 

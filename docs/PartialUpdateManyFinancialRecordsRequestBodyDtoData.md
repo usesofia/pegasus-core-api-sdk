@@ -37,6 +37,9 @@ Name | Type
 `populatedTags` | [Array&lt;CreateFinancialRecordRequestBodyDtoPopulatedTagsInner&gt;](CreateFinancialRecordRequestBodyDtoPopulatedTagsInner.md)
 `populatedAccount` | [CreateFinancialRecordRequestBodyDtoPopulatedAccount](CreateFinancialRecordRequestBodyDtoPopulatedAccount.md)
 `searchScore` | number
+`observations` | string
+`importedAt` | any
+`importedBy` | string
 `radarItem` | string
 
 ## Example
@@ -77,6 +80,9 @@ const example = {
   "populatedTags": null,
   "populatedAccount": null,
   "searchScore": null,
+  "observations": null,
+  "importedAt": null,
+  "importedBy": null,
   "radarItem": null,
 } satisfies PartialUpdateManyFinancialRecordsRequestBodyDtoData
 

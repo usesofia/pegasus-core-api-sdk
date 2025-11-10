@@ -22,6 +22,8 @@ Name | Type
 `searchScore` | number
 `populatedInstitution` | [CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitution](CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitution.md)
 `populatedAutomaticStatus` | [CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedAutomaticStatus](CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedAutomaticStatus.md)
+`importedAt` | any
+`importedBy` | string
 `channel` | string
 
 ## Example
@@ -47,6 +49,8 @@ const example = {
   "searchScore": null,
   "populatedInstitution": null,
   "populatedAutomaticStatus": null,
+  "importedAt": null,
+  "importedBy": null,
   "channel": null,
 } satisfies CreateBankAccountRequestBodyDto
 
