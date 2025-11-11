@@ -16,6 +16,7 @@ All URIs are relative to *http://localhost*
 | [**systemFindAllFinancialRecords**](FinancialRecordsApi.md#systemfindallfinancialrecords) | **GET** /internal/financial-records | Busca todos os lançamentos financeiros pelo sistema. |
 | [**systemFindByIdFinancialRecord**](FinancialRecordsApi.md#systemfindbyidfinancialrecord) | **GET** /internal/organizations/{organizationId}/financial-records/{financialRecordId} | Busca um lançamento financeiro pelo identificador. |
 | [**systemGenerateMostCommonContactsAndSubcategoriesForSimilarFinancialRecordReport**](FinancialRecordsApi.md#systemgeneratemostcommoncontactsandsubcategoriesforsimilarfinancialrecordreport) | **POST** /internal/financial-records/system-generate-most-common-subcategories-for-similar-financial-record-report | Gera relatório dos contatos e subcategorias mais comuns para lançamentos financeiros similares. |
+| [**unlinkAllRadarItemsFromFinancialRecord**](FinancialRecordsApi.md#unlinkallradaritemsfromfinancialrecord) | **POST** /external/financial-records/{id}/unlink-all-radar-items | Desvincula todos os radar items de um lançamento financeiro |
 
 
 
@@ -1019,6 +1020,77 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** |  |  -  |
+| **0** |  |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## unlinkAllRadarItemsFromFinancialRecord
+
+> object unlinkAllRadarItemsFromFinancialRecord(id, unlinkAllRadarItemsRequestBodyDto)
+
+Desvincula todos os radar items de um lançamento financeiro
+
+Remove o vínculo entre um lançamento financeiro e todos os radar items que estão associados a ele.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  FinancialRecordsApi,
+} from '@usesofia/pegasus-core-api-sdk';
+import type { UnlinkAllRadarItemsFromFinancialRecordRequest } from '@usesofia/pegasus-core-api-sdk';
+
+async function example() {
+  console.log("🚀 Testing @usesofia/pegasus-core-api-sdk SDK...");
+  const api = new FinancialRecordsApi();
+
+  const body = {
+    // string | Identificador do lançamento financeiro.
+    id: id_example,
+    // UnlinkAllRadarItemsRequestBodyDto
+    unlinkAllRadarItemsRequestBodyDto: ...,
+  } satisfies UnlinkAllRadarItemsFromFinancialRecordRequest;
+
+  try {
+    const data = await api.unlinkAllRadarItemsFromFinancialRecord(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | `string` | Identificador do lançamento financeiro. | [Defaults to `undefined`] |
+| **unlinkAllRadarItemsRequestBodyDto** | [UnlinkAllRadarItemsRequestBodyDto](UnlinkAllRadarItemsRequestBodyDto.md) |  | |
+
+### Return type
+
+**object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Lançamento financeiro com os radar items desvinculados |  -  |
 | **0** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)

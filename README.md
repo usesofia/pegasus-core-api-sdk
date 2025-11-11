@@ -135,6 +135,7 @@ All URIs are relative to *http://localhost*
 *FinancialRecordsApi* | [**systemFindAllFinancialRecords**](docs/FinancialRecordsApi.md#systemfindallfinancialrecords) | **GET** /internal/financial-records | Busca todos os lançamentos financeiros pelo sistema.
 *FinancialRecordsApi* | [**systemFindByIdFinancialRecord**](docs/FinancialRecordsApi.md#systemfindbyidfinancialrecord) | **GET** /internal/organizations/{organizationId}/financial-records/{financialRecordId} | Busca um lançamento financeiro pelo identificador.
 *FinancialRecordsApi* | [**systemGenerateMostCommonContactsAndSubcategoriesForSimilarFinancialRecordReport**](docs/FinancialRecordsApi.md#systemgeneratemostcommoncontactsandsubcategoriesforsimilarfinancialrecordreport) | **POST** /internal/financial-records/system-generate-most-common-subcategories-for-similar-financial-record-report | Gera relatório dos contatos e subcategorias mais comuns para lançamentos financeiros similares.
+*FinancialRecordsApi* | [**unlinkAllRadarItemsFromFinancialRecord**](docs/FinancialRecordsApi.md#unlinkallradaritemsfromfinancialrecord) | **POST** /external/financial-records/{id}/unlink-all-radar-items | Desvincula todos os radar items de um lançamento financeiro
 *FinancialRecordsExportApi* | [**exportFinancialRecords**](docs/FinancialRecordsExportApi.md#exportfinancialrecords) | **POST** /external/financial-records/export | Solicita a exportação dos lançamentos financeiros.
 *HealthApi* | [**error**](docs/HealthApi.md#error) | **GET** /error | Gera um erro de teste.
 *HealthApi* | [**health**](docs/HealthApi.md#health) | **GET** / | Verifica o status do serviço.
@@ -417,6 +418,7 @@ All URIs are relative to *http://localhost*
 - [SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoSubcategoriesTopByTotalSearchScoreInner](docs/SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoSubcategoriesTopByTotalSearchScoreInner.md)
 - [TagEntity](docs/TagEntity.md)
 - [TagsPageEntity](docs/TagsPageEntity.md)
+- [UnlinkAllRadarItemsRequestBodyDto](docs/UnlinkAllRadarItemsRequestBodyDto.md)
 - [UnlinkFinancialRecordsRequestBodyDto](docs/UnlinkFinancialRecordsRequestBodyDto.md)
 - [UpdateFinancialRecordRadarItemAutoExecuteSettingsRequestBodyDto](docs/UpdateFinancialRecordRadarItemAutoExecuteSettingsRequestBodyDto.md)
 

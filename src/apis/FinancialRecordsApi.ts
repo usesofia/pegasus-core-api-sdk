@@ -27,6 +27,7 @@ import type {
   SystemFinancialRecordsPageDto,
   SystemGenerateMostCommonContactsForSimilarFinancialRecordReportRequestBodyDto,
   SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDto,
+  UnlinkAllRadarItemsRequestBodyDto,
 } from '../models/index';
 import {
     CreateFinancialRecordRequestBodyDtoFromJSON,
@@ -53,6 +54,8 @@ import {
     SystemGenerateMostCommonContactsForSimilarFinancialRecordReportRequestBodyDtoToJSON,
     SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoFromJSON,
     SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoToJSON,
+    UnlinkAllRadarItemsRequestBodyDtoFromJSON,
+    UnlinkAllRadarItemsRequestBodyDtoToJSON,
 } from '../models/index';
 
 export interface CreateFinancialRecordRequest {
@@ -172,6 +175,11 @@ export interface SystemGenerateMostCommonContactsAndSubcategoriesForSimilarFinan
     ownerOrganizationId: string;
     systemGenerateMostCommonContactsForSimilarFinancialRecordReportRequestBodyDto: SystemGenerateMostCommonContactsForSimilarFinancialRecordReportRequestBodyDto;
     readPreference?: SystemGenerateMostCommonContactsAndSubcategoriesForSimilarFinancialRecordReportReadPreferenceEnum;
+}
+
+export interface UnlinkAllRadarItemsFromFinancialRecordRequest {
+    id: string;
+    unlinkAllRadarItemsRequestBodyDto: UnlinkAllRadarItemsRequestBodyDto;
 }
 
 /**
@@ -431,6 +439,23 @@ export interface FinancialRecordsApiInterface {
      * Gera relatório dos contatos e subcategorias mais comuns para lançamentos financeiros similares.
      */
     systemGenerateMostCommonContactsAndSubcategoriesForSimilarFinancialRecordReport(requestParameters: SystemGenerateMostCommonContactsAndSubcategoriesForSimilarFinancialRecordReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDto>;
+
+    /**
+     * Remove o vínculo entre um lançamento financeiro e todos os radar items que estão associados a ele.
+     * @summary Desvincula todos os radar items de um lançamento financeiro
+     * @param {string} id Identificador do lançamento financeiro.
+     * @param {UnlinkAllRadarItemsRequestBodyDto} unlinkAllRadarItemsRequestBodyDto 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof FinancialRecordsApiInterface
+     */
+    unlinkAllRadarItemsFromFinancialRecordRaw(requestParameters: UnlinkAllRadarItemsFromFinancialRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<object>>;
+
+    /**
+     * Remove o vínculo entre um lançamento financeiro e todos os radar items que estão associados a ele.
+     * Desvincula todos os radar items de um lançamento financeiro
+     */
+    unlinkAllRadarItemsFromFinancialRecord(requestParameters: UnlinkAllRadarItemsFromFinancialRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<object>;
 
 }
 
@@ -1214,6 +1239,55 @@ export class FinancialRecordsApi extends runtime.BaseAPI implements FinancialRec
      */
     async systemGenerateMostCommonContactsAndSubcategoriesForSimilarFinancialRecordReport(requestParameters: SystemGenerateMostCommonContactsAndSubcategoriesForSimilarFinancialRecordReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDto> {
         const response = await this.systemGenerateMostCommonContactsAndSubcategoriesForSimilarFinancialRecordReportRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Remove o vínculo entre um lançamento financeiro e todos os radar items que estão associados a ele.
+     * Desvincula todos os radar items de um lançamento financeiro
+     */
+    async unlinkAllRadarItemsFromFinancialRecordRaw(requestParameters: UnlinkAllRadarItemsFromFinancialRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<object>> {
+        if (requestParameters['id'] == null) {
+            throw new runtime.RequiredError(
+                'id',
+                'Required parameter "id" was null or undefined when calling unlinkAllRadarItemsFromFinancialRecord().'
+            );
+        }
+
+        if (requestParameters['unlinkAllRadarItemsRequestBodyDto'] == null) {
+            throw new runtime.RequiredError(
+                'unlinkAllRadarItemsRequestBodyDto',
+                'Required parameter "unlinkAllRadarItemsRequestBodyDto" was null or undefined when calling unlinkAllRadarItemsFromFinancialRecord().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+
+        let urlPath = `/external/financial-records/{id}/unlink-all-radar-items`;
+        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: UnlinkAllRadarItemsRequestBodyDtoToJSON(requestParameters['unlinkAllRadarItemsRequestBodyDto']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse<any>(response);
+    }
+
+    /**
+     * Remove o vínculo entre um lançamento financeiro e todos os radar items que estão associados a ele.
+     * Desvincula todos os radar items de um lançamento financeiro
+     */
+    async unlinkAllRadarItemsFromFinancialRecord(requestParameters: UnlinkAllRadarItemsFromFinancialRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<object> {
+        const response = await this.unlinkAllRadarItemsFromFinancialRecordRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

@@ -265,6 +265,7 @@ docs/TagEntity.md
 docs/TagsApi.md
 docs/TagsExportApi.md
 docs/TagsPageEntity.md
+docs/UnlinkAllRadarItemsRequestBodyDto.md
 docs/UnlinkFinancialRecordsRequestBodyDto.md
 docs/UpdateFinancialRecordRadarItemAutoExecuteSettingsRequestBodyDto.md
 package.json
@@ -534,6 +535,7 @@ src/models/SystemGenerateMostCommonContactsForSimilarFinancialRecordReportRespon
 src/models/SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoSubcategoriesTopByTotalSearchScoreInner.ts
 src/models/TagEntity.ts
 src/models/TagsPageEntity.ts
+src/models/UnlinkAllRadarItemsRequestBodyDto.ts
 src/models/UnlinkFinancialRecordsRequestBodyDto.ts
 src/models/UpdateFinancialRecordRadarItemAutoExecuteSettingsRequestBodyDto.ts
 src/models/index.ts

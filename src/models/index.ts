@@ -226,5 +226,6 @@ export * from './SystemGenerateMostCommonContactsForSimilarFinancialRecordReport
 export * from './SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoSubcategoriesTopByTotalSearchScoreInner';
 export * from './TagEntity';
 export * from './TagsPageEntity';
+export * from './UnlinkAllRadarItemsRequestBodyDto';
 export * from './UnlinkFinancialRecordsRequestBodyDto';
 export * from './UpdateFinancialRecordRadarItemAutoExecuteSettingsRequestBodyDto';

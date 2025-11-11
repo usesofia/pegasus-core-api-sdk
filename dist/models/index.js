@@ -242,5 +242,6 @@ __exportStar(require("./SystemGenerateMostCommonContactsForSimilarFinancialRecor
 __exportStar(require("./SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoSubcategoriesTopByTotalSearchScoreInner"), exports);
 __exportStar(require("./TagEntity"), exports);
 __exportStar(require("./TagsPageEntity"), exports);
+__exportStar(require("./UnlinkAllRadarItemsRequestBodyDto"), exports);
 __exportStar(require("./UnlinkFinancialRecordsRequestBodyDto"), exports);
 __exportStar(require("./UpdateFinancialRecordRadarItemAutoExecuteSettingsRequestBodyDto"), exports);
