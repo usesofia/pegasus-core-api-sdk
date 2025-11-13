@@ -12,6 +12,7 @@
 import * as runtime from '../runtime';
 import type { NormalizedSubcategoriesPageEntity } from '../models/index';
 export interface FindAllNormalizedSubcategoriesRequest {
+    isInternalTransfer?: boolean;
     populate?: string;
     categoryId?: string;
     pageSize?: number;
@@ -27,6 +28,7 @@ export interface NormalizedSubcategoriesApiInterface {
     /**
      *
      * @summary Busca todas as subcategorias normalizadas.
+     * @param {boolean} [isInternalTransfer] Filtrar por subcategorias que são transferências internas.
      * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
      * @param {string} [categoryId] ID da categoria para filtrar subcategorias.
      * @param {number} [pageSize] Quantidade de itens por página.

@@ -13,6 +13,7 @@ Name | Type
 `category` | string
 `populatedCategory` | [CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedCategory](CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedCategory.md)
 `considerInDre` | boolean
+`isInternalTransfer` | boolean
 `description` | string
 `createdAt` | any
 `updatedAt` | any
@@ -31,6 +32,7 @@ const example = {
   "category": null,
   "populatedCategory": null,
   "considerInDre": null,
+  "isInternalTransfer": null,
   "description": null,
   "createdAt": null,
   "updatedAt": null,

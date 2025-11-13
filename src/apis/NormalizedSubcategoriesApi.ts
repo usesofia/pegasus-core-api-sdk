@@ -26,6 +26,7 @@ import {
 } from '../models/index';
 
 export interface FindAllNormalizedSubcategoriesRequest {
+    isInternalTransfer?: boolean;
     populate?: string;
     categoryId?: string;
     pageSize?: number;
@@ -42,6 +43,7 @@ export interface NormalizedSubcategoriesApiInterface {
     /**
      * 
      * @summary Busca todas as subcategorias normalizadas.
+     * @param {boolean} [isInternalTransfer] Filtrar por subcategorias que são transferências internas.
      * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
      * @param {string} [categoryId] ID da categoria para filtrar subcategorias.
      * @param {number} [pageSize] Quantidade de itens por página.
@@ -69,6 +71,10 @@ export class NormalizedSubcategoriesApi extends runtime.BaseAPI implements Norma
      */
     async findAllNormalizedSubcategoriesRaw(requestParameters: FindAllNormalizedSubcategoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<NormalizedSubcategoriesPageEntity>> {
         const queryParameters: any = {};
+
+        if (requestParameters['isInternalTransfer'] != null) {
+            queryParameters['isInternalTransfer'] = requestParameters['isInternalTransfer'];
+        }
 
         if (requestParameters['populate'] != null) {
             queryParameters['populate'] = requestParameters['populate'];

@@ -83,6 +83,12 @@ export interface ExternalCreateSubcategoryRequestBodyDto {
      */
     considerInDre: boolean;
     /**
+     * Indica se a subcategoria representa uma transferência interna.
+     * @type {boolean}
+     * @memberof ExternalCreateSubcategoryRequestBodyDto
+     */
+    isInternalTransfer?: boolean;
+    /**
      * Descrição da subcategoria.
      * @type {string}
      * @memberof ExternalCreateSubcategoryRequestBodyDto
@@ -165,6 +171,7 @@ export function ExternalCreateSubcategoryRequestBodyDtoFromJSONTyped(json: any, 
         'normalizedSubcategory': json['normalizedSubcategory'] == null ? undefined : json['normalizedSubcategory'],
         'populatedNormalizedSubcategory': json['populatedNormalizedSubcategory'] == null ? undefined : CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedNormalizedSubcategoryFromJSON(json['populatedNormalizedSubcategory']),
         'considerInDre': json['considerInDre'],
+        'isInternalTransfer': json['isInternalTransfer'] == null ? undefined : json['isInternalTransfer'],
         'description': json['description'],
         'active': json['active'] == null ? undefined : json['active'],
         'searchScore': json['searchScore'] == null ? undefined : json['searchScore'],
@@ -193,6 +200,7 @@ export function ExternalCreateSubcategoryRequestBodyDtoToJSONTyped(value?: Exter
         'normalizedSubcategory': value['normalizedSubcategory'],
         'populatedNormalizedSubcategory': CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedNormalizedSubcategoryToJSON(value['populatedNormalizedSubcategory']),
         'considerInDre': value['considerInDre'],
+        'isInternalTransfer': value['isInternalTransfer'],
         'description': value['description'],
         'active': value['active'],
         'searchScore': value['searchScore'],

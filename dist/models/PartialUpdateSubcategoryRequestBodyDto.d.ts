@@ -66,6 +66,12 @@ export interface PartialUpdateSubcategoryRequestBodyDto {
      */
     considerInDre?: boolean;
     /**
+     * Indica se a subcategoria representa uma transferência interna.
+     * @type {boolean}
+     * @memberof PartialUpdateSubcategoryRequestBodyDto
+     */
+    isInternalTransfer?: boolean;
+    /**
      * Descrição da subcategoria.
      * @type {string}
      * @memberof PartialUpdateSubcategoryRequestBodyDto

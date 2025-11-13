@@ -59,6 +59,12 @@ export interface CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulate
      */
     considerInDre: boolean;
     /**
+     * Indica se a subcategoria representa uma transferência interna.
+     * @type {boolean}
+     * @memberof CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedNormalizedSubcategory
+     */
+    isInternalTransfer?: boolean;
+    /**
      * Descrição da subcategoria.
      * @type {string}
      * @memberof CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedNormalizedSubcategory

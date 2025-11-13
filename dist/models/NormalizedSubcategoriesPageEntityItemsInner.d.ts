@@ -59,6 +59,12 @@ export interface NormalizedSubcategoriesPageEntityItemsInner {
      */
     considerInDre: boolean;
     /**
+     * Indica se a subcategoria representa uma transferência interna.
+     * @type {boolean}
+     * @memberof NormalizedSubcategoriesPageEntityItemsInner
+     */
+    isInternalTransfer?: boolean;
+    /**
      * Descrição da subcategoria.
      * @type {string}
      * @memberof NormalizedSubcategoriesPageEntityItemsInner

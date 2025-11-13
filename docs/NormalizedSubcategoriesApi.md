@@ -10,7 +10,7 @@ All URIs are relative to *http://localhost*
 
 ## findAllNormalizedSubcategories
 
-> NormalizedSubcategoriesPageEntity findAllNormalizedSubcategories(populate, categoryId, pageSize, pageIndex)
+> NormalizedSubcategoriesPageEntity findAllNormalizedSubcategories(isInternalTransfer, populate, categoryId, pageSize, pageIndex)
 
 Busca todas as subcategorias normalizadas.
 
@@ -28,6 +28,8 @@ async function example() {
   const api = new NormalizedSubcategoriesApi();
 
   const body = {
+    // boolean | Filtrar por subcategorias que são transferências internas. (optional)
+    isInternalTransfer: true,
     // string | Campos relacionados a serem populados separados por vírgula. (optional)
     populate: populate_example,
     // string | ID da categoria para filtrar subcategorias. (optional)
@@ -55,6 +57,7 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
+| **isInternalTransfer** | `boolean` | Filtrar por subcategorias que são transferências internas. | [Optional] [Defaults to `undefined`] |
 | **populate** | `string` | Campos relacionados a serem populados separados por vírgula. | [Optional] [Defaults to `undefined`] |
 | **categoryId** | `string` | ID da categoria para filtrar subcategorias. | [Optional] [Defaults to `undefined`] |
 | **pageSize** | `number` | Quantidade de itens por página. | [Optional] [Defaults to `undefined`] |

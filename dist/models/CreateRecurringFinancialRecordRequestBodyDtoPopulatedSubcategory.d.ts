@@ -78,6 +78,12 @@ export interface CreateRecurringFinancialRecordRequestBodyDtoPopulatedSubcategor
      */
     considerInDre: boolean;
     /**
+     * Indica se a subcategoria representa uma transferência interna.
+     * @type {boolean}
+     * @memberof CreateRecurringFinancialRecordRequestBodyDtoPopulatedSubcategory
+     */
+    isInternalTransfer?: boolean;
+    /**
      * Descrição da subcategoria.
      * @type {string}
      * @memberof CreateRecurringFinancialRecordRequestBodyDtoPopulatedSubcategory

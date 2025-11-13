@@ -16,6 +16,7 @@ Name | Type
 `normalizedSubcategory` | string
 `populatedNormalizedSubcategory` | [CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedNormalizedSubcategory](CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedNormalizedSubcategory.md)
 `considerInDre` | boolean
+`isInternalTransfer` | boolean
 `description` | string
 `active` | boolean
 `searchScore` | number
@@ -41,6 +42,7 @@ const example = {
   "normalizedSubcategory": null,
   "populatedNormalizedSubcategory": null,
   "considerInDre": null,
+  "isInternalTransfer": null,
   "description": null,
   "active": null,
   "searchScore": null,

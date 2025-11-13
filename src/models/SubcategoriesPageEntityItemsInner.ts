@@ -95,6 +95,12 @@ export interface SubcategoriesPageEntityItemsInner {
      */
     considerInDre: boolean;
     /**
+     * Indica se a subcategoria representa uma transferência interna.
+     * @type {boolean}
+     * @memberof SubcategoriesPageEntityItemsInner
+     */
+    isInternalTransfer?: boolean;
+    /**
      * Descrição da subcategoria.
      * @type {string}
      * @memberof SubcategoriesPageEntityItemsInner
@@ -175,6 +181,7 @@ export function SubcategoriesPageEntityItemsInnerFromJSONTyped(json: any, ignore
         'normalizedSubcategory': json['normalizedSubcategory'] == null ? undefined : json['normalizedSubcategory'],
         'populatedNormalizedSubcategory': json['populatedNormalizedSubcategory'] == null ? undefined : CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedNormalizedSubcategoryFromJSON(json['populatedNormalizedSubcategory']),
         'considerInDre': json['considerInDre'],
+        'isInternalTransfer': json['isInternalTransfer'] == null ? undefined : json['isInternalTransfer'],
         'description': json['description'],
         'active': json['active'] == null ? undefined : json['active'],
         'searchScore': json['searchScore'] == null ? undefined : json['searchScore'],
@@ -206,6 +213,7 @@ export function SubcategoriesPageEntityItemsInnerToJSONTyped(value?: Subcategori
         'normalizedSubcategory': value['normalizedSubcategory'],
         'populatedNormalizedSubcategory': CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedNormalizedSubcategoryToJSON(value['populatedNormalizedSubcategory']),
         'considerInDre': value['considerInDre'],
+        'isInternalTransfer': value['isInternalTransfer'],
         'description': value['description'],
         'active': value['active'],
         'searchScore': value['searchScore'],

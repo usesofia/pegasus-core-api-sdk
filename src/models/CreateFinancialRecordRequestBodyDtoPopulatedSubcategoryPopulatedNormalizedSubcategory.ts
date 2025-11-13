@@ -70,6 +70,12 @@ export interface CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulate
      */
     considerInDre: boolean;
     /**
+     * Indica se a subcategoria representa uma transferência interna.
+     * @type {boolean}
+     * @memberof CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedNormalizedSubcategory
+     */
+    isInternalTransfer?: boolean;
+    /**
      * Descrição da subcategoria.
      * @type {string}
      * @memberof CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedNormalizedSubcategory
@@ -122,6 +128,7 @@ export function CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulated
         'category': json['category'],
         'populatedCategory': json['populatedCategory'] == null ? undefined : CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedCategoryFromJSON(json['populatedCategory']),
         'considerInDre': json['considerInDre'],
+        'isInternalTransfer': json['isInternalTransfer'] == null ? undefined : json['isInternalTransfer'],
         'description': json['description'],
         'createdAt': json['createdAt'],
         'updatedAt': json['updatedAt'],
@@ -146,6 +153,7 @@ export function CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulated
         'category': value['category'],
         'populatedCategory': CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedCategoryToJSON(value['populatedCategory']),
         'considerInDre': value['considerInDre'],
+        'isInternalTransfer': value['isInternalTransfer'],
         'description': value['description'],
         'createdAt': value['createdAt'],
         'updatedAt': value['updatedAt'],
