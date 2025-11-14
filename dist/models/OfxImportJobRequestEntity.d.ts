@@ -93,6 +93,12 @@ export interface OfxImportJobRequestEntity {
      * @memberof OfxImportJobRequestEntity
      */
     deletedAt: any | null;
+    /**
+     * Pontuação de busca da solicitação de importação.
+     * @type {number}
+     * @memberof OfxImportJobRequestEntity
+     */
+    searchScore?: number | null;
 }
 /**
  * Check if a given object implements the OfxImportJobRequestEntity interface.

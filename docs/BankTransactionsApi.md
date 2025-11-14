@@ -227,7 +227,7 @@ No authorization required
 
 ## findAllBankTransactions
 
-> BankTransactionsPageDto findAllBankTransactions(populate, sortOrder, sortBy, ignored, origin, reconciled, type, dateTo, dateFrom, bankAccount, semanticSearchTermInBase64, textSearchTerm, pageSize, pageIndex)
+> BankTransactionsPageDto findAllBankTransactions(populate, sortOrder, sortBy, ofxImportJobRequestIds, ignored, origin, reconciled, type, dateTo, dateFrom, bankAccount, semanticSearchTermInBase64, textSearchTerm, pageSize, pageIndex)
 
 Busca todas as movimentações financeiras.
 
@@ -251,6 +251,8 @@ async function example() {
     sortOrder: sortOrder_example,
     // 'date' | 'amountInBrl' | 'description' | 'createdAt' | 'reconciled' | Campo para ordenação (optional)
     sortBy: sortBy_example,
+    // string | IDs dos jobs de importação OFX separados por vírgula para filtrar. (optional)
+    ofxImportJobRequestIds: ofxImportJobRequestIds_example,
     // boolean | Filtrar por transações ignoradas/arquivadas. (true/false) (optional)
     ignored: true,
     // 'AUTOMATIC_INTEGRATION' | 'MANUAL_OFX_IMPORT' | Filtrar pela origem da transação. (optional)
@@ -295,6 +297,7 @@ example().catch(console.error);
 | **populate** | `string` | Campos relacionados a serem populados separados por vírgula. | [Optional] [Defaults to `undefined`] |
 | **sortOrder** | `asc`, `desc` | Ordem da ordenação. Valores possíveis: \&#39;asc\&#39;, \&#39;desc\&#39;. | [Optional] [Defaults to `undefined`] [Enum: asc, desc] |
 | **sortBy** | `date`, `amountInBrl`, `description`, `createdAt`, `reconciled` | Campo para ordenação | [Optional] [Defaults to `undefined`] [Enum: date, amountInBrl, description, createdAt, reconciled] |
+| **ofxImportJobRequestIds** | `string` | IDs dos jobs de importação OFX separados por vírgula para filtrar. | [Optional] [Defaults to `undefined`] |
 | **ignored** | `boolean` | Filtrar por transações ignoradas/arquivadas. (true/false) | [Optional] [Defaults to `undefined`] |
 | **origin** | `AUTOMATIC_INTEGRATION`, `MANUAL_OFX_IMPORT` | Filtrar pela origem da transação. | [Optional] [Defaults to `undefined`] [Enum: AUTOMATIC_INTEGRATION, MANUAL_OFX_IMPORT] |
 | **reconciled** | `boolean` | Filtrar por transações reconciliadas. (true/false) | [Optional] [Defaults to `undefined`] |
@@ -332,7 +335,7 @@ No authorization required
 
 ## findAllOfxImportJobRequests
 
-> OfxImportJobRequestsPageDto findAllOfxImportJobRequests(sortOrder, sortBy, pageSize, pageIndex)
+> OfxImportJobRequestsPageDto findAllOfxImportJobRequests(bankAccountIds, textSearchTerm, sortOrder, sortBy, pageSize, pageIndex)
 
 Lista todas as solicitações de importação de arquivos OFX com suas execuções.
 
@@ -350,6 +353,10 @@ async function example() {
   const api = new BankTransactionsApi();
 
   const body = {
+    // Array<string> | Lista de IDs de contas bancárias para filtrar as solicitações de importação. (optional)
+    bankAccountIds: ...,
+    // string | Termo de busca textual para filtrar por nome do arquivo ou nome da conta bancária. (optional)
+    textSearchTerm: textSearchTerm_example,
     // 'asc' | 'desc' | Ordem da ordenação. Valores possíveis: \'asc\', \'desc\'. (optional)
     sortOrder: sortOrder_example,
     // 'createdAt' | 'fileName' | 'bankAccountName' | Campo para ordenação. Valores possíveis: \'createdAt\', \'fileName\', \'bankAccountName\'. (optional)
@@ -377,6 +384,8 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
+| **bankAccountIds** | `Array<string>` | Lista de IDs de contas bancárias para filtrar as solicitações de importação. | [Optional] |
+| **textSearchTerm** | `string` | Termo de busca textual para filtrar por nome do arquivo ou nome da conta bancária. | [Optional] [Defaults to `undefined`] |
 | **sortOrder** | `asc`, `desc` | Ordem da ordenação. Valores possíveis: \&#39;asc\&#39;, \&#39;desc\&#39;. | [Optional] [Defaults to `undefined`] [Enum: asc, desc] |
 | **sortBy** | `createdAt`, `fileName`, `bankAccountName` | Campo para ordenação. Valores possíveis: \&#39;createdAt\&#39;, \&#39;fileName\&#39;, \&#39;bankAccountName\&#39;. | [Optional] [Defaults to `undefined`] [Enum: createdAt, fileName, bankAccountName] |
 | **pageSize** | `number` | Quantidade de itens por página. | [Optional] [Defaults to `undefined`] |
@@ -947,7 +956,7 @@ No authorization required
 
 ## systemFindAllBankTransactions
 
-> BankTransactionsPageDto systemFindAllBankTransactions(ownerOrganizationId, populate, sortOrder, sortBy, ignored, origin, reconciled, type, dateTo, dateFrom, bankAccount, semanticSearchTermInBase64, textSearchTerm, pageSize, pageIndex)
+> BankTransactionsPageDto systemFindAllBankTransactions(ownerOrganizationId, populate, sortOrder, sortBy, ofxImportJobRequestIds, ignored, origin, reconciled, type, dateTo, dateFrom, bankAccount, semanticSearchTermInBase64, textSearchTerm, pageSize, pageIndex)
 
 Busca todas as movimentações financeiras pelo sistema.
 
@@ -973,6 +982,8 @@ async function example() {
     sortOrder: sortOrder_example,
     // 'date' | 'amountInBrl' | 'description' | 'createdAt' | 'reconciled' | Campo para ordenação (optional)
     sortBy: sortBy_example,
+    // string | IDs dos jobs de importação OFX separados por vírgula para filtrar. (optional)
+    ofxImportJobRequestIds: ofxImportJobRequestIds_example,
     // boolean | Filtrar por transações ignoradas/arquivadas. (true/false) (optional)
     ignored: true,
     // 'AUTOMATIC_INTEGRATION' | 'MANUAL_OFX_IMPORT' | Filtrar pela origem da transação. (optional)
@@ -1018,6 +1029,7 @@ example().catch(console.error);
 | **populate** | `string` | Campos relacionados a serem populados separados por vírgula. | [Optional] [Defaults to `undefined`] |
 | **sortOrder** | `asc`, `desc` | Ordem da ordenação. Valores possíveis: \&#39;asc\&#39;, \&#39;desc\&#39;. | [Optional] [Defaults to `undefined`] [Enum: asc, desc] |
 | **sortBy** | `date`, `amountInBrl`, `description`, `createdAt`, `reconciled` | Campo para ordenação | [Optional] [Defaults to `undefined`] [Enum: date, amountInBrl, description, createdAt, reconciled] |
+| **ofxImportJobRequestIds** | `string` | IDs dos jobs de importação OFX separados por vírgula para filtrar. | [Optional] [Defaults to `undefined`] |
 | **ignored** | `boolean` | Filtrar por transações ignoradas/arquivadas. (true/false) | [Optional] [Defaults to `undefined`] |
 | **origin** | `AUTOMATIC_INTEGRATION`, `MANUAL_OFX_IMPORT` | Filtrar pela origem da transação. | [Optional] [Defaults to `undefined`] [Enum: AUTOMATIC_INTEGRATION, MANUAL_OFX_IMPORT] |
 | **reconciled** | `boolean` | Filtrar por transações reconciliadas. (true/false) | [Optional] [Defaults to `undefined`] |
@@ -1124,7 +1136,7 @@ No authorization required
 
 ## systemOrganizationFindAllBankTransactions
 
-> BankTransactionsPageDto systemOrganizationFindAllBankTransactions(organizationId, populate, sortOrder, sortBy, ignored, origin, reconciled, type, dateTo, dateFrom, bankAccount, semanticSearchTermInBase64, textSearchTerm, pageSize, pageIndex)
+> BankTransactionsPageDto systemOrganizationFindAllBankTransactions(organizationId, populate, sortOrder, sortBy, ofxImportJobRequestIds, ignored, origin, reconciled, type, dateTo, dateFrom, bankAccount, semanticSearchTermInBase64, textSearchTerm, pageSize, pageIndex)
 
 Busca todas as movimentações financeiras pelo sistema (por organização).
 
@@ -1150,6 +1162,8 @@ async function example() {
     sortOrder: sortOrder_example,
     // 'date' | 'amountInBrl' | 'description' | 'createdAt' | 'reconciled' | Campo para ordenação (optional)
     sortBy: sortBy_example,
+    // string | IDs dos jobs de importação OFX separados por vírgula para filtrar. (optional)
+    ofxImportJobRequestIds: ofxImportJobRequestIds_example,
     // boolean | Filtrar por transações ignoradas/arquivadas. (true/false) (optional)
     ignored: true,
     // 'AUTOMATIC_INTEGRATION' | 'MANUAL_OFX_IMPORT' | Filtrar pela origem da transação. (optional)
@@ -1195,6 +1209,7 @@ example().catch(console.error);
 | **populate** | `string` | Campos relacionados a serem populados separados por vírgula. | [Optional] [Defaults to `undefined`] |
 | **sortOrder** | `asc`, `desc` | Ordem da ordenação. Valores possíveis: \&#39;asc\&#39;, \&#39;desc\&#39;. | [Optional] [Defaults to `undefined`] [Enum: asc, desc] |
 | **sortBy** | `date`, `amountInBrl`, `description`, `createdAt`, `reconciled` | Campo para ordenação | [Optional] [Defaults to `undefined`] [Enum: date, amountInBrl, description, createdAt, reconciled] |
+| **ofxImportJobRequestIds** | `string` | IDs dos jobs de importação OFX separados por vírgula para filtrar. | [Optional] [Defaults to `undefined`] |
 | **ignored** | `boolean` | Filtrar por transações ignoradas/arquivadas. (true/false) | [Optional] [Defaults to `undefined`] |
 | **origin** | `AUTOMATIC_INTEGRATION`, `MANUAL_OFX_IMPORT` | Filtrar pela origem da transação. | [Optional] [Defaults to `undefined`] [Enum: AUTOMATIC_INTEGRATION, MANUAL_OFX_IMPORT] |
 | **reconciled** | `boolean` | Filtrar por transações reconciliadas. (true/false) | [Optional] [Defaults to `undefined`] |

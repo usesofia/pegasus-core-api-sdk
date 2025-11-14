@@ -237,6 +237,9 @@ var BankTransactionsApi = /** @class */ (function (_super) {
                         if (requestParameters['sortBy'] != null) {
                             queryParameters['sortBy'] = requestParameters['sortBy'];
                         }
+                        if (requestParameters['ofxImportJobRequestIds'] != null) {
+                            queryParameters['ofxImportJobRequestIds'] = requestParameters['ofxImportJobRequestIds'];
+                        }
                         if (requestParameters['ignored'] != null) {
                             queryParameters['ignored'] = requestParameters['ignored'];
                         }
@@ -313,6 +316,12 @@ var BankTransactionsApi = /** @class */ (function (_super) {
                 switch (_a.label) {
                     case 0:
                         queryParameters = {};
+                        if (requestParameters['bankAccountIds'] != null) {
+                            queryParameters['bankAccountIds'] = requestParameters['bankAccountIds'];
+                        }
+                        if (requestParameters['textSearchTerm'] != null) {
+                            queryParameters['textSearchTerm'] = requestParameters['textSearchTerm'];
+                        }
                         if (requestParameters['sortOrder'] != null) {
                             queryParameters['sortOrder'] = requestParameters['sortOrder'];
                         }
@@ -766,6 +775,9 @@ var BankTransactionsApi = /** @class */ (function (_super) {
                         if (requestParameters['sortBy'] != null) {
                             queryParameters['sortBy'] = requestParameters['sortBy'];
                         }
+                        if (requestParameters['ofxImportJobRequestIds'] != null) {
+                            queryParameters['ofxImportJobRequestIds'] = requestParameters['ofxImportJobRequestIds'];
+                        }
                         if (requestParameters['ignored'] != null) {
                             queryParameters['ignored'] = requestParameters['ignored'];
                         }
@@ -901,6 +913,9 @@ var BankTransactionsApi = /** @class */ (function (_super) {
                         }
                         if (requestParameters['sortBy'] != null) {
                             queryParameters['sortBy'] = requestParameters['sortBy'];
+                        }
+                        if (requestParameters['ofxImportJobRequestIds'] != null) {
+                            queryParameters['ofxImportJobRequestIds'] = requestParameters['ofxImportJobRequestIds'];
                         }
                         if (requestParameters['ignored'] != null) {
                             queryParameters['ignored'] = requestParameters['ignored'];

@@ -63,6 +63,7 @@ function OfxImportJobRequestEntityFromJSONTyped(json, ignoreDiscriminator) {
         'createdAt': json['createdAt'],
         'updatedAt': json['updatedAt'],
         'deletedAt': json['deletedAt'],
+        'searchScore': json['searchScore'] == null ? undefined : json['searchScore'],
     };
 }
 function OfxImportJobRequestEntityToJSON(json) {
@@ -87,5 +88,6 @@ function OfxImportJobRequestEntityToJSONTyped(value, ignoreDiscriminator) {
         'createdAt': value['createdAt'],
         'updatedAt': value['updatedAt'],
         'deletedAt': value['deletedAt'],
+        'searchScore': value['searchScore'],
     };
 }

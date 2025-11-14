@@ -97,6 +97,12 @@ export interface OfxImportJobRequestEntity {
      * @memberof OfxImportJobRequestEntity
      */
     deletedAt: any | null;
+    /**
+     * Pontuação de busca da solicitação de importação.
+     * @type {number}
+     * @memberof OfxImportJobRequestEntity
+     */
+    searchScore?: number | null;
 }
 
 /**
@@ -138,6 +144,7 @@ export function OfxImportJobRequestEntityFromJSONTyped(json: any, ignoreDiscrimi
         'createdAt': json['createdAt'],
         'updatedAt': json['updatedAt'],
         'deletedAt': json['deletedAt'],
+        'searchScore': json['searchScore'] == null ? undefined : json['searchScore'],
     };
 }
 
@@ -165,6 +172,7 @@ export function OfxImportJobRequestEntityToJSONTyped(value?: OfxImportJobRequest
         'createdAt': value['createdAt'],
         'updatedAt': value['updatedAt'],
         'deletedAt': value['deletedAt'],
+        'searchScore': value['searchScore'],
     };
 }
 

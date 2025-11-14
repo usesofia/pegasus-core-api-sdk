@@ -84,6 +84,7 @@ export interface FindAllBankTransactionsRequest {
     populate?: string;
     sortOrder?: FindAllBankTransactionsSortOrderEnum;
     sortBy?: FindAllBankTransactionsSortByEnum;
+    ofxImportJobRequestIds?: string;
     ignored?: boolean;
     origin?: FindAllBankTransactionsOriginEnum;
     reconciled?: boolean;
@@ -98,6 +99,8 @@ export interface FindAllBankTransactionsRequest {
 }
 
 export interface FindAllOfxImportJobRequestsRequest {
+    bankAccountIds?: Array<string>;
+    textSearchTerm?: string;
     sortOrder?: FindAllOfxImportJobRequestsSortOrderEnum;
     sortBy?: FindAllOfxImportJobRequestsSortByEnum;
     pageSize?: number;
@@ -145,6 +148,7 @@ export interface SystemFindAllBankTransactionsRequest {
     populate?: string;
     sortOrder?: SystemFindAllBankTransactionsSortOrderEnum;
     sortBy?: SystemFindAllBankTransactionsSortByEnum;
+    ofxImportJobRequestIds?: string;
     ignored?: boolean;
     origin?: SystemFindAllBankTransactionsOriginEnum;
     reconciled?: boolean;
@@ -168,6 +172,7 @@ export interface SystemOrganizationFindAllBankTransactionsRequest {
     populate?: string;
     sortOrder?: SystemOrganizationFindAllBankTransactionsSortOrderEnum;
     sortBy?: SystemOrganizationFindAllBankTransactionsSortByEnum;
+    ofxImportJobRequestIds?: string;
     ignored?: boolean;
     origin?: SystemOrganizationFindAllBankTransactionsOriginEnum;
     reconciled?: boolean;
@@ -244,6 +249,7 @@ export interface BankTransactionsApiInterface {
      * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
      * @param {'asc' | 'desc'} [sortOrder] Ordem da ordenação. Valores possíveis: \&#39;asc\&#39;, \&#39;desc\&#39;.
      * @param {'date' | 'amountInBrl' | 'description' | 'createdAt' | 'reconciled'} [sortBy] Campo para ordenação
+     * @param {string} [ofxImportJobRequestIds] IDs dos jobs de importação OFX separados por vírgula para filtrar.
      * @param {boolean} [ignored] Filtrar por transações ignoradas/arquivadas. (true/false)
      * @param {'AUTOMATIC_INTEGRATION' | 'MANUAL_OFX_IMPORT'} [origin] Filtrar pela origem da transação.
      * @param {boolean} [reconciled] Filtrar por transações reconciliadas. (true/false)
@@ -269,6 +275,8 @@ export interface BankTransactionsApiInterface {
     /**
      * 
      * @summary Lista todas as solicitações de importação de arquivos OFX com suas execuções.
+     * @param {Array<string>} [bankAccountIds] Lista de IDs de contas bancárias para filtrar as solicitações de importação.
+     * @param {string} [textSearchTerm] Termo de busca textual para filtrar por nome do arquivo ou nome da conta bancária.
      * @param {'asc' | 'desc'} [sortOrder] Ordem da ordenação. Valores possíveis: \&#39;asc\&#39;, \&#39;desc\&#39;.
      * @param {'createdAt' | 'fileName' | 'bankAccountName'} [sortBy] Campo para ordenação. Valores possíveis: \&#39;createdAt\&#39;, \&#39;fileName\&#39;, \&#39;bankAccountName\&#39;.
      * @param {number} [pageSize] Quantidade de itens por página.
@@ -415,6 +423,7 @@ export interface BankTransactionsApiInterface {
      * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
      * @param {'asc' | 'desc'} [sortOrder] Ordem da ordenação. Valores possíveis: \&#39;asc\&#39;, \&#39;desc\&#39;.
      * @param {'date' | 'amountInBrl' | 'description' | 'createdAt' | 'reconciled'} [sortBy] Campo para ordenação
+     * @param {string} [ofxImportJobRequestIds] IDs dos jobs de importação OFX separados por vírgula para filtrar.
      * @param {boolean} [ignored] Filtrar por transações ignoradas/arquivadas. (true/false)
      * @param {'AUTOMATIC_INTEGRATION' | 'MANUAL_OFX_IMPORT'} [origin] Filtrar pela origem da transação.
      * @param {boolean} [reconciled] Filtrar por transações reconciliadas. (true/false)
@@ -460,6 +469,7 @@ export interface BankTransactionsApiInterface {
      * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
      * @param {'asc' | 'desc'} [sortOrder] Ordem da ordenação. Valores possíveis: \&#39;asc\&#39;, \&#39;desc\&#39;.
      * @param {'date' | 'amountInBrl' | 'description' | 'createdAt' | 'reconciled'} [sortBy] Campo para ordenação
+     * @param {string} [ofxImportJobRequestIds] IDs dos jobs de importação OFX separados por vírgula para filtrar.
      * @param {boolean} [ignored] Filtrar por transações ignoradas/arquivadas. (true/false)
      * @param {'AUTOMATIC_INTEGRATION' | 'MANUAL_OFX_IMPORT'} [origin] Filtrar pela origem da transação.
      * @param {boolean} [reconciled] Filtrar por transações reconciliadas. (true/false)
@@ -641,6 +651,10 @@ export class BankTransactionsApi extends runtime.BaseAPI implements BankTransact
             queryParameters['sortBy'] = requestParameters['sortBy'];
         }
 
+        if (requestParameters['ofxImportJobRequestIds'] != null) {
+            queryParameters['ofxImportJobRequestIds'] = requestParameters['ofxImportJobRequestIds'];
+        }
+
         if (requestParameters['ignored'] != null) {
             queryParameters['ignored'] = requestParameters['ignored'];
         }
@@ -713,6 +727,14 @@ export class BankTransactionsApi extends runtime.BaseAPI implements BankTransact
      */
     async findAllOfxImportJobRequestsRaw(requestParameters: FindAllOfxImportJobRequestsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<OfxImportJobRequestsPageDto>> {
         const queryParameters: any = {};
+
+        if (requestParameters['bankAccountIds'] != null) {
+            queryParameters['bankAccountIds'] = requestParameters['bankAccountIds'];
+        }
+
+        if (requestParameters['textSearchTerm'] != null) {
+            queryParameters['textSearchTerm'] = requestParameters['textSearchTerm'];
+        }
 
         if (requestParameters['sortOrder'] != null) {
             queryParameters['sortOrder'] = requestParameters['sortOrder'];
@@ -1113,6 +1135,10 @@ export class BankTransactionsApi extends runtime.BaseAPI implements BankTransact
             queryParameters['sortBy'] = requestParameters['sortBy'];
         }
 
+        if (requestParameters['ofxImportJobRequestIds'] != null) {
+            queryParameters['ofxImportJobRequestIds'] = requestParameters['ofxImportJobRequestIds'];
+        }
+
         if (requestParameters['ignored'] != null) {
             queryParameters['ignored'] = requestParameters['ignored'];
         }
@@ -1244,6 +1270,10 @@ export class BankTransactionsApi extends runtime.BaseAPI implements BankTransact
 
         if (requestParameters['sortBy'] != null) {
             queryParameters['sortBy'] = requestParameters['sortBy'];
+        }
+
+        if (requestParameters['ofxImportJobRequestIds'] != null) {
+            queryParameters['ofxImportJobRequestIds'] = requestParameters['ofxImportJobRequestIds'];
         }
 
         if (requestParameters['ignored'] != null) {

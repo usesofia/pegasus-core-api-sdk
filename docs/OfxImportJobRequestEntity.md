@@ -19,6 +19,7 @@ Name | Type
 `createdAt` | any
 `updatedAt` | any
 `deletedAt` | any
+`searchScore` | number
 
 ## Example
 
@@ -40,6 +41,7 @@ const example = {
   "createdAt": null,
   "updatedAt": null,
   "deletedAt": null,
+  "searchScore": null,
 } satisfies OfxImportJobRequestEntity
 
 console.log(example)
