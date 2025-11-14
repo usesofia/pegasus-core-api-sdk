@@ -54,6 +54,7 @@ export interface CreateFinancialRecordRadarItemRequest {
 }
 
 export interface FindAllFinancialRecordRadarItemsRequest {
+    links?: string;
     sortOrder?: string;
     sortBy?: string;
     hasAutoExecute?: boolean;
@@ -140,6 +141,7 @@ export interface FinancialRecordRadarItemsApiInterface {
     /**
      * 
      * @summary Busca todos os registros do radar.
+     * @param {string} [links] Lista de IDs de registros financeiros para filtrar.
      * @param {string} [sortOrder] Ordem de ordenação.
      * @param {string} [sortBy] Campo de ordenação.
      * @param {boolean} [hasAutoExecute] Se possui auto-execute.
@@ -352,6 +354,10 @@ export class FinancialRecordRadarItemsApi extends runtime.BaseAPI implements Fin
      */
     async findAllFinancialRecordRadarItemsRaw(requestParameters: FindAllFinancialRecordRadarItemsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FinancialRecordRadarItemsPageDto>> {
         const queryParameters: any = {};
+
+        if (requestParameters['links'] != null) {
+            queryParameters['links'] = requestParameters['links'];
+        }
 
         if (requestParameters['sortOrder'] != null) {
             queryParameters['sortOrder'] = requestParameters['sortOrder'];

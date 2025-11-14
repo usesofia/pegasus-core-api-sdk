@@ -85,7 +85,7 @@ No authorization required
 
 ## findAllFinancialRecordRadarItems
 
-> FinancialRecordRadarItemsPageDto findAllFinancialRecordRadarItems(sortOrder, sortBy, hasAutoExecute, populate, nature, origin, status, folder, pageSize, pageIndex)
+> FinancialRecordRadarItemsPageDto findAllFinancialRecordRadarItems(links, sortOrder, sortBy, hasAutoExecute, populate, nature, origin, status, folder, pageSize, pageIndex)
 
 Busca todos os registros do radar.
 
@@ -103,6 +103,8 @@ async function example() {
   const api = new FinancialRecordRadarItemsApi();
 
   const body = {
+    // string | Lista de IDs de registros financeiros para filtrar. (optional)
+    links: links_example,
     // string | Ordem de ordenação. (optional)
     sortOrder: sortOrder_example,
     // string | Campo de ordenação. (optional)
@@ -142,6 +144,7 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
+| **links** | `string` | Lista de IDs de registros financeiros para filtrar. | [Optional] [Defaults to `undefined`] |
 | **sortOrder** | `string` | Ordem de ordenação. | [Optional] [Defaults to `undefined`] |
 | **sortBy** | `string` | Campo de ordenação. | [Optional] [Defaults to `undefined`] |
 | **hasAutoExecute** | `boolean` | Se possui auto-execute. | [Optional] [Defaults to `undefined`] |

@@ -132,6 +132,9 @@ var FinancialRecordRadarItemsApi = /** @class */ (function (_super) {
                 switch (_a.label) {
                     case 0:
                         queryParameters = {};
+                        if (requestParameters['links'] != null) {
+                            queryParameters['links'] = requestParameters['links'];
+                        }
                         if (requestParameters['sortOrder'] != null) {
                             queryParameters['sortOrder'] = requestParameters['sortOrder'];
                         }

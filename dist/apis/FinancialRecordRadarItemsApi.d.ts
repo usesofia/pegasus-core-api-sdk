@@ -15,6 +15,7 @@ export interface CreateFinancialRecordRadarItemRequest {
     createFinancialRecordRadarItemRequestBodyDto: CreateFinancialRecordRadarItemRequestBodyDto;
 }
 export interface FindAllFinancialRecordRadarItemsRequest {
+    links?: string;
     sortOrder?: string;
     sortBy?: string;
     hasAutoExecute?: boolean;
@@ -90,6 +91,7 @@ export interface FinancialRecordRadarItemsApiInterface {
     /**
      *
      * @summary Busca todos os registros do radar.
+     * @param {string} [links] Lista de IDs de registros financeiros para filtrar.
      * @param {string} [sortOrder] Ordem de ordenação.
      * @param {string} [sortBy] Campo de ordenação.
      * @param {boolean} [hasAutoExecute] Se possui auto-execute.
