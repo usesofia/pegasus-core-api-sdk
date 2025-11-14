@@ -79,6 +79,12 @@ export interface OfxImportJobRequestsPageDtoItemsInner {
      */
     updatedAt: any | null;
     /**
+     * URL assinada do arquivo OFX.
+     * @type {string}
+     * @memberof OfxImportJobRequestsPageDtoItemsInner
+     */
+    signedUrl: string;
+    /**
      * Lista de execuções para esta solicitação de importação.
      * @type {Array<OfxImportJobRequestsPageDtoItemsInnerExecutionsInner>}
      * @memberof OfxImportJobRequestsPageDtoItemsInner

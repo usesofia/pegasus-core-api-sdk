@@ -48,6 +48,8 @@ function instanceOfOfxImportJobRequestsPageDtoItemsInner(value) {
         return false;
     if (!('updatedAt' in value) || value['updatedAt'] === undefined)
         return false;
+    if (!('signedUrl' in value) || value['signedUrl'] === undefined)
+        return false;
     if (!('executions' in value) || value['executions'] === undefined)
         return false;
     if (!('user' in value) || value['user'] === undefined)
@@ -76,6 +78,7 @@ function OfxImportJobRequestsPageDtoItemsInnerFromJSONTyped(json, ignoreDiscrimi
         'periodEndDate': json['periodEndDate'] == null ? undefined : json['periodEndDate'],
         'createdAt': json['createdAt'],
         'updatedAt': json['updatedAt'],
+        'signedUrl': json['signedUrl'],
         'executions': (json['executions'].map(OfxImportJobRequestsPageDtoItemsInnerExecutionsInner_1.OfxImportJobRequestsPageDtoItemsInnerExecutionsInnerFromJSON)),
         'nSuccessImportedTransactions': json['nSuccessImportedTransactions'] == null ? undefined : json['nSuccessImportedTransactions'],
         'user': (0, OfxImportJobRequestsPageDtoItemsInnerUser_1.OfxImportJobRequestsPageDtoItemsInnerUserFromJSON)(json['user']),
@@ -102,6 +105,7 @@ function OfxImportJobRequestsPageDtoItemsInnerToJSONTyped(value, ignoreDiscrimin
         'periodEndDate': value['periodEndDate'],
         'createdAt': value['createdAt'],
         'updatedAt': value['updatedAt'],
+        'signedUrl': value['signedUrl'],
         'executions': (value['executions'].map(OfxImportJobRequestsPageDtoItemsInnerExecutionsInner_1.OfxImportJobRequestsPageDtoItemsInnerExecutionsInnerToJSON)),
         'nSuccessImportedTransactions': value['nSuccessImportedTransactions'],
         'user': (0, OfxImportJobRequestsPageDtoItemsInnerUser_1.OfxImportJobRequestsPageDtoItemsInnerUserToJSON)(value['user']),

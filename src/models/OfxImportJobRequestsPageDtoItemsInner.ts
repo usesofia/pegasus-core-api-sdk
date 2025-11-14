@@ -102,6 +102,12 @@ export interface OfxImportJobRequestsPageDtoItemsInner {
      */
     updatedAt: any | null;
     /**
+     * URL assinada do arquivo OFX.
+     * @type {string}
+     * @memberof OfxImportJobRequestsPageDtoItemsInner
+     */
+    signedUrl: string;
+    /**
      * Lista de execuções para esta solicitação de importação.
      * @type {Array<OfxImportJobRequestsPageDtoItemsInnerExecutionsInner>}
      * @memberof OfxImportJobRequestsPageDtoItemsInner
@@ -156,6 +162,7 @@ export function instanceOfOfxImportJobRequestsPageDtoItemsInner(value: object): 
     if (!('requesterUserId' in value) || value['requesterUserId'] === undefined) return false;
     if (!('createdAt' in value) || value['createdAt'] === undefined) return false;
     if (!('updatedAt' in value) || value['updatedAt'] === undefined) return false;
+    if (!('signedUrl' in value) || value['signedUrl'] === undefined) return false;
     if (!('executions' in value) || value['executions'] === undefined) return false;
     if (!('user' in value) || value['user'] === undefined) return false;
     if (!('status' in value) || value['status'] === undefined) return false;
@@ -183,6 +190,7 @@ export function OfxImportJobRequestsPageDtoItemsInnerFromJSONTyped(json: any, ig
         'periodEndDate': json['periodEndDate'] == null ? undefined : json['periodEndDate'],
         'createdAt': json['createdAt'],
         'updatedAt': json['updatedAt'],
+        'signedUrl': json['signedUrl'],
         'executions': ((json['executions'] as Array<any>).map(OfxImportJobRequestsPageDtoItemsInnerExecutionsInnerFromJSON)),
         'nSuccessImportedTransactions': json['nSuccessImportedTransactions'] == null ? undefined : json['nSuccessImportedTransactions'],
         'user': OfxImportJobRequestsPageDtoItemsInnerUserFromJSON(json['user']),
@@ -212,6 +220,7 @@ export function OfxImportJobRequestsPageDtoItemsInnerToJSONTyped(value?: OfxImpo
         'periodEndDate': value['periodEndDate'],
         'createdAt': value['createdAt'],
         'updatedAt': value['updatedAt'],
+        'signedUrl': value['signedUrl'],
         'executions': ((value['executions'] as Array<any>).map(OfxImportJobRequestsPageDtoItemsInnerExecutionsInnerToJSON)),
         'nSuccessImportedTransactions': value['nSuccessImportedTransactions'],
         'user': OfxImportJobRequestsPageDtoItemsInnerUserToJSON(value['user']),

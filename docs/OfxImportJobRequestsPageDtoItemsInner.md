@@ -16,6 +16,7 @@ Name | Type
 `periodEndDate` | any
 `createdAt` | any
 `updatedAt` | any
+`signedUrl` | string
 `executions` | [Array&lt;OfxImportJobRequestsPageDtoItemsInnerExecutionsInner&gt;](OfxImportJobRequestsPageDtoItemsInnerExecutionsInner.md)
 `nSuccessImportedTransactions` | number
 `user` | [OfxImportJobRequestsPageDtoItemsInnerUser](OfxImportJobRequestsPageDtoItemsInnerUser.md)
@@ -39,6 +40,7 @@ const example = {
   "periodEndDate": null,
   "createdAt": null,
   "updatedAt": null,
+  "signedUrl": null,
   "executions": null,
   "nSuccessImportedTransactions": null,
   "user": null,
