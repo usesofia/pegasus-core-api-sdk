@@ -316,6 +316,9 @@ var BankTransactionsApi = /** @class */ (function (_super) {
                 switch (_a.label) {
                     case 0:
                         queryParameters = {};
+                        if (requestParameters['ids'] != null) {
+                            queryParameters['ids'] = requestParameters['ids'];
+                        }
                         if (requestParameters['bankAccountIds'] != null) {
                             queryParameters['bankAccountIds'] = requestParameters['bankAccountIds'];
                         }

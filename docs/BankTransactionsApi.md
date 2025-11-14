@@ -335,7 +335,7 @@ No authorization required
 
 ## findAllOfxImportJobRequests
 
-> OfxImportJobRequestsPageDto findAllOfxImportJobRequests(bankAccountIds, textSearchTerm, sortOrder, sortBy, pageSize, pageIndex)
+> OfxImportJobRequestsPageDto findAllOfxImportJobRequests(ids, bankAccountIds, textSearchTerm, sortOrder, sortBy, pageSize, pageIndex)
 
 Lista todas as solicitações de importação de arquivos OFX com suas execuções.
 
@@ -353,6 +353,8 @@ async function example() {
   const api = new BankTransactionsApi();
 
   const body = {
+    // string | Identificadores das solicitações de importação OFX a serem buscadas, separados por vírgula. (optional)
+    ids: ids_example,
     // string | IDs das contas bancárias separadas por vírgula para filtrar. (optional)
     bankAccountIds: bankAccountIds_example,
     // string | Termo de busca textual para filtrar por nome do arquivo ou nome da conta bancária. (optional)
@@ -384,6 +386,7 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
+| **ids** | `string` | Identificadores das solicitações de importação OFX a serem buscadas, separados por vírgula. | [Optional] [Defaults to `undefined`] |
 | **bankAccountIds** | `string` | IDs das contas bancárias separadas por vírgula para filtrar. | [Optional] [Defaults to `undefined`] |
 | **textSearchTerm** | `string` | Termo de busca textual para filtrar por nome do arquivo ou nome da conta bancária. | [Optional] [Defaults to `undefined`] |
 | **sortOrder** | `asc`, `desc` | Ordem da ordenação. Valores possíveis: \&#39;asc\&#39;, \&#39;desc\&#39;. | [Optional] [Defaults to `undefined`] [Enum: asc, desc] |
