@@ -353,8 +353,8 @@ async function example() {
   const api = new BankTransactionsApi();
 
   const body = {
-    // Array<string> | Lista de IDs de contas bancárias para filtrar as solicitações de importação. (optional)
-    bankAccountIds: ...,
+    // string | IDs das contas bancárias separadas por vírgula para filtrar. (optional)
+    bankAccountIds: bankAccountIds_example,
     // string | Termo de busca textual para filtrar por nome do arquivo ou nome da conta bancária. (optional)
     textSearchTerm: textSearchTerm_example,
     // 'asc' | 'desc' | Ordem da ordenação. Valores possíveis: \'asc\', \'desc\'. (optional)
@@ -384,7 +384,7 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **bankAccountIds** | `Array<string>` | Lista de IDs de contas bancárias para filtrar as solicitações de importação. | [Optional] |
+| **bankAccountIds** | `string` | IDs das contas bancárias separadas por vírgula para filtrar. | [Optional] [Defaults to `undefined`] |
 | **textSearchTerm** | `string` | Termo de busca textual para filtrar por nome do arquivo ou nome da conta bancária. | [Optional] [Defaults to `undefined`] |
 | **sortOrder** | `asc`, `desc` | Ordem da ordenação. Valores possíveis: \&#39;asc\&#39;, \&#39;desc\&#39;. | [Optional] [Defaults to `undefined`] [Enum: asc, desc] |
 | **sortBy** | `createdAt`, `fileName`, `bankAccountName` | Campo para ordenação. Valores possíveis: \&#39;createdAt\&#39;, \&#39;fileName\&#39;, \&#39;bankAccountName\&#39;. | [Optional] [Defaults to `undefined`] [Enum: createdAt, fileName, bankAccountName] |

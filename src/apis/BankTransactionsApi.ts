@@ -99,7 +99,7 @@ export interface FindAllBankTransactionsRequest {
 }
 
 export interface FindAllOfxImportJobRequestsRequest {
-    bankAccountIds?: Array<string>;
+    bankAccountIds?: string;
     textSearchTerm?: string;
     sortOrder?: FindAllOfxImportJobRequestsSortOrderEnum;
     sortBy?: FindAllOfxImportJobRequestsSortByEnum;
@@ -275,7 +275,7 @@ export interface BankTransactionsApiInterface {
     /**
      * 
      * @summary Lista todas as solicitações de importação de arquivos OFX com suas execuções.
-     * @param {Array<string>} [bankAccountIds] Lista de IDs de contas bancárias para filtrar as solicitações de importação.
+     * @param {string} [bankAccountIds] IDs das contas bancárias separadas por vírgula para filtrar.
      * @param {string} [textSearchTerm] Termo de busca textual para filtrar por nome do arquivo ou nome da conta bancária.
      * @param {'asc' | 'desc'} [sortOrder] Ordem da ordenação. Valores possíveis: \&#39;asc\&#39;, \&#39;desc\&#39;.
      * @param {'createdAt' | 'fileName' | 'bankAccountName'} [sortBy] Campo para ordenação. Valores possíveis: \&#39;createdAt\&#39;, \&#39;fileName\&#39;, \&#39;bankAccountName\&#39;.
