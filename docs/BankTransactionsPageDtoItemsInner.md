@@ -48,6 +48,7 @@ Name | Type
 `updatedAt` | any
 `importedAt` | any
 `importedBy` | string
+`importGlobalIndex` | number
 
 ## Example
 
@@ -98,6 +99,7 @@ const example = {
   "updatedAt": null,
   "importedAt": null,
   "importedBy": null,
+  "importGlobalIndex": null,
 } satisfies BankTransactionsPageDtoItemsInner
 
 console.log(example)

@@ -302,6 +302,12 @@ export interface FinancialRecordsPageDtoItemsInner {
      * @memberof FinancialRecordsPageDtoItemsInner
      */
     importedBy?: string | null;
+    /**
+     * Índice global do lançamento financeiro no arquivo de importação.
+     * @type {number}
+     * @memberof FinancialRecordsPageDtoItemsInner
+     */
+    importGlobalIndex?: number | null;
 }
 /**
  * @export

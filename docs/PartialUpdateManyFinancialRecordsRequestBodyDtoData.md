@@ -40,6 +40,7 @@ Name | Type
 `observations` | string
 `importedAt` | any
 `importedBy` | string
+`importGlobalIndex` | number
 `radarItem` | string
 
 ## Example
@@ -83,6 +84,7 @@ const example = {
   "observations": null,
   "importedAt": null,
   "importedBy": null,
+  "importGlobalIndex": null,
   "radarItem": null,
 } satisfies PartialUpdateManyFinancialRecordsRequestBodyDtoData
 

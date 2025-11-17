@@ -307,6 +307,12 @@ export interface BankTransactionsPageDtoItemsInner {
      * @memberof BankTransactionsPageDtoItemsInner
      */
     importedBy?: string | null;
+    /**
+     * Índice global da movimentação financeira no arquivo de importação.
+     * @type {number}
+     * @memberof BankTransactionsPageDtoItemsInner
+     */
+    importGlobalIndex?: number | null;
 }
 
 
@@ -415,6 +421,7 @@ export function BankTransactionsPageDtoItemsInnerFromJSONTyped(json: any, ignore
         'updatedAt': json['updatedAt'],
         'importedAt': json['importedAt'] == null ? undefined : json['importedAt'],
         'importedBy': json['importedBy'] == null ? undefined : json['importedBy'],
+        'importGlobalIndex': json['importGlobalIndex'] == null ? undefined : json['importGlobalIndex'],
     };
 }
 
@@ -471,6 +478,7 @@ export function BankTransactionsPageDtoItemsInnerToJSONTyped(value?: BankTransac
         'updatedAt': value['updatedAt'],
         'importedAt': value['importedAt'],
         'importedBy': value['importedBy'],
+        'importGlobalIndex': value['importGlobalIndex'],
     };
 }
 

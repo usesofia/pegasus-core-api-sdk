@@ -231,6 +231,12 @@ export interface ProspectFinancialRecordDto {
      */
     importedBy?: string | null;
     /**
+     * Índice global do lançamento financeiro no arquivo de importação.
+     * @type {number}
+     * @memberof ProspectFinancialRecordDto
+     */
+    importGlobalIndex?: number | null;
+    /**
      * Identificador do item no radar que originou o lançamento.
      * @type {string}
      * @memberof ProspectFinancialRecordDto

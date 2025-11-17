@@ -35,6 +35,7 @@ Name | Type
 `searchScore` | number
 `importedAt` | any
 `importedBy` | string
+`importGlobalIndex` | number
 
 ## Example
 
@@ -71,6 +72,7 @@ const example = {
   "searchScore": null,
   "importedAt": null,
   "importedBy": null,
+  "importGlobalIndex": null,
 } satisfies ShouldAiSuggestActionRequestBodyDtoTransactionData
 
 console.log(example)

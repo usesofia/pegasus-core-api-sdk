@@ -34,6 +34,7 @@ Name | Type
 `searchScore` | number
 `importedAt` | any
 `importedBy` | string
+`importGlobalIndex` | number
 `requester` | [ProcessExportResourceJobRequestBodyDtoRequester](ProcessExportResourceJobRequestBodyDtoRequester.md)
 
 ## Example
@@ -71,6 +72,7 @@ const example = {
   "searchScore": null,
   "importedAt": null,
   "importedBy": null,
+  "importGlobalIndex": null,
   "requester": null,
 } satisfies CreateOrUpdateBankTransactionRequestBodyDto
 

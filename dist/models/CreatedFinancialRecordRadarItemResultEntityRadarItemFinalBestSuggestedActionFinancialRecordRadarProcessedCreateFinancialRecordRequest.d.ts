@@ -231,6 +231,12 @@ export interface CreatedFinancialRecordRadarItemResultEntityRadarItemFinalBestSu
      */
     importedBy?: string | null;
     /**
+     * Índice global do lançamento financeiro no arquivo de importação.
+     * @type {number}
+     * @memberof CreatedFinancialRecordRadarItemResultEntityRadarItemFinalBestSuggestedActionFinancialRecordRadarProcessedCreateFinancialRecordRequest
+     */
+    importGlobalIndex?: number | null;
+    /**
      * Valor final do lançamento (calculado automaticamente).
      * @type {number}
      * @memberof CreatedFinancialRecordRadarItemResultEntityRadarItemFinalBestSuggestedActionFinancialRecordRadarProcessedCreateFinancialRecordRequest

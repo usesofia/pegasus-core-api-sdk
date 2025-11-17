@@ -272,6 +272,12 @@ export interface BankTransactionsPageDtoItemsInner {
      * @memberof BankTransactionsPageDtoItemsInner
      */
     importedBy?: string | null;
+    /**
+     * Índice global da movimentação financeira no arquivo de importação.
+     * @type {number}
+     * @memberof BankTransactionsPageDtoItemsInner
+     */
+    importGlobalIndex?: number | null;
 }
 /**
  * @export

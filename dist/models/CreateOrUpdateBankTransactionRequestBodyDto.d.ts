@@ -189,6 +189,12 @@ export interface CreateOrUpdateBankTransactionRequestBodyDto {
      */
     importedBy?: string | null;
     /**
+     * Índice global da movimentação financeira no arquivo de importação.
+     * @type {number}
+     * @memberof CreateOrUpdateBankTransactionRequestBodyDto
+     */
+    importGlobalIndex?: number | null;
+    /**
      *
      * @type {ProcessExportResourceJobRequestBodyDtoRequester}
      * @memberof CreateOrUpdateBankTransactionRequestBodyDto

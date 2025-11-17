@@ -224,6 +224,12 @@ export interface CreateOrUpdateBankTransactionRequestBodyDto {
      */
     importedBy?: string | null;
     /**
+     * Índice global da movimentação financeira no arquivo de importação.
+     * @type {number}
+     * @memberof CreateOrUpdateBankTransactionRequestBodyDto
+     */
+    importGlobalIndex?: number | null;
+    /**
      * 
      * @type {ProcessExportResourceJobRequestBodyDtoRequester}
      * @memberof CreateOrUpdateBankTransactionRequestBodyDto
@@ -314,6 +320,7 @@ export function CreateOrUpdateBankTransactionRequestBodyDtoFromJSONTyped(json: a
         'searchScore': json['searchScore'] == null ? undefined : json['searchScore'],
         'importedAt': json['importedAt'] == null ? undefined : json['importedAt'],
         'importedBy': json['importedBy'] == null ? undefined : json['importedBy'],
+        'importGlobalIndex': json['importGlobalIndex'] == null ? undefined : json['importGlobalIndex'],
         'requester': ProcessExportResourceJobRequestBodyDtoRequesterFromJSON(json['requester']),
     };
 }
@@ -357,6 +364,7 @@ export function CreateOrUpdateBankTransactionRequestBodyDtoToJSONTyped(value?: C
         'searchScore': value['searchScore'],
         'importedAt': value['importedAt'],
         'importedBy': value['importedBy'],
+        'importGlobalIndex': value['importGlobalIndex'],
         'requester': ProcessExportResourceJobRequestBodyDtoRequesterToJSON(value['requester']),
     };
 }

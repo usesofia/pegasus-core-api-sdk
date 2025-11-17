@@ -216,6 +216,12 @@ export interface ShouldAiSuggestActionRequestBodyDtoTransactionData {
      * @memberof ShouldAiSuggestActionRequestBodyDtoTransactionData
      */
     importedBy?: string | null;
+    /**
+     * Índice global da movimentação financeira no arquivo de importação.
+     * @type {number}
+     * @memberof ShouldAiSuggestActionRequestBodyDtoTransactionData
+     */
+    importGlobalIndex?: number | null;
 }
 
 
@@ -300,6 +306,7 @@ export function ShouldAiSuggestActionRequestBodyDtoTransactionDataFromJSONTyped(
         'searchScore': json['searchScore'] == null ? undefined : json['searchScore'],
         'importedAt': json['importedAt'] == null ? undefined : json['importedAt'],
         'importedBy': json['importedBy'] == null ? undefined : json['importedBy'],
+        'importGlobalIndex': json['importGlobalIndex'] == null ? undefined : json['importGlobalIndex'],
     };
 }
 
@@ -342,6 +349,7 @@ export function ShouldAiSuggestActionRequestBodyDtoTransactionDataToJSONTyped(va
         'searchScore': value['searchScore'],
         'importedAt': value['importedAt'],
         'importedBy': value['importedBy'],
+        'importGlobalIndex': value['importGlobalIndex'],
     };
 }
 

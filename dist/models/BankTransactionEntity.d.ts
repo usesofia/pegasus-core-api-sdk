@@ -272,6 +272,12 @@ export interface BankTransactionEntity {
      * @memberof BankTransactionEntity
      */
     importedBy?: string | null;
+    /**
+     * Índice global da movimentação financeira no arquivo de importação.
+     * @type {number}
+     * @memberof BankTransactionEntity
+     */
+    importGlobalIndex?: number | null;
 }
 /**
  * @export

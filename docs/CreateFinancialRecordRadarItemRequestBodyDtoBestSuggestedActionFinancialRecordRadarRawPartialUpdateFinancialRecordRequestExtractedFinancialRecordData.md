@@ -41,6 +41,7 @@ Name | Type
 `observations` | string
 `importedAt` | any
 `importedBy` | string
+`importGlobalIndex` | number
 `finalAmount` | number
 `radarItem` | string
 
@@ -86,6 +87,7 @@ const example = {
   "observations": null,
   "importedAt": null,
   "importedBy": null,
+  "importGlobalIndex": null,
   "finalAmount": null,
   "radarItem": null,
 } satisfies CreateFinancialRecordRadarItemRequestBodyDtoBestSuggestedActionFinancialRecordRadarRawPartialUpdateFinancialRecordRequestExtractedFinancialRecordData

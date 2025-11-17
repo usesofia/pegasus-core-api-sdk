@@ -302,6 +302,12 @@ export interface CreatedFinancialRecordRadarItemResultEntityRadarItemAutoExecute
      * @memberof CreatedFinancialRecordRadarItemResultEntityRadarItemAutoExecuteLinkedFinancialRecord
      */
     importedBy?: string | null;
+    /**
+     * Índice global do lançamento financeiro no arquivo de importação.
+     * @type {number}
+     * @memberof CreatedFinancialRecordRadarItemResultEntityRadarItemAutoExecuteLinkedFinancialRecord
+     */
+    importGlobalIndex?: number | null;
 }
 /**
  * @export

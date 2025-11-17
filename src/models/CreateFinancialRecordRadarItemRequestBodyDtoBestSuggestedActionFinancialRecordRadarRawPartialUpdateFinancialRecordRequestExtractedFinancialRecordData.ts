@@ -266,6 +266,12 @@ export interface CreateFinancialRecordRadarItemRequestBodyDtoBestSuggestedAction
      */
     importedBy?: string | null;
     /**
+     * Índice global do lançamento financeiro no arquivo de importação.
+     * @type {number}
+     * @memberof CreateFinancialRecordRadarItemRequestBodyDtoBestSuggestedActionFinancialRecordRadarRawPartialUpdateFinancialRecordRequestExtractedFinancialRecordData
+     */
+    importGlobalIndex?: number | null;
+    /**
      * Valor final do lançamento (calculado automaticamente).
      * @type {number}
      * @memberof CreateFinancialRecordRadarItemRequestBodyDtoBestSuggestedActionFinancialRecordRadarRawPartialUpdateFinancialRecordRequestExtractedFinancialRecordData
@@ -342,6 +348,7 @@ export function CreateFinancialRecordRadarItemRequestBodyDtoBestSuggestedActionF
         'observations': json['observations'] == null ? undefined : json['observations'],
         'importedAt': json['importedAt'] == null ? undefined : json['importedAt'],
         'importedBy': json['importedBy'] == null ? undefined : json['importedBy'],
+        'importGlobalIndex': json['importGlobalIndex'] == null ? undefined : json['importGlobalIndex'],
         'finalAmount': json['finalAmount'] == null ? undefined : json['finalAmount'],
         'radarItem': json['radarItem'] == null ? undefined : json['radarItem'],
     };
@@ -393,6 +400,7 @@ export function CreateFinancialRecordRadarItemRequestBodyDtoBestSuggestedActionF
         'observations': value['observations'],
         'importedAt': value['importedAt'],
         'importedBy': value['importedBy'],
+        'importGlobalIndex': value['importGlobalIndex'],
         'finalAmount': value['finalAmount'],
         'radarItem': value['radarItem'],
     };

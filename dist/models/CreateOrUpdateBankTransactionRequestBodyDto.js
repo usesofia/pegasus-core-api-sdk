@@ -104,6 +104,7 @@ function CreateOrUpdateBankTransactionRequestBodyDtoFromJSONTyped(json, ignoreDi
         'searchScore': json['searchScore'] == null ? undefined : json['searchScore'],
         'importedAt': json['importedAt'] == null ? undefined : json['importedAt'],
         'importedBy': json['importedBy'] == null ? undefined : json['importedBy'],
+        'importGlobalIndex': json['importGlobalIndex'] == null ? undefined : json['importGlobalIndex'],
         'requester': (0, ProcessExportResourceJobRequestBodyDtoRequester_1.ProcessExportResourceJobRequestBodyDtoRequesterFromJSON)(json['requester']),
     };
 }
@@ -144,6 +145,7 @@ function CreateOrUpdateBankTransactionRequestBodyDtoToJSONTyped(value, ignoreDis
         'searchScore': value['searchScore'],
         'importedAt': value['importedAt'],
         'importedBy': value['importedBy'],
+        'importGlobalIndex': value['importGlobalIndex'],
         'requester': (0, ProcessExportResourceJobRequestBodyDtoRequester_1.ProcessExportResourceJobRequestBodyDtoRequesterToJSON)(value['requester']),
     };
 }

@@ -53,6 +53,7 @@ Name | Type
 `observations` | string
 `importedAt` | any
 `importedBy` | string
+`importGlobalIndex` | number
 
 ## Example
 
@@ -108,6 +109,7 @@ const example = {
   "observations": null,
   "importedAt": null,
   "importedBy": null,
+  "importGlobalIndex": null,
 } satisfies SystemFinancialRecordsPageDtoItemsInner
 
 console.log(example)

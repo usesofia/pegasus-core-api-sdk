@@ -266,6 +266,12 @@ export interface ProspectFinancialRecordDto {
      */
     importedBy?: string | null;
     /**
+     * Índice global do lançamento financeiro no arquivo de importação.
+     * @type {number}
+     * @memberof ProspectFinancialRecordDto
+     */
+    importGlobalIndex?: number | null;
+    /**
      * Identificador do item no radar que originou o lançamento.
      * @type {string}
      * @memberof ProspectFinancialRecordDto
@@ -340,6 +346,7 @@ export function ProspectFinancialRecordDtoFromJSONTyped(json: any, ignoreDiscrim
         'observations': json['observations'] == null ? undefined : json['observations'],
         'importedAt': json['importedAt'] == null ? undefined : json['importedAt'],
         'importedBy': json['importedBy'] == null ? undefined : json['importedBy'],
+        'importGlobalIndex': json['importGlobalIndex'] == null ? undefined : json['importGlobalIndex'],
         'radarItem': json['radarItem'] == null ? undefined : json['radarItem'],
     };
 }
@@ -390,6 +397,7 @@ export function ProspectFinancialRecordDtoToJSONTyped(value?: ProspectFinancialR
         'observations': value['observations'],
         'importedAt': value['importedAt'],
         'importedBy': value['importedBy'],
+        'importGlobalIndex': value['importGlobalIndex'],
         'radarItem': value['radarItem'],
     };
 }

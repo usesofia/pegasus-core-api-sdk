@@ -337,6 +337,12 @@ export interface FinancialRecordRadarItemEntityAutoExecuteCreatedFinancialRecord
      * @memberof FinancialRecordRadarItemEntityAutoExecuteCreatedFinancialRecord
      */
     importedBy?: string | null;
+    /**
+     * Índice global do lançamento financeiro no arquivo de importação.
+     * @type {number}
+     * @memberof FinancialRecordRadarItemEntityAutoExecuteCreatedFinancialRecord
+     */
+    importGlobalIndex?: number | null;
 }
 
 
@@ -423,6 +429,7 @@ export function FinancialRecordRadarItemEntityAutoExecuteCreatedFinancialRecordF
         'observations': json['observations'] == null ? undefined : json['observations'],
         'importedAt': json['importedAt'] == null ? undefined : json['importedAt'],
         'importedBy': json['importedBy'] == null ? undefined : json['importedBy'],
+        'importGlobalIndex': json['importGlobalIndex'] == null ? undefined : json['importGlobalIndex'],
     };
 }
 
@@ -484,6 +491,7 @@ export function FinancialRecordRadarItemEntityAutoExecuteCreatedFinancialRecordT
         'observations': value['observations'],
         'importedAt': value['importedAt'],
         'importedBy': value['importedBy'],
+        'importGlobalIndex': value['importGlobalIndex'],
     };
 }
 

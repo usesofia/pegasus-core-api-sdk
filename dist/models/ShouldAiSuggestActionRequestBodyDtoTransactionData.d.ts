@@ -187,6 +187,12 @@ export interface ShouldAiSuggestActionRequestBodyDtoTransactionData {
      * @memberof ShouldAiSuggestActionRequestBodyDtoTransactionData
      */
     importedBy?: string | null;
+    /**
+     * Índice global da movimentação financeira no arquivo de importação.
+     * @type {number}
+     * @memberof ShouldAiSuggestActionRequestBodyDtoTransactionData
+     */
+    importGlobalIndex?: number | null;
 }
 /**
  * @export
