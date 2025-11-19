@@ -110,6 +110,8 @@ All URIs are relative to *http://localhost*
 *FilesUploadApi* | [**createFileUpload**](docs/FilesUploadApi.md#createfileupload) | **POST** /external/files/upload | Cria uma nova solicitação de upload de arquivo
 *FilesUploadApi* | [**systemConfirmFileUpload**](docs/FilesUploadApi.md#systemconfirmfileupload) | **POST** /internal/organizations/{organizationId}/files/upload/confirm | Confirms a file upload
 *FilesUploadApi* | [**systemCreateFileUpload**](docs/FilesUploadApi.md#systemcreatefileupload) | **POST** /internal/organizations/{organizationId}/files/upload | Cria uma nova solicitação de upload de arquivo
+*FiltersApi* | [**createFilter**](docs/FiltersApi.md#createfilter) | **POST** /external/filters | Cria um novo filtro.
+*FiltersApi* | [**findByIdFilter**](docs/FiltersApi.md#findbyidfilter) | **GET** /external/filters/{id} | Busca um filtro pelo identificador.
 *FinancialRecordRadarItemAutoExecuteApi* | [**getFinancialRecordRadarItemAutoExecuteSettings**](docs/FinancialRecordRadarItemAutoExecuteApi.md#getfinancialrecordradaritemautoexecutesettings) | **GET** /external/financial-records/radar/items/auto-execute/settings | Obter configurações de auto-execute
 *FinancialRecordRadarItemAutoExecuteApi* | [**updateFinancialRecordRadarItemAutoExecuteSettings**](docs/FinancialRecordRadarItemAutoExecuteApi.md#updatefinancialrecordradaritemautoexecutesettings) | **PUT** /external/financial-records/radar/items/auto-execute/settings | Atualizar configurações de auto-execute
 *FinancialRecordRadarItemsApi* | [**createFinancialRecordRadarItem**](docs/FinancialRecordRadarItemsApi.md#createfinancialrecordradaritem) | **POST** /external/financial-records/radar/items | Cria um novo registro de radar
@@ -228,6 +230,7 @@ All URIs are relative to *http://localhost*
 - [CreateContactRequestBodyDtoAddress](docs/CreateContactRequestBodyDtoAddress.md)
 - [CreateFileUpload200Response](docs/CreateFileUpload200Response.md)
 - [CreateFileUploadRequestBodyDto](docs/CreateFileUploadRequestBodyDto.md)
+- [CreateFilterRequestDto](docs/CreateFilterRequestDto.md)
 - [CreateFinancialRecordRadarItemRequestBodyDto](docs/CreateFinancialRecordRadarItemRequestBodyDto.md)
 - [CreateFinancialRecordRadarItemRequestBodyDtoBestSuggestedAction](docs/CreateFinancialRecordRadarItemRequestBodyDtoBestSuggestedAction.md)
 - [CreateFinancialRecordRadarItemRequestBodyDtoBestSuggestedActionFinancialRecordRadarRawCreateFinancialRecordRequest](docs/CreateFinancialRecordRadarItemRequestBodyDtoBestSuggestedActionFinancialRecordRadarRawCreateFinancialRecordRequest.md)
@@ -323,6 +326,7 @@ All URIs are relative to *http://localhost*
 - [ExportTagsDto](docs/ExportTagsDto.md)
 - [ExternalCreateSubcategoryRequestBodyDto](docs/ExternalCreateSubcategoryRequestBodyDto.md)
 - [FileEntity](docs/FileEntity.md)
+- [FilterResponseDto](docs/FilterResponseDto.md)
 - [FinancialRecordDto](docs/FinancialRecordDto.md)
 - [FinancialRecordRadarItemAutoExecuteSettingEntity](docs/FinancialRecordRadarItemAutoExecuteSettingEntity.md)
 - [FinancialRecordRadarItemAutoExecuteSettingEntityEnabledRulesInner](docs/FinancialRecordRadarItemAutoExecuteSettingEntityEnabledRulesInner.md)

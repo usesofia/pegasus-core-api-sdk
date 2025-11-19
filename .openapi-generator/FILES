@@ -50,6 +50,7 @@ docs/CreateContactRequestBodyDto.md
 docs/CreateContactRequestBodyDtoAddress.md
 docs/CreateFileUpload200Response.md
 docs/CreateFileUploadRequestBodyDto.md
+docs/CreateFilterRequestDto.md
 docs/CreateFinancialRecordRadarItemRequestBodyDto.md
 docs/CreateFinancialRecordRadarItemRequestBodyDtoBestSuggestedAction.md
 docs/CreateFinancialRecordRadarItemRequestBodyDtoBestSuggestedActionFinancialRecordRadarRawCreateFinancialRecordRequest.md
@@ -150,6 +151,8 @@ docs/FibonacciApi.md
 docs/FileEntity.md
 docs/FilesApi.md
 docs/FilesUploadApi.md
+docs/FilterResponseDto.md
+docs/FiltersApi.md
 docs/FinancialRecordDto.md
 docs/FinancialRecordRadarItemAutoExecuteApi.md
 docs/FinancialRecordRadarItemAutoExecuteSettingEntity.md
@@ -287,6 +290,7 @@ src/apis/ExportResourceJobRequestsApi.ts
 src/apis/FibonacciApi.ts
 src/apis/FilesApi.ts
 src/apis/FilesUploadApi.ts
+src/apis/FiltersApi.ts
 src/apis/FinancialRecordRadarItemAutoExecuteApi.ts
 src/apis/FinancialRecordRadarItemsApi.ts
 src/apis/FinancialRecordRadarItemsSeederApi.ts
@@ -345,6 +349,7 @@ src/models/CreateContactRequestBodyDto.ts
 src/models/CreateContactRequestBodyDtoAddress.ts
 src/models/CreateFileUpload200Response.ts
 src/models/CreateFileUploadRequestBodyDto.ts
+src/models/CreateFilterRequestDto.ts
 src/models/CreateFinancialRecordRadarItemRequestBodyDto.ts
 src/models/CreateFinancialRecordRadarItemRequestBodyDtoBestSuggestedAction.ts
 src/models/CreateFinancialRecordRadarItemRequestBodyDtoBestSuggestedActionFinancialRecordRadarRawCreateFinancialRecordRequest.ts
@@ -440,6 +445,7 @@ src/models/ExportSubcategoriesDto.ts
 src/models/ExportTagsDto.ts
 src/models/ExternalCreateSubcategoryRequestBodyDto.ts
 src/models/FileEntity.ts
+src/models/FilterResponseDto.ts
 src/models/FinancialRecordDto.ts
 src/models/FinancialRecordRadarItemAutoExecuteSettingEntity.ts
 src/models/FinancialRecordRadarItemAutoExecuteSettingEntityEnabledRulesInner.ts

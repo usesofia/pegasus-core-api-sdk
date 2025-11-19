@@ -22,6 +22,7 @@ export interface DispatchOfxImportRequest {
     ofxImportRequestBodyDto: OfxImportRequestBodyDto;
 }
 export interface FindAllBankTransactionsRequest {
+    filterId?: string;
     populate?: string;
     sortOrder?: FindAllBankTransactionsSortOrderEnum;
     sortBy?: FindAllBankTransactionsSortByEnum;
@@ -168,6 +169,7 @@ export interface BankTransactionsApiInterface {
     /**
      *
      * @summary Busca todas as movimentações financeiras.
+     * @param {string} [filterId] ID do filtro a ser aplicado.
      * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
      * @param {'asc' | 'desc'} [sortOrder] Ordem da ordenação. Valores possíveis: \&#39;asc\&#39;, \&#39;desc\&#39;.
      * @param {'date' | 'amountInBrl' | 'description' | 'createdAt' | 'reconciled'} [sortBy] Campo para ordenação

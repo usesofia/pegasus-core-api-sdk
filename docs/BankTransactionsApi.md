@@ -227,7 +227,7 @@ No authorization required
 
 ## findAllBankTransactions
 
-> BankTransactionsPageDto findAllBankTransactions(populate, sortOrder, sortBy, ofxImportJobRequestIds, ignored, origin, reconciled, type, dateTo, dateFrom, bankAccount, semanticSearchTermInBase64, textSearchTerm, pageSize, pageIndex)
+> BankTransactionsPageDto findAllBankTransactions(filterId, populate, sortOrder, sortBy, ofxImportJobRequestIds, ignored, origin, reconciled, type, dateTo, dateFrom, bankAccount, semanticSearchTermInBase64, textSearchTerm, pageSize, pageIndex)
 
 Busca todas as movimentações financeiras.
 
@@ -245,6 +245,8 @@ async function example() {
   const api = new BankTransactionsApi();
 
   const body = {
+    // string | ID do filtro a ser aplicado. (optional)
+    filterId: filterId_example,
     // string | Campos relacionados a serem populados separados por vírgula. (optional)
     populate: populate_example,
     // 'asc' | 'desc' | Ordem da ordenação. Valores possíveis: \'asc\', \'desc\'. (optional)
@@ -294,6 +296,7 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
+| **filterId** | `string` | ID do filtro a ser aplicado. | [Optional] [Defaults to `undefined`] |
 | **populate** | `string` | Campos relacionados a serem populados separados por vírgula. | [Optional] [Defaults to `undefined`] |
 | **sortOrder** | `asc`, `desc` | Ordem da ordenação. Valores possíveis: \&#39;asc\&#39;, \&#39;desc\&#39;. | [Optional] [Defaults to `undefined`] [Enum: asc, desc] |
 | **sortBy** | `date`, `amountInBrl`, `description`, `createdAt`, `reconciled` | Campo para ordenação | [Optional] [Defaults to `undefined`] [Enum: date, amountInBrl, description, createdAt, reconciled] |

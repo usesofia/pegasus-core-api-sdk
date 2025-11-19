@@ -68,6 +68,7 @@ export interface CreateManyFinancialRecordsRequest {
 }
 
 export interface FindAllFinancialRecordsRequest {
+    filterId?: string;
     sortOrder?: FindAllFinancialRecordsSortOrderEnum;
     sortBy?: FindAllFinancialRecordsSortByEnum;
     recurringFinancialRecord?: string;
@@ -223,6 +224,7 @@ export interface FinancialRecordsApiInterface {
     /**
      * 
      * @summary Busca todos os lançamentos financeiros.
+     * @param {string} [filterId] ID do filtro a ser aplicado.
      * @param {'asc' | 'desc'} [sortOrder] Ordem de ordenação dos lançamentos financeiros.
      * @param {'direction' | 'dueDate' | 'contact' | 'description' | 'subcategory' | 'amount' | 'competenceDate' | 'cashDate' | 'createdAt'} [sortBy] Campo para ordenação dos lançamentos financeiros.
      * @param {string} [recurringFinancialRecord] ID da recorrência financeira.
@@ -551,6 +553,10 @@ export class FinancialRecordsApi extends runtime.BaseAPI implements FinancialRec
      */
     async findAllFinancialRecordsRaw(requestParameters: FindAllFinancialRecordsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FinancialRecordsPageDto>> {
         const queryParameters: any = {};
+
+        if (requestParameters['filterId'] != null) {
+            queryParameters['filterId'] = requestParameters['filterId'];
+        }
 
         if (requestParameters['sortOrder'] != null) {
             queryParameters['sortOrder'] = requestParameters['sortOrder'];

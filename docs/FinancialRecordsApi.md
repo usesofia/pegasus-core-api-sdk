@@ -157,7 +157,7 @@ No authorization required
 
 ## findAllFinancialRecords
 
-> FinancialRecordsPageDto findAllFinancialRecords(sortOrder, sortBy, recurringFinancialRecord, installmentFinancialRecord, account, reconciled, completed, tags, createdAtTo, createdAtFrom, cashDateTo, cashDateFrom, competenceDateTo, competenceDateFrom, subcategory, contact, dueDateTo, dueDateFrom, finalAmountTo, finalAmountFrom, amountTo, amountFrom, direction, ids, populate, semanticSearchTermInBase64, textSearchTerm, pageSize, pageIndex)
+> FinancialRecordsPageDto findAllFinancialRecords(filterId, sortOrder, sortBy, recurringFinancialRecord, installmentFinancialRecord, account, reconciled, completed, tags, createdAtTo, createdAtFrom, cashDateTo, cashDateFrom, competenceDateTo, competenceDateFrom, subcategory, contact, dueDateTo, dueDateFrom, finalAmountTo, finalAmountFrom, amountTo, amountFrom, direction, ids, populate, semanticSearchTermInBase64, textSearchTerm, pageSize, pageIndex)
 
 Busca todos os lançamentos financeiros.
 
@@ -175,6 +175,8 @@ async function example() {
   const api = new FinancialRecordsApi();
 
   const body = {
+    // string | ID do filtro a ser aplicado. (optional)
+    filterId: filterId_example,
     // 'asc' | 'desc' | Ordem de ordenação dos lançamentos financeiros. (optional)
     sortOrder: sortOrder_example,
     // 'direction' | 'dueDate' | 'contact' | 'description' | 'subcategory' | 'amount' | 'competenceDate' | 'cashDate' | 'createdAt' | Campo para ordenação dos lançamentos financeiros. (optional)
@@ -252,6 +254,7 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
+| **filterId** | `string` | ID do filtro a ser aplicado. | [Optional] [Defaults to `undefined`] |
 | **sortOrder** | `asc`, `desc` | Ordem de ordenação dos lançamentos financeiros. | [Optional] [Defaults to `undefined`] [Enum: asc, desc] |
 | **sortBy** | `direction`, `dueDate`, `contact`, `description`, `subcategory`, `amount`, `competenceDate`, `cashDate`, `createdAt` | Campo para ordenação dos lançamentos financeiros. | [Optional] [Defaults to `undefined`] [Enum: direction, dueDate, contact, description, subcategory, amount, competenceDate, cashDate, createdAt] |
 | **recurringFinancialRecord** | `string` | ID da recorrência financeira. | [Optional] [Defaults to `undefined`] |

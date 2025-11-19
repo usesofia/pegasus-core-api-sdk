@@ -34,6 +34,7 @@ __exportStar(require("./ExportResourceJobRequestsApi"), exports);
 __exportStar(require("./FibonacciApi"), exports);
 __exportStar(require("./FilesApi"), exports);
 __exportStar(require("./FilesUploadApi"), exports);
+__exportStar(require("./FiltersApi"), exports);
 __exportStar(require("./FinancialRecordRadarItemAutoExecuteApi"), exports);
 __exportStar(require("./FinancialRecordRadarItemsApi"), exports);
 __exportStar(require("./FinancialRecordRadarItemsSeederApi"), exports);
