@@ -61,6 +61,7 @@ All URIs are relative to *http://localhost*
 *BankTransactionsApi* | [**createOrUpdateBankTransaction**](docs/BankTransactionsApi.md#createorupdatebanktransaction) | **PUT** /internal/bank-transactions | Cria ou atualiza uma movimentação financeira.
 *BankTransactionsApi* | [**createOrUpdateBankTransactionBestSuggestedAction**](docs/BankTransactionsApi.md#createorupdatebanktransactionbestsuggestedaction) | **PUT** /external/bank-transactions/{bankTransactionId}/best-suggested-action | Cria ou atualiza uma sugestão de melhor ação para uma transação bancária.
 *BankTransactionsApi* | [**dispatchOfxImport**](docs/BankTransactionsApi.md#dispatchofximport) | **POST** /external/bank-transactions/ofx | Dispara a importação assíncrona de um arquivo OFX.
+*BankTransactionsApi* | [**findAiSuggestionsByFinancialRecordId**](docs/BankTransactionsApi.md#findaisuggestionsbyfinancialrecordid) | **GET** /external/financial-records/{financialRecordId}/ai-suggestions | Busca sugestões de AI por ID do lançamento financeiro.
 *BankTransactionsApi* | [**findAllBankTransactions**](docs/BankTransactionsApi.md#findallbanktransactions) | **GET** /external/bank-transactions | Busca todas as movimentações financeiras.
 *BankTransactionsApi* | [**findAllOfxImportJobRequests**](docs/BankTransactionsApi.md#findallofximportjobrequests) | **GET** /external/bank-transactions/ofx/job-requests | Lista todas as solicitações de importação de arquivos OFX com suas execuções.
 *BankTransactionsApi* | [**findBankTransactionById**](docs/BankTransactionsApi.md#findbanktransactionbyid) | **GET** /external/bank-transactions/{id} | Busca uma movimentação financeira por ID.
@@ -110,8 +111,6 @@ All URIs are relative to *http://localhost*
 *FilesUploadApi* | [**createFileUpload**](docs/FilesUploadApi.md#createfileupload) | **POST** /external/files/upload | Cria uma nova solicitação de upload de arquivo
 *FilesUploadApi* | [**systemConfirmFileUpload**](docs/FilesUploadApi.md#systemconfirmfileupload) | **POST** /internal/organizations/{organizationId}/files/upload/confirm | Confirms a file upload
 *FilesUploadApi* | [**systemCreateFileUpload**](docs/FilesUploadApi.md#systemcreatefileupload) | **POST** /internal/organizations/{organizationId}/files/upload | Cria uma nova solicitação de upload de arquivo
-*FiltersApi* | [**createFilter**](docs/FiltersApi.md#createfilter) | **POST** /external/filters | Cria um novo filtro.
-*FiltersApi* | [**findByIdFilter**](docs/FiltersApi.md#findbyidfilter) | **GET** /external/filters/{id} | Busca um filtro pelo identificador.
 *FinancialRecordRadarItemAutoExecuteApi* | [**getFinancialRecordRadarItemAutoExecuteSettings**](docs/FinancialRecordRadarItemAutoExecuteApi.md#getfinancialrecordradaritemautoexecutesettings) | **GET** /external/financial-records/radar/items/auto-execute/settings | Obter configurações de auto-execute
 *FinancialRecordRadarItemAutoExecuteApi* | [**updateFinancialRecordRadarItemAutoExecuteSettings**](docs/FinancialRecordRadarItemAutoExecuteApi.md#updatefinancialrecordradaritemautoexecutesettings) | **PUT** /external/financial-records/radar/items/auto-execute/settings | Atualizar configurações de auto-execute
 *FinancialRecordRadarItemsApi* | [**createFinancialRecordRadarItem**](docs/FinancialRecordRadarItemsApi.md#createfinancialrecordradaritem) | **POST** /external/financial-records/radar/items | Cria um novo registro de radar
@@ -164,6 +163,8 @@ All URIs are relative to *http://localhost*
 *OrganizationsApi* | [**partialUpdateOrganization**](docs/OrganizationsApi.md#partialupdateorganization) | **PATCH** /external/organizations/{id} | Atualiza parcialmente uma organização.
 *ProspectInstallmentFinancialRecordsApi* | [**prospectInstallmentFinancialRecord**](docs/ProspectInstallmentFinancialRecordsApi.md#prospectinstallmentfinancialrecord) | **POST** /external/installment-financial-records/prospect | Simula os lançamentos únicos que serão criados para um lançamento financeiro parcelado.
 *ProspectRecurringFinancialRecordsApi* | [**prospectRecurringFinancialRecord**](docs/ProspectRecurringFinancialRecordsApi.md#prospectrecurringfinancialrecord) | **POST** /external/recurring-financial-records/prospect | Simula os lançamentos únicos que serão criados para um lançamento financeiro recorrente.
+*QueriesApi* | [**createQuery**](docs/QueriesApi.md#createquery) | **POST** /external/queries | Cria uma nova consulta.
+*QueriesApi* | [**findByIdQuery**](docs/QueriesApi.md#findbyidquery) | **GET** /external/queries/{id} | Busca uma consulta pelo identificador.
 *RecurringFinancialRecordsApi* | [**createManyRecurringFinancialRecords**](docs/RecurringFinancialRecordsApi.md#createmanyrecurringfinancialrecords) | **POST** /external/recurring-financial-records/many | Cria múltiplos lançamentos financeiros recorrentes.
 *RecurringFinancialRecordsApi* | [**createRecurringFinancialRecord**](docs/RecurringFinancialRecordsApi.md#createrecurringfinancialrecord) | **POST** /external/recurring-financial-records | Cria um novo lançamento financeiro recorrente.
 *RecurringFinancialRecordsApi* | [**findAllRecurringFinancialRecords**](docs/RecurringFinancialRecordsApi.md#findallrecurringfinancialrecords) | **GET** /external/recurring-financial-records | Busca todos os lançamentos financeiros recorrentes.
@@ -230,7 +231,6 @@ All URIs are relative to *http://localhost*
 - [CreateContactRequestBodyDtoAddress](docs/CreateContactRequestBodyDtoAddress.md)
 - [CreateFileUpload200Response](docs/CreateFileUpload200Response.md)
 - [CreateFileUploadRequestBodyDto](docs/CreateFileUploadRequestBodyDto.md)
-- [CreateFilterRequestDto](docs/CreateFilterRequestDto.md)
 - [CreateFinancialRecordRadarItemRequestBodyDto](docs/CreateFinancialRecordRadarItemRequestBodyDto.md)
 - [CreateFinancialRecordRadarItemRequestBodyDtoBestSuggestedAction](docs/CreateFinancialRecordRadarItemRequestBodyDtoBestSuggestedAction.md)
 - [CreateFinancialRecordRadarItemRequestBodyDtoBestSuggestedActionFinancialRecordRadarRawCreateFinancialRecordRequest](docs/CreateFinancialRecordRadarItemRequestBodyDtoBestSuggestedActionFinancialRecordRadarRawCreateFinancialRecordRequest.md)
@@ -282,6 +282,7 @@ All URIs are relative to *http://localhost*
 - [CreateOrganizationRequestBodyDtoGroupSettings](docs/CreateOrganizationRequestBodyDtoGroupSettings.md)
 - [CreateOrganizationRequestBodyDtoPopulatedChildrenInner](docs/CreateOrganizationRequestBodyDtoPopulatedChildrenInner.md)
 - [CreateOrganizationRequestBodyDtoPopulatedParent](docs/CreateOrganizationRequestBodyDtoPopulatedParent.md)
+- [CreateQueryRequestDto](docs/CreateQueryRequestDto.md)
 - [CreateRecurringFinancialRecordRequestBodyDto](docs/CreateRecurringFinancialRecordRequestBodyDto.md)
 - [CreateRecurringFinancialRecordRequestBodyDtoPopulatedSubcategory](docs/CreateRecurringFinancialRecordRequestBodyDtoPopulatedSubcategory.md)
 - [CreateTagRequestBodyDto](docs/CreateTagRequestBodyDto.md)
@@ -326,7 +327,6 @@ All URIs are relative to *http://localhost*
 - [ExportTagsDto](docs/ExportTagsDto.md)
 - [ExternalCreateSubcategoryRequestBodyDto](docs/ExternalCreateSubcategoryRequestBodyDto.md)
 - [FileEntity](docs/FileEntity.md)
-- [FilterResponseDto](docs/FilterResponseDto.md)
 - [FinancialRecordDto](docs/FinancialRecordDto.md)
 - [FinancialRecordRadarItemAutoExecuteSettingEntity](docs/FinancialRecordRadarItemAutoExecuteSettingEntity.md)
 - [FinancialRecordRadarItemAutoExecuteSettingEntityEnabledRulesInner](docs/FinancialRecordRadarItemAutoExecuteSettingEntityEnabledRulesInner.md)
@@ -385,6 +385,7 @@ All URIs are relative to *http://localhost*
 - [ProspectFinancialRecordDto](docs/ProspectFinancialRecordDto.md)
 - [ProspectInstallmentFinancialRecordRequestBodyDto](docs/ProspectInstallmentFinancialRecordRequestBodyDto.md)
 - [ProspectRecurringFinancialRecordRequestBodyDto](docs/ProspectRecurringFinancialRecordRequestBodyDto.md)
+- [QueryResponseDto](docs/QueryResponseDto.md)
 - [ReconcileBankTransactionRequestBodyDto](docs/ReconcileBankTransactionRequestBodyDto.md)
 - [RecurringFinancialRecordDto](docs/RecurringFinancialRecordDto.md)
 - [RecurringFinancialRecordsPageDto](docs/RecurringFinancialRecordsPageDto.md)

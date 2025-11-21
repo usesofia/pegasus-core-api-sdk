@@ -21,8 +21,11 @@ export interface CreateOrUpdateBankTransactionBestSuggestedActionRequest {
 export interface DispatchOfxImportRequest {
     ofxImportRequestBodyDto: OfxImportRequestBodyDto;
 }
+export interface FindAiSuggestionsByFinancialRecordIdRequest {
+    financialRecordId: string;
+}
 export interface FindAllBankTransactionsRequest {
-    filterId?: string;
+    queryId?: string;
     populate?: string;
     sortOrder?: FindAllBankTransactionsSortOrderEnum;
     sortBy?: FindAllBankTransactionsSortByEnum;
@@ -168,8 +171,21 @@ export interface BankTransactionsApiInterface {
     dispatchOfxImport(requestParameters: DispatchOfxImportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<OfxImportJobRequestEntity>;
     /**
      *
+     * @summary Busca sugestões de AI por ID do lançamento financeiro.
+     * @param {string} financialRecordId ID do lançamento financeiro.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof BankTransactionsApiInterface
+     */
+    findAiSuggestionsByFinancialRecordIdRaw(requestParameters: FindAiSuggestionsByFinancialRecordIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<BankTransactionEntity>>>;
+    /**
+     * Busca sugestões de AI por ID do lançamento financeiro.
+     */
+    findAiSuggestionsByFinancialRecordId(requestParameters: FindAiSuggestionsByFinancialRecordIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<BankTransactionEntity>>;
+    /**
+     *
      * @summary Busca todas as movimentações financeiras.
-     * @param {string} [filterId] ID do filtro a ser aplicado.
+     * @param {string} [queryId] ID da consulta a ser aplicada.
      * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
      * @param {'asc' | 'desc'} [sortOrder] Ordem da ordenação. Valores possíveis: \&#39;asc\&#39;, \&#39;desc\&#39;.
      * @param {'date' | 'amountInBrl' | 'description' | 'createdAt' | 'reconciled'} [sortBy] Campo para ordenação
@@ -433,6 +449,14 @@ export declare class BankTransactionsApi extends runtime.BaseAPI implements Bank
      * Dispara a importação assíncrona de um arquivo OFX.
      */
     dispatchOfxImport(requestParameters: DispatchOfxImportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<OfxImportJobRequestEntity>;
+    /**
+     * Busca sugestões de AI por ID do lançamento financeiro.
+     */
+    findAiSuggestionsByFinancialRecordIdRaw(requestParameters: FindAiSuggestionsByFinancialRecordIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<BankTransactionEntity>>>;
+    /**
+     * Busca sugestões de AI por ID do lançamento financeiro.
+     */
+    findAiSuggestionsByFinancialRecordId(requestParameters: FindAiSuggestionsByFinancialRecordIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<BankTransactionEntity>>;
     /**
      * Busca todas as movimentações financeiras.
      */

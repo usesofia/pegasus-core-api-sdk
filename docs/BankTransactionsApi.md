@@ -7,6 +7,7 @@ All URIs are relative to *http://localhost*
 | [**createOrUpdateBankTransaction**](BankTransactionsApi.md#createorupdatebanktransaction) | **PUT** /internal/bank-transactions | Cria ou atualiza uma movimentação financeira. |
 | [**createOrUpdateBankTransactionBestSuggestedAction**](BankTransactionsApi.md#createorupdatebanktransactionbestsuggestedaction) | **PUT** /external/bank-transactions/{bankTransactionId}/best-suggested-action | Cria ou atualiza uma sugestão de melhor ação para uma transação bancária. |
 | [**dispatchOfxImport**](BankTransactionsApi.md#dispatchofximport) | **POST** /external/bank-transactions/ofx | Dispara a importação assíncrona de um arquivo OFX. |
+| [**findAiSuggestionsByFinancialRecordId**](BankTransactionsApi.md#findaisuggestionsbyfinancialrecordid) | **GET** /external/financial-records/{financialRecordId}/ai-suggestions | Busca sugestões de AI por ID do lançamento financeiro. |
 | [**findAllBankTransactions**](BankTransactionsApi.md#findallbanktransactions) | **GET** /external/bank-transactions | Busca todas as movimentações financeiras. |
 | [**findAllOfxImportJobRequests**](BankTransactionsApi.md#findallofximportjobrequests) | **GET** /external/bank-transactions/ofx/job-requests | Lista todas as solicitações de importação de arquivos OFX com suas execuções. |
 | [**findBankTransactionById**](BankTransactionsApi.md#findbanktransactionbyid) | **GET** /external/bank-transactions/{id} | Busca uma movimentação financeira por ID. |
@@ -225,9 +226,75 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
 
 
+## findAiSuggestionsByFinancialRecordId
+
+> Array&lt;BankTransactionEntity&gt; findAiSuggestionsByFinancialRecordId(financialRecordId)
+
+Busca sugestões de AI por ID do lançamento financeiro.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  BankTransactionsApi,
+} from '@usesofia/pegasus-core-api-sdk';
+import type { FindAiSuggestionsByFinancialRecordIdRequest } from '@usesofia/pegasus-core-api-sdk';
+
+async function example() {
+  console.log("🚀 Testing @usesofia/pegasus-core-api-sdk SDK...");
+  const api = new BankTransactionsApi();
+
+  const body = {
+    // string | ID do lançamento financeiro.
+    financialRecordId: financialRecordId_example,
+  } satisfies FindAiSuggestionsByFinancialRecordIdRequest;
+
+  try {
+    const data = await api.findAiSuggestionsByFinancialRecordId(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **financialRecordId** | `string` | ID do lançamento financeiro. | [Defaults to `undefined`] |
+
+### Return type
+
+[**Array&lt;BankTransactionEntity&gt;**](BankTransactionEntity.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** |  |  -  |
+| **0** |  |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
 ## findAllBankTransactions
 
-> BankTransactionsPageDto findAllBankTransactions(filterId, populate, sortOrder, sortBy, ofxImportJobRequestIds, ignored, origin, reconciled, type, dateTo, dateFrom, bankAccount, semanticSearchTermInBase64, textSearchTerm, pageSize, pageIndex)
+> BankTransactionsPageDto findAllBankTransactions(queryId, populate, sortOrder, sortBy, ofxImportJobRequestIds, ignored, origin, reconciled, type, dateTo, dateFrom, bankAccount, semanticSearchTermInBase64, textSearchTerm, pageSize, pageIndex)
 
 Busca todas as movimentações financeiras.
 
@@ -245,8 +312,8 @@ async function example() {
   const api = new BankTransactionsApi();
 
   const body = {
-    // string | ID do filtro a ser aplicado. (optional)
-    filterId: filterId_example,
+    // string | ID da consulta a ser aplicada. (optional)
+    queryId: queryId_example,
     // string | Campos relacionados a serem populados separados por vírgula. (optional)
     populate: populate_example,
     // 'asc' | 'desc' | Ordem da ordenação. Valores possíveis: \'asc\', \'desc\'. (optional)
@@ -296,7 +363,7 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **filterId** | `string` | ID do filtro a ser aplicado. | [Optional] [Defaults to `undefined`] |
+| **queryId** | `string` | ID da consulta a ser aplicada. | [Optional] [Defaults to `undefined`] |
 | **populate** | `string` | Campos relacionados a serem populados separados por vírgula. | [Optional] [Defaults to `undefined`] |
 | **sortOrder** | `asc`, `desc` | Ordem da ordenação. Valores possíveis: \&#39;asc\&#39;, \&#39;desc\&#39;. | [Optional] [Defaults to `undefined`] [Enum: asc, desc] |
 | **sortBy** | `date`, `amountInBrl`, `description`, `createdAt`, `reconciled` | Campo para ordenação | [Optional] [Defaults to `undefined`] [Enum: date, amountInBrl, description, createdAt, reconciled] |

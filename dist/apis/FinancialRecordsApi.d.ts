@@ -19,7 +19,7 @@ export interface CreateManyFinancialRecordsRequest {
     createManyFinancialRecordsRequestBodyDto: CreateManyFinancialRecordsRequestBodyDto;
 }
 export interface FindAllFinancialRecordsRequest {
-    filterId?: string;
+    queryId?: string;
     sortOrder?: FindAllFinancialRecordsSortOrderEnum;
     sortBy?: FindAllFinancialRecordsSortByEnum;
     recurringFinancialRecord?: string;
@@ -160,7 +160,7 @@ export interface FinancialRecordsApiInterface {
     /**
      *
      * @summary Busca todos os lançamentos financeiros.
-     * @param {string} [filterId] ID do filtro a ser aplicado.
+     * @param {string} [queryId] ID da consulta a ser aplicada.
      * @param {'asc' | 'desc'} [sortOrder] Ordem de ordenação dos lançamentos financeiros.
      * @param {'direction' | 'dueDate' | 'contact' | 'description' | 'subcategory' | 'amount' | 'competenceDate' | 'cashDate' | 'createdAt'} [sortBy] Campo para ordenação dos lançamentos financeiros.
      * @param {string} [recurringFinancialRecord] ID da recorrência financeira.

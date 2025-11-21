@@ -13,32 +13,20 @@
  * Do not edit the class manually.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.FilterResponseDtoResourceEnum = void 0;
-exports.instanceOfFilterResponseDto = instanceOfFilterResponseDto;
-exports.FilterResponseDtoFromJSON = FilterResponseDtoFromJSON;
-exports.FilterResponseDtoFromJSONTyped = FilterResponseDtoFromJSONTyped;
-exports.FilterResponseDtoToJSON = FilterResponseDtoToJSON;
-exports.FilterResponseDtoToJSONTyped = FilterResponseDtoToJSONTyped;
+exports.instanceOfQueryResponseDto = instanceOfQueryResponseDto;
+exports.QueryResponseDtoFromJSON = QueryResponseDtoFromJSON;
+exports.QueryResponseDtoFromJSONTyped = QueryResponseDtoFromJSONTyped;
+exports.QueryResponseDtoToJSON = QueryResponseDtoToJSON;
+exports.QueryResponseDtoToJSONTyped = QueryResponseDtoToJSONTyped;
 /**
- * @export
+ * Check if a given object implements the QueryResponseDto interface.
  */
-exports.FilterResponseDtoResourceEnum = {
-    FinancialRecord: 'FINANCIAL_RECORD',
-    BankTransaction: 'BANK_TRANSACTION'
-};
-/**
- * Check if a given object implements the FilterResponseDto interface.
- */
-function instanceOfFilterResponseDto(value) {
+function instanceOfQueryResponseDto(value) {
     if (!('id' in value) || value['id'] === undefined)
         return false;
     if (!('ownerOrganization' in value) || value['ownerOrganization'] === undefined)
         return false;
-    if (!('userId' in value) || value['userId'] === undefined)
-        return false;
-    if (!('resource' in value) || value['resource'] === undefined)
-        return false;
-    if (!('query' in value) || value['query'] === undefined)
+    if (!('data' in value) || value['data'] === undefined)
         return false;
     if (!('createdAt' in value) || value['createdAt'] === undefined)
         return false;
@@ -46,27 +34,25 @@ function instanceOfFilterResponseDto(value) {
         return false;
     return true;
 }
-function FilterResponseDtoFromJSON(json) {
-    return FilterResponseDtoFromJSONTyped(json, false);
+function QueryResponseDtoFromJSON(json) {
+    return QueryResponseDtoFromJSONTyped(json, false);
 }
-function FilterResponseDtoFromJSONTyped(json, ignoreDiscriminator) {
+function QueryResponseDtoFromJSONTyped(json, ignoreDiscriminator) {
     if (json == null) {
         return json;
     }
     return {
         'id': json['id'],
         'ownerOrganization': json['ownerOrganization'],
-        'userId': json['userId'],
-        'resource': json['resource'],
-        'query': json['query'],
+        'data': json['data'],
         'createdAt': json['createdAt'],
         'updatedAt': json['updatedAt'],
     };
 }
-function FilterResponseDtoToJSON(json) {
-    return FilterResponseDtoToJSONTyped(json, false);
+function QueryResponseDtoToJSON(json) {
+    return QueryResponseDtoToJSONTyped(json, false);
 }
-function FilterResponseDtoToJSONTyped(value, ignoreDiscriminator) {
+function QueryResponseDtoToJSONTyped(value, ignoreDiscriminator) {
     if (ignoreDiscriminator === void 0) { ignoreDiscriminator = false; }
     if (value == null) {
         return value;
@@ -74,9 +60,7 @@ function FilterResponseDtoToJSONTyped(value, ignoreDiscriminator) {
     return {
         'id': value['id'],
         'ownerOrganization': value['ownerOrganization'],
-        'userId': value['userId'],
-        'resource': value['resource'],
-        'query': value['query'],
+        'data': value['data'],
         'createdAt': value['createdAt'],
         'updatedAt': value['updatedAt'],
     };

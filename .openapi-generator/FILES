@@ -50,7 +50,6 @@ docs/CreateContactRequestBodyDto.md
 docs/CreateContactRequestBodyDtoAddress.md
 docs/CreateFileUpload200Response.md
 docs/CreateFileUploadRequestBodyDto.md
-docs/CreateFilterRequestDto.md
 docs/CreateFinancialRecordRadarItemRequestBodyDto.md
 docs/CreateFinancialRecordRadarItemRequestBodyDtoBestSuggestedAction.md
 docs/CreateFinancialRecordRadarItemRequestBodyDtoBestSuggestedActionFinancialRecordRadarRawCreateFinancialRecordRequest.md
@@ -102,6 +101,7 @@ docs/CreateOrganizationRequestBodyDto.md
 docs/CreateOrganizationRequestBodyDtoGroupSettings.md
 docs/CreateOrganizationRequestBodyDtoPopulatedChildrenInner.md
 docs/CreateOrganizationRequestBodyDtoPopulatedParent.md
+docs/CreateQueryRequestDto.md
 docs/CreateRecurringFinancialRecordRequestBodyDto.md
 docs/CreateRecurringFinancialRecordRequestBodyDtoPopulatedSubcategory.md
 docs/CreateTagRequestBodyDto.md
@@ -151,8 +151,6 @@ docs/FibonacciApi.md
 docs/FileEntity.md
 docs/FilesApi.md
 docs/FilesUploadApi.md
-docs/FilterResponseDto.md
-docs/FiltersApi.md
 docs/FinancialRecordDto.md
 docs/FinancialRecordRadarItemAutoExecuteApi.md
 docs/FinancialRecordRadarItemAutoExecuteSettingEntity.md
@@ -224,6 +222,8 @@ docs/ProspectInstallmentFinancialRecordRequestBodyDto.md
 docs/ProspectInstallmentFinancialRecordsApi.md
 docs/ProspectRecurringFinancialRecordRequestBodyDto.md
 docs/ProspectRecurringFinancialRecordsApi.md
+docs/QueriesApi.md
+docs/QueryResponseDto.md
 docs/ReconcileBankTransactionRequestBodyDto.md
 docs/RecurringFinancialRecordDto.md
 docs/RecurringFinancialRecordsApi.md
@@ -290,7 +290,6 @@ src/apis/ExportResourceJobRequestsApi.ts
 src/apis/FibonacciApi.ts
 src/apis/FilesApi.ts
 src/apis/FilesUploadApi.ts
-src/apis/FiltersApi.ts
 src/apis/FinancialRecordRadarItemAutoExecuteApi.ts
 src/apis/FinancialRecordRadarItemsApi.ts
 src/apis/FinancialRecordRadarItemsSeederApi.ts
@@ -304,6 +303,7 @@ src/apis/NormalizedSubcategoriesApi.ts
 src/apis/OrganizationsApi.ts
 src/apis/ProspectInstallmentFinancialRecordsApi.ts
 src/apis/ProspectRecurringFinancialRecordsApi.ts
+src/apis/QueriesApi.ts
 src/apis/RecurringFinancialRecordsApi.ts
 src/apis/RecurringFinancialRecordsExportApi.ts
 src/apis/SubcategoriesApi.ts
@@ -349,7 +349,6 @@ src/models/CreateContactRequestBodyDto.ts
 src/models/CreateContactRequestBodyDtoAddress.ts
 src/models/CreateFileUpload200Response.ts
 src/models/CreateFileUploadRequestBodyDto.ts
-src/models/CreateFilterRequestDto.ts
 src/models/CreateFinancialRecordRadarItemRequestBodyDto.ts
 src/models/CreateFinancialRecordRadarItemRequestBodyDtoBestSuggestedAction.ts
 src/models/CreateFinancialRecordRadarItemRequestBodyDtoBestSuggestedActionFinancialRecordRadarRawCreateFinancialRecordRequest.ts
@@ -401,6 +400,7 @@ src/models/CreateOrganizationRequestBodyDto.ts
 src/models/CreateOrganizationRequestBodyDtoGroupSettings.ts
 src/models/CreateOrganizationRequestBodyDtoPopulatedChildrenInner.ts
 src/models/CreateOrganizationRequestBodyDtoPopulatedParent.ts
+src/models/CreateQueryRequestDto.ts
 src/models/CreateRecurringFinancialRecordRequestBodyDto.ts
 src/models/CreateRecurringFinancialRecordRequestBodyDtoPopulatedSubcategory.ts
 src/models/CreateTagRequestBodyDto.ts
@@ -445,7 +445,6 @@ src/models/ExportSubcategoriesDto.ts
 src/models/ExportTagsDto.ts
 src/models/ExternalCreateSubcategoryRequestBodyDto.ts
 src/models/FileEntity.ts
-src/models/FilterResponseDto.ts
 src/models/FinancialRecordDto.ts
 src/models/FinancialRecordRadarItemAutoExecuteSettingEntity.ts
 src/models/FinancialRecordRadarItemAutoExecuteSettingEntityEnabledRulesInner.ts
@@ -504,6 +503,7 @@ src/models/ProcessExportResourceJobRequestBodyDtoRequesterOrganizationParent.ts
 src/models/ProspectFinancialRecordDto.ts
 src/models/ProspectInstallmentFinancialRecordRequestBodyDto.ts
 src/models/ProspectRecurringFinancialRecordRequestBodyDto.ts
+src/models/QueryResponseDto.ts
 src/models/ReconcileBankTransactionRequestBodyDto.ts
 src/models/RecurringFinancialRecordDto.ts
 src/models/RecurringFinancialRecordsPageDto.ts

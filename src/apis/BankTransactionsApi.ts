@@ -80,8 +80,12 @@ export interface DispatchOfxImportRequest {
     ofxImportRequestBodyDto: OfxImportRequestBodyDto;
 }
 
+export interface FindAiSuggestionsByFinancialRecordIdRequest {
+    financialRecordId: string;
+}
+
 export interface FindAllBankTransactionsRequest {
-    filterId?: string;
+    queryId?: string;
     populate?: string;
     sortOrder?: FindAllBankTransactionsSortOrderEnum;
     sortBy?: FindAllBankTransactionsSortByEnum;
@@ -247,8 +251,23 @@ export interface BankTransactionsApiInterface {
 
     /**
      * 
+     * @summary Busca sugestões de AI por ID do lançamento financeiro.
+     * @param {string} financialRecordId ID do lançamento financeiro.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof BankTransactionsApiInterface
+     */
+    findAiSuggestionsByFinancialRecordIdRaw(requestParameters: FindAiSuggestionsByFinancialRecordIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<BankTransactionEntity>>>;
+
+    /**
+     * Busca sugestões de AI por ID do lançamento financeiro.
+     */
+    findAiSuggestionsByFinancialRecordId(requestParameters: FindAiSuggestionsByFinancialRecordIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<BankTransactionEntity>>;
+
+    /**
+     * 
      * @summary Busca todas as movimentações financeiras.
-     * @param {string} [filterId] ID do filtro a ser aplicado.
+     * @param {string} [queryId] ID da consulta a ser aplicada.
      * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
      * @param {'asc' | 'desc'} [sortOrder] Ordem da ordenação. Valores possíveis: \&#39;asc\&#39;, \&#39;desc\&#39;.
      * @param {'date' | 'amountInBrl' | 'description' | 'createdAt' | 'reconciled'} [sortBy] Campo para ordenação
@@ -638,13 +657,50 @@ export class BankTransactionsApi extends runtime.BaseAPI implements BankTransact
     }
 
     /**
+     * Busca sugestões de AI por ID do lançamento financeiro.
+     */
+    async findAiSuggestionsByFinancialRecordIdRaw(requestParameters: FindAiSuggestionsByFinancialRecordIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<BankTransactionEntity>>> {
+        if (requestParameters['financialRecordId'] == null) {
+            throw new runtime.RequiredError(
+                'financialRecordId',
+                'Required parameter "financialRecordId" was null or undefined when calling findAiSuggestionsByFinancialRecordId().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+
+        let urlPath = `/external/financial-records/{financialRecordId}/ai-suggestions`;
+        urlPath = urlPath.replace(`{${"financialRecordId"}}`, encodeURIComponent(String(requestParameters['financialRecordId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(BankTransactionEntityFromJSON));
+    }
+
+    /**
+     * Busca sugestões de AI por ID do lançamento financeiro.
+     */
+    async findAiSuggestionsByFinancialRecordId(requestParameters: FindAiSuggestionsByFinancialRecordIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<BankTransactionEntity>> {
+        const response = await this.findAiSuggestionsByFinancialRecordIdRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
      * Busca todas as movimentações financeiras.
      */
     async findAllBankTransactionsRaw(requestParameters: FindAllBankTransactionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankTransactionsPageDto>> {
         const queryParameters: any = {};
 
-        if (requestParameters['filterId'] != null) {
-            queryParameters['filterId'] = requestParameters['filterId'];
+        if (requestParameters['queryId'] != null) {
+            queryParameters['queryId'] = requestParameters['queryId'];
         }
 
         if (requestParameters['populate'] != null) {

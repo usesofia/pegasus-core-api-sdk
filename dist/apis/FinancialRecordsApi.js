@@ -182,8 +182,8 @@ var FinancialRecordsApi = /** @class */ (function (_super) {
                 switch (_a.label) {
                     case 0:
                         queryParameters = {};
-                        if (requestParameters['filterId'] != null) {
-                            queryParameters['filterId'] = requestParameters['filterId'];
+                        if (requestParameters['queryId'] != null) {
+                            queryParameters['queryId'] = requestParameters['queryId'];
                         }
                         if (requestParameters['sortOrder'] != null) {
                             queryParameters['sortOrder'] = requestParameters['sortOrder'];
