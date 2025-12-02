@@ -12,6 +12,7 @@ Name | Type
 `type` | string
 `document` | string
 `imageUrl` | string
+`trialExpiresAt` | any
 `parent` | string
 `populatedParent` | [CreateOrganizationRequestBodyDtoPopulatedParent](CreateOrganizationRequestBodyDtoPopulatedParent.md)
 `children` | Array&lt;string&gt;
@@ -35,6 +36,7 @@ const example = {
   "type": null,
   "document": null,
   "imageUrl": null,
+  "trialExpiresAt": null,
   "parent": null,
   "populatedParent": null,
   "children": null,

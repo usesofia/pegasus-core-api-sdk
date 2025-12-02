@@ -64,56 +64,115 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.SyncOrganizationsApi = void 0;
+exports.SubscriptionsApi = void 0;
 var runtime = require("../runtime");
+var index_1 = require("../models/index");
 /**
  *
  */
-var SyncOrganizationsApi = /** @class */ (function (_super) {
-    __extends(SyncOrganizationsApi, _super);
-    function SyncOrganizationsApi() {
+var SubscriptionsApi = /** @class */ (function (_super) {
+    __extends(SubscriptionsApi, _super);
+    function SubscriptionsApi() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
-     * Sincroniza todas as organizações.
+     * Create a new subscription.
      */
-    SyncOrganizationsApi.prototype.syncOrganizationsRaw = function (initOverrides) {
+    SubscriptionsApi.prototype.createSubscriptionRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
             var queryParameters, headerParameters, urlPath, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
+                        if (requestParameters['createSubscriptionRequestBodyDto'] == null) {
+                            throw new runtime.RequiredError('createSubscriptionRequestBodyDto', 'Required parameter "createSubscriptionRequestBodyDto" was null or undefined when calling createSubscription().');
+                        }
                         queryParameters = {};
                         headerParameters = {};
-                        urlPath = "/internal/sync-organizations";
+                        headerParameters['Content-Type'] = 'application/json';
+                        urlPath = "/external/subscriptions";
                         return [4 /*yield*/, this.request({
                                 path: urlPath,
                                 method: 'POST',
                                 headers: headerParameters,
                                 query: queryParameters,
+                                body: (0, index_1.CreateSubscriptionRequestBodyDtoToJSON)(requestParameters['createSubscriptionRequestBodyDto']),
                             }, initOverrides)];
                     case 1:
                         response = _a.sent();
-                        return [2 /*return*/, new runtime.VoidApiResponse(response)];
+                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.SubscriptionEntityFromJSON)(jsonValue); })];
                 }
             });
         });
     };
     /**
-     * Sincroniza todas as organizações.
+     * Create a new subscription.
      */
-    SyncOrganizationsApi.prototype.syncOrganizations = function (initOverrides) {
+    SubscriptionsApi.prototype.createSubscription = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
+            var response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.syncOrganizationsRaw(initOverrides)];
+                    case 0: return [4 /*yield*/, this.createSubscriptionRaw(requestParameters, initOverrides)];
                     case 1:
-                        _a.sent();
-                        return [2 /*return*/];
+                        response = _a.sent();
+                        return [4 /*yield*/, response.value()];
+                    case 2: return [2 /*return*/, _a.sent()];
                 }
             });
         });
     };
-    return SyncOrganizationsApi;
+    /**
+     * Partially update a subscription.
+     */
+    SubscriptionsApi.prototype.partialUpdateSubscriptionRaw = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (requestParameters['id'] == null) {
+                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling partialUpdateSubscription().');
+                        }
+                        if (requestParameters['partialUpdateSubscriptionRequestBodyDto'] == null) {
+                            throw new runtime.RequiredError('partialUpdateSubscriptionRequestBodyDto', 'Required parameter "partialUpdateSubscriptionRequestBodyDto" was null or undefined when calling partialUpdateSubscription().');
+                        }
+                        queryParameters = {};
+                        headerParameters = {};
+                        headerParameters['Content-Type'] = 'application/json';
+                        urlPath = "/external/subscriptions/{id}";
+                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
+                        return [4 /*yield*/, this.request({
+                                path: urlPath,
+                                method: 'PATCH',
+                                headers: headerParameters,
+                                query: queryParameters,
+                                body: (0, index_1.PartialUpdateSubscriptionRequestBodyDtoToJSON)(requestParameters['partialUpdateSubscriptionRequestBodyDto']),
+                            }, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.SubscriptionEntityFromJSON)(jsonValue); })];
+                }
+            });
+        });
+    };
+    /**
+     * Partially update a subscription.
+     */
+    SubscriptionsApi.prototype.partialUpdateSubscription = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.partialUpdateSubscriptionRaw(requestParameters, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [4 /*yield*/, response.value()];
+                    case 2: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
+    return SubscriptionsApi;
 }(runtime.BaseAPI));
-exports.SyncOrganizationsApi = SyncOrganizationsApi;
+exports.SubscriptionsApi = SubscriptionsApi;

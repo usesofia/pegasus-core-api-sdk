@@ -64,7 +64,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.OrganizationsApi = void 0;
+exports.FindAllOrganizationsAdminSortByEnum = exports.FindAllOrganizationsAdminSortOrderEnum = exports.OrganizationsApi = void 0;
 var runtime = require("../runtime");
 var index_1 = require("../models/index");
 /**
@@ -165,6 +165,85 @@ var OrganizationsApi = /** @class */ (function (_super) {
                     case 1:
                         _a.sent();
                         return [2 /*return*/];
+                }
+            });
+        });
+    };
+    /**
+     * Lista todas as organizações armazenadas no banco de dados (endpoint admin).
+     */
+    OrganizationsApi.prototype.findAllOrganizationsAdminRaw = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        queryParameters = {};
+                        if (requestParameters['sortOrder'] != null) {
+                            queryParameters['sortOrder'] = requestParameters['sortOrder'];
+                        }
+                        if (requestParameters['sortBy'] != null) {
+                            queryParameters['sortBy'] = requestParameters['sortBy'];
+                        }
+                        if (requestParameters['textSearchTerm'] != null) {
+                            queryParameters['textSearchTerm'] = requestParameters['textSearchTerm'];
+                        }
+                        if (requestParameters['clerkIds'] != null) {
+                            queryParameters['clerkIds'] = requestParameters['clerkIds'];
+                        }
+                        if (requestParameters['subscriptionStatuses'] != null) {
+                            queryParameters['subscriptionStatuses'] = requestParameters['subscriptionStatuses'];
+                        }
+                        if (requestParameters['trialExpiresAtTo'] != null) {
+                            queryParameters['trialExpiresAtTo'] = requestParameters['trialExpiresAtTo'];
+                        }
+                        if (requestParameters['trialExpiresAtFrom'] != null) {
+                            queryParameters['trialExpiresAtFrom'] = requestParameters['trialExpiresAtFrom'];
+                        }
+                        if (requestParameters['clerkCreatedAtTo'] != null) {
+                            queryParameters['clerkCreatedAtTo'] = requestParameters['clerkCreatedAtTo'];
+                        }
+                        if (requestParameters['clerkCreatedAtFrom'] != null) {
+                            queryParameters['clerkCreatedAtFrom'] = requestParameters['clerkCreatedAtFrom'];
+                        }
+                        if (requestParameters['subtypes'] != null) {
+                            queryParameters['subtypes'] = requestParameters['subtypes'];
+                        }
+                        if (requestParameters['pageSize'] != null) {
+                            queryParameters['pageSize'] = requestParameters['pageSize'];
+                        }
+                        if (requestParameters['pageIndex'] != null) {
+                            queryParameters['pageIndex'] = requestParameters['pageIndex'];
+                        }
+                        headerParameters = {};
+                        urlPath = "/external/organizations/admin";
+                        return [4 /*yield*/, this.request({
+                                path: urlPath,
+                                method: 'GET',
+                                headers: headerParameters,
+                                query: queryParameters,
+                            }, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.AdminOrganizationsPageDtoFromJSON)(jsonValue); })];
+                }
+            });
+        });
+    };
+    /**
+     * Lista todas as organizações armazenadas no banco de dados (endpoint admin).
+     */
+    OrganizationsApi.prototype.findAllOrganizationsAdmin = function () {
+        return __awaiter(this, arguments, void 0, function (requestParameters, initOverrides) {
+            var response;
+            if (requestParameters === void 0) { requestParameters = {}; }
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.findAllOrganizationsAdminRaw(requestParameters, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [4 /*yield*/, response.value()];
+                    case 2: return [2 /*return*/, _a.sent()];
                 }
             });
         });
@@ -394,6 +473,60 @@ var OrganizationsApi = /** @class */ (function (_super) {
             });
         });
     };
+    /**
+     * Sync organizations from Clerk.
+     */
+    OrganizationsApi.prototype.syncFromClerkRaw = function (initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        queryParameters = {};
+                        headerParameters = {};
+                        urlPath = "/internal/organizations/sync/clerk";
+                        return [4 /*yield*/, this.request({
+                                path: urlPath,
+                                method: 'POST',
+                                headers: headerParameters,
+                                query: queryParameters,
+                            }, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [2 /*return*/, new runtime.VoidApiResponse(response)];
+                }
+            });
+        });
+    };
+    /**
+     * Sync organizations from Clerk.
+     */
+    OrganizationsApi.prototype.syncFromClerk = function (initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.syncFromClerkRaw(initOverrides)];
+                    case 1:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
     return OrganizationsApi;
 }(runtime.BaseAPI));
 exports.OrganizationsApi = OrganizationsApi;
+/**
+ * @export
+ */
+exports.FindAllOrganizationsAdminSortOrderEnum = {
+    Asc: 'asc',
+    Desc: 'desc'
+};
+/**
+ * @export
+ */
+exports.FindAllOrganizationsAdminSortByEnum = {
+    Name: 'name',
+    ClerkCreatedAt: 'clerkCreatedAt'
+};

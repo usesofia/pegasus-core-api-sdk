@@ -97,6 +97,9 @@ All URIs are relative to *http://localhost*
 *ContactsApi* | [**systemFindAllContacts**](docs/ContactsApi.md#systemfindallcontacts) | **GET** /internal/contacts | Busca todos os contatos pelo sistema.
 *ContactsApi* | [**systemFindByIdContact**](docs/ContactsApi.md#systemfindbyidcontact) | **GET** /internal/organizations/{organizationId}/contacts/{contactId} | Busca um contato pelo identificador.
 *ContactsExportApi* | [**exportContacts**](docs/ContactsExportApi.md#exportcontacts) | **POST** /external/contacts/export | Solicita a exportação dos contatos.
+*CustomersApi* | [**createCustomer**](docs/CustomersApi.md#createcustomer) | **POST** /external/customers | Create a new customer.
+*CustomersApi* | [**findAllCustomers**](docs/CustomersApi.md#findallcustomers) | **GET** /external/customers | Lista todos os customers com paginação e filtros.
+*CustomersApi* | [**partialUpdateCustomer**](docs/CustomersApi.md#partialupdatecustomer) | **PATCH** /external/customers/{id} | Partially update a customer.
 *EmbeddingApi* | [**calculateAndUpdateEmbedding**](docs/EmbeddingApi.md#calculateandupdateembedding) | **POST** /internal/queues/calculate-embedding | Calcula e atualiza o embedding de um recurso.
 *EmbeddingApi* | [**catchProblematicEmbeddingCalculations**](docs/EmbeddingApi.md#catchproblematicembeddingcalculations) | **POST** /internal/embedding/catch | Checa se existem recursos que precisam do cálculo do embedding e os adiciona na fila.
 *ExportResourceJobRequestsApi* | [**processExportResourceJobRequest**](docs/ExportResourceJobRequestsApi.md#processexportresourcejobrequest) | **POST** /internal/queues/export-resources | Processa a exportação de um recurso.
@@ -156,11 +159,13 @@ All URIs are relative to *http://localhost*
 *NormalizedSubcategoriesApi* | [**findAllNormalizedSubcategories**](docs/NormalizedSubcategoriesApi.md#findallnormalizedsubcategories) | **GET** /external/normalized-subcategories | Busca todas as subcategorias normalizadas.
 *OrganizationsApi* | [**createOrganization**](docs/OrganizationsApi.md#createorganization) | **POST** /external/organizations | Create a new organization.
 *OrganizationsApi* | [**externalHardRemoveOrganization**](docs/OrganizationsApi.md#externalhardremoveorganization) | **DELETE** /external/organizations/{organizationId}/hard | Hard remove an organization and all its data.
+*OrganizationsApi* | [**findAllOrganizationsAdmin**](docs/OrganizationsApi.md#findallorganizationsadmin) | **GET** /external/organizations/admin | Lista todas as organizações armazenadas no banco de dados (endpoint admin).
 *OrganizationsApi* | [**findMyAdminGroupOrganizations**](docs/OrganizationsApi.md#findmyadmingrouporganizations) | **GET** /external/organizations/my/admin/type/group | Find my organizations of type group where I am admin.
 *OrganizationsApi* | [**findMyOrganization**](docs/OrganizationsApi.md#findmyorganization) | **GET** /external/organizations/my | Find my organization.
 *OrganizationsApi* | [**findOrganizationById**](docs/OrganizationsApi.md#findorganizationbyid) | **GET** /external/organizations/{organizationId} | Find an organization by ID.
 *OrganizationsApi* | [**hardRemoveOrganizationInternal**](docs/OrganizationsApi.md#hardremoveorganizationinternal) | **DELETE** /internal/organizations/{organizationId}/hard | Hard remove an organization and all its data (internal endpoint).
 *OrganizationsApi* | [**partialUpdateOrganization**](docs/OrganizationsApi.md#partialupdateorganization) | **PATCH** /external/organizations/{id} | Atualiza parcialmente uma organização.
+*OrganizationsApi* | [**syncFromClerk**](docs/OrganizationsApi.md#syncfromclerk) | **POST** /internal/organizations/sync/clerk | Sync organizations from Clerk.
 *ProspectInstallmentFinancialRecordsApi* | [**prospectInstallmentFinancialRecord**](docs/ProspectInstallmentFinancialRecordsApi.md#prospectinstallmentfinancialrecord) | **POST** /external/installment-financial-records/prospect | Simula os lançamentos únicos que serão criados para um lançamento financeiro parcelado.
 *ProspectRecurringFinancialRecordsApi* | [**prospectRecurringFinancialRecord**](docs/ProspectRecurringFinancialRecordsApi.md#prospectrecurringfinancialrecord) | **POST** /external/recurring-financial-records/prospect | Simula os lançamentos únicos que serão criados para um lançamento financeiro recorrente.
 *QueriesApi* | [**createQuery**](docs/QueriesApi.md#createquery) | **POST** /external/queries | Cria uma nova consulta.
@@ -183,7 +188,8 @@ All URIs are relative to *http://localhost*
 *SubcategoriesApi* | [**systemFindAllSubcategories**](docs/SubcategoriesApi.md#systemfindallsubcategories) | **GET** /internal/subcategories | Busca todas as subcategorias pelo sistema.
 *SubcategoriesApi* | [**systemFindByIdSubcategory**](docs/SubcategoriesApi.md#systemfindbyidsubcategory) | **GET** /internal/organizations/{organizationId}/subcategories/{subcategoryId} | Busca uma subcategoria pelo identificador.
 *SubcategoriesExportApi* | [**exportSubcategories**](docs/SubcategoriesExportApi.md#exportsubcategories) | **POST** /external/subcategories/export | Solicita a exportação das subcategorias.
-*SyncOrganizationsApi* | [**syncOrganizations**](docs/SyncOrganizationsApi.md#syncorganizations) | **POST** /internal/sync-organizations | Sincroniza todas as organizações.
+*SubscriptionsApi* | [**createSubscription**](docs/SubscriptionsApi.md#createsubscription) | **POST** /external/subscriptions | Create a new subscription.
+*SubscriptionsApi* | [**partialUpdateSubscription**](docs/SubscriptionsApi.md#partialupdatesubscription) | **PATCH** /external/subscriptions/{id} | Partially update a subscription.
 *TagsApi* | [**createTag**](docs/TagsApi.md#createtag) | **POST** /external/tags | Cria uma nova tag.
 *TagsApi* | [**findAllTags**](docs/TagsApi.md#findalltags) | **GET** /external/tags | Busca todas as tags.
 *TagsApi* | [**findByIdTag**](docs/TagsApi.md#findbyidtag) | **GET** /external/tags/{id} | Busca uma tag pelo identificador.
@@ -195,6 +201,9 @@ All URIs are relative to *http://localhost*
 
 ### Models
 
+- [AdminOrganizationsPageDto](docs/AdminOrganizationsPageDto.md)
+- [AdminOrganizationsPageDtoItemsInner](docs/AdminOrganizationsPageDtoItemsInner.md)
+- [AdminOrganizationsPageDtoItemsInnerPopulatedSubscription](docs/AdminOrganizationsPageDtoItemsInnerPopulatedSubscription.md)
 - [BankAccountDto](docs/BankAccountDto.md)
 - [BankAccountTypeEntity](docs/BankAccountTypeEntity.md)
 - [BankAccountsPageDto](docs/BankAccountsPageDto.md)
@@ -229,6 +238,7 @@ All URIs are relative to *http://localhost*
 - [CreateBankAccountRequestBodyDto](docs/CreateBankAccountRequestBodyDto.md)
 - [CreateContactRequestBodyDto](docs/CreateContactRequestBodyDto.md)
 - [CreateContactRequestBodyDtoAddress](docs/CreateContactRequestBodyDtoAddress.md)
+- [CreateCustomerRequestBodyDto](docs/CreateCustomerRequestBodyDto.md)
 - [CreateFileUpload200Response](docs/CreateFileUpload200Response.md)
 - [CreateFileUploadRequestBodyDto](docs/CreateFileUploadRequestBodyDto.md)
 - [CreateFinancialRecordRadarItemRequestBodyDto](docs/CreateFinancialRecordRadarItemRequestBodyDto.md)
@@ -285,6 +295,7 @@ All URIs are relative to *http://localhost*
 - [CreateQueryRequestDto](docs/CreateQueryRequestDto.md)
 - [CreateRecurringFinancialRecordRequestBodyDto](docs/CreateRecurringFinancialRecordRequestBodyDto.md)
 - [CreateRecurringFinancialRecordRequestBodyDtoPopulatedSubcategory](docs/CreateRecurringFinancialRecordRequestBodyDtoPopulatedSubcategory.md)
+- [CreateSubscriptionRequestBodyDto](docs/CreateSubscriptionRequestBodyDto.md)
 - [CreateTagRequestBodyDto](docs/CreateTagRequestBodyDto.md)
 - [CreatedFinancialRecordRadarItemResultEntity](docs/CreatedFinancialRecordRadarItemResultEntity.md)
 - [CreatedFinancialRecordRadarItemResultEntityAutoExecute](docs/CreatedFinancialRecordRadarItemResultEntityAutoExecute.md)
@@ -309,6 +320,9 @@ All URIs are relative to *http://localhost*
 - [CreatedFinancialRecordRadarItemResultEntityRadarItemSubsequentRadarItemsInnerBestSuggestedAction](docs/CreatedFinancialRecordRadarItemResultEntityRadarItemSubsequentRadarItemsInnerBestSuggestedAction.md)
 - [CreatedFinancialRecordRadarItemResultEntityRadarItemSubsequentRadarItemsInnerEmailMessageData](docs/CreatedFinancialRecordRadarItemResultEntityRadarItemSubsequentRadarItemsInnerEmailMessageData.md)
 - [CreatedFinancialRecordRadarItemResultEntityRadarItemSubsequentRadarItemsInnerWhatsappMessageData](docs/CreatedFinancialRecordRadarItemResultEntityRadarItemSubsequentRadarItemsInnerWhatsappMessageData.md)
+- [CustomerDto](docs/CustomerDto.md)
+- [CustomersPageDto](docs/CustomersPageDto.md)
+- [CustomersPageDtoItemsInner](docs/CustomersPageDtoItemsInner.md)
 - [ExceptionResponseEntity](docs/ExceptionResponseEntity.md)
 - [ExceptionResponseEntityErrorsInner](docs/ExceptionResponseEntityErrorsInner.md)
 - [ExecuteBankTransactionsCreateOrUpdateBestSuggestionActionRequestBodyDto](docs/ExecuteBankTransactionsCreateOrUpdateBestSuggestionActionRequestBodyDto.md)
@@ -366,6 +380,7 @@ All URIs are relative to *http://localhost*
 - [PartialUpdateBankAccountRequestBodyDto](docs/PartialUpdateBankAccountRequestBodyDto.md)
 - [PartialUpdateBankTransactionRequestBodyDto](docs/PartialUpdateBankTransactionRequestBodyDto.md)
 - [PartialUpdateContactRequestBodyDto](docs/PartialUpdateContactRequestBodyDto.md)
+- [PartialUpdateCustomerRequestBodyDto](docs/PartialUpdateCustomerRequestBodyDto.md)
 - [PartialUpdateFinancialRecordRadarItemRequestBodyDto](docs/PartialUpdateFinancialRecordRadarItemRequestBodyDto.md)
 - [PartialUpdateFinancialRecordRequestBodyDto](docs/PartialUpdateFinancialRecordRequestBodyDto.md)
 - [PartialUpdateInstallmentFinancialRecordRequestBodyDto](docs/PartialUpdateInstallmentFinancialRecordRequestBodyDto.md)
@@ -376,6 +391,7 @@ All URIs are relative to *http://localhost*
 - [PartialUpdateOrganizationRequestBodyDto](docs/PartialUpdateOrganizationRequestBodyDto.md)
 - [PartialUpdateRecurringFinancialRecordRequestBodyDto](docs/PartialUpdateRecurringFinancialRecordRequestBodyDto.md)
 - [PartialUpdateSubcategoryRequestBodyDto](docs/PartialUpdateSubcategoryRequestBodyDto.md)
+- [PartialUpdateSubscriptionRequestBodyDto](docs/PartialUpdateSubscriptionRequestBodyDto.md)
 - [PartialUpdateTagRequestBodyDto](docs/PartialUpdateTagRequestBodyDto.md)
 - [ProcessExportResourceJobRequestBodyDto](docs/ProcessExportResourceJobRequestBodyDto.md)
 - [ProcessExportResourceJobRequestBodyDtoRequester](docs/ProcessExportResourceJobRequestBodyDtoRequester.md)
@@ -410,6 +426,7 @@ All URIs are relative to *http://localhost*
 - [SubcategoriesPageEntity](docs/SubcategoriesPageEntity.md)
 - [SubcategoriesPageEntityItemsInner](docs/SubcategoriesPageEntityItemsInner.md)
 - [SubcategoryEntity](docs/SubcategoryEntity.md)
+- [SubscriptionEntity](docs/SubscriptionEntity.md)
 - [SystemCalculateSearchVariationsRequestBodyDto](docs/SystemCalculateSearchVariationsRequestBodyDto.md)
 - [SystemFinancialRecordsPageDto](docs/SystemFinancialRecordsPageDto.md)
 - [SystemFinancialRecordsPageDtoAggregatedResultReport](docs/SystemFinancialRecordsPageDtoAggregatedResultReport.md)

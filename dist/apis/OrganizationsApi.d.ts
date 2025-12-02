@@ -10,13 +10,27 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { CreateOrganizationRequestBodyDto, OrganizationEntity, PartialUpdateOrganizationRequestBodyDto } from '../models/index';
+import type { AdminOrganizationsPageDto, CreateOrganizationRequestBodyDto, OrganizationEntity, PartialUpdateOrganizationRequestBodyDto } from '../models/index';
 export interface CreateOrganizationRequest {
     createOrganizationRequestBodyDto: CreateOrganizationRequestBodyDto;
     populate?: string;
 }
 export interface ExternalHardRemoveOrganizationRequest {
     organizationId: string;
+}
+export interface FindAllOrganizationsAdminRequest {
+    sortOrder?: FindAllOrganizationsAdminSortOrderEnum;
+    sortBy?: FindAllOrganizationsAdminSortByEnum;
+    textSearchTerm?: string;
+    clerkIds?: string;
+    subscriptionStatuses?: string;
+    trialExpiresAtTo?: string;
+    trialExpiresAtFrom?: string;
+    clerkCreatedAtTo?: string;
+    clerkCreatedAtFrom?: string;
+    subtypes?: string;
+    pageSize?: number;
+    pageIndex?: number;
 }
 export interface FindOrganizationByIdRequest {
     organizationId: string;
@@ -62,6 +76,30 @@ export interface OrganizationsApiInterface {
      * Hard remove an organization and all its data.
      */
     externalHardRemoveOrganization(requestParameters: ExternalHardRemoveOrganizationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+    /**
+     *
+     * @summary Lista todas as organizações armazenadas no banco de dados (endpoint admin).
+     * @param {'asc' | 'desc'} [sortOrder] Ordem de ordenação das organizações.
+     * @param {'name' | 'clerkCreatedAt'} [sortBy] Campo para ordenação das organizações.
+     * @param {string} [textSearchTerm] Termo para busca textual por nome ou clerkId da organização.
+     * @param {string} [clerkIds] Lista de IDs do Clerk para filtrar, separados por vírgula.
+     * @param {string} [subscriptionStatuses] Lista de status de subscription para filtrar, separados por vírgula.
+     * @param {string} [trialExpiresAtTo] Data de expiração do trial até (formato ISO 8601).
+     * @param {string} [trialExpiresAtFrom] Data de expiração do trial a partir de (formato ISO 8601).
+     * @param {string} [clerkCreatedAtTo] Data de criação no Clerk até (formato ISO 8601).
+     * @param {string} [clerkCreatedAtFrom] Data de criação no Clerk a partir de (formato ISO 8601).
+     * @param {string} [subtypes] Lista de subtipos de organizações para filtrar, separados por vírgula.
+     * @param {number} [pageSize] Quantidade de itens por página.
+     * @param {number} [pageIndex] Índice da página.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof OrganizationsApiInterface
+     */
+    findAllOrganizationsAdminRaw(requestParameters: FindAllOrganizationsAdminRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AdminOrganizationsPageDto>>;
+    /**
+     * Lista todas as organizações armazenadas no banco de dados (endpoint admin).
+     */
+    findAllOrganizationsAdmin(requestParameters: FindAllOrganizationsAdminRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AdminOrganizationsPageDto>;
     /**
      *
      * @summary Find my organizations of type group where I am admin.
@@ -126,6 +164,18 @@ export interface OrganizationsApiInterface {
      * Atualiza parcialmente uma organização.
      */
     partialUpdateOrganization(requestParameters: PartialUpdateOrganizationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<OrganizationEntity>;
+    /**
+     *
+     * @summary Sync organizations from Clerk.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof OrganizationsApiInterface
+     */
+    syncFromClerkRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
+    /**
+     * Sync organizations from Clerk.
+     */
+    syncFromClerk(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
 }
 /**
  *
@@ -147,6 +197,14 @@ export declare class OrganizationsApi extends runtime.BaseAPI implements Organiz
      * Hard remove an organization and all its data.
      */
     externalHardRemoveOrganization(requestParameters: ExternalHardRemoveOrganizationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+    /**
+     * Lista todas as organizações armazenadas no banco de dados (endpoint admin).
+     */
+    findAllOrganizationsAdminRaw(requestParameters: FindAllOrganizationsAdminRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AdminOrganizationsPageDto>>;
+    /**
+     * Lista todas as organizações armazenadas no banco de dados (endpoint admin).
+     */
+    findAllOrganizationsAdmin(requestParameters?: FindAllOrganizationsAdminRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AdminOrganizationsPageDto>;
     /**
      * Find my organizations of type group where I am admin.
      */
@@ -187,4 +245,28 @@ export declare class OrganizationsApi extends runtime.BaseAPI implements Organiz
      * Atualiza parcialmente uma organização.
      */
     partialUpdateOrganization(requestParameters: PartialUpdateOrganizationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<OrganizationEntity>;
+    /**
+     * Sync organizations from Clerk.
+     */
+    syncFromClerkRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
+    /**
+     * Sync organizations from Clerk.
+     */
+    syncFromClerk(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
 }
+/**
+ * @export
+ */
+export declare const FindAllOrganizationsAdminSortOrderEnum: {
+    readonly Asc: "asc";
+    readonly Desc: "desc";
+};
+export type FindAllOrganizationsAdminSortOrderEnum = typeof FindAllOrganizationsAdminSortOrderEnum[keyof typeof FindAllOrganizationsAdminSortOrderEnum];
+/**
+ * @export
+ */
+export declare const FindAllOrganizationsAdminSortByEnum: {
+    readonly Name: "name";
+    readonly ClerkCreatedAt: "clerkCreatedAt";
+};
+export type FindAllOrganizationsAdminSortByEnum = typeof FindAllOrganizationsAdminSortByEnum[keyof typeof FindAllOrganizationsAdminSortByEnum];

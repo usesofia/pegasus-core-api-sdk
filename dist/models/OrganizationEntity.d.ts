@@ -55,6 +55,12 @@ export interface OrganizationEntity {
      */
     imageUrl?: string;
     /**
+     * Data de expiração do trial.
+     * @type {any}
+     * @memberof OrganizationEntity
+     */
+    trialExpiresAt?: any | null;
+    /**
      * Identificador da organização pai.
      * @type {string}
      * @memberof OrganizationEntity

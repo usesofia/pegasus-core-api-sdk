@@ -6,11 +6,13 @@ All URIs are relative to *http://localhost*
 |------------- | ------------- | -------------|
 | [**createOrganization**](OrganizationsApi.md#createorganization) | **POST** /external/organizations | Create a new organization. |
 | [**externalHardRemoveOrganization**](OrganizationsApi.md#externalhardremoveorganization) | **DELETE** /external/organizations/{organizationId}/hard | Hard remove an organization and all its data. |
+| [**findAllOrganizationsAdmin**](OrganizationsApi.md#findallorganizationsadmin) | **GET** /external/organizations/admin | Lista todas as organizações armazenadas no banco de dados (endpoint admin). |
 | [**findMyAdminGroupOrganizations**](OrganizationsApi.md#findmyadmingrouporganizations) | **GET** /external/organizations/my/admin/type/group | Find my organizations of type group where I am admin. |
 | [**findMyOrganization**](OrganizationsApi.md#findmyorganization) | **GET** /external/organizations/my | Find my organization. |
 | [**findOrganizationById**](OrganizationsApi.md#findorganizationbyid) | **GET** /external/organizations/{organizationId} | Find an organization by ID. |
 | [**hardRemoveOrganizationInternal**](OrganizationsApi.md#hardremoveorganizationinternal) | **DELETE** /internal/organizations/{organizationId}/hard | Hard remove an organization and all its data (internal endpoint). |
 | [**partialUpdateOrganization**](OrganizationsApi.md#partialupdateorganization) | **PATCH** /external/organizations/{id} | Atualiza parcialmente uma organização. |
+| [**syncFromClerk**](OrganizationsApi.md#syncfromclerk) | **POST** /internal/organizations/sync/clerk | Sync organizations from Clerk. |
 
 
 
@@ -144,6 +146,104 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** |  |  -  |
+| **0** |  |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## findAllOrganizationsAdmin
+
+> AdminOrganizationsPageDto findAllOrganizationsAdmin(sortOrder, sortBy, textSearchTerm, clerkIds, subscriptionStatuses, trialExpiresAtTo, trialExpiresAtFrom, clerkCreatedAtTo, clerkCreatedAtFrom, subtypes, pageSize, pageIndex)
+
+Lista todas as organizações armazenadas no banco de dados (endpoint admin).
+
+### Example
+
+```ts
+import {
+  Configuration,
+  OrganizationsApi,
+} from '@usesofia/pegasus-core-api-sdk';
+import type { FindAllOrganizationsAdminRequest } from '@usesofia/pegasus-core-api-sdk';
+
+async function example() {
+  console.log("🚀 Testing @usesofia/pegasus-core-api-sdk SDK...");
+  const api = new OrganizationsApi();
+
+  const body = {
+    // 'asc' | 'desc' | Ordem de ordenação das organizações. (optional)
+    sortOrder: sortOrder_example,
+    // 'name' | 'clerkCreatedAt' | Campo para ordenação das organizações. (optional)
+    sortBy: sortBy_example,
+    // string | Termo para busca textual por nome ou clerkId da organização. (optional)
+    textSearchTerm: textSearchTerm_example,
+    // string | Lista de IDs do Clerk para filtrar, separados por vírgula. (optional)
+    clerkIds: clerkIds_example,
+    // string | Lista de status de subscription para filtrar, separados por vírgula. (optional)
+    subscriptionStatuses: subscriptionStatuses_example,
+    // string | Data de expiração do trial até (formato ISO 8601). (optional)
+    trialExpiresAtTo: trialExpiresAtTo_example,
+    // string | Data de expiração do trial a partir de (formato ISO 8601). (optional)
+    trialExpiresAtFrom: trialExpiresAtFrom_example,
+    // string | Data de criação no Clerk até (formato ISO 8601). (optional)
+    clerkCreatedAtTo: clerkCreatedAtTo_example,
+    // string | Data de criação no Clerk a partir de (formato ISO 8601). (optional)
+    clerkCreatedAtFrom: clerkCreatedAtFrom_example,
+    // string | Lista de subtipos de organizações para filtrar, separados por vírgula. (optional)
+    subtypes: subtypes_example,
+    // number | Quantidade de itens por página. (optional)
+    pageSize: 8.14,
+    // number | Índice da página. (optional)
+    pageIndex: 8.14,
+  } satisfies FindAllOrganizationsAdminRequest;
+
+  try {
+    const data = await api.findAllOrganizationsAdmin(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **sortOrder** | `asc`, `desc` | Ordem de ordenação das organizações. | [Optional] [Defaults to `undefined`] [Enum: asc, desc] |
+| **sortBy** | `name`, `clerkCreatedAt` | Campo para ordenação das organizações. | [Optional] [Defaults to `undefined`] [Enum: name, clerkCreatedAt] |
+| **textSearchTerm** | `string` | Termo para busca textual por nome ou clerkId da organização. | [Optional] [Defaults to `undefined`] |
+| **clerkIds** | `string` | Lista de IDs do Clerk para filtrar, separados por vírgula. | [Optional] [Defaults to `undefined`] |
+| **subscriptionStatuses** | `string` | Lista de status de subscription para filtrar, separados por vírgula. | [Optional] [Defaults to `undefined`] |
+| **trialExpiresAtTo** | `string` | Data de expiração do trial até (formato ISO 8601). | [Optional] [Defaults to `undefined`] |
+| **trialExpiresAtFrom** | `string` | Data de expiração do trial a partir de (formato ISO 8601). | [Optional] [Defaults to `undefined`] |
+| **clerkCreatedAtTo** | `string` | Data de criação no Clerk até (formato ISO 8601). | [Optional] [Defaults to `undefined`] |
+| **clerkCreatedAtFrom** | `string` | Data de criação no Clerk a partir de (formato ISO 8601). | [Optional] [Defaults to `undefined`] |
+| **subtypes** | `string` | Lista de subtipos de organizações para filtrar, separados por vírgula. | [Optional] [Defaults to `undefined`] |
+| **pageSize** | `number` | Quantidade de itens por página. | [Optional] [Defaults to `undefined`] |
+| **pageIndex** | `number` | Índice da página. | [Optional] [Defaults to `undefined`] |
+
+### Return type
+
+[**AdminOrganizationsPageDto**](AdminOrganizationsPageDto.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
 | **0** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
@@ -457,6 +557,64 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **0** |  |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## syncFromClerk
+
+> syncFromClerk()
+
+Sync organizations from Clerk.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  OrganizationsApi,
+} from '@usesofia/pegasus-core-api-sdk';
+import type { SyncFromClerkRequest } from '@usesofia/pegasus-core-api-sdk';
+
+async function example() {
+  console.log("🚀 Testing @usesofia/pegasus-core-api-sdk SDK...");
+  const api = new OrganizationsApi();
+
+  try {
+    const data = await api.syncFromClerk();
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+`void` (Empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** |  |  -  |
 | **0** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)

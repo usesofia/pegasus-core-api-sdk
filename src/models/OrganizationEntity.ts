@@ -78,6 +78,12 @@ export interface OrganizationEntity {
      */
     imageUrl?: string;
     /**
+     * Data de expiração do trial.
+     * @type {any}
+     * @memberof OrganizationEntity
+     */
+    trialExpiresAt?: any | null;
+    /**
      * Identificador da organização pai.
      * @type {string}
      * @memberof OrganizationEntity
@@ -173,6 +179,7 @@ export function OrganizationEntityFromJSONTyped(json: any, ignoreDiscriminator: 
         'type': json['type'],
         'document': json['document'] == null ? undefined : json['document'],
         'imageUrl': json['imageUrl'] == null ? undefined : json['imageUrl'],
+        'trialExpiresAt': json['trialExpiresAt'] == null ? undefined : json['trialExpiresAt'],
         'parent': json['parent'] == null ? undefined : json['parent'],
         'populatedParent': json['populatedParent'] == null ? undefined : CreateOrganizationRequestBodyDtoPopulatedParentFromJSON(json['populatedParent']),
         'children': json['children'] == null ? undefined : json['children'],
@@ -202,6 +209,7 @@ export function OrganizationEntityToJSONTyped(value?: OrganizationEntity | null,
         'type': value['type'],
         'document': value['document'],
         'imageUrl': value['imageUrl'],
+        'trialExpiresAt': value['trialExpiresAt'],
         'parent': value['parent'],
         'populatedParent': CreateOrganizationRequestBodyDtoPopulatedParentToJSON(value['populatedParent']),
         'children': value['children'],

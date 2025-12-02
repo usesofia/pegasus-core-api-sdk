@@ -15,12 +15,15 @@
 
 import * as runtime from '../runtime';
 import type {
+  AdminOrganizationsPageDto,
   CreateOrganizationRequestBodyDto,
   ExceptionResponseEntity,
   OrganizationEntity,
   PartialUpdateOrganizationRequestBodyDto,
 } from '../models/index';
 import {
+    AdminOrganizationsPageDtoFromJSON,
+    AdminOrganizationsPageDtoToJSON,
     CreateOrganizationRequestBodyDtoFromJSON,
     CreateOrganizationRequestBodyDtoToJSON,
     ExceptionResponseEntityFromJSON,
@@ -38,6 +41,21 @@ export interface CreateOrganizationRequest {
 
 export interface ExternalHardRemoveOrganizationRequest {
     organizationId: string;
+}
+
+export interface FindAllOrganizationsAdminRequest {
+    sortOrder?: FindAllOrganizationsAdminSortOrderEnum;
+    sortBy?: FindAllOrganizationsAdminSortByEnum;
+    textSearchTerm?: string;
+    clerkIds?: string;
+    subscriptionStatuses?: string;
+    trialExpiresAtTo?: string;
+    trialExpiresAtFrom?: string;
+    clerkCreatedAtTo?: string;
+    clerkCreatedAtFrom?: string;
+    subtypes?: string;
+    pageSize?: number;
+    pageIndex?: number;
 }
 
 export interface FindOrganizationByIdRequest {
@@ -90,6 +108,32 @@ export interface OrganizationsApiInterface {
      * Hard remove an organization and all its data.
      */
     externalHardRemoveOrganization(requestParameters: ExternalHardRemoveOrganizationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+
+    /**
+     * 
+     * @summary Lista todas as organizações armazenadas no banco de dados (endpoint admin).
+     * @param {'asc' | 'desc'} [sortOrder] Ordem de ordenação das organizações.
+     * @param {'name' | 'clerkCreatedAt'} [sortBy] Campo para ordenação das organizações.
+     * @param {string} [textSearchTerm] Termo para busca textual por nome ou clerkId da organização.
+     * @param {string} [clerkIds] Lista de IDs do Clerk para filtrar, separados por vírgula.
+     * @param {string} [subscriptionStatuses] Lista de status de subscription para filtrar, separados por vírgula.
+     * @param {string} [trialExpiresAtTo] Data de expiração do trial até (formato ISO 8601).
+     * @param {string} [trialExpiresAtFrom] Data de expiração do trial a partir de (formato ISO 8601).
+     * @param {string} [clerkCreatedAtTo] Data de criação no Clerk até (formato ISO 8601).
+     * @param {string} [clerkCreatedAtFrom] Data de criação no Clerk a partir de (formato ISO 8601).
+     * @param {string} [subtypes] Lista de subtipos de organizações para filtrar, separados por vírgula.
+     * @param {number} [pageSize] Quantidade de itens por página.
+     * @param {number} [pageIndex] Índice da página.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof OrganizationsApiInterface
+     */
+    findAllOrganizationsAdminRaw(requestParameters: FindAllOrganizationsAdminRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AdminOrganizationsPageDto>>;
+
+    /**
+     * Lista todas as organizações armazenadas no banco de dados (endpoint admin).
+     */
+    findAllOrganizationsAdmin(requestParameters: FindAllOrganizationsAdminRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AdminOrganizationsPageDto>;
 
     /**
      * 
@@ -164,6 +208,20 @@ export interface OrganizationsApiInterface {
      * Atualiza parcialmente uma organização.
      */
     partialUpdateOrganization(requestParameters: PartialUpdateOrganizationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<OrganizationEntity>;
+
+    /**
+     * 
+     * @summary Sync organizations from Clerk.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof OrganizationsApiInterface
+     */
+    syncFromClerkRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
+
+    /**
+     * Sync organizations from Clerk.
+     */
+    syncFromClerk(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
 
 }
 
@@ -249,6 +307,83 @@ export class OrganizationsApi extends runtime.BaseAPI implements OrganizationsAp
      */
     async externalHardRemoveOrganization(requestParameters: ExternalHardRemoveOrganizationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.externalHardRemoveOrganizationRaw(requestParameters, initOverrides);
+    }
+
+    /**
+     * Lista todas as organizações armazenadas no banco de dados (endpoint admin).
+     */
+    async findAllOrganizationsAdminRaw(requestParameters: FindAllOrganizationsAdminRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AdminOrganizationsPageDto>> {
+        const queryParameters: any = {};
+
+        if (requestParameters['sortOrder'] != null) {
+            queryParameters['sortOrder'] = requestParameters['sortOrder'];
+        }
+
+        if (requestParameters['sortBy'] != null) {
+            queryParameters['sortBy'] = requestParameters['sortBy'];
+        }
+
+        if (requestParameters['textSearchTerm'] != null) {
+            queryParameters['textSearchTerm'] = requestParameters['textSearchTerm'];
+        }
+
+        if (requestParameters['clerkIds'] != null) {
+            queryParameters['clerkIds'] = requestParameters['clerkIds'];
+        }
+
+        if (requestParameters['subscriptionStatuses'] != null) {
+            queryParameters['subscriptionStatuses'] = requestParameters['subscriptionStatuses'];
+        }
+
+        if (requestParameters['trialExpiresAtTo'] != null) {
+            queryParameters['trialExpiresAtTo'] = requestParameters['trialExpiresAtTo'];
+        }
+
+        if (requestParameters['trialExpiresAtFrom'] != null) {
+            queryParameters['trialExpiresAtFrom'] = requestParameters['trialExpiresAtFrom'];
+        }
+
+        if (requestParameters['clerkCreatedAtTo'] != null) {
+            queryParameters['clerkCreatedAtTo'] = requestParameters['clerkCreatedAtTo'];
+        }
+
+        if (requestParameters['clerkCreatedAtFrom'] != null) {
+            queryParameters['clerkCreatedAtFrom'] = requestParameters['clerkCreatedAtFrom'];
+        }
+
+        if (requestParameters['subtypes'] != null) {
+            queryParameters['subtypes'] = requestParameters['subtypes'];
+        }
+
+        if (requestParameters['pageSize'] != null) {
+            queryParameters['pageSize'] = requestParameters['pageSize'];
+        }
+
+        if (requestParameters['pageIndex'] != null) {
+            queryParameters['pageIndex'] = requestParameters['pageIndex'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+
+        let urlPath = `/external/organizations/admin`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => AdminOrganizationsPageDtoFromJSON(jsonValue));
+    }
+
+    /**
+     * Lista todas as organizações armazenadas no banco de dados (endpoint admin).
+     */
+    async findAllOrganizationsAdmin(requestParameters: FindAllOrganizationsAdminRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AdminOrganizationsPageDto> {
+        const response = await this.findAllOrganizationsAdminRaw(requestParameters, initOverrides);
+        return await response.value();
     }
 
     /**
@@ -429,4 +564,49 @@ export class OrganizationsApi extends runtime.BaseAPI implements OrganizationsAp
         return await response.value();
     }
 
+    /**
+     * Sync organizations from Clerk.
+     */
+    async syncFromClerkRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+
+        let urlPath = `/internal/organizations/sync/clerk`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.VoidApiResponse(response);
+    }
+
+    /**
+     * Sync organizations from Clerk.
+     */
+    async syncFromClerk(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+        await this.syncFromClerkRaw(initOverrides);
+    }
+
 }
+
+/**
+ * @export
+ */
+export const FindAllOrganizationsAdminSortOrderEnum = {
+    Asc: 'asc',
+    Desc: 'desc'
+} as const;
+export type FindAllOrganizationsAdminSortOrderEnum = typeof FindAllOrganizationsAdminSortOrderEnum[keyof typeof FindAllOrganizationsAdminSortOrderEnum];
+/**
+ * @export
+ */
+export const FindAllOrganizationsAdminSortByEnum = {
+    Name: 'name',
+    ClerkCreatedAt: 'clerkCreatedAt'
+} as const;
+export type FindAllOrganizationsAdminSortByEnum = typeof FindAllOrganizationsAdminSortByEnum[keyof typeof FindAllOrganizationsAdminSortByEnum];

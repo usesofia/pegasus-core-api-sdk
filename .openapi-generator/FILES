@@ -2,6 +2,9 @@
 .npmignore
 README.md
 docs/AddressesApi.md
+docs/AdminOrganizationsPageDto.md
+docs/AdminOrganizationsPageDtoItemsInner.md
+docs/AdminOrganizationsPageDtoItemsInnerPopulatedSubscription.md
 docs/BankAccountDto.md
 docs/BankAccountTypeEntity.md
 docs/BankAccountsApi.md
@@ -48,6 +51,7 @@ docs/CountryStateItemEntity.md
 docs/CreateBankAccountRequestBodyDto.md
 docs/CreateContactRequestBodyDto.md
 docs/CreateContactRequestBodyDtoAddress.md
+docs/CreateCustomerRequestBodyDto.md
 docs/CreateFileUpload200Response.md
 docs/CreateFileUploadRequestBodyDto.md
 docs/CreateFinancialRecordRadarItemRequestBodyDto.md
@@ -104,6 +108,7 @@ docs/CreateOrganizationRequestBodyDtoPopulatedParent.md
 docs/CreateQueryRequestDto.md
 docs/CreateRecurringFinancialRecordRequestBodyDto.md
 docs/CreateRecurringFinancialRecordRequestBodyDtoPopulatedSubcategory.md
+docs/CreateSubscriptionRequestBodyDto.md
 docs/CreateTagRequestBodyDto.md
 docs/CreatedFinancialRecordRadarItemResultEntity.md
 docs/CreatedFinancialRecordRadarItemResultEntityAutoExecute.md
@@ -128,6 +133,10 @@ docs/CreatedFinancialRecordRadarItemResultEntityRadarItemSubsequentRadarItemsInn
 docs/CreatedFinancialRecordRadarItemResultEntityRadarItemSubsequentRadarItemsInnerBestSuggestedAction.md
 docs/CreatedFinancialRecordRadarItemResultEntityRadarItemSubsequentRadarItemsInnerEmailMessageData.md
 docs/CreatedFinancialRecordRadarItemResultEntityRadarItemSubsequentRadarItemsInnerWhatsappMessageData.md
+docs/CustomerDto.md
+docs/CustomersApi.md
+docs/CustomersPageDto.md
+docs/CustomersPageDtoItemsInner.md
 docs/EmbeddingApi.md
 docs/ExceptionResponseEntity.md
 docs/ExceptionResponseEntityErrorsInner.md
@@ -201,6 +210,7 @@ docs/OrganizationsApi.md
 docs/PartialUpdateBankAccountRequestBodyDto.md
 docs/PartialUpdateBankTransactionRequestBodyDto.md
 docs/PartialUpdateContactRequestBodyDto.md
+docs/PartialUpdateCustomerRequestBodyDto.md
 docs/PartialUpdateFinancialRecordRadarItemRequestBodyDto.md
 docs/PartialUpdateFinancialRecordRequestBodyDto.md
 docs/PartialUpdateInstallmentFinancialRecordRequestBodyDto.md
@@ -211,6 +221,7 @@ docs/PartialUpdateMemberRequestBodyDto.md
 docs/PartialUpdateOrganizationRequestBodyDto.md
 docs/PartialUpdateRecurringFinancialRecordRequestBodyDto.md
 docs/PartialUpdateSubcategoryRequestBodyDto.md
+docs/PartialUpdateSubscriptionRequestBodyDto.md
 docs/PartialUpdateTagRequestBodyDto.md
 docs/ProcessExportResourceJobRequestBodyDto.md
 docs/ProcessExportResourceJobRequestBodyDtoRequester.md
@@ -252,7 +263,8 @@ docs/SubcategoriesExportApi.md
 docs/SubcategoriesPageEntity.md
 docs/SubcategoriesPageEntityItemsInner.md
 docs/SubcategoryEntity.md
-docs/SyncOrganizationsApi.md
+docs/SubscriptionEntity.md
+docs/SubscriptionsApi.md
 docs/SystemCalculateSearchVariationsRequestBodyDto.md
 docs/SystemFinancialRecordsPageDto.md
 docs/SystemFinancialRecordsPageDtoAggregatedResultReport.md
@@ -285,6 +297,7 @@ src/apis/CacheApi.ts
 src/apis/CategoriesApi.ts
 src/apis/ContactsApi.ts
 src/apis/ContactsExportApi.ts
+src/apis/CustomersApi.ts
 src/apis/EmbeddingApi.ts
 src/apis/ExportResourceJobRequestsApi.ts
 src/apis/FibonacciApi.ts
@@ -308,11 +321,14 @@ src/apis/RecurringFinancialRecordsApi.ts
 src/apis/RecurringFinancialRecordsExportApi.ts
 src/apis/SubcategoriesApi.ts
 src/apis/SubcategoriesExportApi.ts
-src/apis/SyncOrganizationsApi.ts
+src/apis/SubscriptionsApi.ts
 src/apis/TagsApi.ts
 src/apis/TagsExportApi.ts
 src/apis/index.ts
 src/index.ts
+src/models/AdminOrganizationsPageDto.ts
+src/models/AdminOrganizationsPageDtoItemsInner.ts
+src/models/AdminOrganizationsPageDtoItemsInnerPopulatedSubscription.ts
 src/models/BankAccountDto.ts
 src/models/BankAccountTypeEntity.ts
 src/models/BankAccountsPageDto.ts
@@ -347,6 +363,7 @@ src/models/CountryStateItemEntity.ts
 src/models/CreateBankAccountRequestBodyDto.ts
 src/models/CreateContactRequestBodyDto.ts
 src/models/CreateContactRequestBodyDtoAddress.ts
+src/models/CreateCustomerRequestBodyDto.ts
 src/models/CreateFileUpload200Response.ts
 src/models/CreateFileUploadRequestBodyDto.ts
 src/models/CreateFinancialRecordRadarItemRequestBodyDto.ts
@@ -403,6 +420,7 @@ src/models/CreateOrganizationRequestBodyDtoPopulatedParent.ts
 src/models/CreateQueryRequestDto.ts
 src/models/CreateRecurringFinancialRecordRequestBodyDto.ts
 src/models/CreateRecurringFinancialRecordRequestBodyDtoPopulatedSubcategory.ts
+src/models/CreateSubscriptionRequestBodyDto.ts
 src/models/CreateTagRequestBodyDto.ts
 src/models/CreatedFinancialRecordRadarItemResultEntity.ts
 src/models/CreatedFinancialRecordRadarItemResultEntityAutoExecute.ts
@@ -427,6 +445,9 @@ src/models/CreatedFinancialRecordRadarItemResultEntityRadarItemSubsequentRadarIt
 src/models/CreatedFinancialRecordRadarItemResultEntityRadarItemSubsequentRadarItemsInnerBestSuggestedAction.ts
 src/models/CreatedFinancialRecordRadarItemResultEntityRadarItemSubsequentRadarItemsInnerEmailMessageData.ts
 src/models/CreatedFinancialRecordRadarItemResultEntityRadarItemSubsequentRadarItemsInnerWhatsappMessageData.ts
+src/models/CustomerDto.ts
+src/models/CustomersPageDto.ts
+src/models/CustomersPageDtoItemsInner.ts
 src/models/ExceptionResponseEntity.ts
 src/models/ExceptionResponseEntityErrorsInner.ts
 src/models/ExecuteBankTransactionsCreateOrUpdateBestSuggestionActionRequestBodyDto.ts
@@ -484,6 +505,7 @@ src/models/OrganizationEntity.ts
 src/models/PartialUpdateBankAccountRequestBodyDto.ts
 src/models/PartialUpdateBankTransactionRequestBodyDto.ts
 src/models/PartialUpdateContactRequestBodyDto.ts
+src/models/PartialUpdateCustomerRequestBodyDto.ts
 src/models/PartialUpdateFinancialRecordRadarItemRequestBodyDto.ts
 src/models/PartialUpdateFinancialRecordRequestBodyDto.ts
 src/models/PartialUpdateInstallmentFinancialRecordRequestBodyDto.ts
@@ -494,6 +516,7 @@ src/models/PartialUpdateMemberRequestBodyDto.ts
 src/models/PartialUpdateOrganizationRequestBodyDto.ts
 src/models/PartialUpdateRecurringFinancialRecordRequestBodyDto.ts
 src/models/PartialUpdateSubcategoryRequestBodyDto.ts
+src/models/PartialUpdateSubscriptionRequestBodyDto.ts
 src/models/PartialUpdateTagRequestBodyDto.ts
 src/models/ProcessExportResourceJobRequestBodyDto.ts
 src/models/ProcessExportResourceJobRequestBodyDtoRequester.ts
@@ -528,6 +551,7 @@ src/models/SignedUrlEntity.ts
 src/models/SubcategoriesPageEntity.ts
 src/models/SubcategoriesPageEntityItemsInner.ts
 src/models/SubcategoryEntity.ts
+src/models/SubscriptionEntity.ts
 src/models/SystemCalculateSearchVariationsRequestBodyDto.ts
 src/models/SystemFinancialRecordsPageDto.ts
 src/models/SystemFinancialRecordsPageDtoAggregatedResultReport.ts
