@@ -684,7 +684,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **204** | Subtype atualizado com sucesso. |  -  |
+| **200** |  |  -  |
 | **0** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
