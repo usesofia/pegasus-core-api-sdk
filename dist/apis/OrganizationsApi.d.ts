@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { AdminOrganizationsPageDto, CreateOrganizationRequestBodyDto, OrganizationEntity, PartialUpdateOrganizationRequestBodyDto, UpdateOrganizationSubtypeRequestBodyDto } from '../models/index';
+import type { AdminOrganizationsPageDto, CreateOrganizationRequestBodyDto, OrganizationEntity, PartialUpdateOrganizationRequestBodyDto, UpdateOrganizationRequestBodyDto } from '../models/index';
 export interface CreateOrganizationRequest {
     createOrganizationRequestBodyDto: CreateOrganizationRequestBodyDto;
     populate?: string;
@@ -44,7 +44,7 @@ export interface PartialUpdateOrganizationRequest {
 }
 export interface UpdateOrganizationByClerkIdRequest {
     clerkId: string;
-    updateOrganizationSubtypeRequestBodyDto: UpdateOrganizationSubtypeRequestBodyDto;
+    updateOrganizationRequestBodyDto: UpdateOrganizationRequestBodyDto;
 }
 /**
  * OrganizationsApi - interface
@@ -184,7 +184,7 @@ export interface OrganizationsApiInterface {
      *
      * @summary Atualiza o subtype de uma organização pelo clerkId (endpoint admin).
      * @param {string} clerkId Identificador da organização no Clerk.
-     * @param {UpdateOrganizationSubtypeRequestBodyDto} updateOrganizationSubtypeRequestBodyDto
+     * @param {UpdateOrganizationRequestBodyDto} updateOrganizationRequestBodyDto
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof OrganizationsApiInterface

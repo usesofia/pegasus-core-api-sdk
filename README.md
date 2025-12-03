@@ -444,7 +444,7 @@ All URIs are relative to *http://localhost*
 - [UnlinkAllRadarItemsRequestBodyDto](docs/UnlinkAllRadarItemsRequestBodyDto.md)
 - [UnlinkFinancialRecordsRequestBodyDto](docs/UnlinkFinancialRecordsRequestBodyDto.md)
 - [UpdateFinancialRecordRadarItemAutoExecuteSettingsRequestBodyDto](docs/UpdateFinancialRecordRadarItemAutoExecuteSettingsRequestBodyDto.md)
-- [UpdateOrganizationSubtypeRequestBodyDto](docs/UpdateOrganizationSubtypeRequestBodyDto.md)
+- [UpdateOrganizationRequestBodyDto](docs/UpdateOrganizationRequestBodyDto.md)
 
 ### Authorization
 

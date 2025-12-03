@@ -1,5 +1,5 @@
 
-# UpdateOrganizationSubtypeRequestBodyDto
+# UpdateOrganizationRequestBodyDto
 
 
 ## Properties
@@ -11,12 +11,12 @@ Name | Type
 ## Example
 
 ```typescript
-import type { UpdateOrganizationSubtypeRequestBodyDto } from '@usesofia/pegasus-core-api-sdk'
+import type { UpdateOrganizationRequestBodyDto } from '@usesofia/pegasus-core-api-sdk'
 
 // TODO: Update the object below with actual values
 const example = {
   "subtype": null,
-} satisfies UpdateOrganizationSubtypeRequestBodyDto
+} satisfies UpdateOrganizationRequestBodyDto
 
 console.log(example)
 
@@ -25,7 +25,7 @@ const exampleJSON: string = JSON.stringify(example)
 console.log(exampleJSON)
 
 // Parse the JSON string back to an object
-const exampleParsed = JSON.parse(exampleJSON) as UpdateOrganizationSubtypeRequestBodyDto
+const exampleParsed = JSON.parse(exampleJSON) as UpdateOrganizationRequestBodyDto
 console.log(exampleParsed)
 ```
 

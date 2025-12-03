@@ -258,4 +258,4 @@ __exportStar(require("./TagsPageEntity"), exports);
 __exportStar(require("./UnlinkAllRadarItemsRequestBodyDto"), exports);
 __exportStar(require("./UnlinkFinancialRecordsRequestBodyDto"), exports);
 __exportStar(require("./UpdateFinancialRecordRadarItemAutoExecuteSettingsRequestBodyDto"), exports);
-__exportStar(require("./UpdateOrganizationSubtypeRequestBodyDto"), exports);
+__exportStar(require("./UpdateOrganizationRequestBodyDto"), exports);

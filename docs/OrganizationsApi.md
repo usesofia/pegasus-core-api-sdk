@@ -623,7 +623,7 @@ No authorization required
 
 ## updateOrganizationByClerkId
 
-> updateOrganizationByClerkId(clerkId, updateOrganizationSubtypeRequestBodyDto)
+> updateOrganizationByClerkId(clerkId, updateOrganizationRequestBodyDto)
 
 Atualiza o subtype de uma organização pelo clerkId (endpoint admin).
 
@@ -643,8 +643,8 @@ async function example() {
   const body = {
     // string | Identificador da organização no Clerk.
     clerkId: clerkId_example,
-    // UpdateOrganizationSubtypeRequestBodyDto
-    updateOrganizationSubtypeRequestBodyDto: ...,
+    // UpdateOrganizationRequestBodyDto
+    updateOrganizationRequestBodyDto: ...,
   } satisfies UpdateOrganizationByClerkIdRequest;
 
   try {
@@ -665,7 +665,7 @@ example().catch(console.error);
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **clerkId** | `string` | Identificador da organização no Clerk. | [Defaults to `undefined`] |
-| **updateOrganizationSubtypeRequestBodyDto** | [UpdateOrganizationSubtypeRequestBodyDto](UpdateOrganizationSubtypeRequestBodyDto.md) |  | |
+| **updateOrganizationRequestBodyDto** | [UpdateOrganizationRequestBodyDto](UpdateOrganizationRequestBodyDto.md) |  | |
 
 ### Return type
 

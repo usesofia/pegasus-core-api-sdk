@@ -20,7 +20,7 @@ import type {
   ExceptionResponseEntity,
   OrganizationEntity,
   PartialUpdateOrganizationRequestBodyDto,
-  UpdateOrganizationSubtypeRequestBodyDto,
+  UpdateOrganizationRequestBodyDto,
 } from '../models/index';
 import {
     AdminOrganizationsPageDtoFromJSON,
@@ -33,8 +33,8 @@ import {
     OrganizationEntityToJSON,
     PartialUpdateOrganizationRequestBodyDtoFromJSON,
     PartialUpdateOrganizationRequestBodyDtoToJSON,
-    UpdateOrganizationSubtypeRequestBodyDtoFromJSON,
-    UpdateOrganizationSubtypeRequestBodyDtoToJSON,
+    UpdateOrganizationRequestBodyDtoFromJSON,
+    UpdateOrganizationRequestBodyDtoToJSON,
 } from '../models/index';
 
 export interface CreateOrganizationRequest {
@@ -76,7 +76,7 @@ export interface PartialUpdateOrganizationRequest {
 
 export interface UpdateOrganizationByClerkIdRequest {
     clerkId: string;
-    updateOrganizationSubtypeRequestBodyDto: UpdateOrganizationSubtypeRequestBodyDto;
+    updateOrganizationRequestBodyDto: UpdateOrganizationRequestBodyDto;
 }
 
 /**
@@ -235,7 +235,7 @@ export interface OrganizationsApiInterface {
      * 
      * @summary Atualiza o subtype de uma organização pelo clerkId (endpoint admin).
      * @param {string} clerkId Identificador da organização no Clerk.
-     * @param {UpdateOrganizationSubtypeRequestBodyDto} updateOrganizationSubtypeRequestBodyDto 
+     * @param {UpdateOrganizationRequestBodyDto} updateOrganizationRequestBodyDto 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof OrganizationsApiInterface
@@ -627,10 +627,10 @@ export class OrganizationsApi extends runtime.BaseAPI implements OrganizationsAp
             );
         }
 
-        if (requestParameters['updateOrganizationSubtypeRequestBodyDto'] == null) {
+        if (requestParameters['updateOrganizationRequestBodyDto'] == null) {
             throw new runtime.RequiredError(
-                'updateOrganizationSubtypeRequestBodyDto',
-                'Required parameter "updateOrganizationSubtypeRequestBodyDto" was null or undefined when calling updateOrganizationByClerkId().'
+                'updateOrganizationRequestBodyDto',
+                'Required parameter "updateOrganizationRequestBodyDto" was null or undefined when calling updateOrganizationByClerkId().'
             );
         }
 
@@ -649,7 +649,7 @@ export class OrganizationsApi extends runtime.BaseAPI implements OrganizationsAp
             method: 'PATCH',
             headers: headerParameters,
             query: queryParameters,
-            body: UpdateOrganizationSubtypeRequestBodyDtoToJSON(requestParameters['updateOrganizationSubtypeRequestBodyDto']),
+            body: UpdateOrganizationRequestBodyDtoToJSON(requestParameters['updateOrganizationRequestBodyDto']),
         }, initOverrides);
 
         return new runtime.VoidApiResponse(response);

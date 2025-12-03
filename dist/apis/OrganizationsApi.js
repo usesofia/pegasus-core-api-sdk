@@ -525,8 +525,8 @@ var OrganizationsApi = /** @class */ (function (_super) {
                         if (requestParameters['clerkId'] == null) {
                             throw new runtime.RequiredError('clerkId', 'Required parameter "clerkId" was null or undefined when calling updateOrganizationByClerkId().');
                         }
-                        if (requestParameters['updateOrganizationSubtypeRequestBodyDto'] == null) {
-                            throw new runtime.RequiredError('updateOrganizationSubtypeRequestBodyDto', 'Required parameter "updateOrganizationSubtypeRequestBodyDto" was null or undefined when calling updateOrganizationByClerkId().');
+                        if (requestParameters['updateOrganizationRequestBodyDto'] == null) {
+                            throw new runtime.RequiredError('updateOrganizationRequestBodyDto', 'Required parameter "updateOrganizationRequestBodyDto" was null or undefined when calling updateOrganizationByClerkId().');
                         }
                         queryParameters = {};
                         headerParameters = {};
@@ -538,7 +538,7 @@ var OrganizationsApi = /** @class */ (function (_super) {
                                 method: 'PATCH',
                                 headers: headerParameters,
                                 query: queryParameters,
-                                body: (0, index_1.UpdateOrganizationSubtypeRequestBodyDtoToJSON)(requestParameters['updateOrganizationSubtypeRequestBodyDto']),
+                                body: (0, index_1.UpdateOrganizationRequestBodyDtoToJSON)(requestParameters['updateOrganizationRequestBodyDto']),
                             }, initOverrides)];
                     case 1:
                         response = _a.sent();
