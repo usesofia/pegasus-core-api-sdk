@@ -20,6 +20,7 @@ import type {
   ExceptionResponseEntity,
   OrganizationEntity,
   PartialUpdateOrganizationRequestBodyDto,
+  UpdateOrganizationSubtypeRequestBodyDto,
 } from '../models/index';
 import {
     AdminOrganizationsPageDtoFromJSON,
@@ -32,6 +33,8 @@ import {
     OrganizationEntityToJSON,
     PartialUpdateOrganizationRequestBodyDtoFromJSON,
     PartialUpdateOrganizationRequestBodyDtoToJSON,
+    UpdateOrganizationSubtypeRequestBodyDtoFromJSON,
+    UpdateOrganizationSubtypeRequestBodyDtoToJSON,
 } from '../models/index';
 
 export interface CreateOrganizationRequest {
@@ -69,6 +72,11 @@ export interface HardRemoveOrganizationInternalRequest {
 export interface PartialUpdateOrganizationRequest {
     id: string;
     partialUpdateOrganizationRequestBodyDto: PartialUpdateOrganizationRequestBodyDto;
+}
+
+export interface UpdateOrganizationByClerkIdRequest {
+    clerkId: string;
+    updateOrganizationSubtypeRequestBodyDto: UpdateOrganizationSubtypeRequestBodyDto;
 }
 
 /**
@@ -222,6 +230,22 @@ export interface OrganizationsApiInterface {
      * Sync organizations from Clerk.
      */
     syncFromClerk(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+
+    /**
+     * 
+     * @summary Atualiza o subtype de uma organização pelo clerkId (endpoint admin).
+     * @param {string} clerkId Identificador da organização no Clerk.
+     * @param {UpdateOrganizationSubtypeRequestBodyDto} updateOrganizationSubtypeRequestBodyDto 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof OrganizationsApiInterface
+     */
+    updateOrganizationByClerkIdRaw(requestParameters: UpdateOrganizationByClerkIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
+
+    /**
+     * Atualiza o subtype de uma organização pelo clerkId (endpoint admin).
+     */
+    updateOrganizationByClerkId(requestParameters: UpdateOrganizationByClerkIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
 
 }
 
@@ -590,6 +614,52 @@ export class OrganizationsApi extends runtime.BaseAPI implements OrganizationsAp
      */
     async syncFromClerk(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.syncFromClerkRaw(initOverrides);
+    }
+
+    /**
+     * Atualiza o subtype de uma organização pelo clerkId (endpoint admin).
+     */
+    async updateOrganizationByClerkIdRaw(requestParameters: UpdateOrganizationByClerkIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        if (requestParameters['clerkId'] == null) {
+            throw new runtime.RequiredError(
+                'clerkId',
+                'Required parameter "clerkId" was null or undefined when calling updateOrganizationByClerkId().'
+            );
+        }
+
+        if (requestParameters['updateOrganizationSubtypeRequestBodyDto'] == null) {
+            throw new runtime.RequiredError(
+                'updateOrganizationSubtypeRequestBodyDto',
+                'Required parameter "updateOrganizationSubtypeRequestBodyDto" was null or undefined when calling updateOrganizationByClerkId().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+
+        let urlPath = `/external/organizations/admin/{clerkId}`;
+        urlPath = urlPath.replace(`{${"clerkId"}}`, encodeURIComponent(String(requestParameters['clerkId'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'PATCH',
+            headers: headerParameters,
+            query: queryParameters,
+            body: UpdateOrganizationSubtypeRequestBodyDtoToJSON(requestParameters['updateOrganizationSubtypeRequestBodyDto']),
+        }, initOverrides);
+
+        return new runtime.VoidApiResponse(response);
+    }
+
+    /**
+     * Atualiza o subtype de uma organização pelo clerkId (endpoint admin).
+     */
+    async updateOrganizationByClerkId(requestParameters: UpdateOrganizationByClerkIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+        await this.updateOrganizationByClerkIdRaw(requestParameters, initOverrides);
     }
 
 }

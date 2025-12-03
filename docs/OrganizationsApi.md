@@ -13,6 +13,7 @@ All URIs are relative to *http://localhost*
 | [**hardRemoveOrganizationInternal**](OrganizationsApi.md#hardremoveorganizationinternal) | **DELETE** /internal/organizations/{organizationId}/hard | Hard remove an organization and all its data (internal endpoint). |
 | [**partialUpdateOrganization**](OrganizationsApi.md#partialupdateorganization) | **PATCH** /external/organizations/{id} | Atualiza parcialmente uma organização. |
 | [**syncFromClerk**](OrganizationsApi.md#syncfromclerk) | **POST** /internal/organizations/sync/clerk | Sync organizations from Clerk. |
+| [**updateOrganizationByClerkId**](OrganizationsApi.md#updateorganizationbyclerkid) | **PATCH** /external/organizations/admin/{clerkId} | Atualiza o subtype de uma organização pelo clerkId (endpoint admin). |
 
 
 
@@ -615,6 +616,75 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **201** |  |  -  |
+| **0** |  |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## updateOrganizationByClerkId
+
+> updateOrganizationByClerkId(clerkId, updateOrganizationSubtypeRequestBodyDto)
+
+Atualiza o subtype de uma organização pelo clerkId (endpoint admin).
+
+### Example
+
+```ts
+import {
+  Configuration,
+  OrganizationsApi,
+} from '@usesofia/pegasus-core-api-sdk';
+import type { UpdateOrganizationByClerkIdRequest } from '@usesofia/pegasus-core-api-sdk';
+
+async function example() {
+  console.log("🚀 Testing @usesofia/pegasus-core-api-sdk SDK...");
+  const api = new OrganizationsApi();
+
+  const body = {
+    // string | Identificador da organização no Clerk.
+    clerkId: clerkId_example,
+    // UpdateOrganizationSubtypeRequestBodyDto
+    updateOrganizationSubtypeRequestBodyDto: ...,
+  } satisfies UpdateOrganizationByClerkIdRequest;
+
+  try {
+    const data = await api.updateOrganizationByClerkId(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **clerkId** | `string` | Identificador da organização no Clerk. | [Defaults to `undefined`] |
+| **updateOrganizationSubtypeRequestBodyDto** | [UpdateOrganizationSubtypeRequestBodyDto](UpdateOrganizationSubtypeRequestBodyDto.md) |  | |
+
+### Return type
+
+`void` (Empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | Subtype atualizado com sucesso. |  -  |
 | **0** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)

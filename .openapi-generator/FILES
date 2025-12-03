@@ -283,6 +283,7 @@ docs/TagsPageEntity.md
 docs/UnlinkAllRadarItemsRequestBodyDto.md
 docs/UnlinkFinancialRecordsRequestBodyDto.md
 docs/UpdateFinancialRecordRadarItemAutoExecuteSettingsRequestBodyDto.md
+docs/UpdateOrganizationSubtypeRequestBodyDto.md
 package.json
 src/apis/AddressesApi.ts
 src/apis/BankAccountsApi.ts
@@ -568,6 +569,7 @@ src/models/TagsPageEntity.ts
 src/models/UnlinkAllRadarItemsRequestBodyDto.ts
 src/models/UnlinkFinancialRecordsRequestBodyDto.ts
 src/models/UpdateFinancialRecordRadarItemAutoExecuteSettingsRequestBodyDto.ts
+src/models/UpdateOrganizationSubtypeRequestBodyDto.ts
 src/models/index.ts
 src/runtime.ts
 tsconfig.json

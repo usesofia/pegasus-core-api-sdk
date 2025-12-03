@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { AdminOrganizationsPageDto, CreateOrganizationRequestBodyDto, OrganizationEntity, PartialUpdateOrganizationRequestBodyDto } from '../models/index';
+import type { AdminOrganizationsPageDto, CreateOrganizationRequestBodyDto, OrganizationEntity, PartialUpdateOrganizationRequestBodyDto, UpdateOrganizationSubtypeRequestBodyDto } from '../models/index';
 export interface CreateOrganizationRequest {
     createOrganizationRequestBodyDto: CreateOrganizationRequestBodyDto;
     populate?: string;
@@ -41,6 +41,10 @@ export interface HardRemoveOrganizationInternalRequest {
 export interface PartialUpdateOrganizationRequest {
     id: string;
     partialUpdateOrganizationRequestBodyDto: PartialUpdateOrganizationRequestBodyDto;
+}
+export interface UpdateOrganizationByClerkIdRequest {
+    clerkId: string;
+    updateOrganizationSubtypeRequestBodyDto: UpdateOrganizationSubtypeRequestBodyDto;
 }
 /**
  * OrganizationsApi - interface
@@ -176,6 +180,20 @@ export interface OrganizationsApiInterface {
      * Sync organizations from Clerk.
      */
     syncFromClerk(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+    /**
+     *
+     * @summary Atualiza o subtype de uma organização pelo clerkId (endpoint admin).
+     * @param {string} clerkId Identificador da organização no Clerk.
+     * @param {UpdateOrganizationSubtypeRequestBodyDto} updateOrganizationSubtypeRequestBodyDto
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof OrganizationsApiInterface
+     */
+    updateOrganizationByClerkIdRaw(requestParameters: UpdateOrganizationByClerkIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
+    /**
+     * Atualiza o subtype de uma organização pelo clerkId (endpoint admin).
+     */
+    updateOrganizationByClerkId(requestParameters: UpdateOrganizationByClerkIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
 }
 /**
  *
@@ -253,6 +271,14 @@ export declare class OrganizationsApi extends runtime.BaseAPI implements Organiz
      * Sync organizations from Clerk.
      */
     syncFromClerk(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+    /**
+     * Atualiza o subtype de uma organização pelo clerkId (endpoint admin).
+     */
+    updateOrganizationByClerkIdRaw(requestParameters: UpdateOrganizationByClerkIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
+    /**
+     * Atualiza o subtype de uma organização pelo clerkId (endpoint admin).
+     */
+    updateOrganizationByClerkId(requestParameters: UpdateOrganizationByClerkIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
 }
 /**
  * @export

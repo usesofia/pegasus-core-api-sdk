@@ -166,6 +166,7 @@ All URIs are relative to *http://localhost*
 *OrganizationsApi* | [**hardRemoveOrganizationInternal**](docs/OrganizationsApi.md#hardremoveorganizationinternal) | **DELETE** /internal/organizations/{organizationId}/hard | Hard remove an organization and all its data (internal endpoint).
 *OrganizationsApi* | [**partialUpdateOrganization**](docs/OrganizationsApi.md#partialupdateorganization) | **PATCH** /external/organizations/{id} | Atualiza parcialmente uma organização.
 *OrganizationsApi* | [**syncFromClerk**](docs/OrganizationsApi.md#syncfromclerk) | **POST** /internal/organizations/sync/clerk | Sync organizations from Clerk.
+*OrganizationsApi* | [**updateOrganizationByClerkId**](docs/OrganizationsApi.md#updateorganizationbyclerkid) | **PATCH** /external/organizations/admin/{clerkId} | Atualiza o subtype de uma organização pelo clerkId (endpoint admin).
 *ProspectInstallmentFinancialRecordsApi* | [**prospectInstallmentFinancialRecord**](docs/ProspectInstallmentFinancialRecordsApi.md#prospectinstallmentfinancialrecord) | **POST** /external/installment-financial-records/prospect | Simula os lançamentos únicos que serão criados para um lançamento financeiro parcelado.
 *ProspectRecurringFinancialRecordsApi* | [**prospectRecurringFinancialRecord**](docs/ProspectRecurringFinancialRecordsApi.md#prospectrecurringfinancialrecord) | **POST** /external/recurring-financial-records/prospect | Simula os lançamentos únicos que serão criados para um lançamento financeiro recorrente.
 *QueriesApi* | [**createQuery**](docs/QueriesApi.md#createquery) | **POST** /external/queries | Cria uma nova consulta.
@@ -443,6 +444,7 @@ All URIs are relative to *http://localhost*
 - [UnlinkAllRadarItemsRequestBodyDto](docs/UnlinkAllRadarItemsRequestBodyDto.md)
 - [UnlinkFinancialRecordsRequestBodyDto](docs/UnlinkFinancialRecordsRequestBodyDto.md)
 - [UpdateFinancialRecordRadarItemAutoExecuteSettingsRequestBodyDto](docs/UpdateFinancialRecordRadarItemAutoExecuteSettingsRequestBodyDto.md)
+- [UpdateOrganizationSubtypeRequestBodyDto](docs/UpdateOrganizationSubtypeRequestBodyDto.md)
 
 ### Authorization
 

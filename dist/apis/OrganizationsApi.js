@@ -513,6 +513,55 @@ var OrganizationsApi = /** @class */ (function (_super) {
             });
         });
     };
+    /**
+     * Atualiza o subtype de uma organização pelo clerkId (endpoint admin).
+     */
+    OrganizationsApi.prototype.updateOrganizationByClerkIdRaw = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (requestParameters['clerkId'] == null) {
+                            throw new runtime.RequiredError('clerkId', 'Required parameter "clerkId" was null or undefined when calling updateOrganizationByClerkId().');
+                        }
+                        if (requestParameters['updateOrganizationSubtypeRequestBodyDto'] == null) {
+                            throw new runtime.RequiredError('updateOrganizationSubtypeRequestBodyDto', 'Required parameter "updateOrganizationSubtypeRequestBodyDto" was null or undefined when calling updateOrganizationByClerkId().');
+                        }
+                        queryParameters = {};
+                        headerParameters = {};
+                        headerParameters['Content-Type'] = 'application/json';
+                        urlPath = "/external/organizations/admin/{clerkId}";
+                        urlPath = urlPath.replace("{".concat("clerkId", "}"), encodeURIComponent(String(requestParameters['clerkId'])));
+                        return [4 /*yield*/, this.request({
+                                path: urlPath,
+                                method: 'PATCH',
+                                headers: headerParameters,
+                                query: queryParameters,
+                                body: (0, index_1.UpdateOrganizationSubtypeRequestBodyDtoToJSON)(requestParameters['updateOrganizationSubtypeRequestBodyDto']),
+                            }, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [2 /*return*/, new runtime.VoidApiResponse(response)];
+                }
+            });
+        });
+    };
+    /**
+     * Atualiza o subtype de uma organização pelo clerkId (endpoint admin).
+     */
+    OrganizationsApi.prototype.updateOrganizationByClerkId = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.updateOrganizationByClerkIdRaw(requestParameters, initOverrides)];
+                    case 1:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
     return OrganizationsApi;
 }(runtime.BaseAPI));
 exports.OrganizationsApi = OrganizationsApi;

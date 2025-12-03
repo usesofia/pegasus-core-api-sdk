@@ -240,3 +240,4 @@ export * from './TagsPageEntity';
 export * from './UnlinkAllRadarItemsRequestBodyDto';
 export * from './UnlinkFinancialRecordsRequestBodyDto';
 export * from './UpdateFinancialRecordRadarItemAutoExecuteSettingsRequestBodyDto';
+export * from './UpdateOrganizationSubtypeRequestBodyDto';
