@@ -4,6 +4,7 @@ README.md
 docs/AddressesApi.md
 docs/AdminOrganizationsPageDto.md
 docs/AdminOrganizationsPageDtoItemsInner.md
+docs/AdminOrganizationsPageDtoItemsInnerPopulatedCustomer.md
 docs/AdminOrganizationsPageDtoItemsInnerPopulatedSubscription.md
 docs/BankAccountDto.md
 docs/BankAccountTypeEntity.md
@@ -329,6 +330,7 @@ src/apis/index.ts
 src/index.ts
 src/models/AdminOrganizationsPageDto.ts
 src/models/AdminOrganizationsPageDtoItemsInner.ts
+src/models/AdminOrganizationsPageDtoItemsInnerPopulatedCustomer.ts
 src/models/AdminOrganizationsPageDtoItemsInnerPopulatedSubscription.ts
 src/models/BankAccountDto.ts
 src/models/BankAccountTypeEntity.ts

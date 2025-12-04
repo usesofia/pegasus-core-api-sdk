@@ -1,5 +1,6 @@
 export * from './AdminOrganizationsPageDto';
 export * from './AdminOrganizationsPageDtoItemsInner';
+export * from './AdminOrganizationsPageDtoItemsInnerPopulatedCustomer';
 export * from './AdminOrganizationsPageDtoItemsInnerPopulatedSubscription';
 export * from './BankAccountDto';
 export * from './BankAccountTypeEntity';

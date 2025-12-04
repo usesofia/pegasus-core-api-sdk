@@ -204,6 +204,7 @@ All URIs are relative to *http://localhost*
 
 - [AdminOrganizationsPageDto](docs/AdminOrganizationsPageDto.md)
 - [AdminOrganizationsPageDtoItemsInner](docs/AdminOrganizationsPageDtoItemsInner.md)
+- [AdminOrganizationsPageDtoItemsInnerPopulatedCustomer](docs/AdminOrganizationsPageDtoItemsInnerPopulatedCustomer.md)
 - [AdminOrganizationsPageDtoItemsInnerPopulatedSubscription](docs/AdminOrganizationsPageDtoItemsInnerPopulatedSubscription.md)
 - [BankAccountDto](docs/BankAccountDto.md)
 - [BankAccountTypeEntity](docs/BankAccountTypeEntity.md)

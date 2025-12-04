@@ -13,6 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
+import type { AdminOrganizationsPageDtoItemsInnerPopulatedCustomer } from './AdminOrganizationsPageDtoItemsInnerPopulatedCustomer';
+import {
+    AdminOrganizationsPageDtoItemsInnerPopulatedCustomerFromJSON,
+    AdminOrganizationsPageDtoItemsInnerPopulatedCustomerFromJSONTyped,
+    AdminOrganizationsPageDtoItemsInnerPopulatedCustomerToJSON,
+    AdminOrganizationsPageDtoItemsInnerPopulatedCustomerToJSONTyped,
+} from './AdminOrganizationsPageDtoItemsInnerPopulatedCustomer';
 import type { AdminOrganizationsPageDtoItemsInnerPopulatedSubscription } from './AdminOrganizationsPageDtoItemsInnerPopulatedSubscription';
 import {
     AdminOrganizationsPageDtoItemsInnerPopulatedSubscriptionFromJSON,
@@ -69,6 +76,12 @@ export interface AdminOrganizationsPageDtoItemsInner {
      * @memberof AdminOrganizationsPageDtoItemsInner
      */
     customerId?: string | null;
+    /**
+     * 
+     * @type {AdminOrganizationsPageDtoItemsInnerPopulatedCustomer}
+     * @memberof AdminOrganizationsPageDtoItemsInner
+     */
+    populatedCustomer?: AdminOrganizationsPageDtoItemsInnerPopulatedCustomer | null;
     /**
      * Data de criação da organização.
      * @type {any}
@@ -134,6 +147,7 @@ export function AdminOrganizationsPageDtoItemsInnerFromJSONTyped(json: any, igno
         'clerkCreatedAt': json['clerkCreatedAt'],
         'imageUrl': json['imageUrl'] == null ? undefined : json['imageUrl'],
         'customerId': json['customerId'] == null ? undefined : json['customerId'],
+        'populatedCustomer': json['populatedCustomer'] == null ? undefined : AdminOrganizationsPageDtoItemsInnerPopulatedCustomerFromJSON(json['populatedCustomer']),
         'createdAt': json['createdAt'],
         'updatedAt': json['updatedAt'],
         'populatedSubscription': json['populatedSubscription'] == null ? undefined : AdminOrganizationsPageDtoItemsInnerPopulatedSubscriptionFromJSON(json['populatedSubscription']),
@@ -158,6 +172,7 @@ export function AdminOrganizationsPageDtoItemsInnerToJSONTyped(value?: AdminOrga
         'clerkCreatedAt': value['clerkCreatedAt'],
         'imageUrl': value['imageUrl'],
         'customerId': value['customerId'],
+        'populatedCustomer': AdminOrganizationsPageDtoItemsInnerPopulatedCustomerToJSON(value['populatedCustomer']),
         'createdAt': value['createdAt'],
         'updatedAt': value['updatedAt'],
         'populatedSubscription': AdminOrganizationsPageDtoItemsInnerPopulatedSubscriptionToJSON(value['populatedSubscription']),

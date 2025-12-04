@@ -9,6 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import type { AdminOrganizationsPageDtoItemsInnerPopulatedCustomer } from './AdminOrganizationsPageDtoItemsInnerPopulatedCustomer';
 import type { AdminOrganizationsPageDtoItemsInnerPopulatedSubscription } from './AdminOrganizationsPageDtoItemsInnerPopulatedSubscription';
 /**
  *
@@ -58,6 +59,12 @@ export interface AdminOrganizationsPageDtoItemsInner {
      * @memberof AdminOrganizationsPageDtoItemsInner
      */
     customerId?: string | null;
+    /**
+     *
+     * @type {AdminOrganizationsPageDtoItemsInnerPopulatedCustomer}
+     * @memberof AdminOrganizationsPageDtoItemsInner
+     */
+    populatedCustomer?: AdminOrganizationsPageDtoItemsInnerPopulatedCustomer | null;
     /**
      * Data de criação da organização.
      * @type {any}

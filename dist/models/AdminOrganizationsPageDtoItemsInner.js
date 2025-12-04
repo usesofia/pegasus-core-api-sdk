@@ -19,6 +19,7 @@ exports.AdminOrganizationsPageDtoItemsInnerFromJSON = AdminOrganizationsPageDtoI
 exports.AdminOrganizationsPageDtoItemsInnerFromJSONTyped = AdminOrganizationsPageDtoItemsInnerFromJSONTyped;
 exports.AdminOrganizationsPageDtoItemsInnerToJSON = AdminOrganizationsPageDtoItemsInnerToJSON;
 exports.AdminOrganizationsPageDtoItemsInnerToJSONTyped = AdminOrganizationsPageDtoItemsInnerToJSONTyped;
+var AdminOrganizationsPageDtoItemsInnerPopulatedCustomer_1 = require("./AdminOrganizationsPageDtoItemsInnerPopulatedCustomer");
 var AdminOrganizationsPageDtoItemsInnerPopulatedSubscription_1 = require("./AdminOrganizationsPageDtoItemsInnerPopulatedSubscription");
 /**
  * @export
@@ -65,6 +66,7 @@ function AdminOrganizationsPageDtoItemsInnerFromJSONTyped(json, ignoreDiscrimina
         'clerkCreatedAt': json['clerkCreatedAt'],
         'imageUrl': json['imageUrl'] == null ? undefined : json['imageUrl'],
         'customerId': json['customerId'] == null ? undefined : json['customerId'],
+        'populatedCustomer': json['populatedCustomer'] == null ? undefined : (0, AdminOrganizationsPageDtoItemsInnerPopulatedCustomer_1.AdminOrganizationsPageDtoItemsInnerPopulatedCustomerFromJSON)(json['populatedCustomer']),
         'createdAt': json['createdAt'],
         'updatedAt': json['updatedAt'],
         'populatedSubscription': json['populatedSubscription'] == null ? undefined : (0, AdminOrganizationsPageDtoItemsInnerPopulatedSubscription_1.AdminOrganizationsPageDtoItemsInnerPopulatedSubscriptionFromJSON)(json['populatedSubscription']),
@@ -86,6 +88,7 @@ function AdminOrganizationsPageDtoItemsInnerToJSONTyped(value, ignoreDiscriminat
         'clerkCreatedAt': value['clerkCreatedAt'],
         'imageUrl': value['imageUrl'],
         'customerId': value['customerId'],
+        'populatedCustomer': (0, AdminOrganizationsPageDtoItemsInnerPopulatedCustomer_1.AdminOrganizationsPageDtoItemsInnerPopulatedCustomerToJSON)(value['populatedCustomer']),
         'createdAt': value['createdAt'],
         'updatedAt': value['updatedAt'],
         'populatedSubscription': (0, AdminOrganizationsPageDtoItemsInnerPopulatedSubscription_1.AdminOrganizationsPageDtoItemsInnerPopulatedSubscriptionToJSON)(value['populatedSubscription']),

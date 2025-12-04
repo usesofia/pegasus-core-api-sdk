@@ -13,6 +13,7 @@ Name | Type
 `clerkCreatedAt` | any
 `imageUrl` | string
 `customerId` | string
+`populatedCustomer` | [AdminOrganizationsPageDtoItemsInnerPopulatedCustomer](AdminOrganizationsPageDtoItemsInnerPopulatedCustomer.md)
 `createdAt` | any
 `updatedAt` | any
 `populatedSubscription` | [AdminOrganizationsPageDtoItemsInnerPopulatedSubscription](AdminOrganizationsPageDtoItemsInnerPopulatedSubscription.md)
@@ -31,6 +32,7 @@ const example = {
   "clerkCreatedAt": null,
   "imageUrl": null,
   "customerId": null,
+  "populatedCustomer": null,
   "createdAt": null,
   "updatedAt": null,
   "populatedSubscription": null,

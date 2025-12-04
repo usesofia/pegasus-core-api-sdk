@@ -18,6 +18,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 /* eslint-disable */
 __exportStar(require("./AdminOrganizationsPageDto"), exports);
 __exportStar(require("./AdminOrganizationsPageDtoItemsInner"), exports);
+__exportStar(require("./AdminOrganizationsPageDtoItemsInnerPopulatedCustomer"), exports);
 __exportStar(require("./AdminOrganizationsPageDtoItemsInnerPopulatedSubscription"), exports);
 __exportStar(require("./BankAccountDto"), exports);
 __exportStar(require("./BankAccountTypeEntity"), exports);
