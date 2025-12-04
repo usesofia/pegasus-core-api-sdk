@@ -28,7 +28,6 @@ export interface FindAllCustomersRequest {
 }
 export interface FindByIdCustomerRequest {
     id: string;
-    populate?: string;
 }
 export interface PartialUpdateCustomerRequest {
     id: string;
@@ -80,7 +79,6 @@ export interface CustomersApiInterface {
      *
      * @summary Busca um customer pelo identificador.
      * @param {string} id Identificador do customer.
-     * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof CustomersApiInterface

@@ -208,9 +208,6 @@ var CustomersApi = /** @class */ (function (_super) {
                             throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling findByIdCustomer().');
                         }
                         queryParameters = {};
-                        if (requestParameters['populate'] != null) {
-                            queryParameters['populate'] = requestParameters['populate'];
-                        }
                         headerParameters = {};
                         urlPath = "/external/customers/{id}";
                         urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));

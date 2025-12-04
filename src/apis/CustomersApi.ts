@@ -53,7 +53,6 @@ export interface FindAllCustomersRequest {
 
 export interface FindByIdCustomerRequest {
     id: string;
-    populate?: string;
 }
 
 export interface PartialUpdateCustomerRequest {
@@ -111,7 +110,6 @@ export interface CustomersApiInterface {
      * 
      * @summary Busca um customer pelo identificador.
      * @param {string} id Identificador do customer.
-     * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof CustomersApiInterface
@@ -266,10 +264,6 @@ export class CustomersApi extends runtime.BaseAPI implements CustomersApiInterfa
         }
 
         const queryParameters: any = {};
-
-        if (requestParameters['populate'] != null) {
-            queryParameters['populate'] = requestParameters['populate'];
-        }
 
         const headerParameters: runtime.HTTPHeaders = {};
 

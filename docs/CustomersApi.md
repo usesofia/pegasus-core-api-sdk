@@ -171,7 +171,7 @@ No authorization required
 
 ## findByIdCustomer
 
-> CustomerDto findByIdCustomer(id, populate)
+> CustomerDto findByIdCustomer(id)
 
 Busca um customer pelo identificador.
 
@@ -191,8 +191,6 @@ async function example() {
   const body = {
     // string | Identificador do customer.
     id: id_example,
-    // string | Campos relacionados a serem populados separados por vírgula. (optional)
-    populate: populate_example,
   } satisfies FindByIdCustomerRequest;
 
   try {
@@ -213,7 +211,6 @@ example().catch(console.error);
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **id** | `string` | Identificador do customer. | [Defaults to `undefined`] |
-| **populate** | `string` | Campos relacionados a serem populados separados por vírgula. | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 
