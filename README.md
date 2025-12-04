@@ -99,6 +99,7 @@ All URIs are relative to *http://localhost*
 *ContactsExportApi* | [**exportContacts**](docs/ContactsExportApi.md#exportcontacts) | **POST** /external/contacts/export | Solicita a exportação dos contatos.
 *CustomersApi* | [**createCustomer**](docs/CustomersApi.md#createcustomer) | **POST** /external/customers | Create a new customer.
 *CustomersApi* | [**findAllCustomers**](docs/CustomersApi.md#findallcustomers) | **GET** /external/customers | Lista todos os customers com paginação e filtros.
+*CustomersApi* | [**findByIdCustomer**](docs/CustomersApi.md#findbyidcustomer) | **GET** /external/customers/{id} | Busca um customer pelo identificador.
 *CustomersApi* | [**partialUpdateCustomer**](docs/CustomersApi.md#partialupdatecustomer) | **PATCH** /external/customers/{id} | Partially update a customer.
 *EmbeddingApi* | [**calculateAndUpdateEmbedding**](docs/EmbeddingApi.md#calculateandupdateembedding) | **POST** /internal/queues/calculate-embedding | Calcula e atualiza o embedding de um recurso.
 *EmbeddingApi* | [**catchProblematicEmbeddingCalculations**](docs/EmbeddingApi.md#catchproblematicembeddingcalculations) | **POST** /internal/embedding/catch | Checa se existem recursos que precisam do cálculo do embedding e os adiciona na fila.

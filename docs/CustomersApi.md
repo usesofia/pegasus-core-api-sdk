@@ -6,6 +6,7 @@ All URIs are relative to *http://localhost*
 |------------- | ------------- | -------------|
 | [**createCustomer**](CustomersApi.md#createcustomer) | **POST** /external/customers | Create a new customer. |
 | [**findAllCustomers**](CustomersApi.md#findallcustomers) | **GET** /external/customers | Lista todos os customers com paginação e filtros. |
+| [**findByIdCustomer**](CustomersApi.md#findbyidcustomer) | **GET** /external/customers/{id} | Busca um customer pelo identificador. |
 | [**partialUpdateCustomer**](CustomersApi.md#partialupdatecustomer) | **PATCH** /external/customers/{id} | Partially update a customer. |
 
 
@@ -163,6 +164,75 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **0** |  |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## findByIdCustomer
+
+> CustomerDto findByIdCustomer(id, populate)
+
+Busca um customer pelo identificador.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  CustomersApi,
+} from '@usesofia/pegasus-core-api-sdk';
+import type { FindByIdCustomerRequest } from '@usesofia/pegasus-core-api-sdk';
+
+async function example() {
+  console.log("🚀 Testing @usesofia/pegasus-core-api-sdk SDK...");
+  const api = new CustomersApi();
+
+  const body = {
+    // string | Identificador do customer.
+    id: id_example,
+    // string | Campos relacionados a serem populados separados por vírgula. (optional)
+    populate: populate_example,
+  } satisfies FindByIdCustomerRequest;
+
+  try {
+    const data = await api.findByIdCustomer(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | `string` | Identificador do customer. | [Defaults to `undefined`] |
+| **populate** | `string` | Campos relacionados a serem populados separados por vírgula. | [Optional] [Defaults to `undefined`] |
+
+### Return type
+
+[**CustomerDto**](CustomerDto.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** |  |  -  |
 | **0** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)

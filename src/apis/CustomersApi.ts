@@ -51,6 +51,11 @@ export interface FindAllCustomersRequest {
     pageIndex?: number;
 }
 
+export interface FindByIdCustomerRequest {
+    id: string;
+    populate?: string;
+}
+
 export interface PartialUpdateCustomerRequest {
     id: string;
     partialUpdateCustomerRequestBodyDto: PartialUpdateCustomerRequestBodyDto;
@@ -101,6 +106,22 @@ export interface CustomersApiInterface {
      * Lista todos os customers com paginação e filtros.
      */
     findAllCustomers(requestParameters: FindAllCustomersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CustomersPageDto>;
+
+    /**
+     * 
+     * @summary Busca um customer pelo identificador.
+     * @param {string} id Identificador do customer.
+     * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof CustomersApiInterface
+     */
+    findByIdCustomerRaw(requestParameters: FindByIdCustomerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CustomerDto>>;
+
+    /**
+     * Busca um customer pelo identificador.
+     */
+    findByIdCustomer(requestParameters: FindByIdCustomerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CustomerDto>;
 
     /**
      * 
@@ -230,6 +251,47 @@ export class CustomersApi extends runtime.BaseAPI implements CustomersApiInterfa
      */
     async findAllCustomers(requestParameters: FindAllCustomersRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CustomersPageDto> {
         const response = await this.findAllCustomersRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Busca um customer pelo identificador.
+     */
+    async findByIdCustomerRaw(requestParameters: FindByIdCustomerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CustomerDto>> {
+        if (requestParameters['id'] == null) {
+            throw new runtime.RequiredError(
+                'id',
+                'Required parameter "id" was null or undefined when calling findByIdCustomer().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['populate'] != null) {
+            queryParameters['populate'] = requestParameters['populate'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+
+        let urlPath = `/external/customers/{id}`;
+        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => CustomerDtoFromJSON(jsonValue));
+    }
+
+    /**
+     * Busca um customer pelo identificador.
+     */
+    async findByIdCustomer(requestParameters: FindByIdCustomerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CustomerDto> {
+        const response = await this.findByIdCustomerRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

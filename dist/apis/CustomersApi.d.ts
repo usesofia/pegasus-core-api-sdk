@@ -26,6 +26,10 @@ export interface FindAllCustomersRequest {
     pageSize?: number;
     pageIndex?: number;
 }
+export interface FindByIdCustomerRequest {
+    id: string;
+    populate?: string;
+}
 export interface PartialUpdateCustomerRequest {
     id: string;
     partialUpdateCustomerRequestBodyDto: PartialUpdateCustomerRequestBodyDto;
@@ -74,6 +78,20 @@ export interface CustomersApiInterface {
     findAllCustomers(requestParameters: FindAllCustomersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CustomersPageDto>;
     /**
      *
+     * @summary Busca um customer pelo identificador.
+     * @param {string} id Identificador do customer.
+     * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof CustomersApiInterface
+     */
+    findByIdCustomerRaw(requestParameters: FindByIdCustomerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CustomerDto>>;
+    /**
+     * Busca um customer pelo identificador.
+     */
+    findByIdCustomer(requestParameters: FindByIdCustomerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CustomerDto>;
+    /**
+     *
      * @summary Partially update a customer.
      * @param {string} id Customer ID
      * @param {PartialUpdateCustomerRequestBodyDto} partialUpdateCustomerRequestBodyDto
@@ -107,6 +125,14 @@ export declare class CustomersApi extends runtime.BaseAPI implements CustomersAp
      * Lista todos os customers com paginação e filtros.
      */
     findAllCustomers(requestParameters?: FindAllCustomersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CustomersPageDto>;
+    /**
+     * Busca um customer pelo identificador.
+     */
+    findByIdCustomerRaw(requestParameters: FindByIdCustomerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CustomerDto>>;
+    /**
+     * Busca um customer pelo identificador.
+     */
+    findByIdCustomer(requestParameters: FindByIdCustomerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CustomerDto>;
     /**
      * Partially update a customer.
      */
