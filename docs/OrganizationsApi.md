@@ -154,7 +154,7 @@ No authorization required
 
 ## findAllOrganizationsAdmin
 
-> AdminOrganizationsPageDto findAllOrganizationsAdmin(sortOrder, sortBy, textSearchTerm, clerkIds, subscriptionStatuses, trialExpiresAtTo, trialExpiresAtFrom, clerkCreatedAtTo, clerkCreatedAtFrom, subtypes, pageSize, pageIndex)
+> AdminOrganizationsPageDto findAllOrganizationsAdmin(hasCustomerId, sortOrder, sortBy, textSearchTerm, clerkIds, subscriptionStatuses, trialExpiresAtTo, trialExpiresAtFrom, clerkCreatedAtTo, clerkCreatedAtFrom, subtypes, pageSize, pageIndex)
 
 Lista todas as organizações armazenadas no banco de dados (endpoint admin).
 
@@ -172,6 +172,8 @@ async function example() {
   const api = new OrganizationsApi();
 
   const body = {
+    // boolean | Filtrar apenas organizações que possuem customerId. (optional)
+    hasCustomerId: true,
     // 'asc' | 'desc' | Ordem de ordenação das organizações. (optional)
     sortOrder: sortOrder_example,
     // 'name' | 'clerkCreatedAt' | Campo para ordenação das organizações. (optional)
@@ -215,6 +217,7 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
+| **hasCustomerId** | `boolean` | Filtrar apenas organizações que possuem customerId. | [Optional] [Defaults to `undefined`] |
 | **sortOrder** | `asc`, `desc` | Ordem de ordenação das organizações. | [Optional] [Defaults to `undefined`] [Enum: asc, desc] |
 | **sortBy** | `name`, `clerkCreatedAt` | Campo para ordenação das organizações. | [Optional] [Defaults to `undefined`] [Enum: name, clerkCreatedAt] |
 | **textSearchTerm** | `string` | Termo para busca textual por nome ou clerkId da organização. | [Optional] [Defaults to `undefined`] |

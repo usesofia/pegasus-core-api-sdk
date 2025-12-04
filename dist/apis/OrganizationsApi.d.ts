@@ -19,6 +19,7 @@ export interface ExternalHardRemoveOrganizationRequest {
     organizationId: string;
 }
 export interface FindAllOrganizationsAdminRequest {
+    hasCustomerId?: boolean;
     sortOrder?: FindAllOrganizationsAdminSortOrderEnum;
     sortBy?: FindAllOrganizationsAdminSortByEnum;
     textSearchTerm?: string;
@@ -83,6 +84,7 @@ export interface OrganizationsApiInterface {
     /**
      *
      * @summary Lista todas as organizações armazenadas no banco de dados (endpoint admin).
+     * @param {boolean} [hasCustomerId] Filtrar apenas organizações que possuem customerId.
      * @param {'asc' | 'desc'} [sortOrder] Ordem de ordenação das organizações.
      * @param {'name' | 'clerkCreatedAt'} [sortBy] Campo para ordenação das organizações.
      * @param {string} [textSearchTerm] Termo para busca textual por nome ou clerkId da organização.

@@ -47,6 +47,7 @@ export interface ExternalHardRemoveOrganizationRequest {
 }
 
 export interface FindAllOrganizationsAdminRequest {
+    hasCustomerId?: boolean;
     sortOrder?: FindAllOrganizationsAdminSortOrderEnum;
     sortBy?: FindAllOrganizationsAdminSortByEnum;
     textSearchTerm?: string;
@@ -120,6 +121,7 @@ export interface OrganizationsApiInterface {
     /**
      * 
      * @summary Lista todas as organizações armazenadas no banco de dados (endpoint admin).
+     * @param {boolean} [hasCustomerId] Filtrar apenas organizações que possuem customerId.
      * @param {'asc' | 'desc'} [sortOrder] Ordem de ordenação das organizações.
      * @param {'name' | 'clerkCreatedAt'} [sortBy] Campo para ordenação das organizações.
      * @param {string} [textSearchTerm] Termo para busca textual por nome ou clerkId da organização.
@@ -338,6 +340,10 @@ export class OrganizationsApi extends runtime.BaseAPI implements OrganizationsAp
      */
     async findAllOrganizationsAdminRaw(requestParameters: FindAllOrganizationsAdminRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AdminOrganizationsPageDto>> {
         const queryParameters: any = {};
+
+        if (requestParameters['hasCustomerId'] != null) {
+            queryParameters['hasCustomerId'] = requestParameters['hasCustomerId'];
+        }
 
         if (requestParameters['sortOrder'] != null) {
             queryParameters['sortOrder'] = requestParameters['sortOrder'];

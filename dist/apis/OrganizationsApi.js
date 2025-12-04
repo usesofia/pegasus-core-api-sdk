@@ -179,6 +179,9 @@ var OrganizationsApi = /** @class */ (function (_super) {
                 switch (_a.label) {
                     case 0:
                         queryParameters = {};
+                        if (requestParameters['hasCustomerId'] != null) {
+                            queryParameters['hasCustomerId'] = requestParameters['hasCustomerId'];
+                        }
                         if (requestParameters['sortOrder'] != null) {
                             queryParameters['sortOrder'] = requestParameters['sortOrder'];
                         }
