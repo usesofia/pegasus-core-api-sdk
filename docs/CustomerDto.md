@@ -10,7 +10,7 @@ Name | Type
 `name` | string
 `description` | string
 `type` | string
-`childrenOrganizationsIds` | Array&lt;string&gt;
+`childrenOrganizationsClerkIds` | Array&lt;string&gt;
 `createdAt` | any
 `updatedAt` | any
 
@@ -25,7 +25,7 @@ const example = {
   "name": null,
   "description": null,
   "type": null,
-  "childrenOrganizationsIds": null,
+  "childrenOrganizationsClerkIds": null,
   "createdAt": null,
   "updatedAt": null,
 } satisfies CustomerDto

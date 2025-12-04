@@ -34,11 +34,11 @@ export interface PartialUpdateCustomerRequestBodyDto {
      */
     type?: PartialUpdateCustomerRequestBodyDtoTypeEnum;
     /**
-     * Identificadores das organizações filhas.
+     * Identificadores das organizações filhas (clerkId).
      * @type {Array<string>}
      * @memberof PartialUpdateCustomerRequestBodyDto
      */
-    childrenOrganizationsIds?: Array<string>;
+    childrenOrganizationsClerkIds?: Array<string>;
 }
 /**
  * @export

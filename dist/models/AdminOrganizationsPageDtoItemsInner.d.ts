@@ -53,6 +53,12 @@ export interface AdminOrganizationsPageDtoItemsInner {
      */
     imageUrl?: string;
     /**
+     * Identificador do customer associado.
+     * @type {string}
+     * @memberof AdminOrganizationsPageDtoItemsInner
+     */
+    customerId?: string | null;
+    /**
      * Data de criação da organização.
      * @type {any}
      * @memberof AdminOrganizationsPageDtoItemsInner

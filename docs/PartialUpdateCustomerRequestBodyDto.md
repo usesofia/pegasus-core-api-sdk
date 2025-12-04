@@ -9,7 +9,7 @@ Name | Type
 `name` | string
 `description` | string
 `type` | string
-`childrenOrganizationsIds` | Array&lt;string&gt;
+`childrenOrganizationsClerkIds` | Array&lt;string&gt;
 
 ## Example
 
@@ -21,7 +21,7 @@ const example = {
   "name": null,
   "description": null,
   "type": null,
-  "childrenOrganizationsIds": null,
+  "childrenOrganizationsClerkIds": null,
 } satisfies PartialUpdateCustomerRequestBodyDto
 
 console.log(example)

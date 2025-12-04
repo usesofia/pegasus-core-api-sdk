@@ -44,11 +44,11 @@ export interface CustomerDto {
      */
     type: CustomerDtoTypeEnum;
     /**
-     * Identificadores das organizações filhas.
+     * Identificadores das organizações filhas (clerkId).
      * @type {Array<string>}
      * @memberof CustomerDto
      */
-    childrenOrganizationsIds?: Array<string>;
+    childrenOrganizationsClerkIds?: Array<string>;
     /**
      * Data de criação.
      * @type {any}
@@ -100,7 +100,7 @@ export function CustomerDtoFromJSONTyped(json: any, ignoreDiscriminator: boolean
         'name': json['name'],
         'description': json['description'] == null ? undefined : json['description'],
         'type': json['type'],
-        'childrenOrganizationsIds': json['childrenOrganizationsIds'] == null ? undefined : json['childrenOrganizationsIds'],
+        'childrenOrganizationsClerkIds': json['childrenOrganizationsClerkIds'] == null ? undefined : json['childrenOrganizationsClerkIds'],
         'createdAt': json['createdAt'],
         'updatedAt': json['updatedAt'],
     };
@@ -121,7 +121,7 @@ export function CustomerDtoToJSONTyped(value?: CustomerDto | null, ignoreDiscrim
         'name': value['name'],
         'description': value['description'],
         'type': value['type'],
-        'childrenOrganizationsIds': value['childrenOrganizationsIds'],
+        'childrenOrganizationsClerkIds': value['childrenOrganizationsClerkIds'],
         'createdAt': value['createdAt'],
         'updatedAt': value['updatedAt'],
     };

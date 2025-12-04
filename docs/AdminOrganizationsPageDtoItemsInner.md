@@ -12,6 +12,7 @@ Name | Type
 `subtype` | string
 `clerkCreatedAt` | any
 `imageUrl` | string
+`customerId` | string
 `createdAt` | any
 `updatedAt` | any
 `populatedSubscription` | [AdminOrganizationsPageDtoItemsInnerPopulatedSubscription](AdminOrganizationsPageDtoItemsInnerPopulatedSubscription.md)
@@ -29,6 +30,7 @@ const example = {
   "subtype": null,
   "clerkCreatedAt": null,
   "imageUrl": null,
+  "customerId": null,
   "createdAt": null,
   "updatedAt": null,
   "populatedSubscription": null,

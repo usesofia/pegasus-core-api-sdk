@@ -64,6 +64,12 @@ export interface AdminOrganizationsPageDtoItemsInner {
      */
     imageUrl?: string;
     /**
+     * Identificador do customer associado.
+     * @type {string}
+     * @memberof AdminOrganizationsPageDtoItemsInner
+     */
+    customerId?: string | null;
+    /**
      * Data de criação da organização.
      * @type {any}
      * @memberof AdminOrganizationsPageDtoItemsInner
@@ -127,6 +133,7 @@ export function AdminOrganizationsPageDtoItemsInnerFromJSONTyped(json: any, igno
         'subtype': json['subtype'],
         'clerkCreatedAt': json['clerkCreatedAt'],
         'imageUrl': json['imageUrl'] == null ? undefined : json['imageUrl'],
+        'customerId': json['customerId'] == null ? undefined : json['customerId'],
         'createdAt': json['createdAt'],
         'updatedAt': json['updatedAt'],
         'populatedSubscription': json['populatedSubscription'] == null ? undefined : AdminOrganizationsPageDtoItemsInnerPopulatedSubscriptionFromJSON(json['populatedSubscription']),
@@ -150,6 +157,7 @@ export function AdminOrganizationsPageDtoItemsInnerToJSONTyped(value?: AdminOrga
         'subtype': value['subtype'],
         'clerkCreatedAt': value['clerkCreatedAt'],
         'imageUrl': value['imageUrl'],
+        'customerId': value['customerId'],
         'createdAt': value['createdAt'],
         'updatedAt': value['updatedAt'],
         'populatedSubscription': AdminOrganizationsPageDtoItemsInnerPopulatedSubscriptionToJSON(value['populatedSubscription']),

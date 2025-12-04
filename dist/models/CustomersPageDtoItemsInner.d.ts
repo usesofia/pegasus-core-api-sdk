@@ -41,11 +41,11 @@ export interface CustomersPageDtoItemsInner {
      */
     type: CustomersPageDtoItemsInnerTypeEnum;
     /**
-     * Identificadores das organizações filhas.
+     * Identificadores das organizações filhas (clerkId).
      * @type {Array<string>}
      * @memberof CustomersPageDtoItemsInner
      */
-    childrenOrganizationsIds?: Array<string>;
+    childrenOrganizationsClerkIds?: Array<string>;
     /**
      * Data de criação.
      * @type {any}
