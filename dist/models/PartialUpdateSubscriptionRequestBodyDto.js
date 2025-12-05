@@ -58,6 +58,8 @@ function PartialUpdateSubscriptionRequestBodyDtoFromJSONTyped(json, ignoreDiscri
         'status': json['status'] == null ? undefined : json['status'],
         'trialExpiresAt': json['trialExpiresAt'] == null ? undefined : json['trialExpiresAt'],
         'montlyPriceInCents': json['montlyPriceInCents'] == null ? undefined : json['montlyPriceInCents'],
+        'latePayment': json['latePayment'] == null ? undefined : json['latePayment'],
+        'serviceCutoffDate': json['serviceCutoffDate'] == null ? undefined : json['serviceCutoffDate'],
     };
 }
 function PartialUpdateSubscriptionRequestBodyDtoToJSON(json) {
@@ -75,5 +77,7 @@ function PartialUpdateSubscriptionRequestBodyDtoToJSONTyped(value, ignoreDiscrim
         'status': value['status'],
         'trialExpiresAt': value['trialExpiresAt'],
         'montlyPriceInCents': value['montlyPriceInCents'],
+        'latePayment': value['latePayment'],
+        'serviceCutoffDate': value['serviceCutoffDate'],
     };
 }

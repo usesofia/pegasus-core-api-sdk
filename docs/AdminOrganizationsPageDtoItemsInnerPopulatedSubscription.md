@@ -14,6 +14,8 @@ Name | Type
 `status` | string
 `trialExpiresAt` | any
 `montlyPriceInCents` | number
+`latePayment` | boolean
+`serviceCutoffDate` | any
 `createdAt` | any
 `updatedAt` | any
 
@@ -31,6 +33,8 @@ const example = {
   "status": null,
   "trialExpiresAt": null,
   "montlyPriceInCents": null,
+  "latePayment": null,
+  "serviceCutoffDate": null,
   "createdAt": null,
   "updatedAt": null,
 } satisfies AdminOrganizationsPageDtoItemsInnerPopulatedSubscription

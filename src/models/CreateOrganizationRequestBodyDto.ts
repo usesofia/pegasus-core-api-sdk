@@ -66,12 +66,6 @@ export interface CreateOrganizationRequestBodyDto {
      */
     document?: string;
     /**
-     * Data de expiração do trial.
-     * @type {any}
-     * @memberof CreateOrganizationRequestBodyDto
-     */
-    trialExpiresAt?: any | null;
-    /**
      * Identificador da organização pai.
      * @type {string}
      * @memberof CreateOrganizationRequestBodyDto
@@ -156,7 +150,6 @@ export function CreateOrganizationRequestBodyDtoFromJSONTyped(json: any, ignoreD
         'slug': json['slug'],
         'type': json['type'],
         'document': json['document'] == null ? undefined : json['document'],
-        'trialExpiresAt': json['trialExpiresAt'] == null ? undefined : json['trialExpiresAt'],
         'parent': json['parent'] == null ? undefined : json['parent'],
         'populatedParent': json['populatedParent'] == null ? undefined : CreateOrganizationRequestBodyDtoPopulatedParentFromJSON(json['populatedParent']),
         'children': json['children'] == null ? undefined : json['children'],
@@ -183,7 +176,6 @@ export function CreateOrganizationRequestBodyDtoToJSONTyped(value?: CreateOrgani
         'slug': value['slug'],
         'type': value['type'],
         'document': value['document'],
-        'trialExpiresAt': value['trialExpiresAt'],
         'parent': value['parent'],
         'populatedParent': CreateOrganizationRequestBodyDtoPopulatedParentToJSON(value['populatedParent']),
         'children': value['children'],

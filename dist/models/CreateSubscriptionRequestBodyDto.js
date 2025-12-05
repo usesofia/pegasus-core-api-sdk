@@ -62,6 +62,8 @@ function CreateSubscriptionRequestBodyDtoFromJSONTyped(json, ignoreDiscriminator
         'status': json['status'],
         'trialExpiresAt': json['trialExpiresAt'] == null ? undefined : json['trialExpiresAt'],
         'montlyPriceInCents': json['montlyPriceInCents'] == null ? undefined : json['montlyPriceInCents'],
+        'latePayment': json['latePayment'] == null ? undefined : json['latePayment'],
+        'serviceCutoffDate': json['serviceCutoffDate'] == null ? undefined : json['serviceCutoffDate'],
     };
 }
 function CreateSubscriptionRequestBodyDtoToJSON(json) {
@@ -79,5 +81,7 @@ function CreateSubscriptionRequestBodyDtoToJSONTyped(value, ignoreDiscriminator)
         'status': value['status'],
         'trialExpiresAt': value['trialExpiresAt'],
         'montlyPriceInCents': value['montlyPriceInCents'],
+        'latePayment': value['latePayment'],
+        'serviceCutoffDate': value['serviceCutoffDate'],
     };
 }

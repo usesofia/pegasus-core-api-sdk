@@ -43,12 +43,6 @@ export interface CreateOrganizationRequestBodyDto {
      */
     document?: string;
     /**
-     * Data de expiração do trial.
-     * @type {any}
-     * @memberof CreateOrganizationRequestBodyDto
-     */
-    trialExpiresAt?: any | null;
-    /**
      * Identificador da organização pai.
      * @type {string}
      * @memberof CreateOrganizationRequestBodyDto

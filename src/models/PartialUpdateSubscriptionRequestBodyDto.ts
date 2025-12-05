@@ -55,6 +55,18 @@ export interface PartialUpdateSubscriptionRequestBodyDto {
      * @memberof PartialUpdateSubscriptionRequestBodyDto
      */
     montlyPriceInCents?: number | null;
+    /**
+     * Indica se há atraso no pagamento.
+     * @type {boolean}
+     * @memberof PartialUpdateSubscriptionRequestBodyDto
+     */
+    latePayment?: boolean | null;
+    /**
+     * Data de corte do serviço.
+     * @type {any}
+     * @memberof PartialUpdateSubscriptionRequestBodyDto
+     */
+    serviceCutoffDate?: any | null;
 }
 
 
@@ -104,6 +116,8 @@ export function PartialUpdateSubscriptionRequestBodyDtoFromJSONTyped(json: any, 
         'status': json['status'] == null ? undefined : json['status'],
         'trialExpiresAt': json['trialExpiresAt'] == null ? undefined : json['trialExpiresAt'],
         'montlyPriceInCents': json['montlyPriceInCents'] == null ? undefined : json['montlyPriceInCents'],
+        'latePayment': json['latePayment'] == null ? undefined : json['latePayment'],
+        'serviceCutoffDate': json['serviceCutoffDate'] == null ? undefined : json['serviceCutoffDate'],
     };
 }
 
@@ -124,6 +138,8 @@ export function PartialUpdateSubscriptionRequestBodyDtoToJSONTyped(value?: Parti
         'status': value['status'],
         'trialExpiresAt': value['trialExpiresAt'],
         'montlyPriceInCents': value['montlyPriceInCents'],
+        'latePayment': value['latePayment'],
+        'serviceCutoffDate': value['serviceCutoffDate'],
     };
 }
 

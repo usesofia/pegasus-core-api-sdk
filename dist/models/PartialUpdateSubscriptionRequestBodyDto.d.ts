@@ -51,6 +51,18 @@ export interface PartialUpdateSubscriptionRequestBodyDto {
      * @memberof PartialUpdateSubscriptionRequestBodyDto
      */
     montlyPriceInCents?: number | null;
+    /**
+     * Indica se há atraso no pagamento.
+     * @type {boolean}
+     * @memberof PartialUpdateSubscriptionRequestBodyDto
+     */
+    latePayment?: boolean | null;
+    /**
+     * Data de corte do serviço.
+     * @type {any}
+     * @memberof PartialUpdateSubscriptionRequestBodyDto
+     */
+    serviceCutoffDate?: any | null;
 }
 /**
  * @export

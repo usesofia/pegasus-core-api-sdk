@@ -14,75 +14,75 @@
 
 import { mapValues } from '../runtime';
 /**
- * 
+ * Subscription populada.
  * @export
- * @interface SubscriptionEntity
+ * @interface OrganizationEntityPopulatedSubscription
  */
-export interface SubscriptionEntity {
+export interface OrganizationEntityPopulatedSubscription {
     /**
      * Identificador da subscription.
      * @type {string}
-     * @memberof SubscriptionEntity
+     * @memberof OrganizationEntityPopulatedSubscription
      */
     id: string;
     /**
      * Identificador da organização dona da subscription.
      * @type {string}
-     * @memberof SubscriptionEntity
+     * @memberof OrganizationEntityPopulatedSubscription
      */
     ownerOrganization: string;
     /**
      * Descrição da subscription.
      * @type {string}
-     * @memberof SubscriptionEntity
+     * @memberof OrganizationEntityPopulatedSubscription
      */
     description?: string | null;
     /**
      * Provedor da subscription.
      * @type {string}
-     * @memberof SubscriptionEntity
+     * @memberof OrganizationEntityPopulatedSubscription
      */
-    provider: SubscriptionEntityProviderEnum;
+    provider: OrganizationEntityPopulatedSubscriptionProviderEnum;
     /**
      * Status da subscription.
      * @type {string}
-     * @memberof SubscriptionEntity
+     * @memberof OrganizationEntityPopulatedSubscription
      */
-    status: SubscriptionEntityStatusEnum;
+    status: OrganizationEntityPopulatedSubscriptionStatusEnum;
     /**
      * Data de expiração do trial.
      * @type {any}
-     * @memberof SubscriptionEntity
+     * @memberof OrganizationEntityPopulatedSubscription
      */
     trialExpiresAt?: any | null;
     /**
      * Preço mensal em centavos.
      * @type {number}
-     * @memberof SubscriptionEntity
+     * @memberof OrganizationEntityPopulatedSubscription
      */
     montlyPriceInCents?: number | null;
     /**
      * Indica se há atraso no pagamento.
      * @type {boolean}
-     * @memberof SubscriptionEntity
+     * @memberof OrganizationEntityPopulatedSubscription
      */
     latePayment?: boolean | null;
     /**
      * Data de corte do serviço.
      * @type {any}
-     * @memberof SubscriptionEntity
+     * @memberof OrganizationEntityPopulatedSubscription
      */
     serviceCutoffDate?: any | null;
     /**
      * Data de criação.
      * @type {any}
-     * @memberof SubscriptionEntity
+     * @memberof OrganizationEntityPopulatedSubscription
      */
     createdAt: any | null;
     /**
      * Data de atualização.
      * @type {any}
-     * @memberof SubscriptionEntity
+     * @memberof OrganizationEntityPopulatedSubscription
      */
     updatedAt: any | null;
 }
@@ -91,29 +91,29 @@ export interface SubscriptionEntity {
 /**
  * @export
  */
-export const SubscriptionEntityProviderEnum = {
+export const OrganizationEntityPopulatedSubscriptionProviderEnum = {
     Manual: 'MANUAL',
     AutomaticStripe: 'AUTOMATIC_STRIPE'
 } as const;
-export type SubscriptionEntityProviderEnum = typeof SubscriptionEntityProviderEnum[keyof typeof SubscriptionEntityProviderEnum];
+export type OrganizationEntityPopulatedSubscriptionProviderEnum = typeof OrganizationEntityPopulatedSubscriptionProviderEnum[keyof typeof OrganizationEntityPopulatedSubscriptionProviderEnum];
 
 /**
  * @export
  */
-export const SubscriptionEntityStatusEnum = {
+export const OrganizationEntityPopulatedSubscriptionStatusEnum = {
     Paying: 'PAYING',
     Trial: 'TRIAL',
     Free: 'FREE',
     Churned: 'CHURNED',
     NonConverted: 'NON_CONVERTED'
 } as const;
-export type SubscriptionEntityStatusEnum = typeof SubscriptionEntityStatusEnum[keyof typeof SubscriptionEntityStatusEnum];
+export type OrganizationEntityPopulatedSubscriptionStatusEnum = typeof OrganizationEntityPopulatedSubscriptionStatusEnum[keyof typeof OrganizationEntityPopulatedSubscriptionStatusEnum];
 
 
 /**
- * Check if a given object implements the SubscriptionEntity interface.
+ * Check if a given object implements the OrganizationEntityPopulatedSubscription interface.
  */
-export function instanceOfSubscriptionEntity(value: object): value is SubscriptionEntity {
+export function instanceOfOrganizationEntityPopulatedSubscription(value: object): value is OrganizationEntityPopulatedSubscription {
     if (!('id' in value) || value['id'] === undefined) return false;
     if (!('ownerOrganization' in value) || value['ownerOrganization'] === undefined) return false;
     if (!('provider' in value) || value['provider'] === undefined) return false;
@@ -123,11 +123,11 @@ export function instanceOfSubscriptionEntity(value: object): value is Subscripti
     return true;
 }
 
-export function SubscriptionEntityFromJSON(json: any): SubscriptionEntity {
-    return SubscriptionEntityFromJSONTyped(json, false);
+export function OrganizationEntityPopulatedSubscriptionFromJSON(json: any): OrganizationEntityPopulatedSubscription {
+    return OrganizationEntityPopulatedSubscriptionFromJSONTyped(json, false);
 }
 
-export function SubscriptionEntityFromJSONTyped(json: any, ignoreDiscriminator: boolean): SubscriptionEntity {
+export function OrganizationEntityPopulatedSubscriptionFromJSONTyped(json: any, ignoreDiscriminator: boolean): OrganizationEntityPopulatedSubscription {
     if (json == null) {
         return json;
     }
@@ -147,11 +147,11 @@ export function SubscriptionEntityFromJSONTyped(json: any, ignoreDiscriminator: 
     };
 }
 
-export function SubscriptionEntityToJSON(json: any): SubscriptionEntity {
-    return SubscriptionEntityToJSONTyped(json, false);
+export function OrganizationEntityPopulatedSubscriptionToJSON(json: any): OrganizationEntityPopulatedSubscription {
+    return OrganizationEntityPopulatedSubscriptionToJSONTyped(json, false);
 }
 
-export function SubscriptionEntityToJSONTyped(value?: SubscriptionEntity | null, ignoreDiscriminator: boolean = false): any {
+export function OrganizationEntityPopulatedSubscriptionToJSONTyped(value?: OrganizationEntityPopulatedSubscription | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

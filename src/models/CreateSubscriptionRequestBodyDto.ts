@@ -55,6 +55,18 @@ export interface CreateSubscriptionRequestBodyDto {
      * @memberof CreateSubscriptionRequestBodyDto
      */
     montlyPriceInCents?: number | null;
+    /**
+     * Indica se há atraso no pagamento.
+     * @type {boolean}
+     * @memberof CreateSubscriptionRequestBodyDto
+     */
+    latePayment?: boolean | null;
+    /**
+     * Data de corte do serviço.
+     * @type {any}
+     * @memberof CreateSubscriptionRequestBodyDto
+     */
+    serviceCutoffDate?: any | null;
 }
 
 
@@ -106,6 +118,8 @@ export function CreateSubscriptionRequestBodyDtoFromJSONTyped(json: any, ignoreD
         'status': json['status'],
         'trialExpiresAt': json['trialExpiresAt'] == null ? undefined : json['trialExpiresAt'],
         'montlyPriceInCents': json['montlyPriceInCents'] == null ? undefined : json['montlyPriceInCents'],
+        'latePayment': json['latePayment'] == null ? undefined : json['latePayment'],
+        'serviceCutoffDate': json['serviceCutoffDate'] == null ? undefined : json['serviceCutoffDate'],
     };
 }
 
@@ -126,6 +140,8 @@ export function CreateSubscriptionRequestBodyDtoToJSONTyped(value?: CreateSubscr
         'status': value['status'],
         'trialExpiresAt': value['trialExpiresAt'],
         'montlyPriceInCents': value['montlyPriceInCents'],
+        'latePayment': value['latePayment'],
+        'serviceCutoffDate': value['serviceCutoffDate'],
     };
 }
 

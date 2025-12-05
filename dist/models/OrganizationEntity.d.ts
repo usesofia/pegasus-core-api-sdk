@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 import type { CreateOrganizationRequestBodyDtoPopulatedChildrenInner } from './CreateOrganizationRequestBodyDtoPopulatedChildrenInner';
+import type { OrganizationEntityPopulatedSubscription } from './OrganizationEntityPopulatedSubscription';
 import type { CreateOrganizationRequestBodyDtoGroupSettings } from './CreateOrganizationRequestBodyDtoGroupSettings';
 import type { CreateOrganizationRequestBodyDtoPopulatedParent } from './CreateOrganizationRequestBodyDtoPopulatedParent';
 /**
@@ -55,11 +56,11 @@ export interface OrganizationEntity {
      */
     imageUrl?: string;
     /**
-     * Data de expiração do trial.
-     * @type {any}
+     *
+     * @type {OrganizationEntityPopulatedSubscription}
      * @memberof OrganizationEntity
      */
-    trialExpiresAt?: any | null;
+    populatedSubscription: OrganizationEntityPopulatedSubscription;
     /**
      * Identificador da organização pai.
      * @type {string}

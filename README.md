@@ -380,6 +380,7 @@ All URIs are relative to *http://localhost*
 - [OfxImportJobRequestsPageDtoItemsInnerUser](docs/OfxImportJobRequestsPageDtoItemsInnerUser.md)
 - [OfxImportRequestBodyDto](docs/OfxImportRequestBodyDto.md)
 - [OrganizationEntity](docs/OrganizationEntity.md)
+- [OrganizationEntityPopulatedSubscription](docs/OrganizationEntityPopulatedSubscription.md)
 - [PartialUpdateBankAccountRequestBodyDto](docs/PartialUpdateBankAccountRequestBodyDto.md)
 - [PartialUpdateBankTransactionRequestBodyDto](docs/PartialUpdateBankTransactionRequestBodyDto.md)
 - [PartialUpdateContactRequestBodyDto](docs/PartialUpdateContactRequestBodyDto.md)

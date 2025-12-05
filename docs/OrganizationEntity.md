@@ -12,7 +12,7 @@ Name | Type
 `type` | string
 `document` | string
 `imageUrl` | string
-`trialExpiresAt` | any
+`populatedSubscription` | [OrganizationEntityPopulatedSubscription](OrganizationEntityPopulatedSubscription.md)
 `parent` | string
 `populatedParent` | [CreateOrganizationRequestBodyDtoPopulatedParent](CreateOrganizationRequestBodyDtoPopulatedParent.md)
 `children` | Array&lt;string&gt;
@@ -36,7 +36,7 @@ const example = {
   "type": null,
   "document": null,
   "imageUrl": null,
-  "trialExpiresAt": null,
+  "populatedSubscription": null,
   "parent": null,
   "populatedParent": null,
   "children": null,

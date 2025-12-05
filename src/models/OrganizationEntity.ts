@@ -20,6 +20,13 @@ import {
     CreateOrganizationRequestBodyDtoPopulatedChildrenInnerToJSON,
     CreateOrganizationRequestBodyDtoPopulatedChildrenInnerToJSONTyped,
 } from './CreateOrganizationRequestBodyDtoPopulatedChildrenInner';
+import type { OrganizationEntityPopulatedSubscription } from './OrganizationEntityPopulatedSubscription';
+import {
+    OrganizationEntityPopulatedSubscriptionFromJSON,
+    OrganizationEntityPopulatedSubscriptionFromJSONTyped,
+    OrganizationEntityPopulatedSubscriptionToJSON,
+    OrganizationEntityPopulatedSubscriptionToJSONTyped,
+} from './OrganizationEntityPopulatedSubscription';
 import type { CreateOrganizationRequestBodyDtoGroupSettings } from './CreateOrganizationRequestBodyDtoGroupSettings';
 import {
     CreateOrganizationRequestBodyDtoGroupSettingsFromJSON,
@@ -78,11 +85,11 @@ export interface OrganizationEntity {
      */
     imageUrl?: string;
     /**
-     * Data de expiração do trial.
-     * @type {any}
+     * 
+     * @type {OrganizationEntityPopulatedSubscription}
      * @memberof OrganizationEntity
      */
-    trialExpiresAt?: any | null;
+    populatedSubscription: OrganizationEntityPopulatedSubscription;
     /**
      * Identificador da organização pai.
      * @type {string}
@@ -158,6 +165,7 @@ export function instanceOfOrganizationEntity(value: object): value is Organizati
     if (!('name' in value) || value['name'] === undefined) return false;
     if (!('slug' in value) || value['slug'] === undefined) return false;
     if (!('type' in value) || value['type'] === undefined) return false;
+    if (!('populatedSubscription' in value) || value['populatedSubscription'] === undefined) return false;
     if (!('createdAt' in value) || value['createdAt'] === undefined) return false;
     if (!('updatedAt' in value) || value['updatedAt'] === undefined) return false;
     return true;
@@ -179,7 +187,7 @@ export function OrganizationEntityFromJSONTyped(json: any, ignoreDiscriminator: 
         'type': json['type'],
         'document': json['document'] == null ? undefined : json['document'],
         'imageUrl': json['imageUrl'] == null ? undefined : json['imageUrl'],
-        'trialExpiresAt': json['trialExpiresAt'] == null ? undefined : json['trialExpiresAt'],
+        'populatedSubscription': OrganizationEntityPopulatedSubscriptionFromJSON(json['populatedSubscription']),
         'parent': json['parent'] == null ? undefined : json['parent'],
         'populatedParent': json['populatedParent'] == null ? undefined : CreateOrganizationRequestBodyDtoPopulatedParentFromJSON(json['populatedParent']),
         'children': json['children'] == null ? undefined : json['children'],
@@ -209,7 +217,7 @@ export function OrganizationEntityToJSONTyped(value?: OrganizationEntity | null,
         'type': value['type'],
         'document': value['document'],
         'imageUrl': value['imageUrl'],
-        'trialExpiresAt': value['trialExpiresAt'],
+        'populatedSubscription': OrganizationEntityPopulatedSubscriptionToJSON(value['populatedSubscription']),
         'parent': value['parent'],
         'populatedParent': CreateOrganizationRequestBodyDtoPopulatedParentToJSON(value['populatedParent']),
         'children': value['children'],

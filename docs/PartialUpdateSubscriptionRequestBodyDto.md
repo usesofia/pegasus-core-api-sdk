@@ -12,6 +12,8 @@ Name | Type
 `status` | string
 `trialExpiresAt` | any
 `montlyPriceInCents` | number
+`latePayment` | boolean
+`serviceCutoffDate` | any
 
 ## Example
 
@@ -26,6 +28,8 @@ const example = {
   "status": null,
   "trialExpiresAt": null,
   "montlyPriceInCents": null,
+  "latePayment": null,
+  "serviceCutoffDate": null,
 } satisfies PartialUpdateSubscriptionRequestBodyDto
 
 console.log(example)

@@ -193,6 +193,7 @@ __exportStar(require("./OfxImportJobRequestsPageDtoItemsInnerPopulatedBankAccoun
 __exportStar(require("./OfxImportJobRequestsPageDtoItemsInnerUser"), exports);
 __exportStar(require("./OfxImportRequestBodyDto"), exports);
 __exportStar(require("./OrganizationEntity"), exports);
+__exportStar(require("./OrganizationEntityPopulatedSubscription"), exports);
 __exportStar(require("./PartialUpdateBankAccountRequestBodyDto"), exports);
 __exportStar(require("./PartialUpdateBankTransactionRequestBodyDto"), exports);
 __exportStar(require("./PartialUpdateContactRequestBodyDto"), exports);

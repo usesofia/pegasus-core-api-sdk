@@ -1,11 +1,13 @@
 
-# CreateSubscriptionRequestBodyDto
+# OrganizationEntityPopulatedSubscription
 
+Subscription populada.
 
 ## Properties
 
 Name | Type
 ------------ | -------------
+`id` | string
 `ownerOrganization` | string
 `description` | string
 `provider` | string
@@ -14,14 +16,17 @@ Name | Type
 `montlyPriceInCents` | number
 `latePayment` | boolean
 `serviceCutoffDate` | any
+`createdAt` | any
+`updatedAt` | any
 
 ## Example
 
 ```typescript
-import type { CreateSubscriptionRequestBodyDto } from '@usesofia/pegasus-core-api-sdk'
+import type { OrganizationEntityPopulatedSubscription } from '@usesofia/pegasus-core-api-sdk'
 
 // TODO: Update the object below with actual values
 const example = {
+  "id": null,
   "ownerOrganization": null,
   "description": null,
   "provider": null,
@@ -30,7 +35,9 @@ const example = {
   "montlyPriceInCents": null,
   "latePayment": null,
   "serviceCutoffDate": null,
-} satisfies CreateSubscriptionRequestBodyDto
+  "createdAt": null,
+  "updatedAt": null,
+} satisfies OrganizationEntityPopulatedSubscription
 
 console.log(example)
 
@@ -39,7 +46,7 @@ const exampleJSON: string = JSON.stringify(example)
 console.log(exampleJSON)
 
 // Parse the JSON string back to an object
-const exampleParsed = JSON.parse(exampleJSON) as CreateSubscriptionRequestBodyDto
+const exampleParsed = JSON.parse(exampleJSON) as OrganizationEntityPopulatedSubscription
 console.log(exampleParsed)
 ```
 

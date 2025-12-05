@@ -9,6 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import type { OrganizationEntityPopulatedSubscription } from './OrganizationEntityPopulatedSubscription';
 /**
  *
  * @export
@@ -39,6 +40,12 @@ export interface PartialUpdateOrganizationRequestBodyDto {
      * @memberof PartialUpdateOrganizationRequestBodyDto
      */
     description?: string;
+    /**
+     *
+     * @type {OrganizationEntityPopulatedSubscription}
+     * @memberof PartialUpdateOrganizationRequestBodyDto
+     */
+    populatedSubscription?: OrganizationEntityPopulatedSubscription;
     /**
      * Imagem do logo em base64.
      * @type {string}

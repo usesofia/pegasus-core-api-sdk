@@ -19,6 +19,7 @@ exports.PartialUpdateOrganizationRequestBodyDtoFromJSON = PartialUpdateOrganizat
 exports.PartialUpdateOrganizationRequestBodyDtoFromJSONTyped = PartialUpdateOrganizationRequestBodyDtoFromJSONTyped;
 exports.PartialUpdateOrganizationRequestBodyDtoToJSON = PartialUpdateOrganizationRequestBodyDtoToJSON;
 exports.PartialUpdateOrganizationRequestBodyDtoToJSONTyped = PartialUpdateOrganizationRequestBodyDtoToJSONTyped;
+var OrganizationEntityPopulatedSubscription_1 = require("./OrganizationEntityPopulatedSubscription");
 /**
  * @export
  */
@@ -48,6 +49,7 @@ function PartialUpdateOrganizationRequestBodyDtoFromJSONTyped(json, ignoreDiscri
         'slug': json['slug'] == null ? undefined : json['slug'],
         'document': json['document'] == null ? undefined : json['document'],
         'description': json['description'] == null ? undefined : json['description'],
+        'populatedSubscription': json['populatedSubscription'] == null ? undefined : (0, OrganizationEntityPopulatedSubscription_1.OrganizationEntityPopulatedSubscriptionFromJSON)(json['populatedSubscription']),
         'imageInBase64': json['imageInBase64'] == null ? undefined : json['imageInBase64'],
         'channel': json['channel'],
     };
@@ -65,6 +67,7 @@ function PartialUpdateOrganizationRequestBodyDtoToJSONTyped(value, ignoreDiscrim
         'slug': value['slug'],
         'document': value['document'],
         'description': value['description'],
+        'populatedSubscription': (0, OrganizationEntityPopulatedSubscription_1.OrganizationEntityPopulatedSubscriptionToJSON)(value['populatedSubscription']),
         'imageInBase64': value['imageInBase64'],
         'channel': value['channel'],
     };

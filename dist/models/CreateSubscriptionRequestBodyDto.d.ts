@@ -51,6 +51,18 @@ export interface CreateSubscriptionRequestBodyDto {
      * @memberof CreateSubscriptionRequestBodyDto
      */
     montlyPriceInCents?: number | null;
+    /**
+     * Indica se há atraso no pagamento.
+     * @type {boolean}
+     * @memberof CreateSubscriptionRequestBodyDto
+     */
+    latePayment?: boolean | null;
+    /**
+     * Data de corte do serviço.
+     * @type {any}
+     * @memberof CreateSubscriptionRequestBodyDto
+     */
+    serviceCutoffDate?: any | null;
 }
 /**
  * @export

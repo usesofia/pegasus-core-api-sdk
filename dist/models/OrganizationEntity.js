@@ -20,6 +20,7 @@ exports.OrganizationEntityFromJSONTyped = OrganizationEntityFromJSONTyped;
 exports.OrganizationEntityToJSON = OrganizationEntityToJSON;
 exports.OrganizationEntityToJSONTyped = OrganizationEntityToJSONTyped;
 var CreateOrganizationRequestBodyDtoPopulatedChildrenInner_1 = require("./CreateOrganizationRequestBodyDtoPopulatedChildrenInner");
+var OrganizationEntityPopulatedSubscription_1 = require("./OrganizationEntityPopulatedSubscription");
 var CreateOrganizationRequestBodyDtoGroupSettings_1 = require("./CreateOrganizationRequestBodyDtoGroupSettings");
 var CreateOrganizationRequestBodyDtoPopulatedParent_1 = require("./CreateOrganizationRequestBodyDtoPopulatedParent");
 /**
@@ -41,6 +42,8 @@ function instanceOfOrganizationEntity(value) {
         return false;
     if (!('type' in value) || value['type'] === undefined)
         return false;
+    if (!('populatedSubscription' in value) || value['populatedSubscription'] === undefined)
+        return false;
     if (!('createdAt' in value) || value['createdAt'] === undefined)
         return false;
     if (!('updatedAt' in value) || value['updatedAt'] === undefined)
@@ -61,7 +64,7 @@ function OrganizationEntityFromJSONTyped(json, ignoreDiscriminator) {
         'type': json['type'],
         'document': json['document'] == null ? undefined : json['document'],
         'imageUrl': json['imageUrl'] == null ? undefined : json['imageUrl'],
-        'trialExpiresAt': json['trialExpiresAt'] == null ? undefined : json['trialExpiresAt'],
+        'populatedSubscription': (0, OrganizationEntityPopulatedSubscription_1.OrganizationEntityPopulatedSubscriptionFromJSON)(json['populatedSubscription']),
         'parent': json['parent'] == null ? undefined : json['parent'],
         'populatedParent': json['populatedParent'] == null ? undefined : (0, CreateOrganizationRequestBodyDtoPopulatedParent_1.CreateOrganizationRequestBodyDtoPopulatedParentFromJSON)(json['populatedParent']),
         'children': json['children'] == null ? undefined : json['children'],
@@ -88,7 +91,7 @@ function OrganizationEntityToJSONTyped(value, ignoreDiscriminator) {
         'type': value['type'],
         'document': value['document'],
         'imageUrl': value['imageUrl'],
-        'trialExpiresAt': value['trialExpiresAt'],
+        'populatedSubscription': (0, OrganizationEntityPopulatedSubscription_1.OrganizationEntityPopulatedSubscriptionToJSON)(value['populatedSubscription']),
         'parent': value['parent'],
         'populatedParent': (0, CreateOrganizationRequestBodyDtoPopulatedParent_1.CreateOrganizationRequestBodyDtoPopulatedParentToJSON)(value['populatedParent']),
         'children': value['children'],

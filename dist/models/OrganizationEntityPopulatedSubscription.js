@@ -13,23 +13,23 @@
  * Do not edit the class manually.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.SubscriptionEntityStatusEnum = exports.SubscriptionEntityProviderEnum = void 0;
-exports.instanceOfSubscriptionEntity = instanceOfSubscriptionEntity;
-exports.SubscriptionEntityFromJSON = SubscriptionEntityFromJSON;
-exports.SubscriptionEntityFromJSONTyped = SubscriptionEntityFromJSONTyped;
-exports.SubscriptionEntityToJSON = SubscriptionEntityToJSON;
-exports.SubscriptionEntityToJSONTyped = SubscriptionEntityToJSONTyped;
+exports.OrganizationEntityPopulatedSubscriptionStatusEnum = exports.OrganizationEntityPopulatedSubscriptionProviderEnum = void 0;
+exports.instanceOfOrganizationEntityPopulatedSubscription = instanceOfOrganizationEntityPopulatedSubscription;
+exports.OrganizationEntityPopulatedSubscriptionFromJSON = OrganizationEntityPopulatedSubscriptionFromJSON;
+exports.OrganizationEntityPopulatedSubscriptionFromJSONTyped = OrganizationEntityPopulatedSubscriptionFromJSONTyped;
+exports.OrganizationEntityPopulatedSubscriptionToJSON = OrganizationEntityPopulatedSubscriptionToJSON;
+exports.OrganizationEntityPopulatedSubscriptionToJSONTyped = OrganizationEntityPopulatedSubscriptionToJSONTyped;
 /**
  * @export
  */
-exports.SubscriptionEntityProviderEnum = {
+exports.OrganizationEntityPopulatedSubscriptionProviderEnum = {
     Manual: 'MANUAL',
     AutomaticStripe: 'AUTOMATIC_STRIPE'
 };
 /**
  * @export
  */
-exports.SubscriptionEntityStatusEnum = {
+exports.OrganizationEntityPopulatedSubscriptionStatusEnum = {
     Paying: 'PAYING',
     Trial: 'TRIAL',
     Free: 'FREE',
@@ -37,9 +37,9 @@ exports.SubscriptionEntityStatusEnum = {
     NonConverted: 'NON_CONVERTED'
 };
 /**
- * Check if a given object implements the SubscriptionEntity interface.
+ * Check if a given object implements the OrganizationEntityPopulatedSubscription interface.
  */
-function instanceOfSubscriptionEntity(value) {
+function instanceOfOrganizationEntityPopulatedSubscription(value) {
     if (!('id' in value) || value['id'] === undefined)
         return false;
     if (!('ownerOrganization' in value) || value['ownerOrganization'] === undefined)
@@ -54,10 +54,10 @@ function instanceOfSubscriptionEntity(value) {
         return false;
     return true;
 }
-function SubscriptionEntityFromJSON(json) {
-    return SubscriptionEntityFromJSONTyped(json, false);
+function OrganizationEntityPopulatedSubscriptionFromJSON(json) {
+    return OrganizationEntityPopulatedSubscriptionFromJSONTyped(json, false);
 }
-function SubscriptionEntityFromJSONTyped(json, ignoreDiscriminator) {
+function OrganizationEntityPopulatedSubscriptionFromJSONTyped(json, ignoreDiscriminator) {
     if (json == null) {
         return json;
     }
@@ -75,10 +75,10 @@ function SubscriptionEntityFromJSONTyped(json, ignoreDiscriminator) {
         'updatedAt': json['updatedAt'],
     };
 }
-function SubscriptionEntityToJSON(json) {
-    return SubscriptionEntityToJSONTyped(json, false);
+function OrganizationEntityPopulatedSubscriptionToJSON(json) {
+    return OrganizationEntityPopulatedSubscriptionToJSONTyped(json, false);
 }
-function SubscriptionEntityToJSONTyped(value, ignoreDiscriminator) {
+function OrganizationEntityPopulatedSubscriptionToJSONTyped(value, ignoreDiscriminator) {
     if (ignoreDiscriminator === void 0) { ignoreDiscriminator = false; }
     if (value == null) {
         return value;

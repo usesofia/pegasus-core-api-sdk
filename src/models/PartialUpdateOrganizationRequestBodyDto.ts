@@ -13,6 +13,14 @@
  */
 
 import { mapValues } from '../runtime';
+import type { OrganizationEntityPopulatedSubscription } from './OrganizationEntityPopulatedSubscription';
+import {
+    OrganizationEntityPopulatedSubscriptionFromJSON,
+    OrganizationEntityPopulatedSubscriptionFromJSONTyped,
+    OrganizationEntityPopulatedSubscriptionToJSON,
+    OrganizationEntityPopulatedSubscriptionToJSONTyped,
+} from './OrganizationEntityPopulatedSubscription';
+
 /**
  * 
  * @export
@@ -43,6 +51,12 @@ export interface PartialUpdateOrganizationRequestBodyDto {
      * @memberof PartialUpdateOrganizationRequestBodyDto
      */
     description?: string;
+    /**
+     * 
+     * @type {OrganizationEntityPopulatedSubscription}
+     * @memberof PartialUpdateOrganizationRequestBodyDto
+     */
+    populatedSubscription?: OrganizationEntityPopulatedSubscription;
     /**
      * Imagem do logo em base64.
      * @type {string}
@@ -92,6 +106,7 @@ export function PartialUpdateOrganizationRequestBodyDtoFromJSONTyped(json: any, 
         'slug': json['slug'] == null ? undefined : json['slug'],
         'document': json['document'] == null ? undefined : json['document'],
         'description': json['description'] == null ? undefined : json['description'],
+        'populatedSubscription': json['populatedSubscription'] == null ? undefined : OrganizationEntityPopulatedSubscriptionFromJSON(json['populatedSubscription']),
         'imageInBase64': json['imageInBase64'] == null ? undefined : json['imageInBase64'],
         'channel': json['channel'],
     };
@@ -112,6 +127,7 @@ export function PartialUpdateOrganizationRequestBodyDtoToJSONTyped(value?: Parti
         'slug': value['slug'],
         'document': value['document'],
         'description': value['description'],
+        'populatedSubscription': OrganizationEntityPopulatedSubscriptionToJSON(value['populatedSubscription']),
         'imageInBase64': value['imageInBase64'],
         'channel': value['channel'],
     };

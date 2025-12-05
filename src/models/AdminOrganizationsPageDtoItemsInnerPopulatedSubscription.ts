@@ -62,6 +62,18 @@ export interface AdminOrganizationsPageDtoItemsInnerPopulatedSubscription {
      */
     montlyPriceInCents?: number | null;
     /**
+     * Indica se há atraso no pagamento.
+     * @type {boolean}
+     * @memberof AdminOrganizationsPageDtoItemsInnerPopulatedSubscription
+     */
+    latePayment?: boolean | null;
+    /**
+     * Data de corte do serviço.
+     * @type {any}
+     * @memberof AdminOrganizationsPageDtoItemsInnerPopulatedSubscription
+     */
+    serviceCutoffDate?: any | null;
+    /**
      * Data de criação.
      * @type {any}
      * @memberof AdminOrganizationsPageDtoItemsInnerPopulatedSubscription
@@ -128,6 +140,8 @@ export function AdminOrganizationsPageDtoItemsInnerPopulatedSubscriptionFromJSON
         'status': json['status'],
         'trialExpiresAt': json['trialExpiresAt'] == null ? undefined : json['trialExpiresAt'],
         'montlyPriceInCents': json['montlyPriceInCents'] == null ? undefined : json['montlyPriceInCents'],
+        'latePayment': json['latePayment'] == null ? undefined : json['latePayment'],
+        'serviceCutoffDate': json['serviceCutoffDate'] == null ? undefined : json['serviceCutoffDate'],
         'createdAt': json['createdAt'],
         'updatedAt': json['updatedAt'],
     };
@@ -151,6 +165,8 @@ export function AdminOrganizationsPageDtoItemsInnerPopulatedSubscriptionToJSONTy
         'status': value['status'],
         'trialExpiresAt': value['trialExpiresAt'],
         'montlyPriceInCents': value['montlyPriceInCents'],
+        'latePayment': value['latePayment'],
+        'serviceCutoffDate': value['serviceCutoffDate'],
         'createdAt': value['createdAt'],
         'updatedAt': value['updatedAt'],
     };

@@ -207,6 +207,7 @@ docs/OfxImportJobRequestsPageDtoItemsInnerPopulatedBankAccount.md
 docs/OfxImportJobRequestsPageDtoItemsInnerUser.md
 docs/OfxImportRequestBodyDto.md
 docs/OrganizationEntity.md
+docs/OrganizationEntityPopulatedSubscription.md
 docs/OrganizationsApi.md
 docs/PartialUpdateBankAccountRequestBodyDto.md
 docs/PartialUpdateBankTransactionRequestBodyDto.md
@@ -505,6 +506,7 @@ src/models/OfxImportJobRequestsPageDtoItemsInnerPopulatedBankAccount.ts
 src/models/OfxImportJobRequestsPageDtoItemsInnerUser.ts
 src/models/OfxImportRequestBodyDto.ts
 src/models/OrganizationEntity.ts
+src/models/OrganizationEntityPopulatedSubscription.ts
 src/models/PartialUpdateBankAccountRequestBodyDto.ts
 src/models/PartialUpdateBankTransactionRequestBodyDto.ts
 src/models/PartialUpdateContactRequestBodyDto.ts

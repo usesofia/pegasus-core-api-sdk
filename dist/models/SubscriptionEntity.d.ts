@@ -58,6 +58,18 @@ export interface SubscriptionEntity {
      */
     montlyPriceInCents?: number | null;
     /**
+     * Indica se há atraso no pagamento.
+     * @type {boolean}
+     * @memberof SubscriptionEntity
+     */
+    latePayment?: boolean | null;
+    /**
+     * Data de corte do serviço.
+     * @type {any}
+     * @memberof SubscriptionEntity
+     */
+    serviceCutoffDate?: any | null;
+    /**
      * Data de criação.
      * @type {any}
      * @memberof SubscriptionEntity

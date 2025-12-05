@@ -10,6 +10,7 @@ Name | Type
 `slug` | string
 `document` | string
 `description` | string
+`populatedSubscription` | [OrganizationEntityPopulatedSubscription](OrganizationEntityPopulatedSubscription.md)
 `imageInBase64` | string
 `channel` | string
 
@@ -24,6 +25,7 @@ const example = {
   "slug": null,
   "document": null,
   "description": null,
+  "populatedSubscription": null,
   "imageInBase64": null,
   "channel": null,
 } satisfies PartialUpdateOrganizationRequestBodyDto

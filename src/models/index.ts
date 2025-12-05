@@ -177,6 +177,7 @@ export * from './OfxImportJobRequestsPageDtoItemsInnerPopulatedBankAccount';
 export * from './OfxImportJobRequestsPageDtoItemsInnerUser';
 export * from './OfxImportRequestBodyDto';
 export * from './OrganizationEntity';
+export * from './OrganizationEntityPopulatedSubscription';
 export * from './PartialUpdateBankAccountRequestBodyDto';
 export * from './PartialUpdateBankTransactionRequestBodyDto';
 export * from './PartialUpdateContactRequestBodyDto';

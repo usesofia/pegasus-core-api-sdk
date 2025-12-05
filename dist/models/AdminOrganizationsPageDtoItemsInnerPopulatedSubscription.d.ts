@@ -58,6 +58,18 @@ export interface AdminOrganizationsPageDtoItemsInnerPopulatedSubscription {
      */
     montlyPriceInCents?: number | null;
     /**
+     * Indica se há atraso no pagamento.
+     * @type {boolean}
+     * @memberof AdminOrganizationsPageDtoItemsInnerPopulatedSubscription
+     */
+    latePayment?: boolean | null;
+    /**
+     * Data de corte do serviço.
+     * @type {any}
+     * @memberof AdminOrganizationsPageDtoItemsInnerPopulatedSubscription
+     */
+    serviceCutoffDate?: any | null;
+    /**
      * Data de criação.
      * @type {any}
      * @memberof AdminOrganizationsPageDtoItemsInnerPopulatedSubscription
