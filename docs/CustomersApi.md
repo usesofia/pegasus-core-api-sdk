@@ -7,6 +7,7 @@ All URIs are relative to *http://localhost*
 | [**createCustomer**](CustomersApi.md#createcustomer) | **POST** /external/customers | Create a new customer. |
 | [**findAllCustomers**](CustomersApi.md#findallcustomers) | **GET** /external/customers | Lista todos os customers com paginação e filtros. |
 | [**findByIdCustomer**](CustomersApi.md#findbyidcustomer) | **GET** /external/customers/{id} | Busca um customer pelo identificador. |
+| [**getCustomersAnalytics**](CustomersApi.md#getcustomersanalytics) | **GET** /external/customers/analytics | Busca analytics dos customers incluindo total de clientes e MRR. |
 | [**partialUpdateCustomer**](CustomersApi.md#partialupdatecustomer) | **PATCH** /external/customers/{id} | Partially update a customer. |
 
 
@@ -99,7 +100,7 @@ async function example() {
   const body = {
     // 'asc' | 'desc' | Ordem de ordenação dos customers. (optional)
     sortOrder: sortOrder_example,
-    // 'name' | 'createdAt' | Campo para ordenação dos customers. (optional)
+    // 'name' | 'createdAt' | 'nChildrenOrganizations' | 'mrr' | Campo para ordenação dos customers. (optional)
     sortBy: sortBy_example,
     // string | Termo para busca textual por nome/description do customer ou nome/id das organizações filhas. (optional)
     textSearchTerm: textSearchTerm_example,
@@ -137,7 +138,7 @@ example().catch(console.error);
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **sortOrder** | `asc`, `desc` | Ordem de ordenação dos customers. | [Optional] [Defaults to `undefined`] [Enum: asc, desc] |
-| **sortBy** | `name`, `createdAt` | Campo para ordenação dos customers. | [Optional] [Defaults to `undefined`] [Enum: name, createdAt] |
+| **sortBy** | `name`, `createdAt`, `nChildrenOrganizations`, `mrr` | Campo para ordenação dos customers. | [Optional] [Defaults to `undefined`] [Enum: name, createdAt, nChildrenOrganizations, mrr] |
 | **textSearchTerm** | `string` | Termo para busca textual por nome/description do customer ou nome/id das organizações filhas. | [Optional] [Defaults to `undefined`] |
 | **subscriptionStatuses** | `string` | Lista de status de subscription das organizações filhas para filtrar, separados por vírgula. | [Optional] [Defaults to `undefined`] |
 | **trialExpiresAtTo** | `string` | Data de expiração do trial das organizações filhas até (formato ISO 8601). | [Optional] [Defaults to `undefined`] |
@@ -230,6 +231,63 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** |  |  -  |
+| **0** |  |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getCustomersAnalytics
+
+> CustomerAnalyticsResponseDto getCustomersAnalytics()
+
+Busca analytics dos customers incluindo total de clientes e MRR.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  CustomersApi,
+} from '@usesofia/pegasus-core-api-sdk';
+import type { GetCustomersAnalyticsRequest } from '@usesofia/pegasus-core-api-sdk';
+
+async function example() {
+  console.log("🚀 Testing @usesofia/pegasus-core-api-sdk SDK...");
+  const api = new CustomersApi();
+
+  try {
+    const data = await api.getCustomersAnalytics();
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**CustomerAnalyticsResponseDto**](CustomerAnalyticsResponseDto.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
 | **0** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)

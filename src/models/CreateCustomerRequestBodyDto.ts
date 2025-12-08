@@ -43,6 +43,12 @@ export interface CreateCustomerRequestBodyDto {
      * @memberof CreateCustomerRequestBodyDto
      */
     childrenOrganizationsClerkIds?: Array<string>;
+    /**
+     * Data inicial do customer.
+     * @type {any}
+     * @memberof CreateCustomerRequestBodyDto
+     */
+    initialDate?: any | null;
 }
 
 
@@ -79,6 +85,7 @@ export function CreateCustomerRequestBodyDtoFromJSONTyped(json: any, ignoreDiscr
         'description': json['description'] == null ? undefined : json['description'],
         'type': json['type'],
         'childrenOrganizationsClerkIds': json['childrenOrganizationsClerkIds'] == null ? undefined : json['childrenOrganizationsClerkIds'],
+        'initialDate': json['initialDate'] == null ? undefined : json['initialDate'],
     };
 }
 
@@ -97,6 +104,7 @@ export function CreateCustomerRequestBodyDtoToJSONTyped(value?: CreateCustomerRe
         'description': value['description'],
         'type': value['type'],
         'childrenOrganizationsClerkIds': value['childrenOrganizationsClerkIds'],
+        'initialDate': value['initialDate'],
     };
 }
 

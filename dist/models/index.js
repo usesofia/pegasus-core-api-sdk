@@ -136,6 +136,7 @@ __exportStar(require("./CreatedFinancialRecordRadarItemResultEntityRadarItemSubs
 __exportStar(require("./CreatedFinancialRecordRadarItemResultEntityRadarItemSubsequentRadarItemsInnerBestSuggestedAction"), exports);
 __exportStar(require("./CreatedFinancialRecordRadarItemResultEntityRadarItemSubsequentRadarItemsInnerEmailMessageData"), exports);
 __exportStar(require("./CreatedFinancialRecordRadarItemResultEntityRadarItemSubsequentRadarItemsInnerWhatsappMessageData"), exports);
+__exportStar(require("./CustomerAnalyticsResponseDto"), exports);
 __exportStar(require("./CustomerDto"), exports);
 __exportStar(require("./CustomersPageDto"), exports);
 __exportStar(require("./CustomersPageDtoItemsInner"), exports);
@@ -194,6 +195,7 @@ __exportStar(require("./OfxImportJobRequestsPageDtoItemsInnerUser"), exports);
 __exportStar(require("./OfxImportRequestBodyDto"), exports);
 __exportStar(require("./OrganizationEntity"), exports);
 __exportStar(require("./OrganizationEntityPopulatedSubscription"), exports);
+__exportStar(require("./OrganizationEntityPopulatedSubscriptionStatusHistoryInner"), exports);
 __exportStar(require("./PartialUpdateBankAccountRequestBodyDto"), exports);
 __exportStar(require("./PartialUpdateBankTransactionRequestBodyDto"), exports);
 __exportStar(require("./PartialUpdateContactRequestBodyDto"), exports);

@@ -55,6 +55,7 @@ function CustomerDtoFromJSONTyped(json, ignoreDiscriminator) {
         'description': json['description'] == null ? undefined : json['description'],
         'type': json['type'],
         'childrenOrganizationsClerkIds': json['childrenOrganizationsClerkIds'] == null ? undefined : json['childrenOrganizationsClerkIds'],
+        'initialDate': json['initialDate'] == null ? undefined : json['initialDate'],
         'createdAt': json['createdAt'],
         'updatedAt': json['updatedAt'],
     };
@@ -73,6 +74,7 @@ function CustomerDtoToJSONTyped(value, ignoreDiscriminator) {
         'description': value['description'],
         'type': value['type'],
         'childrenOrganizationsClerkIds': value['childrenOrganizationsClerkIds'],
+        'initialDate': value['initialDate'],
         'createdAt': value['createdAt'],
         'updatedAt': value['updatedAt'],
     };

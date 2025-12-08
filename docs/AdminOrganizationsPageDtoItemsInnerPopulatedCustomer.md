@@ -12,6 +12,7 @@ Name | Type
 `description` | string
 `type` | string
 `childrenOrganizationsClerkIds` | Array&lt;string&gt;
+`initialDate` | any
 `createdAt` | any
 `updatedAt` | any
 
@@ -27,6 +28,7 @@ const example = {
   "description": null,
   "type": null,
   "childrenOrganizationsClerkIds": null,
+  "initialDate": null,
   "createdAt": null,
   "updatedAt": null,
 } satisfies AdminOrganizationsPageDtoItemsInnerPopulatedCustomer

@@ -39,6 +39,12 @@ export interface PartialUpdateCustomerRequestBodyDto {
      * @memberof PartialUpdateCustomerRequestBodyDto
      */
     childrenOrganizationsClerkIds?: Array<string>;
+    /**
+     * Data inicial do customer.
+     * @type {any}
+     * @memberof PartialUpdateCustomerRequestBodyDto
+     */
+    initialDate?: any | null;
 }
 /**
  * @export

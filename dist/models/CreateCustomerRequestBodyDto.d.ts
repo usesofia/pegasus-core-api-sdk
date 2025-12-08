@@ -39,6 +39,12 @@ export interface CreateCustomerRequestBodyDto {
      * @memberof CreateCustomerRequestBodyDto
      */
     childrenOrganizationsClerkIds?: Array<string>;
+    /**
+     * Data inicial do customer.
+     * @type {any}
+     * @memberof CreateCustomerRequestBodyDto
+     */
+    initialDate?: any | null;
 }
 /**
  * @export

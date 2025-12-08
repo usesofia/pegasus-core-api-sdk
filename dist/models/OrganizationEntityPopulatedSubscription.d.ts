@@ -9,6 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import type { OrganizationEntityPopulatedSubscriptionStatusHistoryInner } from './OrganizationEntityPopulatedSubscriptionStatusHistoryInner';
 /**
  * Subscription populada.
  * @export
@@ -52,6 +53,12 @@ export interface OrganizationEntityPopulatedSubscription {
      */
     trialExpiresAt?: any | null;
     /**
+     * Data inicial da primeira cobrança.
+     * @type {any}
+     * @memberof OrganizationEntityPopulatedSubscription
+     */
+    initialDateOfFirstCharge?: any | null;
+    /**
      * Preço mensal em centavos.
      * @type {number}
      * @memberof OrganizationEntityPopulatedSubscription
@@ -81,6 +88,12 @@ export interface OrganizationEntityPopulatedSubscription {
      * @memberof OrganizationEntityPopulatedSubscription
      */
     updatedAt: any | null;
+    /**
+     * Histórico de status da subscription.
+     * @type {Array<OrganizationEntityPopulatedSubscriptionStatusHistoryInner>}
+     * @memberof OrganizationEntityPopulatedSubscription
+     */
+    statusHistory?: Array<OrganizationEntityPopulatedSubscriptionStatusHistoryInner>;
 }
 /**
  * @export

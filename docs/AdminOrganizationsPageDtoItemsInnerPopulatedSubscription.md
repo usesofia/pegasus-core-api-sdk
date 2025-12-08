@@ -13,11 +13,13 @@ Name | Type
 `provider` | string
 `status` | string
 `trialExpiresAt` | any
+`initialDateOfFirstCharge` | any
 `montlyPriceInCents` | number
 `latePayment` | boolean
 `serviceCutoffDate` | any
 `createdAt` | any
 `updatedAt` | any
+`statusHistory` | [Array&lt;OrganizationEntityPopulatedSubscriptionStatusHistoryInner&gt;](OrganizationEntityPopulatedSubscriptionStatusHistoryInner.md)
 
 ## Example
 
@@ -32,11 +34,13 @@ const example = {
   "provider": null,
   "status": null,
   "trialExpiresAt": null,
+  "initialDateOfFirstCharge": null,
   "montlyPriceInCents": null,
   "latePayment": null,
   "serviceCutoffDate": null,
   "createdAt": null,
   "updatedAt": null,
+  "statusHistory": null,
 } satisfies AdminOrganizationsPageDtoItemsInnerPopulatedSubscription
 
 console.log(example)

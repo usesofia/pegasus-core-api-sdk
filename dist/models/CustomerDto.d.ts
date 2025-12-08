@@ -46,6 +46,12 @@ export interface CustomerDto {
      */
     childrenOrganizationsClerkIds?: Array<string>;
     /**
+     * Data inicial do customer.
+     * @type {any}
+     * @memberof CustomerDto
+     */
+    initialDate?: any | null;
+    /**
      * Data de criação.
      * @type {any}
      * @memberof CustomerDto

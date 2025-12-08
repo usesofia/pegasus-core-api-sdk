@@ -100,6 +100,7 @@ All URIs are relative to *http://localhost*
 *CustomersApi* | [**createCustomer**](docs/CustomersApi.md#createcustomer) | **POST** /external/customers | Create a new customer.
 *CustomersApi* | [**findAllCustomers**](docs/CustomersApi.md#findallcustomers) | **GET** /external/customers | Lista todos os customers com paginação e filtros.
 *CustomersApi* | [**findByIdCustomer**](docs/CustomersApi.md#findbyidcustomer) | **GET** /external/customers/{id} | Busca um customer pelo identificador.
+*CustomersApi* | [**getCustomersAnalytics**](docs/CustomersApi.md#getcustomersanalytics) | **GET** /external/customers/analytics | Busca analytics dos customers incluindo total de clientes e MRR.
 *CustomersApi* | [**partialUpdateCustomer**](docs/CustomersApi.md#partialupdatecustomer) | **PATCH** /external/customers/{id} | Partially update a customer.
 *EmbeddingApi* | [**calculateAndUpdateEmbedding**](docs/EmbeddingApi.md#calculateandupdateembedding) | **POST** /internal/queues/calculate-embedding | Calcula e atualiza o embedding de um recurso.
 *EmbeddingApi* | [**catchProblematicEmbeddingCalculations**](docs/EmbeddingApi.md#catchproblematicembeddingcalculations) | **POST** /internal/embedding/catch | Checa se existem recursos que precisam do cálculo do embedding e os adiciona na fila.
@@ -323,6 +324,7 @@ All URIs are relative to *http://localhost*
 - [CreatedFinancialRecordRadarItemResultEntityRadarItemSubsequentRadarItemsInnerBestSuggestedAction](docs/CreatedFinancialRecordRadarItemResultEntityRadarItemSubsequentRadarItemsInnerBestSuggestedAction.md)
 - [CreatedFinancialRecordRadarItemResultEntityRadarItemSubsequentRadarItemsInnerEmailMessageData](docs/CreatedFinancialRecordRadarItemResultEntityRadarItemSubsequentRadarItemsInnerEmailMessageData.md)
 - [CreatedFinancialRecordRadarItemResultEntityRadarItemSubsequentRadarItemsInnerWhatsappMessageData](docs/CreatedFinancialRecordRadarItemResultEntityRadarItemSubsequentRadarItemsInnerWhatsappMessageData.md)
+- [CustomerAnalyticsResponseDto](docs/CustomerAnalyticsResponseDto.md)
 - [CustomerDto](docs/CustomerDto.md)
 - [CustomersPageDto](docs/CustomersPageDto.md)
 - [CustomersPageDtoItemsInner](docs/CustomersPageDtoItemsInner.md)
@@ -381,6 +383,7 @@ All URIs are relative to *http://localhost*
 - [OfxImportRequestBodyDto](docs/OfxImportRequestBodyDto.md)
 - [OrganizationEntity](docs/OrganizationEntity.md)
 - [OrganizationEntityPopulatedSubscription](docs/OrganizationEntityPopulatedSubscription.md)
+- [OrganizationEntityPopulatedSubscriptionStatusHistoryInner](docs/OrganizationEntityPopulatedSubscriptionStatusHistoryInner.md)
 - [PartialUpdateBankAccountRequestBodyDto](docs/PartialUpdateBankAccountRequestBodyDto.md)
 - [PartialUpdateBankTransactionRequestBodyDto](docs/PartialUpdateBankTransactionRequestBodyDto.md)
 - [PartialUpdateContactRequestBodyDto](docs/PartialUpdateContactRequestBodyDto.md)

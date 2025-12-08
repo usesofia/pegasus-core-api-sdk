@@ -13,6 +13,14 @@
  */
 
 import { mapValues } from '../runtime';
+import type { OrganizationEntityPopulatedSubscriptionStatusHistoryInner } from './OrganizationEntityPopulatedSubscriptionStatusHistoryInner';
+import {
+    OrganizationEntityPopulatedSubscriptionStatusHistoryInnerFromJSON,
+    OrganizationEntityPopulatedSubscriptionStatusHistoryInnerFromJSONTyped,
+    OrganizationEntityPopulatedSubscriptionStatusHistoryInnerToJSON,
+    OrganizationEntityPopulatedSubscriptionStatusHistoryInnerToJSONTyped,
+} from './OrganizationEntityPopulatedSubscriptionStatusHistoryInner';
+
 /**
  * 
  * @export
@@ -50,6 +58,12 @@ export interface CreateSubscriptionRequestBodyDto {
      */
     trialExpiresAt?: any | null;
     /**
+     * Data inicial da primeira cobrança.
+     * @type {any}
+     * @memberof CreateSubscriptionRequestBodyDto
+     */
+    initialDateOfFirstCharge?: any | null;
+    /**
      * Preço mensal em centavos.
      * @type {number}
      * @memberof CreateSubscriptionRequestBodyDto
@@ -67,6 +81,12 @@ export interface CreateSubscriptionRequestBodyDto {
      * @memberof CreateSubscriptionRequestBodyDto
      */
     serviceCutoffDate?: any | null;
+    /**
+     * Histórico de status da subscription.
+     * @type {Array<OrganizationEntityPopulatedSubscriptionStatusHistoryInner>}
+     * @memberof CreateSubscriptionRequestBodyDto
+     */
+    statusHistory?: Array<OrganizationEntityPopulatedSubscriptionStatusHistoryInner>;
 }
 
 
@@ -117,9 +137,11 @@ export function CreateSubscriptionRequestBodyDtoFromJSONTyped(json: any, ignoreD
         'provider': json['provider'],
         'status': json['status'],
         'trialExpiresAt': json['trialExpiresAt'] == null ? undefined : json['trialExpiresAt'],
+        'initialDateOfFirstCharge': json['initialDateOfFirstCharge'] == null ? undefined : json['initialDateOfFirstCharge'],
         'montlyPriceInCents': json['montlyPriceInCents'] == null ? undefined : json['montlyPriceInCents'],
         'latePayment': json['latePayment'] == null ? undefined : json['latePayment'],
         'serviceCutoffDate': json['serviceCutoffDate'] == null ? undefined : json['serviceCutoffDate'],
+        'statusHistory': json['statusHistory'] == null ? undefined : ((json['statusHistory'] as Array<any>).map(OrganizationEntityPopulatedSubscriptionStatusHistoryInnerFromJSON)),
     };
 }
 
@@ -139,9 +161,11 @@ export function CreateSubscriptionRequestBodyDtoToJSONTyped(value?: CreateSubscr
         'provider': value['provider'],
         'status': value['status'],
         'trialExpiresAt': value['trialExpiresAt'],
+        'initialDateOfFirstCharge': value['initialDateOfFirstCharge'],
         'montlyPriceInCents': value['montlyPriceInCents'],
         'latePayment': value['latePayment'],
         'serviceCutoffDate': value['serviceCutoffDate'],
+        'statusHistory': value['statusHistory'] == null ? undefined : ((value['statusHistory'] as Array<any>).map(OrganizationEntityPopulatedSubscriptionStatusHistoryInnerToJSON)),
     };
 }
 

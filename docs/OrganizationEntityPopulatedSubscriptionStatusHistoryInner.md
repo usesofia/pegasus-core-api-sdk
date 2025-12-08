@@ -1,36 +1,26 @@
 
-# CustomerDto
+# OrganizationEntityPopulatedSubscriptionStatusHistoryInner
 
 
 ## Properties
 
 Name | Type
 ------------ | -------------
-`id` | string
-`name` | string
-`description` | string
-`type` | string
-`childrenOrganizationsClerkIds` | Array&lt;string&gt;
-`initialDate` | any
-`createdAt` | any
-`updatedAt` | any
+`oldStatus` | string
+`currentStatus` | string
+`date` | any
 
 ## Example
 
 ```typescript
-import type { CustomerDto } from '@usesofia/pegasus-core-api-sdk'
+import type { OrganizationEntityPopulatedSubscriptionStatusHistoryInner } from '@usesofia/pegasus-core-api-sdk'
 
 // TODO: Update the object below with actual values
 const example = {
-  "id": null,
-  "name": null,
-  "description": null,
-  "type": null,
-  "childrenOrganizationsClerkIds": null,
-  "initialDate": null,
-  "createdAt": null,
-  "updatedAt": null,
-} satisfies CustomerDto
+  "oldStatus": null,
+  "currentStatus": null,
+  "date": null,
+} satisfies OrganizationEntityPopulatedSubscriptionStatusHistoryInner
 
 console.log(example)
 
@@ -39,7 +29,7 @@ const exampleJSON: string = JSON.stringify(example)
 console.log(exampleJSON)
 
 // Parse the JSON string back to an object
-const exampleParsed = JSON.parse(exampleJSON) as CustomerDto
+const exampleParsed = JSON.parse(exampleJSON) as OrganizationEntityPopulatedSubscriptionStatusHistoryInner
 console.log(exampleParsed)
 ```
 

@@ -19,6 +19,7 @@ exports.PartialUpdateSubscriptionRequestBodyDtoFromJSON = PartialUpdateSubscript
 exports.PartialUpdateSubscriptionRequestBodyDtoFromJSONTyped = PartialUpdateSubscriptionRequestBodyDtoFromJSONTyped;
 exports.PartialUpdateSubscriptionRequestBodyDtoToJSON = PartialUpdateSubscriptionRequestBodyDtoToJSON;
 exports.PartialUpdateSubscriptionRequestBodyDtoToJSONTyped = PartialUpdateSubscriptionRequestBodyDtoToJSONTyped;
+var OrganizationEntityPopulatedSubscriptionStatusHistoryInner_1 = require("./OrganizationEntityPopulatedSubscriptionStatusHistoryInner");
 /**
  * @export
  */
@@ -57,9 +58,11 @@ function PartialUpdateSubscriptionRequestBodyDtoFromJSONTyped(json, ignoreDiscri
         'provider': json['provider'] == null ? undefined : json['provider'],
         'status': json['status'] == null ? undefined : json['status'],
         'trialExpiresAt': json['trialExpiresAt'] == null ? undefined : json['trialExpiresAt'],
+        'initialDateOfFirstCharge': json['initialDateOfFirstCharge'] == null ? undefined : json['initialDateOfFirstCharge'],
         'montlyPriceInCents': json['montlyPriceInCents'] == null ? undefined : json['montlyPriceInCents'],
         'latePayment': json['latePayment'] == null ? undefined : json['latePayment'],
         'serviceCutoffDate': json['serviceCutoffDate'] == null ? undefined : json['serviceCutoffDate'],
+        'statusHistory': json['statusHistory'] == null ? undefined : (json['statusHistory'].map(OrganizationEntityPopulatedSubscriptionStatusHistoryInner_1.OrganizationEntityPopulatedSubscriptionStatusHistoryInnerFromJSON)),
     };
 }
 function PartialUpdateSubscriptionRequestBodyDtoToJSON(json) {
@@ -76,8 +79,10 @@ function PartialUpdateSubscriptionRequestBodyDtoToJSONTyped(value, ignoreDiscrim
         'provider': value['provider'],
         'status': value['status'],
         'trialExpiresAt': value['trialExpiresAt'],
+        'initialDateOfFirstCharge': value['initialDateOfFirstCharge'],
         'montlyPriceInCents': value['montlyPriceInCents'],
         'latePayment': value['latePayment'],
         'serviceCutoffDate': value['serviceCutoffDate'],
+        'statusHistory': value['statusHistory'] == null ? undefined : (value['statusHistory'].map(OrganizationEntityPopulatedSubscriptionStatusHistoryInner_1.OrganizationEntityPopulatedSubscriptionStatusHistoryInnerToJSON)),
     };
 }

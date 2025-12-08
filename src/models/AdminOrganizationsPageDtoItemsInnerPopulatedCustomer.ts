@@ -50,6 +50,12 @@ export interface AdminOrganizationsPageDtoItemsInnerPopulatedCustomer {
      */
     childrenOrganizationsClerkIds?: Array<string>;
     /**
+     * Data inicial do customer.
+     * @type {any}
+     * @memberof AdminOrganizationsPageDtoItemsInnerPopulatedCustomer
+     */
+    initialDate?: any | null;
+    /**
      * Data de criação.
      * @type {any}
      * @memberof AdminOrganizationsPageDtoItemsInnerPopulatedCustomer
@@ -101,6 +107,7 @@ export function AdminOrganizationsPageDtoItemsInnerPopulatedCustomerFromJSONType
         'description': json['description'] == null ? undefined : json['description'],
         'type': json['type'],
         'childrenOrganizationsClerkIds': json['childrenOrganizationsClerkIds'] == null ? undefined : json['childrenOrganizationsClerkIds'],
+        'initialDate': json['initialDate'] == null ? undefined : json['initialDate'],
         'createdAt': json['createdAt'],
         'updatedAt': json['updatedAt'],
     };
@@ -122,6 +129,7 @@ export function AdminOrganizationsPageDtoItemsInnerPopulatedCustomerToJSONTyped(
         'description': value['description'],
         'type': value['type'],
         'childrenOrganizationsClerkIds': value['childrenOrganizationsClerkIds'],
+        'initialDate': value['initialDate'],
         'createdAt': value['createdAt'],
         'updatedAt': value['updatedAt'],
     };

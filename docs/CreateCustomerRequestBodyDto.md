@@ -10,6 +10,7 @@ Name | Type
 `description` | string
 `type` | string
 `childrenOrganizationsClerkIds` | Array&lt;string&gt;
+`initialDate` | any
 
 ## Example
 
@@ -22,6 +23,7 @@ const example = {
   "description": null,
   "type": null,
   "childrenOrganizationsClerkIds": null,
+  "initialDate": null,
 } satisfies CreateCustomerRequestBodyDto
 
 console.log(example)

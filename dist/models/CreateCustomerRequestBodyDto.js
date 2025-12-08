@@ -48,6 +48,7 @@ function CreateCustomerRequestBodyDtoFromJSONTyped(json, ignoreDiscriminator) {
         'description': json['description'] == null ? undefined : json['description'],
         'type': json['type'],
         'childrenOrganizationsClerkIds': json['childrenOrganizationsClerkIds'] == null ? undefined : json['childrenOrganizationsClerkIds'],
+        'initialDate': json['initialDate'] == null ? undefined : json['initialDate'],
     };
 }
 function CreateCustomerRequestBodyDtoToJSON(json) {
@@ -63,5 +64,6 @@ function CreateCustomerRequestBodyDtoToJSONTyped(value, ignoreDiscriminator) {
         'description': value['description'],
         'type': value['type'],
         'childrenOrganizationsClerkIds': value['childrenOrganizationsClerkIds'],
+        'initialDate': value['initialDate'],
     };
 }

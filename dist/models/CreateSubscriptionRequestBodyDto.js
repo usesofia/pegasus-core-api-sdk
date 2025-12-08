@@ -19,6 +19,7 @@ exports.CreateSubscriptionRequestBodyDtoFromJSON = CreateSubscriptionRequestBody
 exports.CreateSubscriptionRequestBodyDtoFromJSONTyped = CreateSubscriptionRequestBodyDtoFromJSONTyped;
 exports.CreateSubscriptionRequestBodyDtoToJSON = CreateSubscriptionRequestBodyDtoToJSON;
 exports.CreateSubscriptionRequestBodyDtoToJSONTyped = CreateSubscriptionRequestBodyDtoToJSONTyped;
+var OrganizationEntityPopulatedSubscriptionStatusHistoryInner_1 = require("./OrganizationEntityPopulatedSubscriptionStatusHistoryInner");
 /**
  * @export
  */
@@ -61,9 +62,11 @@ function CreateSubscriptionRequestBodyDtoFromJSONTyped(json, ignoreDiscriminator
         'provider': json['provider'],
         'status': json['status'],
         'trialExpiresAt': json['trialExpiresAt'] == null ? undefined : json['trialExpiresAt'],
+        'initialDateOfFirstCharge': json['initialDateOfFirstCharge'] == null ? undefined : json['initialDateOfFirstCharge'],
         'montlyPriceInCents': json['montlyPriceInCents'] == null ? undefined : json['montlyPriceInCents'],
         'latePayment': json['latePayment'] == null ? undefined : json['latePayment'],
         'serviceCutoffDate': json['serviceCutoffDate'] == null ? undefined : json['serviceCutoffDate'],
+        'statusHistory': json['statusHistory'] == null ? undefined : (json['statusHistory'].map(OrganizationEntityPopulatedSubscriptionStatusHistoryInner_1.OrganizationEntityPopulatedSubscriptionStatusHistoryInnerFromJSON)),
     };
 }
 function CreateSubscriptionRequestBodyDtoToJSON(json) {
@@ -80,8 +83,10 @@ function CreateSubscriptionRequestBodyDtoToJSONTyped(value, ignoreDiscriminator)
         'provider': value['provider'],
         'status': value['status'],
         'trialExpiresAt': value['trialExpiresAt'],
+        'initialDateOfFirstCharge': value['initialDateOfFirstCharge'],
         'montlyPriceInCents': value['montlyPriceInCents'],
         'latePayment': value['latePayment'],
         'serviceCutoffDate': value['serviceCutoffDate'],
+        'statusHistory': value['statusHistory'] == null ? undefined : (value['statusHistory'].map(OrganizationEntityPopulatedSubscriptionStatusHistoryInner_1.OrganizationEntityPopulatedSubscriptionStatusHistoryInnerToJSON)),
     };
 }

@@ -44,6 +44,7 @@ function PartialUpdateCustomerRequestBodyDtoFromJSONTyped(json, ignoreDiscrimina
         'description': json['description'] == null ? undefined : json['description'],
         'type': json['type'] == null ? undefined : json['type'],
         'childrenOrganizationsClerkIds': json['childrenOrganizationsClerkIds'] == null ? undefined : json['childrenOrganizationsClerkIds'],
+        'initialDate': json['initialDate'] == null ? undefined : json['initialDate'],
     };
 }
 function PartialUpdateCustomerRequestBodyDtoToJSON(json) {
@@ -59,5 +60,6 @@ function PartialUpdateCustomerRequestBodyDtoToJSONTyped(value, ignoreDiscriminat
         'description': value['description'],
         'type': value['type'],
         'childrenOrganizationsClerkIds': value['childrenOrganizationsClerkIds'],
+        'initialDate': value['initialDate'],
     };
 }

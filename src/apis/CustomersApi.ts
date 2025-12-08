@@ -16,6 +16,7 @@
 import * as runtime from '../runtime';
 import type {
   CreateCustomerRequestBodyDto,
+  CustomerAnalyticsResponseDto,
   CustomerDto,
   CustomersPageDto,
   ExceptionResponseEntity,
@@ -24,6 +25,8 @@ import type {
 import {
     CreateCustomerRequestBodyDtoFromJSON,
     CreateCustomerRequestBodyDtoToJSON,
+    CustomerAnalyticsResponseDtoFromJSON,
+    CustomerAnalyticsResponseDtoToJSON,
     CustomerDtoFromJSON,
     CustomerDtoToJSON,
     CustomersPageDtoFromJSON,
@@ -86,7 +89,7 @@ export interface CustomersApiInterface {
      * 
      * @summary Lista todos os customers com paginação e filtros.
      * @param {'asc' | 'desc'} [sortOrder] Ordem de ordenação dos customers.
-     * @param {'name' | 'createdAt'} [sortBy] Campo para ordenação dos customers.
+     * @param {'name' | 'createdAt' | 'nChildrenOrganizations' | 'mrr'} [sortBy] Campo para ordenação dos customers.
      * @param {string} [textSearchTerm] Termo para busca textual por nome/description do customer ou nome/id das organizações filhas.
      * @param {string} [subscriptionStatuses] Lista de status de subscription das organizações filhas para filtrar, separados por vírgula.
      * @param {string} [trialExpiresAtTo] Data de expiração do trial das organizações filhas até (formato ISO 8601).
@@ -120,6 +123,20 @@ export interface CustomersApiInterface {
      * Busca um customer pelo identificador.
      */
     findByIdCustomer(requestParameters: FindByIdCustomerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CustomerDto>;
+
+    /**
+     * 
+     * @summary Busca analytics dos customers incluindo total de clientes e MRR.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof CustomersApiInterface
+     */
+    getCustomersAnalyticsRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CustomerAnalyticsResponseDto>>;
+
+    /**
+     * Busca analytics dos customers incluindo total de clientes e MRR.
+     */
+    getCustomersAnalytics(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CustomerAnalyticsResponseDto>;
 
     /**
      * 
@@ -290,6 +307,35 @@ export class CustomersApi extends runtime.BaseAPI implements CustomersApiInterfa
     }
 
     /**
+     * Busca analytics dos customers incluindo total de clientes e MRR.
+     */
+    async getCustomersAnalyticsRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CustomerAnalyticsResponseDto>> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+
+        let urlPath = `/external/customers/analytics`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => CustomerAnalyticsResponseDtoFromJSON(jsonValue));
+    }
+
+    /**
+     * Busca analytics dos customers incluindo total de clientes e MRR.
+     */
+    async getCustomersAnalytics(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CustomerAnalyticsResponseDto> {
+        const response = await this.getCustomersAnalyticsRaw(initOverrides);
+        return await response.value();
+    }
+
+    /**
      * Partially update a customer.
      */
     async partialUpdateCustomerRaw(requestParameters: PartialUpdateCustomerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CustomerDto>> {
@@ -351,6 +397,8 @@ export type FindAllCustomersSortOrderEnum = typeof FindAllCustomersSortOrderEnum
  */
 export const FindAllCustomersSortByEnum = {
     Name: 'name',
-    CreatedAt: 'createdAt'
+    CreatedAt: 'createdAt',
+    NChildrenOrganizations: 'nChildrenOrganizations',
+    Mrr: 'mrr'
 } as const;
 export type FindAllCustomersSortByEnum = typeof FindAllCustomersSortByEnum[keyof typeof FindAllCustomersSortByEnum];

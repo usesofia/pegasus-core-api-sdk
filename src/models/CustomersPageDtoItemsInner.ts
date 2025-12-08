@@ -58,6 +58,12 @@ export interface CustomersPageDtoItemsInner {
      */
     childrenOrganizationsClerkIds?: Array<string>;
     /**
+     * Data inicial do customer.
+     * @type {any}
+     * @memberof CustomersPageDtoItemsInner
+     */
+    initialDate?: any | null;
+    /**
      * Data de criação.
      * @type {any}
      * @memberof CustomersPageDtoItemsInner
@@ -116,6 +122,7 @@ export function CustomersPageDtoItemsInnerFromJSONTyped(json: any, ignoreDiscrim
         'description': json['description'] == null ? undefined : json['description'],
         'type': json['type'],
         'childrenOrganizationsClerkIds': json['childrenOrganizationsClerkIds'] == null ? undefined : json['childrenOrganizationsClerkIds'],
+        'initialDate': json['initialDate'] == null ? undefined : json['initialDate'],
         'createdAt': json['createdAt'],
         'updatedAt': json['updatedAt'],
         'populatedChildrenOrganizations': ((json['populatedChildrenOrganizations'] as Array<any>).map(AdminOrganizationsPageDtoItemsInnerFromJSON)),
@@ -138,6 +145,7 @@ export function CustomersPageDtoItemsInnerToJSONTyped(value?: CustomersPageDtoIt
         'description': value['description'],
         'type': value['type'],
         'childrenOrganizationsClerkIds': value['childrenOrganizationsClerkIds'],
+        'initialDate': value['initialDate'],
         'createdAt': value['createdAt'],
         'updatedAt': value['updatedAt'],
         'populatedChildrenOrganizations': ((value['populatedChildrenOrganizations'] as Array<any>).map(AdminOrganizationsPageDtoItemsInnerToJSON)),

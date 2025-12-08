@@ -120,6 +120,7 @@ export * from './CreatedFinancialRecordRadarItemResultEntityRadarItemSubsequentR
 export * from './CreatedFinancialRecordRadarItemResultEntityRadarItemSubsequentRadarItemsInnerBestSuggestedAction';
 export * from './CreatedFinancialRecordRadarItemResultEntityRadarItemSubsequentRadarItemsInnerEmailMessageData';
 export * from './CreatedFinancialRecordRadarItemResultEntityRadarItemSubsequentRadarItemsInnerWhatsappMessageData';
+export * from './CustomerAnalyticsResponseDto';
 export * from './CustomerDto';
 export * from './CustomersPageDto';
 export * from './CustomersPageDtoItemsInner';
@@ -178,6 +179,7 @@ export * from './OfxImportJobRequestsPageDtoItemsInnerUser';
 export * from './OfxImportRequestBodyDto';
 export * from './OrganizationEntity';
 export * from './OrganizationEntityPopulatedSubscription';
+export * from './OrganizationEntityPopulatedSubscriptionStatusHistoryInner';
 export * from './PartialUpdateBankAccountRequestBodyDto';
 export * from './PartialUpdateBankTransactionRequestBodyDto';
 export * from './PartialUpdateContactRequestBodyDto';

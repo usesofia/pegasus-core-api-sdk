@@ -47,6 +47,12 @@ export interface CustomersPageDtoItemsInner {
      */
     childrenOrganizationsClerkIds?: Array<string>;
     /**
+     * Data inicial do customer.
+     * @type {any}
+     * @memberof CustomersPageDtoItemsInner
+     */
+    initialDate?: any | null;
+    /**
      * Data de criação.
      * @type {any}
      * @memberof CustomersPageDtoItemsInner
