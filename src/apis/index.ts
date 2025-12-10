@@ -19,6 +19,7 @@ export * from './ExportResourceJobRequestsApi';
 export * from './FibonacciApi';
 export * from './FilesApi';
 export * from './FilesUploadApi';
+export * from './FinancialRecordGroupsApi';
 export * from './FinancialRecordRadarItemAutoExecuteApi';
 export * from './FinancialRecordRadarItemsApi';
 export * from './FinancialRecordRadarItemsSeederApi';

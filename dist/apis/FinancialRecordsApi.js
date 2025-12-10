@@ -126,6 +126,56 @@ var FinancialRecordsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Cria uma transferência interna entre contas.
+     */
+    FinancialRecordsApi.prototype.createInternalTransferRaw = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (requestParameters['createInternalTransferRequestBodyDto'] == null) {
+                            throw new runtime.RequiredError('createInternalTransferRequestBodyDto', 'Required parameter "createInternalTransferRequestBodyDto" was null or undefined when calling createInternalTransfer().');
+                        }
+                        queryParameters = {};
+                        if (requestParameters['populate'] != null) {
+                            queryParameters['populate'] = requestParameters['populate'];
+                        }
+                        headerParameters = {};
+                        headerParameters['Content-Type'] = 'application/json';
+                        urlPath = "/external/financial-records/internal-transfer";
+                        return [4 /*yield*/, this.request({
+                                path: urlPath,
+                                method: 'POST',
+                                headers: headerParameters,
+                                query: queryParameters,
+                                body: (0, index_1.CreateInternalTransferRequestBodyDtoToJSON)(requestParameters['createInternalTransferRequestBodyDto']),
+                            }, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return jsonValue.map(index_1.FinancialRecordDtoFromJSON); })];
+                }
+            });
+        });
+    };
+    /**
+     * Cria uma transferência interna entre contas.
+     */
+    FinancialRecordsApi.prototype.createInternalTransfer = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.createInternalTransferRaw(requestParameters, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [4 /*yield*/, response.value()];
+                    case 2: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
+    /**
      * Cria múltiplos lançamentos financeiros.
      */
     FinancialRecordsApi.prototype.createManyFinancialRecordsRaw = function (requestParameters, initOverrides) {

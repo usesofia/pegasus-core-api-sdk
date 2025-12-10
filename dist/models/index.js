@@ -88,6 +88,7 @@ __exportStar(require("./CreateFinancialRecordRequestBodyDtoPopulatedTagsInner"),
 __exportStar(require("./CreateInstallmentFinancialRecordRequestBodyDto"), exports);
 __exportStar(require("./CreateInstallmentFinancialRecordRequestBodyDtoInstallmentsInner"), exports);
 __exportStar(require("./CreateInstallmentFinancialRecordRequestBodyDtoPopulatedContact"), exports);
+__exportStar(require("./CreateInternalTransferRequestBodyDto"), exports);
 __exportStar(require("./CreateInviteRequestBodyDto"), exports);
 __exportStar(require("./CreateManyFinancialRecordsRequestBodyDto"), exports);
 __exportStar(require("./CreateManyFinancialRecordsRequestBodyDtoDataInner"), exports);
@@ -159,6 +160,8 @@ __exportStar(require("./ExportTagsDto"), exports);
 __exportStar(require("./ExternalCreateSubcategoryRequestBodyDto"), exports);
 __exportStar(require("./FileEntity"), exports);
 __exportStar(require("./FinancialRecordDto"), exports);
+__exportStar(require("./FinancialRecordGroupDto"), exports);
+__exportStar(require("./FinancialRecordGroupDtoPopulatedFinancialRecordsInner"), exports);
 __exportStar(require("./FinancialRecordRadarItemAutoExecuteSettingEntity"), exports);
 __exportStar(require("./FinancialRecordRadarItemAutoExecuteSettingEntityEnabledRulesInner"), exports);
 __exportStar(require("./FinancialRecordRadarItemEntity"), exports);

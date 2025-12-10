@@ -86,6 +86,7 @@ docs/CreateFinancialRecordRequestBodyDtoPopulatedTagsInner.md
 docs/CreateInstallmentFinancialRecordRequestBodyDto.md
 docs/CreateInstallmentFinancialRecordRequestBodyDtoInstallmentsInner.md
 docs/CreateInstallmentFinancialRecordRequestBodyDtoPopulatedContact.md
+docs/CreateInternalTransferRequestBodyDto.md
 docs/CreateInviteRequestBodyDto.md
 docs/CreateManyFinancialRecordsRequestBodyDto.md
 docs/CreateManyFinancialRecordsRequestBodyDtoDataInner.md
@@ -163,6 +164,9 @@ docs/FileEntity.md
 docs/FilesApi.md
 docs/FilesUploadApi.md
 docs/FinancialRecordDto.md
+docs/FinancialRecordGroupDto.md
+docs/FinancialRecordGroupDtoPopulatedFinancialRecordsInner.md
+docs/FinancialRecordGroupsApi.md
 docs/FinancialRecordRadarItemAutoExecuteApi.md
 docs/FinancialRecordRadarItemAutoExecuteSettingEntity.md
 docs/FinancialRecordRadarItemAutoExecuteSettingEntityEnabledRulesInner.md
@@ -308,6 +312,7 @@ src/apis/ExportResourceJobRequestsApi.ts
 src/apis/FibonacciApi.ts
 src/apis/FilesApi.ts
 src/apis/FilesUploadApi.ts
+src/apis/FinancialRecordGroupsApi.ts
 src/apis/FinancialRecordRadarItemAutoExecuteApi.ts
 src/apis/FinancialRecordRadarItemsApi.ts
 src/apis/FinancialRecordRadarItemsSeederApi.ts
@@ -403,6 +408,7 @@ src/models/CreateFinancialRecordRequestBodyDtoPopulatedTagsInner.ts
 src/models/CreateInstallmentFinancialRecordRequestBodyDto.ts
 src/models/CreateInstallmentFinancialRecordRequestBodyDtoInstallmentsInner.ts
 src/models/CreateInstallmentFinancialRecordRequestBodyDtoPopulatedContact.ts
+src/models/CreateInternalTransferRequestBodyDto.ts
 src/models/CreateInviteRequestBodyDto.ts
 src/models/CreateManyFinancialRecordsRequestBodyDto.ts
 src/models/CreateManyFinancialRecordsRequestBodyDtoDataInner.ts
@@ -474,6 +480,8 @@ src/models/ExportTagsDto.ts
 src/models/ExternalCreateSubcategoryRequestBodyDto.ts
 src/models/FileEntity.ts
 src/models/FinancialRecordDto.ts
+src/models/FinancialRecordGroupDto.ts
+src/models/FinancialRecordGroupDtoPopulatedFinancialRecordsInner.ts
 src/models/FinancialRecordRadarItemAutoExecuteSettingEntity.ts
 src/models/FinancialRecordRadarItemAutoExecuteSettingEntityEnabledRulesInner.ts
 src/models/FinancialRecordRadarItemEntity.ts

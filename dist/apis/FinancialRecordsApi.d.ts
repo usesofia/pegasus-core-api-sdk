@@ -10,9 +10,13 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { CreateFinancialRecordRequestBodyDto, CreateManyFinancialRecordsRequestBodyDto, FinancialRecordDto, FinancialRecordsPageDto, PartialUpdateFinancialRecordRequestBodyDto, PartialUpdateManyFinancialRecordsRequestBodyDto, RemoveFinancialRecordRequestBodyDto, SystemCalculateSearchVariationsRequestBodyDto, SystemFinancialRecordsPageDto, SystemGenerateMostCommonContactsForSimilarFinancialRecordReportRequestBodyDto, SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDto, UnlinkAllRadarItemsRequestBodyDto } from '../models/index';
+import type { CreateFinancialRecordRequestBodyDto, CreateInternalTransferRequestBodyDto, CreateManyFinancialRecordsRequestBodyDto, FinancialRecordDto, FinancialRecordsPageDto, PartialUpdateFinancialRecordRequestBodyDto, PartialUpdateManyFinancialRecordsRequestBodyDto, RemoveFinancialRecordRequestBodyDto, SystemCalculateSearchVariationsRequestBodyDto, SystemFinancialRecordsPageDto, SystemGenerateMostCommonContactsForSimilarFinancialRecordReportRequestBodyDto, SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDto, UnlinkAllRadarItemsRequestBodyDto } from '../models/index';
 export interface CreateFinancialRecordRequest {
     createFinancialRecordRequestBodyDto: CreateFinancialRecordRequestBodyDto;
+    populate?: string;
+}
+export interface CreateInternalTransferRequest {
+    createInternalTransferRequestBodyDto: CreateInternalTransferRequestBodyDto;
     populate?: string;
 }
 export interface CreateManyFinancialRecordsRequest {
@@ -144,6 +148,20 @@ export interface FinancialRecordsApiInterface {
      * Cria um novo lançamento financeiro.
      */
     createFinancialRecord(requestParameters: CreateFinancialRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialRecordDto>;
+    /**
+     *
+     * @summary Cria uma transferência interna entre contas.
+     * @param {CreateInternalTransferRequestBodyDto} createInternalTransferRequestBodyDto
+     * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof FinancialRecordsApiInterface
+     */
+    createInternalTransferRaw(requestParameters: CreateInternalTransferRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<FinancialRecordDto>>>;
+    /**
+     * Cria uma transferência interna entre contas.
+     */
+    createInternalTransfer(requestParameters: CreateInternalTransferRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<FinancialRecordDto>>;
     /**
      *
      * @summary Cria múltiplos lançamentos financeiros.
@@ -386,6 +404,14 @@ export declare class FinancialRecordsApi extends runtime.BaseAPI implements Fina
      * Cria um novo lançamento financeiro.
      */
     createFinancialRecord(requestParameters: CreateFinancialRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialRecordDto>;
+    /**
+     * Cria uma transferência interna entre contas.
+     */
+    createInternalTransferRaw(requestParameters: CreateInternalTransferRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<FinancialRecordDto>>>;
+    /**
+     * Cria uma transferência interna entre contas.
+     */
+    createInternalTransfer(requestParameters: CreateInternalTransferRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<FinancialRecordDto>>;
     /**
      * Cria múltiplos lançamentos financeiros.
      */

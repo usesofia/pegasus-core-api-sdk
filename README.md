@@ -116,6 +116,7 @@ All URIs are relative to *http://localhost*
 *FilesUploadApi* | [**createFileUpload**](docs/FilesUploadApi.md#createfileupload) | **POST** /external/files/upload | Cria uma nova solicitação de upload de arquivo
 *FilesUploadApi* | [**systemConfirmFileUpload**](docs/FilesUploadApi.md#systemconfirmfileupload) | **POST** /internal/organizations/{organizationId}/files/upload/confirm | Confirms a file upload
 *FilesUploadApi* | [**systemCreateFileUpload**](docs/FilesUploadApi.md#systemcreatefileupload) | **POST** /internal/organizations/{organizationId}/files/upload | Cria uma nova solicitação de upload de arquivo
+*FinancialRecordGroupsApi* | [**findFinancialRecordGroupsByFinancialRecord**](docs/FinancialRecordGroupsApi.md#findfinancialrecordgroupsbyfinancialrecord) | **GET** /external/financial-record-groups/by-financial-record/{financialRecordId} | Busca grupos de lançamentos financeiros pelo ID do lançamento.
 *FinancialRecordRadarItemAutoExecuteApi* | [**getFinancialRecordRadarItemAutoExecuteSettings**](docs/FinancialRecordRadarItemAutoExecuteApi.md#getfinancialrecordradaritemautoexecutesettings) | **GET** /external/financial-records/radar/items/auto-execute/settings | Obter configurações de auto-execute
 *FinancialRecordRadarItemAutoExecuteApi* | [**updateFinancialRecordRadarItemAutoExecuteSettings**](docs/FinancialRecordRadarItemAutoExecuteApi.md#updatefinancialrecordradaritemautoexecutesettings) | **PUT** /external/financial-records/radar/items/auto-execute/settings | Atualizar configurações de auto-execute
 *FinancialRecordRadarItemsApi* | [**createFinancialRecordRadarItem**](docs/FinancialRecordRadarItemsApi.md#createfinancialrecordradaritem) | **POST** /external/financial-records/radar/items | Cria um novo registro de radar
@@ -130,6 +131,7 @@ All URIs are relative to *http://localhost*
 *FinancialRecordRadarItemsApi* | [**unlinkFinancialRecordsFromFinancialRecordRadarItem**](docs/FinancialRecordRadarItemsApi.md#unlinkfinancialrecordsfromfinancialrecordradaritem) | **POST** /external/financial-records/radar/items/{radarItemId}/unlink | Desvincula registros financeiros de um registro de radar
 *FinancialRecordRadarItemsSeederApi* | [**seedFinancialRecordRadarItems**](docs/FinancialRecordRadarItemsSeederApi.md#seedfinancialrecordradaritems) | **POST** /external/financial-records/radar/items/seeder | Cria dados de teste para o radar de lançamentos financeiros.
 *FinancialRecordsApi* | [**createFinancialRecord**](docs/FinancialRecordsApi.md#createfinancialrecord) | **POST** /external/financial-records | Cria um novo lançamento financeiro.
+*FinancialRecordsApi* | [**createInternalTransfer**](docs/FinancialRecordsApi.md#createinternaltransfer) | **POST** /external/financial-records/internal-transfer | Cria uma transferência interna entre contas.
 *FinancialRecordsApi* | [**createManyFinancialRecords**](docs/FinancialRecordsApi.md#createmanyfinancialrecords) | **POST** /external/financial-records/many | Cria múltiplos lançamentos financeiros.
 *FinancialRecordsApi* | [**findAllFinancialRecords**](docs/FinancialRecordsApi.md#findallfinancialrecords) | **GET** /external/financial-records | Busca todos os lançamentos financeiros.
 *FinancialRecordsApi* | [**findByIdFinancialRecord**](docs/FinancialRecordsApi.md#findbyidfinancialrecord) | **GET** /external/financial-records/{id} | Busca um lançamento financeiro pelo identificador.
@@ -276,6 +278,7 @@ All URIs are relative to *http://localhost*
 - [CreateInstallmentFinancialRecordRequestBodyDto](docs/CreateInstallmentFinancialRecordRequestBodyDto.md)
 - [CreateInstallmentFinancialRecordRequestBodyDtoInstallmentsInner](docs/CreateInstallmentFinancialRecordRequestBodyDtoInstallmentsInner.md)
 - [CreateInstallmentFinancialRecordRequestBodyDtoPopulatedContact](docs/CreateInstallmentFinancialRecordRequestBodyDtoPopulatedContact.md)
+- [CreateInternalTransferRequestBodyDto](docs/CreateInternalTransferRequestBodyDto.md)
 - [CreateInviteRequestBodyDto](docs/CreateInviteRequestBodyDto.md)
 - [CreateManyFinancialRecordsRequestBodyDto](docs/CreateManyFinancialRecordsRequestBodyDto.md)
 - [CreateManyFinancialRecordsRequestBodyDtoDataInner](docs/CreateManyFinancialRecordsRequestBodyDtoDataInner.md)
@@ -347,6 +350,8 @@ All URIs are relative to *http://localhost*
 - [ExternalCreateSubcategoryRequestBodyDto](docs/ExternalCreateSubcategoryRequestBodyDto.md)
 - [FileEntity](docs/FileEntity.md)
 - [FinancialRecordDto](docs/FinancialRecordDto.md)
+- [FinancialRecordGroupDto](docs/FinancialRecordGroupDto.md)
+- [FinancialRecordGroupDtoPopulatedFinancialRecordsInner](docs/FinancialRecordGroupDtoPopulatedFinancialRecordsInner.md)
 - [FinancialRecordRadarItemAutoExecuteSettingEntity](docs/FinancialRecordRadarItemAutoExecuteSettingEntity.md)
 - [FinancialRecordRadarItemAutoExecuteSettingEntityEnabledRulesInner](docs/FinancialRecordRadarItemAutoExecuteSettingEntityEnabledRulesInner.md)
 - [FinancialRecordRadarItemEntity](docs/FinancialRecordRadarItemEntity.md)

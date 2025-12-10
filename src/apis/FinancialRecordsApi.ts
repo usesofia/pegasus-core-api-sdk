@@ -16,6 +16,7 @@
 import * as runtime from '../runtime';
 import type {
   CreateFinancialRecordRequestBodyDto,
+  CreateInternalTransferRequestBodyDto,
   CreateManyFinancialRecordsRequestBodyDto,
   ExceptionResponseEntity,
   FinancialRecordDto,
@@ -32,6 +33,8 @@ import type {
 import {
     CreateFinancialRecordRequestBodyDtoFromJSON,
     CreateFinancialRecordRequestBodyDtoToJSON,
+    CreateInternalTransferRequestBodyDtoFromJSON,
+    CreateInternalTransferRequestBodyDtoToJSON,
     CreateManyFinancialRecordsRequestBodyDtoFromJSON,
     CreateManyFinancialRecordsRequestBodyDtoToJSON,
     ExceptionResponseEntityFromJSON,
@@ -60,6 +63,11 @@ import {
 
 export interface CreateFinancialRecordRequest {
     createFinancialRecordRequestBodyDto: CreateFinancialRecordRequestBodyDto;
+    populate?: string;
+}
+
+export interface CreateInternalTransferRequest {
+    createInternalTransferRequestBodyDto: CreateInternalTransferRequestBodyDto;
     populate?: string;
 }
 
@@ -205,6 +213,22 @@ export interface FinancialRecordsApiInterface {
      * Cria um novo lançamento financeiro.
      */
     createFinancialRecord(requestParameters: CreateFinancialRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialRecordDto>;
+
+    /**
+     * 
+     * @summary Cria uma transferência interna entre contas.
+     * @param {CreateInternalTransferRequestBodyDto} createInternalTransferRequestBodyDto 
+     * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof FinancialRecordsApiInterface
+     */
+    createInternalTransferRaw(requestParameters: CreateInternalTransferRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<FinancialRecordDto>>>;
+
+    /**
+     * Cria uma transferência interna entre contas.
+     */
+    createInternalTransfer(requestParameters: CreateInternalTransferRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<FinancialRecordDto>>;
 
     /**
      * 
@@ -506,6 +530,49 @@ export class FinancialRecordsApi extends runtime.BaseAPI implements FinancialRec
      */
     async createFinancialRecord(requestParameters: CreateFinancialRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialRecordDto> {
         const response = await this.createFinancialRecordRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Cria uma transferência interna entre contas.
+     */
+    async createInternalTransferRaw(requestParameters: CreateInternalTransferRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<FinancialRecordDto>>> {
+        if (requestParameters['createInternalTransferRequestBodyDto'] == null) {
+            throw new runtime.RequiredError(
+                'createInternalTransferRequestBodyDto',
+                'Required parameter "createInternalTransferRequestBodyDto" was null or undefined when calling createInternalTransfer().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['populate'] != null) {
+            queryParameters['populate'] = requestParameters['populate'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+
+        let urlPath = `/external/financial-records/internal-transfer`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: CreateInternalTransferRequestBodyDtoToJSON(requestParameters['createInternalTransferRequestBodyDto']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(FinancialRecordDtoFromJSON));
+    }
+
+    /**
+     * Cria uma transferência interna entre contas.
+     */
+    async createInternalTransfer(requestParameters: CreateInternalTransferRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<FinancialRecordDto>> {
+        const response = await this.createInternalTransferRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

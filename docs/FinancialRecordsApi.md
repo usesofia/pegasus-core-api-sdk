@@ -5,6 +5,7 @@ All URIs are relative to *http://localhost*
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
 | [**createFinancialRecord**](FinancialRecordsApi.md#createfinancialrecord) | **POST** /external/financial-records | Cria um novo lançamento financeiro. |
+| [**createInternalTransfer**](FinancialRecordsApi.md#createinternaltransfer) | **POST** /external/financial-records/internal-transfer | Cria uma transferência interna entre contas. |
 | [**createManyFinancialRecords**](FinancialRecordsApi.md#createmanyfinancialrecords) | **POST** /external/financial-records/many | Cria múltiplos lançamentos financeiros. |
 | [**findAllFinancialRecords**](FinancialRecordsApi.md#findallfinancialrecords) | **GET** /external/financial-records | Busca todos os lançamentos financeiros. |
 | [**findByIdFinancialRecord**](FinancialRecordsApi.md#findbyidfinancialrecord) | **GET** /external/financial-records/{id} | Busca um lançamento financeiro pelo identificador. |
@@ -69,6 +70,75 @@ example().catch(console.error);
 ### Return type
 
 [**FinancialRecordDto**](FinancialRecordDto.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** |  |  -  |
+| **0** |  |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## createInternalTransfer
+
+> Array&lt;FinancialRecordDto&gt; createInternalTransfer(createInternalTransferRequestBodyDto, populate)
+
+Cria uma transferência interna entre contas.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  FinancialRecordsApi,
+} from '@usesofia/pegasus-core-api-sdk';
+import type { CreateInternalTransferRequest } from '@usesofia/pegasus-core-api-sdk';
+
+async function example() {
+  console.log("🚀 Testing @usesofia/pegasus-core-api-sdk SDK...");
+  const api = new FinancialRecordsApi();
+
+  const body = {
+    // CreateInternalTransferRequestBodyDto
+    createInternalTransferRequestBodyDto: ...,
+    // string | Campos relacionados a serem populados separados por vírgula. (optional)
+    populate: populate_example,
+  } satisfies CreateInternalTransferRequest;
+
+  try {
+    const data = await api.createInternalTransfer(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **createInternalTransferRequestBodyDto** | [CreateInternalTransferRequestBodyDto](CreateInternalTransferRequestBodyDto.md) |  | |
+| **populate** | `string` | Campos relacionados a serem populados separados por vírgula. | [Optional] [Defaults to `undefined`] |
+
+### Return type
+
+[**Array&lt;FinancialRecordDto&gt;**](FinancialRecordDto.md)
 
 ### Authorization
 
