@@ -30,7 +30,7 @@ async function example() {
   const body = {
     // 'asc' | 'desc' | Ordem de ordenação dos lançamentos financeiros. (optional)
     sortOrder: sortOrder_example,
-    // 'direction' | 'dueDate' | 'contact' | 'description' | 'subcategory' | 'amount' | 'competenceDate' | 'cashDate' | 'createdAt' | Campo para ordenação dos lançamentos financeiros. (optional)
+    // 'direction' | 'dueDate' | 'contact' | 'description' | 'subcategory' | 'amount' | 'competenceDate' | 'cashDate' | 'createdAt' | 'finalAmount' | Campo para ordenação dos lançamentos financeiros. (optional)
     sortBy: sortBy_example,
     // string | ID da recorrência financeira. (optional)
     recurringFinancialRecord: recurringFinancialRecord_example,
@@ -96,7 +96,7 @@ example().catch(console.error);
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **sortOrder** | `asc`, `desc` | Ordem de ordenação dos lançamentos financeiros. | [Optional] [Defaults to `undefined`] [Enum: asc, desc] |
-| **sortBy** | `direction`, `dueDate`, `contact`, `description`, `subcategory`, `amount`, `competenceDate`, `cashDate`, `createdAt` | Campo para ordenação dos lançamentos financeiros. | [Optional] [Defaults to `undefined`] [Enum: direction, dueDate, contact, description, subcategory, amount, competenceDate, cashDate, createdAt] |
+| **sortBy** | `direction`, `dueDate`, `contact`, `description`, `subcategory`, `amount`, `competenceDate`, `cashDate`, `createdAt`, `finalAmount` | Campo para ordenação dos lançamentos financeiros. | [Optional] [Defaults to `undefined`] [Enum: direction, dueDate, contact, description, subcategory, amount, competenceDate, cashDate, createdAt, finalAmount] |
 | **recurringFinancialRecord** | `string` | ID da recorrência financeira. | [Optional] [Defaults to `undefined`] |
 | **installmentFinancialRecord** | `string` | ID do parcelamento financeiro. | [Optional] [Defaults to `undefined`] |
 | **account** | `string` | ID da conta do lançamento financeiro. | [Optional] [Defaults to `undefined`] |

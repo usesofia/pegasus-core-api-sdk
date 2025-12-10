@@ -226,7 +226,7 @@ export interface FinancialRecordsApiInterface {
      * @summary Busca todos os lançamentos financeiros.
      * @param {string} [queryId] ID da consulta a ser aplicada.
      * @param {'asc' | 'desc'} [sortOrder] Ordem de ordenação dos lançamentos financeiros.
-     * @param {'direction' | 'dueDate' | 'contact' | 'description' | 'subcategory' | 'amount' | 'competenceDate' | 'cashDate' | 'createdAt'} [sortBy] Campo para ordenação dos lançamentos financeiros.
+     * @param {'direction' | 'dueDate' | 'contact' | 'description' | 'subcategory' | 'amount' | 'competenceDate' | 'cashDate' | 'createdAt' | 'finalAmount'} [sortBy] Campo para ordenação dos lançamentos financeiros.
      * @param {string} [recurringFinancialRecord] ID da recorrência financeira.
      * @param {string} [installmentFinancialRecord] ID do parcelamento financeiro.
      * @param {string} [account] IDs de contas bancárias do lançamento financeiro separados por vírgula.
@@ -369,7 +369,7 @@ export interface FinancialRecordsApiInterface {
      * @param {boolean} [generateExcelExport] Se true, gera um export em Excel dos resultados.
      * @param {'primary' | 'primaryPreferred' | 'secondary' | 'secondaryPreferred' | 'nearest'} [readPreference] Preferência de leitura dos lançamentos financeiros.
      * @param {'asc' | 'desc'} [sortOrder] Ordem de ordenação dos lançamentos financeiros.
-     * @param {'direction' | 'dueDate' | 'contact' | 'description' | 'subcategory' | 'amount' | 'competenceDate' | 'cashDate' | 'createdAt'} [sortBy] Campo para ordenação dos lançamentos financeiros.
+     * @param {'direction' | 'dueDate' | 'contact' | 'description' | 'subcategory' | 'amount' | 'competenceDate' | 'cashDate' | 'createdAt' | 'finalAmount'} [sortBy] Campo para ordenação dos lançamentos financeiros.
      * @param {string} [account] IDs de contas bancárias do lançamento financeiro separados por vírgula.
      * @param {boolean} [reconciled] Indica se o lançamento financeiro foi reconciliado.
      * @param {boolean} [completed] Indica se o lançamento financeiro foi completado.
@@ -1319,7 +1319,8 @@ export const FindAllFinancialRecordsSortByEnum = {
     Amount: 'amount',
     CompetenceDate: 'competenceDate',
     CashDate: 'cashDate',
-    CreatedAt: 'createdAt'
+    CreatedAt: 'createdAt',
+    FinalAmount: 'finalAmount'
 } as const;
 export type FindAllFinancialRecordsSortByEnum = typeof FindAllFinancialRecordsSortByEnum[keyof typeof FindAllFinancialRecordsSortByEnum];
 /**
@@ -1361,7 +1362,8 @@ export const SystemFindAllFinancialRecordsSortByEnum = {
     Amount: 'amount',
     CompetenceDate: 'competenceDate',
     CashDate: 'cashDate',
-    CreatedAt: 'createdAt'
+    CreatedAt: 'createdAt',
+    FinalAmount: 'finalAmount'
 } as const;
 export type SystemFindAllFinancialRecordsSortByEnum = typeof SystemFindAllFinancialRecordsSortByEnum[keyof typeof SystemFindAllFinancialRecordsSortByEnum];
 /**

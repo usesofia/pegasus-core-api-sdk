@@ -937,7 +937,8 @@ exports.FindAllFinancialRecordsSortByEnum = {
     Amount: 'amount',
     CompetenceDate: 'competenceDate',
     CashDate: 'cashDate',
-    CreatedAt: 'createdAt'
+    CreatedAt: 'createdAt',
+    FinalAmount: 'finalAmount'
 };
 /**
  * @export
@@ -975,7 +976,8 @@ exports.SystemFindAllFinancialRecordsSortByEnum = {
     Amount: 'amount',
     CompetenceDate: 'competenceDate',
     CashDate: 'cashDate',
-    CreatedAt: 'createdAt'
+    CreatedAt: 'createdAt',
+    FinalAmount: 'finalAmount'
 };
 /**
  * @export

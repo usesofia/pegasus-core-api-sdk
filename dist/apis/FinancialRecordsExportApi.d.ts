@@ -48,7 +48,7 @@ export interface FinancialRecordsExportApiInterface {
      *
      * @summary Solicita a exportação dos lançamentos financeiros.
      * @param {'asc' | 'desc'} [sortOrder] Ordem de ordenação dos lançamentos financeiros.
-     * @param {'direction' | 'dueDate' | 'contact' | 'description' | 'subcategory' | 'amount' | 'competenceDate' | 'cashDate' | 'createdAt'} [sortBy] Campo para ordenação dos lançamentos financeiros.
+     * @param {'direction' | 'dueDate' | 'contact' | 'description' | 'subcategory' | 'amount' | 'competenceDate' | 'cashDate' | 'createdAt' | 'finalAmount'} [sortBy] Campo para ordenação dos lançamentos financeiros.
      * @param {string} [recurringFinancialRecord] ID da recorrência financeira.
      * @param {string} [installmentFinancialRecord] ID do parcelamento financeiro.
      * @param {string} [account] ID da conta do lançamento financeiro.
@@ -115,6 +115,7 @@ export declare const ExportFinancialRecordsSortByEnum: {
     readonly CompetenceDate: "competenceDate";
     readonly CashDate: "cashDate";
     readonly CreatedAt: "createdAt";
+    readonly FinalAmount: "finalAmount";
 };
 export type ExportFinancialRecordsSortByEnum = typeof ExportFinancialRecordsSortByEnum[keyof typeof ExportFinancialRecordsSortByEnum];
 /**

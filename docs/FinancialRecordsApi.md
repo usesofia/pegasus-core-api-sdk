@@ -179,7 +179,7 @@ async function example() {
     queryId: queryId_example,
     // 'asc' | 'desc' | Ordem de ordenação dos lançamentos financeiros. (optional)
     sortOrder: sortOrder_example,
-    // 'direction' | 'dueDate' | 'contact' | 'description' | 'subcategory' | 'amount' | 'competenceDate' | 'cashDate' | 'createdAt' | Campo para ordenação dos lançamentos financeiros. (optional)
+    // 'direction' | 'dueDate' | 'contact' | 'description' | 'subcategory' | 'amount' | 'competenceDate' | 'cashDate' | 'createdAt' | 'finalAmount' | Campo para ordenação dos lançamentos financeiros. (optional)
     sortBy: sortBy_example,
     // string | ID da recorrência financeira. (optional)
     recurringFinancialRecord: recurringFinancialRecord_example,
@@ -256,7 +256,7 @@ example().catch(console.error);
 |------------- | ------------- | ------------- | -------------|
 | **queryId** | `string` | ID da consulta a ser aplicada. | [Optional] [Defaults to `undefined`] |
 | **sortOrder** | `asc`, `desc` | Ordem de ordenação dos lançamentos financeiros. | [Optional] [Defaults to `undefined`] [Enum: asc, desc] |
-| **sortBy** | `direction`, `dueDate`, `contact`, `description`, `subcategory`, `amount`, `competenceDate`, `cashDate`, `createdAt` | Campo para ordenação dos lançamentos financeiros. | [Optional] [Defaults to `undefined`] [Enum: direction, dueDate, contact, description, subcategory, amount, competenceDate, cashDate, createdAt] |
+| **sortBy** | `direction`, `dueDate`, `contact`, `description`, `subcategory`, `amount`, `competenceDate`, `cashDate`, `createdAt`, `finalAmount` | Campo para ordenação dos lançamentos financeiros. | [Optional] [Defaults to `undefined`] [Enum: direction, dueDate, contact, description, subcategory, amount, competenceDate, cashDate, createdAt, finalAmount] |
 | **recurringFinancialRecord** | `string` | ID da recorrência financeira. | [Optional] [Defaults to `undefined`] |
 | **installmentFinancialRecord** | `string` | ID do parcelamento financeiro. | [Optional] [Defaults to `undefined`] |
 | **account** | `string` | IDs de contas bancárias do lançamento financeiro separados por vírgula. | [Optional] [Defaults to `undefined`] |
@@ -751,7 +751,7 @@ async function example() {
     readPreference: readPreference_example,
     // 'asc' | 'desc' | Ordem de ordenação dos lançamentos financeiros. (optional)
     sortOrder: sortOrder_example,
-    // 'direction' | 'dueDate' | 'contact' | 'description' | 'subcategory' | 'amount' | 'competenceDate' | 'cashDate' | 'createdAt' | Campo para ordenação dos lançamentos financeiros. (optional)
+    // 'direction' | 'dueDate' | 'contact' | 'description' | 'subcategory' | 'amount' | 'competenceDate' | 'cashDate' | 'createdAt' | 'finalAmount' | Campo para ordenação dos lançamentos financeiros. (optional)
     sortBy: sortBy_example,
     // string | IDs de contas bancárias do lançamento financeiro separados por vírgula. (optional)
     account: account_example,
@@ -828,7 +828,7 @@ example().catch(console.error);
 | **generateExcelExport** | `boolean` | Se true, gera um export em Excel dos resultados. | [Optional] [Defaults to `undefined`] |
 | **readPreference** | `primary`, `primaryPreferred`, `secondary`, `secondaryPreferred`, `nearest` | Preferência de leitura dos lançamentos financeiros. | [Optional] [Defaults to `undefined`] [Enum: primary, primaryPreferred, secondary, secondaryPreferred, nearest] |
 | **sortOrder** | `asc`, `desc` | Ordem de ordenação dos lançamentos financeiros. | [Optional] [Defaults to `undefined`] [Enum: asc, desc] |
-| **sortBy** | `direction`, `dueDate`, `contact`, `description`, `subcategory`, `amount`, `competenceDate`, `cashDate`, `createdAt` | Campo para ordenação dos lançamentos financeiros. | [Optional] [Defaults to `undefined`] [Enum: direction, dueDate, contact, description, subcategory, amount, competenceDate, cashDate, createdAt] |
+| **sortBy** | `direction`, `dueDate`, `contact`, `description`, `subcategory`, `amount`, `competenceDate`, `cashDate`, `createdAt`, `finalAmount` | Campo para ordenação dos lançamentos financeiros. | [Optional] [Defaults to `undefined`] [Enum: direction, dueDate, contact, description, subcategory, amount, competenceDate, cashDate, createdAt, finalAmount] |
 | **account** | `string` | IDs de contas bancárias do lançamento financeiro separados por vírgula. | [Optional] [Defaults to `undefined`] |
 | **reconciled** | `boolean` | Indica se o lançamento financeiro foi reconciliado. | [Optional] [Defaults to `undefined`] |
 | **completed** | `boolean` | Indica se o lançamento financeiro foi completado. | [Optional] [Defaults to `undefined`] |

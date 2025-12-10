@@ -212,7 +212,8 @@ exports.ExportFinancialRecordsSortByEnum = {
     Amount: 'amount',
     CompetenceDate: 'competenceDate',
     CashDate: 'cashDate',
-    CreatedAt: 'createdAt'
+    CreatedAt: 'createdAt',
+    FinalAmount: 'finalAmount'
 };
 /**
  * @export
