@@ -157,6 +157,12 @@ export interface ProspectRecurringFinancialRecordRequestBodyDto {
      */
     populatedFiles?: Array<CreateFinancialRecordRequestBodyDtoPopulatedFilesInner>;
     /**
+     * Observações do lançamento recorrente.
+     * @type {string}
+     * @memberof ProspectRecurringFinancialRecordRequestBodyDto
+     */
+    observations?: string | null;
+    /**
      * 
      * @type {number}
      * @memberof ProspectRecurringFinancialRecordRequestBodyDto
@@ -252,6 +258,7 @@ export function ProspectRecurringFinancialRecordRequestBodyDtoFromJSONTyped(json
         'populatedTags': json['populatedTags'] == null ? undefined : ((json['populatedTags'] as Array<any>).map(CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerFromJSON)),
         'populatedSubcategory': json['populatedSubcategory'] == null ? undefined : CreateRecurringFinancialRecordRequestBodyDtoPopulatedSubcategoryFromJSON(json['populatedSubcategory']),
         'populatedFiles': json['populatedFiles'] == null ? undefined : ((json['populatedFiles'] as Array<any>).map(CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerFromJSON)),
+        'observations': json['observations'] == null ? undefined : json['observations'],
         'searchScore': json['searchScore'] == null ? undefined : json['searchScore'],
         'channel': json['channel'],
         'numberOfRepetitions': json['numberOfRepetitions'],
@@ -287,6 +294,7 @@ export function ProspectRecurringFinancialRecordRequestBodyDtoToJSONTyped(value?
         'populatedTags': value['populatedTags'] == null ? undefined : ((value['populatedTags'] as Array<any>).map(CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerToJSON)),
         'populatedSubcategory': CreateRecurringFinancialRecordRequestBodyDtoPopulatedSubcategoryToJSON(value['populatedSubcategory']),
         'populatedFiles': value['populatedFiles'] == null ? undefined : ((value['populatedFiles'] as Array<any>).map(CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerToJSON)),
+        'observations': value['observations'],
         'searchScore': value['searchScore'],
         'channel': value['channel'],
         'numberOfRepetitions': value['numberOfRepetitions'],

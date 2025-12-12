@@ -117,6 +117,12 @@ export interface PartialUpdateInstallmentFinancialRecordRequestBodyDto {
      */
     populatedTags?: Array<CreateFinancialRecordRequestBodyDtoPopulatedTagsInner> | null;
     /**
+     * Observações do lançamento parcelado.
+     * @type {string}
+     * @memberof PartialUpdateInstallmentFinancialRecordRequestBodyDto
+     */
+    observations?: string | null;
+    /**
      * Arquivos anexados.
      * @type {Array<CreateFinancialRecordRequestBodyDtoPopulatedFilesInner>}
      * @memberof PartialUpdateInstallmentFinancialRecordRequestBodyDto

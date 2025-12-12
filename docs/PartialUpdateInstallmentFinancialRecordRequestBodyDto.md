@@ -22,6 +22,7 @@ Name | Type
 `populatedSubcategory` | [CreateFinancialRecordRequestBodyDtoPopulatedSubcategory](CreateFinancialRecordRequestBodyDtoPopulatedSubcategory.md)
 `populatedContact` | [CreateInstallmentFinancialRecordRequestBodyDtoPopulatedContact](CreateInstallmentFinancialRecordRequestBodyDtoPopulatedContact.md)
 `populatedTags` | [Array&lt;CreateFinancialRecordRequestBodyDtoPopulatedTagsInner&gt;](CreateFinancialRecordRequestBodyDtoPopulatedTagsInner.md)
+`observations` | string
 `populatedFiles` | [Array&lt;CreateFinancialRecordRequestBodyDtoPopulatedFilesInner&gt;](CreateFinancialRecordRequestBodyDtoPopulatedFilesInner.md)
 `channel` | string
 
@@ -48,6 +49,7 @@ const example = {
   "populatedSubcategory": null,
   "populatedContact": null,
   "populatedTags": null,
+  "observations": null,
   "populatedFiles": null,
   "channel": null,
 } satisfies PartialUpdateInstallmentFinancialRecordRequestBodyDto

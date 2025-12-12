@@ -80,6 +80,7 @@ function PartialUpdateInstallmentFinancialRecordRequestBodyDtoFromJSONTyped(json
         'populatedSubcategory': json['populatedSubcategory'] == null ? undefined : (0, CreateFinancialRecordRequestBodyDtoPopulatedSubcategory_1.CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryFromJSON)(json['populatedSubcategory']),
         'populatedContact': json['populatedContact'] == null ? undefined : (0, CreateInstallmentFinancialRecordRequestBodyDtoPopulatedContact_1.CreateInstallmentFinancialRecordRequestBodyDtoPopulatedContactFromJSON)(json['populatedContact']),
         'populatedTags': json['populatedTags'] == null ? undefined : (json['populatedTags'].map(CreateFinancialRecordRequestBodyDtoPopulatedTagsInner_1.CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerFromJSON)),
+        'observations': json['observations'] == null ? undefined : json['observations'],
         'populatedFiles': json['populatedFiles'] == null ? undefined : (json['populatedFiles'].map(CreateFinancialRecordRequestBodyDtoPopulatedFilesInner_1.CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerFromJSON)),
         'channel': json['channel'],
     };
@@ -109,6 +110,7 @@ function PartialUpdateInstallmentFinancialRecordRequestBodyDtoToJSONTyped(value,
         'populatedSubcategory': (0, CreateFinancialRecordRequestBodyDtoPopulatedSubcategory_1.CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryToJSON)(value['populatedSubcategory']),
         'populatedContact': (0, CreateInstallmentFinancialRecordRequestBodyDtoPopulatedContact_1.CreateInstallmentFinancialRecordRequestBodyDtoPopulatedContactToJSON)(value['populatedContact']),
         'populatedTags': value['populatedTags'] == null ? undefined : (value['populatedTags'].map(CreateFinancialRecordRequestBodyDtoPopulatedTagsInner_1.CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerToJSON)),
+        'observations': value['observations'],
         'populatedFiles': value['populatedFiles'] == null ? undefined : (value['populatedFiles'].map(CreateFinancialRecordRequestBodyDtoPopulatedFilesInner_1.CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerToJSON)),
         'channel': value['channel'],
     };

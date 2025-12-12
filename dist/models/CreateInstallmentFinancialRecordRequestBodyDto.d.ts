@@ -111,6 +111,12 @@ export interface CreateInstallmentFinancialRecordRequestBodyDto {
      */
     populatedTags?: Array<CreateFinancialRecordRequestBodyDtoPopulatedTagsInner> | null;
     /**
+     * Observações do lançamento parcelado.
+     * @type {string}
+     * @memberof CreateInstallmentFinancialRecordRequestBodyDto
+     */
+    observations?: string | null;
+    /**
      * Arquivos anexados.
      * @type {Array<CreateFinancialRecordRequestBodyDtoPopulatedFilesInner>}
      * @memberof CreateInstallmentFinancialRecordRequestBodyDto

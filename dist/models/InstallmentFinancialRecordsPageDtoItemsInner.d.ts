@@ -141,6 +141,12 @@ export interface InstallmentFinancialRecordsPageDtoItemsInner {
      */
     populatedTags?: Array<CreateFinancialRecordRequestBodyDtoPopulatedTagsInner> | null;
     /**
+     * Observações do lançamento parcelado.
+     * @type {string}
+     * @memberof InstallmentFinancialRecordsPageDtoItemsInner
+     */
+    observations?: string | null;
+    /**
      * Arquivos anexados.
      * @type {Array<CreateFinancialRecordRequestBodyDtoPopulatedFilesInner>}
      * @memberof InstallmentFinancialRecordsPageDtoItemsInner

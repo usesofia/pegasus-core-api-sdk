@@ -152,6 +152,12 @@ export interface RecurringFinancialRecordDto {
      */
     populatedFiles?: Array<CreateFinancialRecordRequestBodyDtoPopulatedFilesInner>;
     /**
+     * Observações do lançamento recorrente.
+     * @type {string}
+     * @memberof RecurringFinancialRecordDto
+     */
+    observations?: string | null;
+    /**
      *
      * @type {number}
      * @memberof RecurringFinancialRecordDto

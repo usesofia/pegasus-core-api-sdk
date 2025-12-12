@@ -176,6 +176,12 @@ export interface InstallmentFinancialRecordsPageDtoItemsInner {
      */
     populatedTags?: Array<CreateFinancialRecordRequestBodyDtoPopulatedTagsInner> | null;
     /**
+     * Observações do lançamento parcelado.
+     * @type {string}
+     * @memberof InstallmentFinancialRecordsPageDtoItemsInner
+     */
+    observations?: string | null;
+    /**
      * Arquivos anexados.
      * @type {Array<CreateFinancialRecordRequestBodyDtoPopulatedFilesInner>}
      * @memberof InstallmentFinancialRecordsPageDtoItemsInner
@@ -269,6 +275,7 @@ export function InstallmentFinancialRecordsPageDtoItemsInnerFromJSONTyped(json: 
         'populatedSubcategory': json['populatedSubcategory'] == null ? undefined : CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryFromJSON(json['populatedSubcategory']),
         'populatedContact': json['populatedContact'] == null ? undefined : CreateInstallmentFinancialRecordRequestBodyDtoPopulatedContactFromJSON(json['populatedContact']),
         'populatedTags': json['populatedTags'] == null ? undefined : ((json['populatedTags'] as Array<any>).map(CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerFromJSON)),
+        'observations': json['observations'] == null ? undefined : json['observations'],
         'populatedFiles': json['populatedFiles'] == null ? undefined : ((json['populatedFiles'] as Array<any>).map(CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerFromJSON)),
         'finalAmount': json['finalAmount'] == null ? undefined : json['finalAmount'],
         'discount': json['discount'] == null ? undefined : json['discount'],
@@ -307,6 +314,7 @@ export function InstallmentFinancialRecordsPageDtoItemsInnerToJSONTyped(value?: 
         'populatedSubcategory': CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryToJSON(value['populatedSubcategory']),
         'populatedContact': CreateInstallmentFinancialRecordRequestBodyDtoPopulatedContactToJSON(value['populatedContact']),
         'populatedTags': value['populatedTags'] == null ? undefined : ((value['populatedTags'] as Array<any>).map(CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerToJSON)),
+        'observations': value['observations'],
         'populatedFiles': value['populatedFiles'] == null ? undefined : ((value['populatedFiles'] as Array<any>).map(CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerToJSON)),
         'finalAmount': value['finalAmount'],
         'discount': value['discount'],

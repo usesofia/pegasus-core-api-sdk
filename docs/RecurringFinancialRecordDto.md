@@ -28,6 +28,7 @@ Name | Type
 `populatedTags` | [Array&lt;CreateFinancialRecordRequestBodyDtoPopulatedTagsInner&gt;](CreateFinancialRecordRequestBodyDtoPopulatedTagsInner.md)
 `populatedSubcategory` | [CreateRecurringFinancialRecordRequestBodyDtoPopulatedSubcategory](CreateRecurringFinancialRecordRequestBodyDtoPopulatedSubcategory.md)
 `populatedFiles` | [Array&lt;CreateFinancialRecordRequestBodyDtoPopulatedFilesInner&gt;](CreateFinancialRecordRequestBodyDtoPopulatedFilesInner.md)
+`observations` | string
 `searchScore` | number
 
 ## Example
@@ -59,6 +60,7 @@ const example = {
   "populatedTags": null,
   "populatedSubcategory": null,
   "populatedFiles": null,
+  "observations": null,
   "searchScore": null,
 } satisfies RecurringFinancialRecordDto
 

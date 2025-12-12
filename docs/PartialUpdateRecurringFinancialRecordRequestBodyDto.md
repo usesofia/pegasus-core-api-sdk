@@ -23,6 +23,7 @@ Name | Type
 `populatedTags` | [Array&lt;CreateFinancialRecordRequestBodyDtoPopulatedTagsInner&gt;](CreateFinancialRecordRequestBodyDtoPopulatedTagsInner.md)
 `populatedSubcategory` | [CreateRecurringFinancialRecordRequestBodyDtoPopulatedSubcategory](CreateRecurringFinancialRecordRequestBodyDtoPopulatedSubcategory.md)
 `populatedFiles` | [Array&lt;CreateFinancialRecordRequestBodyDtoPopulatedFilesInner&gt;](CreateFinancialRecordRequestBodyDtoPopulatedFilesInner.md)
+`observations` | string
 `searchScore` | number
 `channel` | string
 `firstOccurrenceDate` | string
@@ -51,6 +52,7 @@ const example = {
   "populatedTags": null,
   "populatedSubcategory": null,
   "populatedFiles": null,
+  "observations": null,
   "searchScore": null,
   "channel": null,
   "firstOccurrenceDate": null,

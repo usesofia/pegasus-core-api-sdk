@@ -26,6 +26,7 @@ Name | Type
 `populatedSubcategory` | [CreateFinancialRecordRequestBodyDtoPopulatedSubcategory](CreateFinancialRecordRequestBodyDtoPopulatedSubcategory.md)
 `populatedContact` | [CreateInstallmentFinancialRecordRequestBodyDtoPopulatedContact](CreateInstallmentFinancialRecordRequestBodyDtoPopulatedContact.md)
 `populatedTags` | [Array&lt;CreateFinancialRecordRequestBodyDtoPopulatedTagsInner&gt;](CreateFinancialRecordRequestBodyDtoPopulatedTagsInner.md)
+`observations` | string
 `populatedFiles` | [Array&lt;CreateFinancialRecordRequestBodyDtoPopulatedFilesInner&gt;](CreateFinancialRecordRequestBodyDtoPopulatedFilesInner.md)
 `finalAmount` | string
 `discount` | string
@@ -58,6 +59,7 @@ const example = {
   "populatedSubcategory": null,
   "populatedContact": null,
   "populatedTags": null,
+  "observations": null,
   "populatedFiles": null,
   "finalAmount": null,
   "discount": null,
