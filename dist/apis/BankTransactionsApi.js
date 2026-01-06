@@ -302,10 +302,10 @@ var BankTransactionsApi = /** @class */ (function (_super) {
                             queryParameters['type'] = requestParameters['type'];
                         }
                         if (requestParameters['dateTo'] != null) {
-                            queryParameters['dateTo'] = requestParameters['dateTo'];
+                            queryParameters['dateTo'] = requestParameters['dateTo'].toISOString();
                         }
                         if (requestParameters['dateFrom'] != null) {
-                            queryParameters['dateFrom'] = requestParameters['dateFrom'];
+                            queryParameters['dateFrom'] = requestParameters['dateFrom'].toISOString();
                         }
                         if (requestParameters['bankAccount'] != null) {
                             queryParameters['bankAccount'] = requestParameters['bankAccount'];
@@ -843,10 +843,10 @@ var BankTransactionsApi = /** @class */ (function (_super) {
                             queryParameters['type'] = requestParameters['type'];
                         }
                         if (requestParameters['dateTo'] != null) {
-                            queryParameters['dateTo'] = requestParameters['dateTo'];
+                            queryParameters['dateTo'] = requestParameters['dateTo'].toISOString();
                         }
                         if (requestParameters['dateFrom'] != null) {
-                            queryParameters['dateFrom'] = requestParameters['dateFrom'];
+                            queryParameters['dateFrom'] = requestParameters['dateFrom'].toISOString();
                         }
                         if (requestParameters['bankAccount'] != null) {
                             queryParameters['bankAccount'] = requestParameters['bankAccount'];
@@ -982,10 +982,10 @@ var BankTransactionsApi = /** @class */ (function (_super) {
                             queryParameters['type'] = requestParameters['type'];
                         }
                         if (requestParameters['dateTo'] != null) {
-                            queryParameters['dateTo'] = requestParameters['dateTo'];
+                            queryParameters['dateTo'] = requestParameters['dateTo'].toISOString();
                         }
                         if (requestParameters['dateFrom'] != null) {
-                            queryParameters['dateFrom'] = requestParameters['dateFrom'];
+                            queryParameters['dateFrom'] = requestParameters['dateFrom'].toISOString();
                         }
                         if (requestParameters['bankAccount'] != null) {
                             queryParameters['bankAccount'] = requestParameters['bankAccount'];

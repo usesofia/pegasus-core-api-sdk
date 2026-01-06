@@ -57,6 +57,7 @@ __exportStar(require("./CreateContactRequestBodyDtoAddress"), exports);
 __exportStar(require("./CreateCustomerRequestBodyDto"), exports);
 __exportStar(require("./CreateFileUpload200Response"), exports);
 __exportStar(require("./CreateFileUploadRequestBodyDto"), exports);
+__exportStar(require("./CreateFinancialRecordGroupRequestBodyDto"), exports);
 __exportStar(require("./CreateFinancialRecordRadarItemRequestBodyDto"), exports);
 __exportStar(require("./CreateFinancialRecordRadarItemRequestBodyDtoBestSuggestedAction"), exports);
 __exportStar(require("./CreateFinancialRecordRadarItemRequestBodyDtoBestSuggestedActionFinancialRecordRadarRawCreateFinancialRecordRequest"), exports);
@@ -81,6 +82,7 @@ __exportStar(require("./CreateFinancialRecordRequestBodyDtoPopulatedAccountPopul
 __exportStar(require("./CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitution"), exports);
 __exportStar(require("./CreateFinancialRecordRequestBodyDtoPopulatedContact"), exports);
 __exportStar(require("./CreateFinancialRecordRequestBodyDtoPopulatedFilesInner"), exports);
+__exportStar(require("./CreateFinancialRecordRequestBodyDtoPopulatedGroupsInner"), exports);
 __exportStar(require("./CreateFinancialRecordRequestBodyDtoPopulatedSubcategory"), exports);
 __exportStar(require("./CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedCategory"), exports);
 __exportStar(require("./CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedNormalizedSubcategory"), exports);

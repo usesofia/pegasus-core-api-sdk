@@ -41,6 +41,7 @@ export * from './CreateContactRequestBodyDtoAddress';
 export * from './CreateCustomerRequestBodyDto';
 export * from './CreateFileUpload200Response';
 export * from './CreateFileUploadRequestBodyDto';
+export * from './CreateFinancialRecordGroupRequestBodyDto';
 export * from './CreateFinancialRecordRadarItemRequestBodyDto';
 export * from './CreateFinancialRecordRadarItemRequestBodyDtoBestSuggestedAction';
 export * from './CreateFinancialRecordRadarItemRequestBodyDtoBestSuggestedActionFinancialRecordRadarRawCreateFinancialRecordRequest';
@@ -65,6 +66,7 @@ export * from './CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedAut
 export * from './CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedInstitution';
 export * from './CreateFinancialRecordRequestBodyDtoPopulatedContact';
 export * from './CreateFinancialRecordRequestBodyDtoPopulatedFilesInner';
+export * from './CreateFinancialRecordRequestBodyDtoPopulatedGroupsInner';
 export * from './CreateFinancialRecordRequestBodyDtoPopulatedSubcategory';
 export * from './CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedCategory';
 export * from './CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedNormalizedSubcategory';

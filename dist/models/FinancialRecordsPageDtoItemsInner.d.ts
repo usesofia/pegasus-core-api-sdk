@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 import type { CreateFinancialRecordRequestBodyDtoPopulatedFilesInner } from './CreateFinancialRecordRequestBodyDtoPopulatedFilesInner';
+import type { CreateFinancialRecordRequestBodyDtoPopulatedGroupsInner } from './CreateFinancialRecordRequestBodyDtoPopulatedGroupsInner';
 import type { CreateFinancialRecordRequestBodyDtoPopulatedAccount } from './CreateFinancialRecordRequestBodyDtoPopulatedAccount';
 import type { CreateFinancialRecordRequestBodyDtoPopulatedTagsInner } from './CreateFinancialRecordRequestBodyDtoPopulatedTagsInner';
 import type { CreateFinancialRecordRequestBodyDtoPopulatedSubcategory } from './CreateFinancialRecordRequestBodyDtoPopulatedSubcategory';
@@ -278,6 +279,12 @@ export interface FinancialRecordsPageDtoItemsInner {
      * @memberof FinancialRecordsPageDtoItemsInner
      */
     populatedAccount?: CreateFinancialRecordRequestBodyDtoPopulatedAccount | null;
+    /**
+     * Grupos de lançamentos financeiros relacionados.
+     * @type {Array<CreateFinancialRecordRequestBodyDtoPopulatedGroupsInner>}
+     * @memberof FinancialRecordsPageDtoItemsInner
+     */
+    populatedGroups?: Array<CreateFinancialRecordRequestBodyDtoPopulatedGroupsInner>;
     /**
      * Pontuação de busca do lançamento.
      * @type {number}

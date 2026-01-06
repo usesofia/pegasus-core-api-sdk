@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 import type { CreateFinancialRecordRequestBodyDtoPopulatedFilesInner } from './CreateFinancialRecordRequestBodyDtoPopulatedFilesInner';
+import type { CreateFinancialRecordRequestBodyDtoPopulatedGroupsInner } from './CreateFinancialRecordRequestBodyDtoPopulatedGroupsInner';
 import type { CreateFinancialRecordRequestBodyDtoPopulatedAccount } from './CreateFinancialRecordRequestBodyDtoPopulatedAccount';
 import type { CreateFinancialRecordRequestBodyDtoPopulatedTagsInner } from './CreateFinancialRecordRequestBodyDtoPopulatedTagsInner';
 import type { CreateFinancialRecordRequestBodyDtoPopulatedSubcategory } from './CreateFinancialRecordRequestBodyDtoPopulatedSubcategory';
@@ -206,6 +207,12 @@ export interface CreateFinancialRecordRadarItemRequestBodyDtoBestSuggestedAction
      * @memberof CreateFinancialRecordRadarItemRequestBodyDtoBestSuggestedActionFinancialRecordRadarRawPartialUpdateFinancialRecordRequestExtractedFinancialRecordData
      */
     populatedAccount?: CreateFinancialRecordRequestBodyDtoPopulatedAccount | null;
+    /**
+     * Grupos de lançamentos financeiros relacionados.
+     * @type {Array<CreateFinancialRecordRequestBodyDtoPopulatedGroupsInner>}
+     * @memberof CreateFinancialRecordRadarItemRequestBodyDtoBestSuggestedActionFinancialRecordRadarRawPartialUpdateFinancialRecordRequestExtractedFinancialRecordData
+     */
+    populatedGroups?: Array<CreateFinancialRecordRequestBodyDtoPopulatedGroupsInner>;
     /**
      * Pontuação de busca do lançamento.
      * @type {number}

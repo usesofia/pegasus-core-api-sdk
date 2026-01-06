@@ -37,6 +37,7 @@ Name | Type
 `populatedContact` | [CreateFinancialRecordRequestBodyDtoPopulatedContact](CreateFinancialRecordRequestBodyDtoPopulatedContact.md)
 `populatedTags` | [Array&lt;CreateFinancialRecordRequestBodyDtoPopulatedTagsInner&gt;](CreateFinancialRecordRequestBodyDtoPopulatedTagsInner.md)
 `populatedAccount` | [CreateFinancialRecordRequestBodyDtoPopulatedAccount](CreateFinancialRecordRequestBodyDtoPopulatedAccount.md)
+`populatedGroups` | [Array&lt;CreateFinancialRecordRequestBodyDtoPopulatedGroupsInner&gt;](CreateFinancialRecordRequestBodyDtoPopulatedGroupsInner.md)
 `searchScore` | number
 `observations` | string
 `importedAt` | any
@@ -82,6 +83,7 @@ const example = {
   "populatedContact": null,
   "populatedTags": null,
   "populatedAccount": null,
+  "populatedGroups": null,
   "searchScore": null,
   "observations": null,
   "importedAt": null,

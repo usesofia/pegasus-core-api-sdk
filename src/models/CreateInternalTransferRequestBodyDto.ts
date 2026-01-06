@@ -50,6 +50,12 @@ export interface CreateInternalTransferRequestBodyDto {
      */
     cashDate: string;
     /**
+     * Indica se a transferência foi concluída.
+     * @type {boolean}
+     * @memberof CreateInternalTransferRequestBodyDto
+     */
+    completed?: boolean;
+    /**
      * Descrição da transferência.
      * @type {string}
      * @memberof CreateInternalTransferRequestBodyDto
@@ -143,6 +149,7 @@ export function CreateInternalTransferRequestBodyDtoFromJSONTyped(json: any, ign
         'dueDate': json['dueDate'],
         'competenceDate': json['competenceDate'] == null ? undefined : json['competenceDate'],
         'cashDate': json['cashDate'],
+        'completed': json['completed'] == null ? undefined : json['completed'],
         'description': json['description'],
         'tags': json['tags'] == null ? undefined : json['tags'],
         'files': json['files'] == null ? undefined : json['files'],
@@ -170,6 +177,7 @@ export function CreateInternalTransferRequestBodyDtoToJSONTyped(value?: CreateIn
         'dueDate': value['dueDate'],
         'competenceDate': value['competenceDate'],
         'cashDate': value['cashDate'],
+        'completed': value['completed'],
         'description': value['description'],
         'tags': value['tags'],
         'files': value['files'],

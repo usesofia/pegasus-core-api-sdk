@@ -393,11 +393,11 @@ export class RecurringFinancialRecordsApi extends runtime.BaseAPI implements Rec
         }
 
         if (requestParameters['firstOccurrenceDateTo'] != null) {
-            queryParameters['firstOccurrenceDateTo'] = requestParameters['firstOccurrenceDateTo'];
+            queryParameters['firstOccurrenceDateTo'] = (requestParameters['firstOccurrenceDateTo'] as any).toISOString().substring(0,10);
         }
 
         if (requestParameters['firstOccurrenceDateFrom'] != null) {
-            queryParameters['firstOccurrenceDateFrom'] = requestParameters['firstOccurrenceDateFrom'];
+            queryParameters['firstOccurrenceDateFrom'] = (requestParameters['firstOccurrenceDateFrom'] as any).toISOString().substring(0,10);
         }
 
         if (requestParameters['direction'] != null) {

@@ -736,11 +736,11 @@ export class BankTransactionsApi extends runtime.BaseAPI implements BankTransact
         }
 
         if (requestParameters['dateTo'] != null) {
-            queryParameters['dateTo'] = requestParameters['dateTo'];
+            queryParameters['dateTo'] = (requestParameters['dateTo'] as any).toISOString();
         }
 
         if (requestParameters['dateFrom'] != null) {
-            queryParameters['dateFrom'] = requestParameters['dateFrom'];
+            queryParameters['dateFrom'] = (requestParameters['dateFrom'] as any).toISOString();
         }
 
         if (requestParameters['bankAccount'] != null) {
@@ -1224,11 +1224,11 @@ export class BankTransactionsApi extends runtime.BaseAPI implements BankTransact
         }
 
         if (requestParameters['dateTo'] != null) {
-            queryParameters['dateTo'] = requestParameters['dateTo'];
+            queryParameters['dateTo'] = (requestParameters['dateTo'] as any).toISOString();
         }
 
         if (requestParameters['dateFrom'] != null) {
-            queryParameters['dateFrom'] = requestParameters['dateFrom'];
+            queryParameters['dateFrom'] = (requestParameters['dateFrom'] as any).toISOString();
         }
 
         if (requestParameters['bankAccount'] != null) {
@@ -1361,11 +1361,11 @@ export class BankTransactionsApi extends runtime.BaseAPI implements BankTransact
         }
 
         if (requestParameters['dateTo'] != null) {
-            queryParameters['dateTo'] = requestParameters['dateTo'];
+            queryParameters['dateTo'] = (requestParameters['dateTo'] as any).toISOString();
         }
 
         if (requestParameters['dateFrom'] != null) {
-            queryParameters['dateFrom'] = requestParameters['dateFrom'];
+            queryParameters['dateFrom'] = (requestParameters['dateFrom'] as any).toISOString();
         }
 
         if (requestParameters['bankAccount'] != null) {

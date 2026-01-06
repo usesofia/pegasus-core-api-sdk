@@ -46,6 +46,12 @@ export interface CreateInternalTransferRequestBodyDto {
      */
     cashDate: string;
     /**
+     * Indica se a transferência foi concluída.
+     * @type {boolean}
+     * @memberof CreateInternalTransferRequestBodyDto
+     */
+    completed?: boolean;
+    /**
      * Descrição da transferência.
      * @type {string}
      * @memberof CreateInternalTransferRequestBodyDto

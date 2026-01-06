@@ -20,6 +20,7 @@ exports.FinancialRecordDtoFromJSONTyped = FinancialRecordDtoFromJSONTyped;
 exports.FinancialRecordDtoToJSON = FinancialRecordDtoToJSON;
 exports.FinancialRecordDtoToJSONTyped = FinancialRecordDtoToJSONTyped;
 var CreateFinancialRecordRequestBodyDtoPopulatedFilesInner_1 = require("./CreateFinancialRecordRequestBodyDtoPopulatedFilesInner");
+var CreateFinancialRecordRequestBodyDtoPopulatedGroupsInner_1 = require("./CreateFinancialRecordRequestBodyDtoPopulatedGroupsInner");
 var CreateFinancialRecordRequestBodyDtoPopulatedAccount_1 = require("./CreateFinancialRecordRequestBodyDtoPopulatedAccount");
 var CreateFinancialRecordRequestBodyDtoPopulatedTagsInner_1 = require("./CreateFinancialRecordRequestBodyDtoPopulatedTagsInner");
 var CreateFinancialRecordRequestBodyDtoPopulatedSubcategory_1 = require("./CreateFinancialRecordRequestBodyDtoPopulatedSubcategory");
@@ -106,6 +107,7 @@ function FinancialRecordDtoFromJSONTyped(json, ignoreDiscriminator) {
         'populatedContact': json['populatedContact'] == null ? undefined : (0, CreateFinancialRecordRequestBodyDtoPopulatedContact_1.CreateFinancialRecordRequestBodyDtoPopulatedContactFromJSON)(json['populatedContact']),
         'populatedTags': json['populatedTags'] == null ? undefined : (json['populatedTags'].map(CreateFinancialRecordRequestBodyDtoPopulatedTagsInner_1.CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerFromJSON)),
         'populatedAccount': json['populatedAccount'] == null ? undefined : (0, CreateFinancialRecordRequestBodyDtoPopulatedAccount_1.CreateFinancialRecordRequestBodyDtoPopulatedAccountFromJSON)(json['populatedAccount']),
+        'populatedGroups': json['populatedGroups'] == null ? undefined : (json['populatedGroups'].map(CreateFinancialRecordRequestBodyDtoPopulatedGroupsInner_1.CreateFinancialRecordRequestBodyDtoPopulatedGroupsInnerFromJSON)),
         'searchScore': json['searchScore'] == null ? undefined : json['searchScore'],
         'observations': json['observations'] == null ? undefined : json['observations'],
         'importedAt': json['importedAt'] == null ? undefined : json['importedAt'],
@@ -165,6 +167,7 @@ function FinancialRecordDtoToJSONTyped(value, ignoreDiscriminator) {
         'populatedContact': (0, CreateFinancialRecordRequestBodyDtoPopulatedContact_1.CreateFinancialRecordRequestBodyDtoPopulatedContactToJSON)(value['populatedContact']),
         'populatedTags': value['populatedTags'] == null ? undefined : (value['populatedTags'].map(CreateFinancialRecordRequestBodyDtoPopulatedTagsInner_1.CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerToJSON)),
         'populatedAccount': (0, CreateFinancialRecordRequestBodyDtoPopulatedAccount_1.CreateFinancialRecordRequestBodyDtoPopulatedAccountToJSON)(value['populatedAccount']),
+        'populatedGroups': value['populatedGroups'] == null ? undefined : (value['populatedGroups'].map(CreateFinancialRecordRequestBodyDtoPopulatedGroupsInner_1.CreateFinancialRecordRequestBodyDtoPopulatedGroupsInnerToJSON)),
         'searchScore': value['searchScore'],
         'observations': value['observations'],
         'importedAt': value['importedAt'],

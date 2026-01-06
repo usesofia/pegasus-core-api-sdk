@@ -24,7 +24,8 @@ var FinancialRecordGroupDtoPopulatedFinancialRecordsInner_1 = require("./Financi
  * @export
  */
 exports.FinancialRecordGroupDtoTypeEnum = {
-    InternalTransfer: 'INTERNAL_TRANSFER'
+    InternalTransfer: 'INTERNAL_TRANSFER',
+    Other: 'OTHER'
 };
 /**
  * Check if a given object implements the FinancialRecordGroupDto interface.

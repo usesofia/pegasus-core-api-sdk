@@ -20,6 +20,13 @@ import {
     CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerToJSON,
     CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerToJSONTyped,
 } from './CreateFinancialRecordRequestBodyDtoPopulatedFilesInner';
+import type { CreateFinancialRecordRequestBodyDtoPopulatedGroupsInner } from './CreateFinancialRecordRequestBodyDtoPopulatedGroupsInner';
+import {
+    CreateFinancialRecordRequestBodyDtoPopulatedGroupsInnerFromJSON,
+    CreateFinancialRecordRequestBodyDtoPopulatedGroupsInnerFromJSONTyped,
+    CreateFinancialRecordRequestBodyDtoPopulatedGroupsInnerToJSON,
+    CreateFinancialRecordRequestBodyDtoPopulatedGroupsInnerToJSONTyped,
+} from './CreateFinancialRecordRequestBodyDtoPopulatedGroupsInner';
 import type { CreateFinancialRecordRequestBodyDtoPopulatedAccount } from './CreateFinancialRecordRequestBodyDtoPopulatedAccount';
 import {
     CreateFinancialRecordRequestBodyDtoPopulatedAccountFromJSON,
@@ -242,6 +249,12 @@ export interface CreatedFinancialRecordRadarItemResultEntityRadarItemExtractedFi
      */
     populatedAccount?: CreateFinancialRecordRequestBodyDtoPopulatedAccount | null;
     /**
+     * Grupos de lançamentos financeiros relacionados.
+     * @type {Array<CreateFinancialRecordRequestBodyDtoPopulatedGroupsInner>}
+     * @memberof CreatedFinancialRecordRadarItemResultEntityRadarItemExtractedFinancialRecordData
+     */
+    populatedGroups?: Array<CreateFinancialRecordRequestBodyDtoPopulatedGroupsInner>;
+    /**
      * Pontuação de busca do lançamento.
      * @type {number}
      * @memberof CreatedFinancialRecordRadarItemResultEntityRadarItemExtractedFinancialRecordData
@@ -344,6 +357,7 @@ export function CreatedFinancialRecordRadarItemResultEntityRadarItemExtractedFin
         'populatedContact': json['populatedContact'] == null ? undefined : CreateFinancialRecordRequestBodyDtoPopulatedContactFromJSON(json['populatedContact']),
         'populatedTags': json['populatedTags'] == null ? undefined : ((json['populatedTags'] as Array<any>).map(CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerFromJSON)),
         'populatedAccount': json['populatedAccount'] == null ? undefined : CreateFinancialRecordRequestBodyDtoPopulatedAccountFromJSON(json['populatedAccount']),
+        'populatedGroups': json['populatedGroups'] == null ? undefined : ((json['populatedGroups'] as Array<any>).map(CreateFinancialRecordRequestBodyDtoPopulatedGroupsInnerFromJSON)),
         'searchScore': json['searchScore'] == null ? undefined : json['searchScore'],
         'observations': json['observations'] == null ? undefined : json['observations'],
         'importedAt': json['importedAt'] == null ? undefined : json['importedAt'],
@@ -396,6 +410,7 @@ export function CreatedFinancialRecordRadarItemResultEntityRadarItemExtractedFin
         'populatedContact': CreateFinancialRecordRequestBodyDtoPopulatedContactToJSON(value['populatedContact']),
         'populatedTags': value['populatedTags'] == null ? undefined : ((value['populatedTags'] as Array<any>).map(CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerToJSON)),
         'populatedAccount': CreateFinancialRecordRequestBodyDtoPopulatedAccountToJSON(value['populatedAccount']),
+        'populatedGroups': value['populatedGroups'] == null ? undefined : ((value['populatedGroups'] as Array<any>).map(CreateFinancialRecordRequestBodyDtoPopulatedGroupsInnerToJSON)),
         'searchScore': value['searchScore'],
         'observations': value['observations'],
         'importedAt': value['importedAt'],

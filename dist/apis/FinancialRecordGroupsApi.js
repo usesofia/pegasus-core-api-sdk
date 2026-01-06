@@ -76,6 +76,55 @@ var FinancialRecordGroupsApi = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
+     * Cria um grupo vinculando dois lançamentos financeiros (um de entrada e outro de saída) após validar todas as condições necessárias.
+     * Cria um grupo de lançamentos financeiros.
+     */
+    FinancialRecordGroupsApi.prototype.createFinancialRecordGroupRaw = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (requestParameters['createFinancialRecordGroupRequestBodyDto'] == null) {
+                            throw new runtime.RequiredError('createFinancialRecordGroupRequestBodyDto', 'Required parameter "createFinancialRecordGroupRequestBodyDto" was null or undefined when calling createFinancialRecordGroup().');
+                        }
+                        queryParameters = {};
+                        headerParameters = {};
+                        headerParameters['Content-Type'] = 'application/json';
+                        urlPath = "/external/financial-record-groups";
+                        return [4 /*yield*/, this.request({
+                                path: urlPath,
+                                method: 'POST',
+                                headers: headerParameters,
+                                query: queryParameters,
+                                body: (0, index_1.CreateFinancialRecordGroupRequestBodyDtoToJSON)(requestParameters['createFinancialRecordGroupRequestBodyDto']),
+                            }, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.FinancialRecordGroupDtoFromJSON)(jsonValue); })];
+                }
+            });
+        });
+    };
+    /**
+     * Cria um grupo vinculando dois lançamentos financeiros (um de entrada e outro de saída) após validar todas as condições necessárias.
+     * Cria um grupo de lançamentos financeiros.
+     */
+    FinancialRecordGroupsApi.prototype.createFinancialRecordGroup = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.createFinancialRecordGroupRaw(requestParameters, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [4 /*yield*/, response.value()];
+                    case 2: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
+    /**
      * Busca grupos de lançamentos financeiros pelo ID do lançamento.
      */
     FinancialRecordGroupsApi.prototype.findFinancialRecordGroupsByFinancialRecordRaw = function (requestParameters, initOverrides) {
@@ -117,6 +166,52 @@ var FinancialRecordGroupsApi = /** @class */ (function (_super) {
                         response = _a.sent();
                         return [4 /*yield*/, response.value()];
                     case 2: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
+    /**
+     * Remove apenas o agrupamento, mantendo os lançamentos financeiros originais.
+     * Remove um grupo de lançamentos financeiros.
+     */
+    FinancialRecordGroupsApi.prototype.removeFinancialRecordGroupRaw = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (requestParameters['financialRecordGroupId'] == null) {
+                            throw new runtime.RequiredError('financialRecordGroupId', 'Required parameter "financialRecordGroupId" was null or undefined when calling removeFinancialRecordGroup().');
+                        }
+                        queryParameters = {};
+                        headerParameters = {};
+                        urlPath = "/external/financial-record-groups/{financialRecordGroupId}";
+                        urlPath = urlPath.replace("{".concat("financialRecordGroupId", "}"), encodeURIComponent(String(requestParameters['financialRecordGroupId'])));
+                        return [4 /*yield*/, this.request({
+                                path: urlPath,
+                                method: 'DELETE',
+                                headers: headerParameters,
+                                query: queryParameters,
+                            }, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [2 /*return*/, new runtime.VoidApiResponse(response)];
+                }
+            });
+        });
+    };
+    /**
+     * Remove apenas o agrupamento, mantendo os lançamentos financeiros originais.
+     * Remove um grupo de lançamentos financeiros.
+     */
+    FinancialRecordGroupsApi.prototype.removeFinancialRecordGroup = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.removeFinancialRecordGroupRaw(requestParameters, initOverrides)];
+                    case 1:
+                        _a.sent();
+                        return [2 /*return*/];
                 }
             });
         });

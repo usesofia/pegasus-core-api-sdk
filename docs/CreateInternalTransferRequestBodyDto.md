@@ -11,6 +11,7 @@ Name | Type
 `dueDate` | string
 `competenceDate` | string
 `cashDate` | string
+`completed` | boolean
 `description` | string
 `tags` | Array&lt;string&gt;
 `files` | Array&lt;string&gt;
@@ -32,6 +33,7 @@ const example = {
   "dueDate": null,
   "competenceDate": null,
   "cashDate": null,
+  "completed": null,
   "description": null,
   "tags": null,
   "files": null,

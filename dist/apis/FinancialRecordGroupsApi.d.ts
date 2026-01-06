@@ -10,9 +10,15 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { FinancialRecordGroupDto } from '../models/index';
+import type { CreateFinancialRecordGroupRequestBodyDto, FinancialRecordGroupDto } from '../models/index';
+export interface CreateFinancialRecordGroupRequest {
+    createFinancialRecordGroupRequestBodyDto: CreateFinancialRecordGroupRequestBodyDto;
+}
 export interface FindFinancialRecordGroupsByFinancialRecordRequest {
     financialRecordId: string;
+}
+export interface RemoveFinancialRecordGroupRequest {
+    financialRecordGroupId: string;
 }
 /**
  * FinancialRecordGroupsApi - interface
@@ -21,6 +27,20 @@ export interface FindFinancialRecordGroupsByFinancialRecordRequest {
  * @interface FinancialRecordGroupsApiInterface
  */
 export interface FinancialRecordGroupsApiInterface {
+    /**
+     * Cria um grupo vinculando dois lançamentos financeiros (um de entrada e outro de saída) após validar todas as condições necessárias.
+     * @summary Cria um grupo de lançamentos financeiros.
+     * @param {CreateFinancialRecordGroupRequestBodyDto} createFinancialRecordGroupRequestBodyDto Dados para criação do grupo de lançamentos financeiros.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof FinancialRecordGroupsApiInterface
+     */
+    createFinancialRecordGroupRaw(requestParameters: CreateFinancialRecordGroupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FinancialRecordGroupDto>>;
+    /**
+     * Cria um grupo vinculando dois lançamentos financeiros (um de entrada e outro de saída) após validar todas as condições necessárias.
+     * Cria um grupo de lançamentos financeiros.
+     */
+    createFinancialRecordGroup(requestParameters: CreateFinancialRecordGroupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialRecordGroupDto>;
     /**
      *
      * @summary Busca grupos de lançamentos financeiros pelo ID do lançamento.
@@ -34,11 +54,35 @@ export interface FinancialRecordGroupsApiInterface {
      * Busca grupos de lançamentos financeiros pelo ID do lançamento.
      */
     findFinancialRecordGroupsByFinancialRecord(requestParameters: FindFinancialRecordGroupsByFinancialRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<FinancialRecordGroupDto>>;
+    /**
+     * Remove apenas o agrupamento, mantendo os lançamentos financeiros originais.
+     * @summary Remove um grupo de lançamentos financeiros.
+     * @param {string} financialRecordGroupId Identificador do grupo de lançamentos financeiros.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof FinancialRecordGroupsApiInterface
+     */
+    removeFinancialRecordGroupRaw(requestParameters: RemoveFinancialRecordGroupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
+    /**
+     * Remove apenas o agrupamento, mantendo os lançamentos financeiros originais.
+     * Remove um grupo de lançamentos financeiros.
+     */
+    removeFinancialRecordGroup(requestParameters: RemoveFinancialRecordGroupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
 }
 /**
  *
  */
 export declare class FinancialRecordGroupsApi extends runtime.BaseAPI implements FinancialRecordGroupsApiInterface {
+    /**
+     * Cria um grupo vinculando dois lançamentos financeiros (um de entrada e outro de saída) após validar todas as condições necessárias.
+     * Cria um grupo de lançamentos financeiros.
+     */
+    createFinancialRecordGroupRaw(requestParameters: CreateFinancialRecordGroupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FinancialRecordGroupDto>>;
+    /**
+     * Cria um grupo vinculando dois lançamentos financeiros (um de entrada e outro de saída) após validar todas as condições necessárias.
+     * Cria um grupo de lançamentos financeiros.
+     */
+    createFinancialRecordGroup(requestParameters: CreateFinancialRecordGroupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialRecordGroupDto>;
     /**
      * Busca grupos de lançamentos financeiros pelo ID do lançamento.
      */
@@ -47,4 +91,14 @@ export declare class FinancialRecordGroupsApi extends runtime.BaseAPI implements
      * Busca grupos de lançamentos financeiros pelo ID do lançamento.
      */
     findFinancialRecordGroupsByFinancialRecord(requestParameters: FindFinancialRecordGroupsByFinancialRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<FinancialRecordGroupDto>>;
+    /**
+     * Remove apenas o agrupamento, mantendo os lançamentos financeiros originais.
+     * Remove um grupo de lançamentos financeiros.
+     */
+    removeFinancialRecordGroupRaw(requestParameters: RemoveFinancialRecordGroupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
+    /**
+     * Remove apenas o agrupamento, mantendo os lançamentos financeiros originais.
+     * Remove um grupo de lançamentos financeiros.
+     */
+    removeFinancialRecordGroup(requestParameters: RemoveFinancialRecordGroupRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
 }

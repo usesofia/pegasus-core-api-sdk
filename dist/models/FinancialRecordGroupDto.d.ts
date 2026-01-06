@@ -76,6 +76,7 @@ export interface FinancialRecordGroupDto {
  */
 export declare const FinancialRecordGroupDtoTypeEnum: {
     readonly InternalTransfer: "INTERNAL_TRANSFER";
+    readonly Other: "OTHER";
 };
 export type FinancialRecordGroupDtoTypeEnum = typeof FinancialRecordGroupDtoTypeEnum[keyof typeof FinancialRecordGroupDtoTypeEnum];
 /**

@@ -107,11 +107,11 @@ export class BankTransactionsExportApi extends runtime.BaseAPI implements BankTr
         }
 
         if (requestParameters['dateTo'] != null) {
-            queryParameters['dateTo'] = requestParameters['dateTo'];
+            queryParameters['dateTo'] = (requestParameters['dateTo'] as any).toISOString();
         }
 
         if (requestParameters['dateFrom'] != null) {
-            queryParameters['dateFrom'] = requestParameters['dateFrom'];
+            queryParameters['dateFrom'] = (requestParameters['dateFrom'] as any).toISOString();
         }
 
         if (requestParameters['bankAccount'] != null) {
