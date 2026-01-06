@@ -64,7 +64,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.SystemGenerateMostCommonContactsAndSubcategoriesForSimilarFinancialRecordReportReadPreferenceEnum = exports.SystemFindAllFinancialRecordsDirectionEnum = exports.SystemFindAllFinancialRecordsSortByEnum = exports.SystemFindAllFinancialRecordsSortOrderEnum = exports.SystemFindAllFinancialRecordsReadPreferenceEnum = exports.FindAllFinancialRecordsDirectionEnum = exports.FindAllFinancialRecordsSortByEnum = exports.FindAllFinancialRecordsSortOrderEnum = exports.FinancialRecordsApi = void 0;
+exports.SystemGenerateMostCommonContactsAndSubcategoriesForSimilarFinancialRecordReportReadPreferenceEnum = exports.SystemFindAllFinancialRecordsDirectionEnum = exports.SystemFindAllFinancialRecordsSortByEnum = exports.SystemFindAllFinancialRecordsSortOrderEnum = exports.SystemFindAllFinancialRecordsReadPreferenceEnum = exports.GeneratePdfTableExportFinancialRecordsDirectionEnum = exports.GeneratePdfTableExportFinancialRecordsSortByEnum = exports.GeneratePdfTableExportFinancialRecordsSortOrderEnum = exports.GeneratePdfListExportFinancialRecordsDirectionEnum = exports.GeneratePdfListExportFinancialRecordsSortByEnum = exports.GeneratePdfListExportFinancialRecordsSortOrderEnum = exports.FindAllFinancialRecordsDirectionEnum = exports.FindAllFinancialRecordsSortByEnum = exports.FindAllFinancialRecordsSortOrderEnum = exports.FinancialRecordsApi = void 0;
 var runtime = require("../runtime");
 var index_1 = require("../models/index");
 /**
@@ -396,6 +396,272 @@ var FinancialRecordsApi = /** @class */ (function (_super) {
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, this.findByIdFinancialRecordRaw(requestParameters, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [4 /*yield*/, response.value()];
+                    case 2: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
+    /**
+     * Gera exportação em PDF dos lançamentos financeiros no formato de lista.
+     */
+    FinancialRecordsApi.prototype.generatePdfListExportFinancialRecordsRaw = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        queryParameters = {};
+                        if (requestParameters['queryId'] != null) {
+                            queryParameters['queryId'] = requestParameters['queryId'];
+                        }
+                        if (requestParameters['sortOrder'] != null) {
+                            queryParameters['sortOrder'] = requestParameters['sortOrder'];
+                        }
+                        if (requestParameters['sortBy'] != null) {
+                            queryParameters['sortBy'] = requestParameters['sortBy'];
+                        }
+                        if (requestParameters['recurringFinancialRecord'] != null) {
+                            queryParameters['recurringFinancialRecord'] = requestParameters['recurringFinancialRecord'];
+                        }
+                        if (requestParameters['installmentFinancialRecord'] != null) {
+                            queryParameters['installmentFinancialRecord'] = requestParameters['installmentFinancialRecord'];
+                        }
+                        if (requestParameters['account'] != null) {
+                            queryParameters['account'] = requestParameters['account'];
+                        }
+                        if (requestParameters['reconciled'] != null) {
+                            queryParameters['reconciled'] = requestParameters['reconciled'];
+                        }
+                        if (requestParameters['completed'] != null) {
+                            queryParameters['completed'] = requestParameters['completed'];
+                        }
+                        if (requestParameters['tags'] != null) {
+                            queryParameters['tags'] = requestParameters['tags'];
+                        }
+                        if (requestParameters['createdAtTo'] != null) {
+                            queryParameters['createdAtTo'] = requestParameters['createdAtTo'];
+                        }
+                        if (requestParameters['createdAtFrom'] != null) {
+                            queryParameters['createdAtFrom'] = requestParameters['createdAtFrom'];
+                        }
+                        if (requestParameters['cashDateTo'] != null) {
+                            queryParameters['cashDateTo'] = requestParameters['cashDateTo'];
+                        }
+                        if (requestParameters['cashDateFrom'] != null) {
+                            queryParameters['cashDateFrom'] = requestParameters['cashDateFrom'];
+                        }
+                        if (requestParameters['competenceDateTo'] != null) {
+                            queryParameters['competenceDateTo'] = requestParameters['competenceDateTo'];
+                        }
+                        if (requestParameters['competenceDateFrom'] != null) {
+                            queryParameters['competenceDateFrom'] = requestParameters['competenceDateFrom'];
+                        }
+                        if (requestParameters['subcategory'] != null) {
+                            queryParameters['subcategory'] = requestParameters['subcategory'];
+                        }
+                        if (requestParameters['contact'] != null) {
+                            queryParameters['contact'] = requestParameters['contact'];
+                        }
+                        if (requestParameters['dueDateTo'] != null) {
+                            queryParameters['dueDateTo'] = requestParameters['dueDateTo'];
+                        }
+                        if (requestParameters['dueDateFrom'] != null) {
+                            queryParameters['dueDateFrom'] = requestParameters['dueDateFrom'];
+                        }
+                        if (requestParameters['finalAmountTo'] != null) {
+                            queryParameters['finalAmountTo'] = requestParameters['finalAmountTo'];
+                        }
+                        if (requestParameters['finalAmountFrom'] != null) {
+                            queryParameters['finalAmountFrom'] = requestParameters['finalAmountFrom'];
+                        }
+                        if (requestParameters['amountTo'] != null) {
+                            queryParameters['amountTo'] = requestParameters['amountTo'];
+                        }
+                        if (requestParameters['amountFrom'] != null) {
+                            queryParameters['amountFrom'] = requestParameters['amountFrom'];
+                        }
+                        if (requestParameters['direction'] != null) {
+                            queryParameters['direction'] = requestParameters['direction'];
+                        }
+                        if (requestParameters['ids'] != null) {
+                            queryParameters['ids'] = requestParameters['ids'];
+                        }
+                        if (requestParameters['populate'] != null) {
+                            queryParameters['populate'] = requestParameters['populate'];
+                        }
+                        if (requestParameters['semanticSearchTermInBase64'] != null) {
+                            queryParameters['semanticSearchTermInBase64'] = requestParameters['semanticSearchTermInBase64'];
+                        }
+                        if (requestParameters['textSearchTerm'] != null) {
+                            queryParameters['textSearchTerm'] = requestParameters['textSearchTerm'];
+                        }
+                        if (requestParameters['pageSize'] != null) {
+                            queryParameters['pageSize'] = requestParameters['pageSize'];
+                        }
+                        if (requestParameters['pageIndex'] != null) {
+                            queryParameters['pageIndex'] = requestParameters['pageIndex'];
+                        }
+                        headerParameters = {};
+                        urlPath = "/external/financial-records/reports/pdf/list";
+                        return [4 /*yield*/, this.request({
+                                path: urlPath,
+                                method: 'GET',
+                                headers: headerParameters,
+                                query: queryParameters,
+                            }, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.FileEntityFromJSON)(jsonValue); })];
+                }
+            });
+        });
+    };
+    /**
+     * Gera exportação em PDF dos lançamentos financeiros no formato de lista.
+     */
+    FinancialRecordsApi.prototype.generatePdfListExportFinancialRecords = function () {
+        return __awaiter(this, arguments, void 0, function (requestParameters, initOverrides) {
+            var response;
+            if (requestParameters === void 0) { requestParameters = {}; }
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.generatePdfListExportFinancialRecordsRaw(requestParameters, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [4 /*yield*/, response.value()];
+                    case 2: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
+    /**
+     * Gera exportação em PDF dos lançamentos financeiros no formato de tabela.
+     */
+    FinancialRecordsApi.prototype.generatePdfTableExportFinancialRecordsRaw = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        queryParameters = {};
+                        if (requestParameters['queryId'] != null) {
+                            queryParameters['queryId'] = requestParameters['queryId'];
+                        }
+                        if (requestParameters['sortOrder'] != null) {
+                            queryParameters['sortOrder'] = requestParameters['sortOrder'];
+                        }
+                        if (requestParameters['sortBy'] != null) {
+                            queryParameters['sortBy'] = requestParameters['sortBy'];
+                        }
+                        if (requestParameters['recurringFinancialRecord'] != null) {
+                            queryParameters['recurringFinancialRecord'] = requestParameters['recurringFinancialRecord'];
+                        }
+                        if (requestParameters['installmentFinancialRecord'] != null) {
+                            queryParameters['installmentFinancialRecord'] = requestParameters['installmentFinancialRecord'];
+                        }
+                        if (requestParameters['account'] != null) {
+                            queryParameters['account'] = requestParameters['account'];
+                        }
+                        if (requestParameters['reconciled'] != null) {
+                            queryParameters['reconciled'] = requestParameters['reconciled'];
+                        }
+                        if (requestParameters['completed'] != null) {
+                            queryParameters['completed'] = requestParameters['completed'];
+                        }
+                        if (requestParameters['tags'] != null) {
+                            queryParameters['tags'] = requestParameters['tags'];
+                        }
+                        if (requestParameters['createdAtTo'] != null) {
+                            queryParameters['createdAtTo'] = requestParameters['createdAtTo'];
+                        }
+                        if (requestParameters['createdAtFrom'] != null) {
+                            queryParameters['createdAtFrom'] = requestParameters['createdAtFrom'];
+                        }
+                        if (requestParameters['cashDateTo'] != null) {
+                            queryParameters['cashDateTo'] = requestParameters['cashDateTo'];
+                        }
+                        if (requestParameters['cashDateFrom'] != null) {
+                            queryParameters['cashDateFrom'] = requestParameters['cashDateFrom'];
+                        }
+                        if (requestParameters['competenceDateTo'] != null) {
+                            queryParameters['competenceDateTo'] = requestParameters['competenceDateTo'];
+                        }
+                        if (requestParameters['competenceDateFrom'] != null) {
+                            queryParameters['competenceDateFrom'] = requestParameters['competenceDateFrom'];
+                        }
+                        if (requestParameters['subcategory'] != null) {
+                            queryParameters['subcategory'] = requestParameters['subcategory'];
+                        }
+                        if (requestParameters['contact'] != null) {
+                            queryParameters['contact'] = requestParameters['contact'];
+                        }
+                        if (requestParameters['dueDateTo'] != null) {
+                            queryParameters['dueDateTo'] = requestParameters['dueDateTo'];
+                        }
+                        if (requestParameters['dueDateFrom'] != null) {
+                            queryParameters['dueDateFrom'] = requestParameters['dueDateFrom'];
+                        }
+                        if (requestParameters['finalAmountTo'] != null) {
+                            queryParameters['finalAmountTo'] = requestParameters['finalAmountTo'];
+                        }
+                        if (requestParameters['finalAmountFrom'] != null) {
+                            queryParameters['finalAmountFrom'] = requestParameters['finalAmountFrom'];
+                        }
+                        if (requestParameters['amountTo'] != null) {
+                            queryParameters['amountTo'] = requestParameters['amountTo'];
+                        }
+                        if (requestParameters['amountFrom'] != null) {
+                            queryParameters['amountFrom'] = requestParameters['amountFrom'];
+                        }
+                        if (requestParameters['direction'] != null) {
+                            queryParameters['direction'] = requestParameters['direction'];
+                        }
+                        if (requestParameters['ids'] != null) {
+                            queryParameters['ids'] = requestParameters['ids'];
+                        }
+                        if (requestParameters['populate'] != null) {
+                            queryParameters['populate'] = requestParameters['populate'];
+                        }
+                        if (requestParameters['semanticSearchTermInBase64'] != null) {
+                            queryParameters['semanticSearchTermInBase64'] = requestParameters['semanticSearchTermInBase64'];
+                        }
+                        if (requestParameters['textSearchTerm'] != null) {
+                            queryParameters['textSearchTerm'] = requestParameters['textSearchTerm'];
+                        }
+                        if (requestParameters['pageSize'] != null) {
+                            queryParameters['pageSize'] = requestParameters['pageSize'];
+                        }
+                        if (requestParameters['pageIndex'] != null) {
+                            queryParameters['pageIndex'] = requestParameters['pageIndex'];
+                        }
+                        headerParameters = {};
+                        urlPath = "/external/financial-records/reports/pdf/table";
+                        return [4 /*yield*/, this.request({
+                                path: urlPath,
+                                method: 'GET',
+                                headers: headerParameters,
+                                query: queryParameters,
+                            }, initOverrides)];
+                    case 1:
+                        response = _a.sent();
+                        return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.FileEntityFromJSON)(jsonValue); })];
+                }
+            });
+        });
+    };
+    /**
+     * Gera exportação em PDF dos lançamentos financeiros no formato de tabela.
+     */
+    FinancialRecordsApi.prototype.generatePdfTableExportFinancialRecords = function () {
+        return __awaiter(this, arguments, void 0, function (requestParameters, initOverrides) {
+            var response;
+            if (requestParameters === void 0) { requestParameters = {}; }
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.generatePdfTableExportFinancialRecordsRaw(requestParameters, initOverrides)];
                     case 1:
                         response = _a.sent();
                         return [4 /*yield*/, response.value()];
@@ -994,6 +1260,64 @@ exports.FindAllFinancialRecordsSortByEnum = {
  * @export
  */
 exports.FindAllFinancialRecordsDirectionEnum = {
+    In: 'IN',
+    Out: 'OUT'
+};
+/**
+ * @export
+ */
+exports.GeneratePdfListExportFinancialRecordsSortOrderEnum = {
+    Asc: 'asc',
+    Desc: 'desc'
+};
+/**
+ * @export
+ */
+exports.GeneratePdfListExportFinancialRecordsSortByEnum = {
+    Direction: 'direction',
+    DueDate: 'dueDate',
+    Contact: 'contact',
+    Description: 'description',
+    Subcategory: 'subcategory',
+    Amount: 'amount',
+    CompetenceDate: 'competenceDate',
+    CashDate: 'cashDate',
+    CreatedAt: 'createdAt',
+    FinalAmount: 'finalAmount'
+};
+/**
+ * @export
+ */
+exports.GeneratePdfListExportFinancialRecordsDirectionEnum = {
+    In: 'IN',
+    Out: 'OUT'
+};
+/**
+ * @export
+ */
+exports.GeneratePdfTableExportFinancialRecordsSortOrderEnum = {
+    Asc: 'asc',
+    Desc: 'desc'
+};
+/**
+ * @export
+ */
+exports.GeneratePdfTableExportFinancialRecordsSortByEnum = {
+    Direction: 'direction',
+    DueDate: 'dueDate',
+    Contact: 'contact',
+    Description: 'description',
+    Subcategory: 'subcategory',
+    Amount: 'amount',
+    CompetenceDate: 'competenceDate',
+    CashDate: 'cashDate',
+    CreatedAt: 'createdAt',
+    FinalAmount: 'finalAmount'
+};
+/**
+ * @export
+ */
+exports.GeneratePdfTableExportFinancialRecordsDirectionEnum = {
     In: 'IN',
     Out: 'OUT'
 };

@@ -19,6 +19,7 @@ import type {
   CreateInternalTransferRequestBodyDto,
   CreateManyFinancialRecordsRequestBodyDto,
   ExceptionResponseEntity,
+  FileEntity,
   FinancialRecordDto,
   FinancialRecordsPageDto,
   PartialUpdateFinancialRecordRequestBodyDto,
@@ -39,6 +40,8 @@ import {
     CreateManyFinancialRecordsRequestBodyDtoToJSON,
     ExceptionResponseEntityFromJSON,
     ExceptionResponseEntityToJSON,
+    FileEntityFromJSON,
+    FileEntityToJSON,
     FinancialRecordDtoFromJSON,
     FinancialRecordDtoToJSON,
     FinancialRecordsPageDtoFromJSON,
@@ -111,6 +114,72 @@ export interface FindAllFinancialRecordsRequest {
 export interface FindByIdFinancialRecordRequest {
     id: string;
     populate?: string;
+}
+
+export interface GeneratePdfListExportFinancialRecordsRequest {
+    queryId?: string;
+    sortOrder?: GeneratePdfListExportFinancialRecordsSortOrderEnum;
+    sortBy?: GeneratePdfListExportFinancialRecordsSortByEnum;
+    recurringFinancialRecord?: string;
+    installmentFinancialRecord?: string;
+    account?: string;
+    reconciled?: boolean;
+    completed?: boolean;
+    tags?: string;
+    createdAtTo?: string;
+    createdAtFrom?: string;
+    cashDateTo?: string;
+    cashDateFrom?: string;
+    competenceDateTo?: string;
+    competenceDateFrom?: string;
+    subcategory?: string;
+    contact?: string;
+    dueDateTo?: string;
+    dueDateFrom?: string;
+    finalAmountTo?: string;
+    finalAmountFrom?: string;
+    amountTo?: string;
+    amountFrom?: string;
+    direction?: GeneratePdfListExportFinancialRecordsDirectionEnum;
+    ids?: string;
+    populate?: string;
+    semanticSearchTermInBase64?: string;
+    textSearchTerm?: string;
+    pageSize?: number;
+    pageIndex?: number;
+}
+
+export interface GeneratePdfTableExportFinancialRecordsRequest {
+    queryId?: string;
+    sortOrder?: GeneratePdfTableExportFinancialRecordsSortOrderEnum;
+    sortBy?: GeneratePdfTableExportFinancialRecordsSortByEnum;
+    recurringFinancialRecord?: string;
+    installmentFinancialRecord?: string;
+    account?: string;
+    reconciled?: boolean;
+    completed?: boolean;
+    tags?: string;
+    createdAtTo?: string;
+    createdAtFrom?: string;
+    cashDateTo?: string;
+    cashDateFrom?: string;
+    competenceDateTo?: string;
+    competenceDateFrom?: string;
+    subcategory?: string;
+    contact?: string;
+    dueDateTo?: string;
+    dueDateFrom?: string;
+    finalAmountTo?: string;
+    finalAmountFrom?: string;
+    amountTo?: string;
+    amountFrom?: string;
+    direction?: GeneratePdfTableExportFinancialRecordsDirectionEnum;
+    ids?: string;
+    populate?: string;
+    semanticSearchTermInBase64?: string;
+    textSearchTerm?: string;
+    pageSize?: number;
+    pageIndex?: number;
 }
 
 export interface PartialUpdateFinancialRecordRequest {
@@ -304,6 +373,94 @@ export interface FinancialRecordsApiInterface {
      * Busca um lançamento financeiro pelo identificador.
      */
     findByIdFinancialRecord(requestParameters: FindByIdFinancialRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialRecordDto>;
+
+    /**
+     * 
+     * @summary Gera exportação em PDF dos lançamentos financeiros no formato de lista.
+     * @param {string} [queryId] ID da consulta a ser aplicada.
+     * @param {'asc' | 'desc'} [sortOrder] Ordem de ordenação dos lançamentos financeiros.
+     * @param {'direction' | 'dueDate' | 'contact' | 'description' | 'subcategory' | 'amount' | 'competenceDate' | 'cashDate' | 'createdAt' | 'finalAmount'} [sortBy] Campo para ordenação dos lançamentos financeiros.
+     * @param {string} [recurringFinancialRecord] ID da recorrência financeira.
+     * @param {string} [installmentFinancialRecord] ID do parcelamento financeiro.
+     * @param {string} [account] IDs de contas bancárias do lançamento financeiro separados por vírgula.
+     * @param {boolean} [reconciled] Indica se o lançamento financeiro foi reconciliado.
+     * @param {boolean} [completed] Indica se o lançamento financeiro foi completado.
+     * @param {string} [tags] IDs das tags do lançamento financeiro separados por vírgula.
+     * @param {string} [createdAtTo] Data de criação final.
+     * @param {string} [createdAtFrom] Data de criação inicial.
+     * @param {string} [cashDateTo] Data de pagamento final.
+     * @param {string} [cashDateFrom] Data de pagamento inicial.
+     * @param {string} [competenceDateTo] Data de competência final.
+     * @param {string} [competenceDateFrom] Data de competência inicial.
+     * @param {string} [subcategory] IDs de subcategorias do lançamento financeiro separados por vírgula.
+     * @param {string} [contact] IDs de contatos do lançamento financeiro separados por vírgula.
+     * @param {string} [dueDateTo] Data de vencimento final.
+     * @param {string} [dueDateFrom] Data de vencimento inicial.
+     * @param {string} [finalAmountTo] Valor final do lançamento financeiro máximo.
+     * @param {string} [finalAmountFrom] Valor final do lançamento financeiro mínimo.
+     * @param {string} [amountTo] Valor do lançamento financeiro máximo.
+     * @param {string} [amountFrom] Valor do lançamento financeiro mínimo.
+     * @param {'IN' | 'OUT'} [direction] Direção do lançamento financeiro.
+     * @param {string} [ids] Lista de IDs de lançamentos financeiros para filtrar separados por vírgula.
+     * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
+     * @param {string} [semanticSearchTermInBase64] Termo para busca semântica.
+     * @param {string} [textSearchTerm] Termo para busca textual.
+     * @param {number} [pageSize] Quantidade de itens por página.
+     * @param {number} [pageIndex] Índice da página.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof FinancialRecordsApiInterface
+     */
+    generatePdfListExportFinancialRecordsRaw(requestParameters: GeneratePdfListExportFinancialRecordsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FileEntity>>;
+
+    /**
+     * Gera exportação em PDF dos lançamentos financeiros no formato de lista.
+     */
+    generatePdfListExportFinancialRecords(requestParameters: GeneratePdfListExportFinancialRecordsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FileEntity>;
+
+    /**
+     * 
+     * @summary Gera exportação em PDF dos lançamentos financeiros no formato de tabela.
+     * @param {string} [queryId] ID da consulta a ser aplicada.
+     * @param {'asc' | 'desc'} [sortOrder] Ordem de ordenação dos lançamentos financeiros.
+     * @param {'direction' | 'dueDate' | 'contact' | 'description' | 'subcategory' | 'amount' | 'competenceDate' | 'cashDate' | 'createdAt' | 'finalAmount'} [sortBy] Campo para ordenação dos lançamentos financeiros.
+     * @param {string} [recurringFinancialRecord] ID da recorrência financeira.
+     * @param {string} [installmentFinancialRecord] ID do parcelamento financeiro.
+     * @param {string} [account] IDs de contas bancárias do lançamento financeiro separados por vírgula.
+     * @param {boolean} [reconciled] Indica se o lançamento financeiro foi reconciliado.
+     * @param {boolean} [completed] Indica se o lançamento financeiro foi completado.
+     * @param {string} [tags] IDs das tags do lançamento financeiro separados por vírgula.
+     * @param {string} [createdAtTo] Data de criação final.
+     * @param {string} [createdAtFrom] Data de criação inicial.
+     * @param {string} [cashDateTo] Data de pagamento final.
+     * @param {string} [cashDateFrom] Data de pagamento inicial.
+     * @param {string} [competenceDateTo] Data de competência final.
+     * @param {string} [competenceDateFrom] Data de competência inicial.
+     * @param {string} [subcategory] IDs de subcategorias do lançamento financeiro separados por vírgula.
+     * @param {string} [contact] IDs de contatos do lançamento financeiro separados por vírgula.
+     * @param {string} [dueDateTo] Data de vencimento final.
+     * @param {string} [dueDateFrom] Data de vencimento inicial.
+     * @param {string} [finalAmountTo] Valor final do lançamento financeiro máximo.
+     * @param {string} [finalAmountFrom] Valor final do lançamento financeiro mínimo.
+     * @param {string} [amountTo] Valor do lançamento financeiro máximo.
+     * @param {string} [amountFrom] Valor do lançamento financeiro mínimo.
+     * @param {'IN' | 'OUT'} [direction] Direção do lançamento financeiro.
+     * @param {string} [ids] Lista de IDs de lançamentos financeiros para filtrar separados por vírgula.
+     * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
+     * @param {string} [semanticSearchTermInBase64] Termo para busca semântica.
+     * @param {string} [textSearchTerm] Termo para busca textual.
+     * @param {number} [pageSize] Quantidade de itens por página.
+     * @param {number} [pageIndex] Índice da página.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof FinancialRecordsApiInterface
+     */
+    generatePdfTableExportFinancialRecordsRaw(requestParameters: GeneratePdfTableExportFinancialRecordsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FileEntity>>;
+
+    /**
+     * Gera exportação em PDF dos lançamentos financeiros no formato de tabela.
+     */
+    generatePdfTableExportFinancialRecords(requestParameters: GeneratePdfTableExportFinancialRecordsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FileEntity>;
 
     /**
      * 
@@ -802,6 +959,304 @@ export class FinancialRecordsApi extends runtime.BaseAPI implements FinancialRec
      */
     async findByIdFinancialRecord(requestParameters: FindByIdFinancialRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialRecordDto> {
         const response = await this.findByIdFinancialRecordRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Gera exportação em PDF dos lançamentos financeiros no formato de lista.
+     */
+    async generatePdfListExportFinancialRecordsRaw(requestParameters: GeneratePdfListExportFinancialRecordsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FileEntity>> {
+        const queryParameters: any = {};
+
+        if (requestParameters['queryId'] != null) {
+            queryParameters['queryId'] = requestParameters['queryId'];
+        }
+
+        if (requestParameters['sortOrder'] != null) {
+            queryParameters['sortOrder'] = requestParameters['sortOrder'];
+        }
+
+        if (requestParameters['sortBy'] != null) {
+            queryParameters['sortBy'] = requestParameters['sortBy'];
+        }
+
+        if (requestParameters['recurringFinancialRecord'] != null) {
+            queryParameters['recurringFinancialRecord'] = requestParameters['recurringFinancialRecord'];
+        }
+
+        if (requestParameters['installmentFinancialRecord'] != null) {
+            queryParameters['installmentFinancialRecord'] = requestParameters['installmentFinancialRecord'];
+        }
+
+        if (requestParameters['account'] != null) {
+            queryParameters['account'] = requestParameters['account'];
+        }
+
+        if (requestParameters['reconciled'] != null) {
+            queryParameters['reconciled'] = requestParameters['reconciled'];
+        }
+
+        if (requestParameters['completed'] != null) {
+            queryParameters['completed'] = requestParameters['completed'];
+        }
+
+        if (requestParameters['tags'] != null) {
+            queryParameters['tags'] = requestParameters['tags'];
+        }
+
+        if (requestParameters['createdAtTo'] != null) {
+            queryParameters['createdAtTo'] = requestParameters['createdAtTo'];
+        }
+
+        if (requestParameters['createdAtFrom'] != null) {
+            queryParameters['createdAtFrom'] = requestParameters['createdAtFrom'];
+        }
+
+        if (requestParameters['cashDateTo'] != null) {
+            queryParameters['cashDateTo'] = requestParameters['cashDateTo'];
+        }
+
+        if (requestParameters['cashDateFrom'] != null) {
+            queryParameters['cashDateFrom'] = requestParameters['cashDateFrom'];
+        }
+
+        if (requestParameters['competenceDateTo'] != null) {
+            queryParameters['competenceDateTo'] = requestParameters['competenceDateTo'];
+        }
+
+        if (requestParameters['competenceDateFrom'] != null) {
+            queryParameters['competenceDateFrom'] = requestParameters['competenceDateFrom'];
+        }
+
+        if (requestParameters['subcategory'] != null) {
+            queryParameters['subcategory'] = requestParameters['subcategory'];
+        }
+
+        if (requestParameters['contact'] != null) {
+            queryParameters['contact'] = requestParameters['contact'];
+        }
+
+        if (requestParameters['dueDateTo'] != null) {
+            queryParameters['dueDateTo'] = requestParameters['dueDateTo'];
+        }
+
+        if (requestParameters['dueDateFrom'] != null) {
+            queryParameters['dueDateFrom'] = requestParameters['dueDateFrom'];
+        }
+
+        if (requestParameters['finalAmountTo'] != null) {
+            queryParameters['finalAmountTo'] = requestParameters['finalAmountTo'];
+        }
+
+        if (requestParameters['finalAmountFrom'] != null) {
+            queryParameters['finalAmountFrom'] = requestParameters['finalAmountFrom'];
+        }
+
+        if (requestParameters['amountTo'] != null) {
+            queryParameters['amountTo'] = requestParameters['amountTo'];
+        }
+
+        if (requestParameters['amountFrom'] != null) {
+            queryParameters['amountFrom'] = requestParameters['amountFrom'];
+        }
+
+        if (requestParameters['direction'] != null) {
+            queryParameters['direction'] = requestParameters['direction'];
+        }
+
+        if (requestParameters['ids'] != null) {
+            queryParameters['ids'] = requestParameters['ids'];
+        }
+
+        if (requestParameters['populate'] != null) {
+            queryParameters['populate'] = requestParameters['populate'];
+        }
+
+        if (requestParameters['semanticSearchTermInBase64'] != null) {
+            queryParameters['semanticSearchTermInBase64'] = requestParameters['semanticSearchTermInBase64'];
+        }
+
+        if (requestParameters['textSearchTerm'] != null) {
+            queryParameters['textSearchTerm'] = requestParameters['textSearchTerm'];
+        }
+
+        if (requestParameters['pageSize'] != null) {
+            queryParameters['pageSize'] = requestParameters['pageSize'];
+        }
+
+        if (requestParameters['pageIndex'] != null) {
+            queryParameters['pageIndex'] = requestParameters['pageIndex'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+
+        let urlPath = `/external/financial-records/reports/pdf/list`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => FileEntityFromJSON(jsonValue));
+    }
+
+    /**
+     * Gera exportação em PDF dos lançamentos financeiros no formato de lista.
+     */
+    async generatePdfListExportFinancialRecords(requestParameters: GeneratePdfListExportFinancialRecordsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FileEntity> {
+        const response = await this.generatePdfListExportFinancialRecordsRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Gera exportação em PDF dos lançamentos financeiros no formato de tabela.
+     */
+    async generatePdfTableExportFinancialRecordsRaw(requestParameters: GeneratePdfTableExportFinancialRecordsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FileEntity>> {
+        const queryParameters: any = {};
+
+        if (requestParameters['queryId'] != null) {
+            queryParameters['queryId'] = requestParameters['queryId'];
+        }
+
+        if (requestParameters['sortOrder'] != null) {
+            queryParameters['sortOrder'] = requestParameters['sortOrder'];
+        }
+
+        if (requestParameters['sortBy'] != null) {
+            queryParameters['sortBy'] = requestParameters['sortBy'];
+        }
+
+        if (requestParameters['recurringFinancialRecord'] != null) {
+            queryParameters['recurringFinancialRecord'] = requestParameters['recurringFinancialRecord'];
+        }
+
+        if (requestParameters['installmentFinancialRecord'] != null) {
+            queryParameters['installmentFinancialRecord'] = requestParameters['installmentFinancialRecord'];
+        }
+
+        if (requestParameters['account'] != null) {
+            queryParameters['account'] = requestParameters['account'];
+        }
+
+        if (requestParameters['reconciled'] != null) {
+            queryParameters['reconciled'] = requestParameters['reconciled'];
+        }
+
+        if (requestParameters['completed'] != null) {
+            queryParameters['completed'] = requestParameters['completed'];
+        }
+
+        if (requestParameters['tags'] != null) {
+            queryParameters['tags'] = requestParameters['tags'];
+        }
+
+        if (requestParameters['createdAtTo'] != null) {
+            queryParameters['createdAtTo'] = requestParameters['createdAtTo'];
+        }
+
+        if (requestParameters['createdAtFrom'] != null) {
+            queryParameters['createdAtFrom'] = requestParameters['createdAtFrom'];
+        }
+
+        if (requestParameters['cashDateTo'] != null) {
+            queryParameters['cashDateTo'] = requestParameters['cashDateTo'];
+        }
+
+        if (requestParameters['cashDateFrom'] != null) {
+            queryParameters['cashDateFrom'] = requestParameters['cashDateFrom'];
+        }
+
+        if (requestParameters['competenceDateTo'] != null) {
+            queryParameters['competenceDateTo'] = requestParameters['competenceDateTo'];
+        }
+
+        if (requestParameters['competenceDateFrom'] != null) {
+            queryParameters['competenceDateFrom'] = requestParameters['competenceDateFrom'];
+        }
+
+        if (requestParameters['subcategory'] != null) {
+            queryParameters['subcategory'] = requestParameters['subcategory'];
+        }
+
+        if (requestParameters['contact'] != null) {
+            queryParameters['contact'] = requestParameters['contact'];
+        }
+
+        if (requestParameters['dueDateTo'] != null) {
+            queryParameters['dueDateTo'] = requestParameters['dueDateTo'];
+        }
+
+        if (requestParameters['dueDateFrom'] != null) {
+            queryParameters['dueDateFrom'] = requestParameters['dueDateFrom'];
+        }
+
+        if (requestParameters['finalAmountTo'] != null) {
+            queryParameters['finalAmountTo'] = requestParameters['finalAmountTo'];
+        }
+
+        if (requestParameters['finalAmountFrom'] != null) {
+            queryParameters['finalAmountFrom'] = requestParameters['finalAmountFrom'];
+        }
+
+        if (requestParameters['amountTo'] != null) {
+            queryParameters['amountTo'] = requestParameters['amountTo'];
+        }
+
+        if (requestParameters['amountFrom'] != null) {
+            queryParameters['amountFrom'] = requestParameters['amountFrom'];
+        }
+
+        if (requestParameters['direction'] != null) {
+            queryParameters['direction'] = requestParameters['direction'];
+        }
+
+        if (requestParameters['ids'] != null) {
+            queryParameters['ids'] = requestParameters['ids'];
+        }
+
+        if (requestParameters['populate'] != null) {
+            queryParameters['populate'] = requestParameters['populate'];
+        }
+
+        if (requestParameters['semanticSearchTermInBase64'] != null) {
+            queryParameters['semanticSearchTermInBase64'] = requestParameters['semanticSearchTermInBase64'];
+        }
+
+        if (requestParameters['textSearchTerm'] != null) {
+            queryParameters['textSearchTerm'] = requestParameters['textSearchTerm'];
+        }
+
+        if (requestParameters['pageSize'] != null) {
+            queryParameters['pageSize'] = requestParameters['pageSize'];
+        }
+
+        if (requestParameters['pageIndex'] != null) {
+            queryParameters['pageIndex'] = requestParameters['pageIndex'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+
+        let urlPath = `/external/financial-records/reports/pdf/table`;
+
+        const response = await this.request({
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => FileEntityFromJSON(jsonValue));
+    }
+
+    /**
+     * Gera exportação em PDF dos lançamentos financeiros no formato de tabela.
+     */
+    async generatePdfTableExportFinancialRecords(requestParameters: GeneratePdfTableExportFinancialRecordsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FileEntity> {
+        const response = await this.generatePdfTableExportFinancialRecordsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
@@ -1398,6 +1853,70 @@ export const FindAllFinancialRecordsDirectionEnum = {
     Out: 'OUT'
 } as const;
 export type FindAllFinancialRecordsDirectionEnum = typeof FindAllFinancialRecordsDirectionEnum[keyof typeof FindAllFinancialRecordsDirectionEnum];
+/**
+ * @export
+ */
+export const GeneratePdfListExportFinancialRecordsSortOrderEnum = {
+    Asc: 'asc',
+    Desc: 'desc'
+} as const;
+export type GeneratePdfListExportFinancialRecordsSortOrderEnum = typeof GeneratePdfListExportFinancialRecordsSortOrderEnum[keyof typeof GeneratePdfListExportFinancialRecordsSortOrderEnum];
+/**
+ * @export
+ */
+export const GeneratePdfListExportFinancialRecordsSortByEnum = {
+    Direction: 'direction',
+    DueDate: 'dueDate',
+    Contact: 'contact',
+    Description: 'description',
+    Subcategory: 'subcategory',
+    Amount: 'amount',
+    CompetenceDate: 'competenceDate',
+    CashDate: 'cashDate',
+    CreatedAt: 'createdAt',
+    FinalAmount: 'finalAmount'
+} as const;
+export type GeneratePdfListExportFinancialRecordsSortByEnum = typeof GeneratePdfListExportFinancialRecordsSortByEnum[keyof typeof GeneratePdfListExportFinancialRecordsSortByEnum];
+/**
+ * @export
+ */
+export const GeneratePdfListExportFinancialRecordsDirectionEnum = {
+    In: 'IN',
+    Out: 'OUT'
+} as const;
+export type GeneratePdfListExportFinancialRecordsDirectionEnum = typeof GeneratePdfListExportFinancialRecordsDirectionEnum[keyof typeof GeneratePdfListExportFinancialRecordsDirectionEnum];
+/**
+ * @export
+ */
+export const GeneratePdfTableExportFinancialRecordsSortOrderEnum = {
+    Asc: 'asc',
+    Desc: 'desc'
+} as const;
+export type GeneratePdfTableExportFinancialRecordsSortOrderEnum = typeof GeneratePdfTableExportFinancialRecordsSortOrderEnum[keyof typeof GeneratePdfTableExportFinancialRecordsSortOrderEnum];
+/**
+ * @export
+ */
+export const GeneratePdfTableExportFinancialRecordsSortByEnum = {
+    Direction: 'direction',
+    DueDate: 'dueDate',
+    Contact: 'contact',
+    Description: 'description',
+    Subcategory: 'subcategory',
+    Amount: 'amount',
+    CompetenceDate: 'competenceDate',
+    CashDate: 'cashDate',
+    CreatedAt: 'createdAt',
+    FinalAmount: 'finalAmount'
+} as const;
+export type GeneratePdfTableExportFinancialRecordsSortByEnum = typeof GeneratePdfTableExportFinancialRecordsSortByEnum[keyof typeof GeneratePdfTableExportFinancialRecordsSortByEnum];
+/**
+ * @export
+ */
+export const GeneratePdfTableExportFinancialRecordsDirectionEnum = {
+    In: 'IN',
+    Out: 'OUT'
+} as const;
+export type GeneratePdfTableExportFinancialRecordsDirectionEnum = typeof GeneratePdfTableExportFinancialRecordsDirectionEnum[keyof typeof GeneratePdfTableExportFinancialRecordsDirectionEnum];
 /**
  * @export
  */

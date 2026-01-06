@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { CreateFinancialRecordRequestBodyDto, CreateInternalTransferRequestBodyDto, CreateManyFinancialRecordsRequestBodyDto, FinancialRecordDto, FinancialRecordsPageDto, PartialUpdateFinancialRecordRequestBodyDto, PartialUpdateManyFinancialRecordsRequestBodyDto, RemoveFinancialRecordRequestBodyDto, SystemCalculateSearchVariationsRequestBodyDto, SystemFinancialRecordsPageDto, SystemGenerateMostCommonContactsForSimilarFinancialRecordReportRequestBodyDto, SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDto, UnlinkAllRadarItemsRequestBodyDto } from '../models/index';
+import type { CreateFinancialRecordRequestBodyDto, CreateInternalTransferRequestBodyDto, CreateManyFinancialRecordsRequestBodyDto, FileEntity, FinancialRecordDto, FinancialRecordsPageDto, PartialUpdateFinancialRecordRequestBodyDto, PartialUpdateManyFinancialRecordsRequestBodyDto, RemoveFinancialRecordRequestBodyDto, SystemCalculateSearchVariationsRequestBodyDto, SystemFinancialRecordsPageDto, SystemGenerateMostCommonContactsForSimilarFinancialRecordReportRequestBodyDto, SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDto, UnlinkAllRadarItemsRequestBodyDto } from '../models/index';
 export interface CreateFinancialRecordRequest {
     createFinancialRecordRequestBodyDto: CreateFinancialRecordRequestBodyDto;
     populate?: string;
@@ -57,6 +57,70 @@ export interface FindAllFinancialRecordsRequest {
 export interface FindByIdFinancialRecordRequest {
     id: string;
     populate?: string;
+}
+export interface GeneratePdfListExportFinancialRecordsRequest {
+    queryId?: string;
+    sortOrder?: GeneratePdfListExportFinancialRecordsSortOrderEnum;
+    sortBy?: GeneratePdfListExportFinancialRecordsSortByEnum;
+    recurringFinancialRecord?: string;
+    installmentFinancialRecord?: string;
+    account?: string;
+    reconciled?: boolean;
+    completed?: boolean;
+    tags?: string;
+    createdAtTo?: string;
+    createdAtFrom?: string;
+    cashDateTo?: string;
+    cashDateFrom?: string;
+    competenceDateTo?: string;
+    competenceDateFrom?: string;
+    subcategory?: string;
+    contact?: string;
+    dueDateTo?: string;
+    dueDateFrom?: string;
+    finalAmountTo?: string;
+    finalAmountFrom?: string;
+    amountTo?: string;
+    amountFrom?: string;
+    direction?: GeneratePdfListExportFinancialRecordsDirectionEnum;
+    ids?: string;
+    populate?: string;
+    semanticSearchTermInBase64?: string;
+    textSearchTerm?: string;
+    pageSize?: number;
+    pageIndex?: number;
+}
+export interface GeneratePdfTableExportFinancialRecordsRequest {
+    queryId?: string;
+    sortOrder?: GeneratePdfTableExportFinancialRecordsSortOrderEnum;
+    sortBy?: GeneratePdfTableExportFinancialRecordsSortByEnum;
+    recurringFinancialRecord?: string;
+    installmentFinancialRecord?: string;
+    account?: string;
+    reconciled?: boolean;
+    completed?: boolean;
+    tags?: string;
+    createdAtTo?: string;
+    createdAtFrom?: string;
+    cashDateTo?: string;
+    cashDateFrom?: string;
+    competenceDateTo?: string;
+    competenceDateFrom?: string;
+    subcategory?: string;
+    contact?: string;
+    dueDateTo?: string;
+    dueDateFrom?: string;
+    finalAmountTo?: string;
+    finalAmountFrom?: string;
+    amountTo?: string;
+    amountFrom?: string;
+    direction?: GeneratePdfTableExportFinancialRecordsDirectionEnum;
+    ids?: string;
+    populate?: string;
+    semanticSearchTermInBase64?: string;
+    textSearchTerm?: string;
+    pageSize?: number;
+    pageIndex?: number;
 }
 export interface PartialUpdateFinancialRecordRequest {
     id: string;
@@ -231,6 +295,90 @@ export interface FinancialRecordsApiInterface {
      * Busca um lançamento financeiro pelo identificador.
      */
     findByIdFinancialRecord(requestParameters: FindByIdFinancialRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialRecordDto>;
+    /**
+     *
+     * @summary Gera exportação em PDF dos lançamentos financeiros no formato de lista.
+     * @param {string} [queryId] ID da consulta a ser aplicada.
+     * @param {'asc' | 'desc'} [sortOrder] Ordem de ordenação dos lançamentos financeiros.
+     * @param {'direction' | 'dueDate' | 'contact' | 'description' | 'subcategory' | 'amount' | 'competenceDate' | 'cashDate' | 'createdAt' | 'finalAmount'} [sortBy] Campo para ordenação dos lançamentos financeiros.
+     * @param {string} [recurringFinancialRecord] ID da recorrência financeira.
+     * @param {string} [installmentFinancialRecord] ID do parcelamento financeiro.
+     * @param {string} [account] IDs de contas bancárias do lançamento financeiro separados por vírgula.
+     * @param {boolean} [reconciled] Indica se o lançamento financeiro foi reconciliado.
+     * @param {boolean} [completed] Indica se o lançamento financeiro foi completado.
+     * @param {string} [tags] IDs das tags do lançamento financeiro separados por vírgula.
+     * @param {string} [createdAtTo] Data de criação final.
+     * @param {string} [createdAtFrom] Data de criação inicial.
+     * @param {string} [cashDateTo] Data de pagamento final.
+     * @param {string} [cashDateFrom] Data de pagamento inicial.
+     * @param {string} [competenceDateTo] Data de competência final.
+     * @param {string} [competenceDateFrom] Data de competência inicial.
+     * @param {string} [subcategory] IDs de subcategorias do lançamento financeiro separados por vírgula.
+     * @param {string} [contact] IDs de contatos do lançamento financeiro separados por vírgula.
+     * @param {string} [dueDateTo] Data de vencimento final.
+     * @param {string} [dueDateFrom] Data de vencimento inicial.
+     * @param {string} [finalAmountTo] Valor final do lançamento financeiro máximo.
+     * @param {string} [finalAmountFrom] Valor final do lançamento financeiro mínimo.
+     * @param {string} [amountTo] Valor do lançamento financeiro máximo.
+     * @param {string} [amountFrom] Valor do lançamento financeiro mínimo.
+     * @param {'IN' | 'OUT'} [direction] Direção do lançamento financeiro.
+     * @param {string} [ids] Lista de IDs de lançamentos financeiros para filtrar separados por vírgula.
+     * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
+     * @param {string} [semanticSearchTermInBase64] Termo para busca semântica.
+     * @param {string} [textSearchTerm] Termo para busca textual.
+     * @param {number} [pageSize] Quantidade de itens por página.
+     * @param {number} [pageIndex] Índice da página.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof FinancialRecordsApiInterface
+     */
+    generatePdfListExportFinancialRecordsRaw(requestParameters: GeneratePdfListExportFinancialRecordsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FileEntity>>;
+    /**
+     * Gera exportação em PDF dos lançamentos financeiros no formato de lista.
+     */
+    generatePdfListExportFinancialRecords(requestParameters: GeneratePdfListExportFinancialRecordsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FileEntity>;
+    /**
+     *
+     * @summary Gera exportação em PDF dos lançamentos financeiros no formato de tabela.
+     * @param {string} [queryId] ID da consulta a ser aplicada.
+     * @param {'asc' | 'desc'} [sortOrder] Ordem de ordenação dos lançamentos financeiros.
+     * @param {'direction' | 'dueDate' | 'contact' | 'description' | 'subcategory' | 'amount' | 'competenceDate' | 'cashDate' | 'createdAt' | 'finalAmount'} [sortBy] Campo para ordenação dos lançamentos financeiros.
+     * @param {string} [recurringFinancialRecord] ID da recorrência financeira.
+     * @param {string} [installmentFinancialRecord] ID do parcelamento financeiro.
+     * @param {string} [account] IDs de contas bancárias do lançamento financeiro separados por vírgula.
+     * @param {boolean} [reconciled] Indica se o lançamento financeiro foi reconciliado.
+     * @param {boolean} [completed] Indica se o lançamento financeiro foi completado.
+     * @param {string} [tags] IDs das tags do lançamento financeiro separados por vírgula.
+     * @param {string} [createdAtTo] Data de criação final.
+     * @param {string} [createdAtFrom] Data de criação inicial.
+     * @param {string} [cashDateTo] Data de pagamento final.
+     * @param {string} [cashDateFrom] Data de pagamento inicial.
+     * @param {string} [competenceDateTo] Data de competência final.
+     * @param {string} [competenceDateFrom] Data de competência inicial.
+     * @param {string} [subcategory] IDs de subcategorias do lançamento financeiro separados por vírgula.
+     * @param {string} [contact] IDs de contatos do lançamento financeiro separados por vírgula.
+     * @param {string} [dueDateTo] Data de vencimento final.
+     * @param {string} [dueDateFrom] Data de vencimento inicial.
+     * @param {string} [finalAmountTo] Valor final do lançamento financeiro máximo.
+     * @param {string} [finalAmountFrom] Valor final do lançamento financeiro mínimo.
+     * @param {string} [amountTo] Valor do lançamento financeiro máximo.
+     * @param {string} [amountFrom] Valor do lançamento financeiro mínimo.
+     * @param {'IN' | 'OUT'} [direction] Direção do lançamento financeiro.
+     * @param {string} [ids] Lista de IDs de lançamentos financeiros para filtrar separados por vírgula.
+     * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
+     * @param {string} [semanticSearchTermInBase64] Termo para busca semântica.
+     * @param {string} [textSearchTerm] Termo para busca textual.
+     * @param {number} [pageSize] Quantidade de itens por página.
+     * @param {number} [pageIndex] Índice da página.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof FinancialRecordsApiInterface
+     */
+    generatePdfTableExportFinancialRecordsRaw(requestParameters: GeneratePdfTableExportFinancialRecordsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FileEntity>>;
+    /**
+     * Gera exportação em PDF dos lançamentos financeiros no formato de tabela.
+     */
+    generatePdfTableExportFinancialRecords(requestParameters: GeneratePdfTableExportFinancialRecordsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FileEntity>;
     /**
      *
      * @summary Atualiza parcialmente um lançamento financeiro.
@@ -437,6 +585,22 @@ export declare class FinancialRecordsApi extends runtime.BaseAPI implements Fina
      */
     findByIdFinancialRecord(requestParameters: FindByIdFinancialRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialRecordDto>;
     /**
+     * Gera exportação em PDF dos lançamentos financeiros no formato de lista.
+     */
+    generatePdfListExportFinancialRecordsRaw(requestParameters: GeneratePdfListExportFinancialRecordsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FileEntity>>;
+    /**
+     * Gera exportação em PDF dos lançamentos financeiros no formato de lista.
+     */
+    generatePdfListExportFinancialRecords(requestParameters?: GeneratePdfListExportFinancialRecordsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FileEntity>;
+    /**
+     * Gera exportação em PDF dos lançamentos financeiros no formato de tabela.
+     */
+    generatePdfTableExportFinancialRecordsRaw(requestParameters: GeneratePdfTableExportFinancialRecordsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FileEntity>>;
+    /**
+     * Gera exportação em PDF dos lançamentos financeiros no formato de tabela.
+     */
+    generatePdfTableExportFinancialRecords(requestParameters?: GeneratePdfTableExportFinancialRecordsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FileEntity>;
+    /**
      * Atualiza parcialmente um lançamento financeiro.
      */
     partialUpdateFinancialRecordRaw(requestParameters: PartialUpdateFinancialRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FinancialRecordDto>>;
@@ -543,6 +707,70 @@ export declare const FindAllFinancialRecordsDirectionEnum: {
     readonly Out: "OUT";
 };
 export type FindAllFinancialRecordsDirectionEnum = typeof FindAllFinancialRecordsDirectionEnum[keyof typeof FindAllFinancialRecordsDirectionEnum];
+/**
+ * @export
+ */
+export declare const GeneratePdfListExportFinancialRecordsSortOrderEnum: {
+    readonly Asc: "asc";
+    readonly Desc: "desc";
+};
+export type GeneratePdfListExportFinancialRecordsSortOrderEnum = typeof GeneratePdfListExportFinancialRecordsSortOrderEnum[keyof typeof GeneratePdfListExportFinancialRecordsSortOrderEnum];
+/**
+ * @export
+ */
+export declare const GeneratePdfListExportFinancialRecordsSortByEnum: {
+    readonly Direction: "direction";
+    readonly DueDate: "dueDate";
+    readonly Contact: "contact";
+    readonly Description: "description";
+    readonly Subcategory: "subcategory";
+    readonly Amount: "amount";
+    readonly CompetenceDate: "competenceDate";
+    readonly CashDate: "cashDate";
+    readonly CreatedAt: "createdAt";
+    readonly FinalAmount: "finalAmount";
+};
+export type GeneratePdfListExportFinancialRecordsSortByEnum = typeof GeneratePdfListExportFinancialRecordsSortByEnum[keyof typeof GeneratePdfListExportFinancialRecordsSortByEnum];
+/**
+ * @export
+ */
+export declare const GeneratePdfListExportFinancialRecordsDirectionEnum: {
+    readonly In: "IN";
+    readonly Out: "OUT";
+};
+export type GeneratePdfListExportFinancialRecordsDirectionEnum = typeof GeneratePdfListExportFinancialRecordsDirectionEnum[keyof typeof GeneratePdfListExportFinancialRecordsDirectionEnum];
+/**
+ * @export
+ */
+export declare const GeneratePdfTableExportFinancialRecordsSortOrderEnum: {
+    readonly Asc: "asc";
+    readonly Desc: "desc";
+};
+export type GeneratePdfTableExportFinancialRecordsSortOrderEnum = typeof GeneratePdfTableExportFinancialRecordsSortOrderEnum[keyof typeof GeneratePdfTableExportFinancialRecordsSortOrderEnum];
+/**
+ * @export
+ */
+export declare const GeneratePdfTableExportFinancialRecordsSortByEnum: {
+    readonly Direction: "direction";
+    readonly DueDate: "dueDate";
+    readonly Contact: "contact";
+    readonly Description: "description";
+    readonly Subcategory: "subcategory";
+    readonly Amount: "amount";
+    readonly CompetenceDate: "competenceDate";
+    readonly CashDate: "cashDate";
+    readonly CreatedAt: "createdAt";
+    readonly FinalAmount: "finalAmount";
+};
+export type GeneratePdfTableExportFinancialRecordsSortByEnum = typeof GeneratePdfTableExportFinancialRecordsSortByEnum[keyof typeof GeneratePdfTableExportFinancialRecordsSortByEnum];
+/**
+ * @export
+ */
+export declare const GeneratePdfTableExportFinancialRecordsDirectionEnum: {
+    readonly In: "IN";
+    readonly Out: "OUT";
+};
+export type GeneratePdfTableExportFinancialRecordsDirectionEnum = typeof GeneratePdfTableExportFinancialRecordsDirectionEnum[keyof typeof GeneratePdfTableExportFinancialRecordsDirectionEnum];
 /**
  * @export
  */

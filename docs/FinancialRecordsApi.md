@@ -9,6 +9,8 @@ All URIs are relative to *http://localhost*
 | [**createManyFinancialRecords**](FinancialRecordsApi.md#createmanyfinancialrecords) | **POST** /external/financial-records/many | Cria múltiplos lançamentos financeiros. |
 | [**findAllFinancialRecords**](FinancialRecordsApi.md#findallfinancialrecords) | **GET** /external/financial-records | Busca todos os lançamentos financeiros. |
 | [**findByIdFinancialRecord**](FinancialRecordsApi.md#findbyidfinancialrecord) | **GET** /external/financial-records/{id} | Busca um lançamento financeiro pelo identificador. |
+| [**generatePdfListExportFinancialRecords**](FinancialRecordsApi.md#generatepdflistexportfinancialrecords) | **GET** /external/financial-records/reports/pdf/list | Gera exportação em PDF dos lançamentos financeiros no formato de lista. |
+| [**generatePdfTableExportFinancialRecords**](FinancialRecordsApi.md#generatepdftableexportfinancialrecords) | **GET** /external/financial-records/reports/pdf/table | Gera exportação em PDF dos lançamentos financeiros no formato de tabela. |
 | [**partialUpdateFinancialRecord**](FinancialRecordsApi.md#partialupdatefinancialrecord) | **PATCH** /external/financial-records/{id} | Atualiza parcialmente um lançamento financeiro. |
 | [**partialUpdateManyFinancialRecords**](FinancialRecordsApi.md#partialupdatemanyfinancialrecords) | **PATCH** /external/financial-records/many | Atualiza parcialmente múltiplos lançamentos financeiros. |
 | [**removeFinancialRecord**](FinancialRecordsApi.md#removefinancialrecord) | **DELETE** /external/financial-records/{id} | Remove um lançamento financeiro. |
@@ -427,6 +429,312 @@ example().catch(console.error);
 ### Return type
 
 [**FinancialRecordDto**](FinancialRecordDto.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** |  |  -  |
+| **0** |  |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## generatePdfListExportFinancialRecords
+
+> FileEntity generatePdfListExportFinancialRecords(queryId, sortOrder, sortBy, recurringFinancialRecord, installmentFinancialRecord, account, reconciled, completed, tags, createdAtTo, createdAtFrom, cashDateTo, cashDateFrom, competenceDateTo, competenceDateFrom, subcategory, contact, dueDateTo, dueDateFrom, finalAmountTo, finalAmountFrom, amountTo, amountFrom, direction, ids, populate, semanticSearchTermInBase64, textSearchTerm, pageSize, pageIndex)
+
+Gera exportação em PDF dos lançamentos financeiros no formato de lista.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  FinancialRecordsApi,
+} from '@usesofia/pegasus-core-api-sdk';
+import type { GeneratePdfListExportFinancialRecordsRequest } from '@usesofia/pegasus-core-api-sdk';
+
+async function example() {
+  console.log("🚀 Testing @usesofia/pegasus-core-api-sdk SDK...");
+  const api = new FinancialRecordsApi();
+
+  const body = {
+    // string | ID da consulta a ser aplicada. (optional)
+    queryId: queryId_example,
+    // 'asc' | 'desc' | Ordem de ordenação dos lançamentos financeiros. (optional)
+    sortOrder: sortOrder_example,
+    // 'direction' | 'dueDate' | 'contact' | 'description' | 'subcategory' | 'amount' | 'competenceDate' | 'cashDate' | 'createdAt' | 'finalAmount' | Campo para ordenação dos lançamentos financeiros. (optional)
+    sortBy: sortBy_example,
+    // string | ID da recorrência financeira. (optional)
+    recurringFinancialRecord: recurringFinancialRecord_example,
+    // string | ID do parcelamento financeiro. (optional)
+    installmentFinancialRecord: installmentFinancialRecord_example,
+    // string | IDs de contas bancárias do lançamento financeiro separados por vírgula. (optional)
+    account: account_example,
+    // boolean | Indica se o lançamento financeiro foi reconciliado. (optional)
+    reconciled: true,
+    // boolean | Indica se o lançamento financeiro foi completado. (optional)
+    completed: true,
+    // string | IDs das tags do lançamento financeiro separados por vírgula. (optional)
+    tags: tags_example,
+    // string | Data de criação final. (optional)
+    createdAtTo: createdAtTo_example,
+    // string | Data de criação inicial. (optional)
+    createdAtFrom: createdAtFrom_example,
+    // string | Data de pagamento final. (optional)
+    cashDateTo: cashDateTo_example,
+    // string | Data de pagamento inicial. (optional)
+    cashDateFrom: cashDateFrom_example,
+    // string | Data de competência final. (optional)
+    competenceDateTo: competenceDateTo_example,
+    // string | Data de competência inicial. (optional)
+    competenceDateFrom: competenceDateFrom_example,
+    // string | IDs de subcategorias do lançamento financeiro separados por vírgula. (optional)
+    subcategory: subcategory_example,
+    // string | IDs de contatos do lançamento financeiro separados por vírgula. (optional)
+    contact: contact_example,
+    // string | Data de vencimento final. (optional)
+    dueDateTo: dueDateTo_example,
+    // string | Data de vencimento inicial. (optional)
+    dueDateFrom: dueDateFrom_example,
+    // string | Valor final do lançamento financeiro máximo. (optional)
+    finalAmountTo: finalAmountTo_example,
+    // string | Valor final do lançamento financeiro mínimo. (optional)
+    finalAmountFrom: finalAmountFrom_example,
+    // string | Valor do lançamento financeiro máximo. (optional)
+    amountTo: amountTo_example,
+    // string | Valor do lançamento financeiro mínimo. (optional)
+    amountFrom: amountFrom_example,
+    // 'IN' | 'OUT' | Direção do lançamento financeiro. (optional)
+    direction: direction_example,
+    // string | Lista de IDs de lançamentos financeiros para filtrar separados por vírgula. (optional)
+    ids: ids_example,
+    // string | Campos relacionados a serem populados separados por vírgula. (optional)
+    populate: populate_example,
+    // string | Termo para busca semântica. (optional)
+    semanticSearchTermInBase64: semanticSearchTermInBase64_example,
+    // string | Termo para busca textual. (optional)
+    textSearchTerm: textSearchTerm_example,
+    // number | Quantidade de itens por página. (optional)
+    pageSize: 8.14,
+    // number | Índice da página. (optional)
+    pageIndex: 8.14,
+  } satisfies GeneratePdfListExportFinancialRecordsRequest;
+
+  try {
+    const data = await api.generatePdfListExportFinancialRecords(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **queryId** | `string` | ID da consulta a ser aplicada. | [Optional] [Defaults to `undefined`] |
+| **sortOrder** | `asc`, `desc` | Ordem de ordenação dos lançamentos financeiros. | [Optional] [Defaults to `undefined`] [Enum: asc, desc] |
+| **sortBy** | `direction`, `dueDate`, `contact`, `description`, `subcategory`, `amount`, `competenceDate`, `cashDate`, `createdAt`, `finalAmount` | Campo para ordenação dos lançamentos financeiros. | [Optional] [Defaults to `undefined`] [Enum: direction, dueDate, contact, description, subcategory, amount, competenceDate, cashDate, createdAt, finalAmount] |
+| **recurringFinancialRecord** | `string` | ID da recorrência financeira. | [Optional] [Defaults to `undefined`] |
+| **installmentFinancialRecord** | `string` | ID do parcelamento financeiro. | [Optional] [Defaults to `undefined`] |
+| **account** | `string` | IDs de contas bancárias do lançamento financeiro separados por vírgula. | [Optional] [Defaults to `undefined`] |
+| **reconciled** | `boolean` | Indica se o lançamento financeiro foi reconciliado. | [Optional] [Defaults to `undefined`] |
+| **completed** | `boolean` | Indica se o lançamento financeiro foi completado. | [Optional] [Defaults to `undefined`] |
+| **tags** | `string` | IDs das tags do lançamento financeiro separados por vírgula. | [Optional] [Defaults to `undefined`] |
+| **createdAtTo** | `string` | Data de criação final. | [Optional] [Defaults to `undefined`] |
+| **createdAtFrom** | `string` | Data de criação inicial. | [Optional] [Defaults to `undefined`] |
+| **cashDateTo** | `string` | Data de pagamento final. | [Optional] [Defaults to `undefined`] |
+| **cashDateFrom** | `string` | Data de pagamento inicial. | [Optional] [Defaults to `undefined`] |
+| **competenceDateTo** | `string` | Data de competência final. | [Optional] [Defaults to `undefined`] |
+| **competenceDateFrom** | `string` | Data de competência inicial. | [Optional] [Defaults to `undefined`] |
+| **subcategory** | `string` | IDs de subcategorias do lançamento financeiro separados por vírgula. | [Optional] [Defaults to `undefined`] |
+| **contact** | `string` | IDs de contatos do lançamento financeiro separados por vírgula. | [Optional] [Defaults to `undefined`] |
+| **dueDateTo** | `string` | Data de vencimento final. | [Optional] [Defaults to `undefined`] |
+| **dueDateFrom** | `string` | Data de vencimento inicial. | [Optional] [Defaults to `undefined`] |
+| **finalAmountTo** | `string` | Valor final do lançamento financeiro máximo. | [Optional] [Defaults to `undefined`] |
+| **finalAmountFrom** | `string` | Valor final do lançamento financeiro mínimo. | [Optional] [Defaults to `undefined`] |
+| **amountTo** | `string` | Valor do lançamento financeiro máximo. | [Optional] [Defaults to `undefined`] |
+| **amountFrom** | `string` | Valor do lançamento financeiro mínimo. | [Optional] [Defaults to `undefined`] |
+| **direction** | `IN`, `OUT` | Direção do lançamento financeiro. | [Optional] [Defaults to `undefined`] [Enum: IN, OUT] |
+| **ids** | `string` | Lista de IDs de lançamentos financeiros para filtrar separados por vírgula. | [Optional] [Defaults to `undefined`] |
+| **populate** | `string` | Campos relacionados a serem populados separados por vírgula. | [Optional] [Defaults to `undefined`] |
+| **semanticSearchTermInBase64** | `string` | Termo para busca semântica. | [Optional] [Defaults to `undefined`] |
+| **textSearchTerm** | `string` | Termo para busca textual. | [Optional] [Defaults to `undefined`] |
+| **pageSize** | `number` | Quantidade de itens por página. | [Optional] [Defaults to `undefined`] |
+| **pageIndex** | `number` | Índice da página. | [Optional] [Defaults to `undefined`] |
+
+### Return type
+
+[**FileEntity**](FileEntity.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** |  |  -  |
+| **0** |  |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## generatePdfTableExportFinancialRecords
+
+> FileEntity generatePdfTableExportFinancialRecords(queryId, sortOrder, sortBy, recurringFinancialRecord, installmentFinancialRecord, account, reconciled, completed, tags, createdAtTo, createdAtFrom, cashDateTo, cashDateFrom, competenceDateTo, competenceDateFrom, subcategory, contact, dueDateTo, dueDateFrom, finalAmountTo, finalAmountFrom, amountTo, amountFrom, direction, ids, populate, semanticSearchTermInBase64, textSearchTerm, pageSize, pageIndex)
+
+Gera exportação em PDF dos lançamentos financeiros no formato de tabela.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  FinancialRecordsApi,
+} from '@usesofia/pegasus-core-api-sdk';
+import type { GeneratePdfTableExportFinancialRecordsRequest } from '@usesofia/pegasus-core-api-sdk';
+
+async function example() {
+  console.log("🚀 Testing @usesofia/pegasus-core-api-sdk SDK...");
+  const api = new FinancialRecordsApi();
+
+  const body = {
+    // string | ID da consulta a ser aplicada. (optional)
+    queryId: queryId_example,
+    // 'asc' | 'desc' | Ordem de ordenação dos lançamentos financeiros. (optional)
+    sortOrder: sortOrder_example,
+    // 'direction' | 'dueDate' | 'contact' | 'description' | 'subcategory' | 'amount' | 'competenceDate' | 'cashDate' | 'createdAt' | 'finalAmount' | Campo para ordenação dos lançamentos financeiros. (optional)
+    sortBy: sortBy_example,
+    // string | ID da recorrência financeira. (optional)
+    recurringFinancialRecord: recurringFinancialRecord_example,
+    // string | ID do parcelamento financeiro. (optional)
+    installmentFinancialRecord: installmentFinancialRecord_example,
+    // string | IDs de contas bancárias do lançamento financeiro separados por vírgula. (optional)
+    account: account_example,
+    // boolean | Indica se o lançamento financeiro foi reconciliado. (optional)
+    reconciled: true,
+    // boolean | Indica se o lançamento financeiro foi completado. (optional)
+    completed: true,
+    // string | IDs das tags do lançamento financeiro separados por vírgula. (optional)
+    tags: tags_example,
+    // string | Data de criação final. (optional)
+    createdAtTo: createdAtTo_example,
+    // string | Data de criação inicial. (optional)
+    createdAtFrom: createdAtFrom_example,
+    // string | Data de pagamento final. (optional)
+    cashDateTo: cashDateTo_example,
+    // string | Data de pagamento inicial. (optional)
+    cashDateFrom: cashDateFrom_example,
+    // string | Data de competência final. (optional)
+    competenceDateTo: competenceDateTo_example,
+    // string | Data de competência inicial. (optional)
+    competenceDateFrom: competenceDateFrom_example,
+    // string | IDs de subcategorias do lançamento financeiro separados por vírgula. (optional)
+    subcategory: subcategory_example,
+    // string | IDs de contatos do lançamento financeiro separados por vírgula. (optional)
+    contact: contact_example,
+    // string | Data de vencimento final. (optional)
+    dueDateTo: dueDateTo_example,
+    // string | Data de vencimento inicial. (optional)
+    dueDateFrom: dueDateFrom_example,
+    // string | Valor final do lançamento financeiro máximo. (optional)
+    finalAmountTo: finalAmountTo_example,
+    // string | Valor final do lançamento financeiro mínimo. (optional)
+    finalAmountFrom: finalAmountFrom_example,
+    // string | Valor do lançamento financeiro máximo. (optional)
+    amountTo: amountTo_example,
+    // string | Valor do lançamento financeiro mínimo. (optional)
+    amountFrom: amountFrom_example,
+    // 'IN' | 'OUT' | Direção do lançamento financeiro. (optional)
+    direction: direction_example,
+    // string | Lista de IDs de lançamentos financeiros para filtrar separados por vírgula. (optional)
+    ids: ids_example,
+    // string | Campos relacionados a serem populados separados por vírgula. (optional)
+    populate: populate_example,
+    // string | Termo para busca semântica. (optional)
+    semanticSearchTermInBase64: semanticSearchTermInBase64_example,
+    // string | Termo para busca textual. (optional)
+    textSearchTerm: textSearchTerm_example,
+    // number | Quantidade de itens por página. (optional)
+    pageSize: 8.14,
+    // number | Índice da página. (optional)
+    pageIndex: 8.14,
+  } satisfies GeneratePdfTableExportFinancialRecordsRequest;
+
+  try {
+    const data = await api.generatePdfTableExportFinancialRecords(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **queryId** | `string` | ID da consulta a ser aplicada. | [Optional] [Defaults to `undefined`] |
+| **sortOrder** | `asc`, `desc` | Ordem de ordenação dos lançamentos financeiros. | [Optional] [Defaults to `undefined`] [Enum: asc, desc] |
+| **sortBy** | `direction`, `dueDate`, `contact`, `description`, `subcategory`, `amount`, `competenceDate`, `cashDate`, `createdAt`, `finalAmount` | Campo para ordenação dos lançamentos financeiros. | [Optional] [Defaults to `undefined`] [Enum: direction, dueDate, contact, description, subcategory, amount, competenceDate, cashDate, createdAt, finalAmount] |
+| **recurringFinancialRecord** | `string` | ID da recorrência financeira. | [Optional] [Defaults to `undefined`] |
+| **installmentFinancialRecord** | `string` | ID do parcelamento financeiro. | [Optional] [Defaults to `undefined`] |
+| **account** | `string` | IDs de contas bancárias do lançamento financeiro separados por vírgula. | [Optional] [Defaults to `undefined`] |
+| **reconciled** | `boolean` | Indica se o lançamento financeiro foi reconciliado. | [Optional] [Defaults to `undefined`] |
+| **completed** | `boolean` | Indica se o lançamento financeiro foi completado. | [Optional] [Defaults to `undefined`] |
+| **tags** | `string` | IDs das tags do lançamento financeiro separados por vírgula. | [Optional] [Defaults to `undefined`] |
+| **createdAtTo** | `string` | Data de criação final. | [Optional] [Defaults to `undefined`] |
+| **createdAtFrom** | `string` | Data de criação inicial. | [Optional] [Defaults to `undefined`] |
+| **cashDateTo** | `string` | Data de pagamento final. | [Optional] [Defaults to `undefined`] |
+| **cashDateFrom** | `string` | Data de pagamento inicial. | [Optional] [Defaults to `undefined`] |
+| **competenceDateTo** | `string` | Data de competência final. | [Optional] [Defaults to `undefined`] |
+| **competenceDateFrom** | `string` | Data de competência inicial. | [Optional] [Defaults to `undefined`] |
+| **subcategory** | `string` | IDs de subcategorias do lançamento financeiro separados por vírgula. | [Optional] [Defaults to `undefined`] |
+| **contact** | `string` | IDs de contatos do lançamento financeiro separados por vírgula. | [Optional] [Defaults to `undefined`] |
+| **dueDateTo** | `string` | Data de vencimento final. | [Optional] [Defaults to `undefined`] |
+| **dueDateFrom** | `string` | Data de vencimento inicial. | [Optional] [Defaults to `undefined`] |
+| **finalAmountTo** | `string` | Valor final do lançamento financeiro máximo. | [Optional] [Defaults to `undefined`] |
+| **finalAmountFrom** | `string` | Valor final do lançamento financeiro mínimo. | [Optional] [Defaults to `undefined`] |
+| **amountTo** | `string` | Valor do lançamento financeiro máximo. | [Optional] [Defaults to `undefined`] |
+| **amountFrom** | `string` | Valor do lançamento financeiro mínimo. | [Optional] [Defaults to `undefined`] |
+| **direction** | `IN`, `OUT` | Direção do lançamento financeiro. | [Optional] [Defaults to `undefined`] [Enum: IN, OUT] |
+| **ids** | `string` | Lista de IDs de lançamentos financeiros para filtrar separados por vírgula. | [Optional] [Defaults to `undefined`] |
+| **populate** | `string` | Campos relacionados a serem populados separados por vírgula. | [Optional] [Defaults to `undefined`] |
+| **semanticSearchTermInBase64** | `string` | Termo para busca semântica. | [Optional] [Defaults to `undefined`] |
+| **textSearchTerm** | `string` | Termo para busca textual. | [Optional] [Defaults to `undefined`] |
+| **pageSize** | `number` | Quantidade de itens por página. | [Optional] [Defaults to `undefined`] |
+| **pageIndex** | `number` | Índice da página. | [Optional] [Defaults to `undefined`] |
+
+### Return type
+
+[**FileEntity**](FileEntity.md)
 
 ### Authorization
 
