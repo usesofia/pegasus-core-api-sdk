@@ -125,6 +125,12 @@ export interface SubcategoriesPageEntityItemsInner {
      * @memberof SubcategoriesPageEntityItemsInner
      */
     importedBy?: string | null;
+    /**
+     * Identificador externo da subcategoria.
+     * @type {string}
+     * @memberof SubcategoriesPageEntityItemsInner
+     */
+    externalId?: string | null;
 }
 /**
  * Check if a given object implements the SubcategoriesPageEntityItemsInner interface.

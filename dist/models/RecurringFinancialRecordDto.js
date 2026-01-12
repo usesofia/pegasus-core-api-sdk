@@ -96,6 +96,7 @@ function RecurringFinancialRecordDtoFromJSONTyped(json, ignoreDiscriminator) {
         'populatedFiles': json['populatedFiles'] == null ? undefined : (json['populatedFiles'].map(CreateFinancialRecordRequestBodyDtoPopulatedFilesInner_1.CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerFromJSON)),
         'observations': json['observations'] == null ? undefined : json['observations'],
         'searchScore': json['searchScore'] == null ? undefined : json['searchScore'],
+        'externalId': json['externalId'] == null ? undefined : json['externalId'],
     };
 }
 function RecurringFinancialRecordDtoToJSON(json) {
@@ -131,5 +132,6 @@ function RecurringFinancialRecordDtoToJSONTyped(value, ignoreDiscriminator) {
         'populatedFiles': value['populatedFiles'] == null ? undefined : (value['populatedFiles'].map(CreateFinancialRecordRequestBodyDtoPopulatedFilesInner_1.CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerToJSON)),
         'observations': value['observations'],
         'searchScore': value['searchScore'],
+        'externalId': value['externalId'],
     };
 }

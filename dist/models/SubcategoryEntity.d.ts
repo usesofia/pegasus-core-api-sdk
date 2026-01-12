@@ -125,6 +125,12 @@ export interface SubcategoryEntity {
      * @memberof SubcategoryEntity
      */
     importedBy?: string | null;
+    /**
+     * Identificador externo da subcategoria.
+     * @type {string}
+     * @memberof SubcategoryEntity
+     */
+    externalId?: string | null;
 }
 /**
  * Check if a given object implements the SubcategoryEntity interface.

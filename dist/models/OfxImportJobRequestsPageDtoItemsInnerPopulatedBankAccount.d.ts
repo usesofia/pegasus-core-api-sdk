@@ -155,6 +155,12 @@ export interface OfxImportJobRequestsPageDtoItemsInnerPopulatedBankAccount {
      * @memberof OfxImportJobRequestsPageDtoItemsInnerPopulatedBankAccount
      */
     importedBy?: string | null;
+    /**
+     * Identificador externo da conta bancária.
+     * @type {string}
+     * @memberof OfxImportJobRequestsPageDtoItemsInnerPopulatedBankAccount
+     */
+    externalId?: string | null;
 }
 /**
  * @export

@@ -315,6 +315,12 @@ export interface SystemFinancialRecordsPageDtoItemsInner {
      * @memberof SystemFinancialRecordsPageDtoItemsInner
      */
     importGlobalIndex?: number | null;
+    /**
+     * Identificador externo do lançamento financeiro.
+     * @type {string}
+     * @memberof SystemFinancialRecordsPageDtoItemsInner
+     */
+    externalId?: string | null;
 }
 /**
  * @export

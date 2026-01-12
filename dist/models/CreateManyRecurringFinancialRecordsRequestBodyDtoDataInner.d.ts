@@ -139,6 +139,12 @@ export interface CreateManyRecurringFinancialRecordsRequestBodyDtoDataInner {
      * @memberof CreateManyRecurringFinancialRecordsRequestBodyDtoDataInner
      */
     searchScore?: number;
+    /**
+     * Identificador externo do lançamento recorrente.
+     * @type {string}
+     * @memberof CreateManyRecurringFinancialRecordsRequestBodyDtoDataInner
+     */
+    externalId?: string | null;
 }
 /**
  * @export

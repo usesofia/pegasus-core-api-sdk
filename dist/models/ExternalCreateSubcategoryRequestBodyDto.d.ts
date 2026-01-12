@@ -102,6 +102,12 @@ export interface ExternalCreateSubcategoryRequestBodyDto {
      */
     importedBy?: string | null;
     /**
+     * Identificador externo da subcategoria.
+     * @type {string}
+     * @memberof ExternalCreateSubcategoryRequestBodyDto
+     */
+    externalId?: string | null;
+    /**
      * Canal de origem da operação
      * @type {string}
      * @memberof ExternalCreateSubcategoryRequestBodyDto

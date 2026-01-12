@@ -44,6 +44,12 @@ export interface PartialUpdateTagRequestBodyDto {
      */
     importedBy?: string | null;
     /**
+     * Identificador externo da tag.
+     * @type {string}
+     * @memberof PartialUpdateTagRequestBodyDto
+     */
+    externalId?: string | null;
+    /**
      * Canal de origem da operação
      * @type {string}
      * @memberof PartialUpdateTagRequestBodyDto
@@ -86,6 +92,7 @@ export function PartialUpdateTagRequestBodyDtoFromJSONTyped(json: any, ignoreDis
         'searchScore': json['searchScore'] == null ? undefined : json['searchScore'],
         'importedAt': json['importedAt'] == null ? undefined : json['importedAt'],
         'importedBy': json['importedBy'] == null ? undefined : json['importedBy'],
+        'externalId': json['externalId'] == null ? undefined : json['externalId'],
         'channel': json['channel'],
     };
 }
@@ -105,6 +112,7 @@ export function PartialUpdateTagRequestBodyDtoToJSONTyped(value?: PartialUpdateT
         'searchScore': value['searchScore'],
         'importedAt': value['importedAt'],
         'importedBy': value['importedBy'],
+        'externalId': value['externalId'],
         'channel': value['channel'],
     };
 }

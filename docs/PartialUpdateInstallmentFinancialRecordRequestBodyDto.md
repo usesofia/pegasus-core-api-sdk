@@ -24,6 +24,7 @@ Name | Type
 `populatedTags` | [Array&lt;CreateFinancialRecordRequestBodyDtoPopulatedTagsInner&gt;](CreateFinancialRecordRequestBodyDtoPopulatedTagsInner.md)
 `observations` | string
 `populatedFiles` | [Array&lt;CreateFinancialRecordRequestBodyDtoPopulatedFilesInner&gt;](CreateFinancialRecordRequestBodyDtoPopulatedFilesInner.md)
+`externalId` | string
 `channel` | string
 
 ## Example
@@ -51,6 +52,7 @@ const example = {
   "populatedTags": null,
   "observations": null,
   "populatedFiles": null,
+  "externalId": null,
   "channel": null,
 } satisfies PartialUpdateInstallmentFinancialRecordRequestBodyDto
 

@@ -158,6 +158,12 @@ export interface CreateInstallmentFinancialRecordRequestBodyDto {
      */
     populatedFiles?: Array<CreateFinancialRecordRequestBodyDtoPopulatedFilesInner>;
     /**
+     * Identificador externo do lançamento parcelado.
+     * @type {string}
+     * @memberof CreateInstallmentFinancialRecordRequestBodyDto
+     */
+    externalId?: string | null;
+    /**
      * Parcelas do lançamento.
      * @type {Array<CreateInstallmentFinancialRecordRequestBodyDtoInstallmentsInner>}
      * @memberof CreateInstallmentFinancialRecordRequestBodyDto
@@ -245,6 +251,7 @@ export function CreateInstallmentFinancialRecordRequestBodyDtoFromJSONTyped(json
         'populatedTags': json['populatedTags'] == null ? undefined : ((json['populatedTags'] as Array<any>).map(CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerFromJSON)),
         'observations': json['observations'] == null ? undefined : json['observations'],
         'populatedFiles': json['populatedFiles'] == null ? undefined : ((json['populatedFiles'] as Array<any>).map(CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerFromJSON)),
+        'externalId': json['externalId'] == null ? undefined : json['externalId'],
         'installments': json['installments'] == null ? undefined : ((json['installments'] as Array<any>).map(CreateInstallmentFinancialRecordRequestBodyDtoInstallmentsInnerFromJSON)),
         'channel': json['channel'],
     };
@@ -278,6 +285,7 @@ export function CreateInstallmentFinancialRecordRequestBodyDtoToJSONTyped(value?
         'populatedTags': value['populatedTags'] == null ? undefined : ((value['populatedTags'] as Array<any>).map(CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerToJSON)),
         'observations': value['observations'],
         'populatedFiles': value['populatedFiles'] == null ? undefined : ((value['populatedFiles'] as Array<any>).map(CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerToJSON)),
+        'externalId': value['externalId'],
         'installments': value['installments'] == null ? undefined : ((value['installments'] as Array<any>).map(CreateInstallmentFinancialRecordRequestBodyDtoInstallmentsInnerToJSON)),
         'channel': value['channel'],
     };

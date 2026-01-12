@@ -155,6 +155,12 @@ export interface BankAccountsPageDtoItemsInner {
      * @memberof BankAccountsPageDtoItemsInner
      */
     importedBy?: string | null;
+    /**
+     * Identificador externo da conta bancária.
+     * @type {string}
+     * @memberof BankAccountsPageDtoItemsInner
+     */
+    externalId?: string | null;
 }
 /**
  * @export

@@ -26,6 +26,7 @@ Name | Type
 `populatedFiles` | [Array&lt;CreateFinancialRecordRequestBodyDtoPopulatedFilesInner&gt;](CreateFinancialRecordRequestBodyDtoPopulatedFilesInner.md)
 `observations` | string
 `searchScore` | number
+`externalId` | string
 `channel` | string
 `numberOfRepetitions` | number
 
@@ -56,6 +57,7 @@ const example = {
   "populatedFiles": null,
   "observations": null,
   "searchScore": null,
+  "externalId": null,
   "channel": null,
   "numberOfRepetitions": null,
 } satisfies ProspectRecurringFinancialRecordRequestBodyDto

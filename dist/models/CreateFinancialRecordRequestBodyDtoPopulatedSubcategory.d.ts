@@ -125,6 +125,12 @@ export interface CreateFinancialRecordRequestBodyDtoPopulatedSubcategory {
      * @memberof CreateFinancialRecordRequestBodyDtoPopulatedSubcategory
      */
     importedBy?: string | null;
+    /**
+     * Identificador externo da subcategoria.
+     * @type {string}
+     * @memberof CreateFinancialRecordRequestBodyDtoPopulatedSubcategory
+     */
+    externalId?: string | null;
 }
 /**
  * Check if a given object implements the CreateFinancialRecordRequestBodyDtoPopulatedSubcategory interface.

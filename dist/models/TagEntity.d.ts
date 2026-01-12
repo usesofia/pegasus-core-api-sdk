@@ -63,6 +63,12 @@ export interface TagEntity {
      * @memberof TagEntity
      */
     importedBy?: string | null;
+    /**
+     * Identificador externo da tag.
+     * @type {string}
+     * @memberof TagEntity
+     */
+    externalId?: string | null;
 }
 /**
  * Check if a given object implements the TagEntity interface.

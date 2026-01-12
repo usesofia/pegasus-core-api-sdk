@@ -28,6 +28,7 @@ Name | Type
 `populatedTags` | [Array&lt;CreateFinancialRecordRequestBodyDtoPopulatedTagsInner&gt;](CreateFinancialRecordRequestBodyDtoPopulatedTagsInner.md)
 `observations` | string
 `populatedFiles` | [Array&lt;CreateFinancialRecordRequestBodyDtoPopulatedFilesInner&gt;](CreateFinancialRecordRequestBodyDtoPopulatedFilesInner.md)
+`externalId` | string
 `finalAmount` | string
 `discount` | string
 `finesAndInterest` | string
@@ -61,6 +62,7 @@ const example = {
   "populatedTags": null,
   "observations": null,
   "populatedFiles": null,
+  "externalId": null,
   "finalAmount": null,
   "discount": null,
   "finesAndInterest": null,

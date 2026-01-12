@@ -60,6 +60,7 @@ function PartialUpdateSubcategoryRequestBodyDtoFromJSONTyped(json, ignoreDiscrim
         'searchScore': json['searchScore'] == null ? undefined : json['searchScore'],
         'importedAt': json['importedAt'] == null ? undefined : json['importedAt'],
         'importedBy': json['importedBy'] == null ? undefined : json['importedBy'],
+        'externalId': json['externalId'] == null ? undefined : json['externalId'],
         'channel': json['channel'],
     };
 }
@@ -86,6 +87,7 @@ function PartialUpdateSubcategoryRequestBodyDtoToJSONTyped(value, ignoreDiscrimi
         'searchScore': value['searchScore'],
         'importedAt': value['importedAt'],
         'importedBy': value['importedBy'],
+        'externalId': value['externalId'],
         'channel': value['channel'],
     };
 }

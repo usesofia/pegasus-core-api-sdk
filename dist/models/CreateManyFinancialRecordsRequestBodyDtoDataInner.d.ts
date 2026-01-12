@@ -244,6 +244,12 @@ export interface CreateManyFinancialRecordsRequestBodyDtoDataInner {
      */
     importGlobalIndex?: number | null;
     /**
+     * Identificador externo do lançamento financeiro.
+     * @type {string}
+     * @memberof CreateManyFinancialRecordsRequestBodyDtoDataInner
+     */
+    externalId?: string | null;
+    /**
      * Valor final do lançamento (calculado automaticamente).
      * @type {number}
      * @memberof CreateManyFinancialRecordsRequestBodyDtoDataInner

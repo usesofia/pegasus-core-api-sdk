@@ -95,6 +95,12 @@ export interface PartialUpdateContactRequestBodyDto {
      */
     importedBy?: string | null;
     /**
+     * Identificador externo do contato.
+     * @type {string}
+     * @memberof PartialUpdateContactRequestBodyDto
+     */
+    externalId?: string | null;
+    /**
      * Canal de origem da operação
      * @type {string}
      * @memberof PartialUpdateContactRequestBodyDto

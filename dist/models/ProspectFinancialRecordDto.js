@@ -91,6 +91,7 @@ function ProspectFinancialRecordDtoFromJSONTyped(json, ignoreDiscriminator) {
         'importedAt': json['importedAt'] == null ? undefined : json['importedAt'],
         'importedBy': json['importedBy'] == null ? undefined : json['importedBy'],
         'importGlobalIndex': json['importGlobalIndex'] == null ? undefined : json['importGlobalIndex'],
+        'externalId': json['externalId'] == null ? undefined : json['externalId'],
         'radarItem': json['radarItem'] == null ? undefined : json['radarItem'],
     };
 }
@@ -140,6 +141,7 @@ function ProspectFinancialRecordDtoToJSONTyped(value, ignoreDiscriminator) {
         'importedAt': value['importedAt'],
         'importedBy': value['importedBy'],
         'importGlobalIndex': value['importGlobalIndex'],
+        'externalId': value['externalId'],
         'radarItem': value['radarItem'],
     };
 }

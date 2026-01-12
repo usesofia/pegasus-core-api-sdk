@@ -43,6 +43,7 @@ Name | Type
 `importedAt` | any
 `importedBy` | string
 `importGlobalIndex` | number
+`externalId` | string
 `radarItem` | string
 
 ## Example
@@ -89,6 +90,7 @@ const example = {
   "importedAt": null,
   "importedBy": null,
   "importGlobalIndex": null,
+  "externalId": null,
   "radarItem": null,
 } satisfies ProspectFinancialRecordDto
 

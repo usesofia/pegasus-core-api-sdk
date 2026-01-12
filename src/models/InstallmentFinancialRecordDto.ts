@@ -188,6 +188,12 @@ export interface InstallmentFinancialRecordDto {
      */
     populatedFiles?: Array<CreateFinancialRecordRequestBodyDtoPopulatedFilesInner>;
     /**
+     * Identificador externo do lançamento parcelado.
+     * @type {string}
+     * @memberof InstallmentFinancialRecordDto
+     */
+    externalId?: string | null;
+    /**
      * 
      * @type {string}
      * @memberof InstallmentFinancialRecordDto
@@ -277,6 +283,7 @@ export function InstallmentFinancialRecordDtoFromJSONTyped(json: any, ignoreDisc
         'populatedTags': json['populatedTags'] == null ? undefined : ((json['populatedTags'] as Array<any>).map(CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerFromJSON)),
         'observations': json['observations'] == null ? undefined : json['observations'],
         'populatedFiles': json['populatedFiles'] == null ? undefined : ((json['populatedFiles'] as Array<any>).map(CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerFromJSON)),
+        'externalId': json['externalId'] == null ? undefined : json['externalId'],
         'finalAmount': json['finalAmount'] == null ? undefined : json['finalAmount'],
         'discount': json['discount'] == null ? undefined : json['discount'],
         'finesAndInterest': json['finesAndInterest'] == null ? undefined : json['finesAndInterest'],
@@ -316,6 +323,7 @@ export function InstallmentFinancialRecordDtoToJSONTyped(value?: InstallmentFina
         'populatedTags': value['populatedTags'] == null ? undefined : ((value['populatedTags'] as Array<any>).map(CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerToJSON)),
         'observations': value['observations'],
         'populatedFiles': value['populatedFiles'] == null ? undefined : ((value['populatedFiles'] as Array<any>).map(CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerToJSON)),
+        'externalId': value['externalId'],
         'finalAmount': value['finalAmount'],
         'discount': value['discount'],
         'finesAndInterest': value['finesAndInterest'],

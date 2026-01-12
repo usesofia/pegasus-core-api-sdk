@@ -124,6 +124,12 @@ export interface ContactsPageDtoItemsInner {
      * @memberof ContactsPageDtoItemsInner
      */
     importedBy?: string | null;
+    /**
+     * Identificador externo do contato.
+     * @type {string}
+     * @memberof ContactsPageDtoItemsInner
+     */
+    externalId?: string | null;
 }
 /**
  * @export

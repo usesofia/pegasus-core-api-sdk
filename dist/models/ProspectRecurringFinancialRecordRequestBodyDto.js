@@ -99,6 +99,7 @@ function ProspectRecurringFinancialRecordRequestBodyDtoFromJSONTyped(json, ignor
         'populatedFiles': json['populatedFiles'] == null ? undefined : (json['populatedFiles'].map(CreateFinancialRecordRequestBodyDtoPopulatedFilesInner_1.CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerFromJSON)),
         'observations': json['observations'] == null ? undefined : json['observations'],
         'searchScore': json['searchScore'] == null ? undefined : json['searchScore'],
+        'externalId': json['externalId'] == null ? undefined : json['externalId'],
         'channel': json['channel'],
         'numberOfRepetitions': json['numberOfRepetitions'],
     };
@@ -132,6 +133,7 @@ function ProspectRecurringFinancialRecordRequestBodyDtoToJSONTyped(value, ignore
         'populatedFiles': value['populatedFiles'] == null ? undefined : (value['populatedFiles'].map(CreateFinancialRecordRequestBodyDtoPopulatedFilesInner_1.CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerToJSON)),
         'observations': value['observations'],
         'searchScore': value['searchScore'],
+        'externalId': value['externalId'],
         'channel': value['channel'],
         'numberOfRepetitions': value['numberOfRepetitions'],
     };

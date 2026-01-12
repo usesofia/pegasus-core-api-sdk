@@ -129,6 +129,12 @@ export interface PartialUpdateInstallmentFinancialRecordRequestBodyDto {
      */
     populatedFiles?: Array<CreateFinancialRecordRequestBodyDtoPopulatedFilesInner>;
     /**
+     * Identificador externo do lançamento parcelado.
+     * @type {string}
+     * @memberof PartialUpdateInstallmentFinancialRecordRequestBodyDto
+     */
+    externalId?: string | null;
+    /**
      * Canal de origem da operação
      * @type {string}
      * @memberof PartialUpdateInstallmentFinancialRecordRequestBodyDto

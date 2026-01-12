@@ -67,6 +67,12 @@ export interface TagEntity {
      * @memberof TagEntity
      */
     importedBy?: string | null;
+    /**
+     * Identificador externo da tag.
+     * @type {string}
+     * @memberof TagEntity
+     */
+    externalId?: string | null;
 }
 
 /**
@@ -99,6 +105,7 @@ export function TagEntityFromJSONTyped(json: any, ignoreDiscriminator: boolean):
         'searchScore': json['searchScore'] == null ? undefined : json['searchScore'],
         'importedAt': json['importedAt'] == null ? undefined : json['importedAt'],
         'importedBy': json['importedBy'] == null ? undefined : json['importedBy'],
+        'externalId': json['externalId'] == null ? undefined : json['externalId'],
     };
 }
 
@@ -121,6 +128,7 @@ export function TagEntityToJSONTyped(value?: TagEntity | null, ignoreDiscriminat
         'searchScore': value['searchScore'],
         'importedAt': value['importedAt'],
         'importedBy': value['importedBy'],
+        'externalId': value['externalId'],
     };
 }
 

@@ -113,6 +113,7 @@ function CreatedFinancialRecordRadarItemResultEntityRadarItemAutoExecutePartialU
         'importedAt': json['importedAt'] == null ? undefined : json['importedAt'],
         'importedBy': json['importedBy'] == null ? undefined : json['importedBy'],
         'importGlobalIndex': json['importGlobalIndex'] == null ? undefined : json['importGlobalIndex'],
+        'externalId': json['externalId'] == null ? undefined : json['externalId'],
     };
 }
 function CreatedFinancialRecordRadarItemResultEntityRadarItemAutoExecutePartialUpdatedFinancialRecordToJSON(json) {
@@ -173,5 +174,6 @@ function CreatedFinancialRecordRadarItemResultEntityRadarItemAutoExecutePartialU
         'importedAt': value['importedAt'],
         'importedBy': value['importedBy'],
         'importGlobalIndex': value['importGlobalIndex'],
+        'externalId': value['externalId'],
     };
 }

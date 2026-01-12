@@ -315,6 +315,12 @@ export interface FinancialRecordRadarItemsPageDtoItemsInnerAutoExecutePartialUpd
      * @memberof FinancialRecordRadarItemsPageDtoItemsInnerAutoExecutePartialUpdatedFinancialRecord
      */
     importGlobalIndex?: number | null;
+    /**
+     * Identificador externo do lançamento financeiro.
+     * @type {string}
+     * @memberof FinancialRecordRadarItemsPageDtoItemsInnerAutoExecutePartialUpdatedFinancialRecord
+     */
+    externalId?: string | null;
 }
 /**
  * @export

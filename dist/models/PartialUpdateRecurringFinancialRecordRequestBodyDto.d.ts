@@ -134,6 +134,12 @@ export interface PartialUpdateRecurringFinancialRecordRequestBodyDto {
      */
     searchScore?: number;
     /**
+     * Identificador externo do lançamento recorrente.
+     * @type {string}
+     * @memberof PartialUpdateRecurringFinancialRecordRequestBodyDto
+     */
+    externalId?: string | null;
+    /**
      * Canal de origem da operação
      * @type {string}
      * @memberof PartialUpdateRecurringFinancialRecordRequestBodyDto

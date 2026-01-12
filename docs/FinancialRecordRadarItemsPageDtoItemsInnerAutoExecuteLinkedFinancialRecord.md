@@ -56,6 +56,7 @@ Name | Type
 `importedAt` | any
 `importedBy` | string
 `importGlobalIndex` | number
+`externalId` | string
 
 ## Example
 
@@ -113,6 +114,7 @@ const example = {
   "importedAt": null,
   "importedBy": null,
   "importGlobalIndex": null,
+  "externalId": null,
 } satisfies FinancialRecordRadarItemsPageDtoItemsInnerAutoExecuteLinkedFinancialRecord
 
 console.log(example)

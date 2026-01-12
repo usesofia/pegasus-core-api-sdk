@@ -40,6 +40,12 @@ export interface CreateTagRequestBodyDto {
      */
     importedBy?: string | null;
     /**
+     * Identificador externo da tag.
+     * @type {string}
+     * @memberof CreateTagRequestBodyDto
+     */
+    externalId?: string | null;
+    /**
      * Canal de origem da operação
      * @type {string}
      * @memberof CreateTagRequestBodyDto

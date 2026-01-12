@@ -126,6 +126,12 @@ export interface CreateBankAccountRequestBodyDto {
      */
     importedBy?: string | null;
     /**
+     * Identificador externo da conta bancária.
+     * @type {string}
+     * @memberof CreateBankAccountRequestBodyDto
+     */
+    externalId?: string | null;
+    /**
      * Canal de origem da operação
      * @type {string}
      * @memberof CreateBankAccountRequestBodyDto

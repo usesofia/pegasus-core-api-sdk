@@ -40,6 +40,12 @@ export interface PartialUpdateTagRequestBodyDto {
      */
     importedBy?: string | null;
     /**
+     * Identificador externo da tag.
+     * @type {string}
+     * @memberof PartialUpdateTagRequestBodyDto
+     */
+    externalId?: string | null;
+    /**
      * Canal de origem da operação
      * @type {string}
      * @memberof PartialUpdateTagRequestBodyDto

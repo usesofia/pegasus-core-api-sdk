@@ -14,6 +14,7 @@ Name | Type
 `searchScore` | number
 `importedAt` | any
 `importedBy` | string
+`externalId` | string
 
 ## Example
 
@@ -30,6 +31,7 @@ const example = {
   "searchScore": null,
   "importedAt": null,
   "importedBy": null,
+  "externalId": null,
 } satisfies CreateFinancialRecordRequestBodyDtoPopulatedTagsInner
 
 console.log(example)

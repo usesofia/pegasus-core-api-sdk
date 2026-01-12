@@ -135,6 +135,12 @@ export interface ContactsPageDtoItemsInner {
      * @memberof ContactsPageDtoItemsInner
      */
     importedBy?: string | null;
+    /**
+     * Identificador externo do contato.
+     * @type {string}
+     * @memberof ContactsPageDtoItemsInner
+     */
+    externalId?: string | null;
 }
 
 
@@ -220,6 +226,7 @@ export function ContactsPageDtoItemsInnerFromJSONTyped(json: any, ignoreDiscrimi
         'updatedAt': json['updatedAt'],
         'importedAt': json['importedAt'] == null ? undefined : json['importedAt'],
         'importedBy': json['importedBy'] == null ? undefined : json['importedBy'],
+        'externalId': json['externalId'] == null ? undefined : json['externalId'],
     };
 }
 
@@ -252,6 +259,7 @@ export function ContactsPageDtoItemsInnerToJSONTyped(value?: ContactsPageDtoItem
         'updatedAt': value['updatedAt'],
         'importedAt': value['importedAt'],
         'importedBy': value['importedBy'],
+        'externalId': value['externalId'],
     };
 }
 

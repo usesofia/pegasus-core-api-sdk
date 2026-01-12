@@ -124,6 +124,12 @@ export interface ContactDto {
      * @memberof ContactDto
      */
     importedBy?: string | null;
+    /**
+     * Identificador externo do contato.
+     * @type {string}
+     * @memberof ContactDto
+     */
+    externalId?: string | null;
 }
 /**
  * @export

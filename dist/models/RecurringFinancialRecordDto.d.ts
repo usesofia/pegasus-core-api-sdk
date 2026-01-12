@@ -163,6 +163,12 @@ export interface RecurringFinancialRecordDto {
      * @memberof RecurringFinancialRecordDto
      */
     searchScore?: number;
+    /**
+     * Identificador externo do lançamento recorrente.
+     * @type {string}
+     * @memberof RecurringFinancialRecordDto
+     */
+    externalId?: string | null;
 }
 /**
  * @export

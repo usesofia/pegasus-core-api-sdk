@@ -123,6 +123,12 @@ export interface CreateInstallmentFinancialRecordRequestBodyDto {
      */
     populatedFiles?: Array<CreateFinancialRecordRequestBodyDtoPopulatedFilesInner>;
     /**
+     * Identificador externo do lançamento parcelado.
+     * @type {string}
+     * @memberof CreateInstallmentFinancialRecordRequestBodyDto
+     */
+    externalId?: string | null;
+    /**
      * Parcelas do lançamento.
      * @type {Array<CreateInstallmentFinancialRecordRequestBodyDtoInstallmentsInner>}
      * @memberof CreateInstallmentFinancialRecordRequestBodyDto

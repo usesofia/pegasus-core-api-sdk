@@ -135,6 +135,12 @@ export interface CreateFinancialRecordRequestBodyDtoPopulatedContact {
      * @memberof CreateFinancialRecordRequestBodyDtoPopulatedContact
      */
     importedBy?: string | null;
+    /**
+     * Identificador externo do contato.
+     * @type {string}
+     * @memberof CreateFinancialRecordRequestBodyDtoPopulatedContact
+     */
+    externalId?: string | null;
 }
 
 
@@ -220,6 +226,7 @@ export function CreateFinancialRecordRequestBodyDtoPopulatedContactFromJSONTyped
         'updatedAt': json['updatedAt'],
         'importedAt': json['importedAt'] == null ? undefined : json['importedAt'],
         'importedBy': json['importedBy'] == null ? undefined : json['importedBy'],
+        'externalId': json['externalId'] == null ? undefined : json['externalId'],
     };
 }
 
@@ -252,6 +259,7 @@ export function CreateFinancialRecordRequestBodyDtoPopulatedContactToJSONTyped(v
         'updatedAt': value['updatedAt'],
         'importedAt': value['importedAt'],
         'importedBy': value['importedBy'],
+        'externalId': value['externalId'],
     };
 }
 

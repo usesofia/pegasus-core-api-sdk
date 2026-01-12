@@ -30,6 +30,7 @@ Name | Type
 `populatedAutomaticStatus` | [CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedAutomaticStatus](CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedAutomaticStatus.md)
 `importedAt` | any
 `importedBy` | string
+`externalId` | string
 
 ## Example
 
@@ -61,6 +62,7 @@ const example = {
   "populatedAutomaticStatus": null,
   "importedAt": null,
   "importedBy": null,
+  "externalId": null,
 } satisfies BankTransactionEntityPopulatedBankAccount
 
 console.log(example)

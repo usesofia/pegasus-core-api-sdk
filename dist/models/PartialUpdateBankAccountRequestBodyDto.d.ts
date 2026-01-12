@@ -96,6 +96,12 @@ export interface PartialUpdateBankAccountRequestBodyDto {
      */
     importedBy?: string | null;
     /**
+     * Identificador externo da conta bancária.
+     * @type {string}
+     * @memberof PartialUpdateBankAccountRequestBodyDto
+     */
+    externalId?: string | null;
+    /**
      * Canal de origem da operação
      * @type {string}
      * @memberof PartialUpdateBankAccountRequestBodyDto

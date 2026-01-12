@@ -119,6 +119,12 @@ export interface PartialUpdateSubcategoryRequestBodyDto {
      */
     importedBy?: string | null;
     /**
+     * Identificador externo da subcategoria.
+     * @type {string}
+     * @memberof PartialUpdateSubcategoryRequestBodyDto
+     */
+    externalId?: string | null;
+    /**
      * Canal de origem da operação
      * @type {string}
      * @memberof PartialUpdateSubcategoryRequestBodyDto
@@ -171,6 +177,7 @@ export function PartialUpdateSubcategoryRequestBodyDtoFromJSONTyped(json: any, i
         'searchScore': json['searchScore'] == null ? undefined : json['searchScore'],
         'importedAt': json['importedAt'] == null ? undefined : json['importedAt'],
         'importedBy': json['importedBy'] == null ? undefined : json['importedBy'],
+        'externalId': json['externalId'] == null ? undefined : json['externalId'],
         'channel': json['channel'],
     };
 }
@@ -200,6 +207,7 @@ export function PartialUpdateSubcategoryRequestBodyDtoToJSONTyped(value?: Partia
         'searchScore': value['searchScore'],
         'importedAt': value['importedAt'],
         'importedBy': value['importedBy'],
+        'externalId': value['externalId'],
         'channel': value['channel'],
     };
 }

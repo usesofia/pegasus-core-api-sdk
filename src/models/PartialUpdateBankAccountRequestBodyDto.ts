@@ -113,6 +113,12 @@ export interface PartialUpdateBankAccountRequestBodyDto {
      */
     importedBy?: string | null;
     /**
+     * Identificador externo da conta bancária.
+     * @type {string}
+     * @memberof PartialUpdateBankAccountRequestBodyDto
+     */
+    externalId?: string | null;
+    /**
      * Canal de origem da operação
      * @type {string}
      * @memberof PartialUpdateBankAccountRequestBodyDto
@@ -164,6 +170,7 @@ export function PartialUpdateBankAccountRequestBodyDtoFromJSONTyped(json: any, i
         'populatedAutomaticStatus': json['populatedAutomaticStatus'] == null ? undefined : CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedAutomaticStatusFromJSON(json['populatedAutomaticStatus']),
         'importedAt': json['importedAt'] == null ? undefined : json['importedAt'],
         'importedBy': json['importedBy'] == null ? undefined : json['importedBy'],
+        'externalId': json['externalId'] == null ? undefined : json['externalId'],
         'channel': json['channel'],
     };
 }
@@ -192,6 +199,7 @@ export function PartialUpdateBankAccountRequestBodyDtoToJSONTyped(value?: Partia
         'populatedAutomaticStatus': CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedAutomaticStatusToJSON(value['populatedAutomaticStatus']),
         'importedAt': value['importedAt'],
         'importedBy': value['importedBy'],
+        'externalId': value['externalId'],
         'channel': value['channel'],
     };
 }

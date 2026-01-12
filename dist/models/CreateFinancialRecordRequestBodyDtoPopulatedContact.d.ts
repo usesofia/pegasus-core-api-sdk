@@ -124,6 +124,12 @@ export interface CreateFinancialRecordRequestBodyDtoPopulatedContact {
      * @memberof CreateFinancialRecordRequestBodyDtoPopulatedContact
      */
     importedBy?: string | null;
+    /**
+     * Identificador externo do contato.
+     * @type {string}
+     * @memberof CreateFinancialRecordRequestBodyDtoPopulatedContact
+     */
+    externalId?: string | null;
 }
 /**
  * @export

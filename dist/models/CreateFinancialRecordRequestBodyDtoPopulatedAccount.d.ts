@@ -155,6 +155,12 @@ export interface CreateFinancialRecordRequestBodyDtoPopulatedAccount {
      * @memberof CreateFinancialRecordRequestBodyDtoPopulatedAccount
      */
     importedBy?: string | null;
+    /**
+     * Identificador externo da conta bancária.
+     * @type {string}
+     * @memberof CreateFinancialRecordRequestBodyDtoPopulatedAccount
+     */
+    externalId?: string | null;
 }
 /**
  * @export

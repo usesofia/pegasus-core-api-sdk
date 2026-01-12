@@ -140,6 +140,12 @@ export interface ProspectRecurringFinancialRecordRequestBodyDto {
      */
     searchScore?: number;
     /**
+     * Identificador externo do lançamento recorrente.
+     * @type {string}
+     * @memberof ProspectRecurringFinancialRecordRequestBodyDto
+     */
+    externalId?: string | null;
+    /**
      * Canal de origem da operação
      * @type {string}
      * @memberof ProspectRecurringFinancialRecordRequestBodyDto

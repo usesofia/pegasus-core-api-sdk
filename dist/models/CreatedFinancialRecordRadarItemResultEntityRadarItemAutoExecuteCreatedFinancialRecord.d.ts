@@ -315,6 +315,12 @@ export interface CreatedFinancialRecordRadarItemResultEntityRadarItemAutoExecute
      * @memberof CreatedFinancialRecordRadarItemResultEntityRadarItemAutoExecuteCreatedFinancialRecord
      */
     importGlobalIndex?: number | null;
+    /**
+     * Identificador externo do lançamento financeiro.
+     * @type {string}
+     * @memberof CreatedFinancialRecordRadarItemResultEntityRadarItemAutoExecuteCreatedFinancialRecord
+     */
+    externalId?: string | null;
 }
 /**
  * @export

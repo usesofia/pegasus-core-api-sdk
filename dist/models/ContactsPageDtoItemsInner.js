@@ -103,6 +103,7 @@ function ContactsPageDtoItemsInnerFromJSONTyped(json, ignoreDiscriminator) {
         'updatedAt': json['updatedAt'],
         'importedAt': json['importedAt'] == null ? undefined : json['importedAt'],
         'importedBy': json['importedBy'] == null ? undefined : json['importedBy'],
+        'externalId': json['externalId'] == null ? undefined : json['externalId'],
     };
 }
 function ContactsPageDtoItemsInnerToJSON(json) {
@@ -132,5 +133,6 @@ function ContactsPageDtoItemsInnerToJSONTyped(value, ignoreDiscriminator) {
         'updatedAt': value['updatedAt'],
         'importedAt': value['importedAt'],
         'importedBy': value['importedBy'],
+        'externalId': value['externalId'],
     };
 }

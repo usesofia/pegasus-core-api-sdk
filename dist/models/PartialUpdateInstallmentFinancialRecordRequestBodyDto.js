@@ -82,6 +82,7 @@ function PartialUpdateInstallmentFinancialRecordRequestBodyDtoFromJSONTyped(json
         'populatedTags': json['populatedTags'] == null ? undefined : (json['populatedTags'].map(CreateFinancialRecordRequestBodyDtoPopulatedTagsInner_1.CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerFromJSON)),
         'observations': json['observations'] == null ? undefined : json['observations'],
         'populatedFiles': json['populatedFiles'] == null ? undefined : (json['populatedFiles'].map(CreateFinancialRecordRequestBodyDtoPopulatedFilesInner_1.CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerFromJSON)),
+        'externalId': json['externalId'] == null ? undefined : json['externalId'],
         'channel': json['channel'],
     };
 }
@@ -112,6 +113,7 @@ function PartialUpdateInstallmentFinancialRecordRequestBodyDtoToJSONTyped(value,
         'populatedTags': value['populatedTags'] == null ? undefined : (value['populatedTags'].map(CreateFinancialRecordRequestBodyDtoPopulatedTagsInner_1.CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerToJSON)),
         'observations': value['observations'],
         'populatedFiles': value['populatedFiles'] == null ? undefined : (value['populatedFiles'].map(CreateFinancialRecordRequestBodyDtoPopulatedFilesInner_1.CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerToJSON)),
+        'externalId': value['externalId'],
         'channel': value['channel'],
     };
 }

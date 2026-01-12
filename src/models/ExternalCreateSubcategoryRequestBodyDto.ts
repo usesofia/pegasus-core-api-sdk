@@ -119,6 +119,12 @@ export interface ExternalCreateSubcategoryRequestBodyDto {
      */
     importedBy?: string | null;
     /**
+     * Identificador externo da subcategoria.
+     * @type {string}
+     * @memberof ExternalCreateSubcategoryRequestBodyDto
+     */
+    externalId?: string | null;
+    /**
      * Canal de origem da operação
      * @type {string}
      * @memberof ExternalCreateSubcategoryRequestBodyDto
@@ -177,6 +183,7 @@ export function ExternalCreateSubcategoryRequestBodyDtoFromJSONTyped(json: any, 
         'searchScore': json['searchScore'] == null ? undefined : json['searchScore'],
         'importedAt': json['importedAt'] == null ? undefined : json['importedAt'],
         'importedBy': json['importedBy'] == null ? undefined : json['importedBy'],
+        'externalId': json['externalId'] == null ? undefined : json['externalId'],
         'channel': json['channel'],
     };
 }
@@ -206,6 +213,7 @@ export function ExternalCreateSubcategoryRequestBodyDtoToJSONTyped(value?: Exter
         'searchScore': value['searchScore'],
         'importedAt': value['importedAt'],
         'importedBy': value['importedBy'],
+        'externalId': value['externalId'],
         'channel': value['channel'],
     };
 }

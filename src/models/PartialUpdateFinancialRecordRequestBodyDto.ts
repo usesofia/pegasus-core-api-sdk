@@ -279,6 +279,12 @@ export interface PartialUpdateFinancialRecordRequestBodyDto {
      */
     importGlobalIndex?: number | null;
     /**
+     * Identificador externo do lançamento financeiro.
+     * @type {string}
+     * @memberof PartialUpdateFinancialRecordRequestBodyDto
+     */
+    externalId?: string | null;
+    /**
      * Identificador do item no radar que originou a atualização.
      * @type {string}
      * @memberof PartialUpdateFinancialRecordRequestBodyDto
@@ -368,6 +374,7 @@ export function PartialUpdateFinancialRecordRequestBodyDtoFromJSONTyped(json: an
         'importedAt': json['importedAt'] == null ? undefined : json['importedAt'],
         'importedBy': json['importedBy'] == null ? undefined : json['importedBy'],
         'importGlobalIndex': json['importGlobalIndex'] == null ? undefined : json['importGlobalIndex'],
+        'externalId': json['externalId'] == null ? undefined : json['externalId'],
         'radarItem': json['radarItem'] == null ? undefined : json['radarItem'],
         'channel': json['channel'],
     };
@@ -420,6 +427,7 @@ export function PartialUpdateFinancialRecordRequestBodyDtoToJSONTyped(value?: Pa
         'importedAt': value['importedAt'],
         'importedBy': value['importedBy'],
         'importGlobalIndex': value['importGlobalIndex'],
+        'externalId': value['externalId'],
         'radarItem': value['radarItem'],
         'channel': value['channel'],
     };

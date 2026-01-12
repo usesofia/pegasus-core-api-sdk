@@ -43,6 +43,7 @@ Name | Type
 `importedAt` | any
 `importedBy` | string
 `importGlobalIndex` | number
+`externalId` | string
 `finalAmount` | number
 `radarItem` | string
 `channel` | string
@@ -91,6 +92,7 @@ const example = {
   "importedAt": null,
   "importedBy": null,
   "importGlobalIndex": null,
+  "externalId": null,
   "finalAmount": null,
   "radarItem": null,
   "channel": null,

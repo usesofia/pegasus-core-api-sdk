@@ -155,6 +155,12 @@ export interface BankTransactionEntityPopulatedBankAccount {
      * @memberof BankTransactionEntityPopulatedBankAccount
      */
     importedBy?: string | null;
+    /**
+     * Identificador externo da conta bancária.
+     * @type {string}
+     * @memberof BankTransactionEntityPopulatedBankAccount
+     */
+    externalId?: string | null;
 }
 /**
  * @export

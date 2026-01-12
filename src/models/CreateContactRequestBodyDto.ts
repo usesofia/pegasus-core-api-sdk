@@ -106,6 +106,12 @@ export interface CreateContactRequestBodyDto {
      */
     importedBy?: string | null;
     /**
+     * Identificador externo do contato.
+     * @type {string}
+     * @memberof CreateContactRequestBodyDto
+     */
+    externalId?: string | null;
+    /**
      * Canal de origem da operação
      * @type {string}
      * @memberof CreateContactRequestBodyDto
@@ -198,6 +204,7 @@ export function CreateContactRequestBodyDtoFromJSONTyped(json: any, ignoreDiscri
         'searchScore': json['searchScore'] == null ? undefined : json['searchScore'],
         'importedAt': json['importedAt'] == null ? undefined : json['importedAt'],
         'importedBy': json['importedBy'] == null ? undefined : json['importedBy'],
+        'externalId': json['externalId'] == null ? undefined : json['externalId'],
         'channel': json['channel'],
     };
 }
@@ -226,6 +233,7 @@ export function CreateContactRequestBodyDtoToJSONTyped(value?: CreateContactRequ
         'searchScore': value['searchScore'],
         'importedAt': value['importedAt'],
         'importedBy': value['importedBy'],
+        'externalId': value['externalId'],
         'channel': value['channel'],
     };
 }

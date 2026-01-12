@@ -279,6 +279,12 @@ export interface CreateFinancialRecordRadarItemRequestBodyDtoBestSuggestedAction
      */
     importGlobalIndex?: number | null;
     /**
+     * Identificador externo do lançamento financeiro.
+     * @type {string}
+     * @memberof CreateFinancialRecordRadarItemRequestBodyDtoBestSuggestedActionFinancialRecordRadarRawPartialUpdateFinancialRecordRequestData
+     */
+    externalId?: string | null;
+    /**
      * Valor final do lançamento (calculado automaticamente).
      * @type {number}
      * @memberof CreateFinancialRecordRadarItemRequestBodyDtoBestSuggestedActionFinancialRecordRadarRawPartialUpdateFinancialRecordRequestData
@@ -356,6 +362,7 @@ export function CreateFinancialRecordRadarItemRequestBodyDtoBestSuggestedActionF
         'importedAt': json['importedAt'] == null ? undefined : json['importedAt'],
         'importedBy': json['importedBy'] == null ? undefined : json['importedBy'],
         'importGlobalIndex': json['importGlobalIndex'] == null ? undefined : json['importGlobalIndex'],
+        'externalId': json['externalId'] == null ? undefined : json['externalId'],
         'finalAmount': json['finalAmount'] == null ? undefined : json['finalAmount'],
         'radarItem': json['radarItem'] == null ? undefined : json['radarItem'],
     };
@@ -408,6 +415,7 @@ export function CreateFinancialRecordRadarItemRequestBodyDtoBestSuggestedActionF
         'importedAt': value['importedAt'],
         'importedBy': value['importedBy'],
         'importGlobalIndex': value['importGlobalIndex'],
+        'externalId': value['externalId'],
         'finalAmount': value['finalAmount'],
         'radarItem': value['radarItem'],
     };

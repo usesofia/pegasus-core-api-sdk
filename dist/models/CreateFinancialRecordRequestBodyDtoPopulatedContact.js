@@ -103,6 +103,7 @@ function CreateFinancialRecordRequestBodyDtoPopulatedContactFromJSONTyped(json, 
         'updatedAt': json['updatedAt'],
         'importedAt': json['importedAt'] == null ? undefined : json['importedAt'],
         'importedBy': json['importedBy'] == null ? undefined : json['importedBy'],
+        'externalId': json['externalId'] == null ? undefined : json['externalId'],
     };
 }
 function CreateFinancialRecordRequestBodyDtoPopulatedContactToJSON(json) {
@@ -132,5 +133,6 @@ function CreateFinancialRecordRequestBodyDtoPopulatedContactToJSONTyped(value, i
         'updatedAt': value['updatedAt'],
         'importedAt': value['importedAt'],
         'importedBy': value['importedBy'],
+        'externalId': value['externalId'],
     };
 }

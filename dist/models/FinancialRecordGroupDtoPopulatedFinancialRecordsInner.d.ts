@@ -315,6 +315,12 @@ export interface FinancialRecordGroupDtoPopulatedFinancialRecordsInner {
      * @memberof FinancialRecordGroupDtoPopulatedFinancialRecordsInner
      */
     importGlobalIndex?: number | null;
+    /**
+     * Identificador externo do lançamento financeiro.
+     * @type {string}
+     * @memberof FinancialRecordGroupDtoPopulatedFinancialRecordsInner
+     */
+    externalId?: string | null;
 }
 /**
  * @export

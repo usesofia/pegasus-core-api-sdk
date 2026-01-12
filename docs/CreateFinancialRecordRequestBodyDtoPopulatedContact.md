@@ -25,6 +25,7 @@ Name | Type
 `updatedAt` | any
 `importedAt` | any
 `importedBy` | string
+`externalId` | string
 
 ## Example
 
@@ -51,6 +52,7 @@ const example = {
   "updatedAt": null,
   "importedAt": null,
   "importedBy": null,
+  "externalId": null,
 } satisfies CreateFinancialRecordRequestBodyDtoPopulatedContact
 
 console.log(example)

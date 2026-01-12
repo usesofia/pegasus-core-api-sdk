@@ -50,6 +50,7 @@ function TagEntityFromJSONTyped(json, ignoreDiscriminator) {
         'searchScore': json['searchScore'] == null ? undefined : json['searchScore'],
         'importedAt': json['importedAt'] == null ? undefined : json['importedAt'],
         'importedBy': json['importedBy'] == null ? undefined : json['importedBy'],
+        'externalId': json['externalId'] == null ? undefined : json['externalId'],
     };
 }
 function TagEntityToJSON(json) {
@@ -69,5 +70,6 @@ function TagEntityToJSONTyped(value, ignoreDiscriminator) {
         'searchScore': value['searchScore'],
         'importedAt': value['importedAt'],
         'importedBy': value['importedBy'],
+        'externalId': value['externalId'],
     };
 }

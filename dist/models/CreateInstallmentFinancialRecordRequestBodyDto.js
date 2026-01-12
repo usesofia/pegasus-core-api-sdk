@@ -95,6 +95,7 @@ function CreateInstallmentFinancialRecordRequestBodyDtoFromJSONTyped(json, ignor
         'populatedTags': json['populatedTags'] == null ? undefined : (json['populatedTags'].map(CreateFinancialRecordRequestBodyDtoPopulatedTagsInner_1.CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerFromJSON)),
         'observations': json['observations'] == null ? undefined : json['observations'],
         'populatedFiles': json['populatedFiles'] == null ? undefined : (json['populatedFiles'].map(CreateFinancialRecordRequestBodyDtoPopulatedFilesInner_1.CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerFromJSON)),
+        'externalId': json['externalId'] == null ? undefined : json['externalId'],
         'installments': json['installments'] == null ? undefined : (json['installments'].map(CreateInstallmentFinancialRecordRequestBodyDtoInstallmentsInner_1.CreateInstallmentFinancialRecordRequestBodyDtoInstallmentsInnerFromJSON)),
         'channel': json['channel'],
     };
@@ -125,6 +126,7 @@ function CreateInstallmentFinancialRecordRequestBodyDtoToJSONTyped(value, ignore
         'populatedTags': value['populatedTags'] == null ? undefined : (value['populatedTags'].map(CreateFinancialRecordRequestBodyDtoPopulatedTagsInner_1.CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerToJSON)),
         'observations': value['observations'],
         'populatedFiles': value['populatedFiles'] == null ? undefined : (value['populatedFiles'].map(CreateFinancialRecordRequestBodyDtoPopulatedFilesInner_1.CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerToJSON)),
+        'externalId': value['externalId'],
         'installments': value['installments'] == null ? undefined : (value['installments'].map(CreateInstallmentFinancialRecordRequestBodyDtoInstallmentsInner_1.CreateInstallmentFinancialRecordRequestBodyDtoInstallmentsInnerToJSON)),
         'channel': value['channel'],
     };

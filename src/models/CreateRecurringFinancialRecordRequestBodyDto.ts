@@ -169,6 +169,12 @@ export interface CreateRecurringFinancialRecordRequestBodyDto {
      */
     searchScore?: number;
     /**
+     * Identificador externo do lançamento recorrente.
+     * @type {string}
+     * @memberof CreateRecurringFinancialRecordRequestBodyDto
+     */
+    externalId?: string | null;
+    /**
      * Canal de origem da operação
      * @type {string}
      * @memberof CreateRecurringFinancialRecordRequestBodyDto
@@ -253,6 +259,7 @@ export function CreateRecurringFinancialRecordRequestBodyDtoFromJSONTyped(json: 
         'populatedFiles': json['populatedFiles'] == null ? undefined : ((json['populatedFiles'] as Array<any>).map(CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerFromJSON)),
         'observations': json['observations'] == null ? undefined : json['observations'],
         'searchScore': json['searchScore'] == null ? undefined : json['searchScore'],
+        'externalId': json['externalId'] == null ? undefined : json['externalId'],
         'channel': json['channel'],
     };
 }
@@ -288,6 +295,7 @@ export function CreateRecurringFinancialRecordRequestBodyDtoToJSONTyped(value?: 
         'populatedFiles': value['populatedFiles'] == null ? undefined : ((value['populatedFiles'] as Array<any>).map(CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerToJSON)),
         'observations': value['observations'],
         'searchScore': value['searchScore'],
+        'externalId': value['externalId'],
         'channel': value['channel'],
     };
 }

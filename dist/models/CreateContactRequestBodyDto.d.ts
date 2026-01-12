@@ -95,6 +95,12 @@ export interface CreateContactRequestBodyDto {
      */
     importedBy?: string | null;
     /**
+     * Identificador externo do contato.
+     * @type {string}
+     * @memberof CreateContactRequestBodyDto
+     */
+    externalId?: string | null;
+    /**
      * Canal de origem da operação
      * @type {string}
      * @memberof CreateContactRequestBodyDto

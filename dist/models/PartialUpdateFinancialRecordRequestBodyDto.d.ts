@@ -238,6 +238,12 @@ export interface PartialUpdateFinancialRecordRequestBodyDto {
      */
     importGlobalIndex?: number | null;
     /**
+     * Identificador externo do lançamento financeiro.
+     * @type {string}
+     * @memberof PartialUpdateFinancialRecordRequestBodyDto
+     */
+    externalId?: string | null;
+    /**
      * Identificador do item no radar que originou a atualização.
      * @type {string}
      * @memberof PartialUpdateFinancialRecordRequestBodyDto

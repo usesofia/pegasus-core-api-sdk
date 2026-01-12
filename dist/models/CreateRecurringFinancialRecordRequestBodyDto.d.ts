@@ -140,6 +140,12 @@ export interface CreateRecurringFinancialRecordRequestBodyDto {
      */
     searchScore?: number;
     /**
+     * Identificador externo do lançamento recorrente.
+     * @type {string}
+     * @memberof CreateRecurringFinancialRecordRequestBodyDto
+     */
+    externalId?: string | null;
+    /**
      * Canal de origem da operação
      * @type {string}
      * @memberof CreateRecurringFinancialRecordRequestBodyDto

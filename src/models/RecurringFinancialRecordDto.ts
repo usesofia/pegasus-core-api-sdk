@@ -192,6 +192,12 @@ export interface RecurringFinancialRecordDto {
      * @memberof RecurringFinancialRecordDto
      */
     searchScore?: number;
+    /**
+     * Identificador externo do lançamento recorrente.
+     * @type {string}
+     * @memberof RecurringFinancialRecordDto
+     */
+    externalId?: string | null;
 }
 
 
@@ -266,6 +272,7 @@ export function RecurringFinancialRecordDtoFromJSONTyped(json: any, ignoreDiscri
         'populatedFiles': json['populatedFiles'] == null ? undefined : ((json['populatedFiles'] as Array<any>).map(CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerFromJSON)),
         'observations': json['observations'] == null ? undefined : json['observations'],
         'searchScore': json['searchScore'] == null ? undefined : json['searchScore'],
+        'externalId': json['externalId'] == null ? undefined : json['externalId'],
     };
 }
 
@@ -304,6 +311,7 @@ export function RecurringFinancialRecordDtoToJSONTyped(value?: RecurringFinancia
         'populatedFiles': value['populatedFiles'] == null ? undefined : ((value['populatedFiles'] as Array<any>).map(CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerToJSON)),
         'observations': value['observations'],
         'searchScore': value['searchScore'],
+        'externalId': value['externalId'],
     };
 }
 

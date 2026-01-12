@@ -20,6 +20,7 @@ Name | Type
 `searchScore` | number
 `importedAt` | any
 `importedBy` | string
+`externalId` | string
 `channel` | string
 
 ## Example
@@ -43,6 +44,7 @@ const example = {
   "searchScore": null,
   "importedAt": null,
   "importedBy": null,
+  "externalId": null,
   "channel": null,
 } satisfies ExternalCreateSubcategoryRequestBodyDto
 

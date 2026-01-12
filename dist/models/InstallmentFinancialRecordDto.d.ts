@@ -153,6 +153,12 @@ export interface InstallmentFinancialRecordDto {
      */
     populatedFiles?: Array<CreateFinancialRecordRequestBodyDtoPopulatedFilesInner>;
     /**
+     * Identificador externo do lançamento parcelado.
+     * @type {string}
+     * @memberof InstallmentFinancialRecordDto
+     */
+    externalId?: string | null;
+    /**
      *
      * @type {string}
      * @memberof InstallmentFinancialRecordDto

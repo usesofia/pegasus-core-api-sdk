@@ -44,6 +44,12 @@ export interface CreateTagRequestBodyDto {
      */
     importedBy?: string | null;
     /**
+     * Identificador externo da tag.
+     * @type {string}
+     * @memberof CreateTagRequestBodyDto
+     */
+    externalId?: string | null;
+    /**
      * Canal de origem da operação
      * @type {string}
      * @memberof CreateTagRequestBodyDto
@@ -87,6 +93,7 @@ export function CreateTagRequestBodyDtoFromJSONTyped(json: any, ignoreDiscrimina
         'searchScore': json['searchScore'] == null ? undefined : json['searchScore'],
         'importedAt': json['importedAt'] == null ? undefined : json['importedAt'],
         'importedBy': json['importedBy'] == null ? undefined : json['importedBy'],
+        'externalId': json['externalId'] == null ? undefined : json['externalId'],
         'channel': json['channel'],
     };
 }
@@ -106,6 +113,7 @@ export function CreateTagRequestBodyDtoToJSONTyped(value?: CreateTagRequestBodyD
         'searchScore': value['searchScore'],
         'importedAt': value['importedAt'],
         'importedBy': value['importedBy'],
+        'externalId': value['externalId'],
         'channel': value['channel'],
     };
 }

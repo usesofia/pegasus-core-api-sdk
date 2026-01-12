@@ -26,6 +26,7 @@ Name | Type
 `populatedFiles` | [Array&lt;CreateFinancialRecordRequestBodyDtoPopulatedFilesInner&gt;](CreateFinancialRecordRequestBodyDtoPopulatedFilesInner.md)
 `observations` | string
 `searchScore` | number
+`externalId` | string
 
 ## Example
 
@@ -54,6 +55,7 @@ const example = {
   "populatedFiles": null,
   "observations": null,
   "searchScore": null,
+  "externalId": null,
 } satisfies CreateManyRecurringFinancialRecordsRequestBodyDtoDataInner
 
 console.log(example)

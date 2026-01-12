@@ -63,6 +63,12 @@ export interface CreateFinancialRecordRequestBodyDtoPopulatedTagsInner {
      * @memberof CreateFinancialRecordRequestBodyDtoPopulatedTagsInner
      */
     importedBy?: string | null;
+    /**
+     * Identificador externo da tag.
+     * @type {string}
+     * @memberof CreateFinancialRecordRequestBodyDtoPopulatedTagsInner
+     */
+    externalId?: string | null;
 }
 /**
  * Check if a given object implements the CreateFinancialRecordRequestBodyDtoPopulatedTagsInner interface.

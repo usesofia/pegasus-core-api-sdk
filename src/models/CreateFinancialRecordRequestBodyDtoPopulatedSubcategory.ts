@@ -142,6 +142,12 @@ export interface CreateFinancialRecordRequestBodyDtoPopulatedSubcategory {
      * @memberof CreateFinancialRecordRequestBodyDtoPopulatedSubcategory
      */
     importedBy?: string | null;
+    /**
+     * Identificador externo da subcategoria.
+     * @type {string}
+     * @memberof CreateFinancialRecordRequestBodyDtoPopulatedSubcategory
+     */
+    externalId?: string | null;
 }
 
 /**
@@ -189,6 +195,7 @@ export function CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryFromJSONT
         'updatedAt': json['updatedAt'],
         'importedAt': json['importedAt'] == null ? undefined : json['importedAt'],
         'importedBy': json['importedBy'] == null ? undefined : json['importedBy'],
+        'externalId': json['externalId'] == null ? undefined : json['externalId'],
     };
 }
 
@@ -221,6 +228,7 @@ export function CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryToJSONTyp
         'updatedAt': value['updatedAt'],
         'importedAt': value['importedAt'],
         'importedBy': value['importedBy'],
+        'externalId': value['externalId'],
     };
 }
 

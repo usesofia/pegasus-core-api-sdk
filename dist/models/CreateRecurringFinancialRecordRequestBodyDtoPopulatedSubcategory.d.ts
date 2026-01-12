@@ -125,6 +125,12 @@ export interface CreateRecurringFinancialRecordRequestBodyDtoPopulatedSubcategor
      * @memberof CreateRecurringFinancialRecordRequestBodyDtoPopulatedSubcategory
      */
     importedBy?: string | null;
+    /**
+     * Identificador externo da subcategoria.
+     * @type {string}
+     * @memberof CreateRecurringFinancialRecordRequestBodyDtoPopulatedSubcategory
+     */
+    externalId?: string | null;
 }
 /**
  * Check if a given object implements the CreateRecurringFinancialRecordRequestBodyDtoPopulatedSubcategory interface.

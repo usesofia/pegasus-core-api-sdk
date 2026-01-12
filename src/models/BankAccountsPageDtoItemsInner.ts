@@ -172,6 +172,12 @@ export interface BankAccountsPageDtoItemsInner {
      * @memberof BankAccountsPageDtoItemsInner
      */
     importedBy?: string | null;
+    /**
+     * Identificador externo da conta bancária.
+     * @type {string}
+     * @memberof BankAccountsPageDtoItemsInner
+     */
+    externalId?: string | null;
 }
 
 
@@ -250,6 +256,7 @@ export function BankAccountsPageDtoItemsInnerFromJSONTyped(json: any, ignoreDisc
         'populatedAutomaticStatus': json['populatedAutomaticStatus'] == null ? undefined : CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedAutomaticStatusFromJSON(json['populatedAutomaticStatus']),
         'importedAt': json['importedAt'] == null ? undefined : json['importedAt'],
         'importedBy': json['importedBy'] == null ? undefined : json['importedBy'],
+        'externalId': json['externalId'] == null ? undefined : json['externalId'],
     };
 }
 
@@ -287,6 +294,7 @@ export function BankAccountsPageDtoItemsInnerToJSONTyped(value?: BankAccountsPag
         'populatedAutomaticStatus': CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedAutomaticStatusToJSON(value['populatedAutomaticStatus']),
         'importedAt': value['importedAt'],
         'importedBy': value['importedBy'],
+        'externalId': value['externalId'],
     };
 }
 

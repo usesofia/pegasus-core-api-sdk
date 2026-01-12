@@ -67,6 +67,12 @@ export interface CreateFinancialRecordRequestBodyDtoPopulatedTagsInner {
      * @memberof CreateFinancialRecordRequestBodyDtoPopulatedTagsInner
      */
     importedBy?: string | null;
+    /**
+     * Identificador externo da tag.
+     * @type {string}
+     * @memberof CreateFinancialRecordRequestBodyDtoPopulatedTagsInner
+     */
+    externalId?: string | null;
 }
 
 /**
@@ -99,6 +105,7 @@ export function CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerFromJSONTyp
         'searchScore': json['searchScore'] == null ? undefined : json['searchScore'],
         'importedAt': json['importedAt'] == null ? undefined : json['importedAt'],
         'importedBy': json['importedBy'] == null ? undefined : json['importedBy'],
+        'externalId': json['externalId'] == null ? undefined : json['externalId'],
     };
 }
 
@@ -121,6 +128,7 @@ export function CreateFinancialRecordRequestBodyDtoPopulatedTagsInnerToJSONTyped
         'searchScore': value['searchScore'],
         'importedAt': value['importedAt'],
         'importedBy': value['importedBy'],
+        'externalId': value['externalId'],
     };
 }
 

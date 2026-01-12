@@ -168,6 +168,12 @@ export interface CreateManyRecurringFinancialRecordsRequestBodyDtoDataInner {
      * @memberof CreateManyRecurringFinancialRecordsRequestBodyDtoDataInner
      */
     searchScore?: number;
+    /**
+     * Identificador externo do lançamento recorrente.
+     * @type {string}
+     * @memberof CreateManyRecurringFinancialRecordsRequestBodyDtoDataInner
+     */
+    externalId?: string | null;
 }
 
 
@@ -235,6 +241,7 @@ export function CreateManyRecurringFinancialRecordsRequestBodyDtoDataInnerFromJS
         'populatedFiles': json['populatedFiles'] == null ? undefined : ((json['populatedFiles'] as Array<any>).map(CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerFromJSON)),
         'observations': json['observations'] == null ? undefined : json['observations'],
         'searchScore': json['searchScore'] == null ? undefined : json['searchScore'],
+        'externalId': json['externalId'] == null ? undefined : json['externalId'],
     };
 }
 
@@ -269,6 +276,7 @@ export function CreateManyRecurringFinancialRecordsRequestBodyDtoDataInnerToJSON
         'populatedFiles': value['populatedFiles'] == null ? undefined : ((value['populatedFiles'] as Array<any>).map(CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerToJSON)),
         'observations': value['observations'],
         'searchScore': value['searchScore'],
+        'externalId': value['externalId'],
     };
 }
 

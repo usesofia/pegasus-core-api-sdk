@@ -24,6 +24,7 @@ Name | Type
 `populatedAutomaticStatus` | [CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedAutomaticStatus](CreateFinancialRecordRequestBodyDtoPopulatedAccountPopulatedAutomaticStatus.md)
 `importedAt` | any
 `importedBy` | string
+`externalId` | string
 `channel` | string
 
 ## Example
@@ -51,6 +52,7 @@ const example = {
   "populatedAutomaticStatus": null,
   "importedAt": null,
   "importedBy": null,
+  "externalId": null,
   "channel": null,
 } satisfies CreateBankAccountRequestBodyDto
 
