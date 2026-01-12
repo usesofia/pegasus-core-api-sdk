@@ -18,8 +18,8 @@ export interface ExportBankTransactionsRequest {
     origin?: ExportBankTransactionsOriginEnum;
     reconciled?: boolean;
     type?: ExportBankTransactionsTypeEnum;
-    dateTo?: Date;
-    dateFrom?: Date;
+    dateTo?: string;
+    dateFrom?: string;
     bankAccount?: string;
     format?: ExportBankTransactionsFormatEnum;
 }
@@ -39,8 +39,8 @@ export interface BankTransactionsExportApiInterface {
      * @param {'AUTOMATIC_INTEGRATION' | 'MANUAL_OFX_IMPORT'} [origin] Filtrar pela origem da transação.
      * @param {boolean} [reconciled] Filtrar por transações reconciliadas. (true/false)
      * @param {'DEBIT' | 'CREDIT'} [type] Tipo da movimentação.
-     * @param {Date} [dateTo] Data final para filtrar.
-     * @param {Date} [dateFrom] Data inicial para filtrar.
+     * @param {string} [dateTo] Data final para filtrar.
+     * @param {string} [dateFrom] Data inicial para filtrar.
      * @param {string} [bankAccount] ID da conta bancária para filtrar.
      * @param {'csv' | 'xlsx'} [format] Formato de exportação dos dados.
      * @param {*} [options] Override http request option.

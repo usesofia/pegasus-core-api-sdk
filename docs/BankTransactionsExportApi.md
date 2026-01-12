@@ -40,10 +40,10 @@ async function example() {
     reconciled: true,
     // 'DEBIT' | 'CREDIT' | Tipo da movimentação. (optional)
     type: type_example,
-    // Date | Data final para filtrar. (optional)
-    dateTo: 2013-10-20T19:20:30+01:00,
-    // Date | Data inicial para filtrar. (optional)
-    dateFrom: 2013-10-20T19:20:30+01:00,
+    // string | Data final para filtrar. (optional)
+    dateTo: dateTo_example,
+    // string | Data inicial para filtrar. (optional)
+    dateFrom: dateFrom_example,
     // string | ID da conta bancária para filtrar. (optional)
     bankAccount: bankAccount_example,
     // 'csv' | 'xlsx' | Formato de exportação dos dados. (optional)
@@ -73,8 +73,8 @@ example().catch(console.error);
 | **origin** | `AUTOMATIC_INTEGRATION`, `MANUAL_OFX_IMPORT` | Filtrar pela origem da transação. | [Optional] [Defaults to `undefined`] [Enum: AUTOMATIC_INTEGRATION, MANUAL_OFX_IMPORT] |
 | **reconciled** | `boolean` | Filtrar por transações reconciliadas. (true/false) | [Optional] [Defaults to `undefined`] |
 | **type** | `DEBIT`, `CREDIT` | Tipo da movimentação. | [Optional] [Defaults to `undefined`] [Enum: DEBIT, CREDIT] |
-| **dateTo** | `Date` | Data final para filtrar. | [Optional] [Defaults to `undefined`] |
-| **dateFrom** | `Date` | Data inicial para filtrar. | [Optional] [Defaults to `undefined`] |
+| **dateTo** | `string` | Data final para filtrar. | [Optional] [Defaults to `undefined`] |
+| **dateFrom** | `string` | Data inicial para filtrar. | [Optional] [Defaults to `undefined`] |
 | **bankAccount** | `string` | ID da conta bancária para filtrar. | [Optional] [Defaults to `undefined`] |
 | **format** | `csv`, `xlsx` | Formato de exportação dos dados. | [Optional] [Defaults to `undefined`] [Enum: csv, xlsx] |
 

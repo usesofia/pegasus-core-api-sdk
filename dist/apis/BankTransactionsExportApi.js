@@ -104,10 +104,10 @@ var BankTransactionsExportApi = /** @class */ (function (_super) {
                             queryParameters['type'] = requestParameters['type'];
                         }
                         if (requestParameters['dateTo'] != null) {
-                            queryParameters['dateTo'] = requestParameters['dateTo'].toISOString();
+                            queryParameters['dateTo'] = requestParameters['dateTo'];
                         }
                         if (requestParameters['dateFrom'] != null) {
-                            queryParameters['dateFrom'] = requestParameters['dateFrom'].toISOString();
+                            queryParameters['dateFrom'] = requestParameters['dateFrom'];
                         }
                         if (requestParameters['bankAccount'] != null) {
                             queryParameters['bankAccount'] = requestParameters['bankAccount'];
