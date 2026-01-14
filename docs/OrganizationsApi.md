@@ -154,7 +154,7 @@ No authorization required
 
 ## findAllOrganizationsAdmin
 
-> AdminOrganizationsPageDto findAllOrganizationsAdmin(hasCustomerId, sortOrder, sortBy, textSearchTerm, clerkIds, subscriptionStatuses, trialExpiresAtTo, trialExpiresAtFrom, clerkCreatedAtTo, clerkCreatedAtFrom, subtypes, pageSize, pageIndex)
+> AdminOrganizationsPageDto findAllOrganizationsAdmin(serviceCutoffDateTo, serviceCutoffDateFrom, latePayment, hasCustomerId, sortOrder, sortBy, textSearchTerm, clerkIds, subscriptionStatuses, trialExpiresAtTo, trialExpiresAtFrom, clerkCreatedAtTo, clerkCreatedAtFrom, subtypes, pageSize, pageIndex)
 
 Lista todas as organizações armazenadas no banco de dados (endpoint admin).
 
@@ -172,6 +172,12 @@ async function example() {
   const api = new OrganizationsApi();
 
   const body = {
+    // string | Data de corte do serviço até (formato ISO 8601). (optional)
+    serviceCutoffDateTo: serviceCutoffDateTo_example,
+    // string | Data de corte do serviço a partir de (formato ISO 8601). (optional)
+    serviceCutoffDateFrom: serviceCutoffDateFrom_example,
+    // boolean | Filtrar por status de atraso no pagamento da subscription. (optional)
+    latePayment: true,
     // boolean | Filtrar apenas organizações que possuem customerId. (optional)
     hasCustomerId: true,
     // 'asc' | 'desc' | Ordem de ordenação das organizações. (optional)
@@ -217,6 +223,9 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
+| **serviceCutoffDateTo** | `string` | Data de corte do serviço até (formato ISO 8601). | [Optional] [Defaults to `undefined`] |
+| **serviceCutoffDateFrom** | `string` | Data de corte do serviço a partir de (formato ISO 8601). | [Optional] [Defaults to `undefined`] |
+| **latePayment** | `boolean` | Filtrar por status de atraso no pagamento da subscription. | [Optional] [Defaults to `undefined`] |
 | **hasCustomerId** | `boolean` | Filtrar apenas organizações que possuem customerId. | [Optional] [Defaults to `undefined`] |
 | **sortOrder** | `asc`, `desc` | Ordem de ordenação das organizações. | [Optional] [Defaults to `undefined`] [Enum: asc, desc] |
 | **sortBy** | `name`, `clerkCreatedAt` | Campo para ordenação das organizações. | [Optional] [Defaults to `undefined`] [Enum: name, clerkCreatedAt] |

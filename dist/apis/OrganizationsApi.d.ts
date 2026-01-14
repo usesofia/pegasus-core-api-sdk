@@ -19,6 +19,9 @@ export interface ExternalHardRemoveOrganizationRequest {
     organizationId: string;
 }
 export interface FindAllOrganizationsAdminRequest {
+    serviceCutoffDateTo?: string;
+    serviceCutoffDateFrom?: string;
+    latePayment?: boolean;
     hasCustomerId?: boolean;
     sortOrder?: FindAllOrganizationsAdminSortOrderEnum;
     sortBy?: FindAllOrganizationsAdminSortByEnum;
@@ -84,6 +87,9 @@ export interface OrganizationsApiInterface {
     /**
      *
      * @summary Lista todas as organizações armazenadas no banco de dados (endpoint admin).
+     * @param {string} [serviceCutoffDateTo] Data de corte do serviço até (formato ISO 8601).
+     * @param {string} [serviceCutoffDateFrom] Data de corte do serviço a partir de (formato ISO 8601).
+     * @param {boolean} [latePayment] Filtrar por status de atraso no pagamento da subscription.
      * @param {boolean} [hasCustomerId] Filtrar apenas organizações que possuem customerId.
      * @param {'asc' | 'desc'} [sortOrder] Ordem de ordenação das organizações.
      * @param {'name' | 'clerkCreatedAt'} [sortBy] Campo para ordenação das organizações.

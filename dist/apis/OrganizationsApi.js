@@ -179,6 +179,15 @@ var OrganizationsApi = /** @class */ (function (_super) {
                 switch (_a.label) {
                     case 0:
                         queryParameters = {};
+                        if (requestParameters['serviceCutoffDateTo'] != null) {
+                            queryParameters['serviceCutoffDateTo'] = requestParameters['serviceCutoffDateTo'];
+                        }
+                        if (requestParameters['serviceCutoffDateFrom'] != null) {
+                            queryParameters['serviceCutoffDateFrom'] = requestParameters['serviceCutoffDateFrom'];
+                        }
+                        if (requestParameters['latePayment'] != null) {
+                            queryParameters['latePayment'] = requestParameters['latePayment'];
+                        }
                         if (requestParameters['hasCustomerId'] != null) {
                             queryParameters['hasCustomerId'] = requestParameters['hasCustomerId'];
                         }

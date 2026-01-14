@@ -47,6 +47,9 @@ export interface ExternalHardRemoveOrganizationRequest {
 }
 
 export interface FindAllOrganizationsAdminRequest {
+    serviceCutoffDateTo?: string;
+    serviceCutoffDateFrom?: string;
+    latePayment?: boolean;
     hasCustomerId?: boolean;
     sortOrder?: FindAllOrganizationsAdminSortOrderEnum;
     sortBy?: FindAllOrganizationsAdminSortByEnum;
@@ -121,6 +124,9 @@ export interface OrganizationsApiInterface {
     /**
      * 
      * @summary Lista todas as organizações armazenadas no banco de dados (endpoint admin).
+     * @param {string} [serviceCutoffDateTo] Data de corte do serviço até (formato ISO 8601).
+     * @param {string} [serviceCutoffDateFrom] Data de corte do serviço a partir de (formato ISO 8601).
+     * @param {boolean} [latePayment] Filtrar por status de atraso no pagamento da subscription.
      * @param {boolean} [hasCustomerId] Filtrar apenas organizações que possuem customerId.
      * @param {'asc' | 'desc'} [sortOrder] Ordem de ordenação das organizações.
      * @param {'name' | 'clerkCreatedAt'} [sortBy] Campo para ordenação das organizações.
@@ -340,6 +346,18 @@ export class OrganizationsApi extends runtime.BaseAPI implements OrganizationsAp
      */
     async findAllOrganizationsAdminRaw(requestParameters: FindAllOrganizationsAdminRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AdminOrganizationsPageDto>> {
         const queryParameters: any = {};
+
+        if (requestParameters['serviceCutoffDateTo'] != null) {
+            queryParameters['serviceCutoffDateTo'] = requestParameters['serviceCutoffDateTo'];
+        }
+
+        if (requestParameters['serviceCutoffDateFrom'] != null) {
+            queryParameters['serviceCutoffDateFrom'] = requestParameters['serviceCutoffDateFrom'];
+        }
+
+        if (requestParameters['latePayment'] != null) {
+            queryParameters['latePayment'] = requestParameters['latePayment'];
+        }
 
         if (requestParameters['hasCustomerId'] != null) {
             queryParameters['hasCustomerId'] = requestParameters['hasCustomerId'];
