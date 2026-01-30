@@ -108,6 +108,12 @@ export interface OfxImportJobRequestsPageDtoItemsInner {
      */
     signedUrl: string;
     /**
+     * Pontuação de busca da solicitação de importação.
+     * @type {number}
+     * @memberof OfxImportJobRequestsPageDtoItemsInner
+     */
+    searchScore?: number | null;
+    /**
      * Lista de execuções para esta solicitação de importação.
      * @type {Array<OfxImportJobRequestsPageDtoItemsInnerExecutionsInner>}
      * @memberof OfxImportJobRequestsPageDtoItemsInner
@@ -191,6 +197,7 @@ export function OfxImportJobRequestsPageDtoItemsInnerFromJSONTyped(json: any, ig
         'createdAt': json['createdAt'],
         'updatedAt': json['updatedAt'],
         'signedUrl': json['signedUrl'],
+        'searchScore': json['searchScore'] == null ? undefined : json['searchScore'],
         'executions': ((json['executions'] as Array<any>).map(OfxImportJobRequestsPageDtoItemsInnerExecutionsInnerFromJSON)),
         'nSuccessImportedTransactions': json['nSuccessImportedTransactions'] == null ? undefined : json['nSuccessImportedTransactions'],
         'user': OfxImportJobRequestsPageDtoItemsInnerUserFromJSON(json['user']),
@@ -221,6 +228,7 @@ export function OfxImportJobRequestsPageDtoItemsInnerToJSONTyped(value?: OfxImpo
         'createdAt': value['createdAt'],
         'updatedAt': value['updatedAt'],
         'signedUrl': value['signedUrl'],
+        'searchScore': value['searchScore'],
         'executions': ((value['executions'] as Array<any>).map(OfxImportJobRequestsPageDtoItemsInnerExecutionsInnerToJSON)),
         'nSuccessImportedTransactions': value['nSuccessImportedTransactions'],
         'user': OfxImportJobRequestsPageDtoItemsInnerUserToJSON(value['user']),

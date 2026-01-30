@@ -17,6 +17,7 @@ Name | Type
 `createdAt` | any
 `updatedAt` | any
 `signedUrl` | string
+`searchScore` | number
 `executions` | [Array&lt;OfxImportJobRequestsPageDtoItemsInnerExecutionsInner&gt;](OfxImportJobRequestsPageDtoItemsInnerExecutionsInner.md)
 `nSuccessImportedTransactions` | number
 `user` | [OfxImportJobRequestsPageDtoItemsInnerUser](OfxImportJobRequestsPageDtoItemsInnerUser.md)
@@ -41,6 +42,7 @@ const example = {
   "createdAt": null,
   "updatedAt": null,
   "signedUrl": null,
+  "searchScore": null,
   "executions": null,
   "nSuccessImportedTransactions": null,
   "user": null,

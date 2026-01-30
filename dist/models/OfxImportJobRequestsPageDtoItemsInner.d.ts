@@ -85,6 +85,12 @@ export interface OfxImportJobRequestsPageDtoItemsInner {
      */
     signedUrl: string;
     /**
+     * Pontuação de busca da solicitação de importação.
+     * @type {number}
+     * @memberof OfxImportJobRequestsPageDtoItemsInner
+     */
+    searchScore?: number | null;
+    /**
      * Lista de execuções para esta solicitação de importação.
      * @type {Array<OfxImportJobRequestsPageDtoItemsInnerExecutionsInner>}
      * @memberof OfxImportJobRequestsPageDtoItemsInner
