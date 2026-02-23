@@ -21,7 +21,7 @@ import { mapValues } from '../runtime';
 export interface ProspectInstallmentFinancialRecordRequestBodyDto {
     /**
      * Frequência do lançamento.
-     * @type {string}
+     * @type {ProspectInstallmentFinancialRecordRequestBodyDtoFrequencyEnum}
      * @memberof ProspectInstallmentFinancialRecordRequestBodyDto
      */
     frequency: ProspectInstallmentFinancialRecordRequestBodyDtoFrequencyEnum;

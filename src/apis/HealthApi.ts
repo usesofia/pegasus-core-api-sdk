@@ -33,6 +33,13 @@ import {
  */
 export interface HealthApiInterface {
     /**
+     * Creates request options for error without sending the request
+     * @throws {RequiredError}
+     * @memberof HealthApiInterface
+     */
+    errorRequestOpts(): Promise<runtime.RequestOpts>;
+
+    /**
      * 
      * @summary Gera um erro de teste.
      * @param {*} [options] Override http request option.
@@ -47,6 +54,13 @@ export interface HealthApiInterface {
     error(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
 
     /**
+     * Creates request options for health without sending the request
+     * @throws {RequiredError}
+     * @memberof HealthApiInterface
+     */
+    healthRequestOpts(): Promise<runtime.RequestOpts>;
+
+    /**
      * 
      * @summary Verifica o status do serviço.
      * @param {*} [options] Override http request option.
@@ -59,6 +73,13 @@ export interface HealthApiInterface {
      * Verifica o status do serviço.
      */
     health(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<HealthResponseDto>;
+
+    /**
+     * Creates request options for healthPost without sending the request
+     * @throws {RequiredError}
+     * @memberof HealthApiInterface
+     */
+    healthPostRequestOpts(): Promise<runtime.RequestOpts>;
 
     /**
      * 
@@ -82,9 +103,9 @@ export interface HealthApiInterface {
 export class HealthApi extends runtime.BaseAPI implements HealthApiInterface {
 
     /**
-     * Gera um erro de teste.
+     * Creates request options for error without sending the request
      */
-    async errorRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+    async errorRequestOpts(): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -92,12 +113,20 @@ export class HealthApi extends runtime.BaseAPI implements HealthApiInterface {
 
         let urlPath = `/error`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Gera um erro de teste.
+     */
+    async errorRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        const requestOptions = await this.errorRequestOpts();
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.VoidApiResponse(response);
     }
@@ -110,9 +139,9 @@ export class HealthApi extends runtime.BaseAPI implements HealthApiInterface {
     }
 
     /**
-     * Verifica o status do serviço.
+     * Creates request options for health without sending the request
      */
-    async healthRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<HealthResponseDto>> {
+    async healthRequestOpts(): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -120,12 +149,20 @@ export class HealthApi extends runtime.BaseAPI implements HealthApiInterface {
 
         let urlPath = `/`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Verifica o status do serviço.
+     */
+    async healthRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<HealthResponseDto>> {
+        const requestOptions = await this.healthRequestOpts();
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => HealthResponseDtoFromJSON(jsonValue));
     }
@@ -139,9 +176,9 @@ export class HealthApi extends runtime.BaseAPI implements HealthApiInterface {
     }
 
     /**
-     * Verifica o status do serviço.
+     * Creates request options for healthPost without sending the request
      */
-    async healthPostRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<HealthResponseDto>> {
+    async healthPostRequestOpts(): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -149,12 +186,20 @@ export class HealthApi extends runtime.BaseAPI implements HealthApiInterface {
 
         let urlPath = `/`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Verifica o status do serviço.
+     */
+    async healthPostRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<HealthResponseDto>> {
+        const requestOptions = await this.healthPostRequestOpts();
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => HealthResponseDtoFromJSON(jsonValue));
     }

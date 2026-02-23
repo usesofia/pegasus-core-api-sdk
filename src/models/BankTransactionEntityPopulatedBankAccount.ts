@@ -54,7 +54,7 @@ export interface BankTransactionEntityPopulatedBankAccount {
     name: string;
     /**
      * Tipo da conta bancária.
-     * @type {string}
+     * @type {BankTransactionEntityPopulatedBankAccountTypeEnum}
      * @memberof BankTransactionEntityPopulatedBankAccount
      */
     type: BankTransactionEntityPopulatedBankAccountTypeEnum;
@@ -114,7 +114,7 @@ export interface BankTransactionEntityPopulatedBankAccount {
     active: boolean;
     /**
      * Fornecedor da conta bancária.
-     * @type {string}
+     * @type {BankTransactionEntityPopulatedBankAccountProviderEnum}
      * @memberof BankTransactionEntityPopulatedBankAccount
      */
     provider?: BankTransactionEntityPopulatedBankAccountProviderEnum | null;

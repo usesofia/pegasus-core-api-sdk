@@ -47,6 +47,14 @@ export interface ScheduleBulkCreateRequest {
  */
 export interface BulkCreateApiInterface {
     /**
+     * Creates request options for processBulkCreate without sending the request
+     * @param {ExecuteBulkCreateJobRequestBodyDto} executeBulkCreateJobRequestBodyDto 
+     * @throws {RequiredError}
+     * @memberof BulkCreateApiInterface
+     */
+    processBulkCreateRequestOpts(requestParameters: ProcessBulkCreateRequest): Promise<runtime.RequestOpts>;
+
+    /**
      * 
      * @summary Processes bulk create tasks
      * @param {ExecuteBulkCreateJobRequestBodyDto} executeBulkCreateJobRequestBodyDto 
@@ -60,6 +68,14 @@ export interface BulkCreateApiInterface {
      * Processes bulk create tasks
      */
     processBulkCreate(requestParameters: ProcessBulkCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+
+    /**
+     * Creates request options for scheduleBulkCreate without sending the request
+     * @param {BulkCreateJobRequestDto} bulkCreateJobRequestDto 
+     * @throws {RequiredError}
+     * @memberof BulkCreateApiInterface
+     */
+    scheduleBulkCreateRequestOpts(requestParameters: ScheduleBulkCreateRequest): Promise<runtime.RequestOpts>;
 
     /**
      * 
@@ -84,9 +100,9 @@ export interface BulkCreateApiInterface {
 export class BulkCreateApi extends runtime.BaseAPI implements BulkCreateApiInterface {
 
     /**
-     * Processes bulk create tasks
+     * Creates request options for processBulkCreate without sending the request
      */
-    async processBulkCreateRaw(requestParameters: ProcessBulkCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+    async processBulkCreateRequestOpts(requestParameters: ProcessBulkCreateRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['executeBulkCreateJobRequestBodyDto'] == null) {
             throw new runtime.RequiredError(
                 'executeBulkCreateJobRequestBodyDto',
@@ -103,13 +119,21 @@ export class BulkCreateApi extends runtime.BaseAPI implements BulkCreateApiInter
 
         let urlPath = `/internal/queues/bulk-create`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
             body: ExecuteBulkCreateJobRequestBodyDtoToJSON(requestParameters['executeBulkCreateJobRequestBodyDto']),
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Processes bulk create tasks
+     */
+    async processBulkCreateRaw(requestParameters: ProcessBulkCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        const requestOptions = await this.processBulkCreateRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.VoidApiResponse(response);
     }
@@ -122,9 +146,9 @@ export class BulkCreateApi extends runtime.BaseAPI implements BulkCreateApiInter
     }
 
     /**
-     * Schedules creation of multiple resources from a file
+     * Creates request options for scheduleBulkCreate without sending the request
      */
-    async scheduleBulkCreateRaw(requestParameters: ScheduleBulkCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BulkCreateJobRequestEntity>> {
+    async scheduleBulkCreateRequestOpts(requestParameters: ScheduleBulkCreateRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['bulkCreateJobRequestDto'] == null) {
             throw new runtime.RequiredError(
                 'bulkCreateJobRequestDto',
@@ -141,13 +165,21 @@ export class BulkCreateApi extends runtime.BaseAPI implements BulkCreateApiInter
 
         let urlPath = `/external/bulk/create`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
             body: BulkCreateJobRequestDtoToJSON(requestParameters['bulkCreateJobRequestDto']),
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Schedules creation of multiple resources from a file
+     */
+    async scheduleBulkCreateRaw(requestParameters: ScheduleBulkCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BulkCreateJobRequestEntity>> {
+        const requestOptions = await this.scheduleBulkCreateRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => BulkCreateJobRequestEntityFromJSON(jsonValue));
     }

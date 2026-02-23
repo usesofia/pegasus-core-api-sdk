@@ -76,29 +76,42 @@ var FilesUploadApi = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
+     * Creates request options for confirmFileUpload without sending the request
+     */
+    FilesUploadApi.prototype.confirmFileUploadRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                if (requestParameters['confirmFileUploadRequestBodyDto'] == null) {
+                    throw new runtime.RequiredError('confirmFileUploadRequestBodyDto', 'Required parameter "confirmFileUploadRequestBodyDto" was null or undefined when calling confirmFileUpload().');
+                }
+                queryParameters = {};
+                headerParameters = {};
+                headerParameters['Content-Type'] = 'application/json';
+                urlPath = "/external/files/upload/confirm";
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'POST',
+                        headers: headerParameters,
+                        query: queryParameters,
+                        body: (0, index_1.ConfirmFileUploadRequestBodyDtoToJSON)(requestParameters['confirmFileUploadRequestBodyDto']),
+                    }];
+            });
+        });
+    };
+    /**
      * Confirms a file upload
      */
     FilesUploadApi.prototype.confirmFileUploadRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        if (requestParameters['confirmFileUploadRequestBodyDto'] == null) {
-                            throw new runtime.RequiredError('confirmFileUploadRequestBodyDto', 'Required parameter "confirmFileUploadRequestBodyDto" was null or undefined when calling confirmFileUpload().');
-                        }
-                        queryParameters = {};
-                        headerParameters = {};
-                        headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/external/files/upload/confirm";
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'POST',
-                                headers: headerParameters,
-                                query: queryParameters,
-                                body: (0, index_1.ConfirmFileUploadRequestBodyDtoToJSON)(requestParameters['confirmFileUploadRequestBodyDto']),
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.confirmFileUploadRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.FileEntityFromJSON)(jsonValue); })];
                 }
@@ -123,29 +136,42 @@ var FilesUploadApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Creates request options for createFileUpload without sending the request
+     */
+    FilesUploadApi.prototype.createFileUploadRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                if (requestParameters['createFileUploadRequestBodyDto'] == null) {
+                    throw new runtime.RequiredError('createFileUploadRequestBodyDto', 'Required parameter "createFileUploadRequestBodyDto" was null or undefined when calling createFileUpload().');
+                }
+                queryParameters = {};
+                headerParameters = {};
+                headerParameters['Content-Type'] = 'application/json';
+                urlPath = "/external/files/upload";
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'POST',
+                        headers: headerParameters,
+                        query: queryParameters,
+                        body: (0, index_1.CreateFileUploadRequestBodyDtoToJSON)(requestParameters['createFileUploadRequestBodyDto']),
+                    }];
+            });
+        });
+    };
+    /**
      * Cria uma nova solicitação de upload de arquivo
      */
     FilesUploadApi.prototype.createFileUploadRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        if (requestParameters['createFileUploadRequestBodyDto'] == null) {
-                            throw new runtime.RequiredError('createFileUploadRequestBodyDto', 'Required parameter "createFileUploadRequestBodyDto" was null or undefined when calling createFileUpload().');
-                        }
-                        queryParameters = {};
-                        headerParameters = {};
-                        headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/external/files/upload";
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'POST',
-                                headers: headerParameters,
-                                query: queryParameters,
-                                body: (0, index_1.CreateFileUploadRequestBodyDtoToJSON)(requestParameters['createFileUploadRequestBodyDto']),
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.createFileUploadRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.CreateFileUpload200ResponseFromJSON)(jsonValue); })];
                 }
@@ -170,33 +196,46 @@ var FilesUploadApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Creates request options for systemConfirmFileUpload without sending the request
+     */
+    FilesUploadApi.prototype.systemConfirmFileUploadRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                if (requestParameters['organizationId'] == null) {
+                    throw new runtime.RequiredError('organizationId', 'Required parameter "organizationId" was null or undefined when calling systemConfirmFileUpload().');
+                }
+                if (requestParameters['confirmFileUploadRequestBodyDto'] == null) {
+                    throw new runtime.RequiredError('confirmFileUploadRequestBodyDto', 'Required parameter "confirmFileUploadRequestBodyDto" was null or undefined when calling systemConfirmFileUpload().');
+                }
+                queryParameters = {};
+                headerParameters = {};
+                headerParameters['Content-Type'] = 'application/json';
+                urlPath = "/internal/organizations/{organizationId}/files/upload/confirm";
+                urlPath = urlPath.replace("{".concat("organizationId", "}"), encodeURIComponent(String(requestParameters['organizationId'])));
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'POST',
+                        headers: headerParameters,
+                        query: queryParameters,
+                        body: (0, index_1.ConfirmFileUploadRequestBodyDtoToJSON)(requestParameters['confirmFileUploadRequestBodyDto']),
+                    }];
+            });
+        });
+    };
+    /**
      * Confirms a file upload
      */
     FilesUploadApi.prototype.systemConfirmFileUploadRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        if (requestParameters['organizationId'] == null) {
-                            throw new runtime.RequiredError('organizationId', 'Required parameter "organizationId" was null or undefined when calling systemConfirmFileUpload().');
-                        }
-                        if (requestParameters['confirmFileUploadRequestBodyDto'] == null) {
-                            throw new runtime.RequiredError('confirmFileUploadRequestBodyDto', 'Required parameter "confirmFileUploadRequestBodyDto" was null or undefined when calling systemConfirmFileUpload().');
-                        }
-                        queryParameters = {};
-                        headerParameters = {};
-                        headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/internal/organizations/{organizationId}/files/upload/confirm";
-                        urlPath = urlPath.replace("{".concat("organizationId", "}"), encodeURIComponent(String(requestParameters['organizationId'])));
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'POST',
-                                headers: headerParameters,
-                                query: queryParameters,
-                                body: (0, index_1.ConfirmFileUploadRequestBodyDtoToJSON)(requestParameters['confirmFileUploadRequestBodyDto']),
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.systemConfirmFileUploadRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.FileEntityFromJSON)(jsonValue); })];
                 }
@@ -221,33 +260,46 @@ var FilesUploadApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Creates request options for systemCreateFileUpload without sending the request
+     */
+    FilesUploadApi.prototype.systemCreateFileUploadRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                if (requestParameters['organizationId'] == null) {
+                    throw new runtime.RequiredError('organizationId', 'Required parameter "organizationId" was null or undefined when calling systemCreateFileUpload().');
+                }
+                if (requestParameters['createFileUploadRequestBodyDto'] == null) {
+                    throw new runtime.RequiredError('createFileUploadRequestBodyDto', 'Required parameter "createFileUploadRequestBodyDto" was null or undefined when calling systemCreateFileUpload().');
+                }
+                queryParameters = {};
+                headerParameters = {};
+                headerParameters['Content-Type'] = 'application/json';
+                urlPath = "/internal/organizations/{organizationId}/files/upload";
+                urlPath = urlPath.replace("{".concat("organizationId", "}"), encodeURIComponent(String(requestParameters['organizationId'])));
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'POST',
+                        headers: headerParameters,
+                        query: queryParameters,
+                        body: (0, index_1.CreateFileUploadRequestBodyDtoToJSON)(requestParameters['createFileUploadRequestBodyDto']),
+                    }];
+            });
+        });
+    };
+    /**
      * Cria uma nova solicitação de upload de arquivo
      */
     FilesUploadApi.prototype.systemCreateFileUploadRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        if (requestParameters['organizationId'] == null) {
-                            throw new runtime.RequiredError('organizationId', 'Required parameter "organizationId" was null or undefined when calling systemCreateFileUpload().');
-                        }
-                        if (requestParameters['createFileUploadRequestBodyDto'] == null) {
-                            throw new runtime.RequiredError('createFileUploadRequestBodyDto', 'Required parameter "createFileUploadRequestBodyDto" was null or undefined when calling systemCreateFileUpload().');
-                        }
-                        queryParameters = {};
-                        headerParameters = {};
-                        headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/internal/organizations/{organizationId}/files/upload";
-                        urlPath = urlPath.replace("{".concat("organizationId", "}"), encodeURIComponent(String(requestParameters['organizationId'])));
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'POST',
-                                headers: headerParameters,
-                                query: queryParameters,
-                                body: (0, index_1.CreateFileUploadRequestBodyDtoToJSON)(requestParameters['createFileUploadRequestBodyDto']),
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.systemCreateFileUploadRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.CreateFileUpload200ResponseFromJSON)(jsonValue); })];
                 }

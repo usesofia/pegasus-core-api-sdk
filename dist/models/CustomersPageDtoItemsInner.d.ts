@@ -36,7 +36,7 @@ export interface CustomersPageDtoItemsInner {
     description?: string | null;
     /**
      * Tipo do customer.
-     * @type {string}
+     * @type {CustomersPageDtoItemsInnerTypeEnum}
      * @memberof CustomersPageDtoItemsInner
      */
     type: CustomersPageDtoItemsInnerTypeEnum;

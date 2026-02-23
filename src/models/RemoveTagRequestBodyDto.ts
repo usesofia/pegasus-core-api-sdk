@@ -21,7 +21,7 @@ import { mapValues } from '../runtime';
 export interface RemoveTagRequestBodyDto {
     /**
      * Canal de origem da operação
-     * @type {string}
+     * @type {RemoveTagRequestBodyDtoChannelEnum}
      * @memberof RemoveTagRequestBodyDto
      */
     channel: RemoveTagRequestBodyDtoChannelEnum;

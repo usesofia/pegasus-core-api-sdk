@@ -75,24 +75,37 @@ var FinancialRecordRadarItemsSeederApi = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
+     * Creates request options for seedFinancialRecordRadarItems without sending the request
+     */
+    FinancialRecordRadarItemsSeederApi.prototype.seedFinancialRecordRadarItemsRequestOpts = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                queryParameters = {};
+                headerParameters = {};
+                urlPath = "/external/financial-records/radar/items/seeder";
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'POST',
+                        headers: headerParameters,
+                        query: queryParameters,
+                    }];
+            });
+        });
+    };
+    /**
      * Cria dados de teste para o radar de lançamentos financeiros.
      */
     FinancialRecordRadarItemsSeederApi.prototype.seedFinancialRecordRadarItemsRaw = function (initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        queryParameters = {};
-                        headerParameters = {};
-                        urlPath = "/external/financial-records/radar/items/seeder";
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'POST',
-                                headers: headerParameters,
-                                query: queryParameters,
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.seedFinancialRecordRadarItemsRequestOpts()];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.VoidApiResponse(response)];
                 }

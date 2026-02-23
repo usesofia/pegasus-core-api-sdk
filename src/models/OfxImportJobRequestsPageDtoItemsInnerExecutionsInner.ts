@@ -27,7 +27,7 @@ export interface OfxImportJobRequestsPageDtoItemsInnerExecutionsInner {
     id: string;
     /**
      * Status da execução da importação OFX.
-     * @type {string}
+     * @type {OfxImportJobRequestsPageDtoItemsInnerExecutionsInnerStatusEnum}
      * @memberof OfxImportJobRequestsPageDtoItemsInnerExecutionsInner
      */
     status: OfxImportJobRequestsPageDtoItemsInnerExecutionsInnerStatusEnum;

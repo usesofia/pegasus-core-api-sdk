@@ -30,6 +30,13 @@ import {
  */
 export interface FinancialRecordRadarItemsSeederApiInterface {
     /**
+     * Creates request options for seedFinancialRecordRadarItems without sending the request
+     * @throws {RequiredError}
+     * @memberof FinancialRecordRadarItemsSeederApiInterface
+     */
+    seedFinancialRecordRadarItemsRequestOpts(): Promise<runtime.RequestOpts>;
+
+    /**
      * 
      * @summary Cria dados de teste para o radar de lançamentos financeiros.
      * @param {*} [options] Override http request option.
@@ -51,9 +58,9 @@ export interface FinancialRecordRadarItemsSeederApiInterface {
 export class FinancialRecordRadarItemsSeederApi extends runtime.BaseAPI implements FinancialRecordRadarItemsSeederApiInterface {
 
     /**
-     * Cria dados de teste para o radar de lançamentos financeiros.
+     * Creates request options for seedFinancialRecordRadarItems without sending the request
      */
-    async seedFinancialRecordRadarItemsRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+    async seedFinancialRecordRadarItemsRequestOpts(): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -61,12 +68,20 @@ export class FinancialRecordRadarItemsSeederApi extends runtime.BaseAPI implemen
 
         let urlPath = `/external/financial-records/radar/items/seeder`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Cria dados de teste para o radar de lançamentos financeiros.
+     */
+    async seedFinancialRecordRadarItemsRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        const requestOptions = await this.seedFinancialRecordRadarItemsRequestOpts();
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.VoidApiResponse(response);
     }

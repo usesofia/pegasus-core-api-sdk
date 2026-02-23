@@ -35,7 +35,7 @@ export interface CreateOrganizationRequestBodyDtoPopulatedChildrenInner {
     slug: string;
     /**
      * Tipo da organização.
-     * @type {string}
+     * @type {CreateOrganizationRequestBodyDtoPopulatedChildrenInnerTypeEnum}
      * @memberof CreateOrganizationRequestBodyDtoPopulatedChildrenInner
      */
     type: CreateOrganizationRequestBodyDtoPopulatedChildrenInnerTypeEnum;

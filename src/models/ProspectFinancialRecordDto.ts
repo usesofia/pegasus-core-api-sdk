@@ -64,7 +64,7 @@ import {
 export interface ProspectFinancialRecordDto {
     /**
      * Direção do lançamento (entrada/saída).
-     * @type {string}
+     * @type {ProspectFinancialRecordDtoDirectionEnum}
      * @memberof ProspectFinancialRecordDto
      */
     direction: ProspectFinancialRecordDtoDirectionEnum;

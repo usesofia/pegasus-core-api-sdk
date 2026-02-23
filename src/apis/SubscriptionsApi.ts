@@ -48,6 +48,14 @@ export interface PartialUpdateSubscriptionRequest {
  */
 export interface SubscriptionsApiInterface {
     /**
+     * Creates request options for createSubscription without sending the request
+     * @param {CreateSubscriptionRequestBodyDto} createSubscriptionRequestBodyDto 
+     * @throws {RequiredError}
+     * @memberof SubscriptionsApiInterface
+     */
+    createSubscriptionRequestOpts(requestParameters: CreateSubscriptionRequest): Promise<runtime.RequestOpts>;
+
+    /**
      * 
      * @summary Create a new subscription.
      * @param {CreateSubscriptionRequestBodyDto} createSubscriptionRequestBodyDto 
@@ -61,6 +69,15 @@ export interface SubscriptionsApiInterface {
      * Create a new subscription.
      */
     createSubscription(requestParameters: CreateSubscriptionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SubscriptionEntity>;
+
+    /**
+     * Creates request options for partialUpdateSubscription without sending the request
+     * @param {string} id Subscription ID
+     * @param {PartialUpdateSubscriptionRequestBodyDto} partialUpdateSubscriptionRequestBodyDto 
+     * @throws {RequiredError}
+     * @memberof SubscriptionsApiInterface
+     */
+    partialUpdateSubscriptionRequestOpts(requestParameters: PartialUpdateSubscriptionRequest): Promise<runtime.RequestOpts>;
 
     /**
      * 
@@ -86,9 +103,9 @@ export interface SubscriptionsApiInterface {
 export class SubscriptionsApi extends runtime.BaseAPI implements SubscriptionsApiInterface {
 
     /**
-     * Create a new subscription.
+     * Creates request options for createSubscription without sending the request
      */
-    async createSubscriptionRaw(requestParameters: CreateSubscriptionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SubscriptionEntity>> {
+    async createSubscriptionRequestOpts(requestParameters: CreateSubscriptionRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['createSubscriptionRequestBodyDto'] == null) {
             throw new runtime.RequiredError(
                 'createSubscriptionRequestBodyDto',
@@ -105,13 +122,21 @@ export class SubscriptionsApi extends runtime.BaseAPI implements SubscriptionsAp
 
         let urlPath = `/external/subscriptions`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
             body: CreateSubscriptionRequestBodyDtoToJSON(requestParameters['createSubscriptionRequestBodyDto']),
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Create a new subscription.
+     */
+    async createSubscriptionRaw(requestParameters: CreateSubscriptionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SubscriptionEntity>> {
+        const requestOptions = await this.createSubscriptionRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => SubscriptionEntityFromJSON(jsonValue));
     }
@@ -125,9 +150,9 @@ export class SubscriptionsApi extends runtime.BaseAPI implements SubscriptionsAp
     }
 
     /**
-     * Partially update a subscription.
+     * Creates request options for partialUpdateSubscription without sending the request
      */
-    async partialUpdateSubscriptionRaw(requestParameters: PartialUpdateSubscriptionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SubscriptionEntity>> {
+    async partialUpdateSubscriptionRequestOpts(requestParameters: PartialUpdateSubscriptionRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
@@ -152,13 +177,21 @@ export class SubscriptionsApi extends runtime.BaseAPI implements SubscriptionsAp
         let urlPath = `/external/subscriptions/{id}`;
         urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'PATCH',
             headers: headerParameters,
             query: queryParameters,
             body: PartialUpdateSubscriptionRequestBodyDtoToJSON(requestParameters['partialUpdateSubscriptionRequestBodyDto']),
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Partially update a subscription.
+     */
+    async partialUpdateSubscriptionRaw(requestParameters: PartialUpdateSubscriptionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SubscriptionEntity>> {
+        const requestOptions = await this.partialUpdateSubscriptionRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => SubscriptionEntityFromJSON(jsonValue));
     }

@@ -76,32 +76,45 @@ var SubcategoriesApi = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
+     * Creates request options for createSubcategory without sending the request
+     */
+    SubcategoriesApi.prototype.createSubcategoryRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                if (requestParameters['externalCreateSubcategoryRequestBodyDto'] == null) {
+                    throw new runtime.RequiredError('externalCreateSubcategoryRequestBodyDto', 'Required parameter "externalCreateSubcategoryRequestBodyDto" was null or undefined when calling createSubcategory().');
+                }
+                queryParameters = {};
+                if (requestParameters['populate'] != null) {
+                    queryParameters['populate'] = requestParameters['populate'];
+                }
+                headerParameters = {};
+                headerParameters['Content-Type'] = 'application/json';
+                urlPath = "/external/subcategories";
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'POST',
+                        headers: headerParameters,
+                        query: queryParameters,
+                        body: (0, index_1.ExternalCreateSubcategoryRequestBodyDtoToJSON)(requestParameters['externalCreateSubcategoryRequestBodyDto']),
+                    }];
+            });
+        });
+    };
+    /**
      * Cria uma nova subcategoria.
      */
     SubcategoriesApi.prototype.createSubcategoryRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        if (requestParameters['externalCreateSubcategoryRequestBodyDto'] == null) {
-                            throw new runtime.RequiredError('externalCreateSubcategoryRequestBodyDto', 'Required parameter "externalCreateSubcategoryRequestBodyDto" was null or undefined when calling createSubcategory().');
-                        }
-                        queryParameters = {};
-                        if (requestParameters['populate'] != null) {
-                            queryParameters['populate'] = requestParameters['populate'];
-                        }
-                        headerParameters = {};
-                        headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/external/subcategories";
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'POST',
-                                headers: headerParameters,
-                                query: queryParameters,
-                                body: (0, index_1.ExternalCreateSubcategoryRequestBodyDtoToJSON)(requestParameters['externalCreateSubcategoryRequestBodyDto']),
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.createSubcategoryRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.SubcategoryEntityFromJSON)(jsonValue); })];
                 }
@@ -126,57 +139,70 @@ var SubcategoriesApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Creates request options for findAllSubcategories without sending the request
+     */
+    SubcategoriesApi.prototype.findAllSubcategoriesRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                queryParameters = {};
+                if (requestParameters['active'] != null) {
+                    queryParameters['active'] = requestParameters['active'];
+                }
+                if (requestParameters['sortOrder'] != null) {
+                    queryParameters['sortOrder'] = requestParameters['sortOrder'];
+                }
+                if (requestParameters['sortBy'] != null) {
+                    queryParameters['sortBy'] = requestParameters['sortBy'];
+                }
+                if (requestParameters['populate'] != null) {
+                    queryParameters['populate'] = requestParameters['populate'];
+                }
+                if (requestParameters['categoryId'] != null) {
+                    queryParameters['categoryId'] = requestParameters['categoryId'];
+                }
+                if (requestParameters['direction'] != null) {
+                    queryParameters['direction'] = requestParameters['direction'];
+                }
+                if (requestParameters['ids'] != null) {
+                    queryParameters['ids'] = requestParameters['ids'];
+                }
+                if (requestParameters['semanticSearchTermInBase64'] != null) {
+                    queryParameters['semanticSearchTermInBase64'] = requestParameters['semanticSearchTermInBase64'];
+                }
+                if (requestParameters['textSearchTerm'] != null) {
+                    queryParameters['textSearchTerm'] = requestParameters['textSearchTerm'];
+                }
+                if (requestParameters['pageSize'] != null) {
+                    queryParameters['pageSize'] = requestParameters['pageSize'];
+                }
+                if (requestParameters['pageIndex'] != null) {
+                    queryParameters['pageIndex'] = requestParameters['pageIndex'];
+                }
+                headerParameters = {};
+                urlPath = "/external/subcategories";
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'GET',
+                        headers: headerParameters,
+                        query: queryParameters,
+                    }];
+            });
+        });
+    };
+    /**
      * Busca todas as subcategorias.
      */
     SubcategoriesApi.prototype.findAllSubcategoriesRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        queryParameters = {};
-                        if (requestParameters['active'] != null) {
-                            queryParameters['active'] = requestParameters['active'];
-                        }
-                        if (requestParameters['sortOrder'] != null) {
-                            queryParameters['sortOrder'] = requestParameters['sortOrder'];
-                        }
-                        if (requestParameters['sortBy'] != null) {
-                            queryParameters['sortBy'] = requestParameters['sortBy'];
-                        }
-                        if (requestParameters['populate'] != null) {
-                            queryParameters['populate'] = requestParameters['populate'];
-                        }
-                        if (requestParameters['categoryId'] != null) {
-                            queryParameters['categoryId'] = requestParameters['categoryId'];
-                        }
-                        if (requestParameters['direction'] != null) {
-                            queryParameters['direction'] = requestParameters['direction'];
-                        }
-                        if (requestParameters['ids'] != null) {
-                            queryParameters['ids'] = requestParameters['ids'];
-                        }
-                        if (requestParameters['semanticSearchTermInBase64'] != null) {
-                            queryParameters['semanticSearchTermInBase64'] = requestParameters['semanticSearchTermInBase64'];
-                        }
-                        if (requestParameters['textSearchTerm'] != null) {
-                            queryParameters['textSearchTerm'] = requestParameters['textSearchTerm'];
-                        }
-                        if (requestParameters['pageSize'] != null) {
-                            queryParameters['pageSize'] = requestParameters['pageSize'];
-                        }
-                        if (requestParameters['pageIndex'] != null) {
-                            queryParameters['pageIndex'] = requestParameters['pageIndex'];
-                        }
-                        headerParameters = {};
-                        urlPath = "/external/subcategories";
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'GET',
-                                headers: headerParameters,
-                                query: queryParameters,
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.findAllSubcategoriesRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.SubcategoriesPageEntityFromJSON)(jsonValue); })];
                 }
@@ -202,31 +228,44 @@ var SubcategoriesApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Creates request options for findByIdSubcategory without sending the request
+     */
+    SubcategoriesApi.prototype.findByIdSubcategoryRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                if (requestParameters['id'] == null) {
+                    throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling findByIdSubcategory().');
+                }
+                queryParameters = {};
+                if (requestParameters['populate'] != null) {
+                    queryParameters['populate'] = requestParameters['populate'];
+                }
+                headerParameters = {};
+                urlPath = "/external/subcategories/{id}";
+                urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'GET',
+                        headers: headerParameters,
+                        query: queryParameters,
+                    }];
+            });
+        });
+    };
+    /**
      * Busca uma subcategoria pelo identificador.
      */
     SubcategoriesApi.prototype.findByIdSubcategoryRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        if (requestParameters['id'] == null) {
-                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling findByIdSubcategory().');
-                        }
-                        queryParameters = {};
-                        if (requestParameters['populate'] != null) {
-                            queryParameters['populate'] = requestParameters['populate'];
-                        }
-                        headerParameters = {};
-                        urlPath = "/external/subcategories/{id}";
-                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'GET',
-                                headers: headerParameters,
-                                query: queryParameters,
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.findByIdSubcategoryRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.SubcategoryEntityFromJSON)(jsonValue); })];
                 }
@@ -251,31 +290,44 @@ var SubcategoriesApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Creates request options for findBySlugSubcategory without sending the request
+     */
+    SubcategoriesApi.prototype.findBySlugSubcategoryRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                if (requestParameters['slug'] == null) {
+                    throw new runtime.RequiredError('slug', 'Required parameter "slug" was null or undefined when calling findBySlugSubcategory().');
+                }
+                queryParameters = {};
+                if (requestParameters['populate'] != null) {
+                    queryParameters['populate'] = requestParameters['populate'];
+                }
+                headerParameters = {};
+                urlPath = "/external/subcategories/slug/{slug}";
+                urlPath = urlPath.replace("{".concat("slug", "}"), encodeURIComponent(String(requestParameters['slug'])));
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'GET',
+                        headers: headerParameters,
+                        query: queryParameters,
+                    }];
+            });
+        });
+    };
+    /**
      * Busca uma subcategoria pelo slug.
      */
     SubcategoriesApi.prototype.findBySlugSubcategoryRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        if (requestParameters['slug'] == null) {
-                            throw new runtime.RequiredError('slug', 'Required parameter "slug" was null or undefined when calling findBySlugSubcategory().');
-                        }
-                        queryParameters = {};
-                        if (requestParameters['populate'] != null) {
-                            queryParameters['populate'] = requestParameters['populate'];
-                        }
-                        headerParameters = {};
-                        urlPath = "/external/subcategories/slug/{slug}";
-                        urlPath = urlPath.replace("{".concat("slug", "}"), encodeURIComponent(String(requestParameters['slug'])));
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'GET',
-                                headers: headerParameters,
-                                query: queryParameters,
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.findBySlugSubcategoryRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.SubcategoryEntityFromJSON)(jsonValue); })];
                 }
@@ -300,36 +352,49 @@ var SubcategoriesApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Creates request options for partialUpdateSubcategory without sending the request
+     */
+    SubcategoriesApi.prototype.partialUpdateSubcategoryRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                if (requestParameters['id'] == null) {
+                    throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling partialUpdateSubcategory().');
+                }
+                if (requestParameters['partialUpdateSubcategoryRequestBodyDto'] == null) {
+                    throw new runtime.RequiredError('partialUpdateSubcategoryRequestBodyDto', 'Required parameter "partialUpdateSubcategoryRequestBodyDto" was null or undefined when calling partialUpdateSubcategory().');
+                }
+                queryParameters = {};
+                if (requestParameters['populate'] != null) {
+                    queryParameters['populate'] = requestParameters['populate'];
+                }
+                headerParameters = {};
+                headerParameters['Content-Type'] = 'application/json';
+                urlPath = "/external/subcategories/{id}";
+                urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'PATCH',
+                        headers: headerParameters,
+                        query: queryParameters,
+                        body: (0, index_1.PartialUpdateSubcategoryRequestBodyDtoToJSON)(requestParameters['partialUpdateSubcategoryRequestBodyDto']),
+                    }];
+            });
+        });
+    };
+    /**
      * Atualiza parcialmente uma subcategoria.
      */
     SubcategoriesApi.prototype.partialUpdateSubcategoryRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        if (requestParameters['id'] == null) {
-                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling partialUpdateSubcategory().');
-                        }
-                        if (requestParameters['partialUpdateSubcategoryRequestBodyDto'] == null) {
-                            throw new runtime.RequiredError('partialUpdateSubcategoryRequestBodyDto', 'Required parameter "partialUpdateSubcategoryRequestBodyDto" was null or undefined when calling partialUpdateSubcategory().');
-                        }
-                        queryParameters = {};
-                        if (requestParameters['populate'] != null) {
-                            queryParameters['populate'] = requestParameters['populate'];
-                        }
-                        headerParameters = {};
-                        headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/external/subcategories/{id}";
-                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'PATCH',
-                                headers: headerParameters,
-                                query: queryParameters,
-                                body: (0, index_1.PartialUpdateSubcategoryRequestBodyDtoToJSON)(requestParameters['partialUpdateSubcategoryRequestBodyDto']),
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.partialUpdateSubcategoryRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.SubcategoryEntityFromJSON)(jsonValue); })];
                 }
@@ -354,33 +419,46 @@ var SubcategoriesApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Creates request options for removeSubcategory without sending the request
+     */
+    SubcategoriesApi.prototype.removeSubcategoryRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                if (requestParameters['id'] == null) {
+                    throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling removeSubcategory().');
+                }
+                if (requestParameters['removeSubcategoryRequestBodyDto'] == null) {
+                    throw new runtime.RequiredError('removeSubcategoryRequestBodyDto', 'Required parameter "removeSubcategoryRequestBodyDto" was null or undefined when calling removeSubcategory().');
+                }
+                queryParameters = {};
+                headerParameters = {};
+                headerParameters['Content-Type'] = 'application/json';
+                urlPath = "/external/subcategories/{id}";
+                urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'DELETE',
+                        headers: headerParameters,
+                        query: queryParameters,
+                        body: (0, index_1.RemoveSubcategoryRequestBodyDtoToJSON)(requestParameters['removeSubcategoryRequestBodyDto']),
+                    }];
+            });
+        });
+    };
+    /**
      * Remove uma subcategoria.
      */
     SubcategoriesApi.prototype.removeSubcategoryRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        if (requestParameters['id'] == null) {
-                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling removeSubcategory().');
-                        }
-                        if (requestParameters['removeSubcategoryRequestBodyDto'] == null) {
-                            throw new runtime.RequiredError('removeSubcategoryRequestBodyDto', 'Required parameter "removeSubcategoryRequestBodyDto" was null or undefined when calling removeSubcategory().');
-                        }
-                        queryParameters = {};
-                        headerParameters = {};
-                        headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/external/subcategories/{id}";
-                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'DELETE',
-                                headers: headerParameters,
-                                query: queryParameters,
-                                body: (0, index_1.RemoveSubcategoryRequestBodyDtoToJSON)(requestParameters['removeSubcategoryRequestBodyDto']),
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.removeSubcategoryRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.VoidApiResponse(response)];
                 }
@@ -403,66 +481,79 @@ var SubcategoriesApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Creates request options for systemFindAllSubcategories without sending the request
+     */
+    SubcategoriesApi.prototype.systemFindAllSubcategoriesRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                if (requestParameters['ownerOrganizationId'] == null) {
+                    throw new runtime.RequiredError('ownerOrganizationId', 'Required parameter "ownerOrganizationId" was null or undefined when calling systemFindAllSubcategories().');
+                }
+                queryParameters = {};
+                if (requestParameters['readPreference'] != null) {
+                    queryParameters['readPreference'] = requestParameters['readPreference'];
+                }
+                if (requestParameters['ownerOrganizationId'] != null) {
+                    queryParameters['ownerOrganizationId'] = requestParameters['ownerOrganizationId'];
+                }
+                if (requestParameters['direction'] != null) {
+                    queryParameters['direction'] = requestParameters['direction'];
+                }
+                if (requestParameters['active'] != null) {
+                    queryParameters['active'] = requestParameters['active'];
+                }
+                if (requestParameters['sortOrder'] != null) {
+                    queryParameters['sortOrder'] = requestParameters['sortOrder'];
+                }
+                if (requestParameters['sortBy'] != null) {
+                    queryParameters['sortBy'] = requestParameters['sortBy'];
+                }
+                if (requestParameters['populate'] != null) {
+                    queryParameters['populate'] = requestParameters['populate'];
+                }
+                if (requestParameters['categoryId'] != null) {
+                    queryParameters['categoryId'] = requestParameters['categoryId'];
+                }
+                if (requestParameters['ids'] != null) {
+                    queryParameters['ids'] = requestParameters['ids'];
+                }
+                if (requestParameters['semanticSearchTermInBase64'] != null) {
+                    queryParameters['semanticSearchTermInBase64'] = requestParameters['semanticSearchTermInBase64'];
+                }
+                if (requestParameters['textSearchTerm'] != null) {
+                    queryParameters['textSearchTerm'] = requestParameters['textSearchTerm'];
+                }
+                if (requestParameters['pageSize'] != null) {
+                    queryParameters['pageSize'] = requestParameters['pageSize'];
+                }
+                if (requestParameters['pageIndex'] != null) {
+                    queryParameters['pageIndex'] = requestParameters['pageIndex'];
+                }
+                headerParameters = {};
+                urlPath = "/internal/subcategories";
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'GET',
+                        headers: headerParameters,
+                        query: queryParameters,
+                    }];
+            });
+        });
+    };
+    /**
      * Busca todas as subcategorias pelo sistema.
      */
     SubcategoriesApi.prototype.systemFindAllSubcategoriesRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        if (requestParameters['ownerOrganizationId'] == null) {
-                            throw new runtime.RequiredError('ownerOrganizationId', 'Required parameter "ownerOrganizationId" was null or undefined when calling systemFindAllSubcategories().');
-                        }
-                        queryParameters = {};
-                        if (requestParameters['readPreference'] != null) {
-                            queryParameters['readPreference'] = requestParameters['readPreference'];
-                        }
-                        if (requestParameters['ownerOrganizationId'] != null) {
-                            queryParameters['ownerOrganizationId'] = requestParameters['ownerOrganizationId'];
-                        }
-                        if (requestParameters['direction'] != null) {
-                            queryParameters['direction'] = requestParameters['direction'];
-                        }
-                        if (requestParameters['active'] != null) {
-                            queryParameters['active'] = requestParameters['active'];
-                        }
-                        if (requestParameters['sortOrder'] != null) {
-                            queryParameters['sortOrder'] = requestParameters['sortOrder'];
-                        }
-                        if (requestParameters['sortBy'] != null) {
-                            queryParameters['sortBy'] = requestParameters['sortBy'];
-                        }
-                        if (requestParameters['populate'] != null) {
-                            queryParameters['populate'] = requestParameters['populate'];
-                        }
-                        if (requestParameters['categoryId'] != null) {
-                            queryParameters['categoryId'] = requestParameters['categoryId'];
-                        }
-                        if (requestParameters['ids'] != null) {
-                            queryParameters['ids'] = requestParameters['ids'];
-                        }
-                        if (requestParameters['semanticSearchTermInBase64'] != null) {
-                            queryParameters['semanticSearchTermInBase64'] = requestParameters['semanticSearchTermInBase64'];
-                        }
-                        if (requestParameters['textSearchTerm'] != null) {
-                            queryParameters['textSearchTerm'] = requestParameters['textSearchTerm'];
-                        }
-                        if (requestParameters['pageSize'] != null) {
-                            queryParameters['pageSize'] = requestParameters['pageSize'];
-                        }
-                        if (requestParameters['pageIndex'] != null) {
-                            queryParameters['pageIndex'] = requestParameters['pageIndex'];
-                        }
-                        headerParameters = {};
-                        urlPath = "/internal/subcategories";
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'GET',
-                                headers: headerParameters,
-                                query: queryParameters,
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.systemFindAllSubcategoriesRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.SubcategoriesPageEntityFromJSON)(jsonValue); })];
                 }
@@ -487,35 +578,48 @@ var SubcategoriesApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Creates request options for systemFindByIdSubcategory without sending the request
+     */
+    SubcategoriesApi.prototype.systemFindByIdSubcategoryRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                if (requestParameters['organizationId'] == null) {
+                    throw new runtime.RequiredError('organizationId', 'Required parameter "organizationId" was null or undefined when calling systemFindByIdSubcategory().');
+                }
+                if (requestParameters['subcategoryId'] == null) {
+                    throw new runtime.RequiredError('subcategoryId', 'Required parameter "subcategoryId" was null or undefined when calling systemFindByIdSubcategory().');
+                }
+                queryParameters = {};
+                if (requestParameters['populate'] != null) {
+                    queryParameters['populate'] = requestParameters['populate'];
+                }
+                headerParameters = {};
+                urlPath = "/internal/organizations/{organizationId}/subcategories/{subcategoryId}";
+                urlPath = urlPath.replace("{".concat("organizationId", "}"), encodeURIComponent(String(requestParameters['organizationId'])));
+                urlPath = urlPath.replace("{".concat("subcategoryId", "}"), encodeURIComponent(String(requestParameters['subcategoryId'])));
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'GET',
+                        headers: headerParameters,
+                        query: queryParameters,
+                    }];
+            });
+        });
+    };
+    /**
      * Busca uma subcategoria pelo identificador.
      */
     SubcategoriesApi.prototype.systemFindByIdSubcategoryRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        if (requestParameters['organizationId'] == null) {
-                            throw new runtime.RequiredError('organizationId', 'Required parameter "organizationId" was null or undefined when calling systemFindByIdSubcategory().');
-                        }
-                        if (requestParameters['subcategoryId'] == null) {
-                            throw new runtime.RequiredError('subcategoryId', 'Required parameter "subcategoryId" was null or undefined when calling systemFindByIdSubcategory().');
-                        }
-                        queryParameters = {};
-                        if (requestParameters['populate'] != null) {
-                            queryParameters['populate'] = requestParameters['populate'];
-                        }
-                        headerParameters = {};
-                        urlPath = "/internal/organizations/{organizationId}/subcategories/{subcategoryId}";
-                        urlPath = urlPath.replace("{".concat("organizationId", "}"), encodeURIComponent(String(requestParameters['organizationId'])));
-                        urlPath = urlPath.replace("{".concat("subcategoryId", "}"), encodeURIComponent(String(requestParameters['subcategoryId'])));
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'GET',
-                                headers: headerParameters,
-                                query: queryParameters,
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.systemFindByIdSubcategoryRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.SubcategoryEntityFromJSON)(jsonValue); })];
                 }

@@ -37,6 +37,14 @@ export interface ProcessExportResourceJobRequestRequest {
  */
 export interface ExportResourceJobRequestsApiInterface {
     /**
+     * Creates request options for processExportResourceJobRequest without sending the request
+     * @param {ProcessExportResourceJobRequestBodyDto} processExportResourceJobRequestBodyDto 
+     * @throws {RequiredError}
+     * @memberof ExportResourceJobRequestsApiInterface
+     */
+    processExportResourceJobRequestRequestOpts(requestParameters: ProcessExportResourceJobRequestRequest): Promise<runtime.RequestOpts>;
+
+    /**
      * 
      * @summary Processa a exportação de um recurso.
      * @param {ProcessExportResourceJobRequestBodyDto} processExportResourceJobRequestBodyDto 
@@ -59,9 +67,9 @@ export interface ExportResourceJobRequestsApiInterface {
 export class ExportResourceJobRequestsApi extends runtime.BaseAPI implements ExportResourceJobRequestsApiInterface {
 
     /**
-     * Processa a exportação de um recurso.
+     * Creates request options for processExportResourceJobRequest without sending the request
      */
-    async processExportResourceJobRequestRaw(requestParameters: ProcessExportResourceJobRequestRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+    async processExportResourceJobRequestRequestOpts(requestParameters: ProcessExportResourceJobRequestRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['processExportResourceJobRequestBodyDto'] == null) {
             throw new runtime.RequiredError(
                 'processExportResourceJobRequestBodyDto',
@@ -78,13 +86,21 @@ export class ExportResourceJobRequestsApi extends runtime.BaseAPI implements Exp
 
         let urlPath = `/internal/queues/export-resources`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
             body: ProcessExportResourceJobRequestBodyDtoToJSON(requestParameters['processExportResourceJobRequestBodyDto']),
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Processa a exportação de um recurso.
+     */
+    async processExportResourceJobRequestRaw(requestParameters: ProcessExportResourceJobRequestRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        const requestOptions = await this.processExportResourceJobRequestRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.VoidApiResponse(response);
     }

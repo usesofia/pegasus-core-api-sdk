@@ -109,7 +109,7 @@ export interface ExternalCreateSubcategoryRequestBodyDto {
     externalId?: string | null;
     /**
      * Canal de origem da operação
-     * @type {string}
+     * @type {ExternalCreateSubcategoryRequestBodyDtoChannelEnum}
      * @memberof ExternalCreateSubcategoryRequestBodyDto
      */
     channel: ExternalCreateSubcategoryRequestBodyDtoChannelEnum;

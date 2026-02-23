@@ -71,6 +71,14 @@ export interface PartialUpdateCustomerRequest {
  */
 export interface CustomersApiInterface {
     /**
+     * Creates request options for createCustomer without sending the request
+     * @param {CreateCustomerRequestBodyDto} createCustomerRequestBodyDto 
+     * @throws {RequiredError}
+     * @memberof CustomersApiInterface
+     */
+    createCustomerRequestOpts(requestParameters: CreateCustomerRequest): Promise<runtime.RequestOpts>;
+
+    /**
      * 
      * @summary Create a new customer.
      * @param {CreateCustomerRequestBodyDto} createCustomerRequestBodyDto 
@@ -84,6 +92,23 @@ export interface CustomersApiInterface {
      * Create a new customer.
      */
     createCustomer(requestParameters: CreateCustomerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CustomerDto>;
+
+    /**
+     * Creates request options for findAllCustomers without sending the request
+     * @param {'asc' | 'desc'} [sortOrder] Ordem de ordenação dos customers.
+     * @param {'name' | 'createdAt' | 'nChildrenOrganizations' | 'mrr'} [sortBy] Campo para ordenação dos customers.
+     * @param {string} [textSearchTerm] Termo para busca textual por nome/description do customer ou nome/id das organizações filhas.
+     * @param {string} [subscriptionStatuses] Lista de status de subscription das organizações filhas para filtrar, separados por vírgula.
+     * @param {string} [trialExpiresAtTo] Data de expiração do trial das organizações filhas até (formato ISO 8601).
+     * @param {string} [trialExpiresAtFrom] Data de expiração do trial das organizações filhas a partir de (formato ISO 8601).
+     * @param {string} [subtypes] Lista de subtipos de organizações filhas para filtrar, separados por vírgula.
+     * @param {string} [types] Lista de tipos de customers para filtrar, separados por vírgula.
+     * @param {number} [pageSize] Quantidade de itens por página.
+     * @param {number} [pageIndex] Índice da página.
+     * @throws {RequiredError}
+     * @memberof CustomersApiInterface
+     */
+    findAllCustomersRequestOpts(requestParameters: FindAllCustomersRequest): Promise<runtime.RequestOpts>;
 
     /**
      * 
@@ -110,6 +135,14 @@ export interface CustomersApiInterface {
     findAllCustomers(requestParameters: FindAllCustomersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CustomersPageDto>;
 
     /**
+     * Creates request options for findByIdCustomer without sending the request
+     * @param {string} id Identificador do customer.
+     * @throws {RequiredError}
+     * @memberof CustomersApiInterface
+     */
+    findByIdCustomerRequestOpts(requestParameters: FindByIdCustomerRequest): Promise<runtime.RequestOpts>;
+
+    /**
      * 
      * @summary Busca um customer pelo identificador.
      * @param {string} id Identificador do customer.
@@ -125,6 +158,13 @@ export interface CustomersApiInterface {
     findByIdCustomer(requestParameters: FindByIdCustomerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CustomerDto>;
 
     /**
+     * Creates request options for getCustomersAnalytics without sending the request
+     * @throws {RequiredError}
+     * @memberof CustomersApiInterface
+     */
+    getCustomersAnalyticsRequestOpts(): Promise<runtime.RequestOpts>;
+
+    /**
      * 
      * @summary Busca analytics dos customers incluindo total de clientes e MRR.
      * @param {*} [options] Override http request option.
@@ -137,6 +177,15 @@ export interface CustomersApiInterface {
      * Busca analytics dos customers incluindo total de clientes e MRR.
      */
     getCustomersAnalytics(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CustomerAnalyticsResponseDto>;
+
+    /**
+     * Creates request options for partialUpdateCustomer without sending the request
+     * @param {string} id Customer ID
+     * @param {PartialUpdateCustomerRequestBodyDto} partialUpdateCustomerRequestBodyDto 
+     * @throws {RequiredError}
+     * @memberof CustomersApiInterface
+     */
+    partialUpdateCustomerRequestOpts(requestParameters: PartialUpdateCustomerRequest): Promise<runtime.RequestOpts>;
 
     /**
      * 
@@ -162,9 +211,9 @@ export interface CustomersApiInterface {
 export class CustomersApi extends runtime.BaseAPI implements CustomersApiInterface {
 
     /**
-     * Create a new customer.
+     * Creates request options for createCustomer without sending the request
      */
-    async createCustomerRaw(requestParameters: CreateCustomerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CustomerDto>> {
+    async createCustomerRequestOpts(requestParameters: CreateCustomerRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['createCustomerRequestBodyDto'] == null) {
             throw new runtime.RequiredError(
                 'createCustomerRequestBodyDto',
@@ -181,13 +230,21 @@ export class CustomersApi extends runtime.BaseAPI implements CustomersApiInterfa
 
         let urlPath = `/external/customers`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
             body: CreateCustomerRequestBodyDtoToJSON(requestParameters['createCustomerRequestBodyDto']),
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Create a new customer.
+     */
+    async createCustomerRaw(requestParameters: CreateCustomerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CustomerDto>> {
+        const requestOptions = await this.createCustomerRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => CustomerDtoFromJSON(jsonValue));
     }
@@ -201,9 +258,9 @@ export class CustomersApi extends runtime.BaseAPI implements CustomersApiInterfa
     }
 
     /**
-     * Lista todos os customers com paginação e filtros.
+     * Creates request options for findAllCustomers without sending the request
      */
-    async findAllCustomersRaw(requestParameters: FindAllCustomersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CustomersPageDto>> {
+    async findAllCustomersRequestOpts(requestParameters: FindAllCustomersRequest): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         if (requestParameters['sortOrder'] != null) {
@@ -251,12 +308,20 @@ export class CustomersApi extends runtime.BaseAPI implements CustomersApiInterfa
 
         let urlPath = `/external/customers`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Lista todos os customers com paginação e filtros.
+     */
+    async findAllCustomersRaw(requestParameters: FindAllCustomersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CustomersPageDto>> {
+        const requestOptions = await this.findAllCustomersRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => CustomersPageDtoFromJSON(jsonValue));
     }
@@ -270,9 +335,9 @@ export class CustomersApi extends runtime.BaseAPI implements CustomersApiInterfa
     }
 
     /**
-     * Busca um customer pelo identificador.
+     * Creates request options for findByIdCustomer without sending the request
      */
-    async findByIdCustomerRaw(requestParameters: FindByIdCustomerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CustomerDto>> {
+    async findByIdCustomerRequestOpts(requestParameters: FindByIdCustomerRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
@@ -288,12 +353,20 @@ export class CustomersApi extends runtime.BaseAPI implements CustomersApiInterfa
         let urlPath = `/external/customers/{id}`;
         urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Busca um customer pelo identificador.
+     */
+    async findByIdCustomerRaw(requestParameters: FindByIdCustomerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CustomerDto>> {
+        const requestOptions = await this.findByIdCustomerRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => CustomerDtoFromJSON(jsonValue));
     }
@@ -307,9 +380,9 @@ export class CustomersApi extends runtime.BaseAPI implements CustomersApiInterfa
     }
 
     /**
-     * Busca analytics dos customers incluindo total de clientes e MRR.
+     * Creates request options for getCustomersAnalytics without sending the request
      */
-    async getCustomersAnalyticsRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CustomerAnalyticsResponseDto>> {
+    async getCustomersAnalyticsRequestOpts(): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -317,12 +390,20 @@ export class CustomersApi extends runtime.BaseAPI implements CustomersApiInterfa
 
         let urlPath = `/external/customers/analytics`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Busca analytics dos customers incluindo total de clientes e MRR.
+     */
+    async getCustomersAnalyticsRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CustomerAnalyticsResponseDto>> {
+        const requestOptions = await this.getCustomersAnalyticsRequestOpts();
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => CustomerAnalyticsResponseDtoFromJSON(jsonValue));
     }
@@ -336,9 +417,9 @@ export class CustomersApi extends runtime.BaseAPI implements CustomersApiInterfa
     }
 
     /**
-     * Partially update a customer.
+     * Creates request options for partialUpdateCustomer without sending the request
      */
-    async partialUpdateCustomerRaw(requestParameters: PartialUpdateCustomerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CustomerDto>> {
+    async partialUpdateCustomerRequestOpts(requestParameters: PartialUpdateCustomerRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
@@ -363,13 +444,21 @@ export class CustomersApi extends runtime.BaseAPI implements CustomersApiInterfa
         let urlPath = `/external/customers/{id}`;
         urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'PATCH',
             headers: headerParameters,
             query: queryParameters,
             body: PartialUpdateCustomerRequestBodyDtoToJSON(requestParameters['partialUpdateCustomerRequestBodyDto']),
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Partially update a customer.
+     */
+    async partialUpdateCustomerRaw(requestParameters: PartialUpdateCustomerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CustomerDto>> {
+        const requestOptions = await this.partialUpdateCustomerRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => CustomerDtoFromJSON(jsonValue));
     }

@@ -22,6 +22,12 @@ export interface SetCacheValueRequest {
  */
 export interface CacheApiInterface {
     /**
+     * Creates request options for getCacheValue without sending the request
+     * @throws {RequiredError}
+     * @memberof CacheApiInterface
+     */
+    getCacheValueRequestOpts(): Promise<runtime.RequestOpts>;
+    /**
      *
      * @summary Get string value from cache
      * @param {*} [options] Override http request option.
@@ -33,6 +39,13 @@ export interface CacheApiInterface {
      * Get string value from cache
      */
     getCacheValue(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CacheGetResponseDto>;
+    /**
+     * Creates request options for setCacheValue without sending the request
+     * @param {CacheSetDto} cacheSetDto
+     * @throws {RequiredError}
+     * @memberof CacheApiInterface
+     */
+    setCacheValueRequestOpts(requestParameters: SetCacheValueRequest): Promise<runtime.RequestOpts>;
     /**
      *
      * @summary Set string value in cache with 10-second TTL
@@ -52,6 +65,10 @@ export interface CacheApiInterface {
  */
 export declare class CacheApi extends runtime.BaseAPI implements CacheApiInterface {
     /**
+     * Creates request options for getCacheValue without sending the request
+     */
+    getCacheValueRequestOpts(): Promise<runtime.RequestOpts>;
+    /**
      * Get string value from cache
      */
     getCacheValueRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CacheGetResponseDto>>;
@@ -59,6 +76,10 @@ export declare class CacheApi extends runtime.BaseAPI implements CacheApiInterfa
      * Get string value from cache
      */
     getCacheValue(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CacheGetResponseDto>;
+    /**
+     * Creates request options for setCacheValue without sending the request
+     */
+    setCacheValueRequestOpts(requestParameters: SetCacheValueRequest): Promise<runtime.RequestOpts>;
     /**
      * Set string value in cache with 10-second TTL
      */

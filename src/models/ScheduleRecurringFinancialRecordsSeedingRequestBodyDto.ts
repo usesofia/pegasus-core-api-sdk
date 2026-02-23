@@ -21,7 +21,7 @@ import { mapValues } from '../runtime';
 export interface ScheduleRecurringFinancialRecordsSeedingRequestBodyDto {
     /**
      * 
-     * @type {string}
+     * @type {ScheduleRecurringFinancialRecordsSeedingRequestBodyDtoTypeEnum}
      * @memberof ScheduleRecurringFinancialRecordsSeedingRequestBodyDto
      */
     type: ScheduleRecurringFinancialRecordsSeedingRequestBodyDtoTypeEnum;

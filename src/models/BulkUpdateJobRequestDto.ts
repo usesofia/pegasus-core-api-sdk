@@ -33,13 +33,13 @@ export interface BulkUpdateJobRequestDto {
     payload: { [key: string]: any; };
     /**
      * 
-     * @type {string}
+     * @type {BulkUpdateJobRequestDtoResourceEnum}
      * @memberof BulkUpdateJobRequestDto
      */
     resource: BulkUpdateJobRequestDtoResourceEnum;
     /**
      * Canal de origem da operação
-     * @type {string}
+     * @type {BulkUpdateJobRequestDtoChannelEnum}
      * @memberof BulkUpdateJobRequestDto
      */
     channel: BulkUpdateJobRequestDtoChannelEnum;

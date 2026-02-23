@@ -76,63 +76,76 @@ var InstallmentFinancialRecordsExportApi = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
+     * Creates request options for exportInstallmentFinancialRecords without sending the request
+     */
+    InstallmentFinancialRecordsExportApi.prototype.exportInstallmentFinancialRecordsRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                queryParameters = {};
+                if (requestParameters['sortOrder'] != null) {
+                    queryParameters['sortOrder'] = requestParameters['sortOrder'];
+                }
+                if (requestParameters['sortBy'] != null) {
+                    queryParameters['sortBy'] = requestParameters['sortBy'];
+                }
+                if (requestParameters['completed'] != null) {
+                    queryParameters['completed'] = requestParameters['completed'];
+                }
+                if (requestParameters['frequency'] != null) {
+                    queryParameters['frequency'] = requestParameters['frequency'];
+                }
+                if (requestParameters['competenceDateTo'] != null) {
+                    queryParameters['competenceDateTo'] = requestParameters['competenceDateTo'].toISOString().substring(0, 10);
+                }
+                if (requestParameters['competenceDateFrom'] != null) {
+                    queryParameters['competenceDateFrom'] = requestParameters['competenceDateFrom'].toISOString().substring(0, 10);
+                }
+                if (requestParameters['tags'] != null) {
+                    queryParameters['tags'] = requestParameters['tags'];
+                }
+                if (requestParameters['subcategory'] != null) {
+                    queryParameters['subcategory'] = requestParameters['subcategory'];
+                }
+                if (requestParameters['contact'] != null) {
+                    queryParameters['contact'] = requestParameters['contact'];
+                }
+                if (requestParameters['firstInstallmentDateTo'] != null) {
+                    queryParameters['firstInstallmentDateTo'] = requestParameters['firstInstallmentDateTo'].toISOString().substring(0, 10);
+                }
+                if (requestParameters['firstInstallmentDateFrom'] != null) {
+                    queryParameters['firstInstallmentDateFrom'] = requestParameters['firstInstallmentDateFrom'].toISOString().substring(0, 10);
+                }
+                if (requestParameters['direction'] != null) {
+                    queryParameters['direction'] = requestParameters['direction'];
+                }
+                if (requestParameters['format'] != null) {
+                    queryParameters['format'] = requestParameters['format'];
+                }
+                headerParameters = {};
+                urlPath = "/external/installment-financial-records/export";
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'POST',
+                        headers: headerParameters,
+                        query: queryParameters,
+                    }];
+            });
+        });
+    };
+    /**
      * Solicita a exportação dos lançamentos financeiros parcelados.
      */
     InstallmentFinancialRecordsExportApi.prototype.exportInstallmentFinancialRecordsRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        queryParameters = {};
-                        if (requestParameters['sortOrder'] != null) {
-                            queryParameters['sortOrder'] = requestParameters['sortOrder'];
-                        }
-                        if (requestParameters['sortBy'] != null) {
-                            queryParameters['sortBy'] = requestParameters['sortBy'];
-                        }
-                        if (requestParameters['completed'] != null) {
-                            queryParameters['completed'] = requestParameters['completed'];
-                        }
-                        if (requestParameters['frequency'] != null) {
-                            queryParameters['frequency'] = requestParameters['frequency'];
-                        }
-                        if (requestParameters['competenceDateTo'] != null) {
-                            queryParameters['competenceDateTo'] = requestParameters['competenceDateTo'].toISOString().substring(0, 10);
-                        }
-                        if (requestParameters['competenceDateFrom'] != null) {
-                            queryParameters['competenceDateFrom'] = requestParameters['competenceDateFrom'].toISOString().substring(0, 10);
-                        }
-                        if (requestParameters['tags'] != null) {
-                            queryParameters['tags'] = requestParameters['tags'];
-                        }
-                        if (requestParameters['subcategory'] != null) {
-                            queryParameters['subcategory'] = requestParameters['subcategory'];
-                        }
-                        if (requestParameters['contact'] != null) {
-                            queryParameters['contact'] = requestParameters['contact'];
-                        }
-                        if (requestParameters['firstInstallmentDateTo'] != null) {
-                            queryParameters['firstInstallmentDateTo'] = requestParameters['firstInstallmentDateTo'].toISOString().substring(0, 10);
-                        }
-                        if (requestParameters['firstInstallmentDateFrom'] != null) {
-                            queryParameters['firstInstallmentDateFrom'] = requestParameters['firstInstallmentDateFrom'].toISOString().substring(0, 10);
-                        }
-                        if (requestParameters['direction'] != null) {
-                            queryParameters['direction'] = requestParameters['direction'];
-                        }
-                        if (requestParameters['format'] != null) {
-                            queryParameters['format'] = requestParameters['format'];
-                        }
-                        headerParameters = {};
-                        urlPath = "/external/installment-financial-records/export";
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'POST',
-                                headers: headerParameters,
-                                query: queryParameters,
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.exportInstallmentFinancialRecordsRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.ExportInstallmentFinancialRecordsDtoFromJSON)(jsonValue); })];
                 }

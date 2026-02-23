@@ -76,24 +76,37 @@ var CacheApi = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
+     * Creates request options for getCacheValue without sending the request
+     */
+    CacheApi.prototype.getCacheValueRequestOpts = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                queryParameters = {};
+                headerParameters = {};
+                urlPath = "/external/cache";
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'GET',
+                        headers: headerParameters,
+                        query: queryParameters,
+                    }];
+            });
+        });
+    };
+    /**
      * Get string value from cache
      */
     CacheApi.prototype.getCacheValueRaw = function (initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        queryParameters = {};
-                        headerParameters = {};
-                        urlPath = "/external/cache";
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'GET',
-                                headers: headerParameters,
-                                query: queryParameters,
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.getCacheValueRequestOpts()];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.CacheGetResponseDtoFromJSON)(jsonValue); })];
                 }
@@ -118,29 +131,42 @@ var CacheApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Creates request options for setCacheValue without sending the request
+     */
+    CacheApi.prototype.setCacheValueRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                if (requestParameters['cacheSetDto'] == null) {
+                    throw new runtime.RequiredError('cacheSetDto', 'Required parameter "cacheSetDto" was null or undefined when calling setCacheValue().');
+                }
+                queryParameters = {};
+                headerParameters = {};
+                headerParameters['Content-Type'] = 'application/json';
+                urlPath = "/external/cache";
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'PUT',
+                        headers: headerParameters,
+                        query: queryParameters,
+                        body: (0, index_1.CacheSetDtoToJSON)(requestParameters['cacheSetDto']),
+                    }];
+            });
+        });
+    };
+    /**
      * Set string value in cache with 10-second TTL
      */
     CacheApi.prototype.setCacheValueRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        if (requestParameters['cacheSetDto'] == null) {
-                            throw new runtime.RequiredError('cacheSetDto', 'Required parameter "cacheSetDto" was null or undefined when calling setCacheValue().');
-                        }
-                        queryParameters = {};
-                        headerParameters = {};
-                        headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/external/cache";
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'PUT',
-                                headers: headerParameters,
-                                query: queryParameters,
-                                body: (0, index_1.CacheSetDtoToJSON)(requestParameters['cacheSetDto']),
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.setCacheValueRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.VoidApiResponse(response)];
                 }

@@ -35,7 +35,7 @@ export interface FinancialRecordGroupDtoPopulatedFinancialRecordsInner {
     ownerOrganization: string;
     /**
      * Direção do lançamento (entrada/saída).
-     * @type {string}
+     * @type {FinancialRecordGroupDtoPopulatedFinancialRecordsInnerDirectionEnum}
      * @memberof FinancialRecordGroupDtoPopulatedFinancialRecordsInner
      */
     direction: FinancialRecordGroupDtoPopulatedFinancialRecordsInnerDirectionEnum;

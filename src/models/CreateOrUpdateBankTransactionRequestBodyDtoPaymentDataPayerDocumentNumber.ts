@@ -27,7 +27,7 @@ export interface CreateOrUpdateBankTransactionRequestBodyDtoPaymentDataPayerDocu
     value?: string | null;
     /**
      * 
-     * @type {string}
+     * @type {CreateOrUpdateBankTransactionRequestBodyDtoPaymentDataPayerDocumentNumberTypeEnum}
      * @memberof CreateOrUpdateBankTransactionRequestBodyDtoPaymentDataPayerDocumentNumber
      */
     type?: CreateOrUpdateBankTransactionRequestBodyDtoPaymentDataPayerDocumentNumberTypeEnum | null;

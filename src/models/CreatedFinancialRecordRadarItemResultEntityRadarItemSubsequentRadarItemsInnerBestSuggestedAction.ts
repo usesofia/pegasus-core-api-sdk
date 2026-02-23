@@ -29,7 +29,7 @@ import {
 export interface CreatedFinancialRecordRadarItemResultEntityRadarItemSubsequentRadarItemsInnerBestSuggestedAction {
     /**
      * Operação sugerida.
-     * @type {string}
+     * @type {CreatedFinancialRecordRadarItemResultEntityRadarItemSubsequentRadarItemsInnerBestSuggestedActionOperationEnum}
      * @memberof CreatedFinancialRecordRadarItemResultEntityRadarItemSubsequentRadarItemsInnerBestSuggestedAction
      */
     operation: CreatedFinancialRecordRadarItemResultEntityRadarItemSubsequentRadarItemsInnerBestSuggestedActionOperationEnum;

@@ -126,7 +126,7 @@ export interface PartialUpdateSubcategoryRequestBodyDto {
     externalId?: string | null;
     /**
      * Canal de origem da operação
-     * @type {string}
+     * @type {PartialUpdateSubcategoryRequestBodyDtoChannelEnum}
      * @memberof PartialUpdateSubcategoryRequestBodyDto
      */
     channel: PartialUpdateSubcategoryRequestBodyDtoChannelEnum;

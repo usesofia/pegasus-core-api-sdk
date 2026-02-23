@@ -69,13 +69,13 @@ export interface InstallmentFinancialRecordDto {
     ownerOrganization: string;
     /**
      * Direção do lançamento (entrada/saída).
-     * @type {string}
+     * @type {InstallmentFinancialRecordDtoDirectionEnum}
      * @memberof InstallmentFinancialRecordDto
      */
     direction: InstallmentFinancialRecordDtoDirectionEnum;
     /**
      * Frequência do lançamento.
-     * @type {string}
+     * @type {InstallmentFinancialRecordDtoFrequencyEnum}
      * @memberof InstallmentFinancialRecordDto
      */
     frequency: InstallmentFinancialRecordDtoFrequencyEnum;

@@ -39,7 +39,7 @@ export interface PartialUpdateBankTransactionRequestBodyDto {
     markdownEmbeddingUpdatedAt?: any | null;
     /**
      * Canal de origem da operação
-     * @type {string}
+     * @type {PartialUpdateBankTransactionRequestBodyDtoChannelEnum}
      * @memberof PartialUpdateBankTransactionRequestBodyDto
      */
     channel: PartialUpdateBankTransactionRequestBodyDtoChannelEnum;

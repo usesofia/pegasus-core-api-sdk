@@ -37,25 +37,25 @@ export interface CreatedFinancialRecordRadarItemResultEntityRadarItem {
     ownerOrganization: string;
     /**
      * Origem do registro.
-     * @type {string}
+     * @type {CreatedFinancialRecordRadarItemResultEntityRadarItemOriginEnum}
      * @memberof CreatedFinancialRecordRadarItemResultEntityRadarItem
      */
     origin: CreatedFinancialRecordRadarItemResultEntityRadarItemOriginEnum;
     /**
      * Natureza do registro.
-     * @type {string}
+     * @type {CreatedFinancialRecordRadarItemResultEntityRadarItemNatureEnum}
      * @memberof CreatedFinancialRecordRadarItemResultEntityRadarItem
      */
     nature: CreatedFinancialRecordRadarItemResultEntityRadarItemNatureEnum;
     /**
      * Status do registro.
-     * @type {string}
+     * @type {CreatedFinancialRecordRadarItemResultEntityRadarItemStatusEnum}
      * @memberof CreatedFinancialRecordRadarItemResultEntityRadarItem
      */
     status: CreatedFinancialRecordRadarItemResultEntityRadarItemStatusEnum;
     /**
      * Pasta do registro.
-     * @type {string}
+     * @type {CreatedFinancialRecordRadarItemResultEntityRadarItemFolderEnum}
      * @memberof CreatedFinancialRecordRadarItemResultEntityRadarItem
      */
     folder: CreatedFinancialRecordRadarItemResultEntityRadarItemFolderEnum;

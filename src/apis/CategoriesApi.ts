@@ -39,6 +39,16 @@ export interface FindAllCategoriesRequest {
  */
 export interface CategoriesApiInterface {
     /**
+     * Creates request options for findAllCategories without sending the request
+     * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
+     * @param {number} [pageSize] Quantidade de itens por página.
+     * @param {number} [pageIndex] Índice da página.
+     * @throws {RequiredError}
+     * @memberof CategoriesApiInterface
+     */
+    findAllCategoriesRequestOpts(requestParameters: FindAllCategoriesRequest): Promise<runtime.RequestOpts>;
+
+    /**
      * 
      * @summary Busca todas as categorias.
      * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
@@ -63,9 +73,9 @@ export interface CategoriesApiInterface {
 export class CategoriesApi extends runtime.BaseAPI implements CategoriesApiInterface {
 
     /**
-     * Busca todas as categorias.
+     * Creates request options for findAllCategories without sending the request
      */
-    async findAllCategoriesRaw(requestParameters: FindAllCategoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CategoriesPageEntity>> {
+    async findAllCategoriesRequestOpts(requestParameters: FindAllCategoriesRequest): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         if (requestParameters['populate'] != null) {
@@ -85,12 +95,20 @@ export class CategoriesApi extends runtime.BaseAPI implements CategoriesApiInter
 
         let urlPath = `/external/categories`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Busca todas as categorias.
+     */
+    async findAllCategoriesRaw(requestParameters: FindAllCategoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CategoriesPageEntity>> {
+        const requestOptions = await this.findAllCategoriesRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => CategoriesPageEntityFromJSON(jsonValue));
     }

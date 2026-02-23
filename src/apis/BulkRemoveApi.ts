@@ -47,6 +47,14 @@ export interface ScheduleBulkRemoveRequest {
  */
 export interface BulkRemoveApiInterface {
     /**
+     * Creates request options for processBulkRemove without sending the request
+     * @param {ExecuteBulkRemoveJobRequestBodyDto} executeBulkRemoveJobRequestBodyDto 
+     * @throws {RequiredError}
+     * @memberof BulkRemoveApiInterface
+     */
+    processBulkRemoveRequestOpts(requestParameters: ProcessBulkRemoveRequest): Promise<runtime.RequestOpts>;
+
+    /**
      * 
      * @summary Processes bulk remove tasks
      * @param {ExecuteBulkRemoveJobRequestBodyDto} executeBulkRemoveJobRequestBodyDto 
@@ -60,6 +68,14 @@ export interface BulkRemoveApiInterface {
      * Processes bulk remove tasks
      */
     processBulkRemove(requestParameters: ProcessBulkRemoveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+
+    /**
+     * Creates request options for scheduleBulkRemove without sending the request
+     * @param {BulkRemoveJobRequestDto} bulkRemoveJobRequestDto 
+     * @throws {RequiredError}
+     * @memberof BulkRemoveApiInterface
+     */
+    scheduleBulkRemoveRequestOpts(requestParameters: ScheduleBulkRemoveRequest): Promise<runtime.RequestOpts>;
 
     /**
      * 
@@ -84,9 +100,9 @@ export interface BulkRemoveApiInterface {
 export class BulkRemoveApi extends runtime.BaseAPI implements BulkRemoveApiInterface {
 
     /**
-     * Processes bulk remove tasks
+     * Creates request options for processBulkRemove without sending the request
      */
-    async processBulkRemoveRaw(requestParameters: ProcessBulkRemoveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+    async processBulkRemoveRequestOpts(requestParameters: ProcessBulkRemoveRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['executeBulkRemoveJobRequestBodyDto'] == null) {
             throw new runtime.RequiredError(
                 'executeBulkRemoveJobRequestBodyDto',
@@ -103,13 +119,21 @@ export class BulkRemoveApi extends runtime.BaseAPI implements BulkRemoveApiInter
 
         let urlPath = `/internal/queues/bulk-remove`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
             body: ExecuteBulkRemoveJobRequestBodyDtoToJSON(requestParameters['executeBulkRemoveJobRequestBodyDto']),
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Processes bulk remove tasks
+     */
+    async processBulkRemoveRaw(requestParameters: ProcessBulkRemoveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        const requestOptions = await this.processBulkRemoveRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.VoidApiResponse(response);
     }
@@ -122,9 +146,9 @@ export class BulkRemoveApi extends runtime.BaseAPI implements BulkRemoveApiInter
     }
 
     /**
-     * Schedules removal of multiple resources
+     * Creates request options for scheduleBulkRemove without sending the request
      */
-    async scheduleBulkRemoveRaw(requestParameters: ScheduleBulkRemoveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BulkRemoveJobRequestEntity>> {
+    async scheduleBulkRemoveRequestOpts(requestParameters: ScheduleBulkRemoveRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['bulkRemoveJobRequestDto'] == null) {
             throw new runtime.RequiredError(
                 'bulkRemoveJobRequestDto',
@@ -141,13 +165,21 @@ export class BulkRemoveApi extends runtime.BaseAPI implements BulkRemoveApiInter
 
         let urlPath = `/external/bulk/remove`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
             body: BulkRemoveJobRequestDtoToJSON(requestParameters['bulkRemoveJobRequestDto']),
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Schedules removal of multiple resources
+     */
+    async scheduleBulkRemoveRaw(requestParameters: ScheduleBulkRemoveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BulkRemoveJobRequestEntity>> {
+        const requestOptions = await this.scheduleBulkRemoveRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => BulkRemoveJobRequestEntityFromJSON(jsonValue));
     }

@@ -33,6 +33,14 @@ export interface SystemFindByIdFileRequest {
  */
 export interface FilesApiInterface {
     /**
+     * Creates request options for deleteFile without sending the request
+     * @param {string} id
+     * @param {RemoveFileRequestBodyDto} removeFileRequestBodyDto
+     * @throws {RequiredError}
+     * @memberof FilesApiInterface
+     */
+    deleteFileRequestOpts(requestParameters: DeleteFileRequest): Promise<runtime.RequestOpts>;
+    /**
      *
      * @summary Deletes a file
      * @param {string} id
@@ -47,6 +55,13 @@ export interface FilesApiInterface {
      */
     deleteFile(requestParameters: DeleteFileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
     /**
+     * Creates request options for findByIdFile without sending the request
+     * @param {string} id The id of the file to get
+     * @throws {RequiredError}
+     * @memberof FilesApiInterface
+     */
+    findByIdFileRequestOpts(requestParameters: FindByIdFileRequest): Promise<runtime.RequestOpts>;
+    /**
      *
      * @summary Finds a file by id
      * @param {string} id The id of the file to get
@@ -60,6 +75,13 @@ export interface FilesApiInterface {
      */
     findByIdFile(requestParameters: FindByIdFileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FileEntity>;
     /**
+     * Creates request options for getSignedUrlFromUrl without sending the request
+     * @param {string} url The url of the file to get the signed url from
+     * @throws {RequiredError}
+     * @memberof FilesApiInterface
+     */
+    getSignedUrlFromUrlRequestOpts(requestParameters: GetSignedUrlFromUrlRequest): Promise<runtime.RequestOpts>;
+    /**
      *
      * @summary Get a signed url from a url
      * @param {string} url The url of the file to get the signed url from
@@ -72,6 +94,14 @@ export interface FilesApiInterface {
      * Get a signed url from a url
      */
     getSignedUrlFromUrl(requestParameters: GetSignedUrlFromUrlRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SignedUrlEntity>;
+    /**
+     * Creates request options for systemFindByIdFile without sending the request
+     * @param {string} fileId The id of the file to get
+     * @param {string} organizationId The id of the organization to get the file from
+     * @throws {RequiredError}
+     * @memberof FilesApiInterface
+     */
+    systemFindByIdFileRequestOpts(requestParameters: SystemFindByIdFileRequest): Promise<runtime.RequestOpts>;
     /**
      *
      * @summary Finds a file by id
@@ -92,6 +122,10 @@ export interface FilesApiInterface {
  */
 export declare class FilesApi extends runtime.BaseAPI implements FilesApiInterface {
     /**
+     * Creates request options for deleteFile without sending the request
+     */
+    deleteFileRequestOpts(requestParameters: DeleteFileRequest): Promise<runtime.RequestOpts>;
+    /**
      * Deletes a file
      */
     deleteFileRaw(requestParameters: DeleteFileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
@@ -99,6 +133,10 @@ export declare class FilesApi extends runtime.BaseAPI implements FilesApiInterfa
      * Deletes a file
      */
     deleteFile(requestParameters: DeleteFileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+    /**
+     * Creates request options for findByIdFile without sending the request
+     */
+    findByIdFileRequestOpts(requestParameters: FindByIdFileRequest): Promise<runtime.RequestOpts>;
     /**
      * Finds a file by id
      */
@@ -108,6 +146,10 @@ export declare class FilesApi extends runtime.BaseAPI implements FilesApiInterfa
      */
     findByIdFile(requestParameters: FindByIdFileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FileEntity>;
     /**
+     * Creates request options for getSignedUrlFromUrl without sending the request
+     */
+    getSignedUrlFromUrlRequestOpts(requestParameters: GetSignedUrlFromUrlRequest): Promise<runtime.RequestOpts>;
+    /**
      * Get a signed url from a url
      */
     getSignedUrlFromUrlRaw(requestParameters: GetSignedUrlFromUrlRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SignedUrlEntity>>;
@@ -115,6 +157,10 @@ export declare class FilesApi extends runtime.BaseAPI implements FilesApiInterfa
      * Get a signed url from a url
      */
     getSignedUrlFromUrl(requestParameters: GetSignedUrlFromUrlRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SignedUrlEntity>;
+    /**
+     * Creates request options for systemFindByIdFile without sending the request
+     */
+    systemFindByIdFileRequestOpts(requestParameters: SystemFindByIdFileRequest): Promise<runtime.RequestOpts>;
     /**
      * Finds a file by id
      */

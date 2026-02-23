@@ -33,7 +33,7 @@ export interface CreateCustomerRequestBodyDto {
     description?: string | null;
     /**
      * Tipo do customer.
-     * @type {string}
+     * @type {CreateCustomerRequestBodyDtoTypeEnum}
      * @memberof CreateCustomerRequestBodyDto
      */
     type: CreateCustomerRequestBodyDtoTypeEnum;

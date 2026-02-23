@@ -36,13 +36,13 @@ export interface ContactsPageDtoItemsInner {
     name: string;
     /**
      * Tipos do contato.
-     * @type {Array<string>}
+     * @type {Array<ContactsPageDtoItemsInnerTypesEnum>}
      * @memberof ContactsPageDtoItemsInner
      */
     types: Array<ContactsPageDtoItemsInnerTypesEnum>;
     /**
      * Tipo do documento do contato.
-     * @type {string}
+     * @type {ContactsPageDtoItemsInnerDocumentTypeEnum}
      * @memberof ContactsPageDtoItemsInner
      */
     documentType?: ContactsPageDtoItemsInnerDocumentTypeEnum | null;
@@ -78,7 +78,7 @@ export interface ContactsPageDtoItemsInner {
     birthDate?: string | null;
     /**
      * Origem do contato.
-     * @type {string}
+     * @type {ContactsPageDtoItemsInnerOriginEnum}
      * @memberof ContactsPageDtoItemsInner
      */
     origin?: ContactsPageDtoItemsInnerOriginEnum | null;

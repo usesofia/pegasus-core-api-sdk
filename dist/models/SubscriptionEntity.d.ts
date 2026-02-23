@@ -36,13 +36,13 @@ export interface SubscriptionEntity {
     description?: string | null;
     /**
      * Provedor da subscription.
-     * @type {string}
+     * @type {SubscriptionEntityProviderEnum}
      * @memberof SubscriptionEntity
      */
     provider: SubscriptionEntityProviderEnum;
     /**
      * Status da subscription.
-     * @type {string}
+     * @type {SubscriptionEntityStatusEnum}
      * @memberof SubscriptionEntity
      */
     status: SubscriptionEntityStatusEnum;

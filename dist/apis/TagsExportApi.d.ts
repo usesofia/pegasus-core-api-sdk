@@ -24,6 +24,15 @@ export interface ExportTagsRequest {
  */
 export interface TagsExportApiInterface {
     /**
+     * Creates request options for exportTags without sending the request
+     * @param {'asc' | 'desc'} [sortOrder] Ordem de ordenação dos resultados.
+     * @param {'name' | 'createdAt'} [sortBy] Campo para ordenação dos resultados.
+     * @param {'csv' | 'xlsx'} [format] Formato de exportação dos dados.
+     * @throws {RequiredError}
+     * @memberof TagsExportApiInterface
+     */
+    exportTagsRequestOpts(requestParameters: ExportTagsRequest): Promise<runtime.RequestOpts>;
+    /**
      *
      * @summary Solicita a exportação das tags.
      * @param {'asc' | 'desc'} [sortOrder] Ordem de ordenação dos resultados.
@@ -43,6 +52,10 @@ export interface TagsExportApiInterface {
  *
  */
 export declare class TagsExportApi extends runtime.BaseAPI implements TagsExportApiInterface {
+    /**
+     * Creates request options for exportTags without sending the request
+     */
+    exportTagsRequestOpts(requestParameters: ExportTagsRequest): Promise<runtime.RequestOpts>;
     /**
      * Solicita a exportação das tags.
      */

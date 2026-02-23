@@ -54,7 +54,7 @@ export interface AdminOrganizationsPageDtoItemsInner {
     clerkId: string;
     /**
      * Subtipo da organização.
-     * @type {string}
+     * @type {AdminOrganizationsPageDtoItemsInnerSubtypeEnum}
      * @memberof AdminOrganizationsPageDtoItemsInner
      */
     subtype: AdminOrganizationsPageDtoItemsInnerSubtypeEnum;

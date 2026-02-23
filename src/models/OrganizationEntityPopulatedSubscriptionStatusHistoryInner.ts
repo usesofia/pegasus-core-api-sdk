@@ -21,13 +21,13 @@ import { mapValues } from '../runtime';
 export interface OrganizationEntityPopulatedSubscriptionStatusHistoryInner {
     /**
      * Status anterior da subscription.
-     * @type {string}
+     * @type {OrganizationEntityPopulatedSubscriptionStatusHistoryInnerOldStatusEnum}
      * @memberof OrganizationEntityPopulatedSubscriptionStatusHistoryInner
      */
     oldStatus: OrganizationEntityPopulatedSubscriptionStatusHistoryInnerOldStatusEnum;
     /**
      * Status atual da subscription.
-     * @type {string}
+     * @type {OrganizationEntityPopulatedSubscriptionStatusHistoryInnerCurrentStatusEnum}
      * @memberof OrganizationEntityPopulatedSubscriptionStatusHistoryInner
      */
     currentStatus: OrganizationEntityPopulatedSubscriptionStatusHistoryInnerCurrentStatusEnum;

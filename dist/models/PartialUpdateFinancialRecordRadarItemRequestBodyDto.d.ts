@@ -19,13 +19,13 @@ import type { CreatedFinancialRecordRadarItemResultEntityRadarItemExtractedFinan
 export interface PartialUpdateFinancialRecordRadarItemRequestBodyDto {
     /**
      * Status do registro.
-     * @type {string}
+     * @type {PartialUpdateFinancialRecordRadarItemRequestBodyDtoStatusEnum}
      * @memberof PartialUpdateFinancialRecordRadarItemRequestBodyDto
      */
     status?: PartialUpdateFinancialRecordRadarItemRequestBodyDtoStatusEnum;
     /**
      * Pasta do registro.
-     * @type {string}
+     * @type {PartialUpdateFinancialRecordRadarItemRequestBodyDtoFolderEnum}
      * @memberof PartialUpdateFinancialRecordRadarItemRequestBodyDto
      */
     folder?: PartialUpdateFinancialRecordRadarItemRequestBodyDtoFolderEnum;

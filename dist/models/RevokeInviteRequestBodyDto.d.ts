@@ -17,7 +17,7 @@
 export interface RevokeInviteRequestBodyDto {
     /**
      * Canal de origem da operação
-     * @type {string}
+     * @type {RevokeInviteRequestBodyDtoChannelEnum}
      * @memberof RevokeInviteRequestBodyDto
      */
     channel: RevokeInviteRequestBodyDtoChannelEnum;

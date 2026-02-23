@@ -76,32 +76,45 @@ var ContactsApi = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
+     * Creates request options for createContact without sending the request
+     */
+    ContactsApi.prototype.createContactRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                if (requestParameters['createContactRequestBodyDto'] == null) {
+                    throw new runtime.RequiredError('createContactRequestBodyDto', 'Required parameter "createContactRequestBodyDto" was null or undefined when calling createContact().');
+                }
+                queryParameters = {};
+                if (requestParameters['populate'] != null) {
+                    queryParameters['populate'] = requestParameters['populate'];
+                }
+                headerParameters = {};
+                headerParameters['Content-Type'] = 'application/json';
+                urlPath = "/external/contacts";
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'POST',
+                        headers: headerParameters,
+                        query: queryParameters,
+                        body: (0, index_1.CreateContactRequestBodyDtoToJSON)(requestParameters['createContactRequestBodyDto']),
+                    }];
+            });
+        });
+    };
+    /**
      * Cria um novo contato.
      */
     ContactsApi.prototype.createContactRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        if (requestParameters['createContactRequestBodyDto'] == null) {
-                            throw new runtime.RequiredError('createContactRequestBodyDto', 'Required parameter "createContactRequestBodyDto" was null or undefined when calling createContact().');
-                        }
-                        queryParameters = {};
-                        if (requestParameters['populate'] != null) {
-                            queryParameters['populate'] = requestParameters['populate'];
-                        }
-                        headerParameters = {};
-                        headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/external/contacts";
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'POST',
-                                headers: headerParameters,
-                                query: queryParameters,
-                                body: (0, index_1.CreateContactRequestBodyDtoToJSON)(requestParameters['createContactRequestBodyDto']),
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.createContactRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.ContactDtoFromJSON)(jsonValue); })];
                 }
@@ -126,24 +139,37 @@ var ContactsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Creates request options for findAllContactOrigins without sending the request
+     */
+    ContactsApi.prototype.findAllContactOriginsRequestOpts = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                queryParameters = {};
+                headerParameters = {};
+                urlPath = "/external/contacts/origins";
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'GET',
+                        headers: headerParameters,
+                        query: queryParameters,
+                    }];
+            });
+        });
+    };
+    /**
      * Busca todas as origens de contato.
      */
     ContactsApi.prototype.findAllContactOriginsRaw = function (initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        queryParameters = {};
-                        headerParameters = {};
-                        urlPath = "/external/contacts/origins";
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'GET',
-                                headers: headerParameters,
-                                query: queryParameters,
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.findAllContactOriginsRequestOpts()];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return jsonValue.map(index_1.ContactOriginItemEntityFromJSON); })];
                 }
@@ -168,24 +194,37 @@ var ContactsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Creates request options for findAllContactTypes without sending the request
+     */
+    ContactsApi.prototype.findAllContactTypesRequestOpts = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                queryParameters = {};
+                headerParameters = {};
+                urlPath = "/external/contacts/types";
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'GET',
+                        headers: headerParameters,
+                        query: queryParameters,
+                    }];
+            });
+        });
+    };
+    /**
      * Busca todos os tipos de contato.
      */
     ContactsApi.prototype.findAllContactTypesRaw = function (initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        queryParameters = {};
-                        headerParameters = {};
-                        urlPath = "/external/contacts/types";
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'GET',
-                                headers: headerParameters,
-                                query: queryParameters,
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.findAllContactTypesRequestOpts()];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return jsonValue.map(index_1.ContactTypeItemEntityFromJSON); })];
                 }
@@ -210,69 +249,82 @@ var ContactsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Creates request options for findAllContacts without sending the request
+     */
+    ContactsApi.prototype.findAllContactsRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                queryParameters = {};
+                if (requestParameters['sortOrder'] != null) {
+                    queryParameters['sortOrder'] = requestParameters['sortOrder'];
+                }
+                if (requestParameters['sortBy'] != null) {
+                    queryParameters['sortBy'] = requestParameters['sortBy'];
+                }
+                if (requestParameters['populate'] != null) {
+                    queryParameters['populate'] = requestParameters['populate'];
+                }
+                if (requestParameters['considerNotIdentified'] != null) {
+                    queryParameters['considerNotIdentified'] = requestParameters['considerNotIdentified'];
+                }
+                if (requestParameters['states'] != null) {
+                    queryParameters['states'] = requestParameters['states'];
+                }
+                if (requestParameters['country'] != null) {
+                    queryParameters['country'] = requestParameters['country'];
+                }
+                if (requestParameters['birthdayTo'] != null) {
+                    queryParameters['birthdayTo'] = requestParameters['birthdayTo'];
+                }
+                if (requestParameters['birthdayFrom'] != null) {
+                    queryParameters['birthdayFrom'] = requestParameters['birthdayFrom'];
+                }
+                if (requestParameters['origins'] != null) {
+                    queryParameters['origins'] = requestParameters['origins'];
+                }
+                if (requestParameters['types'] != null) {
+                    queryParameters['types'] = requestParameters['types'];
+                }
+                if (requestParameters['ids'] != null) {
+                    queryParameters['ids'] = requestParameters['ids'];
+                }
+                if (requestParameters['semanticSearchTermInBase64'] != null) {
+                    queryParameters['semanticSearchTermInBase64'] = requestParameters['semanticSearchTermInBase64'];
+                }
+                if (requestParameters['textSearchTerm'] != null) {
+                    queryParameters['textSearchTerm'] = requestParameters['textSearchTerm'];
+                }
+                if (requestParameters['pageSize'] != null) {
+                    queryParameters['pageSize'] = requestParameters['pageSize'];
+                }
+                if (requestParameters['pageIndex'] != null) {
+                    queryParameters['pageIndex'] = requestParameters['pageIndex'];
+                }
+                headerParameters = {};
+                urlPath = "/external/contacts";
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'GET',
+                        headers: headerParameters,
+                        query: queryParameters,
+                    }];
+            });
+        });
+    };
+    /**
      * Busca todos os contatos.
      */
     ContactsApi.prototype.findAllContactsRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        queryParameters = {};
-                        if (requestParameters['sortOrder'] != null) {
-                            queryParameters['sortOrder'] = requestParameters['sortOrder'];
-                        }
-                        if (requestParameters['sortBy'] != null) {
-                            queryParameters['sortBy'] = requestParameters['sortBy'];
-                        }
-                        if (requestParameters['populate'] != null) {
-                            queryParameters['populate'] = requestParameters['populate'];
-                        }
-                        if (requestParameters['considerNotIdentified'] != null) {
-                            queryParameters['considerNotIdentified'] = requestParameters['considerNotIdentified'];
-                        }
-                        if (requestParameters['states'] != null) {
-                            queryParameters['states'] = requestParameters['states'];
-                        }
-                        if (requestParameters['country'] != null) {
-                            queryParameters['country'] = requestParameters['country'];
-                        }
-                        if (requestParameters['birthdayTo'] != null) {
-                            queryParameters['birthdayTo'] = requestParameters['birthdayTo'];
-                        }
-                        if (requestParameters['birthdayFrom'] != null) {
-                            queryParameters['birthdayFrom'] = requestParameters['birthdayFrom'];
-                        }
-                        if (requestParameters['origins'] != null) {
-                            queryParameters['origins'] = requestParameters['origins'];
-                        }
-                        if (requestParameters['types'] != null) {
-                            queryParameters['types'] = requestParameters['types'];
-                        }
-                        if (requestParameters['ids'] != null) {
-                            queryParameters['ids'] = requestParameters['ids'];
-                        }
-                        if (requestParameters['semanticSearchTermInBase64'] != null) {
-                            queryParameters['semanticSearchTermInBase64'] = requestParameters['semanticSearchTermInBase64'];
-                        }
-                        if (requestParameters['textSearchTerm'] != null) {
-                            queryParameters['textSearchTerm'] = requestParameters['textSearchTerm'];
-                        }
-                        if (requestParameters['pageSize'] != null) {
-                            queryParameters['pageSize'] = requestParameters['pageSize'];
-                        }
-                        if (requestParameters['pageIndex'] != null) {
-                            queryParameters['pageIndex'] = requestParameters['pageIndex'];
-                        }
-                        headerParameters = {};
-                        urlPath = "/external/contacts";
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'GET',
-                                headers: headerParameters,
-                                query: queryParameters,
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.findAllContactsRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.ContactsPageDtoFromJSON)(jsonValue); })];
                 }
@@ -298,31 +350,44 @@ var ContactsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Creates request options for findByIdContact without sending the request
+     */
+    ContactsApi.prototype.findByIdContactRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                if (requestParameters['id'] == null) {
+                    throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling findByIdContact().');
+                }
+                queryParameters = {};
+                if (requestParameters['populate'] != null) {
+                    queryParameters['populate'] = requestParameters['populate'];
+                }
+                headerParameters = {};
+                urlPath = "/external/contacts/{id}";
+                urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'GET',
+                        headers: headerParameters,
+                        query: queryParameters,
+                    }];
+            });
+        });
+    };
+    /**
      * Busca um contato pelo identificador.
      */
     ContactsApi.prototype.findByIdContactRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        if (requestParameters['id'] == null) {
-                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling findByIdContact().');
-                        }
-                        queryParameters = {};
-                        if (requestParameters['populate'] != null) {
-                            queryParameters['populate'] = requestParameters['populate'];
-                        }
-                        headerParameters = {};
-                        urlPath = "/external/contacts/{id}";
-                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'GET',
-                                headers: headerParameters,
-                                query: queryParameters,
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.findByIdContactRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.ContactDtoFromJSON)(jsonValue); })];
                 }
@@ -347,28 +412,41 @@ var ContactsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Creates request options for findNotIdentifiedContact without sending the request
+     */
+    ContactsApi.prototype.findNotIdentifiedContactRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                if (requestParameters['organizationId'] == null) {
+                    throw new runtime.RequiredError('organizationId', 'Required parameter "organizationId" was null or undefined when calling findNotIdentifiedContact().');
+                }
+                queryParameters = {};
+                headerParameters = {};
+                urlPath = "/internal/organizations/{organizationId}/contacts/not-identified";
+                urlPath = urlPath.replace("{".concat("organizationId", "}"), encodeURIComponent(String(requestParameters['organizationId'])));
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'GET',
+                        headers: headerParameters,
+                        query: queryParameters,
+                    }];
+            });
+        });
+    };
+    /**
      * Busca o contato não identificado.
      */
     ContactsApi.prototype.findNotIdentifiedContactRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        if (requestParameters['organizationId'] == null) {
-                            throw new runtime.RequiredError('organizationId', 'Required parameter "organizationId" was null or undefined when calling findNotIdentifiedContact().');
-                        }
-                        queryParameters = {};
-                        headerParameters = {};
-                        urlPath = "/internal/organizations/{organizationId}/contacts/not-identified";
-                        urlPath = urlPath.replace("{".concat("organizationId", "}"), encodeURIComponent(String(requestParameters['organizationId'])));
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'GET',
-                                headers: headerParameters,
-                                query: queryParameters,
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.findNotIdentifiedContactRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.ContactDtoFromJSON)(jsonValue); })];
                 }
@@ -393,36 +471,49 @@ var ContactsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Creates request options for partialUpdateContact without sending the request
+     */
+    ContactsApi.prototype.partialUpdateContactRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                if (requestParameters['id'] == null) {
+                    throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling partialUpdateContact().');
+                }
+                if (requestParameters['partialUpdateContactRequestBodyDto'] == null) {
+                    throw new runtime.RequiredError('partialUpdateContactRequestBodyDto', 'Required parameter "partialUpdateContactRequestBodyDto" was null or undefined when calling partialUpdateContact().');
+                }
+                queryParameters = {};
+                if (requestParameters['populate'] != null) {
+                    queryParameters['populate'] = requestParameters['populate'];
+                }
+                headerParameters = {};
+                headerParameters['Content-Type'] = 'application/json';
+                urlPath = "/external/contacts/{id}";
+                urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'PATCH',
+                        headers: headerParameters,
+                        query: queryParameters,
+                        body: (0, index_1.PartialUpdateContactRequestBodyDtoToJSON)(requestParameters['partialUpdateContactRequestBodyDto']),
+                    }];
+            });
+        });
+    };
+    /**
      * Atualiza parcialmente um contato.
      */
     ContactsApi.prototype.partialUpdateContactRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        if (requestParameters['id'] == null) {
-                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling partialUpdateContact().');
-                        }
-                        if (requestParameters['partialUpdateContactRequestBodyDto'] == null) {
-                            throw new runtime.RequiredError('partialUpdateContactRequestBodyDto', 'Required parameter "partialUpdateContactRequestBodyDto" was null or undefined when calling partialUpdateContact().');
-                        }
-                        queryParameters = {};
-                        if (requestParameters['populate'] != null) {
-                            queryParameters['populate'] = requestParameters['populate'];
-                        }
-                        headerParameters = {};
-                        headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/external/contacts/{id}";
-                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'PATCH',
-                                headers: headerParameters,
-                                query: queryParameters,
-                                body: (0, index_1.PartialUpdateContactRequestBodyDtoToJSON)(requestParameters['partialUpdateContactRequestBodyDto']),
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.partialUpdateContactRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.ContactDtoFromJSON)(jsonValue); })];
                 }
@@ -447,33 +538,46 @@ var ContactsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Creates request options for removeContact without sending the request
+     */
+    ContactsApi.prototype.removeContactRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                if (requestParameters['id'] == null) {
+                    throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling removeContact().');
+                }
+                if (requestParameters['removeContactRequestBodyDto'] == null) {
+                    throw new runtime.RequiredError('removeContactRequestBodyDto', 'Required parameter "removeContactRequestBodyDto" was null or undefined when calling removeContact().');
+                }
+                queryParameters = {};
+                headerParameters = {};
+                headerParameters['Content-Type'] = 'application/json';
+                urlPath = "/external/contacts/{id}";
+                urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'DELETE',
+                        headers: headerParameters,
+                        query: queryParameters,
+                        body: (0, index_1.RemoveContactRequestBodyDtoToJSON)(requestParameters['removeContactRequestBodyDto']),
+                    }];
+            });
+        });
+    };
+    /**
      * Remove um contato.
      */
     ContactsApi.prototype.removeContactRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        if (requestParameters['id'] == null) {
-                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling removeContact().');
-                        }
-                        if (requestParameters['removeContactRequestBodyDto'] == null) {
-                            throw new runtime.RequiredError('removeContactRequestBodyDto', 'Required parameter "removeContactRequestBodyDto" was null or undefined when calling removeContact().');
-                        }
-                        queryParameters = {};
-                        headerParameters = {};
-                        headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/external/contacts/{id}";
-                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'DELETE',
-                                headers: headerParameters,
-                                query: queryParameters,
-                                body: (0, index_1.RemoveContactRequestBodyDtoToJSON)(requestParameters['removeContactRequestBodyDto']),
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.removeContactRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.VoidApiResponse(response)];
                 }
@@ -496,78 +600,91 @@ var ContactsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Creates request options for systemFindAllContacts without sending the request
+     */
+    ContactsApi.prototype.systemFindAllContactsRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                if (requestParameters['ownerOrganizationId'] == null) {
+                    throw new runtime.RequiredError('ownerOrganizationId', 'Required parameter "ownerOrganizationId" was null or undefined when calling systemFindAllContacts().');
+                }
+                queryParameters = {};
+                if (requestParameters['readPreference'] != null) {
+                    queryParameters['readPreference'] = requestParameters['readPreference'];
+                }
+                if (requestParameters['ownerOrganizationId'] != null) {
+                    queryParameters['ownerOrganizationId'] = requestParameters['ownerOrganizationId'];
+                }
+                if (requestParameters['sortOrder'] != null) {
+                    queryParameters['sortOrder'] = requestParameters['sortOrder'];
+                }
+                if (requestParameters['sortBy'] != null) {
+                    queryParameters['sortBy'] = requestParameters['sortBy'];
+                }
+                if (requestParameters['populate'] != null) {
+                    queryParameters['populate'] = requestParameters['populate'];
+                }
+                if (requestParameters['considerNotIdentified'] != null) {
+                    queryParameters['considerNotIdentified'] = requestParameters['considerNotIdentified'];
+                }
+                if (requestParameters['states'] != null) {
+                    queryParameters['states'] = requestParameters['states'];
+                }
+                if (requestParameters['country'] != null) {
+                    queryParameters['country'] = requestParameters['country'];
+                }
+                if (requestParameters['birthdayTo'] != null) {
+                    queryParameters['birthdayTo'] = requestParameters['birthdayTo'];
+                }
+                if (requestParameters['birthdayFrom'] != null) {
+                    queryParameters['birthdayFrom'] = requestParameters['birthdayFrom'];
+                }
+                if (requestParameters['origins'] != null) {
+                    queryParameters['origins'] = requestParameters['origins'];
+                }
+                if (requestParameters['types'] != null) {
+                    queryParameters['types'] = requestParameters['types'];
+                }
+                if (requestParameters['ids'] != null) {
+                    queryParameters['ids'] = requestParameters['ids'];
+                }
+                if (requestParameters['semanticSearchTermInBase64'] != null) {
+                    queryParameters['semanticSearchTermInBase64'] = requestParameters['semanticSearchTermInBase64'];
+                }
+                if (requestParameters['textSearchTerm'] != null) {
+                    queryParameters['textSearchTerm'] = requestParameters['textSearchTerm'];
+                }
+                if (requestParameters['pageSize'] != null) {
+                    queryParameters['pageSize'] = requestParameters['pageSize'];
+                }
+                if (requestParameters['pageIndex'] != null) {
+                    queryParameters['pageIndex'] = requestParameters['pageIndex'];
+                }
+                headerParameters = {};
+                urlPath = "/internal/contacts";
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'GET',
+                        headers: headerParameters,
+                        query: queryParameters,
+                    }];
+            });
+        });
+    };
+    /**
      * Busca todos os contatos pelo sistema.
      */
     ContactsApi.prototype.systemFindAllContactsRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        if (requestParameters['ownerOrganizationId'] == null) {
-                            throw new runtime.RequiredError('ownerOrganizationId', 'Required parameter "ownerOrganizationId" was null or undefined when calling systemFindAllContacts().');
-                        }
-                        queryParameters = {};
-                        if (requestParameters['readPreference'] != null) {
-                            queryParameters['readPreference'] = requestParameters['readPreference'];
-                        }
-                        if (requestParameters['ownerOrganizationId'] != null) {
-                            queryParameters['ownerOrganizationId'] = requestParameters['ownerOrganizationId'];
-                        }
-                        if (requestParameters['sortOrder'] != null) {
-                            queryParameters['sortOrder'] = requestParameters['sortOrder'];
-                        }
-                        if (requestParameters['sortBy'] != null) {
-                            queryParameters['sortBy'] = requestParameters['sortBy'];
-                        }
-                        if (requestParameters['populate'] != null) {
-                            queryParameters['populate'] = requestParameters['populate'];
-                        }
-                        if (requestParameters['considerNotIdentified'] != null) {
-                            queryParameters['considerNotIdentified'] = requestParameters['considerNotIdentified'];
-                        }
-                        if (requestParameters['states'] != null) {
-                            queryParameters['states'] = requestParameters['states'];
-                        }
-                        if (requestParameters['country'] != null) {
-                            queryParameters['country'] = requestParameters['country'];
-                        }
-                        if (requestParameters['birthdayTo'] != null) {
-                            queryParameters['birthdayTo'] = requestParameters['birthdayTo'];
-                        }
-                        if (requestParameters['birthdayFrom'] != null) {
-                            queryParameters['birthdayFrom'] = requestParameters['birthdayFrom'];
-                        }
-                        if (requestParameters['origins'] != null) {
-                            queryParameters['origins'] = requestParameters['origins'];
-                        }
-                        if (requestParameters['types'] != null) {
-                            queryParameters['types'] = requestParameters['types'];
-                        }
-                        if (requestParameters['ids'] != null) {
-                            queryParameters['ids'] = requestParameters['ids'];
-                        }
-                        if (requestParameters['semanticSearchTermInBase64'] != null) {
-                            queryParameters['semanticSearchTermInBase64'] = requestParameters['semanticSearchTermInBase64'];
-                        }
-                        if (requestParameters['textSearchTerm'] != null) {
-                            queryParameters['textSearchTerm'] = requestParameters['textSearchTerm'];
-                        }
-                        if (requestParameters['pageSize'] != null) {
-                            queryParameters['pageSize'] = requestParameters['pageSize'];
-                        }
-                        if (requestParameters['pageIndex'] != null) {
-                            queryParameters['pageIndex'] = requestParameters['pageIndex'];
-                        }
-                        headerParameters = {};
-                        urlPath = "/internal/contacts";
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'GET',
-                                headers: headerParameters,
-                                query: queryParameters,
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.systemFindAllContactsRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.ContactsPageDtoFromJSON)(jsonValue); })];
                 }
@@ -592,35 +709,48 @@ var ContactsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Creates request options for systemFindByIdContact without sending the request
+     */
+    ContactsApi.prototype.systemFindByIdContactRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                if (requestParameters['organizationId'] == null) {
+                    throw new runtime.RequiredError('organizationId', 'Required parameter "organizationId" was null or undefined when calling systemFindByIdContact().');
+                }
+                if (requestParameters['contactId'] == null) {
+                    throw new runtime.RequiredError('contactId', 'Required parameter "contactId" was null or undefined when calling systemFindByIdContact().');
+                }
+                queryParameters = {};
+                if (requestParameters['populate'] != null) {
+                    queryParameters['populate'] = requestParameters['populate'];
+                }
+                headerParameters = {};
+                urlPath = "/internal/organizations/{organizationId}/contacts/{contactId}";
+                urlPath = urlPath.replace("{".concat("organizationId", "}"), encodeURIComponent(String(requestParameters['organizationId'])));
+                urlPath = urlPath.replace("{".concat("contactId", "}"), encodeURIComponent(String(requestParameters['contactId'])));
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'GET',
+                        headers: headerParameters,
+                        query: queryParameters,
+                    }];
+            });
+        });
+    };
+    /**
      * Busca um contato pelo identificador.
      */
     ContactsApi.prototype.systemFindByIdContactRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        if (requestParameters['organizationId'] == null) {
-                            throw new runtime.RequiredError('organizationId', 'Required parameter "organizationId" was null or undefined when calling systemFindByIdContact().');
-                        }
-                        if (requestParameters['contactId'] == null) {
-                            throw new runtime.RequiredError('contactId', 'Required parameter "contactId" was null or undefined when calling systemFindByIdContact().');
-                        }
-                        queryParameters = {};
-                        if (requestParameters['populate'] != null) {
-                            queryParameters['populate'] = requestParameters['populate'];
-                        }
-                        headerParameters = {};
-                        urlPath = "/internal/organizations/{organizationId}/contacts/{contactId}";
-                        urlPath = urlPath.replace("{".concat("organizationId", "}"), encodeURIComponent(String(requestParameters['organizationId'])));
-                        urlPath = urlPath.replace("{".concat("contactId", "}"), encodeURIComponent(String(requestParameters['contactId'])));
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'GET',
-                                headers: headerParameters,
-                                query: queryParameters,
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.systemFindByIdContactRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.ContactDtoFromJSON)(jsonValue); })];
                 }

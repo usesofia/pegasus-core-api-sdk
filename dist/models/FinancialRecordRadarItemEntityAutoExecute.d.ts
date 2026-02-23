@@ -28,7 +28,7 @@ export interface FinancialRecordRadarItemEntityAutoExecute {
     finalBestSuggestedAction?: CreatedFinancialRecordRadarItemResultEntityRadarItemFinalBestSuggestedAction;
     /**
      * Status da execução do auto-execute.
-     * @type {string}
+     * @type {FinancialRecordRadarItemEntityAutoExecuteExecutionStatusEnum}
      * @memberof FinancialRecordRadarItemEntityAutoExecute
      */
     executionStatus: FinancialRecordRadarItemEntityAutoExecuteExecutionStatusEnum;

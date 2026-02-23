@@ -29,7 +29,7 @@ export interface ConfirmFileUploadRequestBodyDto {
     size?: number;
     /**
      *
-     * @type {string}
+     * @type {ConfirmFileUploadRequestBodyDtoStatusEnum}
      * @memberof ConfirmFileUploadRequestBodyDto
      */
     status: ConfirmFileUploadRequestBodyDtoStatusEnum;
@@ -47,7 +47,7 @@ export interface ConfirmFileUploadRequestBodyDto {
     deletedAt?: any | null;
     /**
      * Canal de origem da operação
-     * @type {string}
+     * @type {ConfirmFileUploadRequestBodyDtoChannelEnum}
      * @memberof ConfirmFileUploadRequestBodyDto
      */
     channel: ConfirmFileUploadRequestBodyDtoChannelEnum;

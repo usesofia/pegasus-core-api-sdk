@@ -36,13 +36,13 @@ export interface CreateInstallmentFinancialRecordRequestBodyDtoPopulatedContact 
     name: string;
     /**
      * Tipos do contato.
-     * @type {Array<string>}
+     * @type {Array<CreateInstallmentFinancialRecordRequestBodyDtoPopulatedContactTypesEnum>}
      * @memberof CreateInstallmentFinancialRecordRequestBodyDtoPopulatedContact
      */
     types: Array<CreateInstallmentFinancialRecordRequestBodyDtoPopulatedContactTypesEnum>;
     /**
      * Tipo do documento do contato.
-     * @type {string}
+     * @type {CreateInstallmentFinancialRecordRequestBodyDtoPopulatedContactDocumentTypeEnum}
      * @memberof CreateInstallmentFinancialRecordRequestBodyDtoPopulatedContact
      */
     documentType?: CreateInstallmentFinancialRecordRequestBodyDtoPopulatedContactDocumentTypeEnum | null;
@@ -78,7 +78,7 @@ export interface CreateInstallmentFinancialRecordRequestBodyDtoPopulatedContact 
     birthDate?: any | null;
     /**
      * Origem do contato.
-     * @type {string}
+     * @type {CreateInstallmentFinancialRecordRequestBodyDtoPopulatedContactOriginEnum}
      * @memberof CreateInstallmentFinancialRecordRequestBodyDtoPopulatedContact
      */
     origin?: CreateInstallmentFinancialRecordRequestBodyDtoPopulatedContactOriginEnum | null;

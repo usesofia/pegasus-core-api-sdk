@@ -30,13 +30,13 @@ export interface CreateSubscriptionRequestBodyDto {
     description?: string | null;
     /**
      * Provedor da subscription.
-     * @type {string}
+     * @type {CreateSubscriptionRequestBodyDtoProviderEnum}
      * @memberof CreateSubscriptionRequestBodyDto
      */
     provider: CreateSubscriptionRequestBodyDtoProviderEnum;
     /**
      * Status da subscription.
-     * @type {string}
+     * @type {CreateSubscriptionRequestBodyDtoStatusEnum}
      * @memberof CreateSubscriptionRequestBodyDto
      */
     status: CreateSubscriptionRequestBodyDtoStatusEnum;

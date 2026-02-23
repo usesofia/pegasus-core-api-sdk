@@ -76,75 +76,88 @@ var RecurringFinancialRecordsExportApi = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
+     * Creates request options for exportRecurringFinancialRecords without sending the request
+     */
+    RecurringFinancialRecordsExportApi.prototype.exportRecurringFinancialRecordsRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                queryParameters = {};
+                if (requestParameters['sortOrder'] != null) {
+                    queryParameters['sortOrder'] = requestParameters['sortOrder'];
+                }
+                if (requestParameters['sortBy'] != null) {
+                    queryParameters['sortBy'] = requestParameters['sortBy'];
+                }
+                if (requestParameters['frequency'] != null) {
+                    queryParameters['frequency'] = requestParameters['frequency'];
+                }
+                if (requestParameters['isActive'] != null) {
+                    queryParameters['isActive'] = requestParameters['isActive'];
+                }
+                if (requestParameters['automaticCompletion'] != null) {
+                    queryParameters['automaticCompletion'] = requestParameters['automaticCompletion'];
+                }
+                if (requestParameters['onlyBusinessDays'] != null) {
+                    queryParameters['onlyBusinessDays'] = requestParameters['onlyBusinessDays'];
+                }
+                if (requestParameters['repetitionMonth'] != null) {
+                    queryParameters['repetitionMonth'] = requestParameters['repetitionMonth'];
+                }
+                if (requestParameters['repetitionDay'] != null) {
+                    queryParameters['repetitionDay'] = requestParameters['repetitionDay'];
+                }
+                if (requestParameters['tags'] != null) {
+                    queryParameters['tags'] = requestParameters['tags'];
+                }
+                if (requestParameters['amountTo'] != null) {
+                    queryParameters['amountTo'] = requestParameters['amountTo'];
+                }
+                if (requestParameters['amountFrom'] != null) {
+                    queryParameters['amountFrom'] = requestParameters['amountFrom'];
+                }
+                if (requestParameters['subcategory'] != null) {
+                    queryParameters['subcategory'] = requestParameters['subcategory'];
+                }
+                if (requestParameters['contact'] != null) {
+                    queryParameters['contact'] = requestParameters['contact'];
+                }
+                if (requestParameters['firstOccurrenceDateTo'] != null) {
+                    queryParameters['firstOccurrenceDateTo'] = requestParameters['firstOccurrenceDateTo'].toISOString().substring(0, 10);
+                }
+                if (requestParameters['firstOccurrenceDateFrom'] != null) {
+                    queryParameters['firstOccurrenceDateFrom'] = requestParameters['firstOccurrenceDateFrom'].toISOString().substring(0, 10);
+                }
+                if (requestParameters['direction'] != null) {
+                    queryParameters['direction'] = requestParameters['direction'];
+                }
+                if (requestParameters['format'] != null) {
+                    queryParameters['format'] = requestParameters['format'];
+                }
+                headerParameters = {};
+                urlPath = "/external/recurring-financial-records/export";
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'POST',
+                        headers: headerParameters,
+                        query: queryParameters,
+                    }];
+            });
+        });
+    };
+    /**
      * Solicita a exportação dos lançamentos recorrentes.
      */
     RecurringFinancialRecordsExportApi.prototype.exportRecurringFinancialRecordsRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        queryParameters = {};
-                        if (requestParameters['sortOrder'] != null) {
-                            queryParameters['sortOrder'] = requestParameters['sortOrder'];
-                        }
-                        if (requestParameters['sortBy'] != null) {
-                            queryParameters['sortBy'] = requestParameters['sortBy'];
-                        }
-                        if (requestParameters['frequency'] != null) {
-                            queryParameters['frequency'] = requestParameters['frequency'];
-                        }
-                        if (requestParameters['isActive'] != null) {
-                            queryParameters['isActive'] = requestParameters['isActive'];
-                        }
-                        if (requestParameters['automaticCompletion'] != null) {
-                            queryParameters['automaticCompletion'] = requestParameters['automaticCompletion'];
-                        }
-                        if (requestParameters['onlyBusinessDays'] != null) {
-                            queryParameters['onlyBusinessDays'] = requestParameters['onlyBusinessDays'];
-                        }
-                        if (requestParameters['repetitionMonth'] != null) {
-                            queryParameters['repetitionMonth'] = requestParameters['repetitionMonth'];
-                        }
-                        if (requestParameters['repetitionDay'] != null) {
-                            queryParameters['repetitionDay'] = requestParameters['repetitionDay'];
-                        }
-                        if (requestParameters['tags'] != null) {
-                            queryParameters['tags'] = requestParameters['tags'];
-                        }
-                        if (requestParameters['amountTo'] != null) {
-                            queryParameters['amountTo'] = requestParameters['amountTo'];
-                        }
-                        if (requestParameters['amountFrom'] != null) {
-                            queryParameters['amountFrom'] = requestParameters['amountFrom'];
-                        }
-                        if (requestParameters['subcategory'] != null) {
-                            queryParameters['subcategory'] = requestParameters['subcategory'];
-                        }
-                        if (requestParameters['contact'] != null) {
-                            queryParameters['contact'] = requestParameters['contact'];
-                        }
-                        if (requestParameters['firstOccurrenceDateTo'] != null) {
-                            queryParameters['firstOccurrenceDateTo'] = requestParameters['firstOccurrenceDateTo'].toISOString().substring(0, 10);
-                        }
-                        if (requestParameters['firstOccurrenceDateFrom'] != null) {
-                            queryParameters['firstOccurrenceDateFrom'] = requestParameters['firstOccurrenceDateFrom'].toISOString().substring(0, 10);
-                        }
-                        if (requestParameters['direction'] != null) {
-                            queryParameters['direction'] = requestParameters['direction'];
-                        }
-                        if (requestParameters['format'] != null) {
-                            queryParameters['format'] = requestParameters['format'];
-                        }
-                        headerParameters = {};
-                        urlPath = "/external/recurring-financial-records/export";
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'POST',
-                                headers: headerParameters,
-                                query: queryParameters,
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.exportRecurringFinancialRecordsRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.ExportRecurringFinancialRecordsDtoFromJSON)(jsonValue); })];
                 }

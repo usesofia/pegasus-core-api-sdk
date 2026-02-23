@@ -30,6 +30,13 @@ import {
  */
 export interface BankInstitutionsApiInterface {
     /**
+     * Creates request options for findAllBankInstitutions without sending the request
+     * @throws {RequiredError}
+     * @memberof BankInstitutionsApiInterface
+     */
+    findAllBankInstitutionsRequestOpts(): Promise<runtime.RequestOpts>;
+
+    /**
      * 
      * @summary Get all bank institutions
      * @param {*} [options] Override http request option.
@@ -51,9 +58,9 @@ export interface BankInstitutionsApiInterface {
 export class BankInstitutionsApi extends runtime.BaseAPI implements BankInstitutionsApiInterface {
 
     /**
-     * Get all bank institutions
+     * Creates request options for findAllBankInstitutions without sending the request
      */
-    async findAllBankInstitutionsRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<BankInstitutionEntity>>> {
+    async findAllBankInstitutionsRequestOpts(): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -61,12 +68,20 @@ export class BankInstitutionsApi extends runtime.BaseAPI implements BankInstitut
 
         let urlPath = `/external/bank-institutions`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Get all bank institutions
+     */
+    async findAllBankInstitutionsRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<BankInstitutionEntity>>> {
+        const requestOptions = await this.findAllBankInstitutionsRequestOpts();
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(BankInstitutionEntityFromJSON));
     }

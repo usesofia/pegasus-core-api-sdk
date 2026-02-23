@@ -67,6 +67,14 @@ export interface RevokeInviteRequest {
  */
 export interface MembershipsApiInterface {
     /**
+     * Creates request options for createInvite without sending the request
+     * @param {CreateInviteRequestBodyDto} createInviteRequestBodyDto 
+     * @throws {RequiredError}
+     * @memberof MembershipsApiInterface
+     */
+    createInviteRequestOpts(requestParameters: CreateInviteRequest): Promise<runtime.RequestOpts>;
+
+    /**
      * 
      * @summary Create a new organization invite.
      * @param {CreateInviteRequestBodyDto} createInviteRequestBodyDto 
@@ -80,6 +88,13 @@ export interface MembershipsApiInterface {
      * Create a new organization invite.
      */
     createInvite(requestParameters: CreateInviteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<InviteEntity>;
+
+    /**
+     * Creates request options for findAllInvites without sending the request
+     * @throws {RequiredError}
+     * @memberof MembershipsApiInterface
+     */
+    findAllInvitesRequestOpts(): Promise<runtime.RequestOpts>;
 
     /**
      * 
@@ -96,6 +111,13 @@ export interface MembershipsApiInterface {
     findAllInvites(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<InviteEntity>>;
 
     /**
+     * Creates request options for findAllMembers without sending the request
+     * @throws {RequiredError}
+     * @memberof MembershipsApiInterface
+     */
+    findAllMembersRequestOpts(): Promise<runtime.RequestOpts>;
+
+    /**
      * 
      * @summary List all organization members.
      * @param {*} [options] Override http request option.
@@ -108,6 +130,15 @@ export interface MembershipsApiInterface {
      * List all organization members.
      */
     findAllMembers(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<MemberEntity>>;
+
+    /**
+     * Creates request options for partialUpdateMember without sending the request
+     * @param {string} id Id do usuário membro a ser atualizado.
+     * @param {PartialUpdateMemberRequestBodyDto} partialUpdateMemberRequestBodyDto 
+     * @throws {RequiredError}
+     * @memberof MembershipsApiInterface
+     */
+    partialUpdateMemberRequestOpts(requestParameters: PartialUpdateMemberRequest): Promise<runtime.RequestOpts>;
 
     /**
      * 
@@ -126,6 +157,15 @@ export interface MembershipsApiInterface {
     partialUpdateMember(requestParameters: PartialUpdateMemberRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<MemberEntity>;
 
     /**
+     * Creates request options for removeMember without sending the request
+     * @param {string} id Id do usuário membro a ser removido.
+     * @param {RemoveMemberRequestBodyDto} removeMemberRequestBodyDto 
+     * @throws {RequiredError}
+     * @memberof MembershipsApiInterface
+     */
+    removeMemberRequestOpts(requestParameters: RemoveMemberRequest): Promise<runtime.RequestOpts>;
+
+    /**
      * 
      * @summary Remove um membro da organização.
      * @param {string} id Id do usuário membro a ser removido.
@@ -140,6 +180,15 @@ export interface MembershipsApiInterface {
      * Remove um membro da organização.
      */
     removeMember(requestParameters: RemoveMemberRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+
+    /**
+     * Creates request options for revokeInvite without sending the request
+     * @param {string} id Invite ID to revoke
+     * @param {RevokeInviteRequestBodyDto} revokeInviteRequestBodyDto 
+     * @throws {RequiredError}
+     * @memberof MembershipsApiInterface
+     */
+    revokeInviteRequestOpts(requestParameters: RevokeInviteRequest): Promise<runtime.RequestOpts>;
 
     /**
      * 
@@ -165,9 +214,9 @@ export interface MembershipsApiInterface {
 export class MembershipsApi extends runtime.BaseAPI implements MembershipsApiInterface {
 
     /**
-     * Create a new organization invite.
+     * Creates request options for createInvite without sending the request
      */
-    async createInviteRaw(requestParameters: CreateInviteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<InviteEntity>> {
+    async createInviteRequestOpts(requestParameters: CreateInviteRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['createInviteRequestBodyDto'] == null) {
             throw new runtime.RequiredError(
                 'createInviteRequestBodyDto',
@@ -184,13 +233,21 @@ export class MembershipsApi extends runtime.BaseAPI implements MembershipsApiInt
 
         let urlPath = `/external/memberships/invites`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
             body: CreateInviteRequestBodyDtoToJSON(requestParameters['createInviteRequestBodyDto']),
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Create a new organization invite.
+     */
+    async createInviteRaw(requestParameters: CreateInviteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<InviteEntity>> {
+        const requestOptions = await this.createInviteRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => InviteEntityFromJSON(jsonValue));
     }
@@ -204,9 +261,9 @@ export class MembershipsApi extends runtime.BaseAPI implements MembershipsApiInt
     }
 
     /**
-     * List all organization invites.
+     * Creates request options for findAllInvites without sending the request
      */
-    async findAllInvitesRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<InviteEntity>>> {
+    async findAllInvitesRequestOpts(): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -214,12 +271,20 @@ export class MembershipsApi extends runtime.BaseAPI implements MembershipsApiInt
 
         let urlPath = `/external/memberships/invites`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * List all organization invites.
+     */
+    async findAllInvitesRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<InviteEntity>>> {
+        const requestOptions = await this.findAllInvitesRequestOpts();
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(InviteEntityFromJSON));
     }
@@ -233,9 +298,9 @@ export class MembershipsApi extends runtime.BaseAPI implements MembershipsApiInt
     }
 
     /**
-     * List all organization members.
+     * Creates request options for findAllMembers without sending the request
      */
-    async findAllMembersRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<MemberEntity>>> {
+    async findAllMembersRequestOpts(): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -243,12 +308,20 @@ export class MembershipsApi extends runtime.BaseAPI implements MembershipsApiInt
 
         let urlPath = `/external/memberships/members`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * List all organization members.
+     */
+    async findAllMembersRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<MemberEntity>>> {
+        const requestOptions = await this.findAllMembersRequestOpts();
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(MemberEntityFromJSON));
     }
@@ -262,9 +335,9 @@ export class MembershipsApi extends runtime.BaseAPI implements MembershipsApiInt
     }
 
     /**
-     * Atualiza parcialmente um membro da organização.
+     * Creates request options for partialUpdateMember without sending the request
      */
-    async partialUpdateMemberRaw(requestParameters: PartialUpdateMemberRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<MemberEntity>> {
+    async partialUpdateMemberRequestOpts(requestParameters: PartialUpdateMemberRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
@@ -289,13 +362,21 @@ export class MembershipsApi extends runtime.BaseAPI implements MembershipsApiInt
         let urlPath = `/external/memberships/members/{id}`;
         urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'PATCH',
             headers: headerParameters,
             query: queryParameters,
             body: PartialUpdateMemberRequestBodyDtoToJSON(requestParameters['partialUpdateMemberRequestBodyDto']),
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Atualiza parcialmente um membro da organização.
+     */
+    async partialUpdateMemberRaw(requestParameters: PartialUpdateMemberRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<MemberEntity>> {
+        const requestOptions = await this.partialUpdateMemberRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MemberEntityFromJSON(jsonValue));
     }
@@ -309,9 +390,9 @@ export class MembershipsApi extends runtime.BaseAPI implements MembershipsApiInt
     }
 
     /**
-     * Remove um membro da organização.
+     * Creates request options for removeMember without sending the request
      */
-    async removeMemberRaw(requestParameters: RemoveMemberRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+    async removeMemberRequestOpts(requestParameters: RemoveMemberRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
@@ -336,13 +417,21 @@ export class MembershipsApi extends runtime.BaseAPI implements MembershipsApiInt
         let urlPath = `/external/memberships/members/{id}`;
         urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'DELETE',
             headers: headerParameters,
             query: queryParameters,
             body: RemoveMemberRequestBodyDtoToJSON(requestParameters['removeMemberRequestBodyDto']),
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Remove um membro da organização.
+     */
+    async removeMemberRaw(requestParameters: RemoveMemberRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        const requestOptions = await this.removeMemberRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.VoidApiResponse(response);
     }
@@ -355,9 +444,9 @@ export class MembershipsApi extends runtime.BaseAPI implements MembershipsApiInt
     }
 
     /**
-     * Revoke an organization invite.
+     * Creates request options for revokeInvite without sending the request
      */
-    async revokeInviteRaw(requestParameters: RevokeInviteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<InviteEntity>> {
+    async revokeInviteRequestOpts(requestParameters: RevokeInviteRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
@@ -382,13 +471,21 @@ export class MembershipsApi extends runtime.BaseAPI implements MembershipsApiInt
         let urlPath = `/external/memberships/invites/{id}/revoke`;
         urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
             body: RevokeInviteRequestBodyDtoToJSON(requestParameters['revokeInviteRequestBodyDto']),
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Revoke an organization invite.
+     */
+    async revokeInviteRaw(requestParameters: RevokeInviteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<InviteEntity>> {
+        const requestOptions = await this.revokeInviteRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => InviteEntityFromJSON(jsonValue));
     }

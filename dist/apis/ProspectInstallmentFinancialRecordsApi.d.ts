@@ -22,6 +22,13 @@ export interface ProspectInstallmentFinancialRecordRequest {
  */
 export interface ProspectInstallmentFinancialRecordsApiInterface {
     /**
+     * Creates request options for prospectInstallmentFinancialRecord without sending the request
+     * @param {ProspectInstallmentFinancialRecordRequestBodyDto} prospectInstallmentFinancialRecordRequestBodyDto
+     * @throws {RequiredError}
+     * @memberof ProspectInstallmentFinancialRecordsApiInterface
+     */
+    prospectInstallmentFinancialRecordRequestOpts(requestParameters: ProspectInstallmentFinancialRecordRequest): Promise<runtime.RequestOpts>;
+    /**
      *
      * @summary Simula os lançamentos únicos que serão criados para um lançamento financeiro parcelado.
      * @param {ProspectInstallmentFinancialRecordRequestBodyDto} prospectInstallmentFinancialRecordRequestBodyDto
@@ -39,6 +46,10 @@ export interface ProspectInstallmentFinancialRecordsApiInterface {
  *
  */
 export declare class ProspectInstallmentFinancialRecordsApi extends runtime.BaseAPI implements ProspectInstallmentFinancialRecordsApiInterface {
+    /**
+     * Creates request options for prospectInstallmentFinancialRecord without sending the request
+     */
+    prospectInstallmentFinancialRecordRequestOpts(requestParameters: ProspectInstallmentFinancialRecordRequest): Promise<runtime.RequestOpts>;
     /**
      * Simula os lançamentos únicos que serão criados para um lançamento financeiro parcelado.
      */

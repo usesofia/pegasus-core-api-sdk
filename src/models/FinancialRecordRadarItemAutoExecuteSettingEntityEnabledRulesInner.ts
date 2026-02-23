@@ -21,19 +21,19 @@ import { mapValues } from '../runtime';
 export interface FinancialRecordRadarItemAutoExecuteSettingEntityEnabledRulesInner {
     /**
      * Origem do registro.
-     * @type {string}
+     * @type {FinancialRecordRadarItemAutoExecuteSettingEntityEnabledRulesInnerOriginEnum}
      * @memberof FinancialRecordRadarItemAutoExecuteSettingEntityEnabledRulesInner
      */
     origin: FinancialRecordRadarItemAutoExecuteSettingEntityEnabledRulesInnerOriginEnum;
     /**
      * Natureza do registro.
-     * @type {string}
+     * @type {FinancialRecordRadarItemAutoExecuteSettingEntityEnabledRulesInnerNatureEnum}
      * @memberof FinancialRecordRadarItemAutoExecuteSettingEntityEnabledRulesInner
      */
     nature: FinancialRecordRadarItemAutoExecuteSettingEntityEnabledRulesInnerNatureEnum;
     /**
      * Operação a ser executada.
-     * @type {string}
+     * @type {FinancialRecordRadarItemAutoExecuteSettingEntityEnabledRulesInnerOperationEnum}
      * @memberof FinancialRecordRadarItemAutoExecuteSettingEntityEnabledRulesInner
      */
     operation: FinancialRecordRadarItemAutoExecuteSettingEntityEnabledRulesInnerOperationEnum;

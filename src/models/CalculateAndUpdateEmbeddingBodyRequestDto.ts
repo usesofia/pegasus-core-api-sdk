@@ -27,7 +27,7 @@ export interface CalculateAndUpdateEmbeddingBodyRequestDto {
     organizationId: string;
     /**
      * 
-     * @type {string}
+     * @type {CalculateAndUpdateEmbeddingBodyRequestDtoResourceEnum}
      * @memberof CalculateAndUpdateEmbeddingBodyRequestDto
      */
     resource: CalculateAndUpdateEmbeddingBodyRequestDtoResourceEnum;
@@ -39,7 +39,7 @@ export interface CalculateAndUpdateEmbeddingBodyRequestDto {
     resourceId: string;
     /**
      * 
-     * @type {string}
+     * @type {CalculateAndUpdateEmbeddingBodyRequestDtoChannelEnum}
      * @memberof CalculateAndUpdateEmbeddingBodyRequestDto
      */
     channel: CalculateAndUpdateEmbeddingBodyRequestDtoChannelEnum;

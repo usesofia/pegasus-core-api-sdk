@@ -22,6 +22,13 @@ export interface ProspectRecurringFinancialRecordRequest {
  */
 export interface ProspectRecurringFinancialRecordsApiInterface {
     /**
+     * Creates request options for prospectRecurringFinancialRecord without sending the request
+     * @param {ProspectRecurringFinancialRecordRequestBodyDto} prospectRecurringFinancialRecordRequestBodyDto
+     * @throws {RequiredError}
+     * @memberof ProspectRecurringFinancialRecordsApiInterface
+     */
+    prospectRecurringFinancialRecordRequestOpts(requestParameters: ProspectRecurringFinancialRecordRequest): Promise<runtime.RequestOpts>;
+    /**
      *
      * @summary Simula os lançamentos únicos que serão criados para um lançamento financeiro recorrente.
      * @param {ProspectRecurringFinancialRecordRequestBodyDto} prospectRecurringFinancialRecordRequestBodyDto
@@ -39,6 +46,10 @@ export interface ProspectRecurringFinancialRecordsApiInterface {
  *
  */
 export declare class ProspectRecurringFinancialRecordsApi extends runtime.BaseAPI implements ProspectRecurringFinancialRecordsApiInterface {
+    /**
+     * Creates request options for prospectRecurringFinancialRecord without sending the request
+     */
+    prospectRecurringFinancialRecordRequestOpts(requestParameters: ProspectRecurringFinancialRecordRequest): Promise<runtime.RequestOpts>;
     /**
      * Simula os lançamentos únicos que serão criados para um lançamento financeiro recorrente.
      */

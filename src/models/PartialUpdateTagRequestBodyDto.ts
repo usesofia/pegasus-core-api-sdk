@@ -51,7 +51,7 @@ export interface PartialUpdateTagRequestBodyDto {
     externalId?: string | null;
     /**
      * Canal de origem da operação
-     * @type {string}
+     * @type {PartialUpdateTagRequestBodyDtoChannelEnum}
      * @memberof PartialUpdateTagRequestBodyDto
      */
     channel: PartialUpdateTagRequestBodyDtoChannelEnum;

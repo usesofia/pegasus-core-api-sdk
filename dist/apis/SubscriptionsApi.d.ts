@@ -26,6 +26,13 @@ export interface PartialUpdateSubscriptionRequest {
  */
 export interface SubscriptionsApiInterface {
     /**
+     * Creates request options for createSubscription without sending the request
+     * @param {CreateSubscriptionRequestBodyDto} createSubscriptionRequestBodyDto
+     * @throws {RequiredError}
+     * @memberof SubscriptionsApiInterface
+     */
+    createSubscriptionRequestOpts(requestParameters: CreateSubscriptionRequest): Promise<runtime.RequestOpts>;
+    /**
      *
      * @summary Create a new subscription.
      * @param {CreateSubscriptionRequestBodyDto} createSubscriptionRequestBodyDto
@@ -38,6 +45,14 @@ export interface SubscriptionsApiInterface {
      * Create a new subscription.
      */
     createSubscription(requestParameters: CreateSubscriptionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SubscriptionEntity>;
+    /**
+     * Creates request options for partialUpdateSubscription without sending the request
+     * @param {string} id Subscription ID
+     * @param {PartialUpdateSubscriptionRequestBodyDto} partialUpdateSubscriptionRequestBodyDto
+     * @throws {RequiredError}
+     * @memberof SubscriptionsApiInterface
+     */
+    partialUpdateSubscriptionRequestOpts(requestParameters: PartialUpdateSubscriptionRequest): Promise<runtime.RequestOpts>;
     /**
      *
      * @summary Partially update a subscription.
@@ -58,6 +73,10 @@ export interface SubscriptionsApiInterface {
  */
 export declare class SubscriptionsApi extends runtime.BaseAPI implements SubscriptionsApiInterface {
     /**
+     * Creates request options for createSubscription without sending the request
+     */
+    createSubscriptionRequestOpts(requestParameters: CreateSubscriptionRequest): Promise<runtime.RequestOpts>;
+    /**
      * Create a new subscription.
      */
     createSubscriptionRaw(requestParameters: CreateSubscriptionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SubscriptionEntity>>;
@@ -65,6 +84,10 @@ export declare class SubscriptionsApi extends runtime.BaseAPI implements Subscri
      * Create a new subscription.
      */
     createSubscription(requestParameters: CreateSubscriptionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SubscriptionEntity>;
+    /**
+     * Creates request options for partialUpdateSubscription without sending the request
+     */
+    partialUpdateSubscriptionRequestOpts(requestParameters: PartialUpdateSubscriptionRequest): Promise<runtime.RequestOpts>;
     /**
      * Partially update a subscription.
      */

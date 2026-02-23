@@ -37,7 +37,7 @@ export interface BankAccountDto {
     name: string;
     /**
      * Tipo da conta bancária.
-     * @type {string}
+     * @type {BankAccountDtoTypeEnum}
      * @memberof BankAccountDto
      */
     type: BankAccountDtoTypeEnum;
@@ -97,7 +97,7 @@ export interface BankAccountDto {
     active: boolean;
     /**
      * Fornecedor da conta bancária.
-     * @type {string}
+     * @type {BankAccountDtoProviderEnum}
      * @memberof BankAccountDto
      */
     provider?: BankAccountDtoProviderEnum | null;

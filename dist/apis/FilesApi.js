@@ -76,33 +76,46 @@ var FilesApi = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
+     * Creates request options for deleteFile without sending the request
+     */
+    FilesApi.prototype.deleteFileRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                if (requestParameters['id'] == null) {
+                    throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling deleteFile().');
+                }
+                if (requestParameters['removeFileRequestBodyDto'] == null) {
+                    throw new runtime.RequiredError('removeFileRequestBodyDto', 'Required parameter "removeFileRequestBodyDto" was null or undefined when calling deleteFile().');
+                }
+                queryParameters = {};
+                headerParameters = {};
+                headerParameters['Content-Type'] = 'application/json';
+                urlPath = "/external/files/{id}";
+                urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'DELETE',
+                        headers: headerParameters,
+                        query: queryParameters,
+                        body: (0, index_1.RemoveFileRequestBodyDtoToJSON)(requestParameters['removeFileRequestBodyDto']),
+                    }];
+            });
+        });
+    };
+    /**
      * Deletes a file
      */
     FilesApi.prototype.deleteFileRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        if (requestParameters['id'] == null) {
-                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling deleteFile().');
-                        }
-                        if (requestParameters['removeFileRequestBodyDto'] == null) {
-                            throw new runtime.RequiredError('removeFileRequestBodyDto', 'Required parameter "removeFileRequestBodyDto" was null or undefined when calling deleteFile().');
-                        }
-                        queryParameters = {};
-                        headerParameters = {};
-                        headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/external/files/{id}";
-                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'DELETE',
-                                headers: headerParameters,
-                                query: queryParameters,
-                                body: (0, index_1.RemoveFileRequestBodyDtoToJSON)(requestParameters['removeFileRequestBodyDto']),
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.deleteFileRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.VoidApiResponse(response)];
                 }
@@ -125,28 +138,41 @@ var FilesApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Creates request options for findByIdFile without sending the request
+     */
+    FilesApi.prototype.findByIdFileRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                if (requestParameters['id'] == null) {
+                    throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling findByIdFile().');
+                }
+                queryParameters = {};
+                headerParameters = {};
+                urlPath = "/external/files/{id}";
+                urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'GET',
+                        headers: headerParameters,
+                        query: queryParameters,
+                    }];
+            });
+        });
+    };
+    /**
      * Finds a file by id
      */
     FilesApi.prototype.findByIdFileRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        if (requestParameters['id'] == null) {
-                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling findByIdFile().');
-                        }
-                        queryParameters = {};
-                        headerParameters = {};
-                        urlPath = "/external/files/{id}";
-                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'GET',
-                                headers: headerParameters,
-                                query: queryParameters,
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.findByIdFileRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.FileEntityFromJSON)(jsonValue); })];
                 }
@@ -171,30 +197,43 @@ var FilesApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Creates request options for getSignedUrlFromUrl without sending the request
+     */
+    FilesApi.prototype.getSignedUrlFromUrlRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                if (requestParameters['url'] == null) {
+                    throw new runtime.RequiredError('url', 'Required parameter "url" was null or undefined when calling getSignedUrlFromUrl().');
+                }
+                queryParameters = {};
+                if (requestParameters['url'] != null) {
+                    queryParameters['url'] = requestParameters['url'];
+                }
+                headerParameters = {};
+                urlPath = "/external/files/signed-url";
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'GET',
+                        headers: headerParameters,
+                        query: queryParameters,
+                    }];
+            });
+        });
+    };
+    /**
      * Get a signed url from a url
      */
     FilesApi.prototype.getSignedUrlFromUrlRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        if (requestParameters['url'] == null) {
-                            throw new runtime.RequiredError('url', 'Required parameter "url" was null or undefined when calling getSignedUrlFromUrl().');
-                        }
-                        queryParameters = {};
-                        if (requestParameters['url'] != null) {
-                            queryParameters['url'] = requestParameters['url'];
-                        }
-                        headerParameters = {};
-                        urlPath = "/external/files/signed-url";
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'GET',
-                                headers: headerParameters,
-                                query: queryParameters,
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.getSignedUrlFromUrlRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.SignedUrlEntityFromJSON)(jsonValue); })];
                 }
@@ -219,32 +258,45 @@ var FilesApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Creates request options for systemFindByIdFile without sending the request
+     */
+    FilesApi.prototype.systemFindByIdFileRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                if (requestParameters['fileId'] == null) {
+                    throw new runtime.RequiredError('fileId', 'Required parameter "fileId" was null or undefined when calling systemFindByIdFile().');
+                }
+                if (requestParameters['organizationId'] == null) {
+                    throw new runtime.RequiredError('organizationId', 'Required parameter "organizationId" was null or undefined when calling systemFindByIdFile().');
+                }
+                queryParameters = {};
+                headerParameters = {};
+                urlPath = "/internal/organizations/{organizationId}/files/{fileId}";
+                urlPath = urlPath.replace("{".concat("fileId", "}"), encodeURIComponent(String(requestParameters['fileId'])));
+                urlPath = urlPath.replace("{".concat("organizationId", "}"), encodeURIComponent(String(requestParameters['organizationId'])));
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'GET',
+                        headers: headerParameters,
+                        query: queryParameters,
+                    }];
+            });
+        });
+    };
+    /**
      * Finds a file by id
      */
     FilesApi.prototype.systemFindByIdFileRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        if (requestParameters['fileId'] == null) {
-                            throw new runtime.RequiredError('fileId', 'Required parameter "fileId" was null or undefined when calling systemFindByIdFile().');
-                        }
-                        if (requestParameters['organizationId'] == null) {
-                            throw new runtime.RequiredError('organizationId', 'Required parameter "organizationId" was null or undefined when calling systemFindByIdFile().');
-                        }
-                        queryParameters = {};
-                        headerParameters = {};
-                        urlPath = "/internal/organizations/{organizationId}/files/{fileId}";
-                        urlPath = urlPath.replace("{".concat("fileId", "}"), encodeURIComponent(String(requestParameters['fileId'])));
-                        urlPath = urlPath.replace("{".concat("organizationId", "}"), encodeURIComponent(String(requestParameters['organizationId'])));
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'GET',
-                                headers: headerParameters,
-                                query: queryParameters,
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.systemFindByIdFileRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.FileEntityFromJSON)(jsonValue); })];
                 }

@@ -76,29 +76,42 @@ var RecurringFinancialRecordsApi = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
+     * Creates request options for createManyRecurringFinancialRecords without sending the request
+     */
+    RecurringFinancialRecordsApi.prototype.createManyRecurringFinancialRecordsRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                if (requestParameters['createManyRecurringFinancialRecordsRequestBodyDto'] == null) {
+                    throw new runtime.RequiredError('createManyRecurringFinancialRecordsRequestBodyDto', 'Required parameter "createManyRecurringFinancialRecordsRequestBodyDto" was null or undefined when calling createManyRecurringFinancialRecords().');
+                }
+                queryParameters = {};
+                headerParameters = {};
+                headerParameters['Content-Type'] = 'application/json';
+                urlPath = "/external/recurring-financial-records/many";
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'POST',
+                        headers: headerParameters,
+                        query: queryParameters,
+                        body: (0, index_1.CreateManyRecurringFinancialRecordsRequestBodyDtoToJSON)(requestParameters['createManyRecurringFinancialRecordsRequestBodyDto']),
+                    }];
+            });
+        });
+    };
+    /**
      * Cria múltiplos lançamentos financeiros recorrentes.
      */
     RecurringFinancialRecordsApi.prototype.createManyRecurringFinancialRecordsRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        if (requestParameters['createManyRecurringFinancialRecordsRequestBodyDto'] == null) {
-                            throw new runtime.RequiredError('createManyRecurringFinancialRecordsRequestBodyDto', 'Required parameter "createManyRecurringFinancialRecordsRequestBodyDto" was null or undefined when calling createManyRecurringFinancialRecords().');
-                        }
-                        queryParameters = {};
-                        headerParameters = {};
-                        headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/external/recurring-financial-records/many";
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'POST',
-                                headers: headerParameters,
-                                query: queryParameters,
-                                body: (0, index_1.CreateManyRecurringFinancialRecordsRequestBodyDtoToJSON)(requestParameters['createManyRecurringFinancialRecordsRequestBodyDto']),
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.createManyRecurringFinancialRecordsRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return jsonValue.map(index_1.RecurringFinancialRecordDtoFromJSON); })];
                 }
@@ -123,32 +136,45 @@ var RecurringFinancialRecordsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Creates request options for createRecurringFinancialRecord without sending the request
+     */
+    RecurringFinancialRecordsApi.prototype.createRecurringFinancialRecordRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                if (requestParameters['createRecurringFinancialRecordRequestBodyDto'] == null) {
+                    throw new runtime.RequiredError('createRecurringFinancialRecordRequestBodyDto', 'Required parameter "createRecurringFinancialRecordRequestBodyDto" was null or undefined when calling createRecurringFinancialRecord().');
+                }
+                queryParameters = {};
+                if (requestParameters['populate'] != null) {
+                    queryParameters['populate'] = requestParameters['populate'];
+                }
+                headerParameters = {};
+                headerParameters['Content-Type'] = 'application/json';
+                urlPath = "/external/recurring-financial-records";
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'POST',
+                        headers: headerParameters,
+                        query: queryParameters,
+                        body: (0, index_1.CreateRecurringFinancialRecordRequestBodyDtoToJSON)(requestParameters['createRecurringFinancialRecordRequestBodyDto']),
+                    }];
+            });
+        });
+    };
+    /**
      * Cria um novo lançamento financeiro recorrente.
      */
     RecurringFinancialRecordsApi.prototype.createRecurringFinancialRecordRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        if (requestParameters['createRecurringFinancialRecordRequestBodyDto'] == null) {
-                            throw new runtime.RequiredError('createRecurringFinancialRecordRequestBodyDto', 'Required parameter "createRecurringFinancialRecordRequestBodyDto" was null or undefined when calling createRecurringFinancialRecord().');
-                        }
-                        queryParameters = {};
-                        if (requestParameters['populate'] != null) {
-                            queryParameters['populate'] = requestParameters['populate'];
-                        }
-                        headerParameters = {};
-                        headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/external/recurring-financial-records";
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'POST',
-                                headers: headerParameters,
-                                query: queryParameters,
-                                body: (0, index_1.CreateRecurringFinancialRecordRequestBodyDtoToJSON)(requestParameters['createRecurringFinancialRecordRequestBodyDto']),
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.createRecurringFinancialRecordRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.RecurringFinancialRecordDtoFromJSON)(jsonValue); })];
                 }
@@ -173,84 +199,97 @@ var RecurringFinancialRecordsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Creates request options for findAllRecurringFinancialRecords without sending the request
+     */
+    RecurringFinancialRecordsApi.prototype.findAllRecurringFinancialRecordsRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                queryParameters = {};
+                if (requestParameters['frequency'] != null) {
+                    queryParameters['frequency'] = requestParameters['frequency'];
+                }
+                if (requestParameters['isActive'] != null) {
+                    queryParameters['isActive'] = requestParameters['isActive'];
+                }
+                if (requestParameters['automaticCompletion'] != null) {
+                    queryParameters['automaticCompletion'] = requestParameters['automaticCompletion'];
+                }
+                if (requestParameters['onlyBusinessDays'] != null) {
+                    queryParameters['onlyBusinessDays'] = requestParameters['onlyBusinessDays'];
+                }
+                if (requestParameters['repetitionMonth'] != null) {
+                    queryParameters['repetitionMonth'] = requestParameters['repetitionMonth'];
+                }
+                if (requestParameters['repetitionDay'] != null) {
+                    queryParameters['repetitionDay'] = requestParameters['repetitionDay'];
+                }
+                if (requestParameters['tags'] != null) {
+                    queryParameters['tags'] = requestParameters['tags'];
+                }
+                if (requestParameters['amountTo'] != null) {
+                    queryParameters['amountTo'] = requestParameters['amountTo'];
+                }
+                if (requestParameters['amountFrom'] != null) {
+                    queryParameters['amountFrom'] = requestParameters['amountFrom'];
+                }
+                if (requestParameters['subcategory'] != null) {
+                    queryParameters['subcategory'] = requestParameters['subcategory'];
+                }
+                if (requestParameters['contact'] != null) {
+                    queryParameters['contact'] = requestParameters['contact'];
+                }
+                if (requestParameters['firstOccurrenceDateTo'] != null) {
+                    queryParameters['firstOccurrenceDateTo'] = requestParameters['firstOccurrenceDateTo'].toISOString().substring(0, 10);
+                }
+                if (requestParameters['firstOccurrenceDateFrom'] != null) {
+                    queryParameters['firstOccurrenceDateFrom'] = requestParameters['firstOccurrenceDateFrom'].toISOString().substring(0, 10);
+                }
+                if (requestParameters['direction'] != null) {
+                    queryParameters['direction'] = requestParameters['direction'];
+                }
+                if (requestParameters['sortOrder'] != null) {
+                    queryParameters['sortOrder'] = requestParameters['sortOrder'];
+                }
+                if (requestParameters['sortBy'] != null) {
+                    queryParameters['sortBy'] = requestParameters['sortBy'];
+                }
+                if (requestParameters['populate'] != null) {
+                    queryParameters['populate'] = requestParameters['populate'];
+                }
+                if (requestParameters['textSearchTerm'] != null) {
+                    queryParameters['textSearchTerm'] = requestParameters['textSearchTerm'];
+                }
+                if (requestParameters['pageSize'] != null) {
+                    queryParameters['pageSize'] = requestParameters['pageSize'];
+                }
+                if (requestParameters['pageIndex'] != null) {
+                    queryParameters['pageIndex'] = requestParameters['pageIndex'];
+                }
+                headerParameters = {};
+                urlPath = "/external/recurring-financial-records";
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'GET',
+                        headers: headerParameters,
+                        query: queryParameters,
+                    }];
+            });
+        });
+    };
+    /**
      * Busca todos os lançamentos financeiros recorrentes.
      */
     RecurringFinancialRecordsApi.prototype.findAllRecurringFinancialRecordsRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        queryParameters = {};
-                        if (requestParameters['frequency'] != null) {
-                            queryParameters['frequency'] = requestParameters['frequency'];
-                        }
-                        if (requestParameters['isActive'] != null) {
-                            queryParameters['isActive'] = requestParameters['isActive'];
-                        }
-                        if (requestParameters['automaticCompletion'] != null) {
-                            queryParameters['automaticCompletion'] = requestParameters['automaticCompletion'];
-                        }
-                        if (requestParameters['onlyBusinessDays'] != null) {
-                            queryParameters['onlyBusinessDays'] = requestParameters['onlyBusinessDays'];
-                        }
-                        if (requestParameters['repetitionMonth'] != null) {
-                            queryParameters['repetitionMonth'] = requestParameters['repetitionMonth'];
-                        }
-                        if (requestParameters['repetitionDay'] != null) {
-                            queryParameters['repetitionDay'] = requestParameters['repetitionDay'];
-                        }
-                        if (requestParameters['tags'] != null) {
-                            queryParameters['tags'] = requestParameters['tags'];
-                        }
-                        if (requestParameters['amountTo'] != null) {
-                            queryParameters['amountTo'] = requestParameters['amountTo'];
-                        }
-                        if (requestParameters['amountFrom'] != null) {
-                            queryParameters['amountFrom'] = requestParameters['amountFrom'];
-                        }
-                        if (requestParameters['subcategory'] != null) {
-                            queryParameters['subcategory'] = requestParameters['subcategory'];
-                        }
-                        if (requestParameters['contact'] != null) {
-                            queryParameters['contact'] = requestParameters['contact'];
-                        }
-                        if (requestParameters['firstOccurrenceDateTo'] != null) {
-                            queryParameters['firstOccurrenceDateTo'] = requestParameters['firstOccurrenceDateTo'].toISOString().substring(0, 10);
-                        }
-                        if (requestParameters['firstOccurrenceDateFrom'] != null) {
-                            queryParameters['firstOccurrenceDateFrom'] = requestParameters['firstOccurrenceDateFrom'].toISOString().substring(0, 10);
-                        }
-                        if (requestParameters['direction'] != null) {
-                            queryParameters['direction'] = requestParameters['direction'];
-                        }
-                        if (requestParameters['sortOrder'] != null) {
-                            queryParameters['sortOrder'] = requestParameters['sortOrder'];
-                        }
-                        if (requestParameters['sortBy'] != null) {
-                            queryParameters['sortBy'] = requestParameters['sortBy'];
-                        }
-                        if (requestParameters['populate'] != null) {
-                            queryParameters['populate'] = requestParameters['populate'];
-                        }
-                        if (requestParameters['textSearchTerm'] != null) {
-                            queryParameters['textSearchTerm'] = requestParameters['textSearchTerm'];
-                        }
-                        if (requestParameters['pageSize'] != null) {
-                            queryParameters['pageSize'] = requestParameters['pageSize'];
-                        }
-                        if (requestParameters['pageIndex'] != null) {
-                            queryParameters['pageIndex'] = requestParameters['pageIndex'];
-                        }
-                        headerParameters = {};
-                        urlPath = "/external/recurring-financial-records";
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'GET',
-                                headers: headerParameters,
-                                query: queryParameters,
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.findAllRecurringFinancialRecordsRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.RecurringFinancialRecordsPageDtoFromJSON)(jsonValue); })];
                 }
@@ -276,31 +315,44 @@ var RecurringFinancialRecordsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Creates request options for findByIdRecurringFinancialRecord without sending the request
+     */
+    RecurringFinancialRecordsApi.prototype.findByIdRecurringFinancialRecordRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                if (requestParameters['id'] == null) {
+                    throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling findByIdRecurringFinancialRecord().');
+                }
+                queryParameters = {};
+                if (requestParameters['populate'] != null) {
+                    queryParameters['populate'] = requestParameters['populate'];
+                }
+                headerParameters = {};
+                urlPath = "/external/recurring-financial-records/{id}";
+                urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'GET',
+                        headers: headerParameters,
+                        query: queryParameters,
+                    }];
+            });
+        });
+    };
+    /**
      * Busca um lançamento financeiro recorrente pelo ID.
      */
     RecurringFinancialRecordsApi.prototype.findByIdRecurringFinancialRecordRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        if (requestParameters['id'] == null) {
-                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling findByIdRecurringFinancialRecord().');
-                        }
-                        queryParameters = {};
-                        if (requestParameters['populate'] != null) {
-                            queryParameters['populate'] = requestParameters['populate'];
-                        }
-                        headerParameters = {};
-                        urlPath = "/external/recurring-financial-records/{id}";
-                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'GET',
-                                headers: headerParameters,
-                                query: queryParameters,
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.findByIdRecurringFinancialRecordRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.RecurringFinancialRecordDtoFromJSON)(jsonValue); })];
                 }
@@ -325,36 +377,49 @@ var RecurringFinancialRecordsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Creates request options for partialUpdateRecurringFinancialRecord without sending the request
+     */
+    RecurringFinancialRecordsApi.prototype.partialUpdateRecurringFinancialRecordRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                if (requestParameters['id'] == null) {
+                    throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling partialUpdateRecurringFinancialRecord().');
+                }
+                if (requestParameters['partialUpdateRecurringFinancialRecordRequestBodyDto'] == null) {
+                    throw new runtime.RequiredError('partialUpdateRecurringFinancialRecordRequestBodyDto', 'Required parameter "partialUpdateRecurringFinancialRecordRequestBodyDto" was null or undefined when calling partialUpdateRecurringFinancialRecord().');
+                }
+                queryParameters = {};
+                if (requestParameters['populate'] != null) {
+                    queryParameters['populate'] = requestParameters['populate'];
+                }
+                headerParameters = {};
+                headerParameters['Content-Type'] = 'application/json';
+                urlPath = "/external/recurring-financial-records/{id}";
+                urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'PATCH',
+                        headers: headerParameters,
+                        query: queryParameters,
+                        body: (0, index_1.PartialUpdateRecurringFinancialRecordRequestBodyDtoToJSON)(requestParameters['partialUpdateRecurringFinancialRecordRequestBodyDto']),
+                    }];
+            });
+        });
+    };
+    /**
      * Atualiza parcialmente um lançamento financeiro recorrente.
      */
     RecurringFinancialRecordsApi.prototype.partialUpdateRecurringFinancialRecordRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        if (requestParameters['id'] == null) {
-                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling partialUpdateRecurringFinancialRecord().');
-                        }
-                        if (requestParameters['partialUpdateRecurringFinancialRecordRequestBodyDto'] == null) {
-                            throw new runtime.RequiredError('partialUpdateRecurringFinancialRecordRequestBodyDto', 'Required parameter "partialUpdateRecurringFinancialRecordRequestBodyDto" was null or undefined when calling partialUpdateRecurringFinancialRecord().');
-                        }
-                        queryParameters = {};
-                        if (requestParameters['populate'] != null) {
-                            queryParameters['populate'] = requestParameters['populate'];
-                        }
-                        headerParameters = {};
-                        headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/external/recurring-financial-records/{id}";
-                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'PATCH',
-                                headers: headerParameters,
-                                query: queryParameters,
-                                body: (0, index_1.PartialUpdateRecurringFinancialRecordRequestBodyDtoToJSON)(requestParameters['partialUpdateRecurringFinancialRecordRequestBodyDto']),
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.partialUpdateRecurringFinancialRecordRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.RecurringFinancialRecordDtoFromJSON)(jsonValue); })];
                 }
@@ -379,33 +444,46 @@ var RecurringFinancialRecordsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Creates request options for removeRecurringFinancialRecord without sending the request
+     */
+    RecurringFinancialRecordsApi.prototype.removeRecurringFinancialRecordRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                if (requestParameters['id'] == null) {
+                    throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling removeRecurringFinancialRecord().');
+                }
+                if (requestParameters['removeRecurringFinancialRecordRequestBodyDto'] == null) {
+                    throw new runtime.RequiredError('removeRecurringFinancialRecordRequestBodyDto', 'Required parameter "removeRecurringFinancialRecordRequestBodyDto" was null or undefined when calling removeRecurringFinancialRecord().');
+                }
+                queryParameters = {};
+                headerParameters = {};
+                headerParameters['Content-Type'] = 'application/json';
+                urlPath = "/external/recurring-financial-records/{id}";
+                urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'DELETE',
+                        headers: headerParameters,
+                        query: queryParameters,
+                        body: (0, index_1.RemoveRecurringFinancialRecordRequestBodyDtoToJSON)(requestParameters['removeRecurringFinancialRecordRequestBodyDto']),
+                    }];
+            });
+        });
+    };
+    /**
      * Remove um lançamento financeiro recorrente.
      */
     RecurringFinancialRecordsApi.prototype.removeRecurringFinancialRecordRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        if (requestParameters['id'] == null) {
-                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling removeRecurringFinancialRecord().');
-                        }
-                        if (requestParameters['removeRecurringFinancialRecordRequestBodyDto'] == null) {
-                            throw new runtime.RequiredError('removeRecurringFinancialRecordRequestBodyDto', 'Required parameter "removeRecurringFinancialRecordRequestBodyDto" was null or undefined when calling removeRecurringFinancialRecord().');
-                        }
-                        queryParameters = {};
-                        headerParameters = {};
-                        headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/external/recurring-financial-records/{id}";
-                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'DELETE',
-                                headers: headerParameters,
-                                query: queryParameters,
-                                body: (0, index_1.RemoveRecurringFinancialRecordRequestBodyDtoToJSON)(requestParameters['removeRecurringFinancialRecordRequestBodyDto']),
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.removeRecurringFinancialRecordRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.VoidApiResponse(response)];
                 }
@@ -428,29 +506,42 @@ var RecurringFinancialRecordsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Creates request options for scheduleRecurringFinancialRecordsSeeding without sending the request
+     */
+    RecurringFinancialRecordsApi.prototype.scheduleRecurringFinancialRecordsSeedingRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                if (requestParameters['scheduleRecurringFinancialRecordsSeedingRequestBodyDto'] == null) {
+                    throw new runtime.RequiredError('scheduleRecurringFinancialRecordsSeedingRequestBodyDto', 'Required parameter "scheduleRecurringFinancialRecordsSeedingRequestBodyDto" was null or undefined when calling scheduleRecurringFinancialRecordsSeeding().');
+                }
+                queryParameters = {};
+                headerParameters = {};
+                headerParameters['Content-Type'] = 'application/json';
+                urlPath = "/internal/recurring-financial-records/seed";
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'POST',
+                        headers: headerParameters,
+                        query: queryParameters,
+                        body: (0, index_1.ScheduleRecurringFinancialRecordsSeedingRequestBodyDtoToJSON)(requestParameters['scheduleRecurringFinancialRecordsSeedingRequestBodyDto']),
+                    }];
+            });
+        });
+    };
+    /**
      * Agenda o seeder de lançamentos financeiros recorrentes.
      */
     RecurringFinancialRecordsApi.prototype.scheduleRecurringFinancialRecordsSeedingRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        if (requestParameters['scheduleRecurringFinancialRecordsSeedingRequestBodyDto'] == null) {
-                            throw new runtime.RequiredError('scheduleRecurringFinancialRecordsSeedingRequestBodyDto', 'Required parameter "scheduleRecurringFinancialRecordsSeedingRequestBodyDto" was null or undefined when calling scheduleRecurringFinancialRecordsSeeding().');
-                        }
-                        queryParameters = {};
-                        headerParameters = {};
-                        headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/internal/recurring-financial-records/seed";
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'POST',
-                                headers: headerParameters,
-                                query: queryParameters,
-                                body: (0, index_1.ScheduleRecurringFinancialRecordsSeedingRequestBodyDtoToJSON)(requestParameters['scheduleRecurringFinancialRecordsSeedingRequestBodyDto']),
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.scheduleRecurringFinancialRecordsSeedingRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.VoidApiResponse(response)];
                 }
@@ -473,29 +564,42 @@ var RecurringFinancialRecordsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Creates request options for startRecurringFinancialRecordsSeeder without sending the request
+     */
+    RecurringFinancialRecordsApi.prototype.startRecurringFinancialRecordsSeederRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                if (requestParameters['seedRecurringFinancialRecordsRequestBodyDto'] == null) {
+                    throw new runtime.RequiredError('seedRecurringFinancialRecordsRequestBodyDto', 'Required parameter "seedRecurringFinancialRecordsRequestBodyDto" was null or undefined when calling startRecurringFinancialRecordsSeeder().');
+                }
+                queryParameters = {};
+                headerParameters = {};
+                headerParameters['Content-Type'] = 'application/json';
+                urlPath = "/internal/queues/recurring-financial-records-2";
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'POST',
+                        headers: headerParameters,
+                        query: queryParameters,
+                        body: (0, index_1.SeedRecurringFinancialRecordsRequestBodyDtoToJSON)(requestParameters['seedRecurringFinancialRecordsRequestBodyDto']),
+                    }];
+            });
+        });
+    };
+    /**
      * Inicia o seeder de lançamentos financeiros recorrentes.
      */
     RecurringFinancialRecordsApi.prototype.startRecurringFinancialRecordsSeederRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        if (requestParameters['seedRecurringFinancialRecordsRequestBodyDto'] == null) {
-                            throw new runtime.RequiredError('seedRecurringFinancialRecordsRequestBodyDto', 'Required parameter "seedRecurringFinancialRecordsRequestBodyDto" was null or undefined when calling startRecurringFinancialRecordsSeeder().');
-                        }
-                        queryParameters = {};
-                        headerParameters = {};
-                        headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/internal/queues/recurring-financial-records-2";
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'POST',
-                                headers: headerParameters,
-                                query: queryParameters,
-                                body: (0, index_1.SeedRecurringFinancialRecordsRequestBodyDtoToJSON)(requestParameters['seedRecurringFinancialRecordsRequestBodyDto']),
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.startRecurringFinancialRecordsSeederRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.VoidApiResponse(response)];
                 }

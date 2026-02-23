@@ -48,13 +48,13 @@ export interface ProcessExportResourceJobRequestBodyDtoRequesterOrganization {
     name: string;
     /**
      * 
-     * @type {string}
+     * @type {ProcessExportResourceJobRequestBodyDtoRequesterOrganizationTypeEnum}
      * @memberof ProcessExportResourceJobRequestBodyDtoRequesterOrganization
      */
     type: ProcessExportResourceJobRequestBodyDtoRequesterOrganizationTypeEnum;
     /**
      * 
-     * @type {string}
+     * @type {ProcessExportResourceJobRequestBodyDtoRequesterOrganizationRoleEnum}
      * @memberof ProcessExportResourceJobRequestBodyDtoRequesterOrganization
      */
     role: ProcessExportResourceJobRequestBodyDtoRequesterOrganizationRoleEnum;

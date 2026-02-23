@@ -45,7 +45,7 @@ export interface SystemGenerateMostCommonContactsForSimilarFinancialRecordReport
     categoryName: string;
     /**
      * Direção da categoria
-     * @type {string}
+     * @type {SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoSubcategoriesTopByTotalSearchScoreInnerDirectionEnum}
      * @memberof SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoSubcategoriesTopByTotalSearchScoreInner
      */
     direction: SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoSubcategoriesTopByTotalSearchScoreInnerDirectionEnum;

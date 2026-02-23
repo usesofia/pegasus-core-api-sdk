@@ -34,13 +34,13 @@ export interface InstallmentFinancialRecordsPageDtoItemsInner {
     ownerOrganization: string;
     /**
      * Direção do lançamento (entrada/saída).
-     * @type {string}
+     * @type {InstallmentFinancialRecordsPageDtoItemsInnerDirectionEnum}
      * @memberof InstallmentFinancialRecordsPageDtoItemsInner
      */
     direction: InstallmentFinancialRecordsPageDtoItemsInnerDirectionEnum;
     /**
      * Frequência do lançamento.
-     * @type {string}
+     * @type {InstallmentFinancialRecordsPageDtoItemsInnerFrequencyEnum}
      * @memberof InstallmentFinancialRecordsPageDtoItemsInner
      */
     frequency: InstallmentFinancialRecordsPageDtoItemsInnerFrequencyEnum;

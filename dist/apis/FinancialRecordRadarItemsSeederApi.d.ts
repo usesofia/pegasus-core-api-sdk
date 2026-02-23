@@ -18,6 +18,12 @@ import * as runtime from '../runtime';
  */
 export interface FinancialRecordRadarItemsSeederApiInterface {
     /**
+     * Creates request options for seedFinancialRecordRadarItems without sending the request
+     * @throws {RequiredError}
+     * @memberof FinancialRecordRadarItemsSeederApiInterface
+     */
+    seedFinancialRecordRadarItemsRequestOpts(): Promise<runtime.RequestOpts>;
+    /**
      *
      * @summary Cria dados de teste para o radar de lançamentos financeiros.
      * @param {*} [options] Override http request option.
@@ -34,6 +40,10 @@ export interface FinancialRecordRadarItemsSeederApiInterface {
  *
  */
 export declare class FinancialRecordRadarItemsSeederApi extends runtime.BaseAPI implements FinancialRecordRadarItemsSeederApiInterface {
+    /**
+     * Creates request options for seedFinancialRecordRadarItems without sending the request
+     */
+    seedFinancialRecordRadarItemsRequestOpts(): Promise<runtime.RequestOpts>;
     /**
      * Cria dados de teste para o radar de lançamentos financeiros.
      */

@@ -38,6 +38,29 @@ export interface ExportRecurringFinancialRecordsRequest {
  */
 export interface RecurringFinancialRecordsExportApiInterface {
     /**
+     * Creates request options for exportRecurringFinancialRecords without sending the request
+     * @param {'asc' | 'desc'} [sortOrder] Ordem da ordenação.
+     * @param {'direction' | 'firstOccurrenceDate' | 'contact' | 'description' | 'subcategory' | 'amount' | 'frequency' | 'isActive' | 'createdAt'} [sortBy] Campo para ordenação.
+     * @param {'WEEKLY' | 'MONTHLY' | 'YEARLY'} [frequency] Frequência de repetição do lançamento.
+     * @param {boolean} [isActive] Indica se o lançamento recorrente está ativo.
+     * @param {boolean} [automaticCompletion] Indica se o lançamento será completado automaticamente.
+     * @param {boolean} [onlyBusinessDays] Indica se o lançamento será apenas em dias úteis.
+     * @param {number} [repetitionMonth] Mês de repetição do lançamento.
+     * @param {number} [repetitionDay] Dia de repetição do lançamento.
+     * @param {Array<any>} [tags] Identificadores das tags.
+     * @param {string} [amountTo] Valor máximo do lançamento.
+     * @param {string} [amountFrom] Valor mínimo do lançamento.
+     * @param {string} [subcategory] Identificador da subcategoria.
+     * @param {string} [contact] Identificador do contato.
+     * @param {Date} [firstOccurrenceDateTo] Data final da primeira ocorrência (formato ISO YYYY-MM-DD).
+     * @param {Date} [firstOccurrenceDateFrom] Data inicial da primeira ocorrência (formato ISO YYYY-MM-DD).
+     * @param {'IN' | 'OUT'} [direction] Direção do lançamento (entrada/saída).
+     * @param {'csv' | 'xlsx'} [format] Formato de exportação dos dados.
+     * @throws {RequiredError}
+     * @memberof RecurringFinancialRecordsExportApiInterface
+     */
+    exportRecurringFinancialRecordsRequestOpts(requestParameters: ExportRecurringFinancialRecordsRequest): Promise<runtime.RequestOpts>;
+    /**
      *
      * @summary Solicita a exportação dos lançamentos recorrentes.
      * @param {'asc' | 'desc'} [sortOrder] Ordem da ordenação.
@@ -71,6 +94,10 @@ export interface RecurringFinancialRecordsExportApiInterface {
  *
  */
 export declare class RecurringFinancialRecordsExportApi extends runtime.BaseAPI implements RecurringFinancialRecordsExportApiInterface {
+    /**
+     * Creates request options for exportRecurringFinancialRecords without sending the request
+     */
+    exportRecurringFinancialRecordsRequestOpts(requestParameters: ExportRecurringFinancialRecordsRequest): Promise<runtime.RequestOpts>;
     /**
      * Solicita a exportação dos lançamentos recorrentes.
      */

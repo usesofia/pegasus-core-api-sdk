@@ -42,6 +42,19 @@ export interface ExportSubcategoriesRequest {
  */
 export interface SubcategoriesExportApiInterface {
     /**
+     * Creates request options for exportSubcategories without sending the request
+     * @param {'asc' | 'desc'} [sortOrder] Ordem de ordenação das subcategorias.
+     * @param {'name' | 'createdAt' | 'index'} [sortBy] Campo para ordenar as subcategorias.
+     * @param {boolean} [active] Filtra subcategorias ativas ou inativas.
+     * @param {string} [categoryId] ID da categoria para filtrar subcategorias.
+     * @param {'IN' | 'OUT'} [direction] Direção da subcategoria.
+     * @param {'csv' | 'xlsx'} [format] Formato de exportação dos dados.
+     * @throws {RequiredError}
+     * @memberof SubcategoriesExportApiInterface
+     */
+    exportSubcategoriesRequestOpts(requestParameters: ExportSubcategoriesRequest): Promise<runtime.RequestOpts>;
+
+    /**
      * 
      * @summary Solicita a exportação das subcategorias.
      * @param {'asc' | 'desc'} [sortOrder] Ordem de ordenação das subcategorias.
@@ -69,9 +82,9 @@ export interface SubcategoriesExportApiInterface {
 export class SubcategoriesExportApi extends runtime.BaseAPI implements SubcategoriesExportApiInterface {
 
     /**
-     * Solicita a exportação das subcategorias.
+     * Creates request options for exportSubcategories without sending the request
      */
-    async exportSubcategoriesRaw(requestParameters: ExportSubcategoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ExportSubcategoriesDto>> {
+    async exportSubcategoriesRequestOpts(requestParameters: ExportSubcategoriesRequest): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         if (requestParameters['sortOrder'] != null) {
@@ -103,12 +116,20 @@ export class SubcategoriesExportApi extends runtime.BaseAPI implements Subcatego
 
         let urlPath = `/external/subcategories/export`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Solicita a exportação das subcategorias.
+     */
+    async exportSubcategoriesRaw(requestParameters: ExportSubcategoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ExportSubcategoriesDto>> {
+        const requestOptions = await this.exportSubcategoriesRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ExportSubcategoriesDtoFromJSON(jsonValue));
     }

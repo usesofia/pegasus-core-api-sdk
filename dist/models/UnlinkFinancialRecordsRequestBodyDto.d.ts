@@ -17,7 +17,7 @@
 export interface UnlinkFinancialRecordsRequestBodyDto {
     /**
      * Tipo de desvinculação.
-     * @type {string}
+     * @type {UnlinkFinancialRecordsRequestBodyDtoUnlinkTypeEnum}
      * @memberof UnlinkFinancialRecordsRequestBodyDto
      */
     unlinkType: UnlinkFinancialRecordsRequestBodyDtoUnlinkTypeEnum;
@@ -29,7 +29,7 @@ export interface UnlinkFinancialRecordsRequestBodyDto {
     financialRecordIds?: Array<string>;
     /**
      * Canal de origem da operação
-     * @type {string}
+     * @type {UnlinkFinancialRecordsRequestBodyDtoChannelEnum}
      * @memberof UnlinkFinancialRecordsRequestBodyDto
      */
     channel: UnlinkFinancialRecordsRequestBodyDtoChannelEnum;

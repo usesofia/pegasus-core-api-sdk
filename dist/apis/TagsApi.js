@@ -76,32 +76,45 @@ var TagsApi = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
+     * Creates request options for createTag without sending the request
+     */
+    TagsApi.prototype.createTagRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                if (requestParameters['createTagRequestBodyDto'] == null) {
+                    throw new runtime.RequiredError('createTagRequestBodyDto', 'Required parameter "createTagRequestBodyDto" was null or undefined when calling createTag().');
+                }
+                queryParameters = {};
+                if (requestParameters['populate'] != null) {
+                    queryParameters['populate'] = requestParameters['populate'];
+                }
+                headerParameters = {};
+                headerParameters['Content-Type'] = 'application/json';
+                urlPath = "/external/tags";
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'POST',
+                        headers: headerParameters,
+                        query: queryParameters,
+                        body: (0, index_1.CreateTagRequestBodyDtoToJSON)(requestParameters['createTagRequestBodyDto']),
+                    }];
+            });
+        });
+    };
+    /**
      * Cria uma nova tag.
      */
     TagsApi.prototype.createTagRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        if (requestParameters['createTagRequestBodyDto'] == null) {
-                            throw new runtime.RequiredError('createTagRequestBodyDto', 'Required parameter "createTagRequestBodyDto" was null or undefined when calling createTag().');
-                        }
-                        queryParameters = {};
-                        if (requestParameters['populate'] != null) {
-                            queryParameters['populate'] = requestParameters['populate'];
-                        }
-                        headerParameters = {};
-                        headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/external/tags";
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'POST',
-                                headers: headerParameters,
-                                query: queryParameters,
-                                body: (0, index_1.CreateTagRequestBodyDtoToJSON)(requestParameters['createTagRequestBodyDto']),
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.createTagRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.TagEntityFromJSON)(jsonValue); })];
                 }
@@ -126,45 +139,58 @@ var TagsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Creates request options for findAllTags without sending the request
+     */
+    TagsApi.prototype.findAllTagsRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                queryParameters = {};
+                if (requestParameters['populate'] != null) {
+                    queryParameters['populate'] = requestParameters['populate'];
+                }
+                if (requestParameters['sortOrder'] != null) {
+                    queryParameters['sortOrder'] = requestParameters['sortOrder'];
+                }
+                if (requestParameters['sortBy'] != null) {
+                    queryParameters['sortBy'] = requestParameters['sortBy'];
+                }
+                if (requestParameters['ids'] != null) {
+                    queryParameters['ids'] = requestParameters['ids'];
+                }
+                if (requestParameters['textSearchTerm'] != null) {
+                    queryParameters['textSearchTerm'] = requestParameters['textSearchTerm'];
+                }
+                if (requestParameters['pageSize'] != null) {
+                    queryParameters['pageSize'] = requestParameters['pageSize'];
+                }
+                if (requestParameters['pageIndex'] != null) {
+                    queryParameters['pageIndex'] = requestParameters['pageIndex'];
+                }
+                headerParameters = {};
+                urlPath = "/external/tags";
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'GET',
+                        headers: headerParameters,
+                        query: queryParameters,
+                    }];
+            });
+        });
+    };
+    /**
      * Busca todas as tags.
      */
     TagsApi.prototype.findAllTagsRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        queryParameters = {};
-                        if (requestParameters['populate'] != null) {
-                            queryParameters['populate'] = requestParameters['populate'];
-                        }
-                        if (requestParameters['sortOrder'] != null) {
-                            queryParameters['sortOrder'] = requestParameters['sortOrder'];
-                        }
-                        if (requestParameters['sortBy'] != null) {
-                            queryParameters['sortBy'] = requestParameters['sortBy'];
-                        }
-                        if (requestParameters['ids'] != null) {
-                            queryParameters['ids'] = requestParameters['ids'];
-                        }
-                        if (requestParameters['textSearchTerm'] != null) {
-                            queryParameters['textSearchTerm'] = requestParameters['textSearchTerm'];
-                        }
-                        if (requestParameters['pageSize'] != null) {
-                            queryParameters['pageSize'] = requestParameters['pageSize'];
-                        }
-                        if (requestParameters['pageIndex'] != null) {
-                            queryParameters['pageIndex'] = requestParameters['pageIndex'];
-                        }
-                        headerParameters = {};
-                        urlPath = "/external/tags";
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'GET',
-                                headers: headerParameters,
-                                query: queryParameters,
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.findAllTagsRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.TagsPageEntityFromJSON)(jsonValue); })];
                 }
@@ -190,31 +216,44 @@ var TagsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Creates request options for findByIdTag without sending the request
+     */
+    TagsApi.prototype.findByIdTagRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                if (requestParameters['id'] == null) {
+                    throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling findByIdTag().');
+                }
+                queryParameters = {};
+                if (requestParameters['populate'] != null) {
+                    queryParameters['populate'] = requestParameters['populate'];
+                }
+                headerParameters = {};
+                urlPath = "/external/tags/{id}";
+                urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'GET',
+                        headers: headerParameters,
+                        query: queryParameters,
+                    }];
+            });
+        });
+    };
+    /**
      * Busca uma tag pelo identificador.
      */
     TagsApi.prototype.findByIdTagRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        if (requestParameters['id'] == null) {
-                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling findByIdTag().');
-                        }
-                        queryParameters = {};
-                        if (requestParameters['populate'] != null) {
-                            queryParameters['populate'] = requestParameters['populate'];
-                        }
-                        headerParameters = {};
-                        urlPath = "/external/tags/{id}";
-                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'GET',
-                                headers: headerParameters,
-                                query: queryParameters,
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.findByIdTagRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.TagEntityFromJSON)(jsonValue); })];
                 }
@@ -239,36 +278,49 @@ var TagsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Creates request options for partialUpdateTag without sending the request
+     */
+    TagsApi.prototype.partialUpdateTagRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                if (requestParameters['id'] == null) {
+                    throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling partialUpdateTag().');
+                }
+                if (requestParameters['partialUpdateTagRequestBodyDto'] == null) {
+                    throw new runtime.RequiredError('partialUpdateTagRequestBodyDto', 'Required parameter "partialUpdateTagRequestBodyDto" was null or undefined when calling partialUpdateTag().');
+                }
+                queryParameters = {};
+                if (requestParameters['populate'] != null) {
+                    queryParameters['populate'] = requestParameters['populate'];
+                }
+                headerParameters = {};
+                headerParameters['Content-Type'] = 'application/json';
+                urlPath = "/external/tags/{id}";
+                urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'PATCH',
+                        headers: headerParameters,
+                        query: queryParameters,
+                        body: (0, index_1.PartialUpdateTagRequestBodyDtoToJSON)(requestParameters['partialUpdateTagRequestBodyDto']),
+                    }];
+            });
+        });
+    };
+    /**
      * Atualiza parcialmente uma tag.
      */
     TagsApi.prototype.partialUpdateTagRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        if (requestParameters['id'] == null) {
-                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling partialUpdateTag().');
-                        }
-                        if (requestParameters['partialUpdateTagRequestBodyDto'] == null) {
-                            throw new runtime.RequiredError('partialUpdateTagRequestBodyDto', 'Required parameter "partialUpdateTagRequestBodyDto" was null or undefined when calling partialUpdateTag().');
-                        }
-                        queryParameters = {};
-                        if (requestParameters['populate'] != null) {
-                            queryParameters['populate'] = requestParameters['populate'];
-                        }
-                        headerParameters = {};
-                        headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/external/tags/{id}";
-                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'PATCH',
-                                headers: headerParameters,
-                                query: queryParameters,
-                                body: (0, index_1.PartialUpdateTagRequestBodyDtoToJSON)(requestParameters['partialUpdateTagRequestBodyDto']),
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.partialUpdateTagRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.TagEntityFromJSON)(jsonValue); })];
                 }
@@ -293,33 +345,46 @@ var TagsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Creates request options for removeTag without sending the request
+     */
+    TagsApi.prototype.removeTagRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                if (requestParameters['id'] == null) {
+                    throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling removeTag().');
+                }
+                if (requestParameters['removeTagRequestBodyDto'] == null) {
+                    throw new runtime.RequiredError('removeTagRequestBodyDto', 'Required parameter "removeTagRequestBodyDto" was null or undefined when calling removeTag().');
+                }
+                queryParameters = {};
+                headerParameters = {};
+                headerParameters['Content-Type'] = 'application/json';
+                urlPath = "/external/tags/{id}";
+                urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'DELETE',
+                        headers: headerParameters,
+                        query: queryParameters,
+                        body: (0, index_1.RemoveTagRequestBodyDtoToJSON)(requestParameters['removeTagRequestBodyDto']),
+                    }];
+            });
+        });
+    };
+    /**
      * Remove uma tag.
      */
     TagsApi.prototype.removeTagRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        if (requestParameters['id'] == null) {
-                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling removeTag().');
-                        }
-                        if (requestParameters['removeTagRequestBodyDto'] == null) {
-                            throw new runtime.RequiredError('removeTagRequestBodyDto', 'Required parameter "removeTagRequestBodyDto" was null or undefined when calling removeTag().');
-                        }
-                        queryParameters = {};
-                        headerParameters = {};
-                        headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/external/tags/{id}";
-                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'DELETE',
-                                headers: headerParameters,
-                                query: queryParameters,
-                                body: (0, index_1.RemoveTagRequestBodyDtoToJSON)(requestParameters['removeTagRequestBodyDto']),
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.removeTagRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.VoidApiResponse(response)];
                 }
@@ -342,51 +407,64 @@ var TagsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Creates request options for systemFindAllTags without sending the request
+     */
+    TagsApi.prototype.systemFindAllTagsRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                if (requestParameters['ownerOrganizationId'] == null) {
+                    throw new runtime.RequiredError('ownerOrganizationId', 'Required parameter "ownerOrganizationId" was null or undefined when calling systemFindAllTags().');
+                }
+                queryParameters = {};
+                if (requestParameters['ownerOrganizationId'] != null) {
+                    queryParameters['ownerOrganizationId'] = requestParameters['ownerOrganizationId'];
+                }
+                if (requestParameters['populate'] != null) {
+                    queryParameters['populate'] = requestParameters['populate'];
+                }
+                if (requestParameters['sortOrder'] != null) {
+                    queryParameters['sortOrder'] = requestParameters['sortOrder'];
+                }
+                if (requestParameters['sortBy'] != null) {
+                    queryParameters['sortBy'] = requestParameters['sortBy'];
+                }
+                if (requestParameters['ids'] != null) {
+                    queryParameters['ids'] = requestParameters['ids'];
+                }
+                if (requestParameters['textSearchTerm'] != null) {
+                    queryParameters['textSearchTerm'] = requestParameters['textSearchTerm'];
+                }
+                if (requestParameters['pageSize'] != null) {
+                    queryParameters['pageSize'] = requestParameters['pageSize'];
+                }
+                if (requestParameters['pageIndex'] != null) {
+                    queryParameters['pageIndex'] = requestParameters['pageIndex'];
+                }
+                headerParameters = {};
+                urlPath = "/internal/tags";
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'GET',
+                        headers: headerParameters,
+                        query: queryParameters,
+                    }];
+            });
+        });
+    };
+    /**
      * Busca todas as tags pelo sistema.
      */
     TagsApi.prototype.systemFindAllTagsRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        if (requestParameters['ownerOrganizationId'] == null) {
-                            throw new runtime.RequiredError('ownerOrganizationId', 'Required parameter "ownerOrganizationId" was null or undefined when calling systemFindAllTags().');
-                        }
-                        queryParameters = {};
-                        if (requestParameters['ownerOrganizationId'] != null) {
-                            queryParameters['ownerOrganizationId'] = requestParameters['ownerOrganizationId'];
-                        }
-                        if (requestParameters['populate'] != null) {
-                            queryParameters['populate'] = requestParameters['populate'];
-                        }
-                        if (requestParameters['sortOrder'] != null) {
-                            queryParameters['sortOrder'] = requestParameters['sortOrder'];
-                        }
-                        if (requestParameters['sortBy'] != null) {
-                            queryParameters['sortBy'] = requestParameters['sortBy'];
-                        }
-                        if (requestParameters['ids'] != null) {
-                            queryParameters['ids'] = requestParameters['ids'];
-                        }
-                        if (requestParameters['textSearchTerm'] != null) {
-                            queryParameters['textSearchTerm'] = requestParameters['textSearchTerm'];
-                        }
-                        if (requestParameters['pageSize'] != null) {
-                            queryParameters['pageSize'] = requestParameters['pageSize'];
-                        }
-                        if (requestParameters['pageIndex'] != null) {
-                            queryParameters['pageIndex'] = requestParameters['pageIndex'];
-                        }
-                        headerParameters = {};
-                        urlPath = "/internal/tags";
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'GET',
-                                headers: headerParameters,
-                                query: queryParameters,
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.systemFindAllTagsRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.TagsPageEntityFromJSON)(jsonValue); })];
                 }

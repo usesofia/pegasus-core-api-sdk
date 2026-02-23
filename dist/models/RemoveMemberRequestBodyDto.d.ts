@@ -17,7 +17,7 @@
 export interface RemoveMemberRequestBodyDto {
     /**
      * Canal de origem da operação
-     * @type {string}
+     * @type {RemoveMemberRequestBodyDtoChannelEnum}
      * @memberof RemoveMemberRequestBodyDto
      */
     channel: RemoveMemberRequestBodyDtoChannelEnum;

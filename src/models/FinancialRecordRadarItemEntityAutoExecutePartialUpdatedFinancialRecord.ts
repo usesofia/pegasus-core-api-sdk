@@ -76,7 +76,7 @@ export interface FinancialRecordRadarItemEntityAutoExecutePartialUpdatedFinancia
     ownerOrganization: string;
     /**
      * Direção do lançamento (entrada/saída).
-     * @type {string}
+     * @type {FinancialRecordRadarItemEntityAutoExecutePartialUpdatedFinancialRecordDirectionEnum}
      * @memberof FinancialRecordRadarItemEntityAutoExecutePartialUpdatedFinancialRecord
      */
     direction: FinancialRecordRadarItemEntityAutoExecutePartialUpdatedFinancialRecordDirectionEnum;

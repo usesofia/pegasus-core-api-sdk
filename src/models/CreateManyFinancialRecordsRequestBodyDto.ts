@@ -41,7 +41,7 @@ export interface CreateManyFinancialRecordsRequestBodyDto {
     populate?: string;
     /**
      * Canal de origem da operação
-     * @type {string}
+     * @type {CreateManyFinancialRecordsRequestBodyDtoChannelEnum}
      * @memberof CreateManyFinancialRecordsRequestBodyDto
      */
     channel: CreateManyFinancialRecordsRequestBodyDtoChannelEnum;

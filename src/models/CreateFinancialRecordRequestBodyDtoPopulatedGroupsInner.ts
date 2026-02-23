@@ -33,7 +33,7 @@ export interface CreateFinancialRecordRequestBodyDtoPopulatedGroupsInner {
     ownerOrganization: string;
     /**
      * 
-     * @type {string}
+     * @type {CreateFinancialRecordRequestBodyDtoPopulatedGroupsInnerTypeEnum}
      * @memberof CreateFinancialRecordRequestBodyDtoPopulatedGroupsInner
      */
     type: CreateFinancialRecordRequestBodyDtoPopulatedGroupsInnerTypeEnum;

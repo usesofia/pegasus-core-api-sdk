@@ -17,13 +17,13 @@
 export interface RemoveInstallmentFinancialRecordRequestBodyDto {
     /**
      *
-     * @type {string}
+     * @type {RemoveInstallmentFinancialRecordRequestBodyDtoRemoveRelatedFinancialRecordsOptionEnum}
      * @memberof RemoveInstallmentFinancialRecordRequestBodyDto
      */
     removeRelatedFinancialRecordsOption: RemoveInstallmentFinancialRecordRequestBodyDtoRemoveRelatedFinancialRecordsOptionEnum;
     /**
      * Canal de origem da operação
-     * @type {string}
+     * @type {RemoveInstallmentFinancialRecordRequestBodyDtoChannelEnum}
      * @memberof RemoveInstallmentFinancialRecordRequestBodyDto
      */
     channel: RemoveInstallmentFinancialRecordRequestBodyDtoChannelEnum;

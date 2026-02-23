@@ -76,29 +76,42 @@ var CustomersApi = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
+     * Creates request options for createCustomer without sending the request
+     */
+    CustomersApi.prototype.createCustomerRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                if (requestParameters['createCustomerRequestBodyDto'] == null) {
+                    throw new runtime.RequiredError('createCustomerRequestBodyDto', 'Required parameter "createCustomerRequestBodyDto" was null or undefined when calling createCustomer().');
+                }
+                queryParameters = {};
+                headerParameters = {};
+                headerParameters['Content-Type'] = 'application/json';
+                urlPath = "/external/customers";
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'POST',
+                        headers: headerParameters,
+                        query: queryParameters,
+                        body: (0, index_1.CreateCustomerRequestBodyDtoToJSON)(requestParameters['createCustomerRequestBodyDto']),
+                    }];
+            });
+        });
+    };
+    /**
      * Create a new customer.
      */
     CustomersApi.prototype.createCustomerRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        if (requestParameters['createCustomerRequestBodyDto'] == null) {
-                            throw new runtime.RequiredError('createCustomerRequestBodyDto', 'Required parameter "createCustomerRequestBodyDto" was null or undefined when calling createCustomer().');
-                        }
-                        queryParameters = {};
-                        headerParameters = {};
-                        headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/external/customers";
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'POST',
-                                headers: headerParameters,
-                                query: queryParameters,
-                                body: (0, index_1.CreateCustomerRequestBodyDtoToJSON)(requestParameters['createCustomerRequestBodyDto']),
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.createCustomerRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.CustomerDtoFromJSON)(jsonValue); })];
                 }
@@ -123,54 +136,67 @@ var CustomersApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Creates request options for findAllCustomers without sending the request
+     */
+    CustomersApi.prototype.findAllCustomersRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                queryParameters = {};
+                if (requestParameters['sortOrder'] != null) {
+                    queryParameters['sortOrder'] = requestParameters['sortOrder'];
+                }
+                if (requestParameters['sortBy'] != null) {
+                    queryParameters['sortBy'] = requestParameters['sortBy'];
+                }
+                if (requestParameters['textSearchTerm'] != null) {
+                    queryParameters['textSearchTerm'] = requestParameters['textSearchTerm'];
+                }
+                if (requestParameters['subscriptionStatuses'] != null) {
+                    queryParameters['subscriptionStatuses'] = requestParameters['subscriptionStatuses'];
+                }
+                if (requestParameters['trialExpiresAtTo'] != null) {
+                    queryParameters['trialExpiresAtTo'] = requestParameters['trialExpiresAtTo'];
+                }
+                if (requestParameters['trialExpiresAtFrom'] != null) {
+                    queryParameters['trialExpiresAtFrom'] = requestParameters['trialExpiresAtFrom'];
+                }
+                if (requestParameters['subtypes'] != null) {
+                    queryParameters['subtypes'] = requestParameters['subtypes'];
+                }
+                if (requestParameters['types'] != null) {
+                    queryParameters['types'] = requestParameters['types'];
+                }
+                if (requestParameters['pageSize'] != null) {
+                    queryParameters['pageSize'] = requestParameters['pageSize'];
+                }
+                if (requestParameters['pageIndex'] != null) {
+                    queryParameters['pageIndex'] = requestParameters['pageIndex'];
+                }
+                headerParameters = {};
+                urlPath = "/external/customers";
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'GET',
+                        headers: headerParameters,
+                        query: queryParameters,
+                    }];
+            });
+        });
+    };
+    /**
      * Lista todos os customers com paginação e filtros.
      */
     CustomersApi.prototype.findAllCustomersRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        queryParameters = {};
-                        if (requestParameters['sortOrder'] != null) {
-                            queryParameters['sortOrder'] = requestParameters['sortOrder'];
-                        }
-                        if (requestParameters['sortBy'] != null) {
-                            queryParameters['sortBy'] = requestParameters['sortBy'];
-                        }
-                        if (requestParameters['textSearchTerm'] != null) {
-                            queryParameters['textSearchTerm'] = requestParameters['textSearchTerm'];
-                        }
-                        if (requestParameters['subscriptionStatuses'] != null) {
-                            queryParameters['subscriptionStatuses'] = requestParameters['subscriptionStatuses'];
-                        }
-                        if (requestParameters['trialExpiresAtTo'] != null) {
-                            queryParameters['trialExpiresAtTo'] = requestParameters['trialExpiresAtTo'];
-                        }
-                        if (requestParameters['trialExpiresAtFrom'] != null) {
-                            queryParameters['trialExpiresAtFrom'] = requestParameters['trialExpiresAtFrom'];
-                        }
-                        if (requestParameters['subtypes'] != null) {
-                            queryParameters['subtypes'] = requestParameters['subtypes'];
-                        }
-                        if (requestParameters['types'] != null) {
-                            queryParameters['types'] = requestParameters['types'];
-                        }
-                        if (requestParameters['pageSize'] != null) {
-                            queryParameters['pageSize'] = requestParameters['pageSize'];
-                        }
-                        if (requestParameters['pageIndex'] != null) {
-                            queryParameters['pageIndex'] = requestParameters['pageIndex'];
-                        }
-                        headerParameters = {};
-                        urlPath = "/external/customers";
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'GET',
-                                headers: headerParameters,
-                                query: queryParameters,
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.findAllCustomersRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.CustomersPageDtoFromJSON)(jsonValue); })];
                 }
@@ -196,28 +222,41 @@ var CustomersApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Creates request options for findByIdCustomer without sending the request
+     */
+    CustomersApi.prototype.findByIdCustomerRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                if (requestParameters['id'] == null) {
+                    throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling findByIdCustomer().');
+                }
+                queryParameters = {};
+                headerParameters = {};
+                urlPath = "/external/customers/{id}";
+                urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'GET',
+                        headers: headerParameters,
+                        query: queryParameters,
+                    }];
+            });
+        });
+    };
+    /**
      * Busca um customer pelo identificador.
      */
     CustomersApi.prototype.findByIdCustomerRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        if (requestParameters['id'] == null) {
-                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling findByIdCustomer().');
-                        }
-                        queryParameters = {};
-                        headerParameters = {};
-                        urlPath = "/external/customers/{id}";
-                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'GET',
-                                headers: headerParameters,
-                                query: queryParameters,
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.findByIdCustomerRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.CustomerDtoFromJSON)(jsonValue); })];
                 }
@@ -242,24 +281,37 @@ var CustomersApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Creates request options for getCustomersAnalytics without sending the request
+     */
+    CustomersApi.prototype.getCustomersAnalyticsRequestOpts = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                queryParameters = {};
+                headerParameters = {};
+                urlPath = "/external/customers/analytics";
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'GET',
+                        headers: headerParameters,
+                        query: queryParameters,
+                    }];
+            });
+        });
+    };
+    /**
      * Busca analytics dos customers incluindo total de clientes e MRR.
      */
     CustomersApi.prototype.getCustomersAnalyticsRaw = function (initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        queryParameters = {};
-                        headerParameters = {};
-                        urlPath = "/external/customers/analytics";
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'GET',
-                                headers: headerParameters,
-                                query: queryParameters,
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.getCustomersAnalyticsRequestOpts()];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.CustomerAnalyticsResponseDtoFromJSON)(jsonValue); })];
                 }
@@ -284,33 +336,46 @@ var CustomersApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Creates request options for partialUpdateCustomer without sending the request
+     */
+    CustomersApi.prototype.partialUpdateCustomerRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                if (requestParameters['id'] == null) {
+                    throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling partialUpdateCustomer().');
+                }
+                if (requestParameters['partialUpdateCustomerRequestBodyDto'] == null) {
+                    throw new runtime.RequiredError('partialUpdateCustomerRequestBodyDto', 'Required parameter "partialUpdateCustomerRequestBodyDto" was null or undefined when calling partialUpdateCustomer().');
+                }
+                queryParameters = {};
+                headerParameters = {};
+                headerParameters['Content-Type'] = 'application/json';
+                urlPath = "/external/customers/{id}";
+                urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'PATCH',
+                        headers: headerParameters,
+                        query: queryParameters,
+                        body: (0, index_1.PartialUpdateCustomerRequestBodyDtoToJSON)(requestParameters['partialUpdateCustomerRequestBodyDto']),
+                    }];
+            });
+        });
+    };
+    /**
      * Partially update a customer.
      */
     CustomersApi.prototype.partialUpdateCustomerRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        if (requestParameters['id'] == null) {
-                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling partialUpdateCustomer().');
-                        }
-                        if (requestParameters['partialUpdateCustomerRequestBodyDto'] == null) {
-                            throw new runtime.RequiredError('partialUpdateCustomerRequestBodyDto', 'Required parameter "partialUpdateCustomerRequestBodyDto" was null or undefined when calling partialUpdateCustomer().');
-                        }
-                        queryParameters = {};
-                        headerParameters = {};
-                        headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/external/customers/{id}";
-                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'PATCH',
-                                headers: headerParameters,
-                                query: queryParameters,
-                                body: (0, index_1.PartialUpdateCustomerRequestBodyDtoToJSON)(requestParameters['partialUpdateCustomerRequestBodyDto']),
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.partialUpdateCustomerRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.CustomerDtoFromJSON)(jsonValue); })];
                 }

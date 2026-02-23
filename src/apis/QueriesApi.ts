@@ -44,6 +44,14 @@ export interface FindByIdQueryRequest {
  */
 export interface QueriesApiInterface {
     /**
+     * Creates request options for createQuery without sending the request
+     * @param {CreateQueryRequestDto} createQueryRequestDto 
+     * @throws {RequiredError}
+     * @memberof QueriesApiInterface
+     */
+    createQueryRequestOpts(requestParameters: CreateQueryRequest): Promise<runtime.RequestOpts>;
+
+    /**
      * 
      * @summary Cria uma nova consulta.
      * @param {CreateQueryRequestDto} createQueryRequestDto 
@@ -57,6 +65,14 @@ export interface QueriesApiInterface {
      * Cria uma nova consulta.
      */
     createQuery(requestParameters: CreateQueryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<QueryResponseDto>;
+
+    /**
+     * Creates request options for findByIdQuery without sending the request
+     * @param {string} id Identificador da consulta.
+     * @throws {RequiredError}
+     * @memberof QueriesApiInterface
+     */
+    findByIdQueryRequestOpts(requestParameters: FindByIdQueryRequest): Promise<runtime.RequestOpts>;
 
     /**
      * 
@@ -81,9 +97,9 @@ export interface QueriesApiInterface {
 export class QueriesApi extends runtime.BaseAPI implements QueriesApiInterface {
 
     /**
-     * Cria uma nova consulta.
+     * Creates request options for createQuery without sending the request
      */
-    async createQueryRaw(requestParameters: CreateQueryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<QueryResponseDto>> {
+    async createQueryRequestOpts(requestParameters: CreateQueryRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['createQueryRequestDto'] == null) {
             throw new runtime.RequiredError(
                 'createQueryRequestDto',
@@ -100,13 +116,21 @@ export class QueriesApi extends runtime.BaseAPI implements QueriesApiInterface {
 
         let urlPath = `/external/queries`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
             body: CreateQueryRequestDtoToJSON(requestParameters['createQueryRequestDto']),
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Cria uma nova consulta.
+     */
+    async createQueryRaw(requestParameters: CreateQueryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<QueryResponseDto>> {
+        const requestOptions = await this.createQueryRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => QueryResponseDtoFromJSON(jsonValue));
     }
@@ -120,9 +144,9 @@ export class QueriesApi extends runtime.BaseAPI implements QueriesApiInterface {
     }
 
     /**
-     * Busca uma consulta pelo identificador.
+     * Creates request options for findByIdQuery without sending the request
      */
-    async findByIdQueryRaw(requestParameters: FindByIdQueryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<QueryResponseDto>> {
+    async findByIdQueryRequestOpts(requestParameters: FindByIdQueryRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
@@ -138,12 +162,20 @@ export class QueriesApi extends runtime.BaseAPI implements QueriesApiInterface {
         let urlPath = `/external/queries/{id}`;
         urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Busca uma consulta pelo identificador.
+     */
+    async findByIdQueryRaw(requestParameters: FindByIdQueryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<QueryResponseDto>> {
+        const requestOptions = await this.findByIdQueryRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => QueryResponseDtoFromJSON(jsonValue));
     }

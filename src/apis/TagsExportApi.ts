@@ -39,6 +39,16 @@ export interface ExportTagsRequest {
  */
 export interface TagsExportApiInterface {
     /**
+     * Creates request options for exportTags without sending the request
+     * @param {'asc' | 'desc'} [sortOrder] Ordem de ordenação dos resultados.
+     * @param {'name' | 'createdAt'} [sortBy] Campo para ordenação dos resultados.
+     * @param {'csv' | 'xlsx'} [format] Formato de exportação dos dados.
+     * @throws {RequiredError}
+     * @memberof TagsExportApiInterface
+     */
+    exportTagsRequestOpts(requestParameters: ExportTagsRequest): Promise<runtime.RequestOpts>;
+
+    /**
      * 
      * @summary Solicita a exportação das tags.
      * @param {'asc' | 'desc'} [sortOrder] Ordem de ordenação dos resultados.
@@ -63,9 +73,9 @@ export interface TagsExportApiInterface {
 export class TagsExportApi extends runtime.BaseAPI implements TagsExportApiInterface {
 
     /**
-     * Solicita a exportação das tags.
+     * Creates request options for exportTags without sending the request
      */
-    async exportTagsRaw(requestParameters: ExportTagsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ExportTagsDto>> {
+    async exportTagsRequestOpts(requestParameters: ExportTagsRequest): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         if (requestParameters['sortOrder'] != null) {
@@ -85,12 +95,20 @@ export class TagsExportApi extends runtime.BaseAPI implements TagsExportApiInter
 
         let urlPath = `/external/tags/export`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Solicita a exportação das tags.
+     */
+    async exportTagsRaw(requestParameters: ExportTagsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ExportTagsDto>> {
+        const requestOptions = await this.exportTagsRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ExportTagsDtoFromJSON(jsonValue));
     }

@@ -57,6 +57,15 @@ export interface SystemFindByIdFileRequest {
  */
 export interface FilesApiInterface {
     /**
+     * Creates request options for deleteFile without sending the request
+     * @param {string} id 
+     * @param {RemoveFileRequestBodyDto} removeFileRequestBodyDto 
+     * @throws {RequiredError}
+     * @memberof FilesApiInterface
+     */
+    deleteFileRequestOpts(requestParameters: DeleteFileRequest): Promise<runtime.RequestOpts>;
+
+    /**
      * 
      * @summary Deletes a file
      * @param {string} id 
@@ -71,6 +80,14 @@ export interface FilesApiInterface {
      * Deletes a file
      */
     deleteFile(requestParameters: DeleteFileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+
+    /**
+     * Creates request options for findByIdFile without sending the request
+     * @param {string} id The id of the file to get
+     * @throws {RequiredError}
+     * @memberof FilesApiInterface
+     */
+    findByIdFileRequestOpts(requestParameters: FindByIdFileRequest): Promise<runtime.RequestOpts>;
 
     /**
      * 
@@ -88,6 +105,14 @@ export interface FilesApiInterface {
     findByIdFile(requestParameters: FindByIdFileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FileEntity>;
 
     /**
+     * Creates request options for getSignedUrlFromUrl without sending the request
+     * @param {string} url The url of the file to get the signed url from
+     * @throws {RequiredError}
+     * @memberof FilesApiInterface
+     */
+    getSignedUrlFromUrlRequestOpts(requestParameters: GetSignedUrlFromUrlRequest): Promise<runtime.RequestOpts>;
+
+    /**
      * 
      * @summary Get a signed url from a url
      * @param {string} url The url of the file to get the signed url from
@@ -101,6 +126,15 @@ export interface FilesApiInterface {
      * Get a signed url from a url
      */
     getSignedUrlFromUrl(requestParameters: GetSignedUrlFromUrlRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SignedUrlEntity>;
+
+    /**
+     * Creates request options for systemFindByIdFile without sending the request
+     * @param {string} fileId The id of the file to get
+     * @param {string} organizationId The id of the organization to get the file from
+     * @throws {RequiredError}
+     * @memberof FilesApiInterface
+     */
+    systemFindByIdFileRequestOpts(requestParameters: SystemFindByIdFileRequest): Promise<runtime.RequestOpts>;
 
     /**
      * 
@@ -126,9 +160,9 @@ export interface FilesApiInterface {
 export class FilesApi extends runtime.BaseAPI implements FilesApiInterface {
 
     /**
-     * Deletes a file
+     * Creates request options for deleteFile without sending the request
      */
-    async deleteFileRaw(requestParameters: DeleteFileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+    async deleteFileRequestOpts(requestParameters: DeleteFileRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
@@ -153,13 +187,21 @@ export class FilesApi extends runtime.BaseAPI implements FilesApiInterface {
         let urlPath = `/external/files/{id}`;
         urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'DELETE',
             headers: headerParameters,
             query: queryParameters,
             body: RemoveFileRequestBodyDtoToJSON(requestParameters['removeFileRequestBodyDto']),
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Deletes a file
+     */
+    async deleteFileRaw(requestParameters: DeleteFileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        const requestOptions = await this.deleteFileRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.VoidApiResponse(response);
     }
@@ -172,9 +214,9 @@ export class FilesApi extends runtime.BaseAPI implements FilesApiInterface {
     }
 
     /**
-     * Finds a file by id
+     * Creates request options for findByIdFile without sending the request
      */
-    async findByIdFileRaw(requestParameters: FindByIdFileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FileEntity>> {
+    async findByIdFileRequestOpts(requestParameters: FindByIdFileRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
@@ -190,12 +232,20 @@ export class FilesApi extends runtime.BaseAPI implements FilesApiInterface {
         let urlPath = `/external/files/{id}`;
         urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Finds a file by id
+     */
+    async findByIdFileRaw(requestParameters: FindByIdFileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FileEntity>> {
+        const requestOptions = await this.findByIdFileRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => FileEntityFromJSON(jsonValue));
     }
@@ -209,9 +259,9 @@ export class FilesApi extends runtime.BaseAPI implements FilesApiInterface {
     }
 
     /**
-     * Get a signed url from a url
+     * Creates request options for getSignedUrlFromUrl without sending the request
      */
-    async getSignedUrlFromUrlRaw(requestParameters: GetSignedUrlFromUrlRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SignedUrlEntity>> {
+    async getSignedUrlFromUrlRequestOpts(requestParameters: GetSignedUrlFromUrlRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['url'] == null) {
             throw new runtime.RequiredError(
                 'url',
@@ -230,12 +280,20 @@ export class FilesApi extends runtime.BaseAPI implements FilesApiInterface {
 
         let urlPath = `/external/files/signed-url`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Get a signed url from a url
+     */
+    async getSignedUrlFromUrlRaw(requestParameters: GetSignedUrlFromUrlRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SignedUrlEntity>> {
+        const requestOptions = await this.getSignedUrlFromUrlRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => SignedUrlEntityFromJSON(jsonValue));
     }
@@ -249,9 +307,9 @@ export class FilesApi extends runtime.BaseAPI implements FilesApiInterface {
     }
 
     /**
-     * Finds a file by id
+     * Creates request options for systemFindByIdFile without sending the request
      */
-    async systemFindByIdFileRaw(requestParameters: SystemFindByIdFileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FileEntity>> {
+    async systemFindByIdFileRequestOpts(requestParameters: SystemFindByIdFileRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['fileId'] == null) {
             throw new runtime.RequiredError(
                 'fileId',
@@ -275,12 +333,20 @@ export class FilesApi extends runtime.BaseAPI implements FilesApiInterface {
         urlPath = urlPath.replace(`{${"fileId"}}`, encodeURIComponent(String(requestParameters['fileId'])));
         urlPath = urlPath.replace(`{${"organizationId"}}`, encodeURIComponent(String(requestParameters['organizationId'])));
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Finds a file by id
+     */
+    async systemFindByIdFileRaw(requestParameters: SystemFindByIdFileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FileEntity>> {
+        const requestOptions = await this.systemFindByIdFileRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => FileEntityFromJSON(jsonValue));
     }

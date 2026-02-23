@@ -23,7 +23,7 @@ export interface BulkUpdateJobRequestEntity {
     id: string;
     /**
      * Recurso a ser atualizado.
-     * @type {string}
+     * @type {BulkUpdateJobRequestEntityResourceEnum}
      * @memberof BulkUpdateJobRequestEntity
      */
     resource: BulkUpdateJobRequestEntityResourceEnum;

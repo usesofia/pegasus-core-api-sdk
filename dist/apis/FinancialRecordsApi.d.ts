@@ -199,6 +199,14 @@ export interface UnlinkAllRadarItemsFromFinancialRecordRequest {
  */
 export interface FinancialRecordsApiInterface {
     /**
+     * Creates request options for createFinancialRecord without sending the request
+     * @param {CreateFinancialRecordRequestBodyDto} createFinancialRecordRequestBodyDto
+     * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
+     * @throws {RequiredError}
+     * @memberof FinancialRecordsApiInterface
+     */
+    createFinancialRecordRequestOpts(requestParameters: CreateFinancialRecordRequest): Promise<runtime.RequestOpts>;
+    /**
      *
      * @summary Cria um novo lançamento financeiro.
      * @param {CreateFinancialRecordRequestBodyDto} createFinancialRecordRequestBodyDto
@@ -212,6 +220,14 @@ export interface FinancialRecordsApiInterface {
      * Cria um novo lançamento financeiro.
      */
     createFinancialRecord(requestParameters: CreateFinancialRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialRecordDto>;
+    /**
+     * Creates request options for createInternalTransfer without sending the request
+     * @param {CreateInternalTransferRequestBodyDto} createInternalTransferRequestBodyDto
+     * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
+     * @throws {RequiredError}
+     * @memberof FinancialRecordsApiInterface
+     */
+    createInternalTransferRequestOpts(requestParameters: CreateInternalTransferRequest): Promise<runtime.RequestOpts>;
     /**
      *
      * @summary Cria uma transferência interna entre contas.
@@ -227,6 +243,13 @@ export interface FinancialRecordsApiInterface {
      */
     createInternalTransfer(requestParameters: CreateInternalTransferRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<FinancialRecordDto>>;
     /**
+     * Creates request options for createManyFinancialRecords without sending the request
+     * @param {CreateManyFinancialRecordsRequestBodyDto} createManyFinancialRecordsRequestBodyDto
+     * @throws {RequiredError}
+     * @memberof FinancialRecordsApiInterface
+     */
+    createManyFinancialRecordsRequestOpts(requestParameters: CreateManyFinancialRecordsRequest): Promise<runtime.RequestOpts>;
+    /**
      *
      * @summary Cria múltiplos lançamentos financeiros.
      * @param {CreateManyFinancialRecordsRequestBodyDto} createManyFinancialRecordsRequestBodyDto
@@ -239,6 +262,42 @@ export interface FinancialRecordsApiInterface {
      * Cria múltiplos lançamentos financeiros.
      */
     createManyFinancialRecords(requestParameters: CreateManyFinancialRecordsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<FinancialRecordDto>>;
+    /**
+     * Creates request options for findAllFinancialRecords without sending the request
+     * @param {string} [queryId] ID da consulta a ser aplicada.
+     * @param {'asc' | 'desc'} [sortOrder] Ordem de ordenação dos lançamentos financeiros.
+     * @param {'direction' | 'dueDate' | 'contact' | 'description' | 'subcategory' | 'amount' | 'competenceDate' | 'cashDate' | 'createdAt' | 'finalAmount'} [sortBy] Campo para ordenação dos lançamentos financeiros.
+     * @param {string} [recurringFinancialRecord] ID da recorrência financeira.
+     * @param {string} [installmentFinancialRecord] ID do parcelamento financeiro.
+     * @param {string} [account] IDs de contas bancárias do lançamento financeiro separados por vírgula.
+     * @param {boolean} [reconciled] Indica se o lançamento financeiro foi reconciliado.
+     * @param {boolean} [completed] Indica se o lançamento financeiro foi completado.
+     * @param {string} [tags] IDs das tags do lançamento financeiro separados por vírgula.
+     * @param {string} [createdAtTo] Data de criação final.
+     * @param {string} [createdAtFrom] Data de criação inicial.
+     * @param {string} [cashDateTo] Data de pagamento final.
+     * @param {string} [cashDateFrom] Data de pagamento inicial.
+     * @param {string} [competenceDateTo] Data de competência final.
+     * @param {string} [competenceDateFrom] Data de competência inicial.
+     * @param {string} [subcategory] IDs de subcategorias do lançamento financeiro separados por vírgula.
+     * @param {string} [contact] IDs de contatos do lançamento financeiro separados por vírgula.
+     * @param {string} [dueDateTo] Data de vencimento final.
+     * @param {string} [dueDateFrom] Data de vencimento inicial.
+     * @param {string} [finalAmountTo] Valor final do lançamento financeiro máximo.
+     * @param {string} [finalAmountFrom] Valor final do lançamento financeiro mínimo.
+     * @param {string} [amountTo] Valor do lançamento financeiro máximo.
+     * @param {string} [amountFrom] Valor do lançamento financeiro mínimo.
+     * @param {'IN' | 'OUT'} [direction] Direção do lançamento financeiro.
+     * @param {string} [ids] Lista de IDs de lançamentos financeiros para filtrar separados por vírgula.
+     * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
+     * @param {string} [semanticSearchTermInBase64] Termo para busca semântica.
+     * @param {string} [textSearchTerm] Termo para busca textual.
+     * @param {number} [pageSize] Quantidade de itens por página.
+     * @param {number} [pageIndex] Índice da página.
+     * @throws {RequiredError}
+     * @memberof FinancialRecordsApiInterface
+     */
+    findAllFinancialRecordsRequestOpts(requestParameters: FindAllFinancialRecordsRequest): Promise<runtime.RequestOpts>;
     /**
      *
      * @summary Busca todos os lançamentos financeiros.
@@ -282,6 +341,14 @@ export interface FinancialRecordsApiInterface {
      */
     findAllFinancialRecords(requestParameters: FindAllFinancialRecordsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialRecordsPageDto>;
     /**
+     * Creates request options for findByIdFinancialRecord without sending the request
+     * @param {string} id Identificador do lançamento financeiro.
+     * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
+     * @throws {RequiredError}
+     * @memberof FinancialRecordsApiInterface
+     */
+    findByIdFinancialRecordRequestOpts(requestParameters: FindByIdFinancialRecordRequest): Promise<runtime.RequestOpts>;
+    /**
      *
      * @summary Busca um lançamento financeiro pelo identificador.
      * @param {string} id Identificador do lançamento financeiro.
@@ -295,6 +362,42 @@ export interface FinancialRecordsApiInterface {
      * Busca um lançamento financeiro pelo identificador.
      */
     findByIdFinancialRecord(requestParameters: FindByIdFinancialRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialRecordDto>;
+    /**
+     * Creates request options for generatePdfListExportFinancialRecords without sending the request
+     * @param {string} [queryId] ID da consulta a ser aplicada.
+     * @param {'asc' | 'desc'} [sortOrder] Ordem de ordenação dos lançamentos financeiros.
+     * @param {'direction' | 'dueDate' | 'contact' | 'description' | 'subcategory' | 'amount' | 'competenceDate' | 'cashDate' | 'createdAt' | 'finalAmount'} [sortBy] Campo para ordenação dos lançamentos financeiros.
+     * @param {string} [recurringFinancialRecord] ID da recorrência financeira.
+     * @param {string} [installmentFinancialRecord] ID do parcelamento financeiro.
+     * @param {string} [account] IDs de contas bancárias do lançamento financeiro separados por vírgula.
+     * @param {boolean} [reconciled] Indica se o lançamento financeiro foi reconciliado.
+     * @param {boolean} [completed] Indica se o lançamento financeiro foi completado.
+     * @param {string} [tags] IDs das tags do lançamento financeiro separados por vírgula.
+     * @param {string} [createdAtTo] Data de criação final.
+     * @param {string} [createdAtFrom] Data de criação inicial.
+     * @param {string} [cashDateTo] Data de pagamento final.
+     * @param {string} [cashDateFrom] Data de pagamento inicial.
+     * @param {string} [competenceDateTo] Data de competência final.
+     * @param {string} [competenceDateFrom] Data de competência inicial.
+     * @param {string} [subcategory] IDs de subcategorias do lançamento financeiro separados por vírgula.
+     * @param {string} [contact] IDs de contatos do lançamento financeiro separados por vírgula.
+     * @param {string} [dueDateTo] Data de vencimento final.
+     * @param {string} [dueDateFrom] Data de vencimento inicial.
+     * @param {string} [finalAmountTo] Valor final do lançamento financeiro máximo.
+     * @param {string} [finalAmountFrom] Valor final do lançamento financeiro mínimo.
+     * @param {string} [amountTo] Valor do lançamento financeiro máximo.
+     * @param {string} [amountFrom] Valor do lançamento financeiro mínimo.
+     * @param {'IN' | 'OUT'} [direction] Direção do lançamento financeiro.
+     * @param {string} [ids] Lista de IDs de lançamentos financeiros para filtrar separados por vírgula.
+     * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
+     * @param {string} [semanticSearchTermInBase64] Termo para busca semântica.
+     * @param {string} [textSearchTerm] Termo para busca textual.
+     * @param {number} [pageSize] Quantidade de itens por página.
+     * @param {number} [pageIndex] Índice da página.
+     * @throws {RequiredError}
+     * @memberof FinancialRecordsApiInterface
+     */
+    generatePdfListExportFinancialRecordsRequestOpts(requestParameters: GeneratePdfListExportFinancialRecordsRequest): Promise<runtime.RequestOpts>;
     /**
      *
      * @summary Gera exportação em PDF dos lançamentos financeiros no formato de lista.
@@ -338,6 +441,42 @@ export interface FinancialRecordsApiInterface {
      */
     generatePdfListExportFinancialRecords(requestParameters: GeneratePdfListExportFinancialRecordsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FileEntity>;
     /**
+     * Creates request options for generatePdfTableExportFinancialRecords without sending the request
+     * @param {string} [queryId] ID da consulta a ser aplicada.
+     * @param {'asc' | 'desc'} [sortOrder] Ordem de ordenação dos lançamentos financeiros.
+     * @param {'direction' | 'dueDate' | 'contact' | 'description' | 'subcategory' | 'amount' | 'competenceDate' | 'cashDate' | 'createdAt' | 'finalAmount'} [sortBy] Campo para ordenação dos lançamentos financeiros.
+     * @param {string} [recurringFinancialRecord] ID da recorrência financeira.
+     * @param {string} [installmentFinancialRecord] ID do parcelamento financeiro.
+     * @param {string} [account] IDs de contas bancárias do lançamento financeiro separados por vírgula.
+     * @param {boolean} [reconciled] Indica se o lançamento financeiro foi reconciliado.
+     * @param {boolean} [completed] Indica se o lançamento financeiro foi completado.
+     * @param {string} [tags] IDs das tags do lançamento financeiro separados por vírgula.
+     * @param {string} [createdAtTo] Data de criação final.
+     * @param {string} [createdAtFrom] Data de criação inicial.
+     * @param {string} [cashDateTo] Data de pagamento final.
+     * @param {string} [cashDateFrom] Data de pagamento inicial.
+     * @param {string} [competenceDateTo] Data de competência final.
+     * @param {string} [competenceDateFrom] Data de competência inicial.
+     * @param {string} [subcategory] IDs de subcategorias do lançamento financeiro separados por vírgula.
+     * @param {string} [contact] IDs de contatos do lançamento financeiro separados por vírgula.
+     * @param {string} [dueDateTo] Data de vencimento final.
+     * @param {string} [dueDateFrom] Data de vencimento inicial.
+     * @param {string} [finalAmountTo] Valor final do lançamento financeiro máximo.
+     * @param {string} [finalAmountFrom] Valor final do lançamento financeiro mínimo.
+     * @param {string} [amountTo] Valor do lançamento financeiro máximo.
+     * @param {string} [amountFrom] Valor do lançamento financeiro mínimo.
+     * @param {'IN' | 'OUT'} [direction] Direção do lançamento financeiro.
+     * @param {string} [ids] Lista de IDs de lançamentos financeiros para filtrar separados por vírgula.
+     * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
+     * @param {string} [semanticSearchTermInBase64] Termo para busca semântica.
+     * @param {string} [textSearchTerm] Termo para busca textual.
+     * @param {number} [pageSize] Quantidade de itens por página.
+     * @param {number} [pageIndex] Índice da página.
+     * @throws {RequiredError}
+     * @memberof FinancialRecordsApiInterface
+     */
+    generatePdfTableExportFinancialRecordsRequestOpts(requestParameters: GeneratePdfTableExportFinancialRecordsRequest): Promise<runtime.RequestOpts>;
+    /**
      *
      * @summary Gera exportação em PDF dos lançamentos financeiros no formato de tabela.
      * @param {string} [queryId] ID da consulta a ser aplicada.
@@ -380,6 +519,15 @@ export interface FinancialRecordsApiInterface {
      */
     generatePdfTableExportFinancialRecords(requestParameters: GeneratePdfTableExportFinancialRecordsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FileEntity>;
     /**
+     * Creates request options for partialUpdateFinancialRecord without sending the request
+     * @param {string} id Identificador do lançamento financeiro.
+     * @param {PartialUpdateFinancialRecordRequestBodyDto} partialUpdateFinancialRecordRequestBodyDto
+     * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
+     * @throws {RequiredError}
+     * @memberof FinancialRecordsApiInterface
+     */
+    partialUpdateFinancialRecordRequestOpts(requestParameters: PartialUpdateFinancialRecordRequest): Promise<runtime.RequestOpts>;
+    /**
      *
      * @summary Atualiza parcialmente um lançamento financeiro.
      * @param {string} id Identificador do lançamento financeiro.
@@ -395,6 +543,13 @@ export interface FinancialRecordsApiInterface {
      */
     partialUpdateFinancialRecord(requestParameters: PartialUpdateFinancialRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialRecordDto>;
     /**
+     * Creates request options for partialUpdateManyFinancialRecords without sending the request
+     * @param {PartialUpdateManyFinancialRecordsRequestBodyDto} partialUpdateManyFinancialRecordsRequestBodyDto
+     * @throws {RequiredError}
+     * @memberof FinancialRecordsApiInterface
+     */
+    partialUpdateManyFinancialRecordsRequestOpts(requestParameters: PartialUpdateManyFinancialRecordsRequest): Promise<runtime.RequestOpts>;
+    /**
      *
      * @summary Atualiza parcialmente múltiplos lançamentos financeiros.
      * @param {PartialUpdateManyFinancialRecordsRequestBodyDto} partialUpdateManyFinancialRecordsRequestBodyDto
@@ -407,6 +562,14 @@ export interface FinancialRecordsApiInterface {
      * Atualiza parcialmente múltiplos lançamentos financeiros.
      */
     partialUpdateManyFinancialRecords(requestParameters: PartialUpdateManyFinancialRecordsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<FinancialRecordDto>>;
+    /**
+     * Creates request options for removeFinancialRecord without sending the request
+     * @param {string} id Identificador do lançamento financeiro.
+     * @param {RemoveFinancialRecordRequestBodyDto} removeFinancialRecordRequestBodyDto
+     * @throws {RequiredError}
+     * @memberof FinancialRecordsApiInterface
+     */
+    removeFinancialRecordRequestOpts(requestParameters: RemoveFinancialRecordRequest): Promise<runtime.RequestOpts>;
     /**
      *
      * @summary Remove um lançamento financeiro.
@@ -422,6 +585,13 @@ export interface FinancialRecordsApiInterface {
      */
     removeFinancialRecord(requestParameters: RemoveFinancialRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
     /**
+     * Creates request options for systemCalculateAndUpdateTextSearchVariationsAndHints without sending the request
+     * @param {SystemCalculateSearchVariationsRequestBodyDto} systemCalculateSearchVariationsRequestBodyDto
+     * @throws {RequiredError}
+     * @memberof FinancialRecordsApiInterface
+     */
+    systemCalculateAndUpdateTextSearchVariationsAndHintsRequestOpts(requestParameters: SystemCalculateAndUpdateTextSearchVariationsAndHintsRequest): Promise<runtime.RequestOpts>;
+    /**
      *
      * @summary Calcula e atualiza os campos de variações de busca textual e dicas de busca para múltiplos lançamentos financeiros.
      * @param {SystemCalculateSearchVariationsRequestBodyDto} systemCalculateSearchVariationsRequestBodyDto
@@ -434,6 +604,14 @@ export interface FinancialRecordsApiInterface {
      * Calcula e atualiza os campos de variações de busca textual e dicas de busca para múltiplos lançamentos financeiros.
      */
     systemCalculateAndUpdateTextSearchVariationsAndHints(requestParameters: SystemCalculateAndUpdateTextSearchVariationsAndHintsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+    /**
+     * Creates request options for systemCreateManyFinancialRecords without sending the request
+     * @param {string} organizationId Identificador da organização.
+     * @param {CreateManyFinancialRecordsRequestBodyDto} createManyFinancialRecordsRequestBodyDto
+     * @throws {RequiredError}
+     * @memberof FinancialRecordsApiInterface
+     */
+    systemCreateManyFinancialRecordsRequestOpts(requestParameters: SystemCreateManyFinancialRecordsRequest): Promise<runtime.RequestOpts>;
     /**
      *
      * @summary Cria múltiplos lançamentos financeiros.
@@ -448,6 +626,44 @@ export interface FinancialRecordsApiInterface {
      * Cria múltiplos lançamentos financeiros.
      */
     systemCreateManyFinancialRecords(requestParameters: SystemCreateManyFinancialRecordsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<FinancialRecordDto>>;
+    /**
+     * Creates request options for systemFindAllFinancialRecords without sending the request
+     * @param {string} ownerOrganizationId Identificador da organização proprietária dos lançamentos financeiros.
+     * @param {boolean} [generatePdfListExport] Se true, gera um export em PDF com layout em lista dos resultados.
+     * @param {boolean} [generatePdfTableExport] Se true, gera um export em PDF dos resultados.
+     * @param {boolean} [generateExcelExport] Se true, gera um export em Excel dos resultados.
+     * @param {'primary' | 'primaryPreferred' | 'secondary' | 'secondaryPreferred' | 'nearest'} [readPreference] Preferência de leitura dos lançamentos financeiros.
+     * @param {'asc' | 'desc'} [sortOrder] Ordem de ordenação dos lançamentos financeiros.
+     * @param {'direction' | 'dueDate' | 'contact' | 'description' | 'subcategory' | 'amount' | 'competenceDate' | 'cashDate' | 'createdAt' | 'finalAmount'} [sortBy] Campo para ordenação dos lançamentos financeiros.
+     * @param {string} [account] IDs de contas bancárias do lançamento financeiro separados por vírgula.
+     * @param {boolean} [reconciled] Indica se o lançamento financeiro foi reconciliado.
+     * @param {boolean} [completed] Indica se o lançamento financeiro foi completado.
+     * @param {string} [tags] IDs das tags do lançamento financeiro separados por vírgula.
+     * @param {string} [createdAtTo] Data de criação final.
+     * @param {string} [createdAtFrom] Data de criação inicial.
+     * @param {string} [cashDateTo] Data de pagamento final.
+     * @param {string} [cashDateFrom] Data de pagamento inicial.
+     * @param {string} [competenceDateTo] Data de competência final.
+     * @param {string} [competenceDateFrom] Data de competência inicial.
+     * @param {string} [subcategory] IDs de subcategorias do lançamento financeiro separados por vírgula.
+     * @param {string} [contact] IDs de contatos do lançamento financeiro separados por vírgula.
+     * @param {string} [dueDateTo] Data de vencimento final.
+     * @param {string} [dueDateFrom] Data de vencimento inicial.
+     * @param {string} [finalAmountTo] Valor final do lançamento financeiro máximo.
+     * @param {string} [finalAmountFrom] Valor final do lançamento financeiro mínimo.
+     * @param {string} [amountTo] Valor do lançamento financeiro máximo.
+     * @param {string} [amountFrom] Valor do lançamento financeiro mínimo.
+     * @param {'IN' | 'OUT'} [direction] Direção do lançamento financeiro.
+     * @param {string} [ids] Lista de IDs de lançamentos financeiros para filtrar separados por vírgula.
+     * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
+     * @param {string} [semanticSearchTermInBase64] Termo para busca semântica.
+     * @param {string} [textSearchTerm] Termo para busca textual.
+     * @param {number} [pageSize] Quantidade de itens por página.
+     * @param {number} [pageIndex] Índice da página.
+     * @throws {RequiredError}
+     * @memberof FinancialRecordsApiInterface
+     */
+    systemFindAllFinancialRecordsRequestOpts(requestParameters: SystemFindAllFinancialRecordsRequest): Promise<runtime.RequestOpts>;
     /**
      *
      * @summary Busca todos os lançamentos financeiros pelo sistema.
@@ -493,6 +709,15 @@ export interface FinancialRecordsApiInterface {
      */
     systemFindAllFinancialRecords(requestParameters: SystemFindAllFinancialRecordsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SystemFinancialRecordsPageDto>;
     /**
+     * Creates request options for systemFindByIdFinancialRecord without sending the request
+     * @param {string} organizationId Identificador da organização.
+     * @param {string} financialRecordId Identificador do lançamento financeiro.
+     * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
+     * @throws {RequiredError}
+     * @memberof FinancialRecordsApiInterface
+     */
+    systemFindByIdFinancialRecordRequestOpts(requestParameters: SystemFindByIdFinancialRecordRequest): Promise<runtime.RequestOpts>;
+    /**
      *
      * @summary Busca um lançamento financeiro pelo identificador.
      * @param {string} organizationId Identificador da organização.
@@ -507,6 +732,17 @@ export interface FinancialRecordsApiInterface {
      * Busca um lançamento financeiro pelo identificador.
      */
     systemFindByIdFinancialRecord(requestParameters: SystemFindByIdFinancialRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialRecordDto>;
+    /**
+     * Creates request options for systemGenerateMostCommonContactsAndSubcategoriesForSimilarFinancialRecordReport without sending the request
+     * @param {number} nSubcategories Número de subcategorias a retornar
+     * @param {number} nSimilarFinancialRecordsConsidered Número máximo de lançamentos financeiros similares a considerar
+     * @param {string} ownerOrganizationId Identificador da organização dona do lançamento financeiro
+     * @param {SystemGenerateMostCommonContactsForSimilarFinancialRecordReportRequestBodyDto} systemGenerateMostCommonContactsForSimilarFinancialRecordReportRequestBodyDto
+     * @param {'primary' | 'primaryPreferred' | 'secondary' | 'secondaryPreferred' | 'nearest'} [readPreference] Preferência de leitura dos lançamentos financeiros.
+     * @throws {RequiredError}
+     * @memberof FinancialRecordsApiInterface
+     */
+    systemGenerateMostCommonContactsAndSubcategoriesForSimilarFinancialRecordReportRequestOpts(requestParameters: SystemGenerateMostCommonContactsAndSubcategoriesForSimilarFinancialRecordReportRequest): Promise<runtime.RequestOpts>;
     /**
      *
      * @summary Gera relatório dos contatos e subcategorias mais comuns para lançamentos financeiros similares.
@@ -524,6 +760,14 @@ export interface FinancialRecordsApiInterface {
      * Gera relatório dos contatos e subcategorias mais comuns para lançamentos financeiros similares.
      */
     systemGenerateMostCommonContactsAndSubcategoriesForSimilarFinancialRecordReport(requestParameters: SystemGenerateMostCommonContactsAndSubcategoriesForSimilarFinancialRecordReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDto>;
+    /**
+     * Creates request options for unlinkAllRadarItemsFromFinancialRecord without sending the request
+     * @param {string} id Identificador do lançamento financeiro.
+     * @param {UnlinkAllRadarItemsRequestBodyDto} unlinkAllRadarItemsRequestBodyDto
+     * @throws {RequiredError}
+     * @memberof FinancialRecordsApiInterface
+     */
+    unlinkAllRadarItemsFromFinancialRecordRequestOpts(requestParameters: UnlinkAllRadarItemsFromFinancialRecordRequest): Promise<runtime.RequestOpts>;
     /**
      * Remove o vínculo entre um lançamento financeiro e todos os radar items que estão associados a ele.
      * @summary Desvincula todos os radar items de um lançamento financeiro
@@ -545,6 +789,10 @@ export interface FinancialRecordsApiInterface {
  */
 export declare class FinancialRecordsApi extends runtime.BaseAPI implements FinancialRecordsApiInterface {
     /**
+     * Creates request options for createFinancialRecord without sending the request
+     */
+    createFinancialRecordRequestOpts(requestParameters: CreateFinancialRecordRequest): Promise<runtime.RequestOpts>;
+    /**
      * Cria um novo lançamento financeiro.
      */
     createFinancialRecordRaw(requestParameters: CreateFinancialRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FinancialRecordDto>>;
@@ -552,6 +800,10 @@ export declare class FinancialRecordsApi extends runtime.BaseAPI implements Fina
      * Cria um novo lançamento financeiro.
      */
     createFinancialRecord(requestParameters: CreateFinancialRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialRecordDto>;
+    /**
+     * Creates request options for createInternalTransfer without sending the request
+     */
+    createInternalTransferRequestOpts(requestParameters: CreateInternalTransferRequest): Promise<runtime.RequestOpts>;
     /**
      * Cria uma transferência interna entre contas.
      */
@@ -561,6 +813,10 @@ export declare class FinancialRecordsApi extends runtime.BaseAPI implements Fina
      */
     createInternalTransfer(requestParameters: CreateInternalTransferRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<FinancialRecordDto>>;
     /**
+     * Creates request options for createManyFinancialRecords without sending the request
+     */
+    createManyFinancialRecordsRequestOpts(requestParameters: CreateManyFinancialRecordsRequest): Promise<runtime.RequestOpts>;
+    /**
      * Cria múltiplos lançamentos financeiros.
      */
     createManyFinancialRecordsRaw(requestParameters: CreateManyFinancialRecordsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<FinancialRecordDto>>>;
@@ -568,6 +824,10 @@ export declare class FinancialRecordsApi extends runtime.BaseAPI implements Fina
      * Cria múltiplos lançamentos financeiros.
      */
     createManyFinancialRecords(requestParameters: CreateManyFinancialRecordsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<FinancialRecordDto>>;
+    /**
+     * Creates request options for findAllFinancialRecords without sending the request
+     */
+    findAllFinancialRecordsRequestOpts(requestParameters: FindAllFinancialRecordsRequest): Promise<runtime.RequestOpts>;
     /**
      * Busca todos os lançamentos financeiros.
      */
@@ -577,6 +837,10 @@ export declare class FinancialRecordsApi extends runtime.BaseAPI implements Fina
      */
     findAllFinancialRecords(requestParameters?: FindAllFinancialRecordsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialRecordsPageDto>;
     /**
+     * Creates request options for findByIdFinancialRecord without sending the request
+     */
+    findByIdFinancialRecordRequestOpts(requestParameters: FindByIdFinancialRecordRequest): Promise<runtime.RequestOpts>;
+    /**
      * Busca um lançamento financeiro pelo identificador.
      */
     findByIdFinancialRecordRaw(requestParameters: FindByIdFinancialRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FinancialRecordDto>>;
@@ -584,6 +848,10 @@ export declare class FinancialRecordsApi extends runtime.BaseAPI implements Fina
      * Busca um lançamento financeiro pelo identificador.
      */
     findByIdFinancialRecord(requestParameters: FindByIdFinancialRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialRecordDto>;
+    /**
+     * Creates request options for generatePdfListExportFinancialRecords without sending the request
+     */
+    generatePdfListExportFinancialRecordsRequestOpts(requestParameters: GeneratePdfListExportFinancialRecordsRequest): Promise<runtime.RequestOpts>;
     /**
      * Gera exportação em PDF dos lançamentos financeiros no formato de lista.
      */
@@ -593,6 +861,10 @@ export declare class FinancialRecordsApi extends runtime.BaseAPI implements Fina
      */
     generatePdfListExportFinancialRecords(requestParameters?: GeneratePdfListExportFinancialRecordsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FileEntity>;
     /**
+     * Creates request options for generatePdfTableExportFinancialRecords without sending the request
+     */
+    generatePdfTableExportFinancialRecordsRequestOpts(requestParameters: GeneratePdfTableExportFinancialRecordsRequest): Promise<runtime.RequestOpts>;
+    /**
      * Gera exportação em PDF dos lançamentos financeiros no formato de tabela.
      */
     generatePdfTableExportFinancialRecordsRaw(requestParameters: GeneratePdfTableExportFinancialRecordsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FileEntity>>;
@@ -600,6 +872,10 @@ export declare class FinancialRecordsApi extends runtime.BaseAPI implements Fina
      * Gera exportação em PDF dos lançamentos financeiros no formato de tabela.
      */
     generatePdfTableExportFinancialRecords(requestParameters?: GeneratePdfTableExportFinancialRecordsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FileEntity>;
+    /**
+     * Creates request options for partialUpdateFinancialRecord without sending the request
+     */
+    partialUpdateFinancialRecordRequestOpts(requestParameters: PartialUpdateFinancialRecordRequest): Promise<runtime.RequestOpts>;
     /**
      * Atualiza parcialmente um lançamento financeiro.
      */
@@ -609,6 +885,10 @@ export declare class FinancialRecordsApi extends runtime.BaseAPI implements Fina
      */
     partialUpdateFinancialRecord(requestParameters: PartialUpdateFinancialRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialRecordDto>;
     /**
+     * Creates request options for partialUpdateManyFinancialRecords without sending the request
+     */
+    partialUpdateManyFinancialRecordsRequestOpts(requestParameters: PartialUpdateManyFinancialRecordsRequest): Promise<runtime.RequestOpts>;
+    /**
      * Atualiza parcialmente múltiplos lançamentos financeiros.
      */
     partialUpdateManyFinancialRecordsRaw(requestParameters: PartialUpdateManyFinancialRecordsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<FinancialRecordDto>>>;
@@ -616,6 +896,10 @@ export declare class FinancialRecordsApi extends runtime.BaseAPI implements Fina
      * Atualiza parcialmente múltiplos lançamentos financeiros.
      */
     partialUpdateManyFinancialRecords(requestParameters: PartialUpdateManyFinancialRecordsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<FinancialRecordDto>>;
+    /**
+     * Creates request options for removeFinancialRecord without sending the request
+     */
+    removeFinancialRecordRequestOpts(requestParameters: RemoveFinancialRecordRequest): Promise<runtime.RequestOpts>;
     /**
      * Remove um lançamento financeiro.
      */
@@ -625,6 +909,10 @@ export declare class FinancialRecordsApi extends runtime.BaseAPI implements Fina
      */
     removeFinancialRecord(requestParameters: RemoveFinancialRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
     /**
+     * Creates request options for systemCalculateAndUpdateTextSearchVariationsAndHints without sending the request
+     */
+    systemCalculateAndUpdateTextSearchVariationsAndHintsRequestOpts(requestParameters: SystemCalculateAndUpdateTextSearchVariationsAndHintsRequest): Promise<runtime.RequestOpts>;
+    /**
      * Calcula e atualiza os campos de variações de busca textual e dicas de busca para múltiplos lançamentos financeiros.
      */
     systemCalculateAndUpdateTextSearchVariationsAndHintsRaw(requestParameters: SystemCalculateAndUpdateTextSearchVariationsAndHintsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
@@ -632,6 +920,10 @@ export declare class FinancialRecordsApi extends runtime.BaseAPI implements Fina
      * Calcula e atualiza os campos de variações de busca textual e dicas de busca para múltiplos lançamentos financeiros.
      */
     systemCalculateAndUpdateTextSearchVariationsAndHints(requestParameters: SystemCalculateAndUpdateTextSearchVariationsAndHintsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+    /**
+     * Creates request options for systemCreateManyFinancialRecords without sending the request
+     */
+    systemCreateManyFinancialRecordsRequestOpts(requestParameters: SystemCreateManyFinancialRecordsRequest): Promise<runtime.RequestOpts>;
     /**
      * Cria múltiplos lançamentos financeiros.
      */
@@ -641,6 +933,10 @@ export declare class FinancialRecordsApi extends runtime.BaseAPI implements Fina
      */
     systemCreateManyFinancialRecords(requestParameters: SystemCreateManyFinancialRecordsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<FinancialRecordDto>>;
     /**
+     * Creates request options for systemFindAllFinancialRecords without sending the request
+     */
+    systemFindAllFinancialRecordsRequestOpts(requestParameters: SystemFindAllFinancialRecordsRequest): Promise<runtime.RequestOpts>;
+    /**
      * Busca todos os lançamentos financeiros pelo sistema.
      */
     systemFindAllFinancialRecordsRaw(requestParameters: SystemFindAllFinancialRecordsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SystemFinancialRecordsPageDto>>;
@@ -648,6 +944,10 @@ export declare class FinancialRecordsApi extends runtime.BaseAPI implements Fina
      * Busca todos os lançamentos financeiros pelo sistema.
      */
     systemFindAllFinancialRecords(requestParameters: SystemFindAllFinancialRecordsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SystemFinancialRecordsPageDto>;
+    /**
+     * Creates request options for systemFindByIdFinancialRecord without sending the request
+     */
+    systemFindByIdFinancialRecordRequestOpts(requestParameters: SystemFindByIdFinancialRecordRequest): Promise<runtime.RequestOpts>;
     /**
      * Busca um lançamento financeiro pelo identificador.
      */
@@ -657,6 +957,10 @@ export declare class FinancialRecordsApi extends runtime.BaseAPI implements Fina
      */
     systemFindByIdFinancialRecord(requestParameters: SystemFindByIdFinancialRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialRecordDto>;
     /**
+     * Creates request options for systemGenerateMostCommonContactsAndSubcategoriesForSimilarFinancialRecordReport without sending the request
+     */
+    systemGenerateMostCommonContactsAndSubcategoriesForSimilarFinancialRecordReportRequestOpts(requestParameters: SystemGenerateMostCommonContactsAndSubcategoriesForSimilarFinancialRecordReportRequest): Promise<runtime.RequestOpts>;
+    /**
      * Gera relatório dos contatos e subcategorias mais comuns para lançamentos financeiros similares.
      */
     systemGenerateMostCommonContactsAndSubcategoriesForSimilarFinancialRecordReportRaw(requestParameters: SystemGenerateMostCommonContactsAndSubcategoriesForSimilarFinancialRecordReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDto>>;
@@ -664,6 +968,10 @@ export declare class FinancialRecordsApi extends runtime.BaseAPI implements Fina
      * Gera relatório dos contatos e subcategorias mais comuns para lançamentos financeiros similares.
      */
     systemGenerateMostCommonContactsAndSubcategoriesForSimilarFinancialRecordReport(requestParameters: SystemGenerateMostCommonContactsAndSubcategoriesForSimilarFinancialRecordReportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDto>;
+    /**
+     * Creates request options for unlinkAllRadarItemsFromFinancialRecord without sending the request
+     */
+    unlinkAllRadarItemsFromFinancialRecordRequestOpts(requestParameters: UnlinkAllRadarItemsFromFinancialRecordRequest): Promise<runtime.RequestOpts>;
     /**
      * Remove o vínculo entre um lançamento financeiro e todos os radar items que estão associados a ele.
      * Desvincula todos os radar items de um lançamento financeiro

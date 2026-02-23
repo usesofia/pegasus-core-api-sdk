@@ -22,6 +22,12 @@ export interface FindStatesByCountryRequest {
  */
 export interface AddressesApiInterface {
     /**
+     * Creates request options for findAllCountries without sending the request
+     * @throws {RequiredError}
+     * @memberof AddressesApiInterface
+     */
+    findAllCountriesRequestOpts(): Promise<runtime.RequestOpts>;
+    /**
      *
      * @summary Busca todos os países.
      * @param {*} [options] Override http request option.
@@ -33,6 +39,13 @@ export interface AddressesApiInterface {
      * Busca todos os países.
      */
     findAllCountries(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<CountryItemEntity>>;
+    /**
+     * Creates request options for findStatesByCountry without sending the request
+     * @param {string} countryId Identificador do país.
+     * @throws {RequiredError}
+     * @memberof AddressesApiInterface
+     */
+    findStatesByCountryRequestOpts(requestParameters: FindStatesByCountryRequest): Promise<runtime.RequestOpts>;
     /**
      *
      * @summary Busca todos os estados de um país.
@@ -52,6 +65,10 @@ export interface AddressesApiInterface {
  */
 export declare class AddressesApi extends runtime.BaseAPI implements AddressesApiInterface {
     /**
+     * Creates request options for findAllCountries without sending the request
+     */
+    findAllCountriesRequestOpts(): Promise<runtime.RequestOpts>;
+    /**
      * Busca todos os países.
      */
     findAllCountriesRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<CountryItemEntity>>>;
@@ -59,6 +76,10 @@ export declare class AddressesApi extends runtime.BaseAPI implements AddressesAp
      * Busca todos os países.
      */
     findAllCountries(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<CountryItemEntity>>;
+    /**
+     * Creates request options for findStatesByCountry without sending the request
+     */
+    findStatesByCountryRequestOpts(requestParameters: FindStatesByCountryRequest): Promise<runtime.RequestOpts>;
     /**
      * Busca todos os estados de um país.
      */

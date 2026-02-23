@@ -51,7 +51,7 @@ export interface FileEntity {
     size: number;
     /**
      * Tipo do arquivo.
-     * @type {string}
+     * @type {FileEntityFileTypeEnum}
      * @memberof FileEntity
      */
     fileType: FileEntityFileTypeEnum;
@@ -63,7 +63,7 @@ export interface FileEntity {
     objectName: string;
     /**
      * Status do arquivo.
-     * @type {string}
+     * @type {FileEntityStatusEnum}
      * @memberof FileEntity
      */
     status: FileEntityStatusEnum;

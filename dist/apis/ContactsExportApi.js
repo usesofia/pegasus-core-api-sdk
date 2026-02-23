@@ -76,54 +76,67 @@ var ContactsExportApi = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
+     * Creates request options for exportContacts without sending the request
+     */
+    ContactsExportApi.prototype.exportContactsRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                queryParameters = {};
+                if (requestParameters['sortOrder'] != null) {
+                    queryParameters['sortOrder'] = requestParameters['sortOrder'];
+                }
+                if (requestParameters['sortBy'] != null) {
+                    queryParameters['sortBy'] = requestParameters['sortBy'];
+                }
+                if (requestParameters['considerNotIdentified'] != null) {
+                    queryParameters['considerNotIdentified'] = requestParameters['considerNotIdentified'];
+                }
+                if (requestParameters['states'] != null) {
+                    queryParameters['states'] = requestParameters['states'];
+                }
+                if (requestParameters['country'] != null) {
+                    queryParameters['country'] = requestParameters['country'];
+                }
+                if (requestParameters['birthdayTo'] != null) {
+                    queryParameters['birthdayTo'] = requestParameters['birthdayTo'];
+                }
+                if (requestParameters['birthdayFrom'] != null) {
+                    queryParameters['birthdayFrom'] = requestParameters['birthdayFrom'];
+                }
+                if (requestParameters['origins'] != null) {
+                    queryParameters['origins'] = requestParameters['origins'];
+                }
+                if (requestParameters['types'] != null) {
+                    queryParameters['types'] = requestParameters['types'];
+                }
+                if (requestParameters['format'] != null) {
+                    queryParameters['format'] = requestParameters['format'];
+                }
+                headerParameters = {};
+                urlPath = "/external/contacts/export";
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'POST',
+                        headers: headerParameters,
+                        query: queryParameters,
+                    }];
+            });
+        });
+    };
+    /**
      * Solicita a exportação dos contatos.
      */
     ContactsExportApi.prototype.exportContactsRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        queryParameters = {};
-                        if (requestParameters['sortOrder'] != null) {
-                            queryParameters['sortOrder'] = requestParameters['sortOrder'];
-                        }
-                        if (requestParameters['sortBy'] != null) {
-                            queryParameters['sortBy'] = requestParameters['sortBy'];
-                        }
-                        if (requestParameters['considerNotIdentified'] != null) {
-                            queryParameters['considerNotIdentified'] = requestParameters['considerNotIdentified'];
-                        }
-                        if (requestParameters['states'] != null) {
-                            queryParameters['states'] = requestParameters['states'];
-                        }
-                        if (requestParameters['country'] != null) {
-                            queryParameters['country'] = requestParameters['country'];
-                        }
-                        if (requestParameters['birthdayTo'] != null) {
-                            queryParameters['birthdayTo'] = requestParameters['birthdayTo'];
-                        }
-                        if (requestParameters['birthdayFrom'] != null) {
-                            queryParameters['birthdayFrom'] = requestParameters['birthdayFrom'];
-                        }
-                        if (requestParameters['origins'] != null) {
-                            queryParameters['origins'] = requestParameters['origins'];
-                        }
-                        if (requestParameters['types'] != null) {
-                            queryParameters['types'] = requestParameters['types'];
-                        }
-                        if (requestParameters['format'] != null) {
-                            queryParameters['format'] = requestParameters['format'];
-                        }
-                        headerParameters = {};
-                        urlPath = "/external/contacts/export";
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'POST',
-                                headers: headerParameters,
-                                query: queryParameters,
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.exportContactsRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.ExportContactsDtoFromJSON)(jsonValue); })];
                 }

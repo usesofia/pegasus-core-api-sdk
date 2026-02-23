@@ -76,29 +76,42 @@ var EmbeddingApi = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
+     * Creates request options for calculateAndUpdateEmbedding without sending the request
+     */
+    EmbeddingApi.prototype.calculateAndUpdateEmbeddingRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                if (requestParameters['calculateAndUpdateEmbeddingBodyRequestDto'] == null) {
+                    throw new runtime.RequiredError('calculateAndUpdateEmbeddingBodyRequestDto', 'Required parameter "calculateAndUpdateEmbeddingBodyRequestDto" was null or undefined when calling calculateAndUpdateEmbedding().');
+                }
+                queryParameters = {};
+                headerParameters = {};
+                headerParameters['Content-Type'] = 'application/json';
+                urlPath = "/internal/queues/calculate-embedding";
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'POST',
+                        headers: headerParameters,
+                        query: queryParameters,
+                        body: (0, index_1.CalculateAndUpdateEmbeddingBodyRequestDtoToJSON)(requestParameters['calculateAndUpdateEmbeddingBodyRequestDto']),
+                    }];
+            });
+        });
+    };
+    /**
      * Calcula e atualiza o embedding de um recurso.
      */
     EmbeddingApi.prototype.calculateAndUpdateEmbeddingRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        if (requestParameters['calculateAndUpdateEmbeddingBodyRequestDto'] == null) {
-                            throw new runtime.RequiredError('calculateAndUpdateEmbeddingBodyRequestDto', 'Required parameter "calculateAndUpdateEmbeddingBodyRequestDto" was null or undefined when calling calculateAndUpdateEmbedding().');
-                        }
-                        queryParameters = {};
-                        headerParameters = {};
-                        headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/internal/queues/calculate-embedding";
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'POST',
-                                headers: headerParameters,
-                                query: queryParameters,
-                                body: (0, index_1.CalculateAndUpdateEmbeddingBodyRequestDtoToJSON)(requestParameters['calculateAndUpdateEmbeddingBodyRequestDto']),
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.calculateAndUpdateEmbeddingRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.VoidApiResponse(response)];
                 }
@@ -121,24 +134,37 @@ var EmbeddingApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Creates request options for catchProblematicEmbeddingCalculations without sending the request
+     */
+    EmbeddingApi.prototype.catchProblematicEmbeddingCalculationsRequestOpts = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                queryParameters = {};
+                headerParameters = {};
+                urlPath = "/internal/embedding/catch";
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'POST',
+                        headers: headerParameters,
+                        query: queryParameters,
+                    }];
+            });
+        });
+    };
+    /**
      * Checa se existem recursos que precisam do cálculo do embedding e os adiciona na fila.
      */
     EmbeddingApi.prototype.catchProblematicEmbeddingCalculationsRaw = function (initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        queryParameters = {};
-                        headerParameters = {};
-                        urlPath = "/internal/embedding/catch";
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'POST',
-                                headers: headerParameters,
-                                query: queryParameters,
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.catchProblematicEmbeddingCalculationsRequestOpts()];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.VoidApiResponse(response)];
                 }

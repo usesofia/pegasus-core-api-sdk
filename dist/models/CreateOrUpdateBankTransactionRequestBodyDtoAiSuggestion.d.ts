@@ -19,7 +19,7 @@ import type { CreateOrUpdateBankTransactionRequestBodyDtoAiSuggestionCreateData 
 export interface CreateOrUpdateBankTransactionRequestBodyDtoAiSuggestion {
     /**
      *
-     * @type {string}
+     * @type {CreateOrUpdateBankTransactionRequestBodyDtoAiSuggestionOperationEnum}
      * @memberof CreateOrUpdateBankTransactionRequestBodyDtoAiSuggestion
      */
     operation: CreateOrUpdateBankTransactionRequestBodyDtoAiSuggestionOperationEnum;

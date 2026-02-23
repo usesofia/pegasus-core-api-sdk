@@ -22,6 +22,13 @@ export interface CalculateAndUpdateEmbeddingRequest {
  */
 export interface EmbeddingApiInterface {
     /**
+     * Creates request options for calculateAndUpdateEmbedding without sending the request
+     * @param {CalculateAndUpdateEmbeddingBodyRequestDto} calculateAndUpdateEmbeddingBodyRequestDto
+     * @throws {RequiredError}
+     * @memberof EmbeddingApiInterface
+     */
+    calculateAndUpdateEmbeddingRequestOpts(requestParameters: CalculateAndUpdateEmbeddingRequest): Promise<runtime.RequestOpts>;
+    /**
      *
      * @summary Calcula e atualiza o embedding de um recurso.
      * @param {CalculateAndUpdateEmbeddingBodyRequestDto} calculateAndUpdateEmbeddingBodyRequestDto
@@ -34,6 +41,12 @@ export interface EmbeddingApiInterface {
      * Calcula e atualiza o embedding de um recurso.
      */
     calculateAndUpdateEmbedding(requestParameters: CalculateAndUpdateEmbeddingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+    /**
+     * Creates request options for catchProblematicEmbeddingCalculations without sending the request
+     * @throws {RequiredError}
+     * @memberof EmbeddingApiInterface
+     */
+    catchProblematicEmbeddingCalculationsRequestOpts(): Promise<runtime.RequestOpts>;
     /**
      *
      * @summary Checa se existem recursos que precisam do cálculo do embedding e os adiciona na fila.
@@ -52,6 +65,10 @@ export interface EmbeddingApiInterface {
  */
 export declare class EmbeddingApi extends runtime.BaseAPI implements EmbeddingApiInterface {
     /**
+     * Creates request options for calculateAndUpdateEmbedding without sending the request
+     */
+    calculateAndUpdateEmbeddingRequestOpts(requestParameters: CalculateAndUpdateEmbeddingRequest): Promise<runtime.RequestOpts>;
+    /**
      * Calcula e atualiza o embedding de um recurso.
      */
     calculateAndUpdateEmbeddingRaw(requestParameters: CalculateAndUpdateEmbeddingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
@@ -59,6 +76,10 @@ export declare class EmbeddingApi extends runtime.BaseAPI implements EmbeddingAp
      * Calcula e atualiza o embedding de um recurso.
      */
     calculateAndUpdateEmbedding(requestParameters: CalculateAndUpdateEmbeddingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+    /**
+     * Creates request options for catchProblematicEmbeddingCalculations without sending the request
+     */
+    catchProblematicEmbeddingCalculationsRequestOpts(): Promise<runtime.RequestOpts>;
     /**
      * Checa se existem recursos que precisam do cálculo do embedding e os adiciona na fila.
      */

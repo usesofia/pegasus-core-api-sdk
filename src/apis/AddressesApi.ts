@@ -40,6 +40,13 @@ export interface FindStatesByCountryRequest {
  */
 export interface AddressesApiInterface {
     /**
+     * Creates request options for findAllCountries without sending the request
+     * @throws {RequiredError}
+     * @memberof AddressesApiInterface
+     */
+    findAllCountriesRequestOpts(): Promise<runtime.RequestOpts>;
+
+    /**
      * 
      * @summary Busca todos os países.
      * @param {*} [options] Override http request option.
@@ -52,6 +59,14 @@ export interface AddressesApiInterface {
      * Busca todos os países.
      */
     findAllCountries(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<CountryItemEntity>>;
+
+    /**
+     * Creates request options for findStatesByCountry without sending the request
+     * @param {string} countryId Identificador do país.
+     * @throws {RequiredError}
+     * @memberof AddressesApiInterface
+     */
+    findStatesByCountryRequestOpts(requestParameters: FindStatesByCountryRequest): Promise<runtime.RequestOpts>;
 
     /**
      * 
@@ -76,9 +91,9 @@ export interface AddressesApiInterface {
 export class AddressesApi extends runtime.BaseAPI implements AddressesApiInterface {
 
     /**
-     * Busca todos os países.
+     * Creates request options for findAllCountries without sending the request
      */
-    async findAllCountriesRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<CountryItemEntity>>> {
+    async findAllCountriesRequestOpts(): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -86,12 +101,20 @@ export class AddressesApi extends runtime.BaseAPI implements AddressesApiInterfa
 
         let urlPath = `/external/addresses/countries`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Busca todos os países.
+     */
+    async findAllCountriesRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<CountryItemEntity>>> {
+        const requestOptions = await this.findAllCountriesRequestOpts();
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(CountryItemEntityFromJSON));
     }
@@ -105,9 +128,9 @@ export class AddressesApi extends runtime.BaseAPI implements AddressesApiInterfa
     }
 
     /**
-     * Busca todos os estados de um país.
+     * Creates request options for findStatesByCountry without sending the request
      */
-    async findStatesByCountryRaw(requestParameters: FindStatesByCountryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<CountryStateItemEntity>>> {
+    async findStatesByCountryRequestOpts(requestParameters: FindStatesByCountryRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['countryId'] == null) {
             throw new runtime.RequiredError(
                 'countryId',
@@ -123,12 +146,20 @@ export class AddressesApi extends runtime.BaseAPI implements AddressesApiInterfa
         let urlPath = `/external/addresses/countries/{countryId}/states`;
         urlPath = urlPath.replace(`{${"countryId"}}`, encodeURIComponent(String(requestParameters['countryId'])));
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Busca todos os estados de um país.
+     */
+    async findStatesByCountryRaw(requestParameters: FindStatesByCountryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<CountryStateItemEntity>>> {
+        const requestOptions = await this.findStatesByCountryRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(CountryStateItemEntityFromJSON));
     }

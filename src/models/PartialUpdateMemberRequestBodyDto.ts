@@ -21,13 +21,13 @@ import { mapValues } from '../runtime';
 export interface PartialUpdateMemberRequestBodyDto {
     /**
      * Papel do membro na organização.
-     * @type {string}
+     * @type {PartialUpdateMemberRequestBodyDtoRoleEnum}
      * @memberof PartialUpdateMemberRequestBodyDto
      */
     role: PartialUpdateMemberRequestBodyDtoRoleEnum;
     /**
      * Canal de origem da operação
-     * @type {string}
+     * @type {PartialUpdateMemberRequestBodyDtoChannelEnum}
      * @memberof PartialUpdateMemberRequestBodyDto
      */
     channel: PartialUpdateMemberRequestBodyDtoChannelEnum;

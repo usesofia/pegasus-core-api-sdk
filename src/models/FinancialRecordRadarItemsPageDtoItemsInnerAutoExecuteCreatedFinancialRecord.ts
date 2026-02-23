@@ -76,7 +76,7 @@ export interface FinancialRecordRadarItemsPageDtoItemsInnerAutoExecuteCreatedFin
     ownerOrganization: string;
     /**
      * Direção do lançamento (entrada/saída).
-     * @type {string}
+     * @type {FinancialRecordRadarItemsPageDtoItemsInnerAutoExecuteCreatedFinancialRecordDirectionEnum}
      * @memberof FinancialRecordRadarItemsPageDtoItemsInnerAutoExecuteCreatedFinancialRecord
      */
     direction: FinancialRecordRadarItemsPageDtoItemsInnerAutoExecuteCreatedFinancialRecordDirectionEnum;

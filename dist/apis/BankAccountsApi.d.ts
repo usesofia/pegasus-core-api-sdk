@@ -78,6 +78,14 @@ export interface SystemFindByIdBankAccountRequest {
  */
 export interface BankAccountsApiInterface {
     /**
+     * Creates request options for createBankAccount without sending the request
+     * @param {CreateBankAccountRequestBodyDto} createBankAccountRequestBodyDto
+     * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
+     * @throws {RequiredError}
+     * @memberof BankAccountsApiInterface
+     */
+    createBankAccountRequestOpts(requestParameters: CreateBankAccountRequest): Promise<runtime.RequestOpts>;
+    /**
      *
      * @summary Cria uma nova conta bancária.
      * @param {CreateBankAccountRequestBodyDto} createBankAccountRequestBodyDto
@@ -92,6 +100,12 @@ export interface BankAccountsApiInterface {
      */
     createBankAccount(requestParameters: CreateBankAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankAccountDto>;
     /**
+     * Creates request options for findAllBankAccountTypes without sending the request
+     * @throws {RequiredError}
+     * @memberof BankAccountsApiInterface
+     */
+    findAllBankAccountTypesRequestOpts(): Promise<runtime.RequestOpts>;
+    /**
      *
      * @summary Busca todos os tipos de conta bancária.
      * @param {*} [options] Override http request option.
@@ -103,6 +117,26 @@ export interface BankAccountsApiInterface {
      * Busca todos os tipos de conta bancária.
      */
     findAllBankAccountTypes(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<BankAccountTypeEntity>>;
+    /**
+     * Creates request options for findAllBankAccounts without sending the request
+     * @param {'asc' | 'desc'} [sortOrder] Ordem de ordenação das contas bancárias.
+     * @param {'name' | 'type' | 'institution' | 'createdAt' | 'updatedAt'} [sortBy] Campo para ordenação das contas bancárias.
+     * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
+     * @param {string} [providerAccountId] Identificador da conta bancária no fornecedor.
+     * @param {string} [provider] Fornecedor da conta bancária.
+     * @param {boolean} [active] Indica se a conta está ativa.
+     * @param {Array<string>} [ids] Identificadores das contas bancárias a serem buscadas.
+     * @param {boolean} [isDefault] Indica se a conta é a padrão.
+     * @param {boolean} [isAutomatic] Indica se a conta é automática ou manual.
+     * @param {string} [type] Tipo de conta bancária a ser buscada.
+     * @param {string} [semanticSearchTermInBase64] Termo para busca semântica da conta bancária em base64.
+     * @param {string} [textSearchTerm] Termo para busca textual da conta bancária.
+     * @param {number} [pageSize] Quantidade de itens por página.
+     * @param {number} [pageIndex] Índice da página.
+     * @throws {RequiredError}
+     * @memberof BankAccountsApiInterface
+     */
+    findAllBankAccountsRequestOpts(requestParameters: FindAllBankAccountsRequest): Promise<runtime.RequestOpts>;
     /**
      *
      * @summary Busca todas as contas bancárias.
@@ -130,6 +164,14 @@ export interface BankAccountsApiInterface {
      */
     findAllBankAccounts(requestParameters: FindAllBankAccountsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankAccountsPageDto>;
     /**
+     * Creates request options for findAllByPluggyItem without sending the request
+     * @param {string} itemId Identificador do item de conexão do Pluggy.
+     * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
+     * @throws {RequiredError}
+     * @memberof BankAccountsApiInterface
+     */
+    findAllByPluggyItemRequestOpts(requestParameters: FindAllByPluggyItemRequest): Promise<runtime.RequestOpts>;
+    /**
      *
      * @summary Busca contas bancárias pelo identificador do item do Pluggy.
      * @param {string} itemId Identificador do item de conexão do Pluggy.
@@ -144,6 +186,14 @@ export interface BankAccountsApiInterface {
      */
     findAllByPluggyItem(requestParameters: FindAllByPluggyItemRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<BankAccountDto>>;
     /**
+     * Creates request options for findByIdBankAccount without sending the request
+     * @param {string} id Identificador da conta bancária.
+     * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
+     * @throws {RequiredError}
+     * @memberof BankAccountsApiInterface
+     */
+    findByIdBankAccountRequestOpts(requestParameters: FindByIdBankAccountRequest): Promise<runtime.RequestOpts>;
+    /**
      *
      * @summary Busca uma conta bancária pelo identificador.
      * @param {string} id Identificador da conta bancária.
@@ -157,6 +207,15 @@ export interface BankAccountsApiInterface {
      * Busca uma conta bancária pelo identificador.
      */
     findByIdBankAccount(requestParameters: FindByIdBankAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankAccountDto>;
+    /**
+     * Creates request options for partialUpdateBankAccount without sending the request
+     * @param {string} id Identificador da conta bancária.
+     * @param {PartialUpdateBankAccountRequestBodyDto} partialUpdateBankAccountRequestBodyDto
+     * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
+     * @throws {RequiredError}
+     * @memberof BankAccountsApiInterface
+     */
+    partialUpdateBankAccountRequestOpts(requestParameters: PartialUpdateBankAccountRequest): Promise<runtime.RequestOpts>;
     /**
      *
      * @summary Atualiza parcialmente uma conta bancária.
@@ -173,6 +232,14 @@ export interface BankAccountsApiInterface {
      */
     partialUpdateBankAccount(requestParameters: PartialUpdateBankAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankAccountDto>;
     /**
+     * Creates request options for removeBankAccount without sending the request
+     * @param {string} id Identificador da conta bancária.
+     * @param {RemoveBankAccountRequestBodyDto} removeBankAccountRequestBodyDto
+     * @throws {RequiredError}
+     * @memberof BankAccountsApiInterface
+     */
+    removeBankAccountRequestOpts(requestParameters: RemoveBankAccountRequest): Promise<runtime.RequestOpts>;
+    /**
      *
      * @summary Remove uma conta bancária.
      * @param {string} id Identificador da conta bancária.
@@ -186,6 +253,28 @@ export interface BankAccountsApiInterface {
      * Remove uma conta bancária.
      */
     removeBankAccount(requestParameters: RemoveBankAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+    /**
+     * Creates request options for systemFindAllBankAccounts without sending the request
+     * @param {string} ownerOrganizationId Identificador da organização proprietária das contas bancárias.
+     * @param {'primary' | 'primaryPreferred' | 'secondary' | 'secondaryPreferred' | 'nearest'} [readPreference] Preferência de leitura das contas bancárias.
+     * @param {'asc' | 'desc'} [sortOrder] Ordem de ordenação das contas bancárias.
+     * @param {'name' | 'type' | 'institution' | 'createdAt' | 'updatedAt'} [sortBy] Campo para ordenação das contas bancárias.
+     * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
+     * @param {string} [providerAccountId] Identificador da conta bancária no fornecedor.
+     * @param {string} [provider] Fornecedor da conta bancária.
+     * @param {boolean} [active] Indica se a conta está ativa.
+     * @param {string} [ids] Lista de IDs de contas bancárias para filtrar separados por vírgula.
+     * @param {boolean} [isDefault] Indica se a conta é a padrão.
+     * @param {boolean} [isAutomatic] Indica se a conta é automática ou manual.
+     * @param {string} [type] Tipo de conta bancária a ser buscada.
+     * @param {string} [semanticSearchTermInBase64] Termo para busca semântica da conta bancária em base64.
+     * @param {string} [textSearchTerm] Termo para busca textual da conta bancária.
+     * @param {number} [pageSize] Quantidade de itens por página.
+     * @param {number} [pageIndex] Índice da página.
+     * @throws {RequiredError}
+     * @memberof BankAccountsApiInterface
+     */
+    systemFindAllBankAccountsRequestOpts(requestParameters: SystemFindAllBankAccountsRequest): Promise<runtime.RequestOpts>;
     /**
      *
      * @summary Busca todas as contas bancárias.
@@ -215,6 +304,14 @@ export interface BankAccountsApiInterface {
      */
     systemFindAllBankAccounts(requestParameters: SystemFindAllBankAccountsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankAccountsPageDto>;
     /**
+     * Creates request options for systemFindByIdBankAccount without sending the request
+     * @param {string} id Identificador da conta bancária.
+     * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
+     * @throws {RequiredError}
+     * @memberof BankAccountsApiInterface
+     */
+    systemFindByIdBankAccountRequestOpts(requestParameters: SystemFindByIdBankAccountRequest): Promise<runtime.RequestOpts>;
+    /**
      *
      * @summary Busca uma conta bancária pelo identificador.
      * @param {string} id Identificador da conta bancária.
@@ -234,6 +331,10 @@ export interface BankAccountsApiInterface {
  */
 export declare class BankAccountsApi extends runtime.BaseAPI implements BankAccountsApiInterface {
     /**
+     * Creates request options for createBankAccount without sending the request
+     */
+    createBankAccountRequestOpts(requestParameters: CreateBankAccountRequest): Promise<runtime.RequestOpts>;
+    /**
      * Cria uma nova conta bancária.
      */
     createBankAccountRaw(requestParameters: CreateBankAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankAccountDto>>;
@@ -241,6 +342,10 @@ export declare class BankAccountsApi extends runtime.BaseAPI implements BankAcco
      * Cria uma nova conta bancária.
      */
     createBankAccount(requestParameters: CreateBankAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankAccountDto>;
+    /**
+     * Creates request options for findAllBankAccountTypes without sending the request
+     */
+    findAllBankAccountTypesRequestOpts(): Promise<runtime.RequestOpts>;
     /**
      * Busca todos os tipos de conta bancária.
      */
@@ -250,6 +355,10 @@ export declare class BankAccountsApi extends runtime.BaseAPI implements BankAcco
      */
     findAllBankAccountTypes(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<BankAccountTypeEntity>>;
     /**
+     * Creates request options for findAllBankAccounts without sending the request
+     */
+    findAllBankAccountsRequestOpts(requestParameters: FindAllBankAccountsRequest): Promise<runtime.RequestOpts>;
+    /**
      * Busca todas as contas bancárias.
      */
     findAllBankAccountsRaw(requestParameters: FindAllBankAccountsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankAccountsPageDto>>;
@@ -257,6 +366,10 @@ export declare class BankAccountsApi extends runtime.BaseAPI implements BankAcco
      * Busca todas as contas bancárias.
      */
     findAllBankAccounts(requestParameters?: FindAllBankAccountsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankAccountsPageDto>;
+    /**
+     * Creates request options for findAllByPluggyItem without sending the request
+     */
+    findAllByPluggyItemRequestOpts(requestParameters: FindAllByPluggyItemRequest): Promise<runtime.RequestOpts>;
     /**
      * Busca contas bancárias pelo identificador do item do Pluggy.
      */
@@ -266,6 +379,10 @@ export declare class BankAccountsApi extends runtime.BaseAPI implements BankAcco
      */
     findAllByPluggyItem(requestParameters: FindAllByPluggyItemRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<BankAccountDto>>;
     /**
+     * Creates request options for findByIdBankAccount without sending the request
+     */
+    findByIdBankAccountRequestOpts(requestParameters: FindByIdBankAccountRequest): Promise<runtime.RequestOpts>;
+    /**
      * Busca uma conta bancária pelo identificador.
      */
     findByIdBankAccountRaw(requestParameters: FindByIdBankAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankAccountDto>>;
@@ -273,6 +390,10 @@ export declare class BankAccountsApi extends runtime.BaseAPI implements BankAcco
      * Busca uma conta bancária pelo identificador.
      */
     findByIdBankAccount(requestParameters: FindByIdBankAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankAccountDto>;
+    /**
+     * Creates request options for partialUpdateBankAccount without sending the request
+     */
+    partialUpdateBankAccountRequestOpts(requestParameters: PartialUpdateBankAccountRequest): Promise<runtime.RequestOpts>;
     /**
      * Atualiza parcialmente uma conta bancária.
      */
@@ -282,6 +403,10 @@ export declare class BankAccountsApi extends runtime.BaseAPI implements BankAcco
      */
     partialUpdateBankAccount(requestParameters: PartialUpdateBankAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankAccountDto>;
     /**
+     * Creates request options for removeBankAccount without sending the request
+     */
+    removeBankAccountRequestOpts(requestParameters: RemoveBankAccountRequest): Promise<runtime.RequestOpts>;
+    /**
      * Remove uma conta bancária.
      */
     removeBankAccountRaw(requestParameters: RemoveBankAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
@@ -290,6 +415,10 @@ export declare class BankAccountsApi extends runtime.BaseAPI implements BankAcco
      */
     removeBankAccount(requestParameters: RemoveBankAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
     /**
+     * Creates request options for systemFindAllBankAccounts without sending the request
+     */
+    systemFindAllBankAccountsRequestOpts(requestParameters: SystemFindAllBankAccountsRequest): Promise<runtime.RequestOpts>;
+    /**
      * Busca todas as contas bancárias.
      */
     systemFindAllBankAccountsRaw(requestParameters: SystemFindAllBankAccountsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankAccountsPageDto>>;
@@ -297,6 +426,10 @@ export declare class BankAccountsApi extends runtime.BaseAPI implements BankAcco
      * Busca todas as contas bancárias.
      */
     systemFindAllBankAccounts(requestParameters: SystemFindAllBankAccountsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankAccountsPageDto>;
+    /**
+     * Creates request options for systemFindByIdBankAccount without sending the request
+     */
+    systemFindByIdBankAccountRequestOpts(requestParameters: SystemFindByIdBankAccountRequest): Promise<runtime.RequestOpts>;
     /**
      * Busca uma conta bancária pelo identificador.
      */

@@ -76,32 +76,45 @@ var OrganizationsApi = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
+     * Creates request options for createOrganization without sending the request
+     */
+    OrganizationsApi.prototype.createOrganizationRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                if (requestParameters['createOrganizationRequestBodyDto'] == null) {
+                    throw new runtime.RequiredError('createOrganizationRequestBodyDto', 'Required parameter "createOrganizationRequestBodyDto" was null or undefined when calling createOrganization().');
+                }
+                queryParameters = {};
+                if (requestParameters['populate'] != null) {
+                    queryParameters['populate'] = requestParameters['populate'];
+                }
+                headerParameters = {};
+                headerParameters['Content-Type'] = 'application/json';
+                urlPath = "/external/organizations";
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'POST',
+                        headers: headerParameters,
+                        query: queryParameters,
+                        body: (0, index_1.CreateOrganizationRequestBodyDtoToJSON)(requestParameters['createOrganizationRequestBodyDto']),
+                    }];
+            });
+        });
+    };
+    /**
      * Create a new organization.
      */
     OrganizationsApi.prototype.createOrganizationRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        if (requestParameters['createOrganizationRequestBodyDto'] == null) {
-                            throw new runtime.RequiredError('createOrganizationRequestBodyDto', 'Required parameter "createOrganizationRequestBodyDto" was null or undefined when calling createOrganization().');
-                        }
-                        queryParameters = {};
-                        if (requestParameters['populate'] != null) {
-                            queryParameters['populate'] = requestParameters['populate'];
-                        }
-                        headerParameters = {};
-                        headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/external/organizations";
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'POST',
-                                headers: headerParameters,
-                                query: queryParameters,
-                                body: (0, index_1.CreateOrganizationRequestBodyDtoToJSON)(requestParameters['createOrganizationRequestBodyDto']),
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.createOrganizationRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.OrganizationEntityFromJSON)(jsonValue); })];
                 }
@@ -126,28 +139,41 @@ var OrganizationsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Creates request options for externalHardRemoveOrganization without sending the request
+     */
+    OrganizationsApi.prototype.externalHardRemoveOrganizationRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                if (requestParameters['organizationId'] == null) {
+                    throw new runtime.RequiredError('organizationId', 'Required parameter "organizationId" was null or undefined when calling externalHardRemoveOrganization().');
+                }
+                queryParameters = {};
+                headerParameters = {};
+                urlPath = "/external/organizations/{organizationId}/hard";
+                urlPath = urlPath.replace("{".concat("organizationId", "}"), encodeURIComponent(String(requestParameters['organizationId'])));
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'DELETE',
+                        headers: headerParameters,
+                        query: queryParameters,
+                    }];
+            });
+        });
+    };
+    /**
      * Hard remove an organization and all its data.
      */
     OrganizationsApi.prototype.externalHardRemoveOrganizationRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        if (requestParameters['organizationId'] == null) {
-                            throw new runtime.RequiredError('organizationId', 'Required parameter "organizationId" was null or undefined when calling externalHardRemoveOrganization().');
-                        }
-                        queryParameters = {};
-                        headerParameters = {};
-                        urlPath = "/external/organizations/{organizationId}/hard";
-                        urlPath = urlPath.replace("{".concat("organizationId", "}"), encodeURIComponent(String(requestParameters['organizationId'])));
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'DELETE',
-                                headers: headerParameters,
-                                query: queryParameters,
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.externalHardRemoveOrganizationRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.VoidApiResponse(response)];
                 }
@@ -170,72 +196,85 @@ var OrganizationsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Creates request options for findAllOrganizationsAdmin without sending the request
+     */
+    OrganizationsApi.prototype.findAllOrganizationsAdminRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                queryParameters = {};
+                if (requestParameters['serviceCutoffDateTo'] != null) {
+                    queryParameters['serviceCutoffDateTo'] = requestParameters['serviceCutoffDateTo'];
+                }
+                if (requestParameters['serviceCutoffDateFrom'] != null) {
+                    queryParameters['serviceCutoffDateFrom'] = requestParameters['serviceCutoffDateFrom'];
+                }
+                if (requestParameters['latePayment'] != null) {
+                    queryParameters['latePayment'] = requestParameters['latePayment'];
+                }
+                if (requestParameters['hasCustomerId'] != null) {
+                    queryParameters['hasCustomerId'] = requestParameters['hasCustomerId'];
+                }
+                if (requestParameters['sortOrder'] != null) {
+                    queryParameters['sortOrder'] = requestParameters['sortOrder'];
+                }
+                if (requestParameters['sortBy'] != null) {
+                    queryParameters['sortBy'] = requestParameters['sortBy'];
+                }
+                if (requestParameters['textSearchTerm'] != null) {
+                    queryParameters['textSearchTerm'] = requestParameters['textSearchTerm'];
+                }
+                if (requestParameters['clerkIds'] != null) {
+                    queryParameters['clerkIds'] = requestParameters['clerkIds'];
+                }
+                if (requestParameters['subscriptionStatuses'] != null) {
+                    queryParameters['subscriptionStatuses'] = requestParameters['subscriptionStatuses'];
+                }
+                if (requestParameters['trialExpiresAtTo'] != null) {
+                    queryParameters['trialExpiresAtTo'] = requestParameters['trialExpiresAtTo'];
+                }
+                if (requestParameters['trialExpiresAtFrom'] != null) {
+                    queryParameters['trialExpiresAtFrom'] = requestParameters['trialExpiresAtFrom'];
+                }
+                if (requestParameters['clerkCreatedAtTo'] != null) {
+                    queryParameters['clerkCreatedAtTo'] = requestParameters['clerkCreatedAtTo'];
+                }
+                if (requestParameters['clerkCreatedAtFrom'] != null) {
+                    queryParameters['clerkCreatedAtFrom'] = requestParameters['clerkCreatedAtFrom'];
+                }
+                if (requestParameters['subtypes'] != null) {
+                    queryParameters['subtypes'] = requestParameters['subtypes'];
+                }
+                if (requestParameters['pageSize'] != null) {
+                    queryParameters['pageSize'] = requestParameters['pageSize'];
+                }
+                if (requestParameters['pageIndex'] != null) {
+                    queryParameters['pageIndex'] = requestParameters['pageIndex'];
+                }
+                headerParameters = {};
+                urlPath = "/external/organizations/admin";
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'GET',
+                        headers: headerParameters,
+                        query: queryParameters,
+                    }];
+            });
+        });
+    };
+    /**
      * Lista todas as organizações armazenadas no banco de dados (endpoint admin).
      */
     OrganizationsApi.prototype.findAllOrganizationsAdminRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        queryParameters = {};
-                        if (requestParameters['serviceCutoffDateTo'] != null) {
-                            queryParameters['serviceCutoffDateTo'] = requestParameters['serviceCutoffDateTo'];
-                        }
-                        if (requestParameters['serviceCutoffDateFrom'] != null) {
-                            queryParameters['serviceCutoffDateFrom'] = requestParameters['serviceCutoffDateFrom'];
-                        }
-                        if (requestParameters['latePayment'] != null) {
-                            queryParameters['latePayment'] = requestParameters['latePayment'];
-                        }
-                        if (requestParameters['hasCustomerId'] != null) {
-                            queryParameters['hasCustomerId'] = requestParameters['hasCustomerId'];
-                        }
-                        if (requestParameters['sortOrder'] != null) {
-                            queryParameters['sortOrder'] = requestParameters['sortOrder'];
-                        }
-                        if (requestParameters['sortBy'] != null) {
-                            queryParameters['sortBy'] = requestParameters['sortBy'];
-                        }
-                        if (requestParameters['textSearchTerm'] != null) {
-                            queryParameters['textSearchTerm'] = requestParameters['textSearchTerm'];
-                        }
-                        if (requestParameters['clerkIds'] != null) {
-                            queryParameters['clerkIds'] = requestParameters['clerkIds'];
-                        }
-                        if (requestParameters['subscriptionStatuses'] != null) {
-                            queryParameters['subscriptionStatuses'] = requestParameters['subscriptionStatuses'];
-                        }
-                        if (requestParameters['trialExpiresAtTo'] != null) {
-                            queryParameters['trialExpiresAtTo'] = requestParameters['trialExpiresAtTo'];
-                        }
-                        if (requestParameters['trialExpiresAtFrom'] != null) {
-                            queryParameters['trialExpiresAtFrom'] = requestParameters['trialExpiresAtFrom'];
-                        }
-                        if (requestParameters['clerkCreatedAtTo'] != null) {
-                            queryParameters['clerkCreatedAtTo'] = requestParameters['clerkCreatedAtTo'];
-                        }
-                        if (requestParameters['clerkCreatedAtFrom'] != null) {
-                            queryParameters['clerkCreatedAtFrom'] = requestParameters['clerkCreatedAtFrom'];
-                        }
-                        if (requestParameters['subtypes'] != null) {
-                            queryParameters['subtypes'] = requestParameters['subtypes'];
-                        }
-                        if (requestParameters['pageSize'] != null) {
-                            queryParameters['pageSize'] = requestParameters['pageSize'];
-                        }
-                        if (requestParameters['pageIndex'] != null) {
-                            queryParameters['pageIndex'] = requestParameters['pageIndex'];
-                        }
-                        headerParameters = {};
-                        urlPath = "/external/organizations/admin";
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'GET',
-                                headers: headerParameters,
-                                query: queryParameters,
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.findAllOrganizationsAdminRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.AdminOrganizationsPageDtoFromJSON)(jsonValue); })];
                 }
@@ -261,24 +300,37 @@ var OrganizationsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Creates request options for findMyAdminGroupOrganizations without sending the request
+     */
+    OrganizationsApi.prototype.findMyAdminGroupOrganizationsRequestOpts = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                queryParameters = {};
+                headerParameters = {};
+                urlPath = "/external/organizations/my/admin/type/group";
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'GET',
+                        headers: headerParameters,
+                        query: queryParameters,
+                    }];
+            });
+        });
+    };
+    /**
      * Find my organizations of type group where I am admin.
      */
     OrganizationsApi.prototype.findMyAdminGroupOrganizationsRaw = function (initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        queryParameters = {};
-                        headerParameters = {};
-                        urlPath = "/external/organizations/my/admin/type/group";
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'GET',
-                                headers: headerParameters,
-                                query: queryParameters,
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.findMyAdminGroupOrganizationsRequestOpts()];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return jsonValue.map(index_1.OrganizationEntityFromJSON); })];
                 }
@@ -303,24 +355,37 @@ var OrganizationsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Creates request options for findMyOrganization without sending the request
+     */
+    OrganizationsApi.prototype.findMyOrganizationRequestOpts = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                queryParameters = {};
+                headerParameters = {};
+                urlPath = "/external/organizations/my";
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'GET',
+                        headers: headerParameters,
+                        query: queryParameters,
+                    }];
+            });
+        });
+    };
+    /**
      * Find my organization.
      */
     OrganizationsApi.prototype.findMyOrganizationRaw = function (initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        queryParameters = {};
-                        headerParameters = {};
-                        urlPath = "/external/organizations/my";
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'GET',
-                                headers: headerParameters,
-                                query: queryParameters,
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.findMyOrganizationRequestOpts()];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.OrganizationEntityFromJSON)(jsonValue); })];
                 }
@@ -345,28 +410,41 @@ var OrganizationsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Creates request options for findOrganizationById without sending the request
+     */
+    OrganizationsApi.prototype.findOrganizationByIdRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                if (requestParameters['organizationId'] == null) {
+                    throw new runtime.RequiredError('organizationId', 'Required parameter "organizationId" was null or undefined when calling findOrganizationById().');
+                }
+                queryParameters = {};
+                headerParameters = {};
+                urlPath = "/external/organizations/{organizationId}";
+                urlPath = urlPath.replace("{".concat("organizationId", "}"), encodeURIComponent(String(requestParameters['organizationId'])));
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'GET',
+                        headers: headerParameters,
+                        query: queryParameters,
+                    }];
+            });
+        });
+    };
+    /**
      * Find an organization by ID.
      */
     OrganizationsApi.prototype.findOrganizationByIdRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        if (requestParameters['organizationId'] == null) {
-                            throw new runtime.RequiredError('organizationId', 'Required parameter "organizationId" was null or undefined when calling findOrganizationById().');
-                        }
-                        queryParameters = {};
-                        headerParameters = {};
-                        urlPath = "/external/organizations/{organizationId}";
-                        urlPath = urlPath.replace("{".concat("organizationId", "}"), encodeURIComponent(String(requestParameters['organizationId'])));
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'GET',
-                                headers: headerParameters,
-                                query: queryParameters,
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.findOrganizationByIdRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.OrganizationEntityFromJSON)(jsonValue); })];
                 }
@@ -391,28 +469,41 @@ var OrganizationsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Creates request options for hardRemoveOrganizationInternal without sending the request
+     */
+    OrganizationsApi.prototype.hardRemoveOrganizationInternalRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                if (requestParameters['organizationId'] == null) {
+                    throw new runtime.RequiredError('organizationId', 'Required parameter "organizationId" was null or undefined when calling hardRemoveOrganizationInternal().');
+                }
+                queryParameters = {};
+                headerParameters = {};
+                urlPath = "/internal/organizations/{organizationId}/hard";
+                urlPath = urlPath.replace("{".concat("organizationId", "}"), encodeURIComponent(String(requestParameters['organizationId'])));
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'DELETE',
+                        headers: headerParameters,
+                        query: queryParameters,
+                    }];
+            });
+        });
+    };
+    /**
      * Hard remove an organization and all its data (internal endpoint).
      */
     OrganizationsApi.prototype.hardRemoveOrganizationInternalRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        if (requestParameters['organizationId'] == null) {
-                            throw new runtime.RequiredError('organizationId', 'Required parameter "organizationId" was null or undefined when calling hardRemoveOrganizationInternal().');
-                        }
-                        queryParameters = {};
-                        headerParameters = {};
-                        urlPath = "/internal/organizations/{organizationId}/hard";
-                        urlPath = urlPath.replace("{".concat("organizationId", "}"), encodeURIComponent(String(requestParameters['organizationId'])));
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'DELETE',
-                                headers: headerParameters,
-                                query: queryParameters,
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.hardRemoveOrganizationInternalRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.VoidApiResponse(response)];
                 }
@@ -435,33 +526,46 @@ var OrganizationsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Creates request options for partialUpdateOrganization without sending the request
+     */
+    OrganizationsApi.prototype.partialUpdateOrganizationRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                if (requestParameters['id'] == null) {
+                    throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling partialUpdateOrganization().');
+                }
+                if (requestParameters['partialUpdateOrganizationRequestBodyDto'] == null) {
+                    throw new runtime.RequiredError('partialUpdateOrganizationRequestBodyDto', 'Required parameter "partialUpdateOrganizationRequestBodyDto" was null or undefined when calling partialUpdateOrganization().');
+                }
+                queryParameters = {};
+                headerParameters = {};
+                headerParameters['Content-Type'] = 'application/json';
+                urlPath = "/external/organizations/{id}";
+                urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'PATCH',
+                        headers: headerParameters,
+                        query: queryParameters,
+                        body: (0, index_1.PartialUpdateOrganizationRequestBodyDtoToJSON)(requestParameters['partialUpdateOrganizationRequestBodyDto']),
+                    }];
+            });
+        });
+    };
+    /**
      * Atualiza parcialmente uma organização.
      */
     OrganizationsApi.prototype.partialUpdateOrganizationRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        if (requestParameters['id'] == null) {
-                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling partialUpdateOrganization().');
-                        }
-                        if (requestParameters['partialUpdateOrganizationRequestBodyDto'] == null) {
-                            throw new runtime.RequiredError('partialUpdateOrganizationRequestBodyDto', 'Required parameter "partialUpdateOrganizationRequestBodyDto" was null or undefined when calling partialUpdateOrganization().');
-                        }
-                        queryParameters = {};
-                        headerParameters = {};
-                        headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/external/organizations/{id}";
-                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'PATCH',
-                                headers: headerParameters,
-                                query: queryParameters,
-                                body: (0, index_1.PartialUpdateOrganizationRequestBodyDtoToJSON)(requestParameters['partialUpdateOrganizationRequestBodyDto']),
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.partialUpdateOrganizationRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.OrganizationEntityFromJSON)(jsonValue); })];
                 }
@@ -486,24 +590,37 @@ var OrganizationsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Creates request options for syncFromClerk without sending the request
+     */
+    OrganizationsApi.prototype.syncFromClerkRequestOpts = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                queryParameters = {};
+                headerParameters = {};
+                urlPath = "/internal/organizations/sync/clerk";
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'POST',
+                        headers: headerParameters,
+                        query: queryParameters,
+                    }];
+            });
+        });
+    };
+    /**
      * Sync organizations from Clerk.
      */
     OrganizationsApi.prototype.syncFromClerkRaw = function (initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        queryParameters = {};
-                        headerParameters = {};
-                        urlPath = "/internal/organizations/sync/clerk";
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'POST',
-                                headers: headerParameters,
-                                query: queryParameters,
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.syncFromClerkRequestOpts()];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.VoidApiResponse(response)];
                 }
@@ -526,33 +643,46 @@ var OrganizationsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Creates request options for updateOrganizationByClerkId without sending the request
+     */
+    OrganizationsApi.prototype.updateOrganizationByClerkIdRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                if (requestParameters['clerkId'] == null) {
+                    throw new runtime.RequiredError('clerkId', 'Required parameter "clerkId" was null or undefined when calling updateOrganizationByClerkId().');
+                }
+                if (requestParameters['updateOrganizationRequestBodyDto'] == null) {
+                    throw new runtime.RequiredError('updateOrganizationRequestBodyDto', 'Required parameter "updateOrganizationRequestBodyDto" was null or undefined when calling updateOrganizationByClerkId().');
+                }
+                queryParameters = {};
+                headerParameters = {};
+                headerParameters['Content-Type'] = 'application/json';
+                urlPath = "/external/organizations/admin/{clerkId}";
+                urlPath = urlPath.replace("{".concat("clerkId", "}"), encodeURIComponent(String(requestParameters['clerkId'])));
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'PATCH',
+                        headers: headerParameters,
+                        query: queryParameters,
+                        body: (0, index_1.UpdateOrganizationRequestBodyDtoToJSON)(requestParameters['updateOrganizationRequestBodyDto']),
+                    }];
+            });
+        });
+    };
+    /**
      * Atualiza o subtype de uma organização pelo clerkId (endpoint admin).
      */
     OrganizationsApi.prototype.updateOrganizationByClerkIdRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        if (requestParameters['clerkId'] == null) {
-                            throw new runtime.RequiredError('clerkId', 'Required parameter "clerkId" was null or undefined when calling updateOrganizationByClerkId().');
-                        }
-                        if (requestParameters['updateOrganizationRequestBodyDto'] == null) {
-                            throw new runtime.RequiredError('updateOrganizationRequestBodyDto', 'Required parameter "updateOrganizationRequestBodyDto" was null or undefined when calling updateOrganizationByClerkId().');
-                        }
-                        queryParameters = {};
-                        headerParameters = {};
-                        headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/external/organizations/admin/{clerkId}";
-                        urlPath = urlPath.replace("{".concat("clerkId", "}"), encodeURIComponent(String(requestParameters['clerkId'])));
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'PATCH',
-                                headers: headerParameters,
-                                query: queryParameters,
-                                body: (0, index_1.UpdateOrganizationRequestBodyDtoToJSON)(requestParameters['updateOrganizationRequestBodyDto']),
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.updateOrganizationByClerkIdRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.VoidApiResponse(response)];
                 }

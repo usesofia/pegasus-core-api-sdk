@@ -37,25 +37,25 @@ export interface FinancialRecordRadarItemsPageDtoItemsInner {
     ownerOrganization: string;
     /**
      * Origem do registro.
-     * @type {string}
+     * @type {FinancialRecordRadarItemsPageDtoItemsInnerOriginEnum}
      * @memberof FinancialRecordRadarItemsPageDtoItemsInner
      */
     origin: FinancialRecordRadarItemsPageDtoItemsInnerOriginEnum;
     /**
      * Natureza do registro.
-     * @type {string}
+     * @type {FinancialRecordRadarItemsPageDtoItemsInnerNatureEnum}
      * @memberof FinancialRecordRadarItemsPageDtoItemsInner
      */
     nature: FinancialRecordRadarItemsPageDtoItemsInnerNatureEnum;
     /**
      * Status do registro.
-     * @type {string}
+     * @type {FinancialRecordRadarItemsPageDtoItemsInnerStatusEnum}
      * @memberof FinancialRecordRadarItemsPageDtoItemsInner
      */
     status: FinancialRecordRadarItemsPageDtoItemsInnerStatusEnum;
     /**
      * Pasta do registro.
-     * @type {string}
+     * @type {FinancialRecordRadarItemsPageDtoItemsInnerFolderEnum}
      * @memberof FinancialRecordRadarItemsPageDtoItemsInner
      */
     folder: FinancialRecordRadarItemsPageDtoItemsInnerFolderEnum;

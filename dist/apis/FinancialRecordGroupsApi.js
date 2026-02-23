@@ -76,30 +76,43 @@ var FinancialRecordGroupsApi = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
+     * Creates request options for createFinancialRecordGroup without sending the request
+     */
+    FinancialRecordGroupsApi.prototype.createFinancialRecordGroupRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                if (requestParameters['createFinancialRecordGroupRequestBodyDto'] == null) {
+                    throw new runtime.RequiredError('createFinancialRecordGroupRequestBodyDto', 'Required parameter "createFinancialRecordGroupRequestBodyDto" was null or undefined when calling createFinancialRecordGroup().');
+                }
+                queryParameters = {};
+                headerParameters = {};
+                headerParameters['Content-Type'] = 'application/json';
+                urlPath = "/external/financial-record-groups";
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'POST',
+                        headers: headerParameters,
+                        query: queryParameters,
+                        body: (0, index_1.CreateFinancialRecordGroupRequestBodyDtoToJSON)(requestParameters['createFinancialRecordGroupRequestBodyDto']),
+                    }];
+            });
+        });
+    };
+    /**
      * Cria um grupo vinculando dois lançamentos financeiros (um de entrada e outro de saída) após validar todas as condições necessárias.
      * Cria um grupo de lançamentos financeiros.
      */
     FinancialRecordGroupsApi.prototype.createFinancialRecordGroupRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        if (requestParameters['createFinancialRecordGroupRequestBodyDto'] == null) {
-                            throw new runtime.RequiredError('createFinancialRecordGroupRequestBodyDto', 'Required parameter "createFinancialRecordGroupRequestBodyDto" was null or undefined when calling createFinancialRecordGroup().');
-                        }
-                        queryParameters = {};
-                        headerParameters = {};
-                        headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/external/financial-record-groups";
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'POST',
-                                headers: headerParameters,
-                                query: queryParameters,
-                                body: (0, index_1.CreateFinancialRecordGroupRequestBodyDtoToJSON)(requestParameters['createFinancialRecordGroupRequestBodyDto']),
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.createFinancialRecordGroupRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.FinancialRecordGroupDtoFromJSON)(jsonValue); })];
                 }
@@ -125,28 +138,41 @@ var FinancialRecordGroupsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Creates request options for findFinancialRecordGroupsByFinancialRecord without sending the request
+     */
+    FinancialRecordGroupsApi.prototype.findFinancialRecordGroupsByFinancialRecordRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                if (requestParameters['financialRecordId'] == null) {
+                    throw new runtime.RequiredError('financialRecordId', 'Required parameter "financialRecordId" was null or undefined when calling findFinancialRecordGroupsByFinancialRecord().');
+                }
+                queryParameters = {};
+                headerParameters = {};
+                urlPath = "/external/financial-record-groups/by-financial-record/{financialRecordId}";
+                urlPath = urlPath.replace("{".concat("financialRecordId", "}"), encodeURIComponent(String(requestParameters['financialRecordId'])));
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'GET',
+                        headers: headerParameters,
+                        query: queryParameters,
+                    }];
+            });
+        });
+    };
+    /**
      * Busca grupos de lançamentos financeiros pelo ID do lançamento.
      */
     FinancialRecordGroupsApi.prototype.findFinancialRecordGroupsByFinancialRecordRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        if (requestParameters['financialRecordId'] == null) {
-                            throw new runtime.RequiredError('financialRecordId', 'Required parameter "financialRecordId" was null or undefined when calling findFinancialRecordGroupsByFinancialRecord().');
-                        }
-                        queryParameters = {};
-                        headerParameters = {};
-                        urlPath = "/external/financial-record-groups/by-financial-record/{financialRecordId}";
-                        urlPath = urlPath.replace("{".concat("financialRecordId", "}"), encodeURIComponent(String(requestParameters['financialRecordId'])));
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'GET',
-                                headers: headerParameters,
-                                query: queryParameters,
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.findFinancialRecordGroupsByFinancialRecordRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return jsonValue.map(index_1.FinancialRecordGroupDtoFromJSON); })];
                 }
@@ -171,29 +197,42 @@ var FinancialRecordGroupsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Creates request options for removeFinancialRecordGroup without sending the request
+     */
+    FinancialRecordGroupsApi.prototype.removeFinancialRecordGroupRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                if (requestParameters['financialRecordGroupId'] == null) {
+                    throw new runtime.RequiredError('financialRecordGroupId', 'Required parameter "financialRecordGroupId" was null or undefined when calling removeFinancialRecordGroup().');
+                }
+                queryParameters = {};
+                headerParameters = {};
+                urlPath = "/external/financial-record-groups/{financialRecordGroupId}";
+                urlPath = urlPath.replace("{".concat("financialRecordGroupId", "}"), encodeURIComponent(String(requestParameters['financialRecordGroupId'])));
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'DELETE',
+                        headers: headerParameters,
+                        query: queryParameters,
+                    }];
+            });
+        });
+    };
+    /**
      * Remove apenas o agrupamento, mantendo os lançamentos financeiros originais.
      * Remove um grupo de lançamentos financeiros.
      */
     FinancialRecordGroupsApi.prototype.removeFinancialRecordGroupRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        if (requestParameters['financialRecordGroupId'] == null) {
-                            throw new runtime.RequiredError('financialRecordGroupId', 'Required parameter "financialRecordGroupId" was null or undefined when calling removeFinancialRecordGroup().');
-                        }
-                        queryParameters = {};
-                        headerParameters = {};
-                        urlPath = "/external/financial-record-groups/{financialRecordGroupId}";
-                        urlPath = urlPath.replace("{".concat("financialRecordGroupId", "}"), encodeURIComponent(String(requestParameters['financialRecordGroupId'])));
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'DELETE',
-                                headers: headerParameters,
-                                query: queryParameters,
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.removeFinancialRecordGroupRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.VoidApiResponse(response)];
                 }

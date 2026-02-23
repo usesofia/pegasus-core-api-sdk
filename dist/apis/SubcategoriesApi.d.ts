@@ -73,6 +73,14 @@ export interface SystemFindByIdSubcategoryRequest {
  */
 export interface SubcategoriesApiInterface {
     /**
+     * Creates request options for createSubcategory without sending the request
+     * @param {ExternalCreateSubcategoryRequestBodyDto} externalCreateSubcategoryRequestBodyDto
+     * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
+     * @throws {RequiredError}
+     * @memberof SubcategoriesApiInterface
+     */
+    createSubcategoryRequestOpts(requestParameters: CreateSubcategoryRequest): Promise<runtime.RequestOpts>;
+    /**
      *
      * @summary Cria uma nova subcategoria.
      * @param {ExternalCreateSubcategoryRequestBodyDto} externalCreateSubcategoryRequestBodyDto
@@ -86,6 +94,23 @@ export interface SubcategoriesApiInterface {
      * Cria uma nova subcategoria.
      */
     createSubcategory(requestParameters: CreateSubcategoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SubcategoryEntity>;
+    /**
+     * Creates request options for findAllSubcategories without sending the request
+     * @param {boolean} [active] Filtra subcategorias ativas ou inativas.
+     * @param {'asc' | 'desc'} [sortOrder] Ordem de ordenação das subcategorias.
+     * @param {'name' | 'createdAt' | 'index'} [sortBy] Campo para ordenar as subcategorias.
+     * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
+     * @param {string} [categoryId] ID da categoria para filtrar subcategorias.
+     * @param {'IN' | 'OUT'} [direction] Direção da subcategoria.
+     * @param {string} [ids] Lista de IDs de subcategorias para filtrar separados por vírgula.
+     * @param {string} [semanticSearchTermInBase64] Termo para busca semântica codificado em base64.
+     * @param {string} [textSearchTerm] Termo para busca textual por nome, descrição ou slug da subcategoria.
+     * @param {number} [pageSize] Quantidade de itens por página.
+     * @param {number} [pageIndex] Índice da página.
+     * @throws {RequiredError}
+     * @memberof SubcategoriesApiInterface
+     */
+    findAllSubcategoriesRequestOpts(requestParameters: FindAllSubcategoriesRequest): Promise<runtime.RequestOpts>;
     /**
      *
      * @summary Busca todas as subcategorias.
@@ -110,6 +135,14 @@ export interface SubcategoriesApiInterface {
      */
     findAllSubcategories(requestParameters: FindAllSubcategoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SubcategoriesPageEntity>;
     /**
+     * Creates request options for findByIdSubcategory without sending the request
+     * @param {string} id Identificador da subcategoria.
+     * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
+     * @throws {RequiredError}
+     * @memberof SubcategoriesApiInterface
+     */
+    findByIdSubcategoryRequestOpts(requestParameters: FindByIdSubcategoryRequest): Promise<runtime.RequestOpts>;
+    /**
      *
      * @summary Busca uma subcategoria pelo identificador.
      * @param {string} id Identificador da subcategoria.
@@ -124,6 +157,14 @@ export interface SubcategoriesApiInterface {
      */
     findByIdSubcategory(requestParameters: FindByIdSubcategoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SubcategoryEntity>;
     /**
+     * Creates request options for findBySlugSubcategory without sending the request
+     * @param {string} slug Slug da subcategoria.
+     * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
+     * @throws {RequiredError}
+     * @memberof SubcategoriesApiInterface
+     */
+    findBySlugSubcategoryRequestOpts(requestParameters: FindBySlugSubcategoryRequest): Promise<runtime.RequestOpts>;
+    /**
      *
      * @summary Busca uma subcategoria pelo slug.
      * @param {string} slug Slug da subcategoria.
@@ -137,6 +178,15 @@ export interface SubcategoriesApiInterface {
      * Busca uma subcategoria pelo slug.
      */
     findBySlugSubcategory(requestParameters: FindBySlugSubcategoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SubcategoryEntity>;
+    /**
+     * Creates request options for partialUpdateSubcategory without sending the request
+     * @param {string} id Identificador da subcategoria.
+     * @param {PartialUpdateSubcategoryRequestBodyDto} partialUpdateSubcategoryRequestBodyDto
+     * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
+     * @throws {RequiredError}
+     * @memberof SubcategoriesApiInterface
+     */
+    partialUpdateSubcategoryRequestOpts(requestParameters: PartialUpdateSubcategoryRequest): Promise<runtime.RequestOpts>;
     /**
      *
      * @summary Atualiza parcialmente uma subcategoria.
@@ -153,6 +203,14 @@ export interface SubcategoriesApiInterface {
      */
     partialUpdateSubcategory(requestParameters: PartialUpdateSubcategoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SubcategoryEntity>;
     /**
+     * Creates request options for removeSubcategory without sending the request
+     * @param {string} id Identificador da subcategoria.
+     * @param {RemoveSubcategoryRequestBodyDto} removeSubcategoryRequestBodyDto
+     * @throws {RequiredError}
+     * @memberof SubcategoriesApiInterface
+     */
+    removeSubcategoryRequestOpts(requestParameters: RemoveSubcategoryRequest): Promise<runtime.RequestOpts>;
+    /**
      *
      * @summary Remove uma subcategoria.
      * @param {string} id Identificador da subcategoria.
@@ -166,6 +224,25 @@ export interface SubcategoriesApiInterface {
      * Remove uma subcategoria.
      */
     removeSubcategory(requestParameters: RemoveSubcategoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+    /**
+     * Creates request options for systemFindAllSubcategories without sending the request
+     * @param {string} ownerOrganizationId Identificador da organização proprietária das subcategorias.
+     * @param {'primary' | 'primaryPreferred' | 'secondary' | 'secondaryPreferred' | 'nearest'} [readPreference] Preferência de leitura das subcategorias.
+     * @param {'IN' | 'OUT'} [direction] Direção da subcategoria.
+     * @param {boolean} [active] Filtra subcategorias ativas ou inativas.
+     * @param {'asc' | 'desc'} [sortOrder] Ordem de ordenação das subcategorias.
+     * @param {'name' | 'createdAt' | 'index'} [sortBy] Campo para ordenar as subcategorias.
+     * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
+     * @param {string} [categoryId] ID da categoria para filtrar subcategorias.
+     * @param {string} [ids] Lista de IDs de subcategorias para filtrar separados por vírgula.
+     * @param {string} [semanticSearchTermInBase64] Termo para busca semântica codificado em base64.
+     * @param {string} [textSearchTerm] Termo para busca textual por nome, descrição ou slug da subcategoria.
+     * @param {number} [pageSize] Quantidade de itens por página.
+     * @param {number} [pageIndex] Índice da página.
+     * @throws {RequiredError}
+     * @memberof SubcategoriesApiInterface
+     */
+    systemFindAllSubcategoriesRequestOpts(requestParameters: SystemFindAllSubcategoriesRequest): Promise<runtime.RequestOpts>;
     /**
      *
      * @summary Busca todas as subcategorias pelo sistema.
@@ -192,6 +269,15 @@ export interface SubcategoriesApiInterface {
      */
     systemFindAllSubcategories(requestParameters: SystemFindAllSubcategoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SubcategoriesPageEntity>;
     /**
+     * Creates request options for systemFindByIdSubcategory without sending the request
+     * @param {string} organizationId Identificador da organização.
+     * @param {string} subcategoryId Identificador da subcategoria.
+     * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
+     * @throws {RequiredError}
+     * @memberof SubcategoriesApiInterface
+     */
+    systemFindByIdSubcategoryRequestOpts(requestParameters: SystemFindByIdSubcategoryRequest): Promise<runtime.RequestOpts>;
+    /**
      *
      * @summary Busca uma subcategoria pelo identificador.
      * @param {string} organizationId Identificador da organização.
@@ -212,6 +298,10 @@ export interface SubcategoriesApiInterface {
  */
 export declare class SubcategoriesApi extends runtime.BaseAPI implements SubcategoriesApiInterface {
     /**
+     * Creates request options for createSubcategory without sending the request
+     */
+    createSubcategoryRequestOpts(requestParameters: CreateSubcategoryRequest): Promise<runtime.RequestOpts>;
+    /**
      * Cria uma nova subcategoria.
      */
     createSubcategoryRaw(requestParameters: CreateSubcategoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SubcategoryEntity>>;
@@ -219,6 +309,10 @@ export declare class SubcategoriesApi extends runtime.BaseAPI implements Subcate
      * Cria uma nova subcategoria.
      */
     createSubcategory(requestParameters: CreateSubcategoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SubcategoryEntity>;
+    /**
+     * Creates request options for findAllSubcategories without sending the request
+     */
+    findAllSubcategoriesRequestOpts(requestParameters: FindAllSubcategoriesRequest): Promise<runtime.RequestOpts>;
     /**
      * Busca todas as subcategorias.
      */
@@ -228,6 +322,10 @@ export declare class SubcategoriesApi extends runtime.BaseAPI implements Subcate
      */
     findAllSubcategories(requestParameters?: FindAllSubcategoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SubcategoriesPageEntity>;
     /**
+     * Creates request options for findByIdSubcategory without sending the request
+     */
+    findByIdSubcategoryRequestOpts(requestParameters: FindByIdSubcategoryRequest): Promise<runtime.RequestOpts>;
+    /**
      * Busca uma subcategoria pelo identificador.
      */
     findByIdSubcategoryRaw(requestParameters: FindByIdSubcategoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SubcategoryEntity>>;
@@ -235,6 +333,10 @@ export declare class SubcategoriesApi extends runtime.BaseAPI implements Subcate
      * Busca uma subcategoria pelo identificador.
      */
     findByIdSubcategory(requestParameters: FindByIdSubcategoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SubcategoryEntity>;
+    /**
+     * Creates request options for findBySlugSubcategory without sending the request
+     */
+    findBySlugSubcategoryRequestOpts(requestParameters: FindBySlugSubcategoryRequest): Promise<runtime.RequestOpts>;
     /**
      * Busca uma subcategoria pelo slug.
      */
@@ -244,6 +346,10 @@ export declare class SubcategoriesApi extends runtime.BaseAPI implements Subcate
      */
     findBySlugSubcategory(requestParameters: FindBySlugSubcategoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SubcategoryEntity>;
     /**
+     * Creates request options for partialUpdateSubcategory without sending the request
+     */
+    partialUpdateSubcategoryRequestOpts(requestParameters: PartialUpdateSubcategoryRequest): Promise<runtime.RequestOpts>;
+    /**
      * Atualiza parcialmente uma subcategoria.
      */
     partialUpdateSubcategoryRaw(requestParameters: PartialUpdateSubcategoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SubcategoryEntity>>;
@@ -251,6 +357,10 @@ export declare class SubcategoriesApi extends runtime.BaseAPI implements Subcate
      * Atualiza parcialmente uma subcategoria.
      */
     partialUpdateSubcategory(requestParameters: PartialUpdateSubcategoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SubcategoryEntity>;
+    /**
+     * Creates request options for removeSubcategory without sending the request
+     */
+    removeSubcategoryRequestOpts(requestParameters: RemoveSubcategoryRequest): Promise<runtime.RequestOpts>;
     /**
      * Remove uma subcategoria.
      */
@@ -260,6 +370,10 @@ export declare class SubcategoriesApi extends runtime.BaseAPI implements Subcate
      */
     removeSubcategory(requestParameters: RemoveSubcategoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
     /**
+     * Creates request options for systemFindAllSubcategories without sending the request
+     */
+    systemFindAllSubcategoriesRequestOpts(requestParameters: SystemFindAllSubcategoriesRequest): Promise<runtime.RequestOpts>;
+    /**
      * Busca todas as subcategorias pelo sistema.
      */
     systemFindAllSubcategoriesRaw(requestParameters: SystemFindAllSubcategoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SubcategoriesPageEntity>>;
@@ -267,6 +381,10 @@ export declare class SubcategoriesApi extends runtime.BaseAPI implements Subcate
      * Busca todas as subcategorias pelo sistema.
      */
     systemFindAllSubcategories(requestParameters: SystemFindAllSubcategoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SubcategoriesPageEntity>;
+    /**
+     * Creates request options for systemFindByIdSubcategory without sending the request
+     */
+    systemFindByIdSubcategoryRequestOpts(requestParameters: SystemFindByIdSubcategoryRequest): Promise<runtime.RequestOpts>;
     /**
      * Busca uma subcategoria pelo identificador.
      */

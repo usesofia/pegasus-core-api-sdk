@@ -64,7 +64,7 @@ export interface BankTransactionsPageDtoItemsInner {
     populatedBankAccount?: BankTransactionEntityPopulatedBankAccount | null;
     /**
      * Provedor da movimentação financeira.
-     * @type {string}
+     * @type {BankTransactionsPageDtoItemsInnerProviderEnum}
      * @memberof BankTransactionsPageDtoItemsInner
      */
     provider: BankTransactionsPageDtoItemsInnerProviderEnum;
@@ -100,7 +100,7 @@ export interface BankTransactionsPageDtoItemsInner {
     dateVariations: string;
     /**
      * Tipo da movimentação financeira (entrada ou saída).
-     * @type {string}
+     * @type {BankTransactionsPageDtoItemsInnerTypeEnum}
      * @memberof BankTransactionsPageDtoItemsInner
      */
     type: BankTransactionsPageDtoItemsInnerTypeEnum;
@@ -118,7 +118,7 @@ export interface BankTransactionsPageDtoItemsInner {
     description?: string | null;
     /**
      * Status da movimentação financeira.
-     * @type {string}
+     * @type {BankTransactionsPageDtoItemsInnerStatusEnum}
      * @memberof BankTransactionsPageDtoItemsInner
      */
     status: BankTransactionsPageDtoItemsInnerStatusEnum;

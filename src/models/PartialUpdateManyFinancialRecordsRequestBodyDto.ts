@@ -47,7 +47,7 @@ export interface PartialUpdateManyFinancialRecordsRequestBodyDto {
     populate?: string;
     /**
      * Canal de origem da operação
-     * @type {string}
+     * @type {PartialUpdateManyFinancialRecordsRequestBodyDtoChannelEnum}
      * @memberof PartialUpdateManyFinancialRecordsRequestBodyDto
      */
     channel: PartialUpdateManyFinancialRecordsRequestBodyDtoChannelEnum;

@@ -56,7 +56,7 @@ export interface ShouldAiSuggestActionRequestBodyDtoTransactionData {
     bankAccount: string;
     /**
      * Provedor da movimentação financeira.
-     * @type {string}
+     * @type {ShouldAiSuggestActionRequestBodyDtoTransactionDataProviderEnum}
      * @memberof ShouldAiSuggestActionRequestBodyDtoTransactionData
      */
     provider: ShouldAiSuggestActionRequestBodyDtoTransactionDataProviderEnum;
@@ -80,7 +80,7 @@ export interface ShouldAiSuggestActionRequestBodyDtoTransactionData {
     date: any | null;
     /**
      * Tipo da movimentação financeira (entrada ou saída).
-     * @type {string}
+     * @type {ShouldAiSuggestActionRequestBodyDtoTransactionDataTypeEnum}
      * @memberof ShouldAiSuggestActionRequestBodyDtoTransactionData
      */
     type: ShouldAiSuggestActionRequestBodyDtoTransactionDataTypeEnum;
@@ -92,7 +92,7 @@ export interface ShouldAiSuggestActionRequestBodyDtoTransactionData {
     description?: string | null;
     /**
      * Status da movimentação financeira.
-     * @type {string}
+     * @type {ShouldAiSuggestActionRequestBodyDtoTransactionDataStatusEnum}
      * @memberof ShouldAiSuggestActionRequestBodyDtoTransactionData
      */
     status: ShouldAiSuggestActionRequestBodyDtoTransactionDataStatusEnum;

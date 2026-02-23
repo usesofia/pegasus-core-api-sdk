@@ -76,32 +76,45 @@ var InstallmentFinancialRecordsApi = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
+     * Creates request options for createInstallmentFinancialRecord without sending the request
+     */
+    InstallmentFinancialRecordsApi.prototype.createInstallmentFinancialRecordRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                if (requestParameters['createInstallmentFinancialRecordRequestBodyDto'] == null) {
+                    throw new runtime.RequiredError('createInstallmentFinancialRecordRequestBodyDto', 'Required parameter "createInstallmentFinancialRecordRequestBodyDto" was null or undefined when calling createInstallmentFinancialRecord().');
+                }
+                queryParameters = {};
+                if (requestParameters['populate'] != null) {
+                    queryParameters['populate'] = requestParameters['populate'];
+                }
+                headerParameters = {};
+                headerParameters['Content-Type'] = 'application/json';
+                urlPath = "/external/installment-financial-records";
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'POST',
+                        headers: headerParameters,
+                        query: queryParameters,
+                        body: (0, index_1.CreateInstallmentFinancialRecordRequestBodyDtoToJSON)(requestParameters['createInstallmentFinancialRecordRequestBodyDto']),
+                    }];
+            });
+        });
+    };
+    /**
      * Cria um novo lançamento financeiro parcelado.
      */
     InstallmentFinancialRecordsApi.prototype.createInstallmentFinancialRecordRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        if (requestParameters['createInstallmentFinancialRecordRequestBodyDto'] == null) {
-                            throw new runtime.RequiredError('createInstallmentFinancialRecordRequestBodyDto', 'Required parameter "createInstallmentFinancialRecordRequestBodyDto" was null or undefined when calling createInstallmentFinancialRecord().');
-                        }
-                        queryParameters = {};
-                        if (requestParameters['populate'] != null) {
-                            queryParameters['populate'] = requestParameters['populate'];
-                        }
-                        headerParameters = {};
-                        headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/external/installment-financial-records";
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'POST',
-                                headers: headerParameters,
-                                query: queryParameters,
-                                body: (0, index_1.CreateInstallmentFinancialRecordRequestBodyDtoToJSON)(requestParameters['createInstallmentFinancialRecordRequestBodyDto']),
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.createInstallmentFinancialRecordRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.InstallmentFinancialRecordDtoFromJSON)(jsonValue); })];
                 }
@@ -126,72 +139,85 @@ var InstallmentFinancialRecordsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Creates request options for findAllInstallmentFinancialRecords without sending the request
+     */
+    InstallmentFinancialRecordsApi.prototype.findAllInstallmentFinancialRecordsRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                queryParameters = {};
+                if (requestParameters['completed'] != null) {
+                    queryParameters['completed'] = requestParameters['completed'];
+                }
+                if (requestParameters['frequency'] != null) {
+                    queryParameters['frequency'] = requestParameters['frequency'];
+                }
+                if (requestParameters['competenceDateTo'] != null) {
+                    queryParameters['competenceDateTo'] = requestParameters['competenceDateTo'].toISOString().substring(0, 10);
+                }
+                if (requestParameters['competenceDateFrom'] != null) {
+                    queryParameters['competenceDateFrom'] = requestParameters['competenceDateFrom'].toISOString().substring(0, 10);
+                }
+                if (requestParameters['tags'] != null) {
+                    queryParameters['tags'] = requestParameters['tags'];
+                }
+                if (requestParameters['subcategory'] != null) {
+                    queryParameters['subcategory'] = requestParameters['subcategory'];
+                }
+                if (requestParameters['contact'] != null) {
+                    queryParameters['contact'] = requestParameters['contact'];
+                }
+                if (requestParameters['firstInstallmentDateTo'] != null) {
+                    queryParameters['firstInstallmentDateTo'] = requestParameters['firstInstallmentDateTo'].toISOString().substring(0, 10);
+                }
+                if (requestParameters['firstInstallmentDateFrom'] != null) {
+                    queryParameters['firstInstallmentDateFrom'] = requestParameters['firstInstallmentDateFrom'].toISOString().substring(0, 10);
+                }
+                if (requestParameters['direction'] != null) {
+                    queryParameters['direction'] = requestParameters['direction'];
+                }
+                if (requestParameters['sortOrder'] != null) {
+                    queryParameters['sortOrder'] = requestParameters['sortOrder'];
+                }
+                if (requestParameters['sortBy'] != null) {
+                    queryParameters['sortBy'] = requestParameters['sortBy'];
+                }
+                if (requestParameters['populate'] != null) {
+                    queryParameters['populate'] = requestParameters['populate'];
+                }
+                if (requestParameters['textSearchTerm'] != null) {
+                    queryParameters['textSearchTerm'] = requestParameters['textSearchTerm'];
+                }
+                if (requestParameters['pageSize'] != null) {
+                    queryParameters['pageSize'] = requestParameters['pageSize'];
+                }
+                if (requestParameters['pageIndex'] != null) {
+                    queryParameters['pageIndex'] = requestParameters['pageIndex'];
+                }
+                headerParameters = {};
+                urlPath = "/external/installment-financial-records";
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'GET',
+                        headers: headerParameters,
+                        query: queryParameters,
+                    }];
+            });
+        });
+    };
+    /**
      * Busca todos os lançamentos financeiros parcelados.
      */
     InstallmentFinancialRecordsApi.prototype.findAllInstallmentFinancialRecordsRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        queryParameters = {};
-                        if (requestParameters['completed'] != null) {
-                            queryParameters['completed'] = requestParameters['completed'];
-                        }
-                        if (requestParameters['frequency'] != null) {
-                            queryParameters['frequency'] = requestParameters['frequency'];
-                        }
-                        if (requestParameters['competenceDateTo'] != null) {
-                            queryParameters['competenceDateTo'] = requestParameters['competenceDateTo'].toISOString().substring(0, 10);
-                        }
-                        if (requestParameters['competenceDateFrom'] != null) {
-                            queryParameters['competenceDateFrom'] = requestParameters['competenceDateFrom'].toISOString().substring(0, 10);
-                        }
-                        if (requestParameters['tags'] != null) {
-                            queryParameters['tags'] = requestParameters['tags'];
-                        }
-                        if (requestParameters['subcategory'] != null) {
-                            queryParameters['subcategory'] = requestParameters['subcategory'];
-                        }
-                        if (requestParameters['contact'] != null) {
-                            queryParameters['contact'] = requestParameters['contact'];
-                        }
-                        if (requestParameters['firstInstallmentDateTo'] != null) {
-                            queryParameters['firstInstallmentDateTo'] = requestParameters['firstInstallmentDateTo'].toISOString().substring(0, 10);
-                        }
-                        if (requestParameters['firstInstallmentDateFrom'] != null) {
-                            queryParameters['firstInstallmentDateFrom'] = requestParameters['firstInstallmentDateFrom'].toISOString().substring(0, 10);
-                        }
-                        if (requestParameters['direction'] != null) {
-                            queryParameters['direction'] = requestParameters['direction'];
-                        }
-                        if (requestParameters['sortOrder'] != null) {
-                            queryParameters['sortOrder'] = requestParameters['sortOrder'];
-                        }
-                        if (requestParameters['sortBy'] != null) {
-                            queryParameters['sortBy'] = requestParameters['sortBy'];
-                        }
-                        if (requestParameters['populate'] != null) {
-                            queryParameters['populate'] = requestParameters['populate'];
-                        }
-                        if (requestParameters['textSearchTerm'] != null) {
-                            queryParameters['textSearchTerm'] = requestParameters['textSearchTerm'];
-                        }
-                        if (requestParameters['pageSize'] != null) {
-                            queryParameters['pageSize'] = requestParameters['pageSize'];
-                        }
-                        if (requestParameters['pageIndex'] != null) {
-                            queryParameters['pageIndex'] = requestParameters['pageIndex'];
-                        }
-                        headerParameters = {};
-                        urlPath = "/external/installment-financial-records";
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'GET',
-                                headers: headerParameters,
-                                query: queryParameters,
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.findAllInstallmentFinancialRecordsRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.InstallmentFinancialRecordsPageDtoFromJSON)(jsonValue); })];
                 }
@@ -217,31 +243,44 @@ var InstallmentFinancialRecordsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Creates request options for findByIdInstallmentFinancialRecord without sending the request
+     */
+    InstallmentFinancialRecordsApi.prototype.findByIdInstallmentFinancialRecordRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                if (requestParameters['id'] == null) {
+                    throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling findByIdInstallmentFinancialRecord().');
+                }
+                queryParameters = {};
+                if (requestParameters['populate'] != null) {
+                    queryParameters['populate'] = requestParameters['populate'];
+                }
+                headerParameters = {};
+                urlPath = "/external/installment-financial-records/{id}";
+                urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'GET',
+                        headers: headerParameters,
+                        query: queryParameters,
+                    }];
+            });
+        });
+    };
+    /**
      * Busca um lançamento financeiro parcelado pelo ID.
      */
     InstallmentFinancialRecordsApi.prototype.findByIdInstallmentFinancialRecordRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        if (requestParameters['id'] == null) {
-                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling findByIdInstallmentFinancialRecord().');
-                        }
-                        queryParameters = {};
-                        if (requestParameters['populate'] != null) {
-                            queryParameters['populate'] = requestParameters['populate'];
-                        }
-                        headerParameters = {};
-                        urlPath = "/external/installment-financial-records/{id}";
-                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'GET',
-                                headers: headerParameters,
-                                query: queryParameters,
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.findByIdInstallmentFinancialRecordRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.InstallmentFinancialRecordDtoFromJSON)(jsonValue); })];
                 }
@@ -266,36 +305,49 @@ var InstallmentFinancialRecordsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Creates request options for partialUpdateInstallmentFinancialRecord without sending the request
+     */
+    InstallmentFinancialRecordsApi.prototype.partialUpdateInstallmentFinancialRecordRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                if (requestParameters['id'] == null) {
+                    throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling partialUpdateInstallmentFinancialRecord().');
+                }
+                if (requestParameters['partialUpdateInstallmentFinancialRecordRequestBodyDto'] == null) {
+                    throw new runtime.RequiredError('partialUpdateInstallmentFinancialRecordRequestBodyDto', 'Required parameter "partialUpdateInstallmentFinancialRecordRequestBodyDto" was null or undefined when calling partialUpdateInstallmentFinancialRecord().');
+                }
+                queryParameters = {};
+                if (requestParameters['populate'] != null) {
+                    queryParameters['populate'] = requestParameters['populate'];
+                }
+                headerParameters = {};
+                headerParameters['Content-Type'] = 'application/json';
+                urlPath = "/external/installment-financial-records/{id}";
+                urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'PATCH',
+                        headers: headerParameters,
+                        query: queryParameters,
+                        body: (0, index_1.PartialUpdateInstallmentFinancialRecordRequestBodyDtoToJSON)(requestParameters['partialUpdateInstallmentFinancialRecordRequestBodyDto']),
+                    }];
+            });
+        });
+    };
+    /**
      * Atualiza parcialmente um lançamento financeiro parcelado.
      */
     InstallmentFinancialRecordsApi.prototype.partialUpdateInstallmentFinancialRecordRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        if (requestParameters['id'] == null) {
-                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling partialUpdateInstallmentFinancialRecord().');
-                        }
-                        if (requestParameters['partialUpdateInstallmentFinancialRecordRequestBodyDto'] == null) {
-                            throw new runtime.RequiredError('partialUpdateInstallmentFinancialRecordRequestBodyDto', 'Required parameter "partialUpdateInstallmentFinancialRecordRequestBodyDto" was null or undefined when calling partialUpdateInstallmentFinancialRecord().');
-                        }
-                        queryParameters = {};
-                        if (requestParameters['populate'] != null) {
-                            queryParameters['populate'] = requestParameters['populate'];
-                        }
-                        headerParameters = {};
-                        headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/external/installment-financial-records/{id}";
-                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'PATCH',
-                                headers: headerParameters,
-                                query: queryParameters,
-                                body: (0, index_1.PartialUpdateInstallmentFinancialRecordRequestBodyDtoToJSON)(requestParameters['partialUpdateInstallmentFinancialRecordRequestBodyDto']),
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.partialUpdateInstallmentFinancialRecordRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.InstallmentFinancialRecordDtoFromJSON)(jsonValue); })];
                 }
@@ -320,34 +372,47 @@ var InstallmentFinancialRecordsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Creates request options for removeInstallmentFinancialRecord without sending the request
+     */
+    InstallmentFinancialRecordsApi.prototype.removeInstallmentFinancialRecordRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                if (requestParameters['id'] == null) {
+                    throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling removeInstallmentFinancialRecord().');
+                }
+                if (requestParameters['removeInstallmentFinancialRecordRequestBodyDto'] == null) {
+                    throw new runtime.RequiredError('removeInstallmentFinancialRecordRequestBodyDto', 'Required parameter "removeInstallmentFinancialRecordRequestBodyDto" was null or undefined when calling removeInstallmentFinancialRecord().');
+                }
+                queryParameters = {};
+                headerParameters = {};
+                headerParameters['Content-Type'] = 'application/json';
+                urlPath = "/external/installment-financial-records/{id}";
+                urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'DELETE',
+                        headers: headerParameters,
+                        query: queryParameters,
+                        body: (0, index_1.RemoveInstallmentFinancialRecordRequestBodyDtoToJSON)(requestParameters['removeInstallmentFinancialRecordRequestBodyDto']),
+                    }];
+            });
+        });
+    };
+    /**
      * Remove um lançamento financeiro parcelado. Opcionalmente, pode remover todos os lançamentos financeiros não concluídos relacionados através do query parameter \"removeNotCompletedFinancialRecords=true\".
      * Remove um lançamento financeiro parcelado.
      */
     InstallmentFinancialRecordsApi.prototype.removeInstallmentFinancialRecordRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        if (requestParameters['id'] == null) {
-                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling removeInstallmentFinancialRecord().');
-                        }
-                        if (requestParameters['removeInstallmentFinancialRecordRequestBodyDto'] == null) {
-                            throw new runtime.RequiredError('removeInstallmentFinancialRecordRequestBodyDto', 'Required parameter "removeInstallmentFinancialRecordRequestBodyDto" was null or undefined when calling removeInstallmentFinancialRecord().');
-                        }
-                        queryParameters = {};
-                        headerParameters = {};
-                        headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/external/installment-financial-records/{id}";
-                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'DELETE',
-                                headers: headerParameters,
-                                query: queryParameters,
-                                body: (0, index_1.RemoveInstallmentFinancialRecordRequestBodyDtoToJSON)(requestParameters['removeInstallmentFinancialRecordRequestBodyDto']),
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.removeInstallmentFinancialRecordRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.VoidApiResponse(response)];
                 }

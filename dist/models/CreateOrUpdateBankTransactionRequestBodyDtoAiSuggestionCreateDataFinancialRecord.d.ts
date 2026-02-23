@@ -17,7 +17,7 @@
 export interface CreateOrUpdateBankTransactionRequestBodyDtoAiSuggestionCreateDataFinancialRecord {
     /**
      *
-     * @type {string}
+     * @type {CreateOrUpdateBankTransactionRequestBodyDtoAiSuggestionCreateDataFinancialRecordDirectionEnum}
      * @memberof CreateOrUpdateBankTransactionRequestBodyDtoAiSuggestionCreateDataFinancialRecord
      */
     direction: CreateOrUpdateBankTransactionRequestBodyDtoAiSuggestionCreateDataFinancialRecordDirectionEnum;

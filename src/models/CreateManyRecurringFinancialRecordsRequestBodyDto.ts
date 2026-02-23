@@ -35,7 +35,7 @@ export interface CreateManyRecurringFinancialRecordsRequestBodyDto {
     data: Array<CreateManyRecurringFinancialRecordsRequestBodyDtoDataInner>;
     /**
      * Canal de origem da operação
-     * @type {string}
+     * @type {CreateManyRecurringFinancialRecordsRequestBodyDtoChannelEnum}
      * @memberof CreateManyRecurringFinancialRecordsRequestBodyDto
      */
     channel: CreateManyRecurringFinancialRecordsRequestBodyDtoChannelEnum;

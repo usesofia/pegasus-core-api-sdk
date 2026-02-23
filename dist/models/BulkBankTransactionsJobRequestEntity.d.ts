@@ -35,7 +35,7 @@ export interface BulkBankTransactionsJobRequestEntity {
     requesterUserId: string;
     /**
      *
-     * @type {string}
+     * @type {BulkBankTransactionsJobRequestEntityOperationEnum}
      * @memberof BulkBankTransactionsJobRequestEntity
      */
     operation: BulkBankTransactionsJobRequestEntityOperationEnum;

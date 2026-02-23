@@ -31,6 +31,22 @@ export interface ExportBankTransactionsRequest {
  */
 export interface BankTransactionsExportApiInterface {
     /**
+     * Creates request options for exportBankTransactions without sending the request
+     * @param {'asc' | 'desc'} [sortOrder] Ordem da ordenação. Valores possíveis: \&#39;asc\&#39;, \&#39;desc\&#39;.
+     * @param {'date' | 'amountInBrl' | 'description' | 'createdAt' | 'reconciled'} [sortBy] Campo para ordenação
+     * @param {boolean} [ignored] Filtrar por transações ignoradas/arquivadas. (true/false)
+     * @param {'AUTOMATIC_INTEGRATION' | 'MANUAL_OFX_IMPORT'} [origin] Filtrar pela origem da transação.
+     * @param {boolean} [reconciled] Filtrar por transações reconciliadas. (true/false)
+     * @param {'DEBIT' | 'CREDIT'} [type] Tipo da movimentação.
+     * @param {string} [dateTo] Data final para filtrar.
+     * @param {string} [dateFrom] Data inicial para filtrar.
+     * @param {string} [bankAccount] ID da conta bancária para filtrar.
+     * @param {'csv' | 'xlsx'} [format] Formato de exportação dos dados.
+     * @throws {RequiredError}
+     * @memberof BankTransactionsExportApiInterface
+     */
+    exportBankTransactionsRequestOpts(requestParameters: ExportBankTransactionsRequest): Promise<runtime.RequestOpts>;
+    /**
      *
      * @summary Solicita a exportação das transações bancárias.
      * @param {'asc' | 'desc'} [sortOrder] Ordem da ordenação. Valores possíveis: \&#39;asc\&#39;, \&#39;desc\&#39;.
@@ -57,6 +73,10 @@ export interface BankTransactionsExportApiInterface {
  *
  */
 export declare class BankTransactionsExportApi extends runtime.BaseAPI implements BankTransactionsExportApiInterface {
+    /**
+     * Creates request options for exportBankTransactions without sending the request
+     */
+    exportBankTransactionsRequestOpts(requestParameters: ExportBankTransactionsRequest): Promise<runtime.RequestOpts>;
     /**
      * Solicita a exportação das transações bancárias.
      */

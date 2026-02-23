@@ -76,29 +76,42 @@ var SubscriptionsApi = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
+     * Creates request options for createSubscription without sending the request
+     */
+    SubscriptionsApi.prototype.createSubscriptionRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                if (requestParameters['createSubscriptionRequestBodyDto'] == null) {
+                    throw new runtime.RequiredError('createSubscriptionRequestBodyDto', 'Required parameter "createSubscriptionRequestBodyDto" was null or undefined when calling createSubscription().');
+                }
+                queryParameters = {};
+                headerParameters = {};
+                headerParameters['Content-Type'] = 'application/json';
+                urlPath = "/external/subscriptions";
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'POST',
+                        headers: headerParameters,
+                        query: queryParameters,
+                        body: (0, index_1.CreateSubscriptionRequestBodyDtoToJSON)(requestParameters['createSubscriptionRequestBodyDto']),
+                    }];
+            });
+        });
+    };
+    /**
      * Create a new subscription.
      */
     SubscriptionsApi.prototype.createSubscriptionRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        if (requestParameters['createSubscriptionRequestBodyDto'] == null) {
-                            throw new runtime.RequiredError('createSubscriptionRequestBodyDto', 'Required parameter "createSubscriptionRequestBodyDto" was null or undefined when calling createSubscription().');
-                        }
-                        queryParameters = {};
-                        headerParameters = {};
-                        headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/external/subscriptions";
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'POST',
-                                headers: headerParameters,
-                                query: queryParameters,
-                                body: (0, index_1.CreateSubscriptionRequestBodyDtoToJSON)(requestParameters['createSubscriptionRequestBodyDto']),
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.createSubscriptionRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.SubscriptionEntityFromJSON)(jsonValue); })];
                 }
@@ -123,33 +136,46 @@ var SubscriptionsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Creates request options for partialUpdateSubscription without sending the request
+     */
+    SubscriptionsApi.prototype.partialUpdateSubscriptionRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                if (requestParameters['id'] == null) {
+                    throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling partialUpdateSubscription().');
+                }
+                if (requestParameters['partialUpdateSubscriptionRequestBodyDto'] == null) {
+                    throw new runtime.RequiredError('partialUpdateSubscriptionRequestBodyDto', 'Required parameter "partialUpdateSubscriptionRequestBodyDto" was null or undefined when calling partialUpdateSubscription().');
+                }
+                queryParameters = {};
+                headerParameters = {};
+                headerParameters['Content-Type'] = 'application/json';
+                urlPath = "/external/subscriptions/{id}";
+                urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'PATCH',
+                        headers: headerParameters,
+                        query: queryParameters,
+                        body: (0, index_1.PartialUpdateSubscriptionRequestBodyDtoToJSON)(requestParameters['partialUpdateSubscriptionRequestBodyDto']),
+                    }];
+            });
+        });
+    };
+    /**
      * Partially update a subscription.
      */
     SubscriptionsApi.prototype.partialUpdateSubscriptionRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        if (requestParameters['id'] == null) {
-                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling partialUpdateSubscription().');
-                        }
-                        if (requestParameters['partialUpdateSubscriptionRequestBodyDto'] == null) {
-                            throw new runtime.RequiredError('partialUpdateSubscriptionRequestBodyDto', 'Required parameter "partialUpdateSubscriptionRequestBodyDto" was null or undefined when calling partialUpdateSubscription().');
-                        }
-                        queryParameters = {};
-                        headerParameters = {};
-                        headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/external/subscriptions/{id}";
-                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'PATCH',
-                                headers: headerParameters,
-                                query: queryParameters,
-                                body: (0, index_1.PartialUpdateSubscriptionRequestBodyDtoToJSON)(requestParameters['partialUpdateSubscriptionRequestBodyDto']),
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.partialUpdateSubscriptionRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.SubscriptionEntityFromJSON)(jsonValue); })];
                 }

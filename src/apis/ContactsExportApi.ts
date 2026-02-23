@@ -46,6 +46,23 @@ export interface ExportContactsRequest {
  */
 export interface ContactsExportApiInterface {
     /**
+     * Creates request options for exportContacts without sending the request
+     * @param {'asc' | 'desc'} [sortOrder] Ordem de ordenação dos contatos.
+     * @param {'name' | 'document' | 'email' | 'birthDate' | 'createdAt'} [sortBy] Campo para ordenação dos contatos.
+     * @param {boolean} [considerNotIdentified] Considerar ou não o contato não identificado.
+     * @param {string} [states] Estados a serem buscados.
+     * @param {string} [country] País a serem buscados.
+     * @param {string} [birthdayTo] Data de nascimento final a serem buscadas.
+     * @param {string} [birthdayFrom] Data de nascimento inicial a serem buscadas.
+     * @param {string} [origins] Origens de contato a serem buscadas.
+     * @param {string} [types] Tipos de contato a serem buscados.
+     * @param {'csv' | 'xlsx'} [format] Formato de exportação dos dados.
+     * @throws {RequiredError}
+     * @memberof ContactsExportApiInterface
+     */
+    exportContactsRequestOpts(requestParameters: ExportContactsRequest): Promise<runtime.RequestOpts>;
+
+    /**
      * 
      * @summary Solicita a exportação dos contatos.
      * @param {'asc' | 'desc'} [sortOrder] Ordem de ordenação dos contatos.
@@ -77,9 +94,9 @@ export interface ContactsExportApiInterface {
 export class ContactsExportApi extends runtime.BaseAPI implements ContactsExportApiInterface {
 
     /**
-     * Solicita a exportação dos contatos.
+     * Creates request options for exportContacts without sending the request
      */
-    async exportContactsRaw(requestParameters: ExportContactsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ExportContactsDto>> {
+    async exportContactsRequestOpts(requestParameters: ExportContactsRequest): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         if (requestParameters['sortOrder'] != null) {
@@ -127,12 +144,20 @@ export class ContactsExportApi extends runtime.BaseAPI implements ContactsExport
 
         let urlPath = `/external/contacts/export`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Solicita a exportação dos contatos.
+     */
+    async exportContactsRaw(requestParameters: ExportContactsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ExportContactsDto>> {
+        const requestOptions = await this.exportContactsRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ExportContactsDtoFromJSON(jsonValue));
     }

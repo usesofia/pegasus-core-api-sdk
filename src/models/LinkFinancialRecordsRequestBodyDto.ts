@@ -27,7 +27,7 @@ export interface LinkFinancialRecordsRequestBodyDto {
     financialRecordIds: Array<string>;
     /**
      * Canal de origem da operação
-     * @type {string}
+     * @type {LinkFinancialRecordsRequestBodyDtoChannelEnum}
      * @memberof LinkFinancialRecordsRequestBodyDto
      */
     channel: LinkFinancialRecordsRequestBodyDtoChannelEnum;

@@ -21,7 +21,7 @@ import type { CreateFinancialRecordRequestBodyDtoPopulatedContact } from './Crea
 export interface CreateManyRecurringFinancialRecordsRequestBodyDtoDataInner {
     /**
      * Direção do lançamento (entrada/saída).
-     * @type {string}
+     * @type {CreateManyRecurringFinancialRecordsRequestBodyDtoDataInnerDirectionEnum}
      * @memberof CreateManyRecurringFinancialRecordsRequestBodyDtoDataInner
      */
     direction: CreateManyRecurringFinancialRecordsRequestBodyDtoDataInnerDirectionEnum;
@@ -69,7 +69,7 @@ export interface CreateManyRecurringFinancialRecordsRequestBodyDtoDataInner {
     files?: Array<string>;
     /**
      * Frequência de repetição do lançamento.
-     * @type {string}
+     * @type {CreateManyRecurringFinancialRecordsRequestBodyDtoDataInnerFrequencyEnum}
      * @memberof CreateManyRecurringFinancialRecordsRequestBodyDtoDataInner
      */
     frequency: CreateManyRecurringFinancialRecordsRequestBodyDtoDataInnerFrequencyEnum;

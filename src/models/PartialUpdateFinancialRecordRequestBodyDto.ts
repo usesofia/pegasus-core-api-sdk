@@ -64,7 +64,7 @@ import {
 export interface PartialUpdateFinancialRecordRequestBodyDto {
     /**
      * Direção do lançamento (entrada/saída).
-     * @type {string}
+     * @type {PartialUpdateFinancialRecordRequestBodyDtoDirectionEnum}
      * @memberof PartialUpdateFinancialRecordRequestBodyDto
      */
     direction?: PartialUpdateFinancialRecordRequestBodyDtoDirectionEnum;
@@ -292,7 +292,7 @@ export interface PartialUpdateFinancialRecordRequestBodyDto {
     radarItem?: string;
     /**
      * Canal de origem da operação
-     * @type {string}
+     * @type {PartialUpdateFinancialRecordRequestBodyDtoChannelEnum}
      * @memberof PartialUpdateFinancialRecordRequestBodyDto
      */
     channel: PartialUpdateFinancialRecordRequestBodyDtoChannelEnum;

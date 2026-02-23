@@ -47,13 +47,13 @@ export interface ContactDto {
     name: string;
     /**
      * Tipos do contato.
-     * @type {Array<string>}
+     * @type {Array<ContactDtoTypesEnum>}
      * @memberof ContactDto
      */
     types: Array<ContactDtoTypesEnum>;
     /**
      * Tipo do documento do contato.
-     * @type {string}
+     * @type {ContactDtoDocumentTypeEnum}
      * @memberof ContactDto
      */
     documentType?: ContactDtoDocumentTypeEnum | null;
@@ -89,7 +89,7 @@ export interface ContactDto {
     birthDate?: string | null;
     /**
      * Origem do contato.
-     * @type {string}
+     * @type {ContactDtoOriginEnum}
      * @memberof ContactDto
      */
     origin?: ContactDtoOriginEnum | null;

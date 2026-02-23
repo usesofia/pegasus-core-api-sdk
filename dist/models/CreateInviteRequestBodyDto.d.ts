@@ -23,13 +23,13 @@ export interface CreateInviteRequestBodyDto {
     email: string;
     /**
      *
-     * @type {string}
+     * @type {CreateInviteRequestBodyDtoRoleEnum}
      * @memberof CreateInviteRequestBodyDto
      */
     role: CreateInviteRequestBodyDtoRoleEnum;
     /**
      * Canal de origem da operação
-     * @type {string}
+     * @type {CreateInviteRequestBodyDtoChannelEnum}
      * @memberof CreateInviteRequestBodyDto
      */
     channel: CreateInviteRequestBodyDtoChannelEnum;

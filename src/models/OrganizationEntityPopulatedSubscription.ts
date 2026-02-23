@@ -47,13 +47,13 @@ export interface OrganizationEntityPopulatedSubscription {
     description?: string | null;
     /**
      * Provedor da subscription.
-     * @type {string}
+     * @type {OrganizationEntityPopulatedSubscriptionProviderEnum}
      * @memberof OrganizationEntityPopulatedSubscription
      */
     provider: OrganizationEntityPopulatedSubscriptionProviderEnum;
     /**
      * Status da subscription.
-     * @type {string}
+     * @type {OrganizationEntityPopulatedSubscriptionStatusEnum}
      * @memberof OrganizationEntityPopulatedSubscription
      */
     status: OrganizationEntityPopulatedSubscriptionStatusEnum;

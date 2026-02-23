@@ -17,7 +17,7 @@
 export interface RemoveBankAccountRequestBodyDto {
     /**
      * Canal de origem da operação
-     * @type {string}
+     * @type {RemoveBankAccountRequestBodyDtoChannelEnum}
      * @memberof RemoveBankAccountRequestBodyDto
      */
     channel: RemoveBankAccountRequestBodyDtoChannelEnum;

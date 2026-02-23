@@ -23,7 +23,7 @@ import type { CreateFinancialRecordRequestBodyDtoPopulatedContact } from './Crea
 export interface PartialUpdateManyFinancialRecordsRequestBodyDtoData {
     /**
      * Direção do lançamento (entrada/saída).
-     * @type {string}
+     * @type {PartialUpdateManyFinancialRecordsRequestBodyDtoDataDirectionEnum}
      * @memberof PartialUpdateManyFinancialRecordsRequestBodyDtoData
      */
     direction?: PartialUpdateManyFinancialRecordsRequestBodyDtoDataDirectionEnum;

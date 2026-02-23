@@ -91,6 +91,15 @@ export interface UpdateOrganizationByClerkIdRequest {
  */
 export interface OrganizationsApiInterface {
     /**
+     * Creates request options for createOrganization without sending the request
+     * @param {CreateOrganizationRequestBodyDto} createOrganizationRequestBodyDto 
+     * @param {string} [populate] Related fields to be populated, separated by commas.
+     * @throws {RequiredError}
+     * @memberof OrganizationsApiInterface
+     */
+    createOrganizationRequestOpts(requestParameters: CreateOrganizationRequest): Promise<runtime.RequestOpts>;
+
+    /**
      * 
      * @summary Create a new organization.
      * @param {CreateOrganizationRequestBodyDto} createOrganizationRequestBodyDto 
@@ -107,6 +116,14 @@ export interface OrganizationsApiInterface {
     createOrganization(requestParameters: CreateOrganizationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<OrganizationEntity>;
 
     /**
+     * Creates request options for externalHardRemoveOrganization without sending the request
+     * @param {string} organizationId Organization ID to be removed.
+     * @throws {RequiredError}
+     * @memberof OrganizationsApiInterface
+     */
+    externalHardRemoveOrganizationRequestOpts(requestParameters: ExternalHardRemoveOrganizationRequest): Promise<runtime.RequestOpts>;
+
+    /**
      * 
      * @summary Hard remove an organization and all its data.
      * @param {string} organizationId Organization ID to be removed.
@@ -120,6 +137,29 @@ export interface OrganizationsApiInterface {
      * Hard remove an organization and all its data.
      */
     externalHardRemoveOrganization(requestParameters: ExternalHardRemoveOrganizationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+
+    /**
+     * Creates request options for findAllOrganizationsAdmin without sending the request
+     * @param {string} [serviceCutoffDateTo] Data de corte do serviço até (formato ISO 8601).
+     * @param {string} [serviceCutoffDateFrom] Data de corte do serviço a partir de (formato ISO 8601).
+     * @param {boolean} [latePayment] Filtrar por status de atraso no pagamento da subscription.
+     * @param {boolean} [hasCustomerId] Filtrar apenas organizações que possuem customerId.
+     * @param {'asc' | 'desc'} [sortOrder] Ordem de ordenação das organizações.
+     * @param {'name' | 'clerkCreatedAt'} [sortBy] Campo para ordenação das organizações.
+     * @param {string} [textSearchTerm] Termo para busca textual por nome ou clerkId da organização.
+     * @param {string} [clerkIds] Lista de IDs do Clerk para filtrar, separados por vírgula.
+     * @param {string} [subscriptionStatuses] Lista de status de subscription para filtrar, separados por vírgula.
+     * @param {string} [trialExpiresAtTo] Data de expiração do trial até (formato ISO 8601).
+     * @param {string} [trialExpiresAtFrom] Data de expiração do trial a partir de (formato ISO 8601).
+     * @param {string} [clerkCreatedAtTo] Data de criação no Clerk até (formato ISO 8601).
+     * @param {string} [clerkCreatedAtFrom] Data de criação no Clerk a partir de (formato ISO 8601).
+     * @param {string} [subtypes] Lista de subtipos de organizações para filtrar, separados por vírgula.
+     * @param {number} [pageSize] Quantidade de itens por página.
+     * @param {number} [pageIndex] Índice da página.
+     * @throws {RequiredError}
+     * @memberof OrganizationsApiInterface
+     */
+    findAllOrganizationsAdminRequestOpts(requestParameters: FindAllOrganizationsAdminRequest): Promise<runtime.RequestOpts>;
 
     /**
      * 
@@ -152,6 +192,13 @@ export interface OrganizationsApiInterface {
     findAllOrganizationsAdmin(requestParameters: FindAllOrganizationsAdminRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AdminOrganizationsPageDto>;
 
     /**
+     * Creates request options for findMyAdminGroupOrganizations without sending the request
+     * @throws {RequiredError}
+     * @memberof OrganizationsApiInterface
+     */
+    findMyAdminGroupOrganizationsRequestOpts(): Promise<runtime.RequestOpts>;
+
+    /**
      * 
      * @summary Find my organizations of type group where I am admin.
      * @param {*} [options] Override http request option.
@@ -166,6 +213,13 @@ export interface OrganizationsApiInterface {
     findMyAdminGroupOrganizations(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<OrganizationEntity>>;
 
     /**
+     * Creates request options for findMyOrganization without sending the request
+     * @throws {RequiredError}
+     * @memberof OrganizationsApiInterface
+     */
+    findMyOrganizationRequestOpts(): Promise<runtime.RequestOpts>;
+
+    /**
      * 
      * @summary Find my organization.
      * @param {*} [options] Override http request option.
@@ -178,6 +232,14 @@ export interface OrganizationsApiInterface {
      * Find my organization.
      */
     findMyOrganization(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<OrganizationEntity>;
+
+    /**
+     * Creates request options for findOrganizationById without sending the request
+     * @param {string} organizationId Organization ID to be found.
+     * @throws {RequiredError}
+     * @memberof OrganizationsApiInterface
+     */
+    findOrganizationByIdRequestOpts(requestParameters: FindOrganizationByIdRequest): Promise<runtime.RequestOpts>;
 
     /**
      * 
@@ -195,6 +257,14 @@ export interface OrganizationsApiInterface {
     findOrganizationById(requestParameters: FindOrganizationByIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<OrganizationEntity>;
 
     /**
+     * Creates request options for hardRemoveOrganizationInternal without sending the request
+     * @param {string} organizationId Organization ID to be removed.
+     * @throws {RequiredError}
+     * @memberof OrganizationsApiInterface
+     */
+    hardRemoveOrganizationInternalRequestOpts(requestParameters: HardRemoveOrganizationInternalRequest): Promise<runtime.RequestOpts>;
+
+    /**
      * 
      * @summary Hard remove an organization and all its data (internal endpoint).
      * @param {string} organizationId Organization ID to be removed.
@@ -208,6 +278,15 @@ export interface OrganizationsApiInterface {
      * Hard remove an organization and all its data (internal endpoint).
      */
     hardRemoveOrganizationInternal(requestParameters: HardRemoveOrganizationInternalRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+
+    /**
+     * Creates request options for partialUpdateOrganization without sending the request
+     * @param {string} id Identificador da organização.
+     * @param {PartialUpdateOrganizationRequestBodyDto} partialUpdateOrganizationRequestBodyDto 
+     * @throws {RequiredError}
+     * @memberof OrganizationsApiInterface
+     */
+    partialUpdateOrganizationRequestOpts(requestParameters: PartialUpdateOrganizationRequest): Promise<runtime.RequestOpts>;
 
     /**
      * 
@@ -226,6 +305,13 @@ export interface OrganizationsApiInterface {
     partialUpdateOrganization(requestParameters: PartialUpdateOrganizationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<OrganizationEntity>;
 
     /**
+     * Creates request options for syncFromClerk without sending the request
+     * @throws {RequiredError}
+     * @memberof OrganizationsApiInterface
+     */
+    syncFromClerkRequestOpts(): Promise<runtime.RequestOpts>;
+
+    /**
      * 
      * @summary Sync organizations from Clerk.
      * @param {*} [options] Override http request option.
@@ -238,6 +324,15 @@ export interface OrganizationsApiInterface {
      * Sync organizations from Clerk.
      */
     syncFromClerk(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+
+    /**
+     * Creates request options for updateOrganizationByClerkId without sending the request
+     * @param {string} clerkId Identificador da organização no Clerk.
+     * @param {UpdateOrganizationRequestBodyDto} updateOrganizationRequestBodyDto 
+     * @throws {RequiredError}
+     * @memberof OrganizationsApiInterface
+     */
+    updateOrganizationByClerkIdRequestOpts(requestParameters: UpdateOrganizationByClerkIdRequest): Promise<runtime.RequestOpts>;
 
     /**
      * 
@@ -263,9 +358,9 @@ export interface OrganizationsApiInterface {
 export class OrganizationsApi extends runtime.BaseAPI implements OrganizationsApiInterface {
 
     /**
-     * Create a new organization.
+     * Creates request options for createOrganization without sending the request
      */
-    async createOrganizationRaw(requestParameters: CreateOrganizationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<OrganizationEntity>> {
+    async createOrganizationRequestOpts(requestParameters: CreateOrganizationRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['createOrganizationRequestBodyDto'] == null) {
             throw new runtime.RequiredError(
                 'createOrganizationRequestBodyDto',
@@ -286,13 +381,21 @@ export class OrganizationsApi extends runtime.BaseAPI implements OrganizationsAp
 
         let urlPath = `/external/organizations`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
             body: CreateOrganizationRequestBodyDtoToJSON(requestParameters['createOrganizationRequestBodyDto']),
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Create a new organization.
+     */
+    async createOrganizationRaw(requestParameters: CreateOrganizationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<OrganizationEntity>> {
+        const requestOptions = await this.createOrganizationRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => OrganizationEntityFromJSON(jsonValue));
     }
@@ -306,9 +409,9 @@ export class OrganizationsApi extends runtime.BaseAPI implements OrganizationsAp
     }
 
     /**
-     * Hard remove an organization and all its data.
+     * Creates request options for externalHardRemoveOrganization without sending the request
      */
-    async externalHardRemoveOrganizationRaw(requestParameters: ExternalHardRemoveOrganizationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+    async externalHardRemoveOrganizationRequestOpts(requestParameters: ExternalHardRemoveOrganizationRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['organizationId'] == null) {
             throw new runtime.RequiredError(
                 'organizationId',
@@ -324,12 +427,20 @@ export class OrganizationsApi extends runtime.BaseAPI implements OrganizationsAp
         let urlPath = `/external/organizations/{organizationId}/hard`;
         urlPath = urlPath.replace(`{${"organizationId"}}`, encodeURIComponent(String(requestParameters['organizationId'])));
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'DELETE',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Hard remove an organization and all its data.
+     */
+    async externalHardRemoveOrganizationRaw(requestParameters: ExternalHardRemoveOrganizationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        const requestOptions = await this.externalHardRemoveOrganizationRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.VoidApiResponse(response);
     }
@@ -342,9 +453,9 @@ export class OrganizationsApi extends runtime.BaseAPI implements OrganizationsAp
     }
 
     /**
-     * Lista todas as organizações armazenadas no banco de dados (endpoint admin).
+     * Creates request options for findAllOrganizationsAdmin without sending the request
      */
-    async findAllOrganizationsAdminRaw(requestParameters: FindAllOrganizationsAdminRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AdminOrganizationsPageDto>> {
+    async findAllOrganizationsAdminRequestOpts(requestParameters: FindAllOrganizationsAdminRequest): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         if (requestParameters['serviceCutoffDateTo'] != null) {
@@ -416,12 +527,20 @@ export class OrganizationsApi extends runtime.BaseAPI implements OrganizationsAp
 
         let urlPath = `/external/organizations/admin`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Lista todas as organizações armazenadas no banco de dados (endpoint admin).
+     */
+    async findAllOrganizationsAdminRaw(requestParameters: FindAllOrganizationsAdminRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AdminOrganizationsPageDto>> {
+        const requestOptions = await this.findAllOrganizationsAdminRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => AdminOrganizationsPageDtoFromJSON(jsonValue));
     }
@@ -435,9 +554,9 @@ export class OrganizationsApi extends runtime.BaseAPI implements OrganizationsAp
     }
 
     /**
-     * Find my organizations of type group where I am admin.
+     * Creates request options for findMyAdminGroupOrganizations without sending the request
      */
-    async findMyAdminGroupOrganizationsRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<OrganizationEntity>>> {
+    async findMyAdminGroupOrganizationsRequestOpts(): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -445,12 +564,20 @@ export class OrganizationsApi extends runtime.BaseAPI implements OrganizationsAp
 
         let urlPath = `/external/organizations/my/admin/type/group`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Find my organizations of type group where I am admin.
+     */
+    async findMyAdminGroupOrganizationsRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<OrganizationEntity>>> {
+        const requestOptions = await this.findMyAdminGroupOrganizationsRequestOpts();
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(OrganizationEntityFromJSON));
     }
@@ -464,9 +591,9 @@ export class OrganizationsApi extends runtime.BaseAPI implements OrganizationsAp
     }
 
     /**
-     * Find my organization.
+     * Creates request options for findMyOrganization without sending the request
      */
-    async findMyOrganizationRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<OrganizationEntity>> {
+    async findMyOrganizationRequestOpts(): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -474,12 +601,20 @@ export class OrganizationsApi extends runtime.BaseAPI implements OrganizationsAp
 
         let urlPath = `/external/organizations/my`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Find my organization.
+     */
+    async findMyOrganizationRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<OrganizationEntity>> {
+        const requestOptions = await this.findMyOrganizationRequestOpts();
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => OrganizationEntityFromJSON(jsonValue));
     }
@@ -493,9 +628,9 @@ export class OrganizationsApi extends runtime.BaseAPI implements OrganizationsAp
     }
 
     /**
-     * Find an organization by ID.
+     * Creates request options for findOrganizationById without sending the request
      */
-    async findOrganizationByIdRaw(requestParameters: FindOrganizationByIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<OrganizationEntity>> {
+    async findOrganizationByIdRequestOpts(requestParameters: FindOrganizationByIdRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['organizationId'] == null) {
             throw new runtime.RequiredError(
                 'organizationId',
@@ -511,12 +646,20 @@ export class OrganizationsApi extends runtime.BaseAPI implements OrganizationsAp
         let urlPath = `/external/organizations/{organizationId}`;
         urlPath = urlPath.replace(`{${"organizationId"}}`, encodeURIComponent(String(requestParameters['organizationId'])));
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Find an organization by ID.
+     */
+    async findOrganizationByIdRaw(requestParameters: FindOrganizationByIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<OrganizationEntity>> {
+        const requestOptions = await this.findOrganizationByIdRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => OrganizationEntityFromJSON(jsonValue));
     }
@@ -530,9 +673,9 @@ export class OrganizationsApi extends runtime.BaseAPI implements OrganizationsAp
     }
 
     /**
-     * Hard remove an organization and all its data (internal endpoint).
+     * Creates request options for hardRemoveOrganizationInternal without sending the request
      */
-    async hardRemoveOrganizationInternalRaw(requestParameters: HardRemoveOrganizationInternalRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+    async hardRemoveOrganizationInternalRequestOpts(requestParameters: HardRemoveOrganizationInternalRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['organizationId'] == null) {
             throw new runtime.RequiredError(
                 'organizationId',
@@ -548,12 +691,20 @@ export class OrganizationsApi extends runtime.BaseAPI implements OrganizationsAp
         let urlPath = `/internal/organizations/{organizationId}/hard`;
         urlPath = urlPath.replace(`{${"organizationId"}}`, encodeURIComponent(String(requestParameters['organizationId'])));
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'DELETE',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Hard remove an organization and all its data (internal endpoint).
+     */
+    async hardRemoveOrganizationInternalRaw(requestParameters: HardRemoveOrganizationInternalRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        const requestOptions = await this.hardRemoveOrganizationInternalRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.VoidApiResponse(response);
     }
@@ -566,9 +717,9 @@ export class OrganizationsApi extends runtime.BaseAPI implements OrganizationsAp
     }
 
     /**
-     * Atualiza parcialmente uma organização.
+     * Creates request options for partialUpdateOrganization without sending the request
      */
-    async partialUpdateOrganizationRaw(requestParameters: PartialUpdateOrganizationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<OrganizationEntity>> {
+    async partialUpdateOrganizationRequestOpts(requestParameters: PartialUpdateOrganizationRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
@@ -593,13 +744,21 @@ export class OrganizationsApi extends runtime.BaseAPI implements OrganizationsAp
         let urlPath = `/external/organizations/{id}`;
         urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'PATCH',
             headers: headerParameters,
             query: queryParameters,
             body: PartialUpdateOrganizationRequestBodyDtoToJSON(requestParameters['partialUpdateOrganizationRequestBodyDto']),
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Atualiza parcialmente uma organização.
+     */
+    async partialUpdateOrganizationRaw(requestParameters: PartialUpdateOrganizationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<OrganizationEntity>> {
+        const requestOptions = await this.partialUpdateOrganizationRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => OrganizationEntityFromJSON(jsonValue));
     }
@@ -613,9 +772,9 @@ export class OrganizationsApi extends runtime.BaseAPI implements OrganizationsAp
     }
 
     /**
-     * Sync organizations from Clerk.
+     * Creates request options for syncFromClerk without sending the request
      */
-    async syncFromClerkRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+    async syncFromClerkRequestOpts(): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -623,12 +782,20 @@ export class OrganizationsApi extends runtime.BaseAPI implements OrganizationsAp
 
         let urlPath = `/internal/organizations/sync/clerk`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Sync organizations from Clerk.
+     */
+    async syncFromClerkRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        const requestOptions = await this.syncFromClerkRequestOpts();
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.VoidApiResponse(response);
     }
@@ -641,9 +808,9 @@ export class OrganizationsApi extends runtime.BaseAPI implements OrganizationsAp
     }
 
     /**
-     * Atualiza o subtype de uma organização pelo clerkId (endpoint admin).
+     * Creates request options for updateOrganizationByClerkId without sending the request
      */
-    async updateOrganizationByClerkIdRaw(requestParameters: UpdateOrganizationByClerkIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+    async updateOrganizationByClerkIdRequestOpts(requestParameters: UpdateOrganizationByClerkIdRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['clerkId'] == null) {
             throw new runtime.RequiredError(
                 'clerkId',
@@ -668,13 +835,21 @@ export class OrganizationsApi extends runtime.BaseAPI implements OrganizationsAp
         let urlPath = `/external/organizations/admin/{clerkId}`;
         urlPath = urlPath.replace(`{${"clerkId"}}`, encodeURIComponent(String(requestParameters['clerkId'])));
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'PATCH',
             headers: headerParameters,
             query: queryParameters,
             body: UpdateOrganizationRequestBodyDtoToJSON(requestParameters['updateOrganizationRequestBodyDto']),
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Atualiza o subtype de uma organização pelo clerkId (endpoint admin).
+     */
+    async updateOrganizationByClerkIdRaw(requestParameters: UpdateOrganizationByClerkIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        const requestOptions = await this.updateOrganizationByClerkIdRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.VoidApiResponse(response);
     }

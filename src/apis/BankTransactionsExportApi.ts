@@ -46,6 +46,23 @@ export interface ExportBankTransactionsRequest {
  */
 export interface BankTransactionsExportApiInterface {
     /**
+     * Creates request options for exportBankTransactions without sending the request
+     * @param {'asc' | 'desc'} [sortOrder] Ordem da ordenação. Valores possíveis: \&#39;asc\&#39;, \&#39;desc\&#39;.
+     * @param {'date' | 'amountInBrl' | 'description' | 'createdAt' | 'reconciled'} [sortBy] Campo para ordenação
+     * @param {boolean} [ignored] Filtrar por transações ignoradas/arquivadas. (true/false)
+     * @param {'AUTOMATIC_INTEGRATION' | 'MANUAL_OFX_IMPORT'} [origin] Filtrar pela origem da transação.
+     * @param {boolean} [reconciled] Filtrar por transações reconciliadas. (true/false)
+     * @param {'DEBIT' | 'CREDIT'} [type] Tipo da movimentação.
+     * @param {string} [dateTo] Data final para filtrar.
+     * @param {string} [dateFrom] Data inicial para filtrar.
+     * @param {string} [bankAccount] ID da conta bancária para filtrar.
+     * @param {'csv' | 'xlsx'} [format] Formato de exportação dos dados.
+     * @throws {RequiredError}
+     * @memberof BankTransactionsExportApiInterface
+     */
+    exportBankTransactionsRequestOpts(requestParameters: ExportBankTransactionsRequest): Promise<runtime.RequestOpts>;
+
+    /**
      * 
      * @summary Solicita a exportação das transações bancárias.
      * @param {'asc' | 'desc'} [sortOrder] Ordem da ordenação. Valores possíveis: \&#39;asc\&#39;, \&#39;desc\&#39;.
@@ -77,9 +94,9 @@ export interface BankTransactionsExportApiInterface {
 export class BankTransactionsExportApi extends runtime.BaseAPI implements BankTransactionsExportApiInterface {
 
     /**
-     * Solicita a exportação das transações bancárias.
+     * Creates request options for exportBankTransactions without sending the request
      */
-    async exportBankTransactionsRaw(requestParameters: ExportBankTransactionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ExportBankTransactionsDto>> {
+    async exportBankTransactionsRequestOpts(requestParameters: ExportBankTransactionsRequest): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         if (requestParameters['sortOrder'] != null) {
@@ -127,12 +144,20 @@ export class BankTransactionsExportApi extends runtime.BaseAPI implements BankTr
 
         let urlPath = `/external/bank-transactions/export`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Solicita a exportação das transações bancárias.
+     */
+    async exportBankTransactionsRaw(requestParameters: ExportBankTransactionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ExportBankTransactionsDto>> {
+        const requestOptions = await this.exportBankTransactionsRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ExportBankTransactionsDtoFromJSON(jsonValue));
     }

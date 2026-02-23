@@ -21,7 +21,7 @@ import { mapValues } from '../runtime';
 export interface RemoveFinancialRecordRequestBodyDto {
     /**
      * Canal de origem da operação
-     * @type {string}
+     * @type {RemoveFinancialRecordRequestBodyDtoChannelEnum}
      * @memberof RemoveFinancialRecordRequestBodyDto
      */
     channel: RemoveFinancialRecordRequestBodyDtoChannelEnum;

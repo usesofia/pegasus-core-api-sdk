@@ -19,6 +19,12 @@ import type { BankInstitutionEntity } from '../models/index';
  */
 export interface BankInstitutionsApiInterface {
     /**
+     * Creates request options for findAllBankInstitutions without sending the request
+     * @throws {RequiredError}
+     * @memberof BankInstitutionsApiInterface
+     */
+    findAllBankInstitutionsRequestOpts(): Promise<runtime.RequestOpts>;
+    /**
      *
      * @summary Get all bank institutions
      * @param {*} [options] Override http request option.
@@ -35,6 +41,10 @@ export interface BankInstitutionsApiInterface {
  *
  */
 export declare class BankInstitutionsApi extends runtime.BaseAPI implements BankInstitutionsApiInterface {
+    /**
+     * Creates request options for findAllBankInstitutions without sending the request
+     */
+    findAllBankInstitutionsRequestOpts(): Promise<runtime.RequestOpts>;
     /**
      * Get all bank institutions
      */

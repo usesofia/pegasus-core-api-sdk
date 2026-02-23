@@ -30,7 +30,7 @@ export interface FinancialRecordGroupDto {
     ownerOrganization: string;
     /**
      * Tipo do grupo.
-     * @type {string}
+     * @type {FinancialRecordGroupDtoTypeEnum}
      * @memberof FinancialRecordGroupDto
      */
     type: FinancialRecordGroupDtoTypeEnum;

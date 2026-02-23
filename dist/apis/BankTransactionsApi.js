@@ -76,32 +76,45 @@ var BankTransactionsApi = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
+     * Creates request options for createOrUpdateBankTransaction without sending the request
+     */
+    BankTransactionsApi.prototype.createOrUpdateBankTransactionRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                if (requestParameters['createOrUpdateBankTransactionRequestBodyDto'] == null) {
+                    throw new runtime.RequiredError('createOrUpdateBankTransactionRequestBodyDto', 'Required parameter "createOrUpdateBankTransactionRequestBodyDto" was null or undefined when calling createOrUpdateBankTransaction().');
+                }
+                queryParameters = {};
+                if (requestParameters['populate'] != null) {
+                    queryParameters['populate'] = requestParameters['populate'];
+                }
+                headerParameters = {};
+                headerParameters['Content-Type'] = 'application/json';
+                urlPath = "/internal/bank-transactions";
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'PUT',
+                        headers: headerParameters,
+                        query: queryParameters,
+                        body: (0, index_1.CreateOrUpdateBankTransactionRequestBodyDtoToJSON)(requestParameters['createOrUpdateBankTransactionRequestBodyDto']),
+                    }];
+            });
+        });
+    };
+    /**
      * Cria ou atualiza uma movimentação financeira.
      */
     BankTransactionsApi.prototype.createOrUpdateBankTransactionRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        if (requestParameters['createOrUpdateBankTransactionRequestBodyDto'] == null) {
-                            throw new runtime.RequiredError('createOrUpdateBankTransactionRequestBodyDto', 'Required parameter "createOrUpdateBankTransactionRequestBodyDto" was null or undefined when calling createOrUpdateBankTransaction().');
-                        }
-                        queryParameters = {};
-                        if (requestParameters['populate'] != null) {
-                            queryParameters['populate'] = requestParameters['populate'];
-                        }
-                        headerParameters = {};
-                        headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/internal/bank-transactions";
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'PUT',
-                                headers: headerParameters,
-                                query: queryParameters,
-                                body: (0, index_1.CreateOrUpdateBankTransactionRequestBodyDtoToJSON)(requestParameters['createOrUpdateBankTransactionRequestBodyDto']),
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.createOrUpdateBankTransactionRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.BankTransactionEntityFromJSON)(jsonValue); })];
                 }
@@ -126,28 +139,41 @@ var BankTransactionsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Creates request options for createOrUpdateBankTransactionBestSuggestedAction without sending the request
+     */
+    BankTransactionsApi.prototype.createOrUpdateBankTransactionBestSuggestedActionRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                if (requestParameters['bankTransactionId'] == null) {
+                    throw new runtime.RequiredError('bankTransactionId', 'Required parameter "bankTransactionId" was null or undefined when calling createOrUpdateBankTransactionBestSuggestedAction().');
+                }
+                queryParameters = {};
+                headerParameters = {};
+                urlPath = "/external/bank-transactions/{bankTransactionId}/best-suggested-action";
+                urlPath = urlPath.replace("{".concat("bankTransactionId", "}"), encodeURIComponent(String(requestParameters['bankTransactionId'])));
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'PUT',
+                        headers: headerParameters,
+                        query: queryParameters,
+                    }];
+            });
+        });
+    };
+    /**
      * Cria ou atualiza uma sugestão de melhor ação para uma transação bancária.
      */
     BankTransactionsApi.prototype.createOrUpdateBankTransactionBestSuggestedActionRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        if (requestParameters['bankTransactionId'] == null) {
-                            throw new runtime.RequiredError('bankTransactionId', 'Required parameter "bankTransactionId" was null or undefined when calling createOrUpdateBankTransactionBestSuggestedAction().');
-                        }
-                        queryParameters = {};
-                        headerParameters = {};
-                        urlPath = "/external/bank-transactions/{bankTransactionId}/best-suggested-action";
-                        urlPath = urlPath.replace("{".concat("bankTransactionId", "}"), encodeURIComponent(String(requestParameters['bankTransactionId'])));
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'PUT',
-                                headers: headerParameters,
-                                query: queryParameters,
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.createOrUpdateBankTransactionBestSuggestedActionRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.BankTransactionEntityFromJSON)(jsonValue); })];
                 }
@@ -172,29 +198,42 @@ var BankTransactionsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Creates request options for dispatchOfxImport without sending the request
+     */
+    BankTransactionsApi.prototype.dispatchOfxImportRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                if (requestParameters['ofxImportRequestBodyDto'] == null) {
+                    throw new runtime.RequiredError('ofxImportRequestBodyDto', 'Required parameter "ofxImportRequestBodyDto" was null or undefined when calling dispatchOfxImport().');
+                }
+                queryParameters = {};
+                headerParameters = {};
+                headerParameters['Content-Type'] = 'application/json';
+                urlPath = "/external/bank-transactions/ofx";
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'POST',
+                        headers: headerParameters,
+                        query: queryParameters,
+                        body: (0, index_1.OfxImportRequestBodyDtoToJSON)(requestParameters['ofxImportRequestBodyDto']),
+                    }];
+            });
+        });
+    };
+    /**
      * Dispara a importação assíncrona de um arquivo OFX.
      */
     BankTransactionsApi.prototype.dispatchOfxImportRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        if (requestParameters['ofxImportRequestBodyDto'] == null) {
-                            throw new runtime.RequiredError('ofxImportRequestBodyDto', 'Required parameter "ofxImportRequestBodyDto" was null or undefined when calling dispatchOfxImport().');
-                        }
-                        queryParameters = {};
-                        headerParameters = {};
-                        headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/external/bank-transactions/ofx";
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'POST',
-                                headers: headerParameters,
-                                query: queryParameters,
-                                body: (0, index_1.OfxImportRequestBodyDtoToJSON)(requestParameters['ofxImportRequestBodyDto']),
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.dispatchOfxImportRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.OfxImportJobRequestEntityFromJSON)(jsonValue); })];
                 }
@@ -219,28 +258,41 @@ var BankTransactionsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Creates request options for findAiSuggestionsByFinancialRecordId without sending the request
+     */
+    BankTransactionsApi.prototype.findAiSuggestionsByFinancialRecordIdRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                if (requestParameters['financialRecordId'] == null) {
+                    throw new runtime.RequiredError('financialRecordId', 'Required parameter "financialRecordId" was null or undefined when calling findAiSuggestionsByFinancialRecordId().');
+                }
+                queryParameters = {};
+                headerParameters = {};
+                urlPath = "/external/financial-records/{financialRecordId}/ai-suggestions";
+                urlPath = urlPath.replace("{".concat("financialRecordId", "}"), encodeURIComponent(String(requestParameters['financialRecordId'])));
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'GET',
+                        headers: headerParameters,
+                        query: queryParameters,
+                    }];
+            });
+        });
+    };
+    /**
      * Busca sugestões de AI por ID do lançamento financeiro.
      */
     BankTransactionsApi.prototype.findAiSuggestionsByFinancialRecordIdRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        if (requestParameters['financialRecordId'] == null) {
-                            throw new runtime.RequiredError('financialRecordId', 'Required parameter "financialRecordId" was null or undefined when calling findAiSuggestionsByFinancialRecordId().');
-                        }
-                        queryParameters = {};
-                        headerParameters = {};
-                        urlPath = "/external/financial-records/{financialRecordId}/ai-suggestions";
-                        urlPath = urlPath.replace("{".concat("financialRecordId", "}"), encodeURIComponent(String(requestParameters['financialRecordId'])));
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'GET',
-                                headers: headerParameters,
-                                query: queryParameters,
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.findAiSuggestionsByFinancialRecordIdRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return jsonValue.map(index_1.BankTransactionEntityFromJSON); })];
                 }
@@ -265,72 +317,85 @@ var BankTransactionsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Creates request options for findAllBankTransactions without sending the request
+     */
+    BankTransactionsApi.prototype.findAllBankTransactionsRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                queryParameters = {};
+                if (requestParameters['queryId'] != null) {
+                    queryParameters['queryId'] = requestParameters['queryId'];
+                }
+                if (requestParameters['populate'] != null) {
+                    queryParameters['populate'] = requestParameters['populate'];
+                }
+                if (requestParameters['sortOrder'] != null) {
+                    queryParameters['sortOrder'] = requestParameters['sortOrder'];
+                }
+                if (requestParameters['sortBy'] != null) {
+                    queryParameters['sortBy'] = requestParameters['sortBy'];
+                }
+                if (requestParameters['ofxImportJobRequestIds'] != null) {
+                    queryParameters['ofxImportJobRequestIds'] = requestParameters['ofxImportJobRequestIds'];
+                }
+                if (requestParameters['ignored'] != null) {
+                    queryParameters['ignored'] = requestParameters['ignored'];
+                }
+                if (requestParameters['origin'] != null) {
+                    queryParameters['origin'] = requestParameters['origin'];
+                }
+                if (requestParameters['reconciled'] != null) {
+                    queryParameters['reconciled'] = requestParameters['reconciled'];
+                }
+                if (requestParameters['type'] != null) {
+                    queryParameters['type'] = requestParameters['type'];
+                }
+                if (requestParameters['dateTo'] != null) {
+                    queryParameters['dateTo'] = requestParameters['dateTo'];
+                }
+                if (requestParameters['dateFrom'] != null) {
+                    queryParameters['dateFrom'] = requestParameters['dateFrom'];
+                }
+                if (requestParameters['bankAccount'] != null) {
+                    queryParameters['bankAccount'] = requestParameters['bankAccount'];
+                }
+                if (requestParameters['semanticSearchTermInBase64'] != null) {
+                    queryParameters['semanticSearchTermInBase64'] = requestParameters['semanticSearchTermInBase64'];
+                }
+                if (requestParameters['textSearchTerm'] != null) {
+                    queryParameters['textSearchTerm'] = requestParameters['textSearchTerm'];
+                }
+                if (requestParameters['pageSize'] != null) {
+                    queryParameters['pageSize'] = requestParameters['pageSize'];
+                }
+                if (requestParameters['pageIndex'] != null) {
+                    queryParameters['pageIndex'] = requestParameters['pageIndex'];
+                }
+                headerParameters = {};
+                urlPath = "/external/bank-transactions";
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'GET',
+                        headers: headerParameters,
+                        query: queryParameters,
+                    }];
+            });
+        });
+    };
+    /**
      * Busca todas as movimentações financeiras.
      */
     BankTransactionsApi.prototype.findAllBankTransactionsRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        queryParameters = {};
-                        if (requestParameters['queryId'] != null) {
-                            queryParameters['queryId'] = requestParameters['queryId'];
-                        }
-                        if (requestParameters['populate'] != null) {
-                            queryParameters['populate'] = requestParameters['populate'];
-                        }
-                        if (requestParameters['sortOrder'] != null) {
-                            queryParameters['sortOrder'] = requestParameters['sortOrder'];
-                        }
-                        if (requestParameters['sortBy'] != null) {
-                            queryParameters['sortBy'] = requestParameters['sortBy'];
-                        }
-                        if (requestParameters['ofxImportJobRequestIds'] != null) {
-                            queryParameters['ofxImportJobRequestIds'] = requestParameters['ofxImportJobRequestIds'];
-                        }
-                        if (requestParameters['ignored'] != null) {
-                            queryParameters['ignored'] = requestParameters['ignored'];
-                        }
-                        if (requestParameters['origin'] != null) {
-                            queryParameters['origin'] = requestParameters['origin'];
-                        }
-                        if (requestParameters['reconciled'] != null) {
-                            queryParameters['reconciled'] = requestParameters['reconciled'];
-                        }
-                        if (requestParameters['type'] != null) {
-                            queryParameters['type'] = requestParameters['type'];
-                        }
-                        if (requestParameters['dateTo'] != null) {
-                            queryParameters['dateTo'] = requestParameters['dateTo'];
-                        }
-                        if (requestParameters['dateFrom'] != null) {
-                            queryParameters['dateFrom'] = requestParameters['dateFrom'];
-                        }
-                        if (requestParameters['bankAccount'] != null) {
-                            queryParameters['bankAccount'] = requestParameters['bankAccount'];
-                        }
-                        if (requestParameters['semanticSearchTermInBase64'] != null) {
-                            queryParameters['semanticSearchTermInBase64'] = requestParameters['semanticSearchTermInBase64'];
-                        }
-                        if (requestParameters['textSearchTerm'] != null) {
-                            queryParameters['textSearchTerm'] = requestParameters['textSearchTerm'];
-                        }
-                        if (requestParameters['pageSize'] != null) {
-                            queryParameters['pageSize'] = requestParameters['pageSize'];
-                        }
-                        if (requestParameters['pageIndex'] != null) {
-                            queryParameters['pageIndex'] = requestParameters['pageIndex'];
-                        }
-                        headerParameters = {};
-                        urlPath = "/external/bank-transactions";
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'GET',
-                                headers: headerParameters,
-                                query: queryParameters,
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.findAllBankTransactionsRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.BankTransactionsPageDtoFromJSON)(jsonValue); })];
                 }
@@ -356,45 +421,58 @@ var BankTransactionsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Creates request options for findAllOfxImportJobRequests without sending the request
+     */
+    BankTransactionsApi.prototype.findAllOfxImportJobRequestsRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                queryParameters = {};
+                if (requestParameters['ids'] != null) {
+                    queryParameters['ids'] = requestParameters['ids'];
+                }
+                if (requestParameters['bankAccountIds'] != null) {
+                    queryParameters['bankAccountIds'] = requestParameters['bankAccountIds'];
+                }
+                if (requestParameters['textSearchTerm'] != null) {
+                    queryParameters['textSearchTerm'] = requestParameters['textSearchTerm'];
+                }
+                if (requestParameters['sortOrder'] != null) {
+                    queryParameters['sortOrder'] = requestParameters['sortOrder'];
+                }
+                if (requestParameters['sortBy'] != null) {
+                    queryParameters['sortBy'] = requestParameters['sortBy'];
+                }
+                if (requestParameters['pageSize'] != null) {
+                    queryParameters['pageSize'] = requestParameters['pageSize'];
+                }
+                if (requestParameters['pageIndex'] != null) {
+                    queryParameters['pageIndex'] = requestParameters['pageIndex'];
+                }
+                headerParameters = {};
+                urlPath = "/external/bank-transactions/ofx/job-requests";
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'GET',
+                        headers: headerParameters,
+                        query: queryParameters,
+                    }];
+            });
+        });
+    };
+    /**
      * Lista todas as solicitações de importação de arquivos OFX com suas execuções.
      */
     BankTransactionsApi.prototype.findAllOfxImportJobRequestsRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        queryParameters = {};
-                        if (requestParameters['ids'] != null) {
-                            queryParameters['ids'] = requestParameters['ids'];
-                        }
-                        if (requestParameters['bankAccountIds'] != null) {
-                            queryParameters['bankAccountIds'] = requestParameters['bankAccountIds'];
-                        }
-                        if (requestParameters['textSearchTerm'] != null) {
-                            queryParameters['textSearchTerm'] = requestParameters['textSearchTerm'];
-                        }
-                        if (requestParameters['sortOrder'] != null) {
-                            queryParameters['sortOrder'] = requestParameters['sortOrder'];
-                        }
-                        if (requestParameters['sortBy'] != null) {
-                            queryParameters['sortBy'] = requestParameters['sortBy'];
-                        }
-                        if (requestParameters['pageSize'] != null) {
-                            queryParameters['pageSize'] = requestParameters['pageSize'];
-                        }
-                        if (requestParameters['pageIndex'] != null) {
-                            queryParameters['pageIndex'] = requestParameters['pageIndex'];
-                        }
-                        headerParameters = {};
-                        urlPath = "/external/bank-transactions/ofx/job-requests";
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'GET',
-                                headers: headerParameters,
-                                query: queryParameters,
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.findAllOfxImportJobRequestsRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.OfxImportJobRequestsPageDtoFromJSON)(jsonValue); })];
                 }
@@ -420,31 +498,44 @@ var BankTransactionsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Creates request options for findBankTransactionById without sending the request
+     */
+    BankTransactionsApi.prototype.findBankTransactionByIdRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                if (requestParameters['id'] == null) {
+                    throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling findBankTransactionById().');
+                }
+                queryParameters = {};
+                if (requestParameters['populate'] != null) {
+                    queryParameters['populate'] = requestParameters['populate'];
+                }
+                headerParameters = {};
+                urlPath = "/external/bank-transactions/{id}";
+                urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'GET',
+                        headers: headerParameters,
+                        query: queryParameters,
+                    }];
+            });
+        });
+    };
+    /**
      * Busca uma movimentação financeira por ID.
      */
     BankTransactionsApi.prototype.findBankTransactionByIdRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        if (requestParameters['id'] == null) {
-                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling findBankTransactionById().');
-                        }
-                        queryParameters = {};
-                        if (requestParameters['populate'] != null) {
-                            queryParameters['populate'] = requestParameters['populate'];
-                        }
-                        headerParameters = {};
-                        urlPath = "/external/bank-transactions/{id}";
-                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'GET',
-                                headers: headerParameters,
-                                query: queryParameters,
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.findBankTransactionByIdRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.BankTransactionEntityFromJSON)(jsonValue); })];
                 }
@@ -469,36 +560,49 @@ var BankTransactionsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Creates request options for partialUpdateBankTransaction without sending the request
+     */
+    BankTransactionsApi.prototype.partialUpdateBankTransactionRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                if (requestParameters['id'] == null) {
+                    throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling partialUpdateBankTransaction().');
+                }
+                if (requestParameters['partialUpdateBankTransactionRequestBodyDto'] == null) {
+                    throw new runtime.RequiredError('partialUpdateBankTransactionRequestBodyDto', 'Required parameter "partialUpdateBankTransactionRequestBodyDto" was null or undefined when calling partialUpdateBankTransaction().');
+                }
+                queryParameters = {};
+                if (requestParameters['populate'] != null) {
+                    queryParameters['populate'] = requestParameters['populate'];
+                }
+                headerParameters = {};
+                headerParameters['Content-Type'] = 'application/json';
+                urlPath = "/external/bank-transactions/{id}";
+                urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'PATCH',
+                        headers: headerParameters,
+                        query: queryParameters,
+                        body: (0, index_1.PartialUpdateBankTransactionRequestBodyDtoToJSON)(requestParameters['partialUpdateBankTransactionRequestBodyDto']),
+                    }];
+            });
+        });
+    };
+    /**
      * Atualiza parcialmente uma movimentação financeira.
      */
     BankTransactionsApi.prototype.partialUpdateBankTransactionRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        if (requestParameters['id'] == null) {
-                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling partialUpdateBankTransaction().');
-                        }
-                        if (requestParameters['partialUpdateBankTransactionRequestBodyDto'] == null) {
-                            throw new runtime.RequiredError('partialUpdateBankTransactionRequestBodyDto', 'Required parameter "partialUpdateBankTransactionRequestBodyDto" was null or undefined when calling partialUpdateBankTransaction().');
-                        }
-                        queryParameters = {};
-                        if (requestParameters['populate'] != null) {
-                            queryParameters['populate'] = requestParameters['populate'];
-                        }
-                        headerParameters = {};
-                        headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/external/bank-transactions/{id}";
-                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'PATCH',
-                                headers: headerParameters,
-                                query: queryParameters,
-                                body: (0, index_1.PartialUpdateBankTransactionRequestBodyDtoToJSON)(requestParameters['partialUpdateBankTransactionRequestBodyDto']),
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.partialUpdateBankTransactionRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.BankTransactionEntityFromJSON)(jsonValue); })];
                 }
@@ -523,29 +627,42 @@ var BankTransactionsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Creates request options for processBankTransactionsCreateOrUpdateBestSuggestionAction without sending the request
+     */
+    BankTransactionsApi.prototype.processBankTransactionsCreateOrUpdateBestSuggestionActionRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                if (requestParameters['executeBankTransactionsCreateOrUpdateBestSuggestionActionRequestBodyDto'] == null) {
+                    throw new runtime.RequiredError('executeBankTransactionsCreateOrUpdateBestSuggestionActionRequestBodyDto', 'Required parameter "executeBankTransactionsCreateOrUpdateBestSuggestionActionRequestBodyDto" was null or undefined when calling processBankTransactionsCreateOrUpdateBestSuggestionAction().');
+                }
+                queryParameters = {};
+                headerParameters = {};
+                headerParameters['Content-Type'] = 'application/json';
+                urlPath = "/internal/queues/bank-transactions-create-or-update-best-suggestion-action";
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'POST',
+                        headers: headerParameters,
+                        query: queryParameters,
+                        body: (0, index_1.ExecuteBankTransactionsCreateOrUpdateBestSuggestionActionRequestBodyDtoToJSON)(requestParameters['executeBankTransactionsCreateOrUpdateBestSuggestionActionRequestBodyDto']),
+                    }];
+            });
+        });
+    };
+    /**
      * Processa a obtenção de sugestões de melhor ação para transações bancárias via AI.
      */
     BankTransactionsApi.prototype.processBankTransactionsCreateOrUpdateBestSuggestionActionRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        if (requestParameters['executeBankTransactionsCreateOrUpdateBestSuggestionActionRequestBodyDto'] == null) {
-                            throw new runtime.RequiredError('executeBankTransactionsCreateOrUpdateBestSuggestionActionRequestBodyDto', 'Required parameter "executeBankTransactionsCreateOrUpdateBestSuggestionActionRequestBodyDto" was null or undefined when calling processBankTransactionsCreateOrUpdateBestSuggestionAction().');
-                        }
-                        queryParameters = {};
-                        headerParameters = {};
-                        headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/internal/queues/bank-transactions-create-or-update-best-suggestion-action";
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'POST',
-                                headers: headerParameters,
-                                query: queryParameters,
-                                body: (0, index_1.ExecuteBankTransactionsCreateOrUpdateBestSuggestionActionRequestBodyDtoToJSON)(requestParameters['executeBankTransactionsCreateOrUpdateBestSuggestionActionRequestBodyDto']),
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.processBankTransactionsCreateOrUpdateBestSuggestionActionRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.VoidApiResponse(response)];
                 }
@@ -568,29 +685,42 @@ var BankTransactionsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Creates request options for processBulkBankTransactionsOperation without sending the request
+     */
+    BankTransactionsApi.prototype.processBulkBankTransactionsOperationRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                if (requestParameters['executeBulkBankTransactionsJobRequestBodyDto'] == null) {
+                    throw new runtime.RequiredError('executeBulkBankTransactionsJobRequestBodyDto', 'Required parameter "executeBulkBankTransactionsJobRequestBodyDto" was null or undefined when calling processBulkBankTransactionsOperation().');
+                }
+                queryParameters = {};
+                headerParameters = {};
+                headerParameters['Content-Type'] = 'application/json';
+                urlPath = "/internal/queues/bulk-bank-transactions";
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'POST',
+                        headers: headerParameters,
+                        query: queryParameters,
+                        body: (0, index_1.ExecuteBulkBankTransactionsJobRequestBodyDtoToJSON)(requestParameters['executeBulkBankTransactionsJobRequestBodyDto']),
+                    }];
+            });
+        });
+    };
+    /**
      * Processa uma operação em lote para transações bancárias.
      */
     BankTransactionsApi.prototype.processBulkBankTransactionsOperationRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        if (requestParameters['executeBulkBankTransactionsJobRequestBodyDto'] == null) {
-                            throw new runtime.RequiredError('executeBulkBankTransactionsJobRequestBodyDto', 'Required parameter "executeBulkBankTransactionsJobRequestBodyDto" was null or undefined when calling processBulkBankTransactionsOperation().');
-                        }
-                        queryParameters = {};
-                        headerParameters = {};
-                        headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/internal/queues/bulk-bank-transactions";
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'POST',
-                                headers: headerParameters,
-                                query: queryParameters,
-                                body: (0, index_1.ExecuteBulkBankTransactionsJobRequestBodyDtoToJSON)(requestParameters['executeBulkBankTransactionsJobRequestBodyDto']),
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.processBulkBankTransactionsOperationRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.VoidApiResponse(response)];
                 }
@@ -613,29 +743,42 @@ var BankTransactionsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Creates request options for processOfxImport without sending the request
+     */
+    BankTransactionsApi.prototype.processOfxImportRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                if (requestParameters['executeOfxImportJobRequestBodyDto'] == null) {
+                    throw new runtime.RequiredError('executeOfxImportJobRequestBodyDto', 'Required parameter "executeOfxImportJobRequestBodyDto" was null or undefined when calling processOfxImport().');
+                }
+                queryParameters = {};
+                headerParameters = {};
+                headerParameters['Content-Type'] = 'application/json';
+                urlPath = "/internal/queues/ofx-import";
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'POST',
+                        headers: headerParameters,
+                        query: queryParameters,
+                        body: (0, index_1.ExecuteOfxImportJobRequestBodyDtoToJSON)(requestParameters['executeOfxImportJobRequestBodyDto']),
+                    }];
+            });
+        });
+    };
+    /**
      * Processa a importação assíncrona de um arquivo OFX.
      */
     BankTransactionsApi.prototype.processOfxImportRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        if (requestParameters['executeOfxImportJobRequestBodyDto'] == null) {
-                            throw new runtime.RequiredError('executeOfxImportJobRequestBodyDto', 'Required parameter "executeOfxImportJobRequestBodyDto" was null or undefined when calling processOfxImport().');
-                        }
-                        queryParameters = {};
-                        headerParameters = {};
-                        headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/internal/queues/ofx-import";
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'POST',
-                                headers: headerParameters,
-                                query: queryParameters,
-                                body: (0, index_1.ExecuteOfxImportJobRequestBodyDtoToJSON)(requestParameters['executeOfxImportJobRequestBodyDto']),
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.processOfxImportRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.VoidApiResponse(response)];
                 }
@@ -658,33 +801,46 @@ var BankTransactionsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Creates request options for reconcileBankTransaction without sending the request
+     */
+    BankTransactionsApi.prototype.reconcileBankTransactionRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                if (requestParameters['bankTransactionId'] == null) {
+                    throw new runtime.RequiredError('bankTransactionId', 'Required parameter "bankTransactionId" was null or undefined when calling reconcileBankTransaction().');
+                }
+                if (requestParameters['reconcileBankTransactionRequestBodyDto'] == null) {
+                    throw new runtime.RequiredError('reconcileBankTransactionRequestBodyDto', 'Required parameter "reconcileBankTransactionRequestBodyDto" was null or undefined when calling reconcileBankTransaction().');
+                }
+                queryParameters = {};
+                headerParameters = {};
+                headerParameters['Content-Type'] = 'application/json';
+                urlPath = "/external/bank-transactions/{bankTransactionId}/reconcile";
+                urlPath = urlPath.replace("{".concat("bankTransactionId", "}"), encodeURIComponent(String(requestParameters['bankTransactionId'])));
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'POST',
+                        headers: headerParameters,
+                        query: queryParameters,
+                        body: (0, index_1.ReconcileBankTransactionRequestBodyDtoToJSON)(requestParameters['reconcileBankTransactionRequestBodyDto']),
+                    }];
+            });
+        });
+    };
+    /**
      * Reconcilia uma transação bancária com múltiplos lançamentos financeiros.
      */
     BankTransactionsApi.prototype.reconcileBankTransactionRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        if (requestParameters['bankTransactionId'] == null) {
-                            throw new runtime.RequiredError('bankTransactionId', 'Required parameter "bankTransactionId" was null or undefined when calling reconcileBankTransaction().');
-                        }
-                        if (requestParameters['reconcileBankTransactionRequestBodyDto'] == null) {
-                            throw new runtime.RequiredError('reconcileBankTransactionRequestBodyDto', 'Required parameter "reconcileBankTransactionRequestBodyDto" was null or undefined when calling reconcileBankTransaction().');
-                        }
-                        queryParameters = {};
-                        headerParameters = {};
-                        headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/external/bank-transactions/{bankTransactionId}/reconcile";
-                        urlPath = urlPath.replace("{".concat("bankTransactionId", "}"), encodeURIComponent(String(requestParameters['bankTransactionId'])));
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'POST',
-                                headers: headerParameters,
-                                query: queryParameters,
-                                body: (0, index_1.ReconcileBankTransactionRequestBodyDtoToJSON)(requestParameters['reconcileBankTransactionRequestBodyDto']),
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.reconcileBankTransactionRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.BankTransactionEntityFromJSON)(jsonValue); })];
                 }
@@ -709,29 +865,42 @@ var BankTransactionsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Creates request options for scheduleBulkBankTransactionsOperation without sending the request
+     */
+    BankTransactionsApi.prototype.scheduleBulkBankTransactionsOperationRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                if (requestParameters['bulkBankTransactionsJobRequestDto'] == null) {
+                    throw new runtime.RequiredError('bulkBankTransactionsJobRequestDto', 'Required parameter "bulkBankTransactionsJobRequestDto" was null or undefined when calling scheduleBulkBankTransactionsOperation().');
+                }
+                queryParameters = {};
+                headerParameters = {};
+                headerParameters['Content-Type'] = 'application/json';
+                urlPath = "/external/bank-transactions/bulk-operations";
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'POST',
+                        headers: headerParameters,
+                        query: queryParameters,
+                        body: (0, index_1.BulkBankTransactionsJobRequestDtoToJSON)(requestParameters['bulkBankTransactionsJobRequestDto']),
+                    }];
+            });
+        });
+    };
+    /**
      * Agenda uma operação em lote para transações bancárias.
      */
     BankTransactionsApi.prototype.scheduleBulkBankTransactionsOperationRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        if (requestParameters['bulkBankTransactionsJobRequestDto'] == null) {
-                            throw new runtime.RequiredError('bulkBankTransactionsJobRequestDto', 'Required parameter "bulkBankTransactionsJobRequestDto" was null or undefined when calling scheduleBulkBankTransactionsOperation().');
-                        }
-                        queryParameters = {};
-                        headerParameters = {};
-                        headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/external/bank-transactions/bulk-operations";
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'POST',
-                                headers: headerParameters,
-                                query: queryParameters,
-                                body: (0, index_1.BulkBankTransactionsJobRequestDtoToJSON)(requestParameters['bulkBankTransactionsJobRequestDto']),
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.scheduleBulkBankTransactionsOperationRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.BulkBankTransactionsJobRequestEntityFromJSON)(jsonValue); })];
                 }
@@ -756,29 +925,42 @@ var BankTransactionsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Creates request options for shouldAiSuggestAction without sending the request
+     */
+    BankTransactionsApi.prototype.shouldAiSuggestActionRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                if (requestParameters['shouldAiSuggestActionRequestBodyDto'] == null) {
+                    throw new runtime.RequiredError('shouldAiSuggestActionRequestBodyDto', 'Required parameter "shouldAiSuggestActionRequestBodyDto" was null or undefined when calling shouldAiSuggestAction().');
+                }
+                queryParameters = {};
+                headerParameters = {};
+                headerParameters['Content-Type'] = 'application/json';
+                urlPath = "/internal/bank-transactions/should-ai-suggest-action";
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'POST',
+                        headers: headerParameters,
+                        query: queryParameters,
+                        body: (0, index_1.ShouldAiSuggestActionRequestBodyDtoToJSON)(requestParameters['shouldAiSuggestActionRequestBodyDto']),
+                    }];
+            });
+        });
+    };
+    /**
      * Verifica se a AI deve sugerir uma ação para uma transação bancária.
      */
     BankTransactionsApi.prototype.shouldAiSuggestActionRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        if (requestParameters['shouldAiSuggestActionRequestBodyDto'] == null) {
-                            throw new runtime.RequiredError('shouldAiSuggestActionRequestBodyDto', 'Required parameter "shouldAiSuggestActionRequestBodyDto" was null or undefined when calling shouldAiSuggestAction().');
-                        }
-                        queryParameters = {};
-                        headerParameters = {};
-                        headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/internal/bank-transactions/should-ai-suggest-action";
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'POST',
-                                headers: headerParameters,
-                                query: queryParameters,
-                                body: (0, index_1.ShouldAiSuggestActionRequestBodyDtoToJSON)(requestParameters['shouldAiSuggestActionRequestBodyDto']),
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.shouldAiSuggestActionRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.ShouldAiSuggestActionResponseDtoFromJSON)(jsonValue); })];
                 }
@@ -803,75 +985,88 @@ var BankTransactionsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Creates request options for systemFindAllBankTransactions without sending the request
+     */
+    BankTransactionsApi.prototype.systemFindAllBankTransactionsRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                if (requestParameters['ownerOrganizationId'] == null) {
+                    throw new runtime.RequiredError('ownerOrganizationId', 'Required parameter "ownerOrganizationId" was null or undefined when calling systemFindAllBankTransactions().');
+                }
+                queryParameters = {};
+                if (requestParameters['ownerOrganizationId'] != null) {
+                    queryParameters['ownerOrganizationId'] = requestParameters['ownerOrganizationId'];
+                }
+                if (requestParameters['populate'] != null) {
+                    queryParameters['populate'] = requestParameters['populate'];
+                }
+                if (requestParameters['sortOrder'] != null) {
+                    queryParameters['sortOrder'] = requestParameters['sortOrder'];
+                }
+                if (requestParameters['sortBy'] != null) {
+                    queryParameters['sortBy'] = requestParameters['sortBy'];
+                }
+                if (requestParameters['ofxImportJobRequestIds'] != null) {
+                    queryParameters['ofxImportJobRequestIds'] = requestParameters['ofxImportJobRequestIds'];
+                }
+                if (requestParameters['ignored'] != null) {
+                    queryParameters['ignored'] = requestParameters['ignored'];
+                }
+                if (requestParameters['origin'] != null) {
+                    queryParameters['origin'] = requestParameters['origin'];
+                }
+                if (requestParameters['reconciled'] != null) {
+                    queryParameters['reconciled'] = requestParameters['reconciled'];
+                }
+                if (requestParameters['type'] != null) {
+                    queryParameters['type'] = requestParameters['type'];
+                }
+                if (requestParameters['dateTo'] != null) {
+                    queryParameters['dateTo'] = requestParameters['dateTo'].toISOString();
+                }
+                if (requestParameters['dateFrom'] != null) {
+                    queryParameters['dateFrom'] = requestParameters['dateFrom'].toISOString();
+                }
+                if (requestParameters['bankAccount'] != null) {
+                    queryParameters['bankAccount'] = requestParameters['bankAccount'];
+                }
+                if (requestParameters['semanticSearchTermInBase64'] != null) {
+                    queryParameters['semanticSearchTermInBase64'] = requestParameters['semanticSearchTermInBase64'];
+                }
+                if (requestParameters['textSearchTerm'] != null) {
+                    queryParameters['textSearchTerm'] = requestParameters['textSearchTerm'];
+                }
+                if (requestParameters['pageSize'] != null) {
+                    queryParameters['pageSize'] = requestParameters['pageSize'];
+                }
+                if (requestParameters['pageIndex'] != null) {
+                    queryParameters['pageIndex'] = requestParameters['pageIndex'];
+                }
+                headerParameters = {};
+                urlPath = "/internal/bank-transactions";
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'GET',
+                        headers: headerParameters,
+                        query: queryParameters,
+                    }];
+            });
+        });
+    };
+    /**
      * Busca todas as movimentações financeiras pelo sistema.
      */
     BankTransactionsApi.prototype.systemFindAllBankTransactionsRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        if (requestParameters['ownerOrganizationId'] == null) {
-                            throw new runtime.RequiredError('ownerOrganizationId', 'Required parameter "ownerOrganizationId" was null or undefined when calling systemFindAllBankTransactions().');
-                        }
-                        queryParameters = {};
-                        if (requestParameters['ownerOrganizationId'] != null) {
-                            queryParameters['ownerOrganizationId'] = requestParameters['ownerOrganizationId'];
-                        }
-                        if (requestParameters['populate'] != null) {
-                            queryParameters['populate'] = requestParameters['populate'];
-                        }
-                        if (requestParameters['sortOrder'] != null) {
-                            queryParameters['sortOrder'] = requestParameters['sortOrder'];
-                        }
-                        if (requestParameters['sortBy'] != null) {
-                            queryParameters['sortBy'] = requestParameters['sortBy'];
-                        }
-                        if (requestParameters['ofxImportJobRequestIds'] != null) {
-                            queryParameters['ofxImportJobRequestIds'] = requestParameters['ofxImportJobRequestIds'];
-                        }
-                        if (requestParameters['ignored'] != null) {
-                            queryParameters['ignored'] = requestParameters['ignored'];
-                        }
-                        if (requestParameters['origin'] != null) {
-                            queryParameters['origin'] = requestParameters['origin'];
-                        }
-                        if (requestParameters['reconciled'] != null) {
-                            queryParameters['reconciled'] = requestParameters['reconciled'];
-                        }
-                        if (requestParameters['type'] != null) {
-                            queryParameters['type'] = requestParameters['type'];
-                        }
-                        if (requestParameters['dateTo'] != null) {
-                            queryParameters['dateTo'] = requestParameters['dateTo'].toISOString();
-                        }
-                        if (requestParameters['dateFrom'] != null) {
-                            queryParameters['dateFrom'] = requestParameters['dateFrom'].toISOString();
-                        }
-                        if (requestParameters['bankAccount'] != null) {
-                            queryParameters['bankAccount'] = requestParameters['bankAccount'];
-                        }
-                        if (requestParameters['semanticSearchTermInBase64'] != null) {
-                            queryParameters['semanticSearchTermInBase64'] = requestParameters['semanticSearchTermInBase64'];
-                        }
-                        if (requestParameters['textSearchTerm'] != null) {
-                            queryParameters['textSearchTerm'] = requestParameters['textSearchTerm'];
-                        }
-                        if (requestParameters['pageSize'] != null) {
-                            queryParameters['pageSize'] = requestParameters['pageSize'];
-                        }
-                        if (requestParameters['pageIndex'] != null) {
-                            queryParameters['pageIndex'] = requestParameters['pageIndex'];
-                        }
-                        headerParameters = {};
-                        urlPath = "/internal/bank-transactions";
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'GET',
-                                headers: headerParameters,
-                                query: queryParameters,
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.systemFindAllBankTransactionsRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.BankTransactionsPageDtoFromJSON)(jsonValue); })];
                 }
@@ -896,31 +1091,44 @@ var BankTransactionsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Creates request options for systemFindBankTransactionById without sending the request
+     */
+    BankTransactionsApi.prototype.systemFindBankTransactionByIdRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                if (requestParameters['id'] == null) {
+                    throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling systemFindBankTransactionById().');
+                }
+                queryParameters = {};
+                if (requestParameters['populate'] != null) {
+                    queryParameters['populate'] = requestParameters['populate'];
+                }
+                headerParameters = {};
+                urlPath = "/internal/bank-transactions/{id}";
+                urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'GET',
+                        headers: headerParameters,
+                        query: queryParameters,
+                    }];
+            });
+        });
+    };
+    /**
      * Busca uma movimentação financeira por ID.
      */
     BankTransactionsApi.prototype.systemFindBankTransactionByIdRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        if (requestParameters['id'] == null) {
-                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling systemFindBankTransactionById().');
-                        }
-                        queryParameters = {};
-                        if (requestParameters['populate'] != null) {
-                            queryParameters['populate'] = requestParameters['populate'];
-                        }
-                        headerParameters = {};
-                        urlPath = "/internal/bank-transactions/{id}";
-                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'GET',
-                                headers: headerParameters,
-                                query: queryParameters,
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.systemFindBankTransactionByIdRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.BankTransactionEntityFromJSON)(jsonValue); })];
                 }
@@ -945,73 +1153,86 @@ var BankTransactionsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Creates request options for systemOrganizationFindAllBankTransactions without sending the request
+     */
+    BankTransactionsApi.prototype.systemOrganizationFindAllBankTransactionsRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                if (requestParameters['organizationId'] == null) {
+                    throw new runtime.RequiredError('organizationId', 'Required parameter "organizationId" was null or undefined when calling systemOrganizationFindAllBankTransactions().');
+                }
+                queryParameters = {};
+                if (requestParameters['populate'] != null) {
+                    queryParameters['populate'] = requestParameters['populate'];
+                }
+                if (requestParameters['sortOrder'] != null) {
+                    queryParameters['sortOrder'] = requestParameters['sortOrder'];
+                }
+                if (requestParameters['sortBy'] != null) {
+                    queryParameters['sortBy'] = requestParameters['sortBy'];
+                }
+                if (requestParameters['ofxImportJobRequestIds'] != null) {
+                    queryParameters['ofxImportJobRequestIds'] = requestParameters['ofxImportJobRequestIds'];
+                }
+                if (requestParameters['ignored'] != null) {
+                    queryParameters['ignored'] = requestParameters['ignored'];
+                }
+                if (requestParameters['origin'] != null) {
+                    queryParameters['origin'] = requestParameters['origin'];
+                }
+                if (requestParameters['reconciled'] != null) {
+                    queryParameters['reconciled'] = requestParameters['reconciled'];
+                }
+                if (requestParameters['type'] != null) {
+                    queryParameters['type'] = requestParameters['type'];
+                }
+                if (requestParameters['dateTo'] != null) {
+                    queryParameters['dateTo'] = requestParameters['dateTo'].toISOString();
+                }
+                if (requestParameters['dateFrom'] != null) {
+                    queryParameters['dateFrom'] = requestParameters['dateFrom'].toISOString();
+                }
+                if (requestParameters['bankAccount'] != null) {
+                    queryParameters['bankAccount'] = requestParameters['bankAccount'];
+                }
+                if (requestParameters['semanticSearchTermInBase64'] != null) {
+                    queryParameters['semanticSearchTermInBase64'] = requestParameters['semanticSearchTermInBase64'];
+                }
+                if (requestParameters['textSearchTerm'] != null) {
+                    queryParameters['textSearchTerm'] = requestParameters['textSearchTerm'];
+                }
+                if (requestParameters['pageSize'] != null) {
+                    queryParameters['pageSize'] = requestParameters['pageSize'];
+                }
+                if (requestParameters['pageIndex'] != null) {
+                    queryParameters['pageIndex'] = requestParameters['pageIndex'];
+                }
+                headerParameters = {};
+                urlPath = "/internal/organizations/{organizationId}/bank-transactions";
+                urlPath = urlPath.replace("{".concat("organizationId", "}"), encodeURIComponent(String(requestParameters['organizationId'])));
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'GET',
+                        headers: headerParameters,
+                        query: queryParameters,
+                    }];
+            });
+        });
+    };
+    /**
      * Busca todas as movimentações financeiras pelo sistema (por organização).
      */
     BankTransactionsApi.prototype.systemOrganizationFindAllBankTransactionsRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        if (requestParameters['organizationId'] == null) {
-                            throw new runtime.RequiredError('organizationId', 'Required parameter "organizationId" was null or undefined when calling systemOrganizationFindAllBankTransactions().');
-                        }
-                        queryParameters = {};
-                        if (requestParameters['populate'] != null) {
-                            queryParameters['populate'] = requestParameters['populate'];
-                        }
-                        if (requestParameters['sortOrder'] != null) {
-                            queryParameters['sortOrder'] = requestParameters['sortOrder'];
-                        }
-                        if (requestParameters['sortBy'] != null) {
-                            queryParameters['sortBy'] = requestParameters['sortBy'];
-                        }
-                        if (requestParameters['ofxImportJobRequestIds'] != null) {
-                            queryParameters['ofxImportJobRequestIds'] = requestParameters['ofxImportJobRequestIds'];
-                        }
-                        if (requestParameters['ignored'] != null) {
-                            queryParameters['ignored'] = requestParameters['ignored'];
-                        }
-                        if (requestParameters['origin'] != null) {
-                            queryParameters['origin'] = requestParameters['origin'];
-                        }
-                        if (requestParameters['reconciled'] != null) {
-                            queryParameters['reconciled'] = requestParameters['reconciled'];
-                        }
-                        if (requestParameters['type'] != null) {
-                            queryParameters['type'] = requestParameters['type'];
-                        }
-                        if (requestParameters['dateTo'] != null) {
-                            queryParameters['dateTo'] = requestParameters['dateTo'].toISOString();
-                        }
-                        if (requestParameters['dateFrom'] != null) {
-                            queryParameters['dateFrom'] = requestParameters['dateFrom'].toISOString();
-                        }
-                        if (requestParameters['bankAccount'] != null) {
-                            queryParameters['bankAccount'] = requestParameters['bankAccount'];
-                        }
-                        if (requestParameters['semanticSearchTermInBase64'] != null) {
-                            queryParameters['semanticSearchTermInBase64'] = requestParameters['semanticSearchTermInBase64'];
-                        }
-                        if (requestParameters['textSearchTerm'] != null) {
-                            queryParameters['textSearchTerm'] = requestParameters['textSearchTerm'];
-                        }
-                        if (requestParameters['pageSize'] != null) {
-                            queryParameters['pageSize'] = requestParameters['pageSize'];
-                        }
-                        if (requestParameters['pageIndex'] != null) {
-                            queryParameters['pageIndex'] = requestParameters['pageIndex'];
-                        }
-                        headerParameters = {};
-                        urlPath = "/internal/organizations/{organizationId}/bank-transactions";
-                        urlPath = urlPath.replace("{".concat("organizationId", "}"), encodeURIComponent(String(requestParameters['organizationId'])));
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'GET',
-                                headers: headerParameters,
-                                query: queryParameters,
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.systemOrganizationFindAllBankTransactionsRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.BankTransactionsPageDtoFromJSON)(jsonValue); })];
                 }
@@ -1036,28 +1257,41 @@ var BankTransactionsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Creates request options for unreconcileBankTransaction without sending the request
+     */
+    BankTransactionsApi.prototype.unreconcileBankTransactionRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                if (requestParameters['bankTransactionId'] == null) {
+                    throw new runtime.RequiredError('bankTransactionId', 'Required parameter "bankTransactionId" was null or undefined when calling unreconcileBankTransaction().');
+                }
+                queryParameters = {};
+                headerParameters = {};
+                urlPath = "/external/bank-transactions/{bankTransactionId}/unreconcile";
+                urlPath = urlPath.replace("{".concat("bankTransactionId", "}"), encodeURIComponent(String(requestParameters['bankTransactionId'])));
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'POST',
+                        headers: headerParameters,
+                        query: queryParameters,
+                    }];
+            });
+        });
+    };
+    /**
      * Desfaz a reconciliação de uma transação bancária.
      */
     BankTransactionsApi.prototype.unreconcileBankTransactionRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        if (requestParameters['bankTransactionId'] == null) {
-                            throw new runtime.RequiredError('bankTransactionId', 'Required parameter "bankTransactionId" was null or undefined when calling unreconcileBankTransaction().');
-                        }
-                        queryParameters = {};
-                        headerParameters = {};
-                        urlPath = "/external/bank-transactions/{bankTransactionId}/unreconcile";
-                        urlPath = urlPath.replace("{".concat("bankTransactionId", "}"), encodeURIComponent(String(requestParameters['bankTransactionId'])));
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'POST',
-                                headers: headerParameters,
-                                query: queryParameters,
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.unreconcileBankTransactionRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.BankTransactionEntityFromJSON)(jsonValue); })];
                 }

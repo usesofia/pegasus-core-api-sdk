@@ -85,6 +85,15 @@ export interface RemoveInstallmentFinancialRecordRequest {
  */
 export interface InstallmentFinancialRecordsApiInterface {
     /**
+     * Creates request options for createInstallmentFinancialRecord without sending the request
+     * @param {CreateInstallmentFinancialRecordRequestBodyDto} createInstallmentFinancialRecordRequestBodyDto 
+     * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
+     * @throws {RequiredError}
+     * @memberof InstallmentFinancialRecordsApiInterface
+     */
+    createInstallmentFinancialRecordRequestOpts(requestParameters: CreateInstallmentFinancialRecordRequest): Promise<runtime.RequestOpts>;
+
+    /**
      * 
      * @summary Cria um novo lançamento financeiro parcelado.
      * @param {CreateInstallmentFinancialRecordRequestBodyDto} createInstallmentFinancialRecordRequestBodyDto 
@@ -99,6 +108,29 @@ export interface InstallmentFinancialRecordsApiInterface {
      * Cria um novo lançamento financeiro parcelado.
      */
     createInstallmentFinancialRecord(requestParameters: CreateInstallmentFinancialRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<InstallmentFinancialRecordDto>;
+
+    /**
+     * Creates request options for findAllInstallmentFinancialRecords without sending the request
+     * @param {boolean} [completed] Indica se o lançamento parcelado está completo (todas as parcelas pagas/recebidas).
+     * @param {'MONTHLY' | 'WEEKLY' | 'YEARLY'} [frequency] Frequência do lançamento parcelado.
+     * @param {Date} [competenceDateTo] Data de competência final (formato ISO YYYY-MM-DD).
+     * @param {Date} [competenceDateFrom] Data de competência inicial (formato ISO YYYY-MM-DD).
+     * @param {Array<any>} [tags] IDs das tags.
+     * @param {string} [subcategory] ID da subcategoria.
+     * @param {string} [contact] ID do contato.
+     * @param {Date} [firstInstallmentDateTo] Data final da primeira parcela (formato ISO YYYY-MM-DD).
+     * @param {Date} [firstInstallmentDateFrom] Data inicial da primeira parcela (formato ISO YYYY-MM-DD).
+     * @param {'IN' | 'OUT'} [direction] Direção do lançamento (entrada/saída).
+     * @param {'asc' | 'desc'} [sortOrder] Ordem da ordenação.
+     * @param {'direction' | 'firstInstallmentDate' | 'contact' | 'description' | 'subcategory' | 'amount' | 'tags' | 'competenceDate' | 'frequency' | 'createdAt'} [sortBy] Campo para ordenação.
+     * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
+     * @param {string} [textSearchTerm] Termo para busca por descrição do lançamento parcelado.
+     * @param {number} [pageSize] Quantidade de itens por página.
+     * @param {number} [pageIndex] Índice da página.
+     * @throws {RequiredError}
+     * @memberof InstallmentFinancialRecordsApiInterface
+     */
+    findAllInstallmentFinancialRecordsRequestOpts(requestParameters: FindAllInstallmentFinancialRecordsRequest): Promise<runtime.RequestOpts>;
 
     /**
      * 
@@ -131,6 +163,15 @@ export interface InstallmentFinancialRecordsApiInterface {
     findAllInstallmentFinancialRecords(requestParameters: FindAllInstallmentFinancialRecordsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<InstallmentFinancialRecordsPageDto>;
 
     /**
+     * Creates request options for findByIdInstallmentFinancialRecord without sending the request
+     * @param {string} id ID do lançamento financeiro parcelado.
+     * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
+     * @throws {RequiredError}
+     * @memberof InstallmentFinancialRecordsApiInterface
+     */
+    findByIdInstallmentFinancialRecordRequestOpts(requestParameters: FindByIdInstallmentFinancialRecordRequest): Promise<runtime.RequestOpts>;
+
+    /**
      * 
      * @summary Busca um lançamento financeiro parcelado pelo ID.
      * @param {string} id ID do lançamento financeiro parcelado.
@@ -145,6 +186,16 @@ export interface InstallmentFinancialRecordsApiInterface {
      * Busca um lançamento financeiro parcelado pelo ID.
      */
     findByIdInstallmentFinancialRecord(requestParameters: FindByIdInstallmentFinancialRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<InstallmentFinancialRecordDto>;
+
+    /**
+     * Creates request options for partialUpdateInstallmentFinancialRecord without sending the request
+     * @param {string} id ID do lançamento financeiro parcelado.
+     * @param {PartialUpdateInstallmentFinancialRecordRequestBodyDto} partialUpdateInstallmentFinancialRecordRequestBodyDto 
+     * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
+     * @throws {RequiredError}
+     * @memberof InstallmentFinancialRecordsApiInterface
+     */
+    partialUpdateInstallmentFinancialRecordRequestOpts(requestParameters: PartialUpdateInstallmentFinancialRecordRequest): Promise<runtime.RequestOpts>;
 
     /**
      * 
@@ -162,6 +213,15 @@ export interface InstallmentFinancialRecordsApiInterface {
      * Atualiza parcialmente um lançamento financeiro parcelado.
      */
     partialUpdateInstallmentFinancialRecord(requestParameters: PartialUpdateInstallmentFinancialRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<InstallmentFinancialRecordDto>;
+
+    /**
+     * Creates request options for removeInstallmentFinancialRecord without sending the request
+     * @param {string} id ID do lançamento financeiro parcelado.
+     * @param {RemoveInstallmentFinancialRecordRequestBodyDto} removeInstallmentFinancialRecordRequestBodyDto 
+     * @throws {RequiredError}
+     * @memberof InstallmentFinancialRecordsApiInterface
+     */
+    removeInstallmentFinancialRecordRequestOpts(requestParameters: RemoveInstallmentFinancialRecordRequest): Promise<runtime.RequestOpts>;
 
     /**
      * Remove um lançamento financeiro parcelado. Opcionalmente, pode remover todos os lançamentos financeiros não concluídos relacionados através do query parameter \"removeNotCompletedFinancialRecords=true\".
@@ -188,9 +248,9 @@ export interface InstallmentFinancialRecordsApiInterface {
 export class InstallmentFinancialRecordsApi extends runtime.BaseAPI implements InstallmentFinancialRecordsApiInterface {
 
     /**
-     * Cria um novo lançamento financeiro parcelado.
+     * Creates request options for createInstallmentFinancialRecord without sending the request
      */
-    async createInstallmentFinancialRecordRaw(requestParameters: CreateInstallmentFinancialRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<InstallmentFinancialRecordDto>> {
+    async createInstallmentFinancialRecordRequestOpts(requestParameters: CreateInstallmentFinancialRecordRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['createInstallmentFinancialRecordRequestBodyDto'] == null) {
             throw new runtime.RequiredError(
                 'createInstallmentFinancialRecordRequestBodyDto',
@@ -211,13 +271,21 @@ export class InstallmentFinancialRecordsApi extends runtime.BaseAPI implements I
 
         let urlPath = `/external/installment-financial-records`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
             body: CreateInstallmentFinancialRecordRequestBodyDtoToJSON(requestParameters['createInstallmentFinancialRecordRequestBodyDto']),
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Cria um novo lançamento financeiro parcelado.
+     */
+    async createInstallmentFinancialRecordRaw(requestParameters: CreateInstallmentFinancialRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<InstallmentFinancialRecordDto>> {
+        const requestOptions = await this.createInstallmentFinancialRecordRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => InstallmentFinancialRecordDtoFromJSON(jsonValue));
     }
@@ -231,9 +299,9 @@ export class InstallmentFinancialRecordsApi extends runtime.BaseAPI implements I
     }
 
     /**
-     * Busca todos os lançamentos financeiros parcelados.
+     * Creates request options for findAllInstallmentFinancialRecords without sending the request
      */
-    async findAllInstallmentFinancialRecordsRaw(requestParameters: FindAllInstallmentFinancialRecordsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<InstallmentFinancialRecordsPageDto>> {
+    async findAllInstallmentFinancialRecordsRequestOpts(requestParameters: FindAllInstallmentFinancialRecordsRequest): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         if (requestParameters['completed'] != null) {
@@ -305,12 +373,20 @@ export class InstallmentFinancialRecordsApi extends runtime.BaseAPI implements I
 
         let urlPath = `/external/installment-financial-records`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Busca todos os lançamentos financeiros parcelados.
+     */
+    async findAllInstallmentFinancialRecordsRaw(requestParameters: FindAllInstallmentFinancialRecordsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<InstallmentFinancialRecordsPageDto>> {
+        const requestOptions = await this.findAllInstallmentFinancialRecordsRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => InstallmentFinancialRecordsPageDtoFromJSON(jsonValue));
     }
@@ -324,9 +400,9 @@ export class InstallmentFinancialRecordsApi extends runtime.BaseAPI implements I
     }
 
     /**
-     * Busca um lançamento financeiro parcelado pelo ID.
+     * Creates request options for findByIdInstallmentFinancialRecord without sending the request
      */
-    async findByIdInstallmentFinancialRecordRaw(requestParameters: FindByIdInstallmentFinancialRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<InstallmentFinancialRecordDto>> {
+    async findByIdInstallmentFinancialRecordRequestOpts(requestParameters: FindByIdInstallmentFinancialRecordRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
@@ -346,12 +422,20 @@ export class InstallmentFinancialRecordsApi extends runtime.BaseAPI implements I
         let urlPath = `/external/installment-financial-records/{id}`;
         urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Busca um lançamento financeiro parcelado pelo ID.
+     */
+    async findByIdInstallmentFinancialRecordRaw(requestParameters: FindByIdInstallmentFinancialRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<InstallmentFinancialRecordDto>> {
+        const requestOptions = await this.findByIdInstallmentFinancialRecordRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => InstallmentFinancialRecordDtoFromJSON(jsonValue));
     }
@@ -365,9 +449,9 @@ export class InstallmentFinancialRecordsApi extends runtime.BaseAPI implements I
     }
 
     /**
-     * Atualiza parcialmente um lançamento financeiro parcelado.
+     * Creates request options for partialUpdateInstallmentFinancialRecord without sending the request
      */
-    async partialUpdateInstallmentFinancialRecordRaw(requestParameters: PartialUpdateInstallmentFinancialRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<InstallmentFinancialRecordDto>> {
+    async partialUpdateInstallmentFinancialRecordRequestOpts(requestParameters: PartialUpdateInstallmentFinancialRecordRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
@@ -396,13 +480,21 @@ export class InstallmentFinancialRecordsApi extends runtime.BaseAPI implements I
         let urlPath = `/external/installment-financial-records/{id}`;
         urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'PATCH',
             headers: headerParameters,
             query: queryParameters,
             body: PartialUpdateInstallmentFinancialRecordRequestBodyDtoToJSON(requestParameters['partialUpdateInstallmentFinancialRecordRequestBodyDto']),
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Atualiza parcialmente um lançamento financeiro parcelado.
+     */
+    async partialUpdateInstallmentFinancialRecordRaw(requestParameters: PartialUpdateInstallmentFinancialRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<InstallmentFinancialRecordDto>> {
+        const requestOptions = await this.partialUpdateInstallmentFinancialRecordRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => InstallmentFinancialRecordDtoFromJSON(jsonValue));
     }
@@ -416,10 +508,9 @@ export class InstallmentFinancialRecordsApi extends runtime.BaseAPI implements I
     }
 
     /**
-     * Remove um lançamento financeiro parcelado. Opcionalmente, pode remover todos os lançamentos financeiros não concluídos relacionados através do query parameter \"removeNotCompletedFinancialRecords=true\".
-     * Remove um lançamento financeiro parcelado.
+     * Creates request options for removeInstallmentFinancialRecord without sending the request
      */
-    async removeInstallmentFinancialRecordRaw(requestParameters: RemoveInstallmentFinancialRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+    async removeInstallmentFinancialRecordRequestOpts(requestParameters: RemoveInstallmentFinancialRecordRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
@@ -444,13 +535,22 @@ export class InstallmentFinancialRecordsApi extends runtime.BaseAPI implements I
         let urlPath = `/external/installment-financial-records/{id}`;
         urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'DELETE',
             headers: headerParameters,
             query: queryParameters,
             body: RemoveInstallmentFinancialRecordRequestBodyDtoToJSON(requestParameters['removeInstallmentFinancialRecordRequestBodyDto']),
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Remove um lançamento financeiro parcelado. Opcionalmente, pode remover todos os lançamentos financeiros não concluídos relacionados através do query parameter \"removeNotCompletedFinancialRecords=true\".
+     * Remove um lançamento financeiro parcelado.
+     */
+    async removeInstallmentFinancialRecordRaw(requestParameters: RemoveInstallmentFinancialRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        const requestOptions = await this.removeInstallmentFinancialRecordRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.VoidApiResponse(response);
     }

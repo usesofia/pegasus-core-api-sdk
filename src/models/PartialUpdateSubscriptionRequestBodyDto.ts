@@ -41,13 +41,13 @@ export interface PartialUpdateSubscriptionRequestBodyDto {
     description?: string | null;
     /**
      * Provedor da subscription.
-     * @type {string}
+     * @type {PartialUpdateSubscriptionRequestBodyDtoProviderEnum}
      * @memberof PartialUpdateSubscriptionRequestBodyDto
      */
     provider?: PartialUpdateSubscriptionRequestBodyDtoProviderEnum;
     /**
      * Status da subscription.
-     * @type {string}
+     * @type {PartialUpdateSubscriptionRequestBodyDtoStatusEnum}
      * @memberof PartialUpdateSubscriptionRequestBodyDto
      */
     status?: PartialUpdateSubscriptionRequestBodyDtoStatusEnum;

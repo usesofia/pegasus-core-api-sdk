@@ -55,7 +55,7 @@ export interface CreateOrganizationRequestBodyDto {
     slug: string;
     /**
      * Tipo da organização.
-     * @type {string}
+     * @type {CreateOrganizationRequestBodyDtoTypeEnum}
      * @memberof CreateOrganizationRequestBodyDto
      */
     type: CreateOrganizationRequestBodyDtoTypeEnum;

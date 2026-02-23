@@ -25,6 +25,13 @@ export interface ScheduleBulkRemoveRequest {
  */
 export interface BulkRemoveApiInterface {
     /**
+     * Creates request options for processBulkRemove without sending the request
+     * @param {ExecuteBulkRemoveJobRequestBodyDto} executeBulkRemoveJobRequestBodyDto
+     * @throws {RequiredError}
+     * @memberof BulkRemoveApiInterface
+     */
+    processBulkRemoveRequestOpts(requestParameters: ProcessBulkRemoveRequest): Promise<runtime.RequestOpts>;
+    /**
      *
      * @summary Processes bulk remove tasks
      * @param {ExecuteBulkRemoveJobRequestBodyDto} executeBulkRemoveJobRequestBodyDto
@@ -37,6 +44,13 @@ export interface BulkRemoveApiInterface {
      * Processes bulk remove tasks
      */
     processBulkRemove(requestParameters: ProcessBulkRemoveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+    /**
+     * Creates request options for scheduleBulkRemove without sending the request
+     * @param {BulkRemoveJobRequestDto} bulkRemoveJobRequestDto
+     * @throws {RequiredError}
+     * @memberof BulkRemoveApiInterface
+     */
+    scheduleBulkRemoveRequestOpts(requestParameters: ScheduleBulkRemoveRequest): Promise<runtime.RequestOpts>;
     /**
      *
      * @summary Schedules removal of multiple resources
@@ -56,6 +70,10 @@ export interface BulkRemoveApiInterface {
  */
 export declare class BulkRemoveApi extends runtime.BaseAPI implements BulkRemoveApiInterface {
     /**
+     * Creates request options for processBulkRemove without sending the request
+     */
+    processBulkRemoveRequestOpts(requestParameters: ProcessBulkRemoveRequest): Promise<runtime.RequestOpts>;
+    /**
      * Processes bulk remove tasks
      */
     processBulkRemoveRaw(requestParameters: ProcessBulkRemoveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
@@ -63,6 +81,10 @@ export declare class BulkRemoveApi extends runtime.BaseAPI implements BulkRemove
      * Processes bulk remove tasks
      */
     processBulkRemove(requestParameters: ProcessBulkRemoveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+    /**
+     * Creates request options for scheduleBulkRemove without sending the request
+     */
+    scheduleBulkRemoveRequestOpts(requestParameters: ScheduleBulkRemoveRequest): Promise<runtime.RequestOpts>;
     /**
      * Schedules removal of multiple resources
      */

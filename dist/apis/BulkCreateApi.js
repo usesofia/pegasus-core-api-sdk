@@ -76,29 +76,42 @@ var BulkCreateApi = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
+     * Creates request options for processBulkCreate without sending the request
+     */
+    BulkCreateApi.prototype.processBulkCreateRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                if (requestParameters['executeBulkCreateJobRequestBodyDto'] == null) {
+                    throw new runtime.RequiredError('executeBulkCreateJobRequestBodyDto', 'Required parameter "executeBulkCreateJobRequestBodyDto" was null or undefined when calling processBulkCreate().');
+                }
+                queryParameters = {};
+                headerParameters = {};
+                headerParameters['Content-Type'] = 'application/json';
+                urlPath = "/internal/queues/bulk-create";
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'POST',
+                        headers: headerParameters,
+                        query: queryParameters,
+                        body: (0, index_1.ExecuteBulkCreateJobRequestBodyDtoToJSON)(requestParameters['executeBulkCreateJobRequestBodyDto']),
+                    }];
+            });
+        });
+    };
+    /**
      * Processes bulk create tasks
      */
     BulkCreateApi.prototype.processBulkCreateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        if (requestParameters['executeBulkCreateJobRequestBodyDto'] == null) {
-                            throw new runtime.RequiredError('executeBulkCreateJobRequestBodyDto', 'Required parameter "executeBulkCreateJobRequestBodyDto" was null or undefined when calling processBulkCreate().');
-                        }
-                        queryParameters = {};
-                        headerParameters = {};
-                        headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/internal/queues/bulk-create";
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'POST',
-                                headers: headerParameters,
-                                query: queryParameters,
-                                body: (0, index_1.ExecuteBulkCreateJobRequestBodyDtoToJSON)(requestParameters['executeBulkCreateJobRequestBodyDto']),
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.processBulkCreateRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.VoidApiResponse(response)];
                 }
@@ -121,29 +134,42 @@ var BulkCreateApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Creates request options for scheduleBulkCreate without sending the request
+     */
+    BulkCreateApi.prototype.scheduleBulkCreateRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                if (requestParameters['bulkCreateJobRequestDto'] == null) {
+                    throw new runtime.RequiredError('bulkCreateJobRequestDto', 'Required parameter "bulkCreateJobRequestDto" was null or undefined when calling scheduleBulkCreate().');
+                }
+                queryParameters = {};
+                headerParameters = {};
+                headerParameters['Content-Type'] = 'application/json';
+                urlPath = "/external/bulk/create";
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'POST',
+                        headers: headerParameters,
+                        query: queryParameters,
+                        body: (0, index_1.BulkCreateJobRequestDtoToJSON)(requestParameters['bulkCreateJobRequestDto']),
+                    }];
+            });
+        });
+    };
+    /**
      * Schedules creation of multiple resources from a file
      */
     BulkCreateApi.prototype.scheduleBulkCreateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        if (requestParameters['bulkCreateJobRequestDto'] == null) {
-                            throw new runtime.RequiredError('bulkCreateJobRequestDto', 'Required parameter "bulkCreateJobRequestDto" was null or undefined when calling scheduleBulkCreate().');
-                        }
-                        queryParameters = {};
-                        headerParameters = {};
-                        headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/external/bulk/create";
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'POST',
-                                headers: headerParameters,
-                                query: queryParameters,
-                                body: (0, index_1.BulkCreateJobRequestDtoToJSON)(requestParameters['bulkCreateJobRequestDto']),
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.scheduleBulkCreateRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.BulkCreateJobRequestEntityFromJSON)(jsonValue); })];
                 }

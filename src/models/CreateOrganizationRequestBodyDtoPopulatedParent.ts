@@ -39,7 +39,7 @@ export interface CreateOrganizationRequestBodyDtoPopulatedParent {
     slug: string;
     /**
      * Tipo da organização.
-     * @type {string}
+     * @type {CreateOrganizationRequestBodyDtoPopulatedParentTypeEnum}
      * @memberof CreateOrganizationRequestBodyDtoPopulatedParent
      */
     type: CreateOrganizationRequestBodyDtoPopulatedParentTypeEnum;

@@ -27,6 +27,18 @@ export interface ExportSubcategoriesRequest {
  */
 export interface SubcategoriesExportApiInterface {
     /**
+     * Creates request options for exportSubcategories without sending the request
+     * @param {'asc' | 'desc'} [sortOrder] Ordem de ordenação das subcategorias.
+     * @param {'name' | 'createdAt' | 'index'} [sortBy] Campo para ordenar as subcategorias.
+     * @param {boolean} [active] Filtra subcategorias ativas ou inativas.
+     * @param {string} [categoryId] ID da categoria para filtrar subcategorias.
+     * @param {'IN' | 'OUT'} [direction] Direção da subcategoria.
+     * @param {'csv' | 'xlsx'} [format] Formato de exportação dos dados.
+     * @throws {RequiredError}
+     * @memberof SubcategoriesExportApiInterface
+     */
+    exportSubcategoriesRequestOpts(requestParameters: ExportSubcategoriesRequest): Promise<runtime.RequestOpts>;
+    /**
      *
      * @summary Solicita a exportação das subcategorias.
      * @param {'asc' | 'desc'} [sortOrder] Ordem de ordenação das subcategorias.
@@ -49,6 +61,10 @@ export interface SubcategoriesExportApiInterface {
  *
  */
 export declare class SubcategoriesExportApi extends runtime.BaseAPI implements SubcategoriesExportApiInterface {
+    /**
+     * Creates request options for exportSubcategories without sending the request
+     */
+    exportSubcategoriesRequestOpts(requestParameters: ExportSubcategoriesRequest): Promise<runtime.RequestOpts>;
     /**
      * Solicita a exportação das subcategorias.
      */

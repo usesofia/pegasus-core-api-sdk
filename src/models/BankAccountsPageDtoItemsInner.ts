@@ -54,7 +54,7 @@ export interface BankAccountsPageDtoItemsInner {
     name: string;
     /**
      * Tipo da conta bancária.
-     * @type {string}
+     * @type {BankAccountsPageDtoItemsInnerTypeEnum}
      * @memberof BankAccountsPageDtoItemsInner
      */
     type: BankAccountsPageDtoItemsInnerTypeEnum;
@@ -114,7 +114,7 @@ export interface BankAccountsPageDtoItemsInner {
     active: boolean;
     /**
      * Fornecedor da conta bancária.
-     * @type {string}
+     * @type {BankAccountsPageDtoItemsInnerProviderEnum}
      * @memberof BankAccountsPageDtoItemsInner
      */
     provider?: BankAccountsPageDtoItemsInnerProviderEnum | null;

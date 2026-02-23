@@ -35,7 +35,7 @@ export interface FinancialRecordDto {
     ownerOrganization: string;
     /**
      * Direção do lançamento (entrada/saída).
-     * @type {string}
+     * @type {FinancialRecordDtoDirectionEnum}
      * @memberof FinancialRecordDto
      */
     direction: FinancialRecordDtoDirectionEnum;

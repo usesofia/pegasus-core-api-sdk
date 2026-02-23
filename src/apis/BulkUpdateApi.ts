@@ -47,6 +47,14 @@ export interface ScheduleBulkUpdateRequest {
  */
 export interface BulkUpdateApiInterface {
     /**
+     * Creates request options for processBulkUpdate without sending the request
+     * @param {ExecuteBulkUpdateJobRequestBodyDto} executeBulkUpdateJobRequestBodyDto 
+     * @throws {RequiredError}
+     * @memberof BulkUpdateApiInterface
+     */
+    processBulkUpdateRequestOpts(requestParameters: ProcessBulkUpdateRequest): Promise<runtime.RequestOpts>;
+
+    /**
      * 
      * @summary Processes bulk update tasks
      * @param {ExecuteBulkUpdateJobRequestBodyDto} executeBulkUpdateJobRequestBodyDto 
@@ -60,6 +68,14 @@ export interface BulkUpdateApiInterface {
      * Processes bulk update tasks
      */
     processBulkUpdate(requestParameters: ProcessBulkUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+
+    /**
+     * Creates request options for scheduleBulkUpdate without sending the request
+     * @param {BulkUpdateJobRequestDto} bulkUpdateJobRequestDto 
+     * @throws {RequiredError}
+     * @memberof BulkUpdateApiInterface
+     */
+    scheduleBulkUpdateRequestOpts(requestParameters: ScheduleBulkUpdateRequest): Promise<runtime.RequestOpts>;
 
     /**
      * 
@@ -84,9 +100,9 @@ export interface BulkUpdateApiInterface {
 export class BulkUpdateApi extends runtime.BaseAPI implements BulkUpdateApiInterface {
 
     /**
-     * Processes bulk update tasks
+     * Creates request options for processBulkUpdate without sending the request
      */
-    async processBulkUpdateRaw(requestParameters: ProcessBulkUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+    async processBulkUpdateRequestOpts(requestParameters: ProcessBulkUpdateRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['executeBulkUpdateJobRequestBodyDto'] == null) {
             throw new runtime.RequiredError(
                 'executeBulkUpdateJobRequestBodyDto',
@@ -103,13 +119,21 @@ export class BulkUpdateApi extends runtime.BaseAPI implements BulkUpdateApiInter
 
         let urlPath = `/internal/queues/bulk-update`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
             body: ExecuteBulkUpdateJobRequestBodyDtoToJSON(requestParameters['executeBulkUpdateJobRequestBodyDto']),
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Processes bulk update tasks
+     */
+    async processBulkUpdateRaw(requestParameters: ProcessBulkUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        const requestOptions = await this.processBulkUpdateRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.VoidApiResponse(response);
     }
@@ -122,9 +146,9 @@ export class BulkUpdateApi extends runtime.BaseAPI implements BulkUpdateApiInter
     }
 
     /**
-     * Schedules updating of multiple resources
+     * Creates request options for scheduleBulkUpdate without sending the request
      */
-    async scheduleBulkUpdateRaw(requestParameters: ScheduleBulkUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BulkUpdateJobRequestEntity>> {
+    async scheduleBulkUpdateRequestOpts(requestParameters: ScheduleBulkUpdateRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['bulkUpdateJobRequestDto'] == null) {
             throw new runtime.RequiredError(
                 'bulkUpdateJobRequestDto',
@@ -141,13 +165,21 @@ export class BulkUpdateApi extends runtime.BaseAPI implements BulkUpdateApiInter
 
         let urlPath = `/external/bulk/update`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
             body: BulkUpdateJobRequestDtoToJSON(requestParameters['bulkUpdateJobRequestDto']),
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Schedules updating of multiple resources
+     */
+    async scheduleBulkUpdateRaw(requestParameters: ScheduleBulkUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BulkUpdateJobRequestEntity>> {
+        const requestOptions = await this.scheduleBulkUpdateRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => BulkUpdateJobRequestEntityFromJSON(jsonValue));
     }

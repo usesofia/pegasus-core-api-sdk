@@ -35,7 +35,7 @@ export interface SystemFinancialRecordsPageDtoAggregatedResultReport {
     resultAbsoluteValue: string;
     /**
      * Direção do resultado (entrada/saída).
-     * @type {string}
+     * @type {SystemFinancialRecordsPageDtoAggregatedResultReportResultDirectionEnum}
      * @memberof SystemFinancialRecordsPageDtoAggregatedResultReport
      */
     resultDirection: SystemFinancialRecordsPageDtoAggregatedResultReportResultDirectionEnum;

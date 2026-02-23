@@ -41,6 +41,18 @@ export interface FindAllNormalizedSubcategoriesRequest {
  */
 export interface NormalizedSubcategoriesApiInterface {
     /**
+     * Creates request options for findAllNormalizedSubcategories without sending the request
+     * @param {boolean} [isInternalTransfer] Filtrar por subcategorias que são transferências internas.
+     * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
+     * @param {string} [categoryId] ID da categoria para filtrar subcategorias.
+     * @param {number} [pageSize] Quantidade de itens por página.
+     * @param {number} [pageIndex] Índice da página.
+     * @throws {RequiredError}
+     * @memberof NormalizedSubcategoriesApiInterface
+     */
+    findAllNormalizedSubcategoriesRequestOpts(requestParameters: FindAllNormalizedSubcategoriesRequest): Promise<runtime.RequestOpts>;
+
+    /**
      * 
      * @summary Busca todas as subcategorias normalizadas.
      * @param {boolean} [isInternalTransfer] Filtrar por subcategorias que são transferências internas.
@@ -67,9 +79,9 @@ export interface NormalizedSubcategoriesApiInterface {
 export class NormalizedSubcategoriesApi extends runtime.BaseAPI implements NormalizedSubcategoriesApiInterface {
 
     /**
-     * Busca todas as subcategorias normalizadas.
+     * Creates request options for findAllNormalizedSubcategories without sending the request
      */
-    async findAllNormalizedSubcategoriesRaw(requestParameters: FindAllNormalizedSubcategoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<NormalizedSubcategoriesPageEntity>> {
+    async findAllNormalizedSubcategoriesRequestOpts(requestParameters: FindAllNormalizedSubcategoriesRequest): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         if (requestParameters['isInternalTransfer'] != null) {
@@ -97,12 +109,20 @@ export class NormalizedSubcategoriesApi extends runtime.BaseAPI implements Norma
 
         let urlPath = `/external/normalized-subcategories`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Busca todas as subcategorias normalizadas.
+     */
+    async findAllNormalizedSubcategoriesRaw(requestParameters: FindAllNormalizedSubcategoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<NormalizedSubcategoriesPageEntity>> {
+        const requestOptions = await this.findAllNormalizedSubcategoriesRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => NormalizedSubcategoriesPageEntityFromJSON(jsonValue));
     }

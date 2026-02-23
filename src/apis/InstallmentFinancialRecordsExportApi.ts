@@ -49,6 +49,26 @@ export interface ExportInstallmentFinancialRecordsRequest {
  */
 export interface InstallmentFinancialRecordsExportApiInterface {
     /**
+     * Creates request options for exportInstallmentFinancialRecords without sending the request
+     * @param {'asc' | 'desc'} [sortOrder] Ordem da ordenação.
+     * @param {'direction' | 'firstInstallmentDate' | 'contact' | 'description' | 'subcategory' | 'amount' | 'tags' | 'competenceDate' | 'frequency' | 'createdAt'} [sortBy] Campo para ordenação.
+     * @param {boolean} [completed] Indica se o lançamento parcelado está completo (todas as parcelas pagas/recebidas).
+     * @param {'MONTHLY' | 'WEEKLY' | 'YEARLY'} [frequency] Frequência do lançamento parcelado.
+     * @param {Date} [competenceDateTo] Data de competência final (formato ISO YYYY-MM-DD).
+     * @param {Date} [competenceDateFrom] Data de competência inicial (formato ISO YYYY-MM-DD).
+     * @param {Array<any>} [tags] Identificadores das tags.
+     * @param {string} [subcategory] Identificador da subcategoria.
+     * @param {string} [contact] Identificador do contato.
+     * @param {Date} [firstInstallmentDateTo] Data final da primeira parcela (formato ISO YYYY-MM-DD).
+     * @param {Date} [firstInstallmentDateFrom] Data inicial da primeira parcela (formato ISO YYYY-MM-DD).
+     * @param {'IN' | 'OUT'} [direction] Direção do lançamento (entrada/saída).
+     * @param {'csv' | 'xlsx'} [format] Formato de exportação dos dados (CSV padrão).
+     * @throws {RequiredError}
+     * @memberof InstallmentFinancialRecordsExportApiInterface
+     */
+    exportInstallmentFinancialRecordsRequestOpts(requestParameters: ExportInstallmentFinancialRecordsRequest): Promise<runtime.RequestOpts>;
+
+    /**
      * 
      * @summary Solicita a exportação dos lançamentos financeiros parcelados.
      * @param {'asc' | 'desc'} [sortOrder] Ordem da ordenação.
@@ -83,9 +103,9 @@ export interface InstallmentFinancialRecordsExportApiInterface {
 export class InstallmentFinancialRecordsExportApi extends runtime.BaseAPI implements InstallmentFinancialRecordsExportApiInterface {
 
     /**
-     * Solicita a exportação dos lançamentos financeiros parcelados.
+     * Creates request options for exportInstallmentFinancialRecords without sending the request
      */
-    async exportInstallmentFinancialRecordsRaw(requestParameters: ExportInstallmentFinancialRecordsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ExportInstallmentFinancialRecordsDto>> {
+    async exportInstallmentFinancialRecordsRequestOpts(requestParameters: ExportInstallmentFinancialRecordsRequest): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         if (requestParameters['sortOrder'] != null) {
@@ -145,12 +165,20 @@ export class InstallmentFinancialRecordsExportApi extends runtime.BaseAPI implem
 
         let urlPath = `/external/installment-financial-records/export`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Solicita a exportação dos lançamentos financeiros parcelados.
+     */
+    async exportInstallmentFinancialRecordsRaw(requestParameters: ExportInstallmentFinancialRecordsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ExportInstallmentFinancialRecordsDto>> {
+        const requestOptions = await this.exportInstallmentFinancialRecordsRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ExportInstallmentFinancialRecordsDtoFromJSON(jsonValue));
     }

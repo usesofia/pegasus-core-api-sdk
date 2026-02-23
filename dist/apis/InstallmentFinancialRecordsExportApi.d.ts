@@ -34,6 +34,25 @@ export interface ExportInstallmentFinancialRecordsRequest {
  */
 export interface InstallmentFinancialRecordsExportApiInterface {
     /**
+     * Creates request options for exportInstallmentFinancialRecords without sending the request
+     * @param {'asc' | 'desc'} [sortOrder] Ordem da ordenação.
+     * @param {'direction' | 'firstInstallmentDate' | 'contact' | 'description' | 'subcategory' | 'amount' | 'tags' | 'competenceDate' | 'frequency' | 'createdAt'} [sortBy] Campo para ordenação.
+     * @param {boolean} [completed] Indica se o lançamento parcelado está completo (todas as parcelas pagas/recebidas).
+     * @param {'MONTHLY' | 'WEEKLY' | 'YEARLY'} [frequency] Frequência do lançamento parcelado.
+     * @param {Date} [competenceDateTo] Data de competência final (formato ISO YYYY-MM-DD).
+     * @param {Date} [competenceDateFrom] Data de competência inicial (formato ISO YYYY-MM-DD).
+     * @param {Array<any>} [tags] Identificadores das tags.
+     * @param {string} [subcategory] Identificador da subcategoria.
+     * @param {string} [contact] Identificador do contato.
+     * @param {Date} [firstInstallmentDateTo] Data final da primeira parcela (formato ISO YYYY-MM-DD).
+     * @param {Date} [firstInstallmentDateFrom] Data inicial da primeira parcela (formato ISO YYYY-MM-DD).
+     * @param {'IN' | 'OUT'} [direction] Direção do lançamento (entrada/saída).
+     * @param {'csv' | 'xlsx'} [format] Formato de exportação dos dados (CSV padrão).
+     * @throws {RequiredError}
+     * @memberof InstallmentFinancialRecordsExportApiInterface
+     */
+    exportInstallmentFinancialRecordsRequestOpts(requestParameters: ExportInstallmentFinancialRecordsRequest): Promise<runtime.RequestOpts>;
+    /**
      *
      * @summary Solicita a exportação dos lançamentos financeiros parcelados.
      * @param {'asc' | 'desc'} [sortOrder] Ordem da ordenação.
@@ -63,6 +82,10 @@ export interface InstallmentFinancialRecordsExportApiInterface {
  *
  */
 export declare class InstallmentFinancialRecordsExportApi extends runtime.BaseAPI implements InstallmentFinancialRecordsExportApiInterface {
+    /**
+     * Creates request options for exportInstallmentFinancialRecords without sending the request
+     */
+    exportInstallmentFinancialRecordsRequestOpts(requestParameters: ExportInstallmentFinancialRecordsRequest): Promise<runtime.RequestOpts>;
     /**
      * Solicita a exportação dos lançamentos financeiros parcelados.
      */

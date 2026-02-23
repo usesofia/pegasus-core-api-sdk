@@ -110,6 +110,14 @@ export interface StartRecurringFinancialRecordsSeederRequest {
  */
 export interface RecurringFinancialRecordsApiInterface {
     /**
+     * Creates request options for createManyRecurringFinancialRecords without sending the request
+     * @param {CreateManyRecurringFinancialRecordsRequestBodyDto} createManyRecurringFinancialRecordsRequestBodyDto 
+     * @throws {RequiredError}
+     * @memberof RecurringFinancialRecordsApiInterface
+     */
+    createManyRecurringFinancialRecordsRequestOpts(requestParameters: CreateManyRecurringFinancialRecordsRequest): Promise<runtime.RequestOpts>;
+
+    /**
      * 
      * @summary Cria múltiplos lançamentos financeiros recorrentes.
      * @param {CreateManyRecurringFinancialRecordsRequestBodyDto} createManyRecurringFinancialRecordsRequestBodyDto 
@@ -123,6 +131,15 @@ export interface RecurringFinancialRecordsApiInterface {
      * Cria múltiplos lançamentos financeiros recorrentes.
      */
     createManyRecurringFinancialRecords(requestParameters: CreateManyRecurringFinancialRecordsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<RecurringFinancialRecordDto>>;
+
+    /**
+     * Creates request options for createRecurringFinancialRecord without sending the request
+     * @param {CreateRecurringFinancialRecordRequestBodyDto} createRecurringFinancialRecordRequestBodyDto 
+     * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
+     * @throws {RequiredError}
+     * @memberof RecurringFinancialRecordsApiInterface
+     */
+    createRecurringFinancialRecordRequestOpts(requestParameters: CreateRecurringFinancialRecordRequest): Promise<runtime.RequestOpts>;
 
     /**
      * 
@@ -139,6 +156,33 @@ export interface RecurringFinancialRecordsApiInterface {
      * Cria um novo lançamento financeiro recorrente.
      */
     createRecurringFinancialRecord(requestParameters: CreateRecurringFinancialRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RecurringFinancialRecordDto>;
+
+    /**
+     * Creates request options for findAllRecurringFinancialRecords without sending the request
+     * @param {'WEEKLY' | 'MONTHLY' | 'YEARLY'} [frequency] Frequência de repetição do lançamento.
+     * @param {boolean} [isActive] Indica se o lançamento recorrente está ativo.
+     * @param {boolean} [automaticCompletion] Indica se o lançamento será completado automaticamente.
+     * @param {boolean} [onlyBusinessDays] Indica se o lançamento será apenas em dias úteis.
+     * @param {number} [repetitionMonth] Mês de repetição do lançamento.
+     * @param {number} [repetitionDay] Dia de repetição do lançamento.
+     * @param {Array<any>} [tags] IDs das tags.
+     * @param {string} [amountTo] Valor máximo do lançamento.
+     * @param {string} [amountFrom] Valor mínimo do lançamento.
+     * @param {string} [subcategory] ID da subcategoria.
+     * @param {string} [contact] ID do contato.
+     * @param {Date} [firstOccurrenceDateTo] Data final da primeira ocorrência (formato ISO YYYY-MM-DD).
+     * @param {Date} [firstOccurrenceDateFrom] Data inicial da primeira ocorrência (formato ISO YYYY-MM-DD).
+     * @param {'IN' | 'OUT'} [direction] Direção do lançamento (entrada/saída).
+     * @param {'asc' | 'desc'} [sortOrder] Ordem da ordenação.
+     * @param {'direction' | 'firstOccurrenceDate' | 'contact' | 'description' | 'subcategory' | 'amount' | 'frequency' | 'isActive' | 'createdAt'} [sortBy] Campo para ordenação.
+     * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
+     * @param {string} [textSearchTerm] Termo para busca por descrição do lançamento.
+     * @param {number} [pageSize] Quantidade de itens por página.
+     * @param {number} [pageIndex] Índice da página.
+     * @throws {RequiredError}
+     * @memberof RecurringFinancialRecordsApiInterface
+     */
+    findAllRecurringFinancialRecordsRequestOpts(requestParameters: FindAllRecurringFinancialRecordsRequest): Promise<runtime.RequestOpts>;
 
     /**
      * 
@@ -175,6 +219,15 @@ export interface RecurringFinancialRecordsApiInterface {
     findAllRecurringFinancialRecords(requestParameters: FindAllRecurringFinancialRecordsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RecurringFinancialRecordsPageDto>;
 
     /**
+     * Creates request options for findByIdRecurringFinancialRecord without sending the request
+     * @param {string} id ID do lançamento financeiro recorrente.
+     * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
+     * @throws {RequiredError}
+     * @memberof RecurringFinancialRecordsApiInterface
+     */
+    findByIdRecurringFinancialRecordRequestOpts(requestParameters: FindByIdRecurringFinancialRecordRequest): Promise<runtime.RequestOpts>;
+
+    /**
      * 
      * @summary Busca um lançamento financeiro recorrente pelo ID.
      * @param {string} id ID do lançamento financeiro recorrente.
@@ -189,6 +242,16 @@ export interface RecurringFinancialRecordsApiInterface {
      * Busca um lançamento financeiro recorrente pelo ID.
      */
     findByIdRecurringFinancialRecord(requestParameters: FindByIdRecurringFinancialRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RecurringFinancialRecordDto>;
+
+    /**
+     * Creates request options for partialUpdateRecurringFinancialRecord without sending the request
+     * @param {string} id ID do lançamento financeiro recorrente.
+     * @param {PartialUpdateRecurringFinancialRecordRequestBodyDto} partialUpdateRecurringFinancialRecordRequestBodyDto 
+     * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
+     * @throws {RequiredError}
+     * @memberof RecurringFinancialRecordsApiInterface
+     */
+    partialUpdateRecurringFinancialRecordRequestOpts(requestParameters: PartialUpdateRecurringFinancialRecordRequest): Promise<runtime.RequestOpts>;
 
     /**
      * 
@@ -208,6 +271,15 @@ export interface RecurringFinancialRecordsApiInterface {
     partialUpdateRecurringFinancialRecord(requestParameters: PartialUpdateRecurringFinancialRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RecurringFinancialRecordDto>;
 
     /**
+     * Creates request options for removeRecurringFinancialRecord without sending the request
+     * @param {string} id ID do lançamento financeiro recorrente.
+     * @param {RemoveRecurringFinancialRecordRequestBodyDto} removeRecurringFinancialRecordRequestBodyDto 
+     * @throws {RequiredError}
+     * @memberof RecurringFinancialRecordsApiInterface
+     */
+    removeRecurringFinancialRecordRequestOpts(requestParameters: RemoveRecurringFinancialRecordRequest): Promise<runtime.RequestOpts>;
+
+    /**
      * 
      * @summary Remove um lançamento financeiro recorrente.
      * @param {string} id ID do lançamento financeiro recorrente.
@@ -224,6 +296,14 @@ export interface RecurringFinancialRecordsApiInterface {
     removeRecurringFinancialRecord(requestParameters: RemoveRecurringFinancialRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
 
     /**
+     * Creates request options for scheduleRecurringFinancialRecordsSeeding without sending the request
+     * @param {ScheduleRecurringFinancialRecordsSeedingRequestBodyDto} scheduleRecurringFinancialRecordsSeedingRequestBodyDto 
+     * @throws {RequiredError}
+     * @memberof RecurringFinancialRecordsApiInterface
+     */
+    scheduleRecurringFinancialRecordsSeedingRequestOpts(requestParameters: ScheduleRecurringFinancialRecordsSeedingRequest): Promise<runtime.RequestOpts>;
+
+    /**
      * 
      * @summary Agenda o seeder de lançamentos financeiros recorrentes.
      * @param {ScheduleRecurringFinancialRecordsSeedingRequestBodyDto} scheduleRecurringFinancialRecordsSeedingRequestBodyDto 
@@ -237,6 +317,14 @@ export interface RecurringFinancialRecordsApiInterface {
      * Agenda o seeder de lançamentos financeiros recorrentes.
      */
     scheduleRecurringFinancialRecordsSeeding(requestParameters: ScheduleRecurringFinancialRecordsSeedingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+
+    /**
+     * Creates request options for startRecurringFinancialRecordsSeeder without sending the request
+     * @param {SeedRecurringFinancialRecordsRequestBodyDto} seedRecurringFinancialRecordsRequestBodyDto 
+     * @throws {RequiredError}
+     * @memberof RecurringFinancialRecordsApiInterface
+     */
+    startRecurringFinancialRecordsSeederRequestOpts(requestParameters: StartRecurringFinancialRecordsSeederRequest): Promise<runtime.RequestOpts>;
 
     /**
      * 
@@ -261,9 +349,9 @@ export interface RecurringFinancialRecordsApiInterface {
 export class RecurringFinancialRecordsApi extends runtime.BaseAPI implements RecurringFinancialRecordsApiInterface {
 
     /**
-     * Cria múltiplos lançamentos financeiros recorrentes.
+     * Creates request options for createManyRecurringFinancialRecords without sending the request
      */
-    async createManyRecurringFinancialRecordsRaw(requestParameters: CreateManyRecurringFinancialRecordsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<RecurringFinancialRecordDto>>> {
+    async createManyRecurringFinancialRecordsRequestOpts(requestParameters: CreateManyRecurringFinancialRecordsRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['createManyRecurringFinancialRecordsRequestBodyDto'] == null) {
             throw new runtime.RequiredError(
                 'createManyRecurringFinancialRecordsRequestBodyDto',
@@ -280,13 +368,21 @@ export class RecurringFinancialRecordsApi extends runtime.BaseAPI implements Rec
 
         let urlPath = `/external/recurring-financial-records/many`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
             body: CreateManyRecurringFinancialRecordsRequestBodyDtoToJSON(requestParameters['createManyRecurringFinancialRecordsRequestBodyDto']),
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Cria múltiplos lançamentos financeiros recorrentes.
+     */
+    async createManyRecurringFinancialRecordsRaw(requestParameters: CreateManyRecurringFinancialRecordsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<RecurringFinancialRecordDto>>> {
+        const requestOptions = await this.createManyRecurringFinancialRecordsRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(RecurringFinancialRecordDtoFromJSON));
     }
@@ -300,9 +396,9 @@ export class RecurringFinancialRecordsApi extends runtime.BaseAPI implements Rec
     }
 
     /**
-     * Cria um novo lançamento financeiro recorrente.
+     * Creates request options for createRecurringFinancialRecord without sending the request
      */
-    async createRecurringFinancialRecordRaw(requestParameters: CreateRecurringFinancialRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RecurringFinancialRecordDto>> {
+    async createRecurringFinancialRecordRequestOpts(requestParameters: CreateRecurringFinancialRecordRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['createRecurringFinancialRecordRequestBodyDto'] == null) {
             throw new runtime.RequiredError(
                 'createRecurringFinancialRecordRequestBodyDto',
@@ -323,13 +419,21 @@ export class RecurringFinancialRecordsApi extends runtime.BaseAPI implements Rec
 
         let urlPath = `/external/recurring-financial-records`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
             body: CreateRecurringFinancialRecordRequestBodyDtoToJSON(requestParameters['createRecurringFinancialRecordRequestBodyDto']),
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Cria um novo lançamento financeiro recorrente.
+     */
+    async createRecurringFinancialRecordRaw(requestParameters: CreateRecurringFinancialRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RecurringFinancialRecordDto>> {
+        const requestOptions = await this.createRecurringFinancialRecordRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => RecurringFinancialRecordDtoFromJSON(jsonValue));
     }
@@ -343,9 +447,9 @@ export class RecurringFinancialRecordsApi extends runtime.BaseAPI implements Rec
     }
 
     /**
-     * Busca todos os lançamentos financeiros recorrentes.
+     * Creates request options for findAllRecurringFinancialRecords without sending the request
      */
-    async findAllRecurringFinancialRecordsRaw(requestParameters: FindAllRecurringFinancialRecordsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RecurringFinancialRecordsPageDto>> {
+    async findAllRecurringFinancialRecordsRequestOpts(requestParameters: FindAllRecurringFinancialRecordsRequest): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         if (requestParameters['frequency'] != null) {
@@ -433,12 +537,20 @@ export class RecurringFinancialRecordsApi extends runtime.BaseAPI implements Rec
 
         let urlPath = `/external/recurring-financial-records`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Busca todos os lançamentos financeiros recorrentes.
+     */
+    async findAllRecurringFinancialRecordsRaw(requestParameters: FindAllRecurringFinancialRecordsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RecurringFinancialRecordsPageDto>> {
+        const requestOptions = await this.findAllRecurringFinancialRecordsRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => RecurringFinancialRecordsPageDtoFromJSON(jsonValue));
     }
@@ -452,9 +564,9 @@ export class RecurringFinancialRecordsApi extends runtime.BaseAPI implements Rec
     }
 
     /**
-     * Busca um lançamento financeiro recorrente pelo ID.
+     * Creates request options for findByIdRecurringFinancialRecord without sending the request
      */
-    async findByIdRecurringFinancialRecordRaw(requestParameters: FindByIdRecurringFinancialRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RecurringFinancialRecordDto>> {
+    async findByIdRecurringFinancialRecordRequestOpts(requestParameters: FindByIdRecurringFinancialRecordRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
@@ -474,12 +586,20 @@ export class RecurringFinancialRecordsApi extends runtime.BaseAPI implements Rec
         let urlPath = `/external/recurring-financial-records/{id}`;
         urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Busca um lançamento financeiro recorrente pelo ID.
+     */
+    async findByIdRecurringFinancialRecordRaw(requestParameters: FindByIdRecurringFinancialRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RecurringFinancialRecordDto>> {
+        const requestOptions = await this.findByIdRecurringFinancialRecordRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => RecurringFinancialRecordDtoFromJSON(jsonValue));
     }
@@ -493,9 +613,9 @@ export class RecurringFinancialRecordsApi extends runtime.BaseAPI implements Rec
     }
 
     /**
-     * Atualiza parcialmente um lançamento financeiro recorrente.
+     * Creates request options for partialUpdateRecurringFinancialRecord without sending the request
      */
-    async partialUpdateRecurringFinancialRecordRaw(requestParameters: PartialUpdateRecurringFinancialRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RecurringFinancialRecordDto>> {
+    async partialUpdateRecurringFinancialRecordRequestOpts(requestParameters: PartialUpdateRecurringFinancialRecordRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
@@ -524,13 +644,21 @@ export class RecurringFinancialRecordsApi extends runtime.BaseAPI implements Rec
         let urlPath = `/external/recurring-financial-records/{id}`;
         urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'PATCH',
             headers: headerParameters,
             query: queryParameters,
             body: PartialUpdateRecurringFinancialRecordRequestBodyDtoToJSON(requestParameters['partialUpdateRecurringFinancialRecordRequestBodyDto']),
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Atualiza parcialmente um lançamento financeiro recorrente.
+     */
+    async partialUpdateRecurringFinancialRecordRaw(requestParameters: PartialUpdateRecurringFinancialRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RecurringFinancialRecordDto>> {
+        const requestOptions = await this.partialUpdateRecurringFinancialRecordRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => RecurringFinancialRecordDtoFromJSON(jsonValue));
     }
@@ -544,9 +672,9 @@ export class RecurringFinancialRecordsApi extends runtime.BaseAPI implements Rec
     }
 
     /**
-     * Remove um lançamento financeiro recorrente.
+     * Creates request options for removeRecurringFinancialRecord without sending the request
      */
-    async removeRecurringFinancialRecordRaw(requestParameters: RemoveRecurringFinancialRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+    async removeRecurringFinancialRecordRequestOpts(requestParameters: RemoveRecurringFinancialRecordRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
@@ -571,13 +699,21 @@ export class RecurringFinancialRecordsApi extends runtime.BaseAPI implements Rec
         let urlPath = `/external/recurring-financial-records/{id}`;
         urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'DELETE',
             headers: headerParameters,
             query: queryParameters,
             body: RemoveRecurringFinancialRecordRequestBodyDtoToJSON(requestParameters['removeRecurringFinancialRecordRequestBodyDto']),
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Remove um lançamento financeiro recorrente.
+     */
+    async removeRecurringFinancialRecordRaw(requestParameters: RemoveRecurringFinancialRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        const requestOptions = await this.removeRecurringFinancialRecordRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.VoidApiResponse(response);
     }
@@ -590,9 +726,9 @@ export class RecurringFinancialRecordsApi extends runtime.BaseAPI implements Rec
     }
 
     /**
-     * Agenda o seeder de lançamentos financeiros recorrentes.
+     * Creates request options for scheduleRecurringFinancialRecordsSeeding without sending the request
      */
-    async scheduleRecurringFinancialRecordsSeedingRaw(requestParameters: ScheduleRecurringFinancialRecordsSeedingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+    async scheduleRecurringFinancialRecordsSeedingRequestOpts(requestParameters: ScheduleRecurringFinancialRecordsSeedingRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['scheduleRecurringFinancialRecordsSeedingRequestBodyDto'] == null) {
             throw new runtime.RequiredError(
                 'scheduleRecurringFinancialRecordsSeedingRequestBodyDto',
@@ -609,13 +745,21 @@ export class RecurringFinancialRecordsApi extends runtime.BaseAPI implements Rec
 
         let urlPath = `/internal/recurring-financial-records/seed`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
             body: ScheduleRecurringFinancialRecordsSeedingRequestBodyDtoToJSON(requestParameters['scheduleRecurringFinancialRecordsSeedingRequestBodyDto']),
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Agenda o seeder de lançamentos financeiros recorrentes.
+     */
+    async scheduleRecurringFinancialRecordsSeedingRaw(requestParameters: ScheduleRecurringFinancialRecordsSeedingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        const requestOptions = await this.scheduleRecurringFinancialRecordsSeedingRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.VoidApiResponse(response);
     }
@@ -628,9 +772,9 @@ export class RecurringFinancialRecordsApi extends runtime.BaseAPI implements Rec
     }
 
     /**
-     * Inicia o seeder de lançamentos financeiros recorrentes.
+     * Creates request options for startRecurringFinancialRecordsSeeder without sending the request
      */
-    async startRecurringFinancialRecordsSeederRaw(requestParameters: StartRecurringFinancialRecordsSeederRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+    async startRecurringFinancialRecordsSeederRequestOpts(requestParameters: StartRecurringFinancialRecordsSeederRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['seedRecurringFinancialRecordsRequestBodyDto'] == null) {
             throw new runtime.RequiredError(
                 'seedRecurringFinancialRecordsRequestBodyDto',
@@ -647,13 +791,21 @@ export class RecurringFinancialRecordsApi extends runtime.BaseAPI implements Rec
 
         let urlPath = `/internal/queues/recurring-financial-records-2`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
             body: SeedRecurringFinancialRecordsRequestBodyDtoToJSON(requestParameters['seedRecurringFinancialRecordsRequestBodyDto']),
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Inicia o seeder de lançamentos financeiros recorrentes.
+     */
+    async startRecurringFinancialRecordsSeederRaw(requestParameters: StartRecurringFinancialRecordsSeederRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        const requestOptions = await this.startRecurringFinancialRecordsSeederRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.VoidApiResponse(response);
     }

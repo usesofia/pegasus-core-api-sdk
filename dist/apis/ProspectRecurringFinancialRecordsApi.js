@@ -76,29 +76,42 @@ var ProspectRecurringFinancialRecordsApi = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
+     * Creates request options for prospectRecurringFinancialRecord without sending the request
+     */
+    ProspectRecurringFinancialRecordsApi.prototype.prospectRecurringFinancialRecordRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                if (requestParameters['prospectRecurringFinancialRecordRequestBodyDto'] == null) {
+                    throw new runtime.RequiredError('prospectRecurringFinancialRecordRequestBodyDto', 'Required parameter "prospectRecurringFinancialRecordRequestBodyDto" was null or undefined when calling prospectRecurringFinancialRecord().');
+                }
+                queryParameters = {};
+                headerParameters = {};
+                headerParameters['Content-Type'] = 'application/json';
+                urlPath = "/external/recurring-financial-records/prospect";
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'POST',
+                        headers: headerParameters,
+                        query: queryParameters,
+                        body: (0, index_1.ProspectRecurringFinancialRecordRequestBodyDtoToJSON)(requestParameters['prospectRecurringFinancialRecordRequestBodyDto']),
+                    }];
+            });
+        });
+    };
+    /**
      * Simula os lançamentos únicos que serão criados para um lançamento financeiro recorrente.
      */
     ProspectRecurringFinancialRecordsApi.prototype.prospectRecurringFinancialRecordRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        if (requestParameters['prospectRecurringFinancialRecordRequestBodyDto'] == null) {
-                            throw new runtime.RequiredError('prospectRecurringFinancialRecordRequestBodyDto', 'Required parameter "prospectRecurringFinancialRecordRequestBodyDto" was null or undefined when calling prospectRecurringFinancialRecord().');
-                        }
-                        queryParameters = {};
-                        headerParameters = {};
-                        headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/external/recurring-financial-records/prospect";
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'POST',
-                                headers: headerParameters,
-                                query: queryParameters,
-                                body: (0, index_1.ProspectRecurringFinancialRecordRequestBodyDtoToJSON)(requestParameters['prospectRecurringFinancialRecordRequestBodyDto']),
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.prospectRecurringFinancialRecordRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return jsonValue.map(index_1.ProspectFinancialRecordDtoFromJSON); })];
                 }

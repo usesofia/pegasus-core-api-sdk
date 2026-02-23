@@ -47,7 +47,7 @@ export interface CreateFinancialRecordRequestBodyDtoPopulatedFilesInner {
     size: number;
     /**
      * Tipo do arquivo.
-     * @type {string}
+     * @type {CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerFileTypeEnum}
      * @memberof CreateFinancialRecordRequestBodyDtoPopulatedFilesInner
      */
     fileType: CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerFileTypeEnum;
@@ -59,7 +59,7 @@ export interface CreateFinancialRecordRequestBodyDtoPopulatedFilesInner {
     objectName: string;
     /**
      * Status do arquivo.
-     * @type {string}
+     * @type {CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerStatusEnum}
      * @memberof CreateFinancialRecordRequestBodyDtoPopulatedFilesInner
      */
     status: CreateFinancialRecordRequestBodyDtoPopulatedFilesInnerStatusEnum;

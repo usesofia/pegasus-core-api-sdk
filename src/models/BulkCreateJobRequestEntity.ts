@@ -27,7 +27,7 @@ export interface BulkCreateJobRequestEntity {
     id: string;
     /**
      * Recurso a ser criado.
-     * @type {string}
+     * @type {BulkCreateJobRequestEntityResourceEnum}
      * @memberof BulkCreateJobRequestEntity
      */
     resource: BulkCreateJobRequestEntityResourceEnum;

@@ -35,13 +35,13 @@ export interface PartialUpdateContactRequestBodyDto {
     name?: string;
     /**
      * Tipos do contato.
-     * @type {Array<string>}
+     * @type {Array<PartialUpdateContactRequestBodyDtoTypesEnum>}
      * @memberof PartialUpdateContactRequestBodyDto
      */
     types?: Array<PartialUpdateContactRequestBodyDtoTypesEnum>;
     /**
      * Tipo do documento do contato.
-     * @type {string}
+     * @type {PartialUpdateContactRequestBodyDtoDocumentTypeEnum}
      * @memberof PartialUpdateContactRequestBodyDto
      */
     documentType?: PartialUpdateContactRequestBodyDtoDocumentTypeEnum | null;
@@ -77,7 +77,7 @@ export interface PartialUpdateContactRequestBodyDto {
     birthDate?: string | null;
     /**
      * Origem do contato.
-     * @type {string}
+     * @type {PartialUpdateContactRequestBodyDtoOriginEnum}
      * @memberof PartialUpdateContactRequestBodyDto
      */
     origin?: PartialUpdateContactRequestBodyDtoOriginEnum | null;
@@ -113,7 +113,7 @@ export interface PartialUpdateContactRequestBodyDto {
     externalId?: string | null;
     /**
      * Canal de origem da operação
-     * @type {string}
+     * @type {PartialUpdateContactRequestBodyDtoChannelEnum}
      * @memberof PartialUpdateContactRequestBodyDto
      */
     channel: PartialUpdateContactRequestBodyDtoChannelEnum;

@@ -23,7 +23,7 @@ import type { CreateFinancialRecordRequestBodyDtoPopulatedContact } from './Crea
 export interface CreateFinancialRecordRequestBodyDto {
     /**
      * Direção do lançamento (entrada/saída).
-     * @type {string}
+     * @type {CreateFinancialRecordRequestBodyDtoDirectionEnum}
      * @memberof CreateFinancialRecordRequestBodyDto
      */
     direction: CreateFinancialRecordRequestBodyDtoDirectionEnum;
@@ -263,7 +263,7 @@ export interface CreateFinancialRecordRequestBodyDto {
     radarItem?: string;
     /**
      * Canal de origem da operação
-     * @type {string}
+     * @type {CreateFinancialRecordRequestBodyDtoChannelEnum}
      * @memberof CreateFinancialRecordRequestBodyDto
      */
     channel: CreateFinancialRecordRequestBodyDtoChannelEnum;

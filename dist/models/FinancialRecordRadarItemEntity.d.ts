@@ -37,25 +37,25 @@ export interface FinancialRecordRadarItemEntity {
     ownerOrganization: string;
     /**
      * Origem do registro.
-     * @type {string}
+     * @type {FinancialRecordRadarItemEntityOriginEnum}
      * @memberof FinancialRecordRadarItemEntity
      */
     origin: FinancialRecordRadarItemEntityOriginEnum;
     /**
      * Natureza do registro.
-     * @type {string}
+     * @type {FinancialRecordRadarItemEntityNatureEnum}
      * @memberof FinancialRecordRadarItemEntity
      */
     nature: FinancialRecordRadarItemEntityNatureEnum;
     /**
      * Status do registro.
-     * @type {string}
+     * @type {FinancialRecordRadarItemEntityStatusEnum}
      * @memberof FinancialRecordRadarItemEntity
      */
     status: FinancialRecordRadarItemEntityStatusEnum;
     /**
      * Pasta do registro.
-     * @type {string}
+     * @type {FinancialRecordRadarItemEntityFolderEnum}
      * @memberof FinancialRecordRadarItemEntity
      */
     folder: FinancialRecordRadarItemEntityFolderEnum;

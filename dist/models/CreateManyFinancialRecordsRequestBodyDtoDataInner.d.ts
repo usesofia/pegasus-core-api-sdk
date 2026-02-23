@@ -23,7 +23,7 @@ import type { CreateFinancialRecordRequestBodyDtoPopulatedContact } from './Crea
 export interface CreateManyFinancialRecordsRequestBodyDtoDataInner {
     /**
      * Direção do lançamento (entrada/saída).
-     * @type {string}
+     * @type {CreateManyFinancialRecordsRequestBodyDtoDataInnerDirectionEnum}
      * @memberof CreateManyFinancialRecordsRequestBodyDtoDataInner
      */
     direction: CreateManyFinancialRecordsRequestBodyDtoDataInnerDirectionEnum;

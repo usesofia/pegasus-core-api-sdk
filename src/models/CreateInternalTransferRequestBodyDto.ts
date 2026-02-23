@@ -21,7 +21,7 @@ import { mapValues } from '../runtime';
 export interface CreateInternalTransferRequestBodyDto {
     /**
      * Canal de origem da operação
-     * @type {string}
+     * @type {CreateInternalTransferRequestBodyDtoChannelEnum}
      * @memberof CreateInternalTransferRequestBodyDto
      */
     channel: CreateInternalTransferRequestBodyDtoChannelEnum;

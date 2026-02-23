@@ -40,6 +40,14 @@ export interface ProspectInstallmentFinancialRecordRequest {
  */
 export interface ProspectInstallmentFinancialRecordsApiInterface {
     /**
+     * Creates request options for prospectInstallmentFinancialRecord without sending the request
+     * @param {ProspectInstallmentFinancialRecordRequestBodyDto} prospectInstallmentFinancialRecordRequestBodyDto 
+     * @throws {RequiredError}
+     * @memberof ProspectInstallmentFinancialRecordsApiInterface
+     */
+    prospectInstallmentFinancialRecordRequestOpts(requestParameters: ProspectInstallmentFinancialRecordRequest): Promise<runtime.RequestOpts>;
+
+    /**
      * 
      * @summary Simula os lançamentos únicos que serão criados para um lançamento financeiro parcelado.
      * @param {ProspectInstallmentFinancialRecordRequestBodyDto} prospectInstallmentFinancialRecordRequestBodyDto 
@@ -62,9 +70,9 @@ export interface ProspectInstallmentFinancialRecordsApiInterface {
 export class ProspectInstallmentFinancialRecordsApi extends runtime.BaseAPI implements ProspectInstallmentFinancialRecordsApiInterface {
 
     /**
-     * Simula os lançamentos únicos que serão criados para um lançamento financeiro parcelado.
+     * Creates request options for prospectInstallmentFinancialRecord without sending the request
      */
-    async prospectInstallmentFinancialRecordRaw(requestParameters: ProspectInstallmentFinancialRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<InstallmentDefinitionDto>>> {
+    async prospectInstallmentFinancialRecordRequestOpts(requestParameters: ProspectInstallmentFinancialRecordRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['prospectInstallmentFinancialRecordRequestBodyDto'] == null) {
             throw new runtime.RequiredError(
                 'prospectInstallmentFinancialRecordRequestBodyDto',
@@ -81,13 +89,21 @@ export class ProspectInstallmentFinancialRecordsApi extends runtime.BaseAPI impl
 
         let urlPath = `/external/installment-financial-records/prospect`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
             body: ProspectInstallmentFinancialRecordRequestBodyDtoToJSON(requestParameters['prospectInstallmentFinancialRecordRequestBodyDto']),
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Simula os lançamentos únicos que serão criados para um lançamento financeiro parcelado.
+     */
+    async prospectInstallmentFinancialRecordRaw(requestParameters: ProspectInstallmentFinancialRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<InstallmentDefinitionDto>>> {
+        const requestOptions = await this.prospectInstallmentFinancialRecordRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(InstallmentDefinitionDtoFromJSON));
     }

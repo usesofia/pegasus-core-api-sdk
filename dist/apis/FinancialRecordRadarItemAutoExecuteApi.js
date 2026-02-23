@@ -76,25 +76,38 @@ var FinancialRecordRadarItemAutoExecuteApi = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
+     * Creates request options for getFinancialRecordRadarItemAutoExecuteSettings without sending the request
+     */
+    FinancialRecordRadarItemAutoExecuteApi.prototype.getFinancialRecordRadarItemAutoExecuteSettingsRequestOpts = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                queryParameters = {};
+                headerParameters = {};
+                urlPath = "/external/financial-records/radar/items/auto-execute/settings";
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'GET',
+                        headers: headerParameters,
+                        query: queryParameters,
+                    }];
+            });
+        });
+    };
+    /**
      * Retorna as configurações de auto-execute do radar para a organização do usuário.
      * Obter configurações de auto-execute
      */
     FinancialRecordRadarItemAutoExecuteApi.prototype.getFinancialRecordRadarItemAutoExecuteSettingsRaw = function (initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        queryParameters = {};
-                        headerParameters = {};
-                        urlPath = "/external/financial-records/radar/items/auto-execute/settings";
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'GET',
-                                headers: headerParameters,
-                                query: queryParameters,
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.getFinancialRecordRadarItemAutoExecuteSettingsRequestOpts()];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.FinancialRecordRadarItemAutoExecuteSettingEntityFromJSON)(jsonValue); })];
                 }
@@ -120,30 +133,43 @@ var FinancialRecordRadarItemAutoExecuteApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Creates request options for updateFinancialRecordRadarItemAutoExecuteSettings without sending the request
+     */
+    FinancialRecordRadarItemAutoExecuteApi.prototype.updateFinancialRecordRadarItemAutoExecuteSettingsRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                if (requestParameters['updateFinancialRecordRadarItemAutoExecuteSettingsRequestBodyDto'] == null) {
+                    throw new runtime.RequiredError('updateFinancialRecordRadarItemAutoExecuteSettingsRequestBodyDto', 'Required parameter "updateFinancialRecordRadarItemAutoExecuteSettingsRequestBodyDto" was null or undefined when calling updateFinancialRecordRadarItemAutoExecuteSettings().');
+                }
+                queryParameters = {};
+                headerParameters = {};
+                headerParameters['Content-Type'] = 'application/json';
+                urlPath = "/external/financial-records/radar/items/auto-execute/settings";
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'PUT',
+                        headers: headerParameters,
+                        query: queryParameters,
+                        body: (0, index_1.UpdateFinancialRecordRadarItemAutoExecuteSettingsRequestBodyDtoToJSON)(requestParameters['updateFinancialRecordRadarItemAutoExecuteSettingsRequestBodyDto']),
+                    }];
+            });
+        });
+    };
+    /**
      * Atualiza as configurações de auto-execute do radar para a organização do usuário.
      * Atualizar configurações de auto-execute
      */
     FinancialRecordRadarItemAutoExecuteApi.prototype.updateFinancialRecordRadarItemAutoExecuteSettingsRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        if (requestParameters['updateFinancialRecordRadarItemAutoExecuteSettingsRequestBodyDto'] == null) {
-                            throw new runtime.RequiredError('updateFinancialRecordRadarItemAutoExecuteSettingsRequestBodyDto', 'Required parameter "updateFinancialRecordRadarItemAutoExecuteSettingsRequestBodyDto" was null or undefined when calling updateFinancialRecordRadarItemAutoExecuteSettings().');
-                        }
-                        queryParameters = {};
-                        headerParameters = {};
-                        headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/external/financial-records/radar/items/auto-execute/settings";
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'PUT',
-                                headers: headerParameters,
-                                query: queryParameters,
-                                body: (0, index_1.UpdateFinancialRecordRadarItemAutoExecuteSettingsRequestBodyDtoToJSON)(requestParameters['updateFinancialRecordRadarItemAutoExecuteSettingsRequestBodyDto']),
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.updateFinancialRecordRadarItemAutoExecuteSettingsRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.FinancialRecordRadarItemAutoExecuteSettingEntityFromJSON)(jsonValue); })];
                 }

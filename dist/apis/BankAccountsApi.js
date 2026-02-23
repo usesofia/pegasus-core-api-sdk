@@ -76,32 +76,45 @@ var BankAccountsApi = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
+     * Creates request options for createBankAccount without sending the request
+     */
+    BankAccountsApi.prototype.createBankAccountRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                if (requestParameters['createBankAccountRequestBodyDto'] == null) {
+                    throw new runtime.RequiredError('createBankAccountRequestBodyDto', 'Required parameter "createBankAccountRequestBodyDto" was null or undefined when calling createBankAccount().');
+                }
+                queryParameters = {};
+                if (requestParameters['populate'] != null) {
+                    queryParameters['populate'] = requestParameters['populate'];
+                }
+                headerParameters = {};
+                headerParameters['Content-Type'] = 'application/json';
+                urlPath = "/external/bank-accounts";
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'POST',
+                        headers: headerParameters,
+                        query: queryParameters,
+                        body: (0, index_1.CreateBankAccountRequestBodyDtoToJSON)(requestParameters['createBankAccountRequestBodyDto']),
+                    }];
+            });
+        });
+    };
+    /**
      * Cria uma nova conta bancária.
      */
     BankAccountsApi.prototype.createBankAccountRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        if (requestParameters['createBankAccountRequestBodyDto'] == null) {
-                            throw new runtime.RequiredError('createBankAccountRequestBodyDto', 'Required parameter "createBankAccountRequestBodyDto" was null or undefined when calling createBankAccount().');
-                        }
-                        queryParameters = {};
-                        if (requestParameters['populate'] != null) {
-                            queryParameters['populate'] = requestParameters['populate'];
-                        }
-                        headerParameters = {};
-                        headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/external/bank-accounts";
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'POST',
-                                headers: headerParameters,
-                                query: queryParameters,
-                                body: (0, index_1.CreateBankAccountRequestBodyDtoToJSON)(requestParameters['createBankAccountRequestBodyDto']),
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.createBankAccountRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.BankAccountDtoFromJSON)(jsonValue); })];
                 }
@@ -126,24 +139,37 @@ var BankAccountsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Creates request options for findAllBankAccountTypes without sending the request
+     */
+    BankAccountsApi.prototype.findAllBankAccountTypesRequestOpts = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                queryParameters = {};
+                headerParameters = {};
+                urlPath = "/external/bank-accounts/types";
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'GET',
+                        headers: headerParameters,
+                        query: queryParameters,
+                    }];
+            });
+        });
+    };
+    /**
      * Busca todos os tipos de conta bancária.
      */
     BankAccountsApi.prototype.findAllBankAccountTypesRaw = function (initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        queryParameters = {};
-                        headerParameters = {};
-                        urlPath = "/external/bank-accounts/types";
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'GET',
-                                headers: headerParameters,
-                                query: queryParameters,
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.findAllBankAccountTypesRequestOpts()];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return jsonValue.map(index_1.BankAccountTypeEntityFromJSON); })];
                 }
@@ -168,66 +194,79 @@ var BankAccountsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Creates request options for findAllBankAccounts without sending the request
+     */
+    BankAccountsApi.prototype.findAllBankAccountsRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                queryParameters = {};
+                if (requestParameters['sortOrder'] != null) {
+                    queryParameters['sortOrder'] = requestParameters['sortOrder'];
+                }
+                if (requestParameters['sortBy'] != null) {
+                    queryParameters['sortBy'] = requestParameters['sortBy'];
+                }
+                if (requestParameters['populate'] != null) {
+                    queryParameters['populate'] = requestParameters['populate'];
+                }
+                if (requestParameters['providerAccountId'] != null) {
+                    queryParameters['providerAccountId'] = requestParameters['providerAccountId'];
+                }
+                if (requestParameters['provider'] != null) {
+                    queryParameters['provider'] = requestParameters['provider'];
+                }
+                if (requestParameters['active'] != null) {
+                    queryParameters['active'] = requestParameters['active'];
+                }
+                if (requestParameters['ids'] != null) {
+                    queryParameters['ids'] = requestParameters['ids'];
+                }
+                if (requestParameters['isDefault'] != null) {
+                    queryParameters['isDefault'] = requestParameters['isDefault'];
+                }
+                if (requestParameters['isAutomatic'] != null) {
+                    queryParameters['isAutomatic'] = requestParameters['isAutomatic'];
+                }
+                if (requestParameters['type'] != null) {
+                    queryParameters['type'] = requestParameters['type'];
+                }
+                if (requestParameters['semanticSearchTermInBase64'] != null) {
+                    queryParameters['semanticSearchTermInBase64'] = requestParameters['semanticSearchTermInBase64'];
+                }
+                if (requestParameters['textSearchTerm'] != null) {
+                    queryParameters['textSearchTerm'] = requestParameters['textSearchTerm'];
+                }
+                if (requestParameters['pageSize'] != null) {
+                    queryParameters['pageSize'] = requestParameters['pageSize'];
+                }
+                if (requestParameters['pageIndex'] != null) {
+                    queryParameters['pageIndex'] = requestParameters['pageIndex'];
+                }
+                headerParameters = {};
+                urlPath = "/external/bank-accounts";
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'GET',
+                        headers: headerParameters,
+                        query: queryParameters,
+                    }];
+            });
+        });
+    };
+    /**
      * Busca todas as contas bancárias.
      */
     BankAccountsApi.prototype.findAllBankAccountsRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        queryParameters = {};
-                        if (requestParameters['sortOrder'] != null) {
-                            queryParameters['sortOrder'] = requestParameters['sortOrder'];
-                        }
-                        if (requestParameters['sortBy'] != null) {
-                            queryParameters['sortBy'] = requestParameters['sortBy'];
-                        }
-                        if (requestParameters['populate'] != null) {
-                            queryParameters['populate'] = requestParameters['populate'];
-                        }
-                        if (requestParameters['providerAccountId'] != null) {
-                            queryParameters['providerAccountId'] = requestParameters['providerAccountId'];
-                        }
-                        if (requestParameters['provider'] != null) {
-                            queryParameters['provider'] = requestParameters['provider'];
-                        }
-                        if (requestParameters['active'] != null) {
-                            queryParameters['active'] = requestParameters['active'];
-                        }
-                        if (requestParameters['ids'] != null) {
-                            queryParameters['ids'] = requestParameters['ids'];
-                        }
-                        if (requestParameters['isDefault'] != null) {
-                            queryParameters['isDefault'] = requestParameters['isDefault'];
-                        }
-                        if (requestParameters['isAutomatic'] != null) {
-                            queryParameters['isAutomatic'] = requestParameters['isAutomatic'];
-                        }
-                        if (requestParameters['type'] != null) {
-                            queryParameters['type'] = requestParameters['type'];
-                        }
-                        if (requestParameters['semanticSearchTermInBase64'] != null) {
-                            queryParameters['semanticSearchTermInBase64'] = requestParameters['semanticSearchTermInBase64'];
-                        }
-                        if (requestParameters['textSearchTerm'] != null) {
-                            queryParameters['textSearchTerm'] = requestParameters['textSearchTerm'];
-                        }
-                        if (requestParameters['pageSize'] != null) {
-                            queryParameters['pageSize'] = requestParameters['pageSize'];
-                        }
-                        if (requestParameters['pageIndex'] != null) {
-                            queryParameters['pageIndex'] = requestParameters['pageIndex'];
-                        }
-                        headerParameters = {};
-                        urlPath = "/external/bank-accounts";
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'GET',
-                                headers: headerParameters,
-                                query: queryParameters,
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.findAllBankAccountsRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.BankAccountsPageDtoFromJSON)(jsonValue); })];
                 }
@@ -253,31 +292,44 @@ var BankAccountsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Creates request options for findAllByPluggyItem without sending the request
+     */
+    BankAccountsApi.prototype.findAllByPluggyItemRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                if (requestParameters['itemId'] == null) {
+                    throw new runtime.RequiredError('itemId', 'Required parameter "itemId" was null or undefined when calling findAllByPluggyItem().');
+                }
+                queryParameters = {};
+                if (requestParameters['populate'] != null) {
+                    queryParameters['populate'] = requestParameters['populate'];
+                }
+                headerParameters = {};
+                urlPath = "/internal/bank-accounts/pluggy/{itemId}";
+                urlPath = urlPath.replace("{".concat("itemId", "}"), encodeURIComponent(String(requestParameters['itemId'])));
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'GET',
+                        headers: headerParameters,
+                        query: queryParameters,
+                    }];
+            });
+        });
+    };
+    /**
      * Busca contas bancárias pelo identificador do item do Pluggy.
      */
     BankAccountsApi.prototype.findAllByPluggyItemRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        if (requestParameters['itemId'] == null) {
-                            throw new runtime.RequiredError('itemId', 'Required parameter "itemId" was null or undefined when calling findAllByPluggyItem().');
-                        }
-                        queryParameters = {};
-                        if (requestParameters['populate'] != null) {
-                            queryParameters['populate'] = requestParameters['populate'];
-                        }
-                        headerParameters = {};
-                        urlPath = "/internal/bank-accounts/pluggy/{itemId}";
-                        urlPath = urlPath.replace("{".concat("itemId", "}"), encodeURIComponent(String(requestParameters['itemId'])));
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'GET',
-                                headers: headerParameters,
-                                query: queryParameters,
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.findAllByPluggyItemRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return jsonValue.map(index_1.BankAccountDtoFromJSON); })];
                 }
@@ -302,31 +354,44 @@ var BankAccountsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Creates request options for findByIdBankAccount without sending the request
+     */
+    BankAccountsApi.prototype.findByIdBankAccountRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                if (requestParameters['id'] == null) {
+                    throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling findByIdBankAccount().');
+                }
+                queryParameters = {};
+                if (requestParameters['populate'] != null) {
+                    queryParameters['populate'] = requestParameters['populate'];
+                }
+                headerParameters = {};
+                urlPath = "/external/bank-accounts/{id}";
+                urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'GET',
+                        headers: headerParameters,
+                        query: queryParameters,
+                    }];
+            });
+        });
+    };
+    /**
      * Busca uma conta bancária pelo identificador.
      */
     BankAccountsApi.prototype.findByIdBankAccountRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        if (requestParameters['id'] == null) {
-                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling findByIdBankAccount().');
-                        }
-                        queryParameters = {};
-                        if (requestParameters['populate'] != null) {
-                            queryParameters['populate'] = requestParameters['populate'];
-                        }
-                        headerParameters = {};
-                        urlPath = "/external/bank-accounts/{id}";
-                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'GET',
-                                headers: headerParameters,
-                                query: queryParameters,
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.findByIdBankAccountRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.BankAccountDtoFromJSON)(jsonValue); })];
                 }
@@ -351,36 +416,49 @@ var BankAccountsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Creates request options for partialUpdateBankAccount without sending the request
+     */
+    BankAccountsApi.prototype.partialUpdateBankAccountRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                if (requestParameters['id'] == null) {
+                    throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling partialUpdateBankAccount().');
+                }
+                if (requestParameters['partialUpdateBankAccountRequestBodyDto'] == null) {
+                    throw new runtime.RequiredError('partialUpdateBankAccountRequestBodyDto', 'Required parameter "partialUpdateBankAccountRequestBodyDto" was null or undefined when calling partialUpdateBankAccount().');
+                }
+                queryParameters = {};
+                if (requestParameters['populate'] != null) {
+                    queryParameters['populate'] = requestParameters['populate'];
+                }
+                headerParameters = {};
+                headerParameters['Content-Type'] = 'application/json';
+                urlPath = "/external/bank-accounts/{id}";
+                urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'PATCH',
+                        headers: headerParameters,
+                        query: queryParameters,
+                        body: (0, index_1.PartialUpdateBankAccountRequestBodyDtoToJSON)(requestParameters['partialUpdateBankAccountRequestBodyDto']),
+                    }];
+            });
+        });
+    };
+    /**
      * Atualiza parcialmente uma conta bancária.
      */
     BankAccountsApi.prototype.partialUpdateBankAccountRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        if (requestParameters['id'] == null) {
-                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling partialUpdateBankAccount().');
-                        }
-                        if (requestParameters['partialUpdateBankAccountRequestBodyDto'] == null) {
-                            throw new runtime.RequiredError('partialUpdateBankAccountRequestBodyDto', 'Required parameter "partialUpdateBankAccountRequestBodyDto" was null or undefined when calling partialUpdateBankAccount().');
-                        }
-                        queryParameters = {};
-                        if (requestParameters['populate'] != null) {
-                            queryParameters['populate'] = requestParameters['populate'];
-                        }
-                        headerParameters = {};
-                        headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/external/bank-accounts/{id}";
-                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'PATCH',
-                                headers: headerParameters,
-                                query: queryParameters,
-                                body: (0, index_1.PartialUpdateBankAccountRequestBodyDtoToJSON)(requestParameters['partialUpdateBankAccountRequestBodyDto']),
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.partialUpdateBankAccountRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.BankAccountDtoFromJSON)(jsonValue); })];
                 }
@@ -405,33 +483,46 @@ var BankAccountsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Creates request options for removeBankAccount without sending the request
+     */
+    BankAccountsApi.prototype.removeBankAccountRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                if (requestParameters['id'] == null) {
+                    throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling removeBankAccount().');
+                }
+                if (requestParameters['removeBankAccountRequestBodyDto'] == null) {
+                    throw new runtime.RequiredError('removeBankAccountRequestBodyDto', 'Required parameter "removeBankAccountRequestBodyDto" was null or undefined when calling removeBankAccount().');
+                }
+                queryParameters = {};
+                headerParameters = {};
+                headerParameters['Content-Type'] = 'application/json';
+                urlPath = "/external/bank-accounts/{id}";
+                urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'DELETE',
+                        headers: headerParameters,
+                        query: queryParameters,
+                        body: (0, index_1.RemoveBankAccountRequestBodyDtoToJSON)(requestParameters['removeBankAccountRequestBodyDto']),
+                    }];
+            });
+        });
+    };
+    /**
      * Remove uma conta bancária.
      */
     BankAccountsApi.prototype.removeBankAccountRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        if (requestParameters['id'] == null) {
-                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling removeBankAccount().');
-                        }
-                        if (requestParameters['removeBankAccountRequestBodyDto'] == null) {
-                            throw new runtime.RequiredError('removeBankAccountRequestBodyDto', 'Required parameter "removeBankAccountRequestBodyDto" was null or undefined when calling removeBankAccount().');
-                        }
-                        queryParameters = {};
-                        headerParameters = {};
-                        headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/external/bank-accounts/{id}";
-                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'DELETE',
-                                headers: headerParameters,
-                                query: queryParameters,
-                                body: (0, index_1.RemoveBankAccountRequestBodyDtoToJSON)(requestParameters['removeBankAccountRequestBodyDto']),
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.removeBankAccountRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.VoidApiResponse(response)];
                 }
@@ -454,75 +545,88 @@ var BankAccountsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Creates request options for systemFindAllBankAccounts without sending the request
+     */
+    BankAccountsApi.prototype.systemFindAllBankAccountsRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                if (requestParameters['ownerOrganizationId'] == null) {
+                    throw new runtime.RequiredError('ownerOrganizationId', 'Required parameter "ownerOrganizationId" was null or undefined when calling systemFindAllBankAccounts().');
+                }
+                queryParameters = {};
+                if (requestParameters['readPreference'] != null) {
+                    queryParameters['readPreference'] = requestParameters['readPreference'];
+                }
+                if (requestParameters['sortOrder'] != null) {
+                    queryParameters['sortOrder'] = requestParameters['sortOrder'];
+                }
+                if (requestParameters['sortBy'] != null) {
+                    queryParameters['sortBy'] = requestParameters['sortBy'];
+                }
+                if (requestParameters['ownerOrganizationId'] != null) {
+                    queryParameters['ownerOrganizationId'] = requestParameters['ownerOrganizationId'];
+                }
+                if (requestParameters['populate'] != null) {
+                    queryParameters['populate'] = requestParameters['populate'];
+                }
+                if (requestParameters['providerAccountId'] != null) {
+                    queryParameters['providerAccountId'] = requestParameters['providerAccountId'];
+                }
+                if (requestParameters['provider'] != null) {
+                    queryParameters['provider'] = requestParameters['provider'];
+                }
+                if (requestParameters['active'] != null) {
+                    queryParameters['active'] = requestParameters['active'];
+                }
+                if (requestParameters['ids'] != null) {
+                    queryParameters['ids'] = requestParameters['ids'];
+                }
+                if (requestParameters['isDefault'] != null) {
+                    queryParameters['isDefault'] = requestParameters['isDefault'];
+                }
+                if (requestParameters['isAutomatic'] != null) {
+                    queryParameters['isAutomatic'] = requestParameters['isAutomatic'];
+                }
+                if (requestParameters['type'] != null) {
+                    queryParameters['type'] = requestParameters['type'];
+                }
+                if (requestParameters['semanticSearchTermInBase64'] != null) {
+                    queryParameters['semanticSearchTermInBase64'] = requestParameters['semanticSearchTermInBase64'];
+                }
+                if (requestParameters['textSearchTerm'] != null) {
+                    queryParameters['textSearchTerm'] = requestParameters['textSearchTerm'];
+                }
+                if (requestParameters['pageSize'] != null) {
+                    queryParameters['pageSize'] = requestParameters['pageSize'];
+                }
+                if (requestParameters['pageIndex'] != null) {
+                    queryParameters['pageIndex'] = requestParameters['pageIndex'];
+                }
+                headerParameters = {};
+                urlPath = "/internal/bank-accounts";
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'GET',
+                        headers: headerParameters,
+                        query: queryParameters,
+                    }];
+            });
+        });
+    };
+    /**
      * Busca todas as contas bancárias.
      */
     BankAccountsApi.prototype.systemFindAllBankAccountsRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        if (requestParameters['ownerOrganizationId'] == null) {
-                            throw new runtime.RequiredError('ownerOrganizationId', 'Required parameter "ownerOrganizationId" was null or undefined when calling systemFindAllBankAccounts().');
-                        }
-                        queryParameters = {};
-                        if (requestParameters['readPreference'] != null) {
-                            queryParameters['readPreference'] = requestParameters['readPreference'];
-                        }
-                        if (requestParameters['sortOrder'] != null) {
-                            queryParameters['sortOrder'] = requestParameters['sortOrder'];
-                        }
-                        if (requestParameters['sortBy'] != null) {
-                            queryParameters['sortBy'] = requestParameters['sortBy'];
-                        }
-                        if (requestParameters['ownerOrganizationId'] != null) {
-                            queryParameters['ownerOrganizationId'] = requestParameters['ownerOrganizationId'];
-                        }
-                        if (requestParameters['populate'] != null) {
-                            queryParameters['populate'] = requestParameters['populate'];
-                        }
-                        if (requestParameters['providerAccountId'] != null) {
-                            queryParameters['providerAccountId'] = requestParameters['providerAccountId'];
-                        }
-                        if (requestParameters['provider'] != null) {
-                            queryParameters['provider'] = requestParameters['provider'];
-                        }
-                        if (requestParameters['active'] != null) {
-                            queryParameters['active'] = requestParameters['active'];
-                        }
-                        if (requestParameters['ids'] != null) {
-                            queryParameters['ids'] = requestParameters['ids'];
-                        }
-                        if (requestParameters['isDefault'] != null) {
-                            queryParameters['isDefault'] = requestParameters['isDefault'];
-                        }
-                        if (requestParameters['isAutomatic'] != null) {
-                            queryParameters['isAutomatic'] = requestParameters['isAutomatic'];
-                        }
-                        if (requestParameters['type'] != null) {
-                            queryParameters['type'] = requestParameters['type'];
-                        }
-                        if (requestParameters['semanticSearchTermInBase64'] != null) {
-                            queryParameters['semanticSearchTermInBase64'] = requestParameters['semanticSearchTermInBase64'];
-                        }
-                        if (requestParameters['textSearchTerm'] != null) {
-                            queryParameters['textSearchTerm'] = requestParameters['textSearchTerm'];
-                        }
-                        if (requestParameters['pageSize'] != null) {
-                            queryParameters['pageSize'] = requestParameters['pageSize'];
-                        }
-                        if (requestParameters['pageIndex'] != null) {
-                            queryParameters['pageIndex'] = requestParameters['pageIndex'];
-                        }
-                        headerParameters = {};
-                        urlPath = "/internal/bank-accounts";
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'GET',
-                                headers: headerParameters,
-                                query: queryParameters,
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.systemFindAllBankAccountsRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.BankAccountsPageDtoFromJSON)(jsonValue); })];
                 }
@@ -547,31 +651,44 @@ var BankAccountsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Creates request options for systemFindByIdBankAccount without sending the request
+     */
+    BankAccountsApi.prototype.systemFindByIdBankAccountRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                if (requestParameters['id'] == null) {
+                    throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling systemFindByIdBankAccount().');
+                }
+                queryParameters = {};
+                if (requestParameters['populate'] != null) {
+                    queryParameters['populate'] = requestParameters['populate'];
+                }
+                headerParameters = {};
+                urlPath = "/internal/bank-accounts/{id}";
+                urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'GET',
+                        headers: headerParameters,
+                        query: queryParameters,
+                    }];
+            });
+        });
+    };
+    /**
      * Busca uma conta bancária pelo identificador.
      */
     BankAccountsApi.prototype.systemFindByIdBankAccountRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        if (requestParameters['id'] == null) {
-                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling systemFindByIdBankAccount().');
-                        }
-                        queryParameters = {};
-                        if (requestParameters['populate'] != null) {
-                            queryParameters['populate'] = requestParameters['populate'];
-                        }
-                        headerParameters = {};
-                        urlPath = "/internal/bank-accounts/{id}";
-                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'GET',
-                                headers: headerParameters,
-                                query: queryParameters,
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.systemFindByIdBankAccountRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.BankAccountDtoFromJSON)(jsonValue); })];
                 }

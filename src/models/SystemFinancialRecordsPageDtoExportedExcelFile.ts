@@ -51,7 +51,7 @@ export interface SystemFinancialRecordsPageDtoExportedExcelFile {
     size: number;
     /**
      * Tipo do arquivo.
-     * @type {string}
+     * @type {SystemFinancialRecordsPageDtoExportedExcelFileFileTypeEnum}
      * @memberof SystemFinancialRecordsPageDtoExportedExcelFile
      */
     fileType: SystemFinancialRecordsPageDtoExportedExcelFileFileTypeEnum;
@@ -63,7 +63,7 @@ export interface SystemFinancialRecordsPageDtoExportedExcelFile {
     objectName: string;
     /**
      * Status do arquivo.
-     * @type {string}
+     * @type {SystemFinancialRecordsPageDtoExportedExcelFileStatusEnum}
      * @memberof SystemFinancialRecordsPageDtoExportedExcelFile
      */
     status: SystemFinancialRecordsPageDtoExportedExcelFileStatusEnum;

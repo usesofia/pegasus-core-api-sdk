@@ -25,6 +25,13 @@ export interface ScheduleBulkUpdateRequest {
  */
 export interface BulkUpdateApiInterface {
     /**
+     * Creates request options for processBulkUpdate without sending the request
+     * @param {ExecuteBulkUpdateJobRequestBodyDto} executeBulkUpdateJobRequestBodyDto
+     * @throws {RequiredError}
+     * @memberof BulkUpdateApiInterface
+     */
+    processBulkUpdateRequestOpts(requestParameters: ProcessBulkUpdateRequest): Promise<runtime.RequestOpts>;
+    /**
      *
      * @summary Processes bulk update tasks
      * @param {ExecuteBulkUpdateJobRequestBodyDto} executeBulkUpdateJobRequestBodyDto
@@ -37,6 +44,13 @@ export interface BulkUpdateApiInterface {
      * Processes bulk update tasks
      */
     processBulkUpdate(requestParameters: ProcessBulkUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+    /**
+     * Creates request options for scheduleBulkUpdate without sending the request
+     * @param {BulkUpdateJobRequestDto} bulkUpdateJobRequestDto
+     * @throws {RequiredError}
+     * @memberof BulkUpdateApiInterface
+     */
+    scheduleBulkUpdateRequestOpts(requestParameters: ScheduleBulkUpdateRequest): Promise<runtime.RequestOpts>;
     /**
      *
      * @summary Schedules updating of multiple resources
@@ -56,6 +70,10 @@ export interface BulkUpdateApiInterface {
  */
 export declare class BulkUpdateApi extends runtime.BaseAPI implements BulkUpdateApiInterface {
     /**
+     * Creates request options for processBulkUpdate without sending the request
+     */
+    processBulkUpdateRequestOpts(requestParameters: ProcessBulkUpdateRequest): Promise<runtime.RequestOpts>;
+    /**
      * Processes bulk update tasks
      */
     processBulkUpdateRaw(requestParameters: ProcessBulkUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
@@ -63,6 +81,10 @@ export declare class BulkUpdateApi extends runtime.BaseAPI implements BulkUpdate
      * Processes bulk update tasks
      */
     processBulkUpdate(requestParameters: ProcessBulkUpdateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+    /**
+     * Creates request options for scheduleBulkUpdate without sending the request
+     */
+    scheduleBulkUpdateRequestOpts(requestParameters: ScheduleBulkUpdateRequest): Promise<runtime.RequestOpts>;
     /**
      * Schedules updating of multiple resources
      */

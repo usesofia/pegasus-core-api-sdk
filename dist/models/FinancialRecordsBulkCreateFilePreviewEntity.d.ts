@@ -31,7 +31,7 @@ export interface FinancialRecordsBulkCreateFilePreviewEntity {
     nFinancialRecords: number;
     /**
      *
-     * @type {string}
+     * @type {FinancialRecordsBulkCreateFilePreviewEntityPreviewStatusEnum}
      * @memberof FinancialRecordsBulkCreateFilePreviewEntity
      */
     previewStatus: FinancialRecordsBulkCreateFilePreviewEntityPreviewStatusEnum;

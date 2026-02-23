@@ -23,7 +23,7 @@ export interface BulkRemoveJobRequestEntity {
     id: string;
     /**
      * Recurso a ser removido.
-     * @type {string}
+     * @type {BulkRemoveJobRequestEntityResourceEnum}
      * @memberof BulkRemoveJobRequestEntity
      */
     resource: BulkRemoveJobRequestEntityResourceEnum;

@@ -35,7 +35,7 @@ export interface SystemFinancialRecordsPageDtoItemsInner {
     ownerOrganization: string;
     /**
      * Direção do lançamento (entrada/saída).
-     * @type {string}
+     * @type {SystemFinancialRecordsPageDtoItemsInnerDirectionEnum}
      * @memberof SystemFinancialRecordsPageDtoItemsInner
      */
     direction: SystemFinancialRecordsPageDtoItemsInnerDirectionEnum;

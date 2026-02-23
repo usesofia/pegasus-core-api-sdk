@@ -99,7 +99,7 @@ export interface BankTransactionEntity {
     populatedBankAccount?: BankTransactionEntityPopulatedBankAccount | null;
     /**
      * Provedor da movimentação financeira.
-     * @type {string}
+     * @type {BankTransactionEntityProviderEnum}
      * @memberof BankTransactionEntity
      */
     provider: BankTransactionEntityProviderEnum;
@@ -135,7 +135,7 @@ export interface BankTransactionEntity {
     dateVariations: string;
     /**
      * Tipo da movimentação financeira (entrada ou saída).
-     * @type {string}
+     * @type {BankTransactionEntityTypeEnum}
      * @memberof BankTransactionEntity
      */
     type: BankTransactionEntityTypeEnum;
@@ -153,7 +153,7 @@ export interface BankTransactionEntity {
     description?: string | null;
     /**
      * Status da movimentação financeira.
-     * @type {string}
+     * @type {BankTransactionEntityStatusEnum}
      * @memberof BankTransactionEntity
      */
     status: BankTransactionEntityStatusEnum;

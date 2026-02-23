@@ -27,7 +27,7 @@ export interface BulkCreateJobRequestDto {
     fileId: string;
     /**
      * 
-     * @type {string}
+     * @type {BulkCreateJobRequestDtoResourceEnum}
      * @memberof BulkCreateJobRequestDto
      */
     resource: BulkCreateJobRequestDtoResourceEnum;
@@ -39,7 +39,7 @@ export interface BulkCreateJobRequestDto {
     nRows: number;
     /**
      * Canal de origem da operação
-     * @type {string}
+     * @type {BulkCreateJobRequestDtoChannelEnum}
      * @memberof BulkCreateJobRequestDto
      */
     channel: BulkCreateJobRequestDtoChannelEnum;

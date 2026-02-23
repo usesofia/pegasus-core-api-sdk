@@ -27,7 +27,7 @@ export interface SeedRecurringFinancialRecordsRequestBodyDto {
     organizationId: string;
     /**
      * 
-     * @type {string}
+     * @type {SeedRecurringFinancialRecordsRequestBodyDtoFrequencyEnum}
      * @memberof SeedRecurringFinancialRecordsRequestBodyDto
      */
     frequency: SeedRecurringFinancialRecordsRequestBodyDtoFrequencyEnum;

@@ -26,25 +26,25 @@ export interface CreateFinancialRecordRadarItemRequestBodyDto {
     ownerOrganization: string;
     /**
      * Origem do registro.
-     * @type {string}
+     * @type {CreateFinancialRecordRadarItemRequestBodyDtoOriginEnum}
      * @memberof CreateFinancialRecordRadarItemRequestBodyDto
      */
     origin: CreateFinancialRecordRadarItemRequestBodyDtoOriginEnum;
     /**
      * Natureza do registro.
-     * @type {string}
+     * @type {CreateFinancialRecordRadarItemRequestBodyDtoNatureEnum}
      * @memberof CreateFinancialRecordRadarItemRequestBodyDto
      */
     nature: CreateFinancialRecordRadarItemRequestBodyDtoNatureEnum;
     /**
      * Status do registro.
-     * @type {string}
+     * @type {CreateFinancialRecordRadarItemRequestBodyDtoStatusEnum}
      * @memberof CreateFinancialRecordRadarItemRequestBodyDto
      */
     status: CreateFinancialRecordRadarItemRequestBodyDtoStatusEnum;
     /**
      * Pasta do registro.
-     * @type {string}
+     * @type {CreateFinancialRecordRadarItemRequestBodyDtoFolderEnum}
      * @memberof CreateFinancialRecordRadarItemRequestBodyDto
      */
     folder: CreateFinancialRecordRadarItemRequestBodyDtoFolderEnum;

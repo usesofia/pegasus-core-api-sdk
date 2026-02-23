@@ -39,7 +39,7 @@ export interface MemberEntity {
     email: string;
     /**
      * Papel do membro na organização.
-     * @type {string}
+     * @type {MemberEntityRoleEnum}
      * @memberof MemberEntity
      */
     role: MemberEntityRoleEnum;

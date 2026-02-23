@@ -31,13 +31,13 @@ export interface BulkUpdateJobRequestDto {
     };
     /**
      *
-     * @type {string}
+     * @type {BulkUpdateJobRequestDtoResourceEnum}
      * @memberof BulkUpdateJobRequestDto
      */
     resource: BulkUpdateJobRequestDtoResourceEnum;
     /**
      * Canal de origem da operação
-     * @type {string}
+     * @type {BulkUpdateJobRequestDtoChannelEnum}
      * @memberof BulkUpdateJobRequestDto
      */
     channel: BulkUpdateJobRequestDtoChannelEnum;

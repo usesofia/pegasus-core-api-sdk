@@ -24,6 +24,15 @@ export interface FindAllCategoriesRequest {
  */
 export interface CategoriesApiInterface {
     /**
+     * Creates request options for findAllCategories without sending the request
+     * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
+     * @param {number} [pageSize] Quantidade de itens por página.
+     * @param {number} [pageIndex] Índice da página.
+     * @throws {RequiredError}
+     * @memberof CategoriesApiInterface
+     */
+    findAllCategoriesRequestOpts(requestParameters: FindAllCategoriesRequest): Promise<runtime.RequestOpts>;
+    /**
      *
      * @summary Busca todas as categorias.
      * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
@@ -43,6 +52,10 @@ export interface CategoriesApiInterface {
  *
  */
 export declare class CategoriesApi extends runtime.BaseAPI implements CategoriesApiInterface {
+    /**
+     * Creates request options for findAllCategories without sending the request
+     */
+    findAllCategoriesRequestOpts(requestParameters: FindAllCategoriesRequest): Promise<runtime.RequestOpts>;
     /**
      * Busca todas as categorias.
      */

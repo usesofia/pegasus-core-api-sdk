@@ -27,7 +27,7 @@ export interface CategoriesPageEntityItemsInner {
     id: string;
     /**
      * Direção da categoria (IN ou OUT).
-     * @type {string}
+     * @type {CategoriesPageEntityItemsInnerDirectionEnum}
      * @memberof CategoriesPageEntityItemsInner
      */
     direction: CategoriesPageEntityItemsInnerDirectionEnum;

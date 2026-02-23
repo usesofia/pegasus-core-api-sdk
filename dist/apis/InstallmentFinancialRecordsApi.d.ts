@@ -54,6 +54,14 @@ export interface RemoveInstallmentFinancialRecordRequest {
  */
 export interface InstallmentFinancialRecordsApiInterface {
     /**
+     * Creates request options for createInstallmentFinancialRecord without sending the request
+     * @param {CreateInstallmentFinancialRecordRequestBodyDto} createInstallmentFinancialRecordRequestBodyDto
+     * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
+     * @throws {RequiredError}
+     * @memberof InstallmentFinancialRecordsApiInterface
+     */
+    createInstallmentFinancialRecordRequestOpts(requestParameters: CreateInstallmentFinancialRecordRequest): Promise<runtime.RequestOpts>;
+    /**
      *
      * @summary Cria um novo lançamento financeiro parcelado.
      * @param {CreateInstallmentFinancialRecordRequestBodyDto} createInstallmentFinancialRecordRequestBodyDto
@@ -67,6 +75,28 @@ export interface InstallmentFinancialRecordsApiInterface {
      * Cria um novo lançamento financeiro parcelado.
      */
     createInstallmentFinancialRecord(requestParameters: CreateInstallmentFinancialRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<InstallmentFinancialRecordDto>;
+    /**
+     * Creates request options for findAllInstallmentFinancialRecords without sending the request
+     * @param {boolean} [completed] Indica se o lançamento parcelado está completo (todas as parcelas pagas/recebidas).
+     * @param {'MONTHLY' | 'WEEKLY' | 'YEARLY'} [frequency] Frequência do lançamento parcelado.
+     * @param {Date} [competenceDateTo] Data de competência final (formato ISO YYYY-MM-DD).
+     * @param {Date} [competenceDateFrom] Data de competência inicial (formato ISO YYYY-MM-DD).
+     * @param {Array<any>} [tags] IDs das tags.
+     * @param {string} [subcategory] ID da subcategoria.
+     * @param {string} [contact] ID do contato.
+     * @param {Date} [firstInstallmentDateTo] Data final da primeira parcela (formato ISO YYYY-MM-DD).
+     * @param {Date} [firstInstallmentDateFrom] Data inicial da primeira parcela (formato ISO YYYY-MM-DD).
+     * @param {'IN' | 'OUT'} [direction] Direção do lançamento (entrada/saída).
+     * @param {'asc' | 'desc'} [sortOrder] Ordem da ordenação.
+     * @param {'direction' | 'firstInstallmentDate' | 'contact' | 'description' | 'subcategory' | 'amount' | 'tags' | 'competenceDate' | 'frequency' | 'createdAt'} [sortBy] Campo para ordenação.
+     * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
+     * @param {string} [textSearchTerm] Termo para busca por descrição do lançamento parcelado.
+     * @param {number} [pageSize] Quantidade de itens por página.
+     * @param {number} [pageIndex] Índice da página.
+     * @throws {RequiredError}
+     * @memberof InstallmentFinancialRecordsApiInterface
+     */
+    findAllInstallmentFinancialRecordsRequestOpts(requestParameters: FindAllInstallmentFinancialRecordsRequest): Promise<runtime.RequestOpts>;
     /**
      *
      * @summary Busca todos os lançamentos financeiros parcelados.
@@ -96,6 +126,14 @@ export interface InstallmentFinancialRecordsApiInterface {
      */
     findAllInstallmentFinancialRecords(requestParameters: FindAllInstallmentFinancialRecordsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<InstallmentFinancialRecordsPageDto>;
     /**
+     * Creates request options for findByIdInstallmentFinancialRecord without sending the request
+     * @param {string} id ID do lançamento financeiro parcelado.
+     * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
+     * @throws {RequiredError}
+     * @memberof InstallmentFinancialRecordsApiInterface
+     */
+    findByIdInstallmentFinancialRecordRequestOpts(requestParameters: FindByIdInstallmentFinancialRecordRequest): Promise<runtime.RequestOpts>;
+    /**
      *
      * @summary Busca um lançamento financeiro parcelado pelo ID.
      * @param {string} id ID do lançamento financeiro parcelado.
@@ -109,6 +147,15 @@ export interface InstallmentFinancialRecordsApiInterface {
      * Busca um lançamento financeiro parcelado pelo ID.
      */
     findByIdInstallmentFinancialRecord(requestParameters: FindByIdInstallmentFinancialRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<InstallmentFinancialRecordDto>;
+    /**
+     * Creates request options for partialUpdateInstallmentFinancialRecord without sending the request
+     * @param {string} id ID do lançamento financeiro parcelado.
+     * @param {PartialUpdateInstallmentFinancialRecordRequestBodyDto} partialUpdateInstallmentFinancialRecordRequestBodyDto
+     * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
+     * @throws {RequiredError}
+     * @memberof InstallmentFinancialRecordsApiInterface
+     */
+    partialUpdateInstallmentFinancialRecordRequestOpts(requestParameters: PartialUpdateInstallmentFinancialRecordRequest): Promise<runtime.RequestOpts>;
     /**
      *
      * @summary Atualiza parcialmente um lançamento financeiro parcelado.
@@ -124,6 +171,14 @@ export interface InstallmentFinancialRecordsApiInterface {
      * Atualiza parcialmente um lançamento financeiro parcelado.
      */
     partialUpdateInstallmentFinancialRecord(requestParameters: PartialUpdateInstallmentFinancialRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<InstallmentFinancialRecordDto>;
+    /**
+     * Creates request options for removeInstallmentFinancialRecord without sending the request
+     * @param {string} id ID do lançamento financeiro parcelado.
+     * @param {RemoveInstallmentFinancialRecordRequestBodyDto} removeInstallmentFinancialRecordRequestBodyDto
+     * @throws {RequiredError}
+     * @memberof InstallmentFinancialRecordsApiInterface
+     */
+    removeInstallmentFinancialRecordRequestOpts(requestParameters: RemoveInstallmentFinancialRecordRequest): Promise<runtime.RequestOpts>;
     /**
      * Remove um lançamento financeiro parcelado. Opcionalmente, pode remover todos os lançamentos financeiros não concluídos relacionados através do query parameter \"removeNotCompletedFinancialRecords=true\".
      * @summary Remove um lançamento financeiro parcelado.
@@ -145,6 +200,10 @@ export interface InstallmentFinancialRecordsApiInterface {
  */
 export declare class InstallmentFinancialRecordsApi extends runtime.BaseAPI implements InstallmentFinancialRecordsApiInterface {
     /**
+     * Creates request options for createInstallmentFinancialRecord without sending the request
+     */
+    createInstallmentFinancialRecordRequestOpts(requestParameters: CreateInstallmentFinancialRecordRequest): Promise<runtime.RequestOpts>;
+    /**
      * Cria um novo lançamento financeiro parcelado.
      */
     createInstallmentFinancialRecordRaw(requestParameters: CreateInstallmentFinancialRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<InstallmentFinancialRecordDto>>;
@@ -152,6 +211,10 @@ export declare class InstallmentFinancialRecordsApi extends runtime.BaseAPI impl
      * Cria um novo lançamento financeiro parcelado.
      */
     createInstallmentFinancialRecord(requestParameters: CreateInstallmentFinancialRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<InstallmentFinancialRecordDto>;
+    /**
+     * Creates request options for findAllInstallmentFinancialRecords without sending the request
+     */
+    findAllInstallmentFinancialRecordsRequestOpts(requestParameters: FindAllInstallmentFinancialRecordsRequest): Promise<runtime.RequestOpts>;
     /**
      * Busca todos os lançamentos financeiros parcelados.
      */
@@ -161,6 +224,10 @@ export declare class InstallmentFinancialRecordsApi extends runtime.BaseAPI impl
      */
     findAllInstallmentFinancialRecords(requestParameters?: FindAllInstallmentFinancialRecordsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<InstallmentFinancialRecordsPageDto>;
     /**
+     * Creates request options for findByIdInstallmentFinancialRecord without sending the request
+     */
+    findByIdInstallmentFinancialRecordRequestOpts(requestParameters: FindByIdInstallmentFinancialRecordRequest): Promise<runtime.RequestOpts>;
+    /**
      * Busca um lançamento financeiro parcelado pelo ID.
      */
     findByIdInstallmentFinancialRecordRaw(requestParameters: FindByIdInstallmentFinancialRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<InstallmentFinancialRecordDto>>;
@@ -169,6 +236,10 @@ export declare class InstallmentFinancialRecordsApi extends runtime.BaseAPI impl
      */
     findByIdInstallmentFinancialRecord(requestParameters: FindByIdInstallmentFinancialRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<InstallmentFinancialRecordDto>;
     /**
+     * Creates request options for partialUpdateInstallmentFinancialRecord without sending the request
+     */
+    partialUpdateInstallmentFinancialRecordRequestOpts(requestParameters: PartialUpdateInstallmentFinancialRecordRequest): Promise<runtime.RequestOpts>;
+    /**
      * Atualiza parcialmente um lançamento financeiro parcelado.
      */
     partialUpdateInstallmentFinancialRecordRaw(requestParameters: PartialUpdateInstallmentFinancialRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<InstallmentFinancialRecordDto>>;
@@ -176,6 +247,10 @@ export declare class InstallmentFinancialRecordsApi extends runtime.BaseAPI impl
      * Atualiza parcialmente um lançamento financeiro parcelado.
      */
     partialUpdateInstallmentFinancialRecord(requestParameters: PartialUpdateInstallmentFinancialRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<InstallmentFinancialRecordDto>;
+    /**
+     * Creates request options for removeInstallmentFinancialRecord without sending the request
+     */
+    removeInstallmentFinancialRecordRequestOpts(requestParameters: RemoveInstallmentFinancialRecordRequest): Promise<runtime.RequestOpts>;
     /**
      * Remove um lançamento financeiro parcelado. Opcionalmente, pode remover todos os lançamentos financeiros não concluídos relacionados através do query parameter \"removeNotCompletedFinancialRecords=true\".
      * Remove um lançamento financeiro parcelado.

@@ -22,6 +22,13 @@ export interface ProcessExportResourceJobRequestRequest {
  */
 export interface ExportResourceJobRequestsApiInterface {
     /**
+     * Creates request options for processExportResourceJobRequest without sending the request
+     * @param {ProcessExportResourceJobRequestBodyDto} processExportResourceJobRequestBodyDto
+     * @throws {RequiredError}
+     * @memberof ExportResourceJobRequestsApiInterface
+     */
+    processExportResourceJobRequestRequestOpts(requestParameters: ProcessExportResourceJobRequestRequest): Promise<runtime.RequestOpts>;
+    /**
      *
      * @summary Processa a exportação de um recurso.
      * @param {ProcessExportResourceJobRequestBodyDto} processExportResourceJobRequestBodyDto
@@ -39,6 +46,10 @@ export interface ExportResourceJobRequestsApiInterface {
  *
  */
 export declare class ExportResourceJobRequestsApi extends runtime.BaseAPI implements ExportResourceJobRequestsApiInterface {
+    /**
+     * Creates request options for processExportResourceJobRequest without sending the request
+     */
+    processExportResourceJobRequestRequestOpts(requestParameters: ProcessExportResourceJobRequestRequest): Promise<runtime.RequestOpts>;
     /**
      * Processa a exportação de um recurso.
      */

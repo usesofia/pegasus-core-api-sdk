@@ -21,7 +21,7 @@ import type { CreatedFinancialRecordRadarItemResultEntityRadarItemFinalBestSugge
 export interface CreatedFinancialRecordRadarItemResultEntityRadarItemFinalBestSuggestedAction {
     /**
      * Operação sugerida.
-     * @type {string}
+     * @type {CreatedFinancialRecordRadarItemResultEntityRadarItemFinalBestSuggestedActionOperationEnum}
      * @memberof CreatedFinancialRecordRadarItemResultEntityRadarItemFinalBestSuggestedAction
      */
     operation: CreatedFinancialRecordRadarItemResultEntityRadarItemFinalBestSuggestedActionOperationEnum;

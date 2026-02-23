@@ -27,7 +27,7 @@ export interface CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulate
     id: string;
     /**
      * Direção da categoria (IN ou OUT).
-     * @type {string}
+     * @type {CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedCategoryDirectionEnum}
      * @memberof CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedCategory
      */
     direction: CreateFinancialRecordRequestBodyDtoPopulatedSubcategoryPopulatedCategoryDirectionEnum;

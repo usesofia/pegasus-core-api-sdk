@@ -76,29 +76,42 @@ var BulkUpdateApi = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
+     * Creates request options for processBulkUpdate without sending the request
+     */
+    BulkUpdateApi.prototype.processBulkUpdateRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                if (requestParameters['executeBulkUpdateJobRequestBodyDto'] == null) {
+                    throw new runtime.RequiredError('executeBulkUpdateJobRequestBodyDto', 'Required parameter "executeBulkUpdateJobRequestBodyDto" was null or undefined when calling processBulkUpdate().');
+                }
+                queryParameters = {};
+                headerParameters = {};
+                headerParameters['Content-Type'] = 'application/json';
+                urlPath = "/internal/queues/bulk-update";
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'POST',
+                        headers: headerParameters,
+                        query: queryParameters,
+                        body: (0, index_1.ExecuteBulkUpdateJobRequestBodyDtoToJSON)(requestParameters['executeBulkUpdateJobRequestBodyDto']),
+                    }];
+            });
+        });
+    };
+    /**
      * Processes bulk update tasks
      */
     BulkUpdateApi.prototype.processBulkUpdateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        if (requestParameters['executeBulkUpdateJobRequestBodyDto'] == null) {
-                            throw new runtime.RequiredError('executeBulkUpdateJobRequestBodyDto', 'Required parameter "executeBulkUpdateJobRequestBodyDto" was null or undefined when calling processBulkUpdate().');
-                        }
-                        queryParameters = {};
-                        headerParameters = {};
-                        headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/internal/queues/bulk-update";
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'POST',
-                                headers: headerParameters,
-                                query: queryParameters,
-                                body: (0, index_1.ExecuteBulkUpdateJobRequestBodyDtoToJSON)(requestParameters['executeBulkUpdateJobRequestBodyDto']),
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.processBulkUpdateRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.VoidApiResponse(response)];
                 }
@@ -121,29 +134,42 @@ var BulkUpdateApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Creates request options for scheduleBulkUpdate without sending the request
+     */
+    BulkUpdateApi.prototype.scheduleBulkUpdateRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                if (requestParameters['bulkUpdateJobRequestDto'] == null) {
+                    throw new runtime.RequiredError('bulkUpdateJobRequestDto', 'Required parameter "bulkUpdateJobRequestDto" was null or undefined when calling scheduleBulkUpdate().');
+                }
+                queryParameters = {};
+                headerParameters = {};
+                headerParameters['Content-Type'] = 'application/json';
+                urlPath = "/external/bulk/update";
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'POST',
+                        headers: headerParameters,
+                        query: queryParameters,
+                        body: (0, index_1.BulkUpdateJobRequestDtoToJSON)(requestParameters['bulkUpdateJobRequestDto']),
+                    }];
+            });
+        });
+    };
+    /**
      * Schedules updating of multiple resources
      */
     BulkUpdateApi.prototype.scheduleBulkUpdateRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        if (requestParameters['bulkUpdateJobRequestDto'] == null) {
-                            throw new runtime.RequiredError('bulkUpdateJobRequestDto', 'Required parameter "bulkUpdateJobRequestDto" was null or undefined when calling scheduleBulkUpdate().');
-                        }
-                        queryParameters = {};
-                        headerParameters = {};
-                        headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/external/bulk/update";
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'POST',
-                                headers: headerParameters,
-                                query: queryParameters,
-                                body: (0, index_1.BulkUpdateJobRequestDtoToJSON)(requestParameters['bulkUpdateJobRequestDto']),
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.scheduleBulkUpdateRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.BulkUpdateJobRequestEntityFromJSON)(jsonValue); })];
                 }

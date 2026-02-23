@@ -120,7 +120,7 @@ export interface PartialUpdateBankAccountRequestBodyDto {
     externalId?: string | null;
     /**
      * Canal de origem da operação
-     * @type {string}
+     * @type {PartialUpdateBankAccountRequestBodyDtoChannelEnum}
      * @memberof PartialUpdateBankAccountRequestBodyDto
      */
     channel: PartialUpdateBankAccountRequestBodyDtoChannelEnum;

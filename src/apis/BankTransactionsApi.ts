@@ -204,6 +204,15 @@ export interface UnreconcileBankTransactionRequest {
  */
 export interface BankTransactionsApiInterface {
     /**
+     * Creates request options for createOrUpdateBankTransaction without sending the request
+     * @param {CreateOrUpdateBankTransactionRequestBodyDto} createOrUpdateBankTransactionRequestBodyDto 
+     * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
+     * @throws {RequiredError}
+     * @memberof BankTransactionsApiInterface
+     */
+    createOrUpdateBankTransactionRequestOpts(requestParameters: CreateOrUpdateBankTransactionRequest): Promise<runtime.RequestOpts>;
+
+    /**
      * 
      * @summary Cria ou atualiza uma movimentação financeira.
      * @param {CreateOrUpdateBankTransactionRequestBodyDto} createOrUpdateBankTransactionRequestBodyDto 
@@ -218,6 +227,14 @@ export interface BankTransactionsApiInterface {
      * Cria ou atualiza uma movimentação financeira.
      */
     createOrUpdateBankTransaction(requestParameters: CreateOrUpdateBankTransactionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankTransactionEntity>;
+
+    /**
+     * Creates request options for createOrUpdateBankTransactionBestSuggestedAction without sending the request
+     * @param {string} bankTransactionId ID da transação bancária para obter sugestões de melhor ação.
+     * @throws {RequiredError}
+     * @memberof BankTransactionsApiInterface
+     */
+    createOrUpdateBankTransactionBestSuggestedActionRequestOpts(requestParameters: CreateOrUpdateBankTransactionBestSuggestedActionRequest): Promise<runtime.RequestOpts>;
 
     /**
      * 
@@ -235,6 +252,14 @@ export interface BankTransactionsApiInterface {
     createOrUpdateBankTransactionBestSuggestedAction(requestParameters: CreateOrUpdateBankTransactionBestSuggestedActionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankTransactionEntity>;
 
     /**
+     * Creates request options for dispatchOfxImport without sending the request
+     * @param {OfxImportRequestBodyDto} ofxImportRequestBodyDto 
+     * @throws {RequiredError}
+     * @memberof BankTransactionsApiInterface
+     */
+    dispatchOfxImportRequestOpts(requestParameters: DispatchOfxImportRequest): Promise<runtime.RequestOpts>;
+
+    /**
      * 
      * @summary Dispara a importação assíncrona de um arquivo OFX.
      * @param {OfxImportRequestBodyDto} ofxImportRequestBodyDto 
@@ -250,6 +275,14 @@ export interface BankTransactionsApiInterface {
     dispatchOfxImport(requestParameters: DispatchOfxImportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<OfxImportJobRequestEntity>;
 
     /**
+     * Creates request options for findAiSuggestionsByFinancialRecordId without sending the request
+     * @param {string} financialRecordId ID do lançamento financeiro.
+     * @throws {RequiredError}
+     * @memberof BankTransactionsApiInterface
+     */
+    findAiSuggestionsByFinancialRecordIdRequestOpts(requestParameters: FindAiSuggestionsByFinancialRecordIdRequest): Promise<runtime.RequestOpts>;
+
+    /**
      * 
      * @summary Busca sugestões de AI por ID do lançamento financeiro.
      * @param {string} financialRecordId ID do lançamento financeiro.
@@ -263,6 +296,29 @@ export interface BankTransactionsApiInterface {
      * Busca sugestões de AI por ID do lançamento financeiro.
      */
     findAiSuggestionsByFinancialRecordId(requestParameters: FindAiSuggestionsByFinancialRecordIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<BankTransactionEntity>>;
+
+    /**
+     * Creates request options for findAllBankTransactions without sending the request
+     * @param {string} [queryId] ID da consulta a ser aplicada.
+     * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
+     * @param {'asc' | 'desc'} [sortOrder] Ordem da ordenação. Valores possíveis: \&#39;asc\&#39;, \&#39;desc\&#39;.
+     * @param {'date' | 'amountInBrl' | 'description' | 'createdAt' | 'reconciled'} [sortBy] Campo para ordenação
+     * @param {string} [ofxImportJobRequestIds] IDs dos jobs de importação OFX separados por vírgula para filtrar.
+     * @param {boolean} [ignored] Filtrar por transações ignoradas/arquivadas. (true/false)
+     * @param {'AUTOMATIC_INTEGRATION' | 'MANUAL_OFX_IMPORT'} [origin] Filtrar pela origem da transação.
+     * @param {boolean} [reconciled] Filtrar por transações reconciliadas. (true/false)
+     * @param {'DEBIT' | 'CREDIT'} [type] Tipo da movimentação.
+     * @param {string} [dateTo] Data final para filtrar.
+     * @param {string} [dateFrom] Data inicial para filtrar.
+     * @param {string} [bankAccount] IDs das contas bancárias separadas por vírgula para filtrar.
+     * @param {string} [semanticSearchTermInBase64] Termo para busca semântica em base64.
+     * @param {string} [textSearchTerm] Termo para busca textual.
+     * @param {number} [pageSize] Quantidade de itens por página.
+     * @param {number} [pageIndex] Índice da página.
+     * @throws {RequiredError}
+     * @memberof BankTransactionsApiInterface
+     */
+    findAllBankTransactionsRequestOpts(requestParameters: FindAllBankTransactionsRequest): Promise<runtime.RequestOpts>;
 
     /**
      * 
@@ -295,6 +351,20 @@ export interface BankTransactionsApiInterface {
     findAllBankTransactions(requestParameters: FindAllBankTransactionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankTransactionsPageDto>;
 
     /**
+     * Creates request options for findAllOfxImportJobRequests without sending the request
+     * @param {string} [ids] Identificadores das solicitações de importação OFX a serem buscadas, separados por vírgula.
+     * @param {string} [bankAccountIds] IDs das contas bancárias separadas por vírgula para filtrar.
+     * @param {string} [textSearchTerm] Termo de busca textual para filtrar por nome do arquivo ou nome da conta bancária.
+     * @param {'asc' | 'desc'} [sortOrder] Ordem da ordenação. Valores possíveis: \&#39;asc\&#39;, \&#39;desc\&#39;.
+     * @param {'createdAt' | 'fileName' | 'bankAccountName'} [sortBy] Campo para ordenação. Valores possíveis: \&#39;createdAt\&#39;, \&#39;fileName\&#39;, \&#39;bankAccountName\&#39;.
+     * @param {number} [pageSize] Quantidade de itens por página.
+     * @param {number} [pageIndex] Índice da página.
+     * @throws {RequiredError}
+     * @memberof BankTransactionsApiInterface
+     */
+    findAllOfxImportJobRequestsRequestOpts(requestParameters: FindAllOfxImportJobRequestsRequest): Promise<runtime.RequestOpts>;
+
+    /**
      * 
      * @summary Lista todas as solicitações de importação de arquivos OFX com suas execuções.
      * @param {string} [ids] Identificadores das solicitações de importação OFX a serem buscadas, separados por vírgula.
@@ -316,6 +386,15 @@ export interface BankTransactionsApiInterface {
     findAllOfxImportJobRequests(requestParameters: FindAllOfxImportJobRequestsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<OfxImportJobRequestsPageDto>;
 
     /**
+     * Creates request options for findBankTransactionById without sending the request
+     * @param {string} id ID da movimentação financeira.
+     * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
+     * @throws {RequiredError}
+     * @memberof BankTransactionsApiInterface
+     */
+    findBankTransactionByIdRequestOpts(requestParameters: FindBankTransactionByIdRequest): Promise<runtime.RequestOpts>;
+
+    /**
      * 
      * @summary Busca uma movimentação financeira por ID.
      * @param {string} id ID da movimentação financeira.
@@ -330,6 +409,16 @@ export interface BankTransactionsApiInterface {
      * Busca uma movimentação financeira por ID.
      */
     findBankTransactionById(requestParameters: FindBankTransactionByIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankTransactionEntity>;
+
+    /**
+     * Creates request options for partialUpdateBankTransaction without sending the request
+     * @param {string} id ID da movimentação financeira.
+     * @param {PartialUpdateBankTransactionRequestBodyDto} partialUpdateBankTransactionRequestBodyDto 
+     * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
+     * @throws {RequiredError}
+     * @memberof BankTransactionsApiInterface
+     */
+    partialUpdateBankTransactionRequestOpts(requestParameters: PartialUpdateBankTransactionRequest): Promise<runtime.RequestOpts>;
 
     /**
      * 
@@ -349,6 +438,14 @@ export interface BankTransactionsApiInterface {
     partialUpdateBankTransaction(requestParameters: PartialUpdateBankTransactionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankTransactionEntity>;
 
     /**
+     * Creates request options for processBankTransactionsCreateOrUpdateBestSuggestionAction without sending the request
+     * @param {ExecuteBankTransactionsCreateOrUpdateBestSuggestionActionRequestBodyDto} executeBankTransactionsCreateOrUpdateBestSuggestionActionRequestBodyDto 
+     * @throws {RequiredError}
+     * @memberof BankTransactionsApiInterface
+     */
+    processBankTransactionsCreateOrUpdateBestSuggestionActionRequestOpts(requestParameters: ProcessBankTransactionsCreateOrUpdateBestSuggestionActionRequest): Promise<runtime.RequestOpts>;
+
+    /**
      * 
      * @summary Processa a obtenção de sugestões de melhor ação para transações bancárias via AI.
      * @param {ExecuteBankTransactionsCreateOrUpdateBestSuggestionActionRequestBodyDto} executeBankTransactionsCreateOrUpdateBestSuggestionActionRequestBodyDto 
@@ -362,6 +459,14 @@ export interface BankTransactionsApiInterface {
      * Processa a obtenção de sugestões de melhor ação para transações bancárias via AI.
      */
     processBankTransactionsCreateOrUpdateBestSuggestionAction(requestParameters: ProcessBankTransactionsCreateOrUpdateBestSuggestionActionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+
+    /**
+     * Creates request options for processBulkBankTransactionsOperation without sending the request
+     * @param {ExecuteBulkBankTransactionsJobRequestBodyDto} executeBulkBankTransactionsJobRequestBodyDto 
+     * @throws {RequiredError}
+     * @memberof BankTransactionsApiInterface
+     */
+    processBulkBankTransactionsOperationRequestOpts(requestParameters: ProcessBulkBankTransactionsOperationRequest): Promise<runtime.RequestOpts>;
 
     /**
      * 
@@ -379,6 +484,14 @@ export interface BankTransactionsApiInterface {
     processBulkBankTransactionsOperation(requestParameters: ProcessBulkBankTransactionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
 
     /**
+     * Creates request options for processOfxImport without sending the request
+     * @param {ExecuteOfxImportJobRequestBodyDto} executeOfxImportJobRequestBodyDto 
+     * @throws {RequiredError}
+     * @memberof BankTransactionsApiInterface
+     */
+    processOfxImportRequestOpts(requestParameters: ProcessOfxImportRequest): Promise<runtime.RequestOpts>;
+
+    /**
      * 
      * @summary Processa a importação assíncrona de um arquivo OFX.
      * @param {ExecuteOfxImportJobRequestBodyDto} executeOfxImportJobRequestBodyDto 
@@ -392,6 +505,15 @@ export interface BankTransactionsApiInterface {
      * Processa a importação assíncrona de um arquivo OFX.
      */
     processOfxImport(requestParameters: ProcessOfxImportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+
+    /**
+     * Creates request options for reconcileBankTransaction without sending the request
+     * @param {string} bankTransactionId ID da transação bancária a ser reconciliada.
+     * @param {ReconcileBankTransactionRequestBodyDto} reconcileBankTransactionRequestBodyDto 
+     * @throws {RequiredError}
+     * @memberof BankTransactionsApiInterface
+     */
+    reconcileBankTransactionRequestOpts(requestParameters: ReconcileBankTransactionRequest): Promise<runtime.RequestOpts>;
 
     /**
      * 
@@ -410,6 +532,14 @@ export interface BankTransactionsApiInterface {
     reconcileBankTransaction(requestParameters: ReconcileBankTransactionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankTransactionEntity>;
 
     /**
+     * Creates request options for scheduleBulkBankTransactionsOperation without sending the request
+     * @param {BulkBankTransactionsJobRequestDto} bulkBankTransactionsJobRequestDto 
+     * @throws {RequiredError}
+     * @memberof BankTransactionsApiInterface
+     */
+    scheduleBulkBankTransactionsOperationRequestOpts(requestParameters: ScheduleBulkBankTransactionsOperationRequest): Promise<runtime.RequestOpts>;
+
+    /**
      * 
      * @summary Agenda uma operação em lote para transações bancárias.
      * @param {BulkBankTransactionsJobRequestDto} bulkBankTransactionsJobRequestDto 
@@ -425,6 +555,14 @@ export interface BankTransactionsApiInterface {
     scheduleBulkBankTransactionsOperation(requestParameters: ScheduleBulkBankTransactionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BulkBankTransactionsJobRequestEntity>;
 
     /**
+     * Creates request options for shouldAiSuggestAction without sending the request
+     * @param {ShouldAiSuggestActionRequestBodyDto} shouldAiSuggestActionRequestBodyDto 
+     * @throws {RequiredError}
+     * @memberof BankTransactionsApiInterface
+     */
+    shouldAiSuggestActionRequestOpts(requestParameters: ShouldAiSuggestActionRequest): Promise<runtime.RequestOpts>;
+
+    /**
      * 
      * @summary Verifica se a AI deve sugerir uma ação para uma transação bancária.
      * @param {ShouldAiSuggestActionRequestBodyDto} shouldAiSuggestActionRequestBodyDto 
@@ -438,6 +576,29 @@ export interface BankTransactionsApiInterface {
      * Verifica se a AI deve sugerir uma ação para uma transação bancária.
      */
     shouldAiSuggestAction(requestParameters: ShouldAiSuggestActionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ShouldAiSuggestActionResponseDto>;
+
+    /**
+     * Creates request options for systemFindAllBankTransactions without sending the request
+     * @param {string} ownerOrganizationId Identificador da organização proprietária das movimentações financeiras.
+     * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
+     * @param {'asc' | 'desc'} [sortOrder] Ordem da ordenação. Valores possíveis: \&#39;asc\&#39;, \&#39;desc\&#39;.
+     * @param {'date' | 'amountInBrl' | 'description' | 'createdAt' | 'reconciled'} [sortBy] Campo para ordenação
+     * @param {string} [ofxImportJobRequestIds] IDs dos jobs de importação OFX separados por vírgula para filtrar.
+     * @param {boolean} [ignored] Filtrar por transações ignoradas/arquivadas. (true/false)
+     * @param {'AUTOMATIC_INTEGRATION' | 'MANUAL_OFX_IMPORT'} [origin] Filtrar pela origem da transação.
+     * @param {boolean} [reconciled] Filtrar por transações reconciliadas. (true/false)
+     * @param {'DEBIT' | 'CREDIT'} [type] Tipo da movimentação.
+     * @param {Date} [dateTo] Data final para filtrar.
+     * @param {Date} [dateFrom] Data inicial para filtrar.
+     * @param {string} [bankAccount] ID da conta bancária para filtrar.
+     * @param {string} [semanticSearchTermInBase64] Termo para busca semântica em base64.
+     * @param {string} [textSearchTerm] Termo para busca textual.
+     * @param {number} [pageSize] Quantidade de itens por página.
+     * @param {number} [pageIndex] Índice da página.
+     * @throws {RequiredError}
+     * @memberof BankTransactionsApiInterface
+     */
+    systemFindAllBankTransactionsRequestOpts(requestParameters: SystemFindAllBankTransactionsRequest): Promise<runtime.RequestOpts>;
 
     /**
      * 
@@ -470,6 +631,15 @@ export interface BankTransactionsApiInterface {
     systemFindAllBankTransactions(requestParameters: SystemFindAllBankTransactionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankTransactionsPageDto>;
 
     /**
+     * Creates request options for systemFindBankTransactionById without sending the request
+     * @param {string} id ID da movimentação financeira.
+     * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
+     * @throws {RequiredError}
+     * @memberof BankTransactionsApiInterface
+     */
+    systemFindBankTransactionByIdRequestOpts(requestParameters: SystemFindBankTransactionByIdRequest): Promise<runtime.RequestOpts>;
+
+    /**
      * 
      * @summary Busca uma movimentação financeira por ID.
      * @param {string} id ID da movimentação financeira.
@@ -484,6 +654,29 @@ export interface BankTransactionsApiInterface {
      * Busca uma movimentação financeira por ID.
      */
     systemFindBankTransactionById(requestParameters: SystemFindBankTransactionByIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankTransactionEntity>;
+
+    /**
+     * Creates request options for systemOrganizationFindAllBankTransactions without sending the request
+     * @param {string} organizationId Identificador da organização
+     * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
+     * @param {'asc' | 'desc'} [sortOrder] Ordem da ordenação. Valores possíveis: \&#39;asc\&#39;, \&#39;desc\&#39;.
+     * @param {'date' | 'amountInBrl' | 'description' | 'createdAt' | 'reconciled'} [sortBy] Campo para ordenação
+     * @param {string} [ofxImportJobRequestIds] IDs dos jobs de importação OFX separados por vírgula para filtrar.
+     * @param {boolean} [ignored] Filtrar por transações ignoradas/arquivadas. (true/false)
+     * @param {'AUTOMATIC_INTEGRATION' | 'MANUAL_OFX_IMPORT'} [origin] Filtrar pela origem da transação.
+     * @param {boolean} [reconciled] Filtrar por transações reconciliadas. (true/false)
+     * @param {'DEBIT' | 'CREDIT'} [type] Tipo da movimentação.
+     * @param {Date} [dateTo] Data final para filtrar.
+     * @param {Date} [dateFrom] Data inicial para filtrar.
+     * @param {string} [bankAccount] ID da conta bancária para filtrar.
+     * @param {string} [semanticSearchTermInBase64] Termo para busca semântica em base64.
+     * @param {string} [textSearchTerm] Termo para busca textual.
+     * @param {number} [pageSize] Quantidade de itens por página.
+     * @param {number} [pageIndex] Índice da página.
+     * @throws {RequiredError}
+     * @memberof BankTransactionsApiInterface
+     */
+    systemOrganizationFindAllBankTransactionsRequestOpts(requestParameters: SystemOrganizationFindAllBankTransactionsRequest): Promise<runtime.RequestOpts>;
 
     /**
      * 
@@ -516,6 +709,14 @@ export interface BankTransactionsApiInterface {
     systemOrganizationFindAllBankTransactions(requestParameters: SystemOrganizationFindAllBankTransactionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankTransactionsPageDto>;
 
     /**
+     * Creates request options for unreconcileBankTransaction without sending the request
+     * @param {string} bankTransactionId ID da transação bancária para desfazer a reconciliação.
+     * @throws {RequiredError}
+     * @memberof BankTransactionsApiInterface
+     */
+    unreconcileBankTransactionRequestOpts(requestParameters: UnreconcileBankTransactionRequest): Promise<runtime.RequestOpts>;
+
+    /**
      * 
      * @summary Desfaz a reconciliação de uma transação bancária.
      * @param {string} bankTransactionId ID da transação bancária para desfazer a reconciliação.
@@ -538,9 +739,9 @@ export interface BankTransactionsApiInterface {
 export class BankTransactionsApi extends runtime.BaseAPI implements BankTransactionsApiInterface {
 
     /**
-     * Cria ou atualiza uma movimentação financeira.
+     * Creates request options for createOrUpdateBankTransaction without sending the request
      */
-    async createOrUpdateBankTransactionRaw(requestParameters: CreateOrUpdateBankTransactionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankTransactionEntity>> {
+    async createOrUpdateBankTransactionRequestOpts(requestParameters: CreateOrUpdateBankTransactionRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['createOrUpdateBankTransactionRequestBodyDto'] == null) {
             throw new runtime.RequiredError(
                 'createOrUpdateBankTransactionRequestBodyDto',
@@ -561,13 +762,21 @@ export class BankTransactionsApi extends runtime.BaseAPI implements BankTransact
 
         let urlPath = `/internal/bank-transactions`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
             body: CreateOrUpdateBankTransactionRequestBodyDtoToJSON(requestParameters['createOrUpdateBankTransactionRequestBodyDto']),
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Cria ou atualiza uma movimentação financeira.
+     */
+    async createOrUpdateBankTransactionRaw(requestParameters: CreateOrUpdateBankTransactionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankTransactionEntity>> {
+        const requestOptions = await this.createOrUpdateBankTransactionRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => BankTransactionEntityFromJSON(jsonValue));
     }
@@ -581,9 +790,9 @@ export class BankTransactionsApi extends runtime.BaseAPI implements BankTransact
     }
 
     /**
-     * Cria ou atualiza uma sugestão de melhor ação para uma transação bancária.
+     * Creates request options for createOrUpdateBankTransactionBestSuggestedAction without sending the request
      */
-    async createOrUpdateBankTransactionBestSuggestedActionRaw(requestParameters: CreateOrUpdateBankTransactionBestSuggestedActionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankTransactionEntity>> {
+    async createOrUpdateBankTransactionBestSuggestedActionRequestOpts(requestParameters: CreateOrUpdateBankTransactionBestSuggestedActionRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['bankTransactionId'] == null) {
             throw new runtime.RequiredError(
                 'bankTransactionId',
@@ -599,12 +808,20 @@ export class BankTransactionsApi extends runtime.BaseAPI implements BankTransact
         let urlPath = `/external/bank-transactions/{bankTransactionId}/best-suggested-action`;
         urlPath = urlPath.replace(`{${"bankTransactionId"}}`, encodeURIComponent(String(requestParameters['bankTransactionId'])));
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Cria ou atualiza uma sugestão de melhor ação para uma transação bancária.
+     */
+    async createOrUpdateBankTransactionBestSuggestedActionRaw(requestParameters: CreateOrUpdateBankTransactionBestSuggestedActionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankTransactionEntity>> {
+        const requestOptions = await this.createOrUpdateBankTransactionBestSuggestedActionRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => BankTransactionEntityFromJSON(jsonValue));
     }
@@ -618,9 +835,9 @@ export class BankTransactionsApi extends runtime.BaseAPI implements BankTransact
     }
 
     /**
-     * Dispara a importação assíncrona de um arquivo OFX.
+     * Creates request options for dispatchOfxImport without sending the request
      */
-    async dispatchOfxImportRaw(requestParameters: DispatchOfxImportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<OfxImportJobRequestEntity>> {
+    async dispatchOfxImportRequestOpts(requestParameters: DispatchOfxImportRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['ofxImportRequestBodyDto'] == null) {
             throw new runtime.RequiredError(
                 'ofxImportRequestBodyDto',
@@ -637,13 +854,21 @@ export class BankTransactionsApi extends runtime.BaseAPI implements BankTransact
 
         let urlPath = `/external/bank-transactions/ofx`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
             body: OfxImportRequestBodyDtoToJSON(requestParameters['ofxImportRequestBodyDto']),
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Dispara a importação assíncrona de um arquivo OFX.
+     */
+    async dispatchOfxImportRaw(requestParameters: DispatchOfxImportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<OfxImportJobRequestEntity>> {
+        const requestOptions = await this.dispatchOfxImportRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => OfxImportJobRequestEntityFromJSON(jsonValue));
     }
@@ -657,9 +882,9 @@ export class BankTransactionsApi extends runtime.BaseAPI implements BankTransact
     }
 
     /**
-     * Busca sugestões de AI por ID do lançamento financeiro.
+     * Creates request options for findAiSuggestionsByFinancialRecordId without sending the request
      */
-    async findAiSuggestionsByFinancialRecordIdRaw(requestParameters: FindAiSuggestionsByFinancialRecordIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<BankTransactionEntity>>> {
+    async findAiSuggestionsByFinancialRecordIdRequestOpts(requestParameters: FindAiSuggestionsByFinancialRecordIdRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['financialRecordId'] == null) {
             throw new runtime.RequiredError(
                 'financialRecordId',
@@ -675,12 +900,20 @@ export class BankTransactionsApi extends runtime.BaseAPI implements BankTransact
         let urlPath = `/external/financial-records/{financialRecordId}/ai-suggestions`;
         urlPath = urlPath.replace(`{${"financialRecordId"}}`, encodeURIComponent(String(requestParameters['financialRecordId'])));
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Busca sugestões de AI por ID do lançamento financeiro.
+     */
+    async findAiSuggestionsByFinancialRecordIdRaw(requestParameters: FindAiSuggestionsByFinancialRecordIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<BankTransactionEntity>>> {
+        const requestOptions = await this.findAiSuggestionsByFinancialRecordIdRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(BankTransactionEntityFromJSON));
     }
@@ -694,9 +927,9 @@ export class BankTransactionsApi extends runtime.BaseAPI implements BankTransact
     }
 
     /**
-     * Busca todas as movimentações financeiras.
+     * Creates request options for findAllBankTransactions without sending the request
      */
-    async findAllBankTransactionsRaw(requestParameters: FindAllBankTransactionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankTransactionsPageDto>> {
+    async findAllBankTransactionsRequestOpts(requestParameters: FindAllBankTransactionsRequest): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         if (requestParameters['queryId'] != null) {
@@ -768,12 +1001,20 @@ export class BankTransactionsApi extends runtime.BaseAPI implements BankTransact
 
         let urlPath = `/external/bank-transactions`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Busca todas as movimentações financeiras.
+     */
+    async findAllBankTransactionsRaw(requestParameters: FindAllBankTransactionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankTransactionsPageDto>> {
+        const requestOptions = await this.findAllBankTransactionsRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => BankTransactionsPageDtoFromJSON(jsonValue));
     }
@@ -787,9 +1028,9 @@ export class BankTransactionsApi extends runtime.BaseAPI implements BankTransact
     }
 
     /**
-     * Lista todas as solicitações de importação de arquivos OFX com suas execuções.
+     * Creates request options for findAllOfxImportJobRequests without sending the request
      */
-    async findAllOfxImportJobRequestsRaw(requestParameters: FindAllOfxImportJobRequestsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<OfxImportJobRequestsPageDto>> {
+    async findAllOfxImportJobRequestsRequestOpts(requestParameters: FindAllOfxImportJobRequestsRequest): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         if (requestParameters['ids'] != null) {
@@ -825,12 +1066,20 @@ export class BankTransactionsApi extends runtime.BaseAPI implements BankTransact
 
         let urlPath = `/external/bank-transactions/ofx/job-requests`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Lista todas as solicitações de importação de arquivos OFX com suas execuções.
+     */
+    async findAllOfxImportJobRequestsRaw(requestParameters: FindAllOfxImportJobRequestsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<OfxImportJobRequestsPageDto>> {
+        const requestOptions = await this.findAllOfxImportJobRequestsRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => OfxImportJobRequestsPageDtoFromJSON(jsonValue));
     }
@@ -844,9 +1093,9 @@ export class BankTransactionsApi extends runtime.BaseAPI implements BankTransact
     }
 
     /**
-     * Busca uma movimentação financeira por ID.
+     * Creates request options for findBankTransactionById without sending the request
      */
-    async findBankTransactionByIdRaw(requestParameters: FindBankTransactionByIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankTransactionEntity>> {
+    async findBankTransactionByIdRequestOpts(requestParameters: FindBankTransactionByIdRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
@@ -866,12 +1115,20 @@ export class BankTransactionsApi extends runtime.BaseAPI implements BankTransact
         let urlPath = `/external/bank-transactions/{id}`;
         urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Busca uma movimentação financeira por ID.
+     */
+    async findBankTransactionByIdRaw(requestParameters: FindBankTransactionByIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankTransactionEntity>> {
+        const requestOptions = await this.findBankTransactionByIdRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => BankTransactionEntityFromJSON(jsonValue));
     }
@@ -885,9 +1142,9 @@ export class BankTransactionsApi extends runtime.BaseAPI implements BankTransact
     }
 
     /**
-     * Atualiza parcialmente uma movimentação financeira.
+     * Creates request options for partialUpdateBankTransaction without sending the request
      */
-    async partialUpdateBankTransactionRaw(requestParameters: PartialUpdateBankTransactionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankTransactionEntity>> {
+    async partialUpdateBankTransactionRequestOpts(requestParameters: PartialUpdateBankTransactionRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
@@ -916,13 +1173,21 @@ export class BankTransactionsApi extends runtime.BaseAPI implements BankTransact
         let urlPath = `/external/bank-transactions/{id}`;
         urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'PATCH',
             headers: headerParameters,
             query: queryParameters,
             body: PartialUpdateBankTransactionRequestBodyDtoToJSON(requestParameters['partialUpdateBankTransactionRequestBodyDto']),
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Atualiza parcialmente uma movimentação financeira.
+     */
+    async partialUpdateBankTransactionRaw(requestParameters: PartialUpdateBankTransactionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankTransactionEntity>> {
+        const requestOptions = await this.partialUpdateBankTransactionRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => BankTransactionEntityFromJSON(jsonValue));
     }
@@ -936,9 +1201,9 @@ export class BankTransactionsApi extends runtime.BaseAPI implements BankTransact
     }
 
     /**
-     * Processa a obtenção de sugestões de melhor ação para transações bancárias via AI.
+     * Creates request options for processBankTransactionsCreateOrUpdateBestSuggestionAction without sending the request
      */
-    async processBankTransactionsCreateOrUpdateBestSuggestionActionRaw(requestParameters: ProcessBankTransactionsCreateOrUpdateBestSuggestionActionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+    async processBankTransactionsCreateOrUpdateBestSuggestionActionRequestOpts(requestParameters: ProcessBankTransactionsCreateOrUpdateBestSuggestionActionRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['executeBankTransactionsCreateOrUpdateBestSuggestionActionRequestBodyDto'] == null) {
             throw new runtime.RequiredError(
                 'executeBankTransactionsCreateOrUpdateBestSuggestionActionRequestBodyDto',
@@ -955,13 +1220,21 @@ export class BankTransactionsApi extends runtime.BaseAPI implements BankTransact
 
         let urlPath = `/internal/queues/bank-transactions-create-or-update-best-suggestion-action`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
             body: ExecuteBankTransactionsCreateOrUpdateBestSuggestionActionRequestBodyDtoToJSON(requestParameters['executeBankTransactionsCreateOrUpdateBestSuggestionActionRequestBodyDto']),
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Processa a obtenção de sugestões de melhor ação para transações bancárias via AI.
+     */
+    async processBankTransactionsCreateOrUpdateBestSuggestionActionRaw(requestParameters: ProcessBankTransactionsCreateOrUpdateBestSuggestionActionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        const requestOptions = await this.processBankTransactionsCreateOrUpdateBestSuggestionActionRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.VoidApiResponse(response);
     }
@@ -974,9 +1247,9 @@ export class BankTransactionsApi extends runtime.BaseAPI implements BankTransact
     }
 
     /**
-     * Processa uma operação em lote para transações bancárias.
+     * Creates request options for processBulkBankTransactionsOperation without sending the request
      */
-    async processBulkBankTransactionsOperationRaw(requestParameters: ProcessBulkBankTransactionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+    async processBulkBankTransactionsOperationRequestOpts(requestParameters: ProcessBulkBankTransactionsOperationRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['executeBulkBankTransactionsJobRequestBodyDto'] == null) {
             throw new runtime.RequiredError(
                 'executeBulkBankTransactionsJobRequestBodyDto',
@@ -993,13 +1266,21 @@ export class BankTransactionsApi extends runtime.BaseAPI implements BankTransact
 
         let urlPath = `/internal/queues/bulk-bank-transactions`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
             body: ExecuteBulkBankTransactionsJobRequestBodyDtoToJSON(requestParameters['executeBulkBankTransactionsJobRequestBodyDto']),
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Processa uma operação em lote para transações bancárias.
+     */
+    async processBulkBankTransactionsOperationRaw(requestParameters: ProcessBulkBankTransactionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        const requestOptions = await this.processBulkBankTransactionsOperationRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.VoidApiResponse(response);
     }
@@ -1012,9 +1293,9 @@ export class BankTransactionsApi extends runtime.BaseAPI implements BankTransact
     }
 
     /**
-     * Processa a importação assíncrona de um arquivo OFX.
+     * Creates request options for processOfxImport without sending the request
      */
-    async processOfxImportRaw(requestParameters: ProcessOfxImportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+    async processOfxImportRequestOpts(requestParameters: ProcessOfxImportRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['executeOfxImportJobRequestBodyDto'] == null) {
             throw new runtime.RequiredError(
                 'executeOfxImportJobRequestBodyDto',
@@ -1031,13 +1312,21 @@ export class BankTransactionsApi extends runtime.BaseAPI implements BankTransact
 
         let urlPath = `/internal/queues/ofx-import`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
             body: ExecuteOfxImportJobRequestBodyDtoToJSON(requestParameters['executeOfxImportJobRequestBodyDto']),
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Processa a importação assíncrona de um arquivo OFX.
+     */
+    async processOfxImportRaw(requestParameters: ProcessOfxImportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        const requestOptions = await this.processOfxImportRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.VoidApiResponse(response);
     }
@@ -1050,9 +1339,9 @@ export class BankTransactionsApi extends runtime.BaseAPI implements BankTransact
     }
 
     /**
-     * Reconcilia uma transação bancária com múltiplos lançamentos financeiros.
+     * Creates request options for reconcileBankTransaction without sending the request
      */
-    async reconcileBankTransactionRaw(requestParameters: ReconcileBankTransactionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankTransactionEntity>> {
+    async reconcileBankTransactionRequestOpts(requestParameters: ReconcileBankTransactionRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['bankTransactionId'] == null) {
             throw new runtime.RequiredError(
                 'bankTransactionId',
@@ -1077,13 +1366,21 @@ export class BankTransactionsApi extends runtime.BaseAPI implements BankTransact
         let urlPath = `/external/bank-transactions/{bankTransactionId}/reconcile`;
         urlPath = urlPath.replace(`{${"bankTransactionId"}}`, encodeURIComponent(String(requestParameters['bankTransactionId'])));
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
             body: ReconcileBankTransactionRequestBodyDtoToJSON(requestParameters['reconcileBankTransactionRequestBodyDto']),
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Reconcilia uma transação bancária com múltiplos lançamentos financeiros.
+     */
+    async reconcileBankTransactionRaw(requestParameters: ReconcileBankTransactionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankTransactionEntity>> {
+        const requestOptions = await this.reconcileBankTransactionRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => BankTransactionEntityFromJSON(jsonValue));
     }
@@ -1097,9 +1394,9 @@ export class BankTransactionsApi extends runtime.BaseAPI implements BankTransact
     }
 
     /**
-     * Agenda uma operação em lote para transações bancárias.
+     * Creates request options for scheduleBulkBankTransactionsOperation without sending the request
      */
-    async scheduleBulkBankTransactionsOperationRaw(requestParameters: ScheduleBulkBankTransactionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BulkBankTransactionsJobRequestEntity>> {
+    async scheduleBulkBankTransactionsOperationRequestOpts(requestParameters: ScheduleBulkBankTransactionsOperationRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['bulkBankTransactionsJobRequestDto'] == null) {
             throw new runtime.RequiredError(
                 'bulkBankTransactionsJobRequestDto',
@@ -1116,13 +1413,21 @@ export class BankTransactionsApi extends runtime.BaseAPI implements BankTransact
 
         let urlPath = `/external/bank-transactions/bulk-operations`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
             body: BulkBankTransactionsJobRequestDtoToJSON(requestParameters['bulkBankTransactionsJobRequestDto']),
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Agenda uma operação em lote para transações bancárias.
+     */
+    async scheduleBulkBankTransactionsOperationRaw(requestParameters: ScheduleBulkBankTransactionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BulkBankTransactionsJobRequestEntity>> {
+        const requestOptions = await this.scheduleBulkBankTransactionsOperationRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => BulkBankTransactionsJobRequestEntityFromJSON(jsonValue));
     }
@@ -1136,9 +1441,9 @@ export class BankTransactionsApi extends runtime.BaseAPI implements BankTransact
     }
 
     /**
-     * Verifica se a AI deve sugerir uma ação para uma transação bancária.
+     * Creates request options for shouldAiSuggestAction without sending the request
      */
-    async shouldAiSuggestActionRaw(requestParameters: ShouldAiSuggestActionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ShouldAiSuggestActionResponseDto>> {
+    async shouldAiSuggestActionRequestOpts(requestParameters: ShouldAiSuggestActionRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['shouldAiSuggestActionRequestBodyDto'] == null) {
             throw new runtime.RequiredError(
                 'shouldAiSuggestActionRequestBodyDto',
@@ -1155,13 +1460,21 @@ export class BankTransactionsApi extends runtime.BaseAPI implements BankTransact
 
         let urlPath = `/internal/bank-transactions/should-ai-suggest-action`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
             body: ShouldAiSuggestActionRequestBodyDtoToJSON(requestParameters['shouldAiSuggestActionRequestBodyDto']),
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Verifica se a AI deve sugerir uma ação para uma transação bancária.
+     */
+    async shouldAiSuggestActionRaw(requestParameters: ShouldAiSuggestActionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ShouldAiSuggestActionResponseDto>> {
+        const requestOptions = await this.shouldAiSuggestActionRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ShouldAiSuggestActionResponseDtoFromJSON(jsonValue));
     }
@@ -1175,9 +1488,9 @@ export class BankTransactionsApi extends runtime.BaseAPI implements BankTransact
     }
 
     /**
-     * Busca todas as movimentações financeiras pelo sistema.
+     * Creates request options for systemFindAllBankTransactions without sending the request
      */
-    async systemFindAllBankTransactionsRaw(requestParameters: SystemFindAllBankTransactionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankTransactionsPageDto>> {
+    async systemFindAllBankTransactionsRequestOpts(requestParameters: SystemFindAllBankTransactionsRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['ownerOrganizationId'] == null) {
             throw new runtime.RequiredError(
                 'ownerOrganizationId',
@@ -1256,12 +1569,20 @@ export class BankTransactionsApi extends runtime.BaseAPI implements BankTransact
 
         let urlPath = `/internal/bank-transactions`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Busca todas as movimentações financeiras pelo sistema.
+     */
+    async systemFindAllBankTransactionsRaw(requestParameters: SystemFindAllBankTransactionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankTransactionsPageDto>> {
+        const requestOptions = await this.systemFindAllBankTransactionsRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => BankTransactionsPageDtoFromJSON(jsonValue));
     }
@@ -1275,9 +1596,9 @@ export class BankTransactionsApi extends runtime.BaseAPI implements BankTransact
     }
 
     /**
-     * Busca uma movimentação financeira por ID.
+     * Creates request options for systemFindBankTransactionById without sending the request
      */
-    async systemFindBankTransactionByIdRaw(requestParameters: SystemFindBankTransactionByIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankTransactionEntity>> {
+    async systemFindBankTransactionByIdRequestOpts(requestParameters: SystemFindBankTransactionByIdRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
@@ -1297,12 +1618,20 @@ export class BankTransactionsApi extends runtime.BaseAPI implements BankTransact
         let urlPath = `/internal/bank-transactions/{id}`;
         urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Busca uma movimentação financeira por ID.
+     */
+    async systemFindBankTransactionByIdRaw(requestParameters: SystemFindBankTransactionByIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankTransactionEntity>> {
+        const requestOptions = await this.systemFindBankTransactionByIdRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => BankTransactionEntityFromJSON(jsonValue));
     }
@@ -1316,9 +1645,9 @@ export class BankTransactionsApi extends runtime.BaseAPI implements BankTransact
     }
 
     /**
-     * Busca todas as movimentações financeiras pelo sistema (por organização).
+     * Creates request options for systemOrganizationFindAllBankTransactions without sending the request
      */
-    async systemOrganizationFindAllBankTransactionsRaw(requestParameters: SystemOrganizationFindAllBankTransactionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankTransactionsPageDto>> {
+    async systemOrganizationFindAllBankTransactionsRequestOpts(requestParameters: SystemOrganizationFindAllBankTransactionsRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['organizationId'] == null) {
             throw new runtime.RequiredError(
                 'organizationId',
@@ -1394,12 +1723,20 @@ export class BankTransactionsApi extends runtime.BaseAPI implements BankTransact
         let urlPath = `/internal/organizations/{organizationId}/bank-transactions`;
         urlPath = urlPath.replace(`{${"organizationId"}}`, encodeURIComponent(String(requestParameters['organizationId'])));
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Busca todas as movimentações financeiras pelo sistema (por organização).
+     */
+    async systemOrganizationFindAllBankTransactionsRaw(requestParameters: SystemOrganizationFindAllBankTransactionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankTransactionsPageDto>> {
+        const requestOptions = await this.systemOrganizationFindAllBankTransactionsRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => BankTransactionsPageDtoFromJSON(jsonValue));
     }
@@ -1413,9 +1750,9 @@ export class BankTransactionsApi extends runtime.BaseAPI implements BankTransact
     }
 
     /**
-     * Desfaz a reconciliação de uma transação bancária.
+     * Creates request options for unreconcileBankTransaction without sending the request
      */
-    async unreconcileBankTransactionRaw(requestParameters: UnreconcileBankTransactionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankTransactionEntity>> {
+    async unreconcileBankTransactionRequestOpts(requestParameters: UnreconcileBankTransactionRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['bankTransactionId'] == null) {
             throw new runtime.RequiredError(
                 'bankTransactionId',
@@ -1431,12 +1768,20 @@ export class BankTransactionsApi extends runtime.BaseAPI implements BankTransact
         let urlPath = `/external/bank-transactions/{bankTransactionId}/unreconcile`;
         urlPath = urlPath.replace(`{${"bankTransactionId"}}`, encodeURIComponent(String(requestParameters['bankTransactionId'])));
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Desfaz a reconciliação de uma transação bancária.
+     */
+    async unreconcileBankTransactionRaw(requestParameters: UnreconcileBankTransactionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankTransactionEntity>> {
+        const requestOptions = await this.unreconcileBankTransactionRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => BankTransactionEntityFromJSON(jsonValue));
     }

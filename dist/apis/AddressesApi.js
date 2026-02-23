@@ -76,24 +76,37 @@ var AddressesApi = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
+     * Creates request options for findAllCountries without sending the request
+     */
+    AddressesApi.prototype.findAllCountriesRequestOpts = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                queryParameters = {};
+                headerParameters = {};
+                urlPath = "/external/addresses/countries";
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'GET',
+                        headers: headerParameters,
+                        query: queryParameters,
+                    }];
+            });
+        });
+    };
+    /**
      * Busca todos os países.
      */
     AddressesApi.prototype.findAllCountriesRaw = function (initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        queryParameters = {};
-                        headerParameters = {};
-                        urlPath = "/external/addresses/countries";
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'GET',
-                                headers: headerParameters,
-                                query: queryParameters,
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.findAllCountriesRequestOpts()];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return jsonValue.map(index_1.CountryItemEntityFromJSON); })];
                 }
@@ -118,28 +131,41 @@ var AddressesApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Creates request options for findStatesByCountry without sending the request
+     */
+    AddressesApi.prototype.findStatesByCountryRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                if (requestParameters['countryId'] == null) {
+                    throw new runtime.RequiredError('countryId', 'Required parameter "countryId" was null or undefined when calling findStatesByCountry().');
+                }
+                queryParameters = {};
+                headerParameters = {};
+                urlPath = "/external/addresses/countries/{countryId}/states";
+                urlPath = urlPath.replace("{".concat("countryId", "}"), encodeURIComponent(String(requestParameters['countryId'])));
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'GET',
+                        headers: headerParameters,
+                        query: queryParameters,
+                    }];
+            });
+        });
+    };
+    /**
      * Busca todos os estados de um país.
      */
     AddressesApi.prototype.findStatesByCountryRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        if (requestParameters['countryId'] == null) {
-                            throw new runtime.RequiredError('countryId', 'Required parameter "countryId" was null or undefined when calling findStatesByCountry().');
-                        }
-                        queryParameters = {};
-                        headerParameters = {};
-                        urlPath = "/external/addresses/countries/{countryId}/states";
-                        urlPath = urlPath.replace("{".concat("countryId", "}"), encodeURIComponent(String(requestParameters['countryId'])));
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'GET',
-                                headers: headerParameters,
-                                query: queryParameters,
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.findStatesByCountryRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return jsonValue.map(index_1.CountryStateItemEntityFromJSON); })];
                 }

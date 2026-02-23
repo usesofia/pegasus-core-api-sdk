@@ -35,7 +35,7 @@ export interface CustomerDto {
     description?: string | null;
     /**
      * Tipo do customer.
-     * @type {string}
+     * @type {CustomerDtoTypeEnum}
      * @memberof CustomerDto
      */
     type: CustomerDtoTypeEnum;

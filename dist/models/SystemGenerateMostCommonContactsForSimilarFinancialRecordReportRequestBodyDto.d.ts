@@ -23,7 +23,7 @@ export interface SystemGenerateMostCommonContactsForSimilarFinancialRecordReport
     amount: string;
     /**
      * Direção do lançamento financeiro
-     * @type {string}
+     * @type {SystemGenerateMostCommonContactsForSimilarFinancialRecordReportRequestBodyDtoDirectionEnum}
      * @memberof SystemGenerateMostCommonContactsForSimilarFinancialRecordReportRequestBodyDto
      */
     direction: SystemGenerateMostCommonContactsForSimilarFinancialRecordReportRequestBodyDtoDirectionEnum;
@@ -95,7 +95,7 @@ export interface SystemGenerateMostCommonContactsForSimilarFinancialRecordReport
     subcategoryHint?: string | null;
     /**
      * Canal de origem da operação
-     * @type {string}
+     * @type {SystemGenerateMostCommonContactsForSimilarFinancialRecordReportRequestBodyDtoChannelEnum}
      * @memberof SystemGenerateMostCommonContactsForSimilarFinancialRecordReportRequestBodyDto
      */
     channel: SystemGenerateMostCommonContactsForSimilarFinancialRecordReportRequestBodyDtoChannelEnum;

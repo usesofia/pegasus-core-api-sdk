@@ -58,6 +58,14 @@ export interface UpdateOrganizationByClerkIdRequest {
  */
 export interface OrganizationsApiInterface {
     /**
+     * Creates request options for createOrganization without sending the request
+     * @param {CreateOrganizationRequestBodyDto} createOrganizationRequestBodyDto
+     * @param {string} [populate] Related fields to be populated, separated by commas.
+     * @throws {RequiredError}
+     * @memberof OrganizationsApiInterface
+     */
+    createOrganizationRequestOpts(requestParameters: CreateOrganizationRequest): Promise<runtime.RequestOpts>;
+    /**
      *
      * @summary Create a new organization.
      * @param {CreateOrganizationRequestBodyDto} createOrganizationRequestBodyDto
@@ -72,6 +80,13 @@ export interface OrganizationsApiInterface {
      */
     createOrganization(requestParameters: CreateOrganizationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<OrganizationEntity>;
     /**
+     * Creates request options for externalHardRemoveOrganization without sending the request
+     * @param {string} organizationId Organization ID to be removed.
+     * @throws {RequiredError}
+     * @memberof OrganizationsApiInterface
+     */
+    externalHardRemoveOrganizationRequestOpts(requestParameters: ExternalHardRemoveOrganizationRequest): Promise<runtime.RequestOpts>;
+    /**
      *
      * @summary Hard remove an organization and all its data.
      * @param {string} organizationId Organization ID to be removed.
@@ -84,6 +99,28 @@ export interface OrganizationsApiInterface {
      * Hard remove an organization and all its data.
      */
     externalHardRemoveOrganization(requestParameters: ExternalHardRemoveOrganizationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+    /**
+     * Creates request options for findAllOrganizationsAdmin without sending the request
+     * @param {string} [serviceCutoffDateTo] Data de corte do serviço até (formato ISO 8601).
+     * @param {string} [serviceCutoffDateFrom] Data de corte do serviço a partir de (formato ISO 8601).
+     * @param {boolean} [latePayment] Filtrar por status de atraso no pagamento da subscription.
+     * @param {boolean} [hasCustomerId] Filtrar apenas organizações que possuem customerId.
+     * @param {'asc' | 'desc'} [sortOrder] Ordem de ordenação das organizações.
+     * @param {'name' | 'clerkCreatedAt'} [sortBy] Campo para ordenação das organizações.
+     * @param {string} [textSearchTerm] Termo para busca textual por nome ou clerkId da organização.
+     * @param {string} [clerkIds] Lista de IDs do Clerk para filtrar, separados por vírgula.
+     * @param {string} [subscriptionStatuses] Lista de status de subscription para filtrar, separados por vírgula.
+     * @param {string} [trialExpiresAtTo] Data de expiração do trial até (formato ISO 8601).
+     * @param {string} [trialExpiresAtFrom] Data de expiração do trial a partir de (formato ISO 8601).
+     * @param {string} [clerkCreatedAtTo] Data de criação no Clerk até (formato ISO 8601).
+     * @param {string} [clerkCreatedAtFrom] Data de criação no Clerk a partir de (formato ISO 8601).
+     * @param {string} [subtypes] Lista de subtipos de organizações para filtrar, separados por vírgula.
+     * @param {number} [pageSize] Quantidade de itens por página.
+     * @param {number} [pageIndex] Índice da página.
+     * @throws {RequiredError}
+     * @memberof OrganizationsApiInterface
+     */
+    findAllOrganizationsAdminRequestOpts(requestParameters: FindAllOrganizationsAdminRequest): Promise<runtime.RequestOpts>;
     /**
      *
      * @summary Lista todas as organizações armazenadas no banco de dados (endpoint admin).
@@ -113,6 +150,12 @@ export interface OrganizationsApiInterface {
      */
     findAllOrganizationsAdmin(requestParameters: FindAllOrganizationsAdminRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AdminOrganizationsPageDto>;
     /**
+     * Creates request options for findMyAdminGroupOrganizations without sending the request
+     * @throws {RequiredError}
+     * @memberof OrganizationsApiInterface
+     */
+    findMyAdminGroupOrganizationsRequestOpts(): Promise<runtime.RequestOpts>;
+    /**
      *
      * @summary Find my organizations of type group where I am admin.
      * @param {*} [options] Override http request option.
@@ -125,6 +168,12 @@ export interface OrganizationsApiInterface {
      */
     findMyAdminGroupOrganizations(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<OrganizationEntity>>;
     /**
+     * Creates request options for findMyOrganization without sending the request
+     * @throws {RequiredError}
+     * @memberof OrganizationsApiInterface
+     */
+    findMyOrganizationRequestOpts(): Promise<runtime.RequestOpts>;
+    /**
      *
      * @summary Find my organization.
      * @param {*} [options] Override http request option.
@@ -136,6 +185,13 @@ export interface OrganizationsApiInterface {
      * Find my organization.
      */
     findMyOrganization(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<OrganizationEntity>;
+    /**
+     * Creates request options for findOrganizationById without sending the request
+     * @param {string} organizationId Organization ID to be found.
+     * @throws {RequiredError}
+     * @memberof OrganizationsApiInterface
+     */
+    findOrganizationByIdRequestOpts(requestParameters: FindOrganizationByIdRequest): Promise<runtime.RequestOpts>;
     /**
      *
      * @summary Find an organization by ID.
@@ -150,6 +206,13 @@ export interface OrganizationsApiInterface {
      */
     findOrganizationById(requestParameters: FindOrganizationByIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<OrganizationEntity>;
     /**
+     * Creates request options for hardRemoveOrganizationInternal without sending the request
+     * @param {string} organizationId Organization ID to be removed.
+     * @throws {RequiredError}
+     * @memberof OrganizationsApiInterface
+     */
+    hardRemoveOrganizationInternalRequestOpts(requestParameters: HardRemoveOrganizationInternalRequest): Promise<runtime.RequestOpts>;
+    /**
      *
      * @summary Hard remove an organization and all its data (internal endpoint).
      * @param {string} organizationId Organization ID to be removed.
@@ -162,6 +225,14 @@ export interface OrganizationsApiInterface {
      * Hard remove an organization and all its data (internal endpoint).
      */
     hardRemoveOrganizationInternal(requestParameters: HardRemoveOrganizationInternalRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+    /**
+     * Creates request options for partialUpdateOrganization without sending the request
+     * @param {string} id Identificador da organização.
+     * @param {PartialUpdateOrganizationRequestBodyDto} partialUpdateOrganizationRequestBodyDto
+     * @throws {RequiredError}
+     * @memberof OrganizationsApiInterface
+     */
+    partialUpdateOrganizationRequestOpts(requestParameters: PartialUpdateOrganizationRequest): Promise<runtime.RequestOpts>;
     /**
      *
      * @summary Atualiza parcialmente uma organização.
@@ -177,6 +248,12 @@ export interface OrganizationsApiInterface {
      */
     partialUpdateOrganization(requestParameters: PartialUpdateOrganizationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<OrganizationEntity>;
     /**
+     * Creates request options for syncFromClerk without sending the request
+     * @throws {RequiredError}
+     * @memberof OrganizationsApiInterface
+     */
+    syncFromClerkRequestOpts(): Promise<runtime.RequestOpts>;
+    /**
      *
      * @summary Sync organizations from Clerk.
      * @param {*} [options] Override http request option.
@@ -188,6 +265,14 @@ export interface OrganizationsApiInterface {
      * Sync organizations from Clerk.
      */
     syncFromClerk(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+    /**
+     * Creates request options for updateOrganizationByClerkId without sending the request
+     * @param {string} clerkId Identificador da organização no Clerk.
+     * @param {UpdateOrganizationRequestBodyDto} updateOrganizationRequestBodyDto
+     * @throws {RequiredError}
+     * @memberof OrganizationsApiInterface
+     */
+    updateOrganizationByClerkIdRequestOpts(requestParameters: UpdateOrganizationByClerkIdRequest): Promise<runtime.RequestOpts>;
     /**
      *
      * @summary Atualiza o subtype de uma organização pelo clerkId (endpoint admin).
@@ -208,6 +293,10 @@ export interface OrganizationsApiInterface {
  */
 export declare class OrganizationsApi extends runtime.BaseAPI implements OrganizationsApiInterface {
     /**
+     * Creates request options for createOrganization without sending the request
+     */
+    createOrganizationRequestOpts(requestParameters: CreateOrganizationRequest): Promise<runtime.RequestOpts>;
+    /**
      * Create a new organization.
      */
     createOrganizationRaw(requestParameters: CreateOrganizationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<OrganizationEntity>>;
@@ -215,6 +304,10 @@ export declare class OrganizationsApi extends runtime.BaseAPI implements Organiz
      * Create a new organization.
      */
     createOrganization(requestParameters: CreateOrganizationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<OrganizationEntity>;
+    /**
+     * Creates request options for externalHardRemoveOrganization without sending the request
+     */
+    externalHardRemoveOrganizationRequestOpts(requestParameters: ExternalHardRemoveOrganizationRequest): Promise<runtime.RequestOpts>;
     /**
      * Hard remove an organization and all its data.
      */
@@ -224,6 +317,10 @@ export declare class OrganizationsApi extends runtime.BaseAPI implements Organiz
      */
     externalHardRemoveOrganization(requestParameters: ExternalHardRemoveOrganizationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
     /**
+     * Creates request options for findAllOrganizationsAdmin without sending the request
+     */
+    findAllOrganizationsAdminRequestOpts(requestParameters: FindAllOrganizationsAdminRequest): Promise<runtime.RequestOpts>;
+    /**
      * Lista todas as organizações armazenadas no banco de dados (endpoint admin).
      */
     findAllOrganizationsAdminRaw(requestParameters: FindAllOrganizationsAdminRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AdminOrganizationsPageDto>>;
@@ -231,6 +328,10 @@ export declare class OrganizationsApi extends runtime.BaseAPI implements Organiz
      * Lista todas as organizações armazenadas no banco de dados (endpoint admin).
      */
     findAllOrganizationsAdmin(requestParameters?: FindAllOrganizationsAdminRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AdminOrganizationsPageDto>;
+    /**
+     * Creates request options for findMyAdminGroupOrganizations without sending the request
+     */
+    findMyAdminGroupOrganizationsRequestOpts(): Promise<runtime.RequestOpts>;
     /**
      * Find my organizations of type group where I am admin.
      */
@@ -240,6 +341,10 @@ export declare class OrganizationsApi extends runtime.BaseAPI implements Organiz
      */
     findMyAdminGroupOrganizations(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<OrganizationEntity>>;
     /**
+     * Creates request options for findMyOrganization without sending the request
+     */
+    findMyOrganizationRequestOpts(): Promise<runtime.RequestOpts>;
+    /**
      * Find my organization.
      */
     findMyOrganizationRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<OrganizationEntity>>;
@@ -247,6 +352,10 @@ export declare class OrganizationsApi extends runtime.BaseAPI implements Organiz
      * Find my organization.
      */
     findMyOrganization(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<OrganizationEntity>;
+    /**
+     * Creates request options for findOrganizationById without sending the request
+     */
+    findOrganizationByIdRequestOpts(requestParameters: FindOrganizationByIdRequest): Promise<runtime.RequestOpts>;
     /**
      * Find an organization by ID.
      */
@@ -256,6 +365,10 @@ export declare class OrganizationsApi extends runtime.BaseAPI implements Organiz
      */
     findOrganizationById(requestParameters: FindOrganizationByIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<OrganizationEntity>;
     /**
+     * Creates request options for hardRemoveOrganizationInternal without sending the request
+     */
+    hardRemoveOrganizationInternalRequestOpts(requestParameters: HardRemoveOrganizationInternalRequest): Promise<runtime.RequestOpts>;
+    /**
      * Hard remove an organization and all its data (internal endpoint).
      */
     hardRemoveOrganizationInternalRaw(requestParameters: HardRemoveOrganizationInternalRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
@@ -263,6 +376,10 @@ export declare class OrganizationsApi extends runtime.BaseAPI implements Organiz
      * Hard remove an organization and all its data (internal endpoint).
      */
     hardRemoveOrganizationInternal(requestParameters: HardRemoveOrganizationInternalRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+    /**
+     * Creates request options for partialUpdateOrganization without sending the request
+     */
+    partialUpdateOrganizationRequestOpts(requestParameters: PartialUpdateOrganizationRequest): Promise<runtime.RequestOpts>;
     /**
      * Atualiza parcialmente uma organização.
      */
@@ -272,6 +389,10 @@ export declare class OrganizationsApi extends runtime.BaseAPI implements Organiz
      */
     partialUpdateOrganization(requestParameters: PartialUpdateOrganizationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<OrganizationEntity>;
     /**
+     * Creates request options for syncFromClerk without sending the request
+     */
+    syncFromClerkRequestOpts(): Promise<runtime.RequestOpts>;
+    /**
      * Sync organizations from Clerk.
      */
     syncFromClerkRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
@@ -279,6 +400,10 @@ export declare class OrganizationsApi extends runtime.BaseAPI implements Organiz
      * Sync organizations from Clerk.
      */
     syncFromClerk(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+    /**
+     * Creates request options for updateOrganizationByClerkId without sending the request
+     */
+    updateOrganizationByClerkIdRequestOpts(requestParameters: UpdateOrganizationByClerkIdRequest): Promise<runtime.RequestOpts>;
     /**
      * Atualiza o subtype de uma organização pelo clerkId (endpoint admin).
      */

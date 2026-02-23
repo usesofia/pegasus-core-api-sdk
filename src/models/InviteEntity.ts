@@ -33,13 +33,13 @@ export interface InviteEntity {
     email: string;
     /**
      * 
-     * @type {string}
+     * @type {InviteEntityRoleEnum}
      * @memberof InviteEntity
      */
     role: InviteEntityRoleEnum;
     /**
      * 
-     * @type {string}
+     * @type {InviteEntityStatusEnum}
      * @memberof InviteEntity
      */
     status: InviteEntityStatusEnum;

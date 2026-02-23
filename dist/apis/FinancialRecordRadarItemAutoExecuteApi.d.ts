@@ -22,6 +22,12 @@ export interface UpdateFinancialRecordRadarItemAutoExecuteSettingsRequest {
  */
 export interface FinancialRecordRadarItemAutoExecuteApiInterface {
     /**
+     * Creates request options for getFinancialRecordRadarItemAutoExecuteSettings without sending the request
+     * @throws {RequiredError}
+     * @memberof FinancialRecordRadarItemAutoExecuteApiInterface
+     */
+    getFinancialRecordRadarItemAutoExecuteSettingsRequestOpts(): Promise<runtime.RequestOpts>;
+    /**
      * Retorna as configurações de auto-execute do radar para a organização do usuário.
      * @summary Obter configurações de auto-execute
      * @param {*} [options] Override http request option.
@@ -34,6 +40,13 @@ export interface FinancialRecordRadarItemAutoExecuteApiInterface {
      * Obter configurações de auto-execute
      */
     getFinancialRecordRadarItemAutoExecuteSettings(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialRecordRadarItemAutoExecuteSettingEntity>;
+    /**
+     * Creates request options for updateFinancialRecordRadarItemAutoExecuteSettings without sending the request
+     * @param {UpdateFinancialRecordRadarItemAutoExecuteSettingsRequestBodyDto} updateFinancialRecordRadarItemAutoExecuteSettingsRequestBodyDto
+     * @throws {RequiredError}
+     * @memberof FinancialRecordRadarItemAutoExecuteApiInterface
+     */
+    updateFinancialRecordRadarItemAutoExecuteSettingsRequestOpts(requestParameters: UpdateFinancialRecordRadarItemAutoExecuteSettingsRequest): Promise<runtime.RequestOpts>;
     /**
      * Atualiza as configurações de auto-execute do radar para a organização do usuário.
      * @summary Atualizar configurações de auto-execute
@@ -54,6 +67,10 @@ export interface FinancialRecordRadarItemAutoExecuteApiInterface {
  */
 export declare class FinancialRecordRadarItemAutoExecuteApi extends runtime.BaseAPI implements FinancialRecordRadarItemAutoExecuteApiInterface {
     /**
+     * Creates request options for getFinancialRecordRadarItemAutoExecuteSettings without sending the request
+     */
+    getFinancialRecordRadarItemAutoExecuteSettingsRequestOpts(): Promise<runtime.RequestOpts>;
+    /**
      * Retorna as configurações de auto-execute do radar para a organização do usuário.
      * Obter configurações de auto-execute
      */
@@ -63,6 +80,10 @@ export declare class FinancialRecordRadarItemAutoExecuteApi extends runtime.Base
      * Obter configurações de auto-execute
      */
     getFinancialRecordRadarItemAutoExecuteSettings(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialRecordRadarItemAutoExecuteSettingEntity>;
+    /**
+     * Creates request options for updateFinancialRecordRadarItemAutoExecuteSettings without sending the request
+     */
+    updateFinancialRecordRadarItemAutoExecuteSettingsRequestOpts(requestParameters: UpdateFinancialRecordRadarItemAutoExecuteSettingsRequest): Promise<runtime.RequestOpts>;
     /**
      * Atualiza as configurações de auto-execute do radar para a organização do usuário.
      * Atualizar configurações de auto-execute

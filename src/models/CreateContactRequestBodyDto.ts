@@ -35,13 +35,13 @@ export interface CreateContactRequestBodyDto {
     name: string;
     /**
      * Tipos do contato.
-     * @type {Array<string>}
+     * @type {Array<CreateContactRequestBodyDtoTypesEnum>}
      * @memberof CreateContactRequestBodyDto
      */
     types: Array<CreateContactRequestBodyDtoTypesEnum>;
     /**
      * Tipo do documento do contato.
-     * @type {string}
+     * @type {CreateContactRequestBodyDtoDocumentTypeEnum}
      * @memberof CreateContactRequestBodyDto
      */
     documentType?: CreateContactRequestBodyDtoDocumentTypeEnum | null;
@@ -77,7 +77,7 @@ export interface CreateContactRequestBodyDto {
     birthDate?: string | null;
     /**
      * Origem do contato.
-     * @type {string}
+     * @type {CreateContactRequestBodyDtoOriginEnum}
      * @memberof CreateContactRequestBodyDto
      */
     origin?: CreateContactRequestBodyDtoOriginEnum | null;
@@ -113,7 +113,7 @@ export interface CreateContactRequestBodyDto {
     externalId?: string | null;
     /**
      * Canal de origem da operação
-     * @type {string}
+     * @type {CreateContactRequestBodyDtoChannelEnum}
      * @memberof CreateContactRequestBodyDto
      */
     channel: CreateContactRequestBodyDtoChannelEnum;

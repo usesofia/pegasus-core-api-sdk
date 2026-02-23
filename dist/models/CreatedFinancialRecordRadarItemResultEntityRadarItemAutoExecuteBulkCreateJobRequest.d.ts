@@ -23,7 +23,7 @@ export interface CreatedFinancialRecordRadarItemResultEntityRadarItemAutoExecute
     id: string;
     /**
      * Recurso a ser criado.
-     * @type {string}
+     * @type {CreatedFinancialRecordRadarItemResultEntityRadarItemAutoExecuteBulkCreateJobRequestResourceEnum}
      * @memberof CreatedFinancialRecordRadarItemResultEntityRadarItemAutoExecuteBulkCreateJobRequest
      */
     resource: CreatedFinancialRecordRadarItemResultEntityRadarItemAutoExecuteBulkCreateJobRequestResourceEnum;

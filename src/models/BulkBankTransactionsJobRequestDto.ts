@@ -21,7 +21,7 @@ import { mapValues } from '../runtime';
 export interface BulkBankTransactionsJobRequestDto {
     /**
      * 
-     * @type {string}
+     * @type {BulkBankTransactionsJobRequestDtoOperationEnum}
      * @memberof BulkBankTransactionsJobRequestDto
      */
     operation: BulkBankTransactionsJobRequestDtoOperationEnum;

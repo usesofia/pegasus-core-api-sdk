@@ -26,6 +26,17 @@ export interface FindAllNormalizedSubcategoriesRequest {
  */
 export interface NormalizedSubcategoriesApiInterface {
     /**
+     * Creates request options for findAllNormalizedSubcategories without sending the request
+     * @param {boolean} [isInternalTransfer] Filtrar por subcategorias que são transferências internas.
+     * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
+     * @param {string} [categoryId] ID da categoria para filtrar subcategorias.
+     * @param {number} [pageSize] Quantidade de itens por página.
+     * @param {number} [pageIndex] Índice da página.
+     * @throws {RequiredError}
+     * @memberof NormalizedSubcategoriesApiInterface
+     */
+    findAllNormalizedSubcategoriesRequestOpts(requestParameters: FindAllNormalizedSubcategoriesRequest): Promise<runtime.RequestOpts>;
+    /**
      *
      * @summary Busca todas as subcategorias normalizadas.
      * @param {boolean} [isInternalTransfer] Filtrar por subcategorias que são transferências internas.
@@ -47,6 +58,10 @@ export interface NormalizedSubcategoriesApiInterface {
  *
  */
 export declare class NormalizedSubcategoriesApi extends runtime.BaseAPI implements NormalizedSubcategoriesApiInterface {
+    /**
+     * Creates request options for findAllNormalizedSubcategories without sending the request
+     */
+    findAllNormalizedSubcategoriesRequestOpts(requestParameters: FindAllNormalizedSubcategoriesRequest): Promise<runtime.RequestOpts>;
     /**
      * Busca todas as subcategorias normalizadas.
      */

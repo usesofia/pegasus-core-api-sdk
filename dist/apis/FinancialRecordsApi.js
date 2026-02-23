@@ -76,32 +76,45 @@ var FinancialRecordsApi = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
+     * Creates request options for createFinancialRecord without sending the request
+     */
+    FinancialRecordsApi.prototype.createFinancialRecordRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                if (requestParameters['createFinancialRecordRequestBodyDto'] == null) {
+                    throw new runtime.RequiredError('createFinancialRecordRequestBodyDto', 'Required parameter "createFinancialRecordRequestBodyDto" was null or undefined when calling createFinancialRecord().');
+                }
+                queryParameters = {};
+                if (requestParameters['populate'] != null) {
+                    queryParameters['populate'] = requestParameters['populate'];
+                }
+                headerParameters = {};
+                headerParameters['Content-Type'] = 'application/json';
+                urlPath = "/external/financial-records";
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'POST',
+                        headers: headerParameters,
+                        query: queryParameters,
+                        body: (0, index_1.CreateFinancialRecordRequestBodyDtoToJSON)(requestParameters['createFinancialRecordRequestBodyDto']),
+                    }];
+            });
+        });
+    };
+    /**
      * Cria um novo lançamento financeiro.
      */
     FinancialRecordsApi.prototype.createFinancialRecordRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        if (requestParameters['createFinancialRecordRequestBodyDto'] == null) {
-                            throw new runtime.RequiredError('createFinancialRecordRequestBodyDto', 'Required parameter "createFinancialRecordRequestBodyDto" was null or undefined when calling createFinancialRecord().');
-                        }
-                        queryParameters = {};
-                        if (requestParameters['populate'] != null) {
-                            queryParameters['populate'] = requestParameters['populate'];
-                        }
-                        headerParameters = {};
-                        headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/external/financial-records";
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'POST',
-                                headers: headerParameters,
-                                query: queryParameters,
-                                body: (0, index_1.CreateFinancialRecordRequestBodyDtoToJSON)(requestParameters['createFinancialRecordRequestBodyDto']),
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.createFinancialRecordRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.FinancialRecordDtoFromJSON)(jsonValue); })];
                 }
@@ -126,32 +139,45 @@ var FinancialRecordsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Creates request options for createInternalTransfer without sending the request
+     */
+    FinancialRecordsApi.prototype.createInternalTransferRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                if (requestParameters['createInternalTransferRequestBodyDto'] == null) {
+                    throw new runtime.RequiredError('createInternalTransferRequestBodyDto', 'Required parameter "createInternalTransferRequestBodyDto" was null or undefined when calling createInternalTransfer().');
+                }
+                queryParameters = {};
+                if (requestParameters['populate'] != null) {
+                    queryParameters['populate'] = requestParameters['populate'];
+                }
+                headerParameters = {};
+                headerParameters['Content-Type'] = 'application/json';
+                urlPath = "/external/financial-records/internal-transfer";
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'POST',
+                        headers: headerParameters,
+                        query: queryParameters,
+                        body: (0, index_1.CreateInternalTransferRequestBodyDtoToJSON)(requestParameters['createInternalTransferRequestBodyDto']),
+                    }];
+            });
+        });
+    };
+    /**
      * Cria uma transferência interna entre contas.
      */
     FinancialRecordsApi.prototype.createInternalTransferRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        if (requestParameters['createInternalTransferRequestBodyDto'] == null) {
-                            throw new runtime.RequiredError('createInternalTransferRequestBodyDto', 'Required parameter "createInternalTransferRequestBodyDto" was null or undefined when calling createInternalTransfer().');
-                        }
-                        queryParameters = {};
-                        if (requestParameters['populate'] != null) {
-                            queryParameters['populate'] = requestParameters['populate'];
-                        }
-                        headerParameters = {};
-                        headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/external/financial-records/internal-transfer";
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'POST',
-                                headers: headerParameters,
-                                query: queryParameters,
-                                body: (0, index_1.CreateInternalTransferRequestBodyDtoToJSON)(requestParameters['createInternalTransferRequestBodyDto']),
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.createInternalTransferRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return jsonValue.map(index_1.FinancialRecordDtoFromJSON); })];
                 }
@@ -176,29 +202,42 @@ var FinancialRecordsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Creates request options for createManyFinancialRecords without sending the request
+     */
+    FinancialRecordsApi.prototype.createManyFinancialRecordsRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                if (requestParameters['createManyFinancialRecordsRequestBodyDto'] == null) {
+                    throw new runtime.RequiredError('createManyFinancialRecordsRequestBodyDto', 'Required parameter "createManyFinancialRecordsRequestBodyDto" was null or undefined when calling createManyFinancialRecords().');
+                }
+                queryParameters = {};
+                headerParameters = {};
+                headerParameters['Content-Type'] = 'application/json';
+                urlPath = "/external/financial-records/many";
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'POST',
+                        headers: headerParameters,
+                        query: queryParameters,
+                        body: (0, index_1.CreateManyFinancialRecordsRequestBodyDtoToJSON)(requestParameters['createManyFinancialRecordsRequestBodyDto']),
+                    }];
+            });
+        });
+    };
+    /**
      * Cria múltiplos lançamentos financeiros.
      */
     FinancialRecordsApi.prototype.createManyFinancialRecordsRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        if (requestParameters['createManyFinancialRecordsRequestBodyDto'] == null) {
-                            throw new runtime.RequiredError('createManyFinancialRecordsRequestBodyDto', 'Required parameter "createManyFinancialRecordsRequestBodyDto" was null or undefined when calling createManyFinancialRecords().');
-                        }
-                        queryParameters = {};
-                        headerParameters = {};
-                        headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/external/financial-records/many";
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'POST',
-                                headers: headerParameters,
-                                query: queryParameters,
-                                body: (0, index_1.CreateManyFinancialRecordsRequestBodyDtoToJSON)(requestParameters['createManyFinancialRecordsRequestBodyDto']),
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.createManyFinancialRecordsRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return jsonValue.map(index_1.FinancialRecordDtoFromJSON); })];
                 }
@@ -223,114 +262,127 @@ var FinancialRecordsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Creates request options for findAllFinancialRecords without sending the request
+     */
+    FinancialRecordsApi.prototype.findAllFinancialRecordsRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                queryParameters = {};
+                if (requestParameters['queryId'] != null) {
+                    queryParameters['queryId'] = requestParameters['queryId'];
+                }
+                if (requestParameters['sortOrder'] != null) {
+                    queryParameters['sortOrder'] = requestParameters['sortOrder'];
+                }
+                if (requestParameters['sortBy'] != null) {
+                    queryParameters['sortBy'] = requestParameters['sortBy'];
+                }
+                if (requestParameters['recurringFinancialRecord'] != null) {
+                    queryParameters['recurringFinancialRecord'] = requestParameters['recurringFinancialRecord'];
+                }
+                if (requestParameters['installmentFinancialRecord'] != null) {
+                    queryParameters['installmentFinancialRecord'] = requestParameters['installmentFinancialRecord'];
+                }
+                if (requestParameters['account'] != null) {
+                    queryParameters['account'] = requestParameters['account'];
+                }
+                if (requestParameters['reconciled'] != null) {
+                    queryParameters['reconciled'] = requestParameters['reconciled'];
+                }
+                if (requestParameters['completed'] != null) {
+                    queryParameters['completed'] = requestParameters['completed'];
+                }
+                if (requestParameters['tags'] != null) {
+                    queryParameters['tags'] = requestParameters['tags'];
+                }
+                if (requestParameters['createdAtTo'] != null) {
+                    queryParameters['createdAtTo'] = requestParameters['createdAtTo'];
+                }
+                if (requestParameters['createdAtFrom'] != null) {
+                    queryParameters['createdAtFrom'] = requestParameters['createdAtFrom'];
+                }
+                if (requestParameters['cashDateTo'] != null) {
+                    queryParameters['cashDateTo'] = requestParameters['cashDateTo'];
+                }
+                if (requestParameters['cashDateFrom'] != null) {
+                    queryParameters['cashDateFrom'] = requestParameters['cashDateFrom'];
+                }
+                if (requestParameters['competenceDateTo'] != null) {
+                    queryParameters['competenceDateTo'] = requestParameters['competenceDateTo'];
+                }
+                if (requestParameters['competenceDateFrom'] != null) {
+                    queryParameters['competenceDateFrom'] = requestParameters['competenceDateFrom'];
+                }
+                if (requestParameters['subcategory'] != null) {
+                    queryParameters['subcategory'] = requestParameters['subcategory'];
+                }
+                if (requestParameters['contact'] != null) {
+                    queryParameters['contact'] = requestParameters['contact'];
+                }
+                if (requestParameters['dueDateTo'] != null) {
+                    queryParameters['dueDateTo'] = requestParameters['dueDateTo'];
+                }
+                if (requestParameters['dueDateFrom'] != null) {
+                    queryParameters['dueDateFrom'] = requestParameters['dueDateFrom'];
+                }
+                if (requestParameters['finalAmountTo'] != null) {
+                    queryParameters['finalAmountTo'] = requestParameters['finalAmountTo'];
+                }
+                if (requestParameters['finalAmountFrom'] != null) {
+                    queryParameters['finalAmountFrom'] = requestParameters['finalAmountFrom'];
+                }
+                if (requestParameters['amountTo'] != null) {
+                    queryParameters['amountTo'] = requestParameters['amountTo'];
+                }
+                if (requestParameters['amountFrom'] != null) {
+                    queryParameters['amountFrom'] = requestParameters['amountFrom'];
+                }
+                if (requestParameters['direction'] != null) {
+                    queryParameters['direction'] = requestParameters['direction'];
+                }
+                if (requestParameters['ids'] != null) {
+                    queryParameters['ids'] = requestParameters['ids'];
+                }
+                if (requestParameters['populate'] != null) {
+                    queryParameters['populate'] = requestParameters['populate'];
+                }
+                if (requestParameters['semanticSearchTermInBase64'] != null) {
+                    queryParameters['semanticSearchTermInBase64'] = requestParameters['semanticSearchTermInBase64'];
+                }
+                if (requestParameters['textSearchTerm'] != null) {
+                    queryParameters['textSearchTerm'] = requestParameters['textSearchTerm'];
+                }
+                if (requestParameters['pageSize'] != null) {
+                    queryParameters['pageSize'] = requestParameters['pageSize'];
+                }
+                if (requestParameters['pageIndex'] != null) {
+                    queryParameters['pageIndex'] = requestParameters['pageIndex'];
+                }
+                headerParameters = {};
+                urlPath = "/external/financial-records";
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'GET',
+                        headers: headerParameters,
+                        query: queryParameters,
+                    }];
+            });
+        });
+    };
+    /**
      * Busca todos os lançamentos financeiros.
      */
     FinancialRecordsApi.prototype.findAllFinancialRecordsRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        queryParameters = {};
-                        if (requestParameters['queryId'] != null) {
-                            queryParameters['queryId'] = requestParameters['queryId'];
-                        }
-                        if (requestParameters['sortOrder'] != null) {
-                            queryParameters['sortOrder'] = requestParameters['sortOrder'];
-                        }
-                        if (requestParameters['sortBy'] != null) {
-                            queryParameters['sortBy'] = requestParameters['sortBy'];
-                        }
-                        if (requestParameters['recurringFinancialRecord'] != null) {
-                            queryParameters['recurringFinancialRecord'] = requestParameters['recurringFinancialRecord'];
-                        }
-                        if (requestParameters['installmentFinancialRecord'] != null) {
-                            queryParameters['installmentFinancialRecord'] = requestParameters['installmentFinancialRecord'];
-                        }
-                        if (requestParameters['account'] != null) {
-                            queryParameters['account'] = requestParameters['account'];
-                        }
-                        if (requestParameters['reconciled'] != null) {
-                            queryParameters['reconciled'] = requestParameters['reconciled'];
-                        }
-                        if (requestParameters['completed'] != null) {
-                            queryParameters['completed'] = requestParameters['completed'];
-                        }
-                        if (requestParameters['tags'] != null) {
-                            queryParameters['tags'] = requestParameters['tags'];
-                        }
-                        if (requestParameters['createdAtTo'] != null) {
-                            queryParameters['createdAtTo'] = requestParameters['createdAtTo'];
-                        }
-                        if (requestParameters['createdAtFrom'] != null) {
-                            queryParameters['createdAtFrom'] = requestParameters['createdAtFrom'];
-                        }
-                        if (requestParameters['cashDateTo'] != null) {
-                            queryParameters['cashDateTo'] = requestParameters['cashDateTo'];
-                        }
-                        if (requestParameters['cashDateFrom'] != null) {
-                            queryParameters['cashDateFrom'] = requestParameters['cashDateFrom'];
-                        }
-                        if (requestParameters['competenceDateTo'] != null) {
-                            queryParameters['competenceDateTo'] = requestParameters['competenceDateTo'];
-                        }
-                        if (requestParameters['competenceDateFrom'] != null) {
-                            queryParameters['competenceDateFrom'] = requestParameters['competenceDateFrom'];
-                        }
-                        if (requestParameters['subcategory'] != null) {
-                            queryParameters['subcategory'] = requestParameters['subcategory'];
-                        }
-                        if (requestParameters['contact'] != null) {
-                            queryParameters['contact'] = requestParameters['contact'];
-                        }
-                        if (requestParameters['dueDateTo'] != null) {
-                            queryParameters['dueDateTo'] = requestParameters['dueDateTo'];
-                        }
-                        if (requestParameters['dueDateFrom'] != null) {
-                            queryParameters['dueDateFrom'] = requestParameters['dueDateFrom'];
-                        }
-                        if (requestParameters['finalAmountTo'] != null) {
-                            queryParameters['finalAmountTo'] = requestParameters['finalAmountTo'];
-                        }
-                        if (requestParameters['finalAmountFrom'] != null) {
-                            queryParameters['finalAmountFrom'] = requestParameters['finalAmountFrom'];
-                        }
-                        if (requestParameters['amountTo'] != null) {
-                            queryParameters['amountTo'] = requestParameters['amountTo'];
-                        }
-                        if (requestParameters['amountFrom'] != null) {
-                            queryParameters['amountFrom'] = requestParameters['amountFrom'];
-                        }
-                        if (requestParameters['direction'] != null) {
-                            queryParameters['direction'] = requestParameters['direction'];
-                        }
-                        if (requestParameters['ids'] != null) {
-                            queryParameters['ids'] = requestParameters['ids'];
-                        }
-                        if (requestParameters['populate'] != null) {
-                            queryParameters['populate'] = requestParameters['populate'];
-                        }
-                        if (requestParameters['semanticSearchTermInBase64'] != null) {
-                            queryParameters['semanticSearchTermInBase64'] = requestParameters['semanticSearchTermInBase64'];
-                        }
-                        if (requestParameters['textSearchTerm'] != null) {
-                            queryParameters['textSearchTerm'] = requestParameters['textSearchTerm'];
-                        }
-                        if (requestParameters['pageSize'] != null) {
-                            queryParameters['pageSize'] = requestParameters['pageSize'];
-                        }
-                        if (requestParameters['pageIndex'] != null) {
-                            queryParameters['pageIndex'] = requestParameters['pageIndex'];
-                        }
-                        headerParameters = {};
-                        urlPath = "/external/financial-records";
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'GET',
-                                headers: headerParameters,
-                                query: queryParameters,
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.findAllFinancialRecordsRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.FinancialRecordsPageDtoFromJSON)(jsonValue); })];
                 }
@@ -356,31 +408,44 @@ var FinancialRecordsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Creates request options for findByIdFinancialRecord without sending the request
+     */
+    FinancialRecordsApi.prototype.findByIdFinancialRecordRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                if (requestParameters['id'] == null) {
+                    throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling findByIdFinancialRecord().');
+                }
+                queryParameters = {};
+                if (requestParameters['populate'] != null) {
+                    queryParameters['populate'] = requestParameters['populate'];
+                }
+                headerParameters = {};
+                urlPath = "/external/financial-records/{id}";
+                urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'GET',
+                        headers: headerParameters,
+                        query: queryParameters,
+                    }];
+            });
+        });
+    };
+    /**
      * Busca um lançamento financeiro pelo identificador.
      */
     FinancialRecordsApi.prototype.findByIdFinancialRecordRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        if (requestParameters['id'] == null) {
-                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling findByIdFinancialRecord().');
-                        }
-                        queryParameters = {};
-                        if (requestParameters['populate'] != null) {
-                            queryParameters['populate'] = requestParameters['populate'];
-                        }
-                        headerParameters = {};
-                        urlPath = "/external/financial-records/{id}";
-                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'GET',
-                                headers: headerParameters,
-                                query: queryParameters,
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.findByIdFinancialRecordRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.FinancialRecordDtoFromJSON)(jsonValue); })];
                 }
@@ -405,114 +470,127 @@ var FinancialRecordsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Creates request options for generatePdfListExportFinancialRecords without sending the request
+     */
+    FinancialRecordsApi.prototype.generatePdfListExportFinancialRecordsRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                queryParameters = {};
+                if (requestParameters['queryId'] != null) {
+                    queryParameters['queryId'] = requestParameters['queryId'];
+                }
+                if (requestParameters['sortOrder'] != null) {
+                    queryParameters['sortOrder'] = requestParameters['sortOrder'];
+                }
+                if (requestParameters['sortBy'] != null) {
+                    queryParameters['sortBy'] = requestParameters['sortBy'];
+                }
+                if (requestParameters['recurringFinancialRecord'] != null) {
+                    queryParameters['recurringFinancialRecord'] = requestParameters['recurringFinancialRecord'];
+                }
+                if (requestParameters['installmentFinancialRecord'] != null) {
+                    queryParameters['installmentFinancialRecord'] = requestParameters['installmentFinancialRecord'];
+                }
+                if (requestParameters['account'] != null) {
+                    queryParameters['account'] = requestParameters['account'];
+                }
+                if (requestParameters['reconciled'] != null) {
+                    queryParameters['reconciled'] = requestParameters['reconciled'];
+                }
+                if (requestParameters['completed'] != null) {
+                    queryParameters['completed'] = requestParameters['completed'];
+                }
+                if (requestParameters['tags'] != null) {
+                    queryParameters['tags'] = requestParameters['tags'];
+                }
+                if (requestParameters['createdAtTo'] != null) {
+                    queryParameters['createdAtTo'] = requestParameters['createdAtTo'];
+                }
+                if (requestParameters['createdAtFrom'] != null) {
+                    queryParameters['createdAtFrom'] = requestParameters['createdAtFrom'];
+                }
+                if (requestParameters['cashDateTo'] != null) {
+                    queryParameters['cashDateTo'] = requestParameters['cashDateTo'];
+                }
+                if (requestParameters['cashDateFrom'] != null) {
+                    queryParameters['cashDateFrom'] = requestParameters['cashDateFrom'];
+                }
+                if (requestParameters['competenceDateTo'] != null) {
+                    queryParameters['competenceDateTo'] = requestParameters['competenceDateTo'];
+                }
+                if (requestParameters['competenceDateFrom'] != null) {
+                    queryParameters['competenceDateFrom'] = requestParameters['competenceDateFrom'];
+                }
+                if (requestParameters['subcategory'] != null) {
+                    queryParameters['subcategory'] = requestParameters['subcategory'];
+                }
+                if (requestParameters['contact'] != null) {
+                    queryParameters['contact'] = requestParameters['contact'];
+                }
+                if (requestParameters['dueDateTo'] != null) {
+                    queryParameters['dueDateTo'] = requestParameters['dueDateTo'];
+                }
+                if (requestParameters['dueDateFrom'] != null) {
+                    queryParameters['dueDateFrom'] = requestParameters['dueDateFrom'];
+                }
+                if (requestParameters['finalAmountTo'] != null) {
+                    queryParameters['finalAmountTo'] = requestParameters['finalAmountTo'];
+                }
+                if (requestParameters['finalAmountFrom'] != null) {
+                    queryParameters['finalAmountFrom'] = requestParameters['finalAmountFrom'];
+                }
+                if (requestParameters['amountTo'] != null) {
+                    queryParameters['amountTo'] = requestParameters['amountTo'];
+                }
+                if (requestParameters['amountFrom'] != null) {
+                    queryParameters['amountFrom'] = requestParameters['amountFrom'];
+                }
+                if (requestParameters['direction'] != null) {
+                    queryParameters['direction'] = requestParameters['direction'];
+                }
+                if (requestParameters['ids'] != null) {
+                    queryParameters['ids'] = requestParameters['ids'];
+                }
+                if (requestParameters['populate'] != null) {
+                    queryParameters['populate'] = requestParameters['populate'];
+                }
+                if (requestParameters['semanticSearchTermInBase64'] != null) {
+                    queryParameters['semanticSearchTermInBase64'] = requestParameters['semanticSearchTermInBase64'];
+                }
+                if (requestParameters['textSearchTerm'] != null) {
+                    queryParameters['textSearchTerm'] = requestParameters['textSearchTerm'];
+                }
+                if (requestParameters['pageSize'] != null) {
+                    queryParameters['pageSize'] = requestParameters['pageSize'];
+                }
+                if (requestParameters['pageIndex'] != null) {
+                    queryParameters['pageIndex'] = requestParameters['pageIndex'];
+                }
+                headerParameters = {};
+                urlPath = "/external/financial-records/reports/pdf/list";
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'GET',
+                        headers: headerParameters,
+                        query: queryParameters,
+                    }];
+            });
+        });
+    };
+    /**
      * Gera exportação em PDF dos lançamentos financeiros no formato de lista.
      */
     FinancialRecordsApi.prototype.generatePdfListExportFinancialRecordsRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        queryParameters = {};
-                        if (requestParameters['queryId'] != null) {
-                            queryParameters['queryId'] = requestParameters['queryId'];
-                        }
-                        if (requestParameters['sortOrder'] != null) {
-                            queryParameters['sortOrder'] = requestParameters['sortOrder'];
-                        }
-                        if (requestParameters['sortBy'] != null) {
-                            queryParameters['sortBy'] = requestParameters['sortBy'];
-                        }
-                        if (requestParameters['recurringFinancialRecord'] != null) {
-                            queryParameters['recurringFinancialRecord'] = requestParameters['recurringFinancialRecord'];
-                        }
-                        if (requestParameters['installmentFinancialRecord'] != null) {
-                            queryParameters['installmentFinancialRecord'] = requestParameters['installmentFinancialRecord'];
-                        }
-                        if (requestParameters['account'] != null) {
-                            queryParameters['account'] = requestParameters['account'];
-                        }
-                        if (requestParameters['reconciled'] != null) {
-                            queryParameters['reconciled'] = requestParameters['reconciled'];
-                        }
-                        if (requestParameters['completed'] != null) {
-                            queryParameters['completed'] = requestParameters['completed'];
-                        }
-                        if (requestParameters['tags'] != null) {
-                            queryParameters['tags'] = requestParameters['tags'];
-                        }
-                        if (requestParameters['createdAtTo'] != null) {
-                            queryParameters['createdAtTo'] = requestParameters['createdAtTo'];
-                        }
-                        if (requestParameters['createdAtFrom'] != null) {
-                            queryParameters['createdAtFrom'] = requestParameters['createdAtFrom'];
-                        }
-                        if (requestParameters['cashDateTo'] != null) {
-                            queryParameters['cashDateTo'] = requestParameters['cashDateTo'];
-                        }
-                        if (requestParameters['cashDateFrom'] != null) {
-                            queryParameters['cashDateFrom'] = requestParameters['cashDateFrom'];
-                        }
-                        if (requestParameters['competenceDateTo'] != null) {
-                            queryParameters['competenceDateTo'] = requestParameters['competenceDateTo'];
-                        }
-                        if (requestParameters['competenceDateFrom'] != null) {
-                            queryParameters['competenceDateFrom'] = requestParameters['competenceDateFrom'];
-                        }
-                        if (requestParameters['subcategory'] != null) {
-                            queryParameters['subcategory'] = requestParameters['subcategory'];
-                        }
-                        if (requestParameters['contact'] != null) {
-                            queryParameters['contact'] = requestParameters['contact'];
-                        }
-                        if (requestParameters['dueDateTo'] != null) {
-                            queryParameters['dueDateTo'] = requestParameters['dueDateTo'];
-                        }
-                        if (requestParameters['dueDateFrom'] != null) {
-                            queryParameters['dueDateFrom'] = requestParameters['dueDateFrom'];
-                        }
-                        if (requestParameters['finalAmountTo'] != null) {
-                            queryParameters['finalAmountTo'] = requestParameters['finalAmountTo'];
-                        }
-                        if (requestParameters['finalAmountFrom'] != null) {
-                            queryParameters['finalAmountFrom'] = requestParameters['finalAmountFrom'];
-                        }
-                        if (requestParameters['amountTo'] != null) {
-                            queryParameters['amountTo'] = requestParameters['amountTo'];
-                        }
-                        if (requestParameters['amountFrom'] != null) {
-                            queryParameters['amountFrom'] = requestParameters['amountFrom'];
-                        }
-                        if (requestParameters['direction'] != null) {
-                            queryParameters['direction'] = requestParameters['direction'];
-                        }
-                        if (requestParameters['ids'] != null) {
-                            queryParameters['ids'] = requestParameters['ids'];
-                        }
-                        if (requestParameters['populate'] != null) {
-                            queryParameters['populate'] = requestParameters['populate'];
-                        }
-                        if (requestParameters['semanticSearchTermInBase64'] != null) {
-                            queryParameters['semanticSearchTermInBase64'] = requestParameters['semanticSearchTermInBase64'];
-                        }
-                        if (requestParameters['textSearchTerm'] != null) {
-                            queryParameters['textSearchTerm'] = requestParameters['textSearchTerm'];
-                        }
-                        if (requestParameters['pageSize'] != null) {
-                            queryParameters['pageSize'] = requestParameters['pageSize'];
-                        }
-                        if (requestParameters['pageIndex'] != null) {
-                            queryParameters['pageIndex'] = requestParameters['pageIndex'];
-                        }
-                        headerParameters = {};
-                        urlPath = "/external/financial-records/reports/pdf/list";
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'GET',
-                                headers: headerParameters,
-                                query: queryParameters,
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.generatePdfListExportFinancialRecordsRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.FileEntityFromJSON)(jsonValue); })];
                 }
@@ -538,114 +616,127 @@ var FinancialRecordsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Creates request options for generatePdfTableExportFinancialRecords without sending the request
+     */
+    FinancialRecordsApi.prototype.generatePdfTableExportFinancialRecordsRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                queryParameters = {};
+                if (requestParameters['queryId'] != null) {
+                    queryParameters['queryId'] = requestParameters['queryId'];
+                }
+                if (requestParameters['sortOrder'] != null) {
+                    queryParameters['sortOrder'] = requestParameters['sortOrder'];
+                }
+                if (requestParameters['sortBy'] != null) {
+                    queryParameters['sortBy'] = requestParameters['sortBy'];
+                }
+                if (requestParameters['recurringFinancialRecord'] != null) {
+                    queryParameters['recurringFinancialRecord'] = requestParameters['recurringFinancialRecord'];
+                }
+                if (requestParameters['installmentFinancialRecord'] != null) {
+                    queryParameters['installmentFinancialRecord'] = requestParameters['installmentFinancialRecord'];
+                }
+                if (requestParameters['account'] != null) {
+                    queryParameters['account'] = requestParameters['account'];
+                }
+                if (requestParameters['reconciled'] != null) {
+                    queryParameters['reconciled'] = requestParameters['reconciled'];
+                }
+                if (requestParameters['completed'] != null) {
+                    queryParameters['completed'] = requestParameters['completed'];
+                }
+                if (requestParameters['tags'] != null) {
+                    queryParameters['tags'] = requestParameters['tags'];
+                }
+                if (requestParameters['createdAtTo'] != null) {
+                    queryParameters['createdAtTo'] = requestParameters['createdAtTo'];
+                }
+                if (requestParameters['createdAtFrom'] != null) {
+                    queryParameters['createdAtFrom'] = requestParameters['createdAtFrom'];
+                }
+                if (requestParameters['cashDateTo'] != null) {
+                    queryParameters['cashDateTo'] = requestParameters['cashDateTo'];
+                }
+                if (requestParameters['cashDateFrom'] != null) {
+                    queryParameters['cashDateFrom'] = requestParameters['cashDateFrom'];
+                }
+                if (requestParameters['competenceDateTo'] != null) {
+                    queryParameters['competenceDateTo'] = requestParameters['competenceDateTo'];
+                }
+                if (requestParameters['competenceDateFrom'] != null) {
+                    queryParameters['competenceDateFrom'] = requestParameters['competenceDateFrom'];
+                }
+                if (requestParameters['subcategory'] != null) {
+                    queryParameters['subcategory'] = requestParameters['subcategory'];
+                }
+                if (requestParameters['contact'] != null) {
+                    queryParameters['contact'] = requestParameters['contact'];
+                }
+                if (requestParameters['dueDateTo'] != null) {
+                    queryParameters['dueDateTo'] = requestParameters['dueDateTo'];
+                }
+                if (requestParameters['dueDateFrom'] != null) {
+                    queryParameters['dueDateFrom'] = requestParameters['dueDateFrom'];
+                }
+                if (requestParameters['finalAmountTo'] != null) {
+                    queryParameters['finalAmountTo'] = requestParameters['finalAmountTo'];
+                }
+                if (requestParameters['finalAmountFrom'] != null) {
+                    queryParameters['finalAmountFrom'] = requestParameters['finalAmountFrom'];
+                }
+                if (requestParameters['amountTo'] != null) {
+                    queryParameters['amountTo'] = requestParameters['amountTo'];
+                }
+                if (requestParameters['amountFrom'] != null) {
+                    queryParameters['amountFrom'] = requestParameters['amountFrom'];
+                }
+                if (requestParameters['direction'] != null) {
+                    queryParameters['direction'] = requestParameters['direction'];
+                }
+                if (requestParameters['ids'] != null) {
+                    queryParameters['ids'] = requestParameters['ids'];
+                }
+                if (requestParameters['populate'] != null) {
+                    queryParameters['populate'] = requestParameters['populate'];
+                }
+                if (requestParameters['semanticSearchTermInBase64'] != null) {
+                    queryParameters['semanticSearchTermInBase64'] = requestParameters['semanticSearchTermInBase64'];
+                }
+                if (requestParameters['textSearchTerm'] != null) {
+                    queryParameters['textSearchTerm'] = requestParameters['textSearchTerm'];
+                }
+                if (requestParameters['pageSize'] != null) {
+                    queryParameters['pageSize'] = requestParameters['pageSize'];
+                }
+                if (requestParameters['pageIndex'] != null) {
+                    queryParameters['pageIndex'] = requestParameters['pageIndex'];
+                }
+                headerParameters = {};
+                urlPath = "/external/financial-records/reports/pdf/table";
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'GET',
+                        headers: headerParameters,
+                        query: queryParameters,
+                    }];
+            });
+        });
+    };
+    /**
      * Gera exportação em PDF dos lançamentos financeiros no formato de tabela.
      */
     FinancialRecordsApi.prototype.generatePdfTableExportFinancialRecordsRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        queryParameters = {};
-                        if (requestParameters['queryId'] != null) {
-                            queryParameters['queryId'] = requestParameters['queryId'];
-                        }
-                        if (requestParameters['sortOrder'] != null) {
-                            queryParameters['sortOrder'] = requestParameters['sortOrder'];
-                        }
-                        if (requestParameters['sortBy'] != null) {
-                            queryParameters['sortBy'] = requestParameters['sortBy'];
-                        }
-                        if (requestParameters['recurringFinancialRecord'] != null) {
-                            queryParameters['recurringFinancialRecord'] = requestParameters['recurringFinancialRecord'];
-                        }
-                        if (requestParameters['installmentFinancialRecord'] != null) {
-                            queryParameters['installmentFinancialRecord'] = requestParameters['installmentFinancialRecord'];
-                        }
-                        if (requestParameters['account'] != null) {
-                            queryParameters['account'] = requestParameters['account'];
-                        }
-                        if (requestParameters['reconciled'] != null) {
-                            queryParameters['reconciled'] = requestParameters['reconciled'];
-                        }
-                        if (requestParameters['completed'] != null) {
-                            queryParameters['completed'] = requestParameters['completed'];
-                        }
-                        if (requestParameters['tags'] != null) {
-                            queryParameters['tags'] = requestParameters['tags'];
-                        }
-                        if (requestParameters['createdAtTo'] != null) {
-                            queryParameters['createdAtTo'] = requestParameters['createdAtTo'];
-                        }
-                        if (requestParameters['createdAtFrom'] != null) {
-                            queryParameters['createdAtFrom'] = requestParameters['createdAtFrom'];
-                        }
-                        if (requestParameters['cashDateTo'] != null) {
-                            queryParameters['cashDateTo'] = requestParameters['cashDateTo'];
-                        }
-                        if (requestParameters['cashDateFrom'] != null) {
-                            queryParameters['cashDateFrom'] = requestParameters['cashDateFrom'];
-                        }
-                        if (requestParameters['competenceDateTo'] != null) {
-                            queryParameters['competenceDateTo'] = requestParameters['competenceDateTo'];
-                        }
-                        if (requestParameters['competenceDateFrom'] != null) {
-                            queryParameters['competenceDateFrom'] = requestParameters['competenceDateFrom'];
-                        }
-                        if (requestParameters['subcategory'] != null) {
-                            queryParameters['subcategory'] = requestParameters['subcategory'];
-                        }
-                        if (requestParameters['contact'] != null) {
-                            queryParameters['contact'] = requestParameters['contact'];
-                        }
-                        if (requestParameters['dueDateTo'] != null) {
-                            queryParameters['dueDateTo'] = requestParameters['dueDateTo'];
-                        }
-                        if (requestParameters['dueDateFrom'] != null) {
-                            queryParameters['dueDateFrom'] = requestParameters['dueDateFrom'];
-                        }
-                        if (requestParameters['finalAmountTo'] != null) {
-                            queryParameters['finalAmountTo'] = requestParameters['finalAmountTo'];
-                        }
-                        if (requestParameters['finalAmountFrom'] != null) {
-                            queryParameters['finalAmountFrom'] = requestParameters['finalAmountFrom'];
-                        }
-                        if (requestParameters['amountTo'] != null) {
-                            queryParameters['amountTo'] = requestParameters['amountTo'];
-                        }
-                        if (requestParameters['amountFrom'] != null) {
-                            queryParameters['amountFrom'] = requestParameters['amountFrom'];
-                        }
-                        if (requestParameters['direction'] != null) {
-                            queryParameters['direction'] = requestParameters['direction'];
-                        }
-                        if (requestParameters['ids'] != null) {
-                            queryParameters['ids'] = requestParameters['ids'];
-                        }
-                        if (requestParameters['populate'] != null) {
-                            queryParameters['populate'] = requestParameters['populate'];
-                        }
-                        if (requestParameters['semanticSearchTermInBase64'] != null) {
-                            queryParameters['semanticSearchTermInBase64'] = requestParameters['semanticSearchTermInBase64'];
-                        }
-                        if (requestParameters['textSearchTerm'] != null) {
-                            queryParameters['textSearchTerm'] = requestParameters['textSearchTerm'];
-                        }
-                        if (requestParameters['pageSize'] != null) {
-                            queryParameters['pageSize'] = requestParameters['pageSize'];
-                        }
-                        if (requestParameters['pageIndex'] != null) {
-                            queryParameters['pageIndex'] = requestParameters['pageIndex'];
-                        }
-                        headerParameters = {};
-                        urlPath = "/external/financial-records/reports/pdf/table";
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'GET',
-                                headers: headerParameters,
-                                query: queryParameters,
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.generatePdfTableExportFinancialRecordsRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.FileEntityFromJSON)(jsonValue); })];
                 }
@@ -671,36 +762,49 @@ var FinancialRecordsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Creates request options for partialUpdateFinancialRecord without sending the request
+     */
+    FinancialRecordsApi.prototype.partialUpdateFinancialRecordRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                if (requestParameters['id'] == null) {
+                    throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling partialUpdateFinancialRecord().');
+                }
+                if (requestParameters['partialUpdateFinancialRecordRequestBodyDto'] == null) {
+                    throw new runtime.RequiredError('partialUpdateFinancialRecordRequestBodyDto', 'Required parameter "partialUpdateFinancialRecordRequestBodyDto" was null or undefined when calling partialUpdateFinancialRecord().');
+                }
+                queryParameters = {};
+                if (requestParameters['populate'] != null) {
+                    queryParameters['populate'] = requestParameters['populate'];
+                }
+                headerParameters = {};
+                headerParameters['Content-Type'] = 'application/json';
+                urlPath = "/external/financial-records/{id}";
+                urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'PATCH',
+                        headers: headerParameters,
+                        query: queryParameters,
+                        body: (0, index_1.PartialUpdateFinancialRecordRequestBodyDtoToJSON)(requestParameters['partialUpdateFinancialRecordRequestBodyDto']),
+                    }];
+            });
+        });
+    };
+    /**
      * Atualiza parcialmente um lançamento financeiro.
      */
     FinancialRecordsApi.prototype.partialUpdateFinancialRecordRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        if (requestParameters['id'] == null) {
-                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling partialUpdateFinancialRecord().');
-                        }
-                        if (requestParameters['partialUpdateFinancialRecordRequestBodyDto'] == null) {
-                            throw new runtime.RequiredError('partialUpdateFinancialRecordRequestBodyDto', 'Required parameter "partialUpdateFinancialRecordRequestBodyDto" was null or undefined when calling partialUpdateFinancialRecord().');
-                        }
-                        queryParameters = {};
-                        if (requestParameters['populate'] != null) {
-                            queryParameters['populate'] = requestParameters['populate'];
-                        }
-                        headerParameters = {};
-                        headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/external/financial-records/{id}";
-                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'PATCH',
-                                headers: headerParameters,
-                                query: queryParameters,
-                                body: (0, index_1.PartialUpdateFinancialRecordRequestBodyDtoToJSON)(requestParameters['partialUpdateFinancialRecordRequestBodyDto']),
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.partialUpdateFinancialRecordRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.FinancialRecordDtoFromJSON)(jsonValue); })];
                 }
@@ -725,29 +829,42 @@ var FinancialRecordsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Creates request options for partialUpdateManyFinancialRecords without sending the request
+     */
+    FinancialRecordsApi.prototype.partialUpdateManyFinancialRecordsRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                if (requestParameters['partialUpdateManyFinancialRecordsRequestBodyDto'] == null) {
+                    throw new runtime.RequiredError('partialUpdateManyFinancialRecordsRequestBodyDto', 'Required parameter "partialUpdateManyFinancialRecordsRequestBodyDto" was null or undefined when calling partialUpdateManyFinancialRecords().');
+                }
+                queryParameters = {};
+                headerParameters = {};
+                headerParameters['Content-Type'] = 'application/json';
+                urlPath = "/external/financial-records/many";
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'PATCH',
+                        headers: headerParameters,
+                        query: queryParameters,
+                        body: (0, index_1.PartialUpdateManyFinancialRecordsRequestBodyDtoToJSON)(requestParameters['partialUpdateManyFinancialRecordsRequestBodyDto']),
+                    }];
+            });
+        });
+    };
+    /**
      * Atualiza parcialmente múltiplos lançamentos financeiros.
      */
     FinancialRecordsApi.prototype.partialUpdateManyFinancialRecordsRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        if (requestParameters['partialUpdateManyFinancialRecordsRequestBodyDto'] == null) {
-                            throw new runtime.RequiredError('partialUpdateManyFinancialRecordsRequestBodyDto', 'Required parameter "partialUpdateManyFinancialRecordsRequestBodyDto" was null or undefined when calling partialUpdateManyFinancialRecords().');
-                        }
-                        queryParameters = {};
-                        headerParameters = {};
-                        headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/external/financial-records/many";
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'PATCH',
-                                headers: headerParameters,
-                                query: queryParameters,
-                                body: (0, index_1.PartialUpdateManyFinancialRecordsRequestBodyDtoToJSON)(requestParameters['partialUpdateManyFinancialRecordsRequestBodyDto']),
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.partialUpdateManyFinancialRecordsRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return jsonValue.map(index_1.FinancialRecordDtoFromJSON); })];
                 }
@@ -772,33 +889,46 @@ var FinancialRecordsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Creates request options for removeFinancialRecord without sending the request
+     */
+    FinancialRecordsApi.prototype.removeFinancialRecordRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                if (requestParameters['id'] == null) {
+                    throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling removeFinancialRecord().');
+                }
+                if (requestParameters['removeFinancialRecordRequestBodyDto'] == null) {
+                    throw new runtime.RequiredError('removeFinancialRecordRequestBodyDto', 'Required parameter "removeFinancialRecordRequestBodyDto" was null or undefined when calling removeFinancialRecord().');
+                }
+                queryParameters = {};
+                headerParameters = {};
+                headerParameters['Content-Type'] = 'application/json';
+                urlPath = "/external/financial-records/{id}";
+                urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'DELETE',
+                        headers: headerParameters,
+                        query: queryParameters,
+                        body: (0, index_1.RemoveFinancialRecordRequestBodyDtoToJSON)(requestParameters['removeFinancialRecordRequestBodyDto']),
+                    }];
+            });
+        });
+    };
+    /**
      * Remove um lançamento financeiro.
      */
     FinancialRecordsApi.prototype.removeFinancialRecordRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        if (requestParameters['id'] == null) {
-                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling removeFinancialRecord().');
-                        }
-                        if (requestParameters['removeFinancialRecordRequestBodyDto'] == null) {
-                            throw new runtime.RequiredError('removeFinancialRecordRequestBodyDto', 'Required parameter "removeFinancialRecordRequestBodyDto" was null or undefined when calling removeFinancialRecord().');
-                        }
-                        queryParameters = {};
-                        headerParameters = {};
-                        headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/external/financial-records/{id}";
-                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'DELETE',
-                                headers: headerParameters,
-                                query: queryParameters,
-                                body: (0, index_1.RemoveFinancialRecordRequestBodyDtoToJSON)(requestParameters['removeFinancialRecordRequestBodyDto']),
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.removeFinancialRecordRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.VoidApiResponse(response)];
                 }
@@ -821,29 +951,42 @@ var FinancialRecordsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Creates request options for systemCalculateAndUpdateTextSearchVariationsAndHints without sending the request
+     */
+    FinancialRecordsApi.prototype.systemCalculateAndUpdateTextSearchVariationsAndHintsRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                if (requestParameters['systemCalculateSearchVariationsRequestBodyDto'] == null) {
+                    throw new runtime.RequiredError('systemCalculateSearchVariationsRequestBodyDto', 'Required parameter "systemCalculateSearchVariationsRequestBodyDto" was null or undefined when calling systemCalculateAndUpdateTextSearchVariationsAndHints().');
+                }
+                queryParameters = {};
+                headerParameters = {};
+                headerParameters['Content-Type'] = 'application/json';
+                urlPath = "/external/financial-records/calculate-and-update-text-search-variations-and-hints";
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'POST',
+                        headers: headerParameters,
+                        query: queryParameters,
+                        body: (0, index_1.SystemCalculateSearchVariationsRequestBodyDtoToJSON)(requestParameters['systemCalculateSearchVariationsRequestBodyDto']),
+                    }];
+            });
+        });
+    };
+    /**
      * Calcula e atualiza os campos de variações de busca textual e dicas de busca para múltiplos lançamentos financeiros.
      */
     FinancialRecordsApi.prototype.systemCalculateAndUpdateTextSearchVariationsAndHintsRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        if (requestParameters['systemCalculateSearchVariationsRequestBodyDto'] == null) {
-                            throw new runtime.RequiredError('systemCalculateSearchVariationsRequestBodyDto', 'Required parameter "systemCalculateSearchVariationsRequestBodyDto" was null or undefined when calling systemCalculateAndUpdateTextSearchVariationsAndHints().');
-                        }
-                        queryParameters = {};
-                        headerParameters = {};
-                        headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/external/financial-records/calculate-and-update-text-search-variations-and-hints";
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'POST',
-                                headers: headerParameters,
-                                query: queryParameters,
-                                body: (0, index_1.SystemCalculateSearchVariationsRequestBodyDtoToJSON)(requestParameters['systemCalculateSearchVariationsRequestBodyDto']),
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.systemCalculateAndUpdateTextSearchVariationsAndHintsRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.VoidApiResponse(response)];
                 }
@@ -866,33 +1009,46 @@ var FinancialRecordsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Creates request options for systemCreateManyFinancialRecords without sending the request
+     */
+    FinancialRecordsApi.prototype.systemCreateManyFinancialRecordsRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                if (requestParameters['organizationId'] == null) {
+                    throw new runtime.RequiredError('organizationId', 'Required parameter "organizationId" was null or undefined when calling systemCreateManyFinancialRecords().');
+                }
+                if (requestParameters['createManyFinancialRecordsRequestBodyDto'] == null) {
+                    throw new runtime.RequiredError('createManyFinancialRecordsRequestBodyDto', 'Required parameter "createManyFinancialRecordsRequestBodyDto" was null or undefined when calling systemCreateManyFinancialRecords().');
+                }
+                queryParameters = {};
+                headerParameters = {};
+                headerParameters['Content-Type'] = 'application/json';
+                urlPath = "/internal/organizations/{organizationId}/financial-records/many";
+                urlPath = urlPath.replace("{".concat("organizationId", "}"), encodeURIComponent(String(requestParameters['organizationId'])));
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'POST',
+                        headers: headerParameters,
+                        query: queryParameters,
+                        body: (0, index_1.CreateManyFinancialRecordsRequestBodyDtoToJSON)(requestParameters['createManyFinancialRecordsRequestBodyDto']),
+                    }];
+            });
+        });
+    };
+    /**
      * Cria múltiplos lançamentos financeiros.
      */
     FinancialRecordsApi.prototype.systemCreateManyFinancialRecordsRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        if (requestParameters['organizationId'] == null) {
-                            throw new runtime.RequiredError('organizationId', 'Required parameter "organizationId" was null or undefined when calling systemCreateManyFinancialRecords().');
-                        }
-                        if (requestParameters['createManyFinancialRecordsRequestBodyDto'] == null) {
-                            throw new runtime.RequiredError('createManyFinancialRecordsRequestBodyDto', 'Required parameter "createManyFinancialRecordsRequestBodyDto" was null or undefined when calling systemCreateManyFinancialRecords().');
-                        }
-                        queryParameters = {};
-                        headerParameters = {};
-                        headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/internal/organizations/{organizationId}/financial-records/many";
-                        urlPath = urlPath.replace("{".concat("organizationId", "}"), encodeURIComponent(String(requestParameters['organizationId'])));
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'POST',
-                                headers: headerParameters,
-                                query: queryParameters,
-                                body: (0, index_1.CreateManyFinancialRecordsRequestBodyDtoToJSON)(requestParameters['createManyFinancialRecordsRequestBodyDto']),
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.systemCreateManyFinancialRecordsRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return jsonValue.map(index_1.FinancialRecordDtoFromJSON); })];
                 }
@@ -917,123 +1073,136 @@ var FinancialRecordsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Creates request options for systemFindAllFinancialRecords without sending the request
+     */
+    FinancialRecordsApi.prototype.systemFindAllFinancialRecordsRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                if (requestParameters['ownerOrganizationId'] == null) {
+                    throw new runtime.RequiredError('ownerOrganizationId', 'Required parameter "ownerOrganizationId" was null or undefined when calling systemFindAllFinancialRecords().');
+                }
+                queryParameters = {};
+                if (requestParameters['generatePdfListExport'] != null) {
+                    queryParameters['generatePdfListExport'] = requestParameters['generatePdfListExport'];
+                }
+                if (requestParameters['generatePdfTableExport'] != null) {
+                    queryParameters['generatePdfTableExport'] = requestParameters['generatePdfTableExport'];
+                }
+                if (requestParameters['generateExcelExport'] != null) {
+                    queryParameters['generateExcelExport'] = requestParameters['generateExcelExport'];
+                }
+                if (requestParameters['readPreference'] != null) {
+                    queryParameters['readPreference'] = requestParameters['readPreference'];
+                }
+                if (requestParameters['sortOrder'] != null) {
+                    queryParameters['sortOrder'] = requestParameters['sortOrder'];
+                }
+                if (requestParameters['sortBy'] != null) {
+                    queryParameters['sortBy'] = requestParameters['sortBy'];
+                }
+                if (requestParameters['ownerOrganizationId'] != null) {
+                    queryParameters['ownerOrganizationId'] = requestParameters['ownerOrganizationId'];
+                }
+                if (requestParameters['account'] != null) {
+                    queryParameters['account'] = requestParameters['account'];
+                }
+                if (requestParameters['reconciled'] != null) {
+                    queryParameters['reconciled'] = requestParameters['reconciled'];
+                }
+                if (requestParameters['completed'] != null) {
+                    queryParameters['completed'] = requestParameters['completed'];
+                }
+                if (requestParameters['tags'] != null) {
+                    queryParameters['tags'] = requestParameters['tags'];
+                }
+                if (requestParameters['createdAtTo'] != null) {
+                    queryParameters['createdAtTo'] = requestParameters['createdAtTo'];
+                }
+                if (requestParameters['createdAtFrom'] != null) {
+                    queryParameters['createdAtFrom'] = requestParameters['createdAtFrom'];
+                }
+                if (requestParameters['cashDateTo'] != null) {
+                    queryParameters['cashDateTo'] = requestParameters['cashDateTo'];
+                }
+                if (requestParameters['cashDateFrom'] != null) {
+                    queryParameters['cashDateFrom'] = requestParameters['cashDateFrom'];
+                }
+                if (requestParameters['competenceDateTo'] != null) {
+                    queryParameters['competenceDateTo'] = requestParameters['competenceDateTo'];
+                }
+                if (requestParameters['competenceDateFrom'] != null) {
+                    queryParameters['competenceDateFrom'] = requestParameters['competenceDateFrom'];
+                }
+                if (requestParameters['subcategory'] != null) {
+                    queryParameters['subcategory'] = requestParameters['subcategory'];
+                }
+                if (requestParameters['contact'] != null) {
+                    queryParameters['contact'] = requestParameters['contact'];
+                }
+                if (requestParameters['dueDateTo'] != null) {
+                    queryParameters['dueDateTo'] = requestParameters['dueDateTo'];
+                }
+                if (requestParameters['dueDateFrom'] != null) {
+                    queryParameters['dueDateFrom'] = requestParameters['dueDateFrom'];
+                }
+                if (requestParameters['finalAmountTo'] != null) {
+                    queryParameters['finalAmountTo'] = requestParameters['finalAmountTo'];
+                }
+                if (requestParameters['finalAmountFrom'] != null) {
+                    queryParameters['finalAmountFrom'] = requestParameters['finalAmountFrom'];
+                }
+                if (requestParameters['amountTo'] != null) {
+                    queryParameters['amountTo'] = requestParameters['amountTo'];
+                }
+                if (requestParameters['amountFrom'] != null) {
+                    queryParameters['amountFrom'] = requestParameters['amountFrom'];
+                }
+                if (requestParameters['direction'] != null) {
+                    queryParameters['direction'] = requestParameters['direction'];
+                }
+                if (requestParameters['ids'] != null) {
+                    queryParameters['ids'] = requestParameters['ids'];
+                }
+                if (requestParameters['populate'] != null) {
+                    queryParameters['populate'] = requestParameters['populate'];
+                }
+                if (requestParameters['semanticSearchTermInBase64'] != null) {
+                    queryParameters['semanticSearchTermInBase64'] = requestParameters['semanticSearchTermInBase64'];
+                }
+                if (requestParameters['textSearchTerm'] != null) {
+                    queryParameters['textSearchTerm'] = requestParameters['textSearchTerm'];
+                }
+                if (requestParameters['pageSize'] != null) {
+                    queryParameters['pageSize'] = requestParameters['pageSize'];
+                }
+                if (requestParameters['pageIndex'] != null) {
+                    queryParameters['pageIndex'] = requestParameters['pageIndex'];
+                }
+                headerParameters = {};
+                urlPath = "/internal/financial-records";
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'GET',
+                        headers: headerParameters,
+                        query: queryParameters,
+                    }];
+            });
+        });
+    };
+    /**
      * Busca todos os lançamentos financeiros pelo sistema.
      */
     FinancialRecordsApi.prototype.systemFindAllFinancialRecordsRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        if (requestParameters['ownerOrganizationId'] == null) {
-                            throw new runtime.RequiredError('ownerOrganizationId', 'Required parameter "ownerOrganizationId" was null or undefined when calling systemFindAllFinancialRecords().');
-                        }
-                        queryParameters = {};
-                        if (requestParameters['generatePdfListExport'] != null) {
-                            queryParameters['generatePdfListExport'] = requestParameters['generatePdfListExport'];
-                        }
-                        if (requestParameters['generatePdfTableExport'] != null) {
-                            queryParameters['generatePdfTableExport'] = requestParameters['generatePdfTableExport'];
-                        }
-                        if (requestParameters['generateExcelExport'] != null) {
-                            queryParameters['generateExcelExport'] = requestParameters['generateExcelExport'];
-                        }
-                        if (requestParameters['readPreference'] != null) {
-                            queryParameters['readPreference'] = requestParameters['readPreference'];
-                        }
-                        if (requestParameters['sortOrder'] != null) {
-                            queryParameters['sortOrder'] = requestParameters['sortOrder'];
-                        }
-                        if (requestParameters['sortBy'] != null) {
-                            queryParameters['sortBy'] = requestParameters['sortBy'];
-                        }
-                        if (requestParameters['ownerOrganizationId'] != null) {
-                            queryParameters['ownerOrganizationId'] = requestParameters['ownerOrganizationId'];
-                        }
-                        if (requestParameters['account'] != null) {
-                            queryParameters['account'] = requestParameters['account'];
-                        }
-                        if (requestParameters['reconciled'] != null) {
-                            queryParameters['reconciled'] = requestParameters['reconciled'];
-                        }
-                        if (requestParameters['completed'] != null) {
-                            queryParameters['completed'] = requestParameters['completed'];
-                        }
-                        if (requestParameters['tags'] != null) {
-                            queryParameters['tags'] = requestParameters['tags'];
-                        }
-                        if (requestParameters['createdAtTo'] != null) {
-                            queryParameters['createdAtTo'] = requestParameters['createdAtTo'];
-                        }
-                        if (requestParameters['createdAtFrom'] != null) {
-                            queryParameters['createdAtFrom'] = requestParameters['createdAtFrom'];
-                        }
-                        if (requestParameters['cashDateTo'] != null) {
-                            queryParameters['cashDateTo'] = requestParameters['cashDateTo'];
-                        }
-                        if (requestParameters['cashDateFrom'] != null) {
-                            queryParameters['cashDateFrom'] = requestParameters['cashDateFrom'];
-                        }
-                        if (requestParameters['competenceDateTo'] != null) {
-                            queryParameters['competenceDateTo'] = requestParameters['competenceDateTo'];
-                        }
-                        if (requestParameters['competenceDateFrom'] != null) {
-                            queryParameters['competenceDateFrom'] = requestParameters['competenceDateFrom'];
-                        }
-                        if (requestParameters['subcategory'] != null) {
-                            queryParameters['subcategory'] = requestParameters['subcategory'];
-                        }
-                        if (requestParameters['contact'] != null) {
-                            queryParameters['contact'] = requestParameters['contact'];
-                        }
-                        if (requestParameters['dueDateTo'] != null) {
-                            queryParameters['dueDateTo'] = requestParameters['dueDateTo'];
-                        }
-                        if (requestParameters['dueDateFrom'] != null) {
-                            queryParameters['dueDateFrom'] = requestParameters['dueDateFrom'];
-                        }
-                        if (requestParameters['finalAmountTo'] != null) {
-                            queryParameters['finalAmountTo'] = requestParameters['finalAmountTo'];
-                        }
-                        if (requestParameters['finalAmountFrom'] != null) {
-                            queryParameters['finalAmountFrom'] = requestParameters['finalAmountFrom'];
-                        }
-                        if (requestParameters['amountTo'] != null) {
-                            queryParameters['amountTo'] = requestParameters['amountTo'];
-                        }
-                        if (requestParameters['amountFrom'] != null) {
-                            queryParameters['amountFrom'] = requestParameters['amountFrom'];
-                        }
-                        if (requestParameters['direction'] != null) {
-                            queryParameters['direction'] = requestParameters['direction'];
-                        }
-                        if (requestParameters['ids'] != null) {
-                            queryParameters['ids'] = requestParameters['ids'];
-                        }
-                        if (requestParameters['populate'] != null) {
-                            queryParameters['populate'] = requestParameters['populate'];
-                        }
-                        if (requestParameters['semanticSearchTermInBase64'] != null) {
-                            queryParameters['semanticSearchTermInBase64'] = requestParameters['semanticSearchTermInBase64'];
-                        }
-                        if (requestParameters['textSearchTerm'] != null) {
-                            queryParameters['textSearchTerm'] = requestParameters['textSearchTerm'];
-                        }
-                        if (requestParameters['pageSize'] != null) {
-                            queryParameters['pageSize'] = requestParameters['pageSize'];
-                        }
-                        if (requestParameters['pageIndex'] != null) {
-                            queryParameters['pageIndex'] = requestParameters['pageIndex'];
-                        }
-                        headerParameters = {};
-                        urlPath = "/internal/financial-records";
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'GET',
-                                headers: headerParameters,
-                                query: queryParameters,
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.systemFindAllFinancialRecordsRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.SystemFinancialRecordsPageDtoFromJSON)(jsonValue); })];
                 }
@@ -1058,35 +1227,48 @@ var FinancialRecordsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Creates request options for systemFindByIdFinancialRecord without sending the request
+     */
+    FinancialRecordsApi.prototype.systemFindByIdFinancialRecordRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                if (requestParameters['organizationId'] == null) {
+                    throw new runtime.RequiredError('organizationId', 'Required parameter "organizationId" was null or undefined when calling systemFindByIdFinancialRecord().');
+                }
+                if (requestParameters['financialRecordId'] == null) {
+                    throw new runtime.RequiredError('financialRecordId', 'Required parameter "financialRecordId" was null or undefined when calling systemFindByIdFinancialRecord().');
+                }
+                queryParameters = {};
+                if (requestParameters['populate'] != null) {
+                    queryParameters['populate'] = requestParameters['populate'];
+                }
+                headerParameters = {};
+                urlPath = "/internal/organizations/{organizationId}/financial-records/{financialRecordId}";
+                urlPath = urlPath.replace("{".concat("organizationId", "}"), encodeURIComponent(String(requestParameters['organizationId'])));
+                urlPath = urlPath.replace("{".concat("financialRecordId", "}"), encodeURIComponent(String(requestParameters['financialRecordId'])));
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'GET',
+                        headers: headerParameters,
+                        query: queryParameters,
+                    }];
+            });
+        });
+    };
+    /**
      * Busca um lançamento financeiro pelo identificador.
      */
     FinancialRecordsApi.prototype.systemFindByIdFinancialRecordRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        if (requestParameters['organizationId'] == null) {
-                            throw new runtime.RequiredError('organizationId', 'Required parameter "organizationId" was null or undefined when calling systemFindByIdFinancialRecord().');
-                        }
-                        if (requestParameters['financialRecordId'] == null) {
-                            throw new runtime.RequiredError('financialRecordId', 'Required parameter "financialRecordId" was null or undefined when calling systemFindByIdFinancialRecord().');
-                        }
-                        queryParameters = {};
-                        if (requestParameters['populate'] != null) {
-                            queryParameters['populate'] = requestParameters['populate'];
-                        }
-                        headerParameters = {};
-                        urlPath = "/internal/organizations/{organizationId}/financial-records/{financialRecordId}";
-                        urlPath = urlPath.replace("{".concat("organizationId", "}"), encodeURIComponent(String(requestParameters['organizationId'])));
-                        urlPath = urlPath.replace("{".concat("financialRecordId", "}"), encodeURIComponent(String(requestParameters['financialRecordId'])));
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'GET',
-                                headers: headerParameters,
-                                query: queryParameters,
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.systemFindByIdFinancialRecordRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.FinancialRecordDtoFromJSON)(jsonValue); })];
                 }
@@ -1111,50 +1293,63 @@ var FinancialRecordsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Creates request options for systemGenerateMostCommonContactsAndSubcategoriesForSimilarFinancialRecordReport without sending the request
+     */
+    FinancialRecordsApi.prototype.systemGenerateMostCommonContactsAndSubcategoriesForSimilarFinancialRecordReportRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                if (requestParameters['nSubcategories'] == null) {
+                    throw new runtime.RequiredError('nSubcategories', 'Required parameter "nSubcategories" was null or undefined when calling systemGenerateMostCommonContactsAndSubcategoriesForSimilarFinancialRecordReport().');
+                }
+                if (requestParameters['nSimilarFinancialRecordsConsidered'] == null) {
+                    throw new runtime.RequiredError('nSimilarFinancialRecordsConsidered', 'Required parameter "nSimilarFinancialRecordsConsidered" was null or undefined when calling systemGenerateMostCommonContactsAndSubcategoriesForSimilarFinancialRecordReport().');
+                }
+                if (requestParameters['ownerOrganizationId'] == null) {
+                    throw new runtime.RequiredError('ownerOrganizationId', 'Required parameter "ownerOrganizationId" was null or undefined when calling systemGenerateMostCommonContactsAndSubcategoriesForSimilarFinancialRecordReport().');
+                }
+                if (requestParameters['systemGenerateMostCommonContactsForSimilarFinancialRecordReportRequestBodyDto'] == null) {
+                    throw new runtime.RequiredError('systemGenerateMostCommonContactsForSimilarFinancialRecordReportRequestBodyDto', 'Required parameter "systemGenerateMostCommonContactsForSimilarFinancialRecordReportRequestBodyDto" was null or undefined when calling systemGenerateMostCommonContactsAndSubcategoriesForSimilarFinancialRecordReport().');
+                }
+                queryParameters = {};
+                if (requestParameters['nSubcategories'] != null) {
+                    queryParameters['nSubcategories'] = requestParameters['nSubcategories'];
+                }
+                if (requestParameters['nSimilarFinancialRecordsConsidered'] != null) {
+                    queryParameters['nSimilarFinancialRecordsConsidered'] = requestParameters['nSimilarFinancialRecordsConsidered'];
+                }
+                if (requestParameters['ownerOrganizationId'] != null) {
+                    queryParameters['ownerOrganizationId'] = requestParameters['ownerOrganizationId'];
+                }
+                if (requestParameters['readPreference'] != null) {
+                    queryParameters['readPreference'] = requestParameters['readPreference'];
+                }
+                headerParameters = {};
+                headerParameters['Content-Type'] = 'application/json';
+                urlPath = "/internal/financial-records/system-generate-most-common-subcategories-for-similar-financial-record-report";
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'POST',
+                        headers: headerParameters,
+                        query: queryParameters,
+                        body: (0, index_1.SystemGenerateMostCommonContactsForSimilarFinancialRecordReportRequestBodyDtoToJSON)(requestParameters['systemGenerateMostCommonContactsForSimilarFinancialRecordReportRequestBodyDto']),
+                    }];
+            });
+        });
+    };
+    /**
      * Gera relatório dos contatos e subcategorias mais comuns para lançamentos financeiros similares.
      */
     FinancialRecordsApi.prototype.systemGenerateMostCommonContactsAndSubcategoriesForSimilarFinancialRecordReportRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        if (requestParameters['nSubcategories'] == null) {
-                            throw new runtime.RequiredError('nSubcategories', 'Required parameter "nSubcategories" was null or undefined when calling systemGenerateMostCommonContactsAndSubcategoriesForSimilarFinancialRecordReport().');
-                        }
-                        if (requestParameters['nSimilarFinancialRecordsConsidered'] == null) {
-                            throw new runtime.RequiredError('nSimilarFinancialRecordsConsidered', 'Required parameter "nSimilarFinancialRecordsConsidered" was null or undefined when calling systemGenerateMostCommonContactsAndSubcategoriesForSimilarFinancialRecordReport().');
-                        }
-                        if (requestParameters['ownerOrganizationId'] == null) {
-                            throw new runtime.RequiredError('ownerOrganizationId', 'Required parameter "ownerOrganizationId" was null or undefined when calling systemGenerateMostCommonContactsAndSubcategoriesForSimilarFinancialRecordReport().');
-                        }
-                        if (requestParameters['systemGenerateMostCommonContactsForSimilarFinancialRecordReportRequestBodyDto'] == null) {
-                            throw new runtime.RequiredError('systemGenerateMostCommonContactsForSimilarFinancialRecordReportRequestBodyDto', 'Required parameter "systemGenerateMostCommonContactsForSimilarFinancialRecordReportRequestBodyDto" was null or undefined when calling systemGenerateMostCommonContactsAndSubcategoriesForSimilarFinancialRecordReport().');
-                        }
-                        queryParameters = {};
-                        if (requestParameters['nSubcategories'] != null) {
-                            queryParameters['nSubcategories'] = requestParameters['nSubcategories'];
-                        }
-                        if (requestParameters['nSimilarFinancialRecordsConsidered'] != null) {
-                            queryParameters['nSimilarFinancialRecordsConsidered'] = requestParameters['nSimilarFinancialRecordsConsidered'];
-                        }
-                        if (requestParameters['ownerOrganizationId'] != null) {
-                            queryParameters['ownerOrganizationId'] = requestParameters['ownerOrganizationId'];
-                        }
-                        if (requestParameters['readPreference'] != null) {
-                            queryParameters['readPreference'] = requestParameters['readPreference'];
-                        }
-                        headerParameters = {};
-                        headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/internal/financial-records/system-generate-most-common-subcategories-for-similar-financial-record-report";
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'POST',
-                                headers: headerParameters,
-                                query: queryParameters,
-                                body: (0, index_1.SystemGenerateMostCommonContactsForSimilarFinancialRecordReportRequestBodyDtoToJSON)(requestParameters['systemGenerateMostCommonContactsForSimilarFinancialRecordReportRequestBodyDto']),
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.systemGenerateMostCommonContactsAndSubcategoriesForSimilarFinancialRecordReportRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.SystemGenerateMostCommonContactsForSimilarFinancialRecordReportResponseDtoFromJSON)(jsonValue); })];
                 }
@@ -1179,34 +1374,47 @@ var FinancialRecordsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Creates request options for unlinkAllRadarItemsFromFinancialRecord without sending the request
+     */
+    FinancialRecordsApi.prototype.unlinkAllRadarItemsFromFinancialRecordRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                if (requestParameters['id'] == null) {
+                    throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling unlinkAllRadarItemsFromFinancialRecord().');
+                }
+                if (requestParameters['unlinkAllRadarItemsRequestBodyDto'] == null) {
+                    throw new runtime.RequiredError('unlinkAllRadarItemsRequestBodyDto', 'Required parameter "unlinkAllRadarItemsRequestBodyDto" was null or undefined when calling unlinkAllRadarItemsFromFinancialRecord().');
+                }
+                queryParameters = {};
+                headerParameters = {};
+                headerParameters['Content-Type'] = 'application/json';
+                urlPath = "/external/financial-records/{id}/unlink-all-radar-items";
+                urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'POST',
+                        headers: headerParameters,
+                        query: queryParameters,
+                        body: (0, index_1.UnlinkAllRadarItemsRequestBodyDtoToJSON)(requestParameters['unlinkAllRadarItemsRequestBodyDto']),
+                    }];
+            });
+        });
+    };
+    /**
      * Remove o vínculo entre um lançamento financeiro e todos os radar items que estão associados a ele.
      * Desvincula todos os radar items de um lançamento financeiro
      */
     FinancialRecordsApi.prototype.unlinkAllRadarItemsFromFinancialRecordRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        if (requestParameters['id'] == null) {
-                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling unlinkAllRadarItemsFromFinancialRecord().');
-                        }
-                        if (requestParameters['unlinkAllRadarItemsRequestBodyDto'] == null) {
-                            throw new runtime.RequiredError('unlinkAllRadarItemsRequestBodyDto', 'Required parameter "unlinkAllRadarItemsRequestBodyDto" was null or undefined when calling unlinkAllRadarItemsFromFinancialRecord().');
-                        }
-                        queryParameters = {};
-                        headerParameters = {};
-                        headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/external/financial-records/{id}/unlink-all-radar-items";
-                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'POST',
-                                headers: headerParameters,
-                                query: queryParameters,
-                                body: (0, index_1.UnlinkAllRadarItemsRequestBodyDtoToJSON)(requestParameters['unlinkAllRadarItemsRequestBodyDto']),
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.unlinkAllRadarItemsFromFinancialRecordRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response)];
                 }

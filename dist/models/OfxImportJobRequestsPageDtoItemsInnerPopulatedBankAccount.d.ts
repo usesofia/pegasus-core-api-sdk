@@ -37,7 +37,7 @@ export interface OfxImportJobRequestsPageDtoItemsInnerPopulatedBankAccount {
     name: string;
     /**
      * Tipo da conta bancária.
-     * @type {string}
+     * @type {OfxImportJobRequestsPageDtoItemsInnerPopulatedBankAccountTypeEnum}
      * @memberof OfxImportJobRequestsPageDtoItemsInnerPopulatedBankAccount
      */
     type: OfxImportJobRequestsPageDtoItemsInnerPopulatedBankAccountTypeEnum;
@@ -97,7 +97,7 @@ export interface OfxImportJobRequestsPageDtoItemsInnerPopulatedBankAccount {
     active: boolean;
     /**
      * Fornecedor da conta bancária.
-     * @type {string}
+     * @type {OfxImportJobRequestsPageDtoItemsInnerPopulatedBankAccountProviderEnum}
      * @memberof OfxImportJobRequestsPageDtoItemsInnerPopulatedBankAccount
      */
     provider?: OfxImportJobRequestsPageDtoItemsInnerPopulatedBankAccountProviderEnum | null;

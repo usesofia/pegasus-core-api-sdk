@@ -46,6 +46,23 @@ export interface ExportBankAccountsRequest {
  */
 export interface BankAccountsExportApiInterface {
     /**
+     * Creates request options for exportBankAccounts without sending the request
+     * @param {'asc' | 'desc'} [sortOrder] Ordem de ordenação das contas bancárias.
+     * @param {'name' | 'type' | 'institution' | 'createdAt' | 'updatedAt'} [sortBy] Campo para ordenação das contas bancárias.
+     * @param {string} [providerAccountId] Identificador da conta bancária no fornecedor.
+     * @param {string} [provider] Fornecedor da conta bancária.
+     * @param {boolean} [active] Indica se a conta está ativa.
+     * @param {Array<string>} [ids] Identificadores das contas bancárias a serem buscadas.
+     * @param {boolean} [isDefault] Indica se a conta é a padrão.
+     * @param {boolean} [isAutomatic] Indica se a conta é automática ou manual.
+     * @param {string} [type] Tipo de conta bancária a ser buscada.
+     * @param {'csv' | 'xlsx'} [format] Formato de exportação dos dados.
+     * @throws {RequiredError}
+     * @memberof BankAccountsExportApiInterface
+     */
+    exportBankAccountsRequestOpts(requestParameters: ExportBankAccountsRequest): Promise<runtime.RequestOpts>;
+
+    /**
      * 
      * @summary Solicita a exportação das contas bancárias.
      * @param {'asc' | 'desc'} [sortOrder] Ordem de ordenação das contas bancárias.
@@ -77,9 +94,9 @@ export interface BankAccountsExportApiInterface {
 export class BankAccountsExportApi extends runtime.BaseAPI implements BankAccountsExportApiInterface {
 
     /**
-     * Solicita a exportação das contas bancárias.
+     * Creates request options for exportBankAccounts without sending the request
      */
-    async exportBankAccountsRaw(requestParameters: ExportBankAccountsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ExportBankAccountsDto>> {
+    async exportBankAccountsRequestOpts(requestParameters: ExportBankAccountsRequest): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         if (requestParameters['sortOrder'] != null) {
@@ -127,12 +144,20 @@ export class BankAccountsExportApi extends runtime.BaseAPI implements BankAccoun
 
         let urlPath = `/external/bank-accounts/export`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Solicita a exportação das contas bancárias.
+     */
+    async exportBankAccountsRaw(requestParameters: ExportBankAccountsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ExportBankAccountsDto>> {
+        const requestOptions = await this.exportBankAccountsRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ExportBankAccountsDtoFromJSON(jsonValue));
     }

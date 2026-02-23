@@ -39,7 +39,7 @@ export interface OrganizationEntity {
     slug: string;
     /**
      * Tipo da organização.
-     * @type {string}
+     * @type {OrganizationEntityTypeEnum}
      * @memberof OrganizationEntity
      */
     type: OrganizationEntityTypeEnum;

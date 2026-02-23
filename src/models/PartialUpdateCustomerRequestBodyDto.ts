@@ -33,7 +33,7 @@ export interface PartialUpdateCustomerRequestBodyDto {
     description?: string | null;
     /**
      * Tipo do customer.
-     * @type {string}
+     * @type {PartialUpdateCustomerRequestBodyDtoTypeEnum}
      * @memberof PartialUpdateCustomerRequestBodyDto
      */
     type?: PartialUpdateCustomerRequestBodyDtoTypeEnum;

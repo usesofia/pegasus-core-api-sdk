@@ -39,7 +39,7 @@ export interface CreateFileUploadRequestBodyDto {
     size: number;
     /**
      * Tipo do arquivo.
-     * @type {string}
+     * @type {CreateFileUploadRequestBodyDtoFileTypeEnum}
      * @memberof CreateFileUploadRequestBodyDto
      */
     fileType: CreateFileUploadRequestBodyDtoFileTypeEnum;
@@ -51,7 +51,7 @@ export interface CreateFileUploadRequestBodyDto {
     caption?: string | null;
     /**
      * Canal de origem da operação
-     * @type {string}
+     * @type {CreateFileUploadRequestBodyDtoChannelEnum}
      * @memberof CreateFileUploadRequestBodyDto
      */
     channel: CreateFileUploadRequestBodyDtoChannelEnum;

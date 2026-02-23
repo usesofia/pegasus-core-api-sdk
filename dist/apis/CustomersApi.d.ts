@@ -41,6 +41,13 @@ export interface PartialUpdateCustomerRequest {
  */
 export interface CustomersApiInterface {
     /**
+     * Creates request options for createCustomer without sending the request
+     * @param {CreateCustomerRequestBodyDto} createCustomerRequestBodyDto
+     * @throws {RequiredError}
+     * @memberof CustomersApiInterface
+     */
+    createCustomerRequestOpts(requestParameters: CreateCustomerRequest): Promise<runtime.RequestOpts>;
+    /**
      *
      * @summary Create a new customer.
      * @param {CreateCustomerRequestBodyDto} createCustomerRequestBodyDto
@@ -53,6 +60,22 @@ export interface CustomersApiInterface {
      * Create a new customer.
      */
     createCustomer(requestParameters: CreateCustomerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CustomerDto>;
+    /**
+     * Creates request options for findAllCustomers without sending the request
+     * @param {'asc' | 'desc'} [sortOrder] Ordem de ordenação dos customers.
+     * @param {'name' | 'createdAt' | 'nChildrenOrganizations' | 'mrr'} [sortBy] Campo para ordenação dos customers.
+     * @param {string} [textSearchTerm] Termo para busca textual por nome/description do customer ou nome/id das organizações filhas.
+     * @param {string} [subscriptionStatuses] Lista de status de subscription das organizações filhas para filtrar, separados por vírgula.
+     * @param {string} [trialExpiresAtTo] Data de expiração do trial das organizações filhas até (formato ISO 8601).
+     * @param {string} [trialExpiresAtFrom] Data de expiração do trial das organizações filhas a partir de (formato ISO 8601).
+     * @param {string} [subtypes] Lista de subtipos de organizações filhas para filtrar, separados por vírgula.
+     * @param {string} [types] Lista de tipos de customers para filtrar, separados por vírgula.
+     * @param {number} [pageSize] Quantidade de itens por página.
+     * @param {number} [pageIndex] Índice da página.
+     * @throws {RequiredError}
+     * @memberof CustomersApiInterface
+     */
+    findAllCustomersRequestOpts(requestParameters: FindAllCustomersRequest): Promise<runtime.RequestOpts>;
     /**
      *
      * @summary Lista todos os customers com paginação e filtros.
@@ -76,6 +99,13 @@ export interface CustomersApiInterface {
      */
     findAllCustomers(requestParameters: FindAllCustomersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CustomersPageDto>;
     /**
+     * Creates request options for findByIdCustomer without sending the request
+     * @param {string} id Identificador do customer.
+     * @throws {RequiredError}
+     * @memberof CustomersApiInterface
+     */
+    findByIdCustomerRequestOpts(requestParameters: FindByIdCustomerRequest): Promise<runtime.RequestOpts>;
+    /**
      *
      * @summary Busca um customer pelo identificador.
      * @param {string} id Identificador do customer.
@@ -89,6 +119,12 @@ export interface CustomersApiInterface {
      */
     findByIdCustomer(requestParameters: FindByIdCustomerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CustomerDto>;
     /**
+     * Creates request options for getCustomersAnalytics without sending the request
+     * @throws {RequiredError}
+     * @memberof CustomersApiInterface
+     */
+    getCustomersAnalyticsRequestOpts(): Promise<runtime.RequestOpts>;
+    /**
      *
      * @summary Busca analytics dos customers incluindo total de clientes e MRR.
      * @param {*} [options] Override http request option.
@@ -100,6 +136,14 @@ export interface CustomersApiInterface {
      * Busca analytics dos customers incluindo total de clientes e MRR.
      */
     getCustomersAnalytics(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CustomerAnalyticsResponseDto>;
+    /**
+     * Creates request options for partialUpdateCustomer without sending the request
+     * @param {string} id Customer ID
+     * @param {PartialUpdateCustomerRequestBodyDto} partialUpdateCustomerRequestBodyDto
+     * @throws {RequiredError}
+     * @memberof CustomersApiInterface
+     */
+    partialUpdateCustomerRequestOpts(requestParameters: PartialUpdateCustomerRequest): Promise<runtime.RequestOpts>;
     /**
      *
      * @summary Partially update a customer.
@@ -120,6 +164,10 @@ export interface CustomersApiInterface {
  */
 export declare class CustomersApi extends runtime.BaseAPI implements CustomersApiInterface {
     /**
+     * Creates request options for createCustomer without sending the request
+     */
+    createCustomerRequestOpts(requestParameters: CreateCustomerRequest): Promise<runtime.RequestOpts>;
+    /**
      * Create a new customer.
      */
     createCustomerRaw(requestParameters: CreateCustomerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CustomerDto>>;
@@ -127,6 +175,10 @@ export declare class CustomersApi extends runtime.BaseAPI implements CustomersAp
      * Create a new customer.
      */
     createCustomer(requestParameters: CreateCustomerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CustomerDto>;
+    /**
+     * Creates request options for findAllCustomers without sending the request
+     */
+    findAllCustomersRequestOpts(requestParameters: FindAllCustomersRequest): Promise<runtime.RequestOpts>;
     /**
      * Lista todos os customers com paginação e filtros.
      */
@@ -136,6 +188,10 @@ export declare class CustomersApi extends runtime.BaseAPI implements CustomersAp
      */
     findAllCustomers(requestParameters?: FindAllCustomersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CustomersPageDto>;
     /**
+     * Creates request options for findByIdCustomer without sending the request
+     */
+    findByIdCustomerRequestOpts(requestParameters: FindByIdCustomerRequest): Promise<runtime.RequestOpts>;
+    /**
      * Busca um customer pelo identificador.
      */
     findByIdCustomerRaw(requestParameters: FindByIdCustomerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CustomerDto>>;
@@ -144,6 +200,10 @@ export declare class CustomersApi extends runtime.BaseAPI implements CustomersAp
      */
     findByIdCustomer(requestParameters: FindByIdCustomerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CustomerDto>;
     /**
+     * Creates request options for getCustomersAnalytics without sending the request
+     */
+    getCustomersAnalyticsRequestOpts(): Promise<runtime.RequestOpts>;
+    /**
      * Busca analytics dos customers incluindo total de clientes e MRR.
      */
     getCustomersAnalyticsRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CustomerAnalyticsResponseDto>>;
@@ -151,6 +211,10 @@ export declare class CustomersApi extends runtime.BaseAPI implements CustomersAp
      * Busca analytics dos customers incluindo total de clientes e MRR.
      */
     getCustomersAnalytics(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CustomerAnalyticsResponseDto>;
+    /**
+     * Creates request options for partialUpdateCustomer without sending the request
+     */
+    partialUpdateCustomerRequestOpts(requestParameters: PartialUpdateCustomerRequest): Promise<runtime.RequestOpts>;
     /**
      * Partially update a customer.
      */

@@ -60,6 +60,37 @@ export interface ExportFinancialRecordsRequest {
  */
 export interface FinancialRecordsExportApiInterface {
     /**
+     * Creates request options for exportFinancialRecords without sending the request
+     * @param {'asc' | 'desc'} [sortOrder] Ordem de ordenação dos lançamentos financeiros.
+     * @param {'direction' | 'dueDate' | 'contact' | 'description' | 'subcategory' | 'amount' | 'competenceDate' | 'cashDate' | 'createdAt' | 'finalAmount'} [sortBy] Campo para ordenação dos lançamentos financeiros.
+     * @param {string} [recurringFinancialRecord] ID da recorrência financeira.
+     * @param {string} [installmentFinancialRecord] ID do parcelamento financeiro.
+     * @param {string} [account] ID da conta do lançamento financeiro.
+     * @param {boolean} [reconciled] Indica se o lançamento financeiro foi reconciliado.
+     * @param {boolean} [completed] Indica se o lançamento financeiro foi completado.
+     * @param {string} [tags] IDs das tags do lançamento financeiro separados por vírgula.
+     * @param {string} [createdAtTo] Data de criação final.
+     * @param {string} [createdAtFrom] Data de criação inicial.
+     * @param {string} [cashDateTo] Data de pagamento final.
+     * @param {string} [cashDateFrom] Data de pagamento inicial.
+     * @param {string} [competenceDateTo] Data de competência final.
+     * @param {string} [competenceDateFrom] Data de competência inicial.
+     * @param {string} [subcategory] ID da subcategoria do lançamento financeiro.
+     * @param {string} [contact] ID do contato do lançamento financeiro.
+     * @param {string} [dueDateTo] Data de vencimento final.
+     * @param {string} [dueDateFrom] Data de vencimento inicial.
+     * @param {string} [finalAmountTo] Valor final do lançamento financeiro máximo.
+     * @param {string} [finalAmountFrom] Valor final do lançamento financeiro mínimo.
+     * @param {string} [amountTo] Valor do lançamento financeiro máximo.
+     * @param {string} [amountFrom] Valor do lançamento financeiro mínimo.
+     * @param {'IN' | 'OUT'} [direction] Direção do lançamento financeiro.
+     * @param {'csv' | 'xlsx'} [format] Formato de exportação dos dados.
+     * @throws {RequiredError}
+     * @memberof FinancialRecordsExportApiInterface
+     */
+    exportFinancialRecordsRequestOpts(requestParameters: ExportFinancialRecordsRequest): Promise<runtime.RequestOpts>;
+
+    /**
      * 
      * @summary Solicita a exportação dos lançamentos financeiros.
      * @param {'asc' | 'desc'} [sortOrder] Ordem de ordenação dos lançamentos financeiros.
@@ -105,9 +136,9 @@ export interface FinancialRecordsExportApiInterface {
 export class FinancialRecordsExportApi extends runtime.BaseAPI implements FinancialRecordsExportApiInterface {
 
     /**
-     * Solicita a exportação dos lançamentos financeiros.
+     * Creates request options for exportFinancialRecords without sending the request
      */
-    async exportFinancialRecordsRaw(requestParameters: ExportFinancialRecordsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ExportFinancialRecordsDto>> {
+    async exportFinancialRecordsRequestOpts(requestParameters: ExportFinancialRecordsRequest): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         if (requestParameters['sortOrder'] != null) {
@@ -211,12 +242,20 @@ export class FinancialRecordsExportApi extends runtime.BaseAPI implements Financ
 
         let urlPath = `/external/financial-records/export`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Solicita a exportação dos lançamentos financeiros.
+     */
+    async exportFinancialRecordsRaw(requestParameters: ExportFinancialRecordsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ExportFinancialRecordsDto>> {
+        const requestOptions = await this.exportFinancialRecordsRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ExportFinancialRecordsDtoFromJSON(jsonValue));
     }

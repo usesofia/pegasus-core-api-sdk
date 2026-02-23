@@ -40,6 +40,14 @@ export interface ProspectRecurringFinancialRecordRequest {
  */
 export interface ProspectRecurringFinancialRecordsApiInterface {
     /**
+     * Creates request options for prospectRecurringFinancialRecord without sending the request
+     * @param {ProspectRecurringFinancialRecordRequestBodyDto} prospectRecurringFinancialRecordRequestBodyDto 
+     * @throws {RequiredError}
+     * @memberof ProspectRecurringFinancialRecordsApiInterface
+     */
+    prospectRecurringFinancialRecordRequestOpts(requestParameters: ProspectRecurringFinancialRecordRequest): Promise<runtime.RequestOpts>;
+
+    /**
      * 
      * @summary Simula os lançamentos únicos que serão criados para um lançamento financeiro recorrente.
      * @param {ProspectRecurringFinancialRecordRequestBodyDto} prospectRecurringFinancialRecordRequestBodyDto 
@@ -62,9 +70,9 @@ export interface ProspectRecurringFinancialRecordsApiInterface {
 export class ProspectRecurringFinancialRecordsApi extends runtime.BaseAPI implements ProspectRecurringFinancialRecordsApiInterface {
 
     /**
-     * Simula os lançamentos únicos que serão criados para um lançamento financeiro recorrente.
+     * Creates request options for prospectRecurringFinancialRecord without sending the request
      */
-    async prospectRecurringFinancialRecordRaw(requestParameters: ProspectRecurringFinancialRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<ProspectFinancialRecordDto>>> {
+    async prospectRecurringFinancialRecordRequestOpts(requestParameters: ProspectRecurringFinancialRecordRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['prospectRecurringFinancialRecordRequestBodyDto'] == null) {
             throw new runtime.RequiredError(
                 'prospectRecurringFinancialRecordRequestBodyDto',
@@ -81,13 +89,21 @@ export class ProspectRecurringFinancialRecordsApi extends runtime.BaseAPI implem
 
         let urlPath = `/external/recurring-financial-records/prospect`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
             body: ProspectRecurringFinancialRecordRequestBodyDtoToJSON(requestParameters['prospectRecurringFinancialRecordRequestBodyDto']),
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Simula os lançamentos únicos que serão criados para um lançamento financeiro recorrente.
+     */
+    async prospectRecurringFinancialRecordRaw(requestParameters: ProspectRecurringFinancialRecordRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<ProspectFinancialRecordDto>>> {
+        const requestOptions = await this.prospectRecurringFinancialRecordRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(ProspectFinancialRecordDtoFromJSON));
     }

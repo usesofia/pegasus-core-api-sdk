@@ -87,6 +87,15 @@ export interface SystemFindAllTagsRequest {
  */
 export interface TagsApiInterface {
     /**
+     * Creates request options for createTag without sending the request
+     * @param {CreateTagRequestBodyDto} createTagRequestBodyDto 
+     * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
+     * @throws {RequiredError}
+     * @memberof TagsApiInterface
+     */
+    createTagRequestOpts(requestParameters: CreateTagRequest): Promise<runtime.RequestOpts>;
+
+    /**
      * 
      * @summary Cria uma nova tag.
      * @param {CreateTagRequestBodyDto} createTagRequestBodyDto 
@@ -101,6 +110,20 @@ export interface TagsApiInterface {
      * Cria uma nova tag.
      */
     createTag(requestParameters: CreateTagRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<TagEntity>;
+
+    /**
+     * Creates request options for findAllTags without sending the request
+     * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
+     * @param {'asc' | 'desc'} [sortOrder] Ordem de ordenação dos resultados.
+     * @param {'name' | 'createdAt'} [sortBy] Campo para ordenação dos resultados.
+     * @param {string} [ids] Lista de IDs de tags para filtrar separados por vírgula.
+     * @param {string} [textSearchTerm] Termo para busca por nome da tag.
+     * @param {number} [pageSize] Quantidade de itens por página.
+     * @param {number} [pageIndex] Índice da página.
+     * @throws {RequiredError}
+     * @memberof TagsApiInterface
+     */
+    findAllTagsRequestOpts(requestParameters: FindAllTagsRequest): Promise<runtime.RequestOpts>;
 
     /**
      * 
@@ -124,6 +147,15 @@ export interface TagsApiInterface {
     findAllTags(requestParameters: FindAllTagsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<TagsPageEntity>;
 
     /**
+     * Creates request options for findByIdTag without sending the request
+     * @param {string} id Identificador da tag.
+     * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
+     * @throws {RequiredError}
+     * @memberof TagsApiInterface
+     */
+    findByIdTagRequestOpts(requestParameters: FindByIdTagRequest): Promise<runtime.RequestOpts>;
+
+    /**
      * 
      * @summary Busca uma tag pelo identificador.
      * @param {string} id Identificador da tag.
@@ -138,6 +170,16 @@ export interface TagsApiInterface {
      * Busca uma tag pelo identificador.
      */
     findByIdTag(requestParameters: FindByIdTagRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<TagEntity>;
+
+    /**
+     * Creates request options for partialUpdateTag without sending the request
+     * @param {string} id Identificador da tag.
+     * @param {PartialUpdateTagRequestBodyDto} partialUpdateTagRequestBodyDto 
+     * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
+     * @throws {RequiredError}
+     * @memberof TagsApiInterface
+     */
+    partialUpdateTagRequestOpts(requestParameters: PartialUpdateTagRequest): Promise<runtime.RequestOpts>;
 
     /**
      * 
@@ -157,6 +199,15 @@ export interface TagsApiInterface {
     partialUpdateTag(requestParameters: PartialUpdateTagRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<TagEntity>;
 
     /**
+     * Creates request options for removeTag without sending the request
+     * @param {string} id Identificador da tag.
+     * @param {RemoveTagRequestBodyDto} removeTagRequestBodyDto 
+     * @throws {RequiredError}
+     * @memberof TagsApiInterface
+     */
+    removeTagRequestOpts(requestParameters: RemoveTagRequest): Promise<runtime.RequestOpts>;
+
+    /**
      * 
      * @summary Remove uma tag.
      * @param {string} id Identificador da tag.
@@ -171,6 +222,21 @@ export interface TagsApiInterface {
      * Remove uma tag.
      */
     removeTag(requestParameters: RemoveTagRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+
+    /**
+     * Creates request options for systemFindAllTags without sending the request
+     * @param {string} ownerOrganizationId Identificador da organização proprietária das tags.
+     * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
+     * @param {'asc' | 'desc'} [sortOrder] Ordem de ordenação dos resultados.
+     * @param {'name' | 'createdAt'} [sortBy] Campo para ordenação dos resultados.
+     * @param {string} [ids] Lista de IDs de tags para filtrar separados por vírgula.
+     * @param {string} [textSearchTerm] Termo para busca por nome da tag.
+     * @param {number} [pageSize] Quantidade de itens por página.
+     * @param {number} [pageIndex] Índice da página.
+     * @throws {RequiredError}
+     * @memberof TagsApiInterface
+     */
+    systemFindAllTagsRequestOpts(requestParameters: SystemFindAllTagsRequest): Promise<runtime.RequestOpts>;
 
     /**
      * 
@@ -202,9 +268,9 @@ export interface TagsApiInterface {
 export class TagsApi extends runtime.BaseAPI implements TagsApiInterface {
 
     /**
-     * Cria uma nova tag.
+     * Creates request options for createTag without sending the request
      */
-    async createTagRaw(requestParameters: CreateTagRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TagEntity>> {
+    async createTagRequestOpts(requestParameters: CreateTagRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['createTagRequestBodyDto'] == null) {
             throw new runtime.RequiredError(
                 'createTagRequestBodyDto',
@@ -225,13 +291,21 @@ export class TagsApi extends runtime.BaseAPI implements TagsApiInterface {
 
         let urlPath = `/external/tags`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
             body: CreateTagRequestBodyDtoToJSON(requestParameters['createTagRequestBodyDto']),
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Cria uma nova tag.
+     */
+    async createTagRaw(requestParameters: CreateTagRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TagEntity>> {
+        const requestOptions = await this.createTagRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => TagEntityFromJSON(jsonValue));
     }
@@ -245,9 +319,9 @@ export class TagsApi extends runtime.BaseAPI implements TagsApiInterface {
     }
 
     /**
-     * Busca todas as tags.
+     * Creates request options for findAllTags without sending the request
      */
-    async findAllTagsRaw(requestParameters: FindAllTagsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TagsPageEntity>> {
+    async findAllTagsRequestOpts(requestParameters: FindAllTagsRequest): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         if (requestParameters['populate'] != null) {
@@ -283,12 +357,20 @@ export class TagsApi extends runtime.BaseAPI implements TagsApiInterface {
 
         let urlPath = `/external/tags`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Busca todas as tags.
+     */
+    async findAllTagsRaw(requestParameters: FindAllTagsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TagsPageEntity>> {
+        const requestOptions = await this.findAllTagsRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => TagsPageEntityFromJSON(jsonValue));
     }
@@ -302,9 +384,9 @@ export class TagsApi extends runtime.BaseAPI implements TagsApiInterface {
     }
 
     /**
-     * Busca uma tag pelo identificador.
+     * Creates request options for findByIdTag without sending the request
      */
-    async findByIdTagRaw(requestParameters: FindByIdTagRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TagEntity>> {
+    async findByIdTagRequestOpts(requestParameters: FindByIdTagRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
@@ -324,12 +406,20 @@ export class TagsApi extends runtime.BaseAPI implements TagsApiInterface {
         let urlPath = `/external/tags/{id}`;
         urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Busca uma tag pelo identificador.
+     */
+    async findByIdTagRaw(requestParameters: FindByIdTagRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TagEntity>> {
+        const requestOptions = await this.findByIdTagRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => TagEntityFromJSON(jsonValue));
     }
@@ -343,9 +433,9 @@ export class TagsApi extends runtime.BaseAPI implements TagsApiInterface {
     }
 
     /**
-     * Atualiza parcialmente uma tag.
+     * Creates request options for partialUpdateTag without sending the request
      */
-    async partialUpdateTagRaw(requestParameters: PartialUpdateTagRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TagEntity>> {
+    async partialUpdateTagRequestOpts(requestParameters: PartialUpdateTagRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
@@ -374,13 +464,21 @@ export class TagsApi extends runtime.BaseAPI implements TagsApiInterface {
         let urlPath = `/external/tags/{id}`;
         urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'PATCH',
             headers: headerParameters,
             query: queryParameters,
             body: PartialUpdateTagRequestBodyDtoToJSON(requestParameters['partialUpdateTagRequestBodyDto']),
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Atualiza parcialmente uma tag.
+     */
+    async partialUpdateTagRaw(requestParameters: PartialUpdateTagRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TagEntity>> {
+        const requestOptions = await this.partialUpdateTagRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => TagEntityFromJSON(jsonValue));
     }
@@ -394,9 +492,9 @@ export class TagsApi extends runtime.BaseAPI implements TagsApiInterface {
     }
 
     /**
-     * Remove uma tag.
+     * Creates request options for removeTag without sending the request
      */
-    async removeTagRaw(requestParameters: RemoveTagRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+    async removeTagRequestOpts(requestParameters: RemoveTagRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
@@ -421,13 +519,21 @@ export class TagsApi extends runtime.BaseAPI implements TagsApiInterface {
         let urlPath = `/external/tags/{id}`;
         urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'DELETE',
             headers: headerParameters,
             query: queryParameters,
             body: RemoveTagRequestBodyDtoToJSON(requestParameters['removeTagRequestBodyDto']),
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Remove uma tag.
+     */
+    async removeTagRaw(requestParameters: RemoveTagRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        const requestOptions = await this.removeTagRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.VoidApiResponse(response);
     }
@@ -440,9 +546,9 @@ export class TagsApi extends runtime.BaseAPI implements TagsApiInterface {
     }
 
     /**
-     * Busca todas as tags pelo sistema.
+     * Creates request options for systemFindAllTags without sending the request
      */
-    async systemFindAllTagsRaw(requestParameters: SystemFindAllTagsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TagsPageEntity>> {
+    async systemFindAllTagsRequestOpts(requestParameters: SystemFindAllTagsRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['ownerOrganizationId'] == null) {
             throw new runtime.RequiredError(
                 'ownerOrganizationId',
@@ -489,12 +595,20 @@ export class TagsApi extends runtime.BaseAPI implements TagsApiInterface {
 
         let urlPath = `/internal/tags`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Busca todas as tags pelo sistema.
+     */
+    async systemFindAllTagsRaw(requestParameters: SystemFindAllTagsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TagsPageEntity>> {
+        const requestOptions = await this.systemFindAllTagsRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => TagsPageEntityFromJSON(jsonValue));
     }

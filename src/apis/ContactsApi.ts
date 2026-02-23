@@ -120,6 +120,15 @@ export interface SystemFindByIdContactRequest {
  */
 export interface ContactsApiInterface {
     /**
+     * Creates request options for createContact without sending the request
+     * @param {CreateContactRequestBodyDto} createContactRequestBodyDto 
+     * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
+     * @throws {RequiredError}
+     * @memberof ContactsApiInterface
+     */
+    createContactRequestOpts(requestParameters: CreateContactRequest): Promise<runtime.RequestOpts>;
+
+    /**
      * 
      * @summary Cria um novo contato.
      * @param {CreateContactRequestBodyDto} createContactRequestBodyDto 
@@ -136,6 +145,13 @@ export interface ContactsApiInterface {
     createContact(requestParameters: CreateContactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ContactDto>;
 
     /**
+     * Creates request options for findAllContactOrigins without sending the request
+     * @throws {RequiredError}
+     * @memberof ContactsApiInterface
+     */
+    findAllContactOriginsRequestOpts(): Promise<runtime.RequestOpts>;
+
+    /**
      * 
      * @summary Busca todas as origens de contato.
      * @param {*} [options] Override http request option.
@@ -150,6 +166,13 @@ export interface ContactsApiInterface {
     findAllContactOrigins(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<ContactOriginItemEntity>>;
 
     /**
+     * Creates request options for findAllContactTypes without sending the request
+     * @throws {RequiredError}
+     * @memberof ContactsApiInterface
+     */
+    findAllContactTypesRequestOpts(): Promise<runtime.RequestOpts>;
+
+    /**
      * 
      * @summary Busca todos os tipos de contato.
      * @param {*} [options] Override http request option.
@@ -162,6 +185,28 @@ export interface ContactsApiInterface {
      * Busca todos os tipos de contato.
      */
     findAllContactTypes(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<ContactTypeItemEntity>>;
+
+    /**
+     * Creates request options for findAllContacts without sending the request
+     * @param {'asc' | 'desc'} [sortOrder] Ordem de ordenação dos contatos.
+     * @param {'name' | 'document' | 'email' | 'birthDate' | 'createdAt'} [sortBy] Campo para ordenação dos contatos.
+     * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
+     * @param {boolean} [considerNotIdentified] Considerar ou não o contato não identificado.
+     * @param {string} [states] Estados a serem buscados.
+     * @param {string} [country] País a serem buscados.
+     * @param {string} [birthdayTo] Data de nascimento final a serem buscadas.
+     * @param {string} [birthdayFrom] Data de nascimento inicial a serem buscadas.
+     * @param {string} [origins] Origens de contato a serem buscadas.
+     * @param {string} [types] Tipos de contato a serem buscados.
+     * @param {string} [ids] Lista de IDs de contatos para filtrar separados por vírgula.
+     * @param {string} [semanticSearchTermInBase64] Termo para busca semântica.
+     * @param {string} [textSearchTerm] Termo para busca textual.
+     * @param {number} [pageSize] Quantidade de itens por página.
+     * @param {number} [pageIndex] Índice da página.
+     * @throws {RequiredError}
+     * @memberof ContactsApiInterface
+     */
+    findAllContactsRequestOpts(requestParameters: FindAllContactsRequest): Promise<runtime.RequestOpts>;
 
     /**
      * 
@@ -193,6 +238,15 @@ export interface ContactsApiInterface {
     findAllContacts(requestParameters: FindAllContactsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ContactsPageDto>;
 
     /**
+     * Creates request options for findByIdContact without sending the request
+     * @param {string} id Identificador do contato.
+     * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
+     * @throws {RequiredError}
+     * @memberof ContactsApiInterface
+     */
+    findByIdContactRequestOpts(requestParameters: FindByIdContactRequest): Promise<runtime.RequestOpts>;
+
+    /**
      * 
      * @summary Busca um contato pelo identificador.
      * @param {string} id Identificador do contato.
@@ -209,6 +263,14 @@ export interface ContactsApiInterface {
     findByIdContact(requestParameters: FindByIdContactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ContactDto>;
 
     /**
+     * Creates request options for findNotIdentifiedContact without sending the request
+     * @param {string} organizationId Identificador da organização.
+     * @throws {RequiredError}
+     * @memberof ContactsApiInterface
+     */
+    findNotIdentifiedContactRequestOpts(requestParameters: FindNotIdentifiedContactRequest): Promise<runtime.RequestOpts>;
+
+    /**
      * 
      * @summary Busca o contato não identificado.
      * @param {string} organizationId Identificador da organização.
@@ -222,6 +284,16 @@ export interface ContactsApiInterface {
      * Busca o contato não identificado.
      */
     findNotIdentifiedContact(requestParameters: FindNotIdentifiedContactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ContactDto>;
+
+    /**
+     * Creates request options for partialUpdateContact without sending the request
+     * @param {string} id Identificador do contato.
+     * @param {PartialUpdateContactRequestBodyDto} partialUpdateContactRequestBodyDto 
+     * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
+     * @throws {RequiredError}
+     * @memberof ContactsApiInterface
+     */
+    partialUpdateContactRequestOpts(requestParameters: PartialUpdateContactRequest): Promise<runtime.RequestOpts>;
 
     /**
      * 
@@ -241,6 +313,15 @@ export interface ContactsApiInterface {
     partialUpdateContact(requestParameters: PartialUpdateContactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ContactDto>;
 
     /**
+     * Creates request options for removeContact without sending the request
+     * @param {string} id Identificador do contato.
+     * @param {RemoveContactRequestBodyDto} removeContactRequestBodyDto 
+     * @throws {RequiredError}
+     * @memberof ContactsApiInterface
+     */
+    removeContactRequestOpts(requestParameters: RemoveContactRequest): Promise<runtime.RequestOpts>;
+
+    /**
      * 
      * @summary Remove um contato.
      * @param {string} id Identificador do contato.
@@ -255,6 +336,30 @@ export interface ContactsApiInterface {
      * Remove um contato.
      */
     removeContact(requestParameters: RemoveContactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+
+    /**
+     * Creates request options for systemFindAllContacts without sending the request
+     * @param {string} ownerOrganizationId Identificador da organização proprietária dos contatos.
+     * @param {'primary' | 'primaryPreferred' | 'secondary' | 'secondaryPreferred' | 'nearest'} [readPreference] Preferência de leitura dos contatos.
+     * @param {'asc' | 'desc'} [sortOrder] Ordem de ordenação dos contatos.
+     * @param {'name' | 'document' | 'email' | 'birthDate' | 'createdAt'} [sortBy] Campo para ordenação dos contatos.
+     * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
+     * @param {boolean} [considerNotIdentified] Considerar ou não o contato não identificado.
+     * @param {string} [states] Estados a serem buscados.
+     * @param {string} [country] País a serem buscados.
+     * @param {string} [birthdayTo] Data de nascimento final a serem buscadas.
+     * @param {string} [birthdayFrom] Data de nascimento inicial a serem buscadas.
+     * @param {string} [origins] Origens de contato a serem buscadas.
+     * @param {string} [types] Tipos de contato a serem buscados.
+     * @param {string} [ids] Lista de IDs de contatos para filtrar separados por vírgula.
+     * @param {string} [semanticSearchTermInBase64] Termo para busca semântica.
+     * @param {string} [textSearchTerm] Termo para busca textual.
+     * @param {number} [pageSize] Quantidade de itens por página.
+     * @param {number} [pageIndex] Índice da página.
+     * @throws {RequiredError}
+     * @memberof ContactsApiInterface
+     */
+    systemFindAllContactsRequestOpts(requestParameters: SystemFindAllContactsRequest): Promise<runtime.RequestOpts>;
 
     /**
      * 
@@ -288,6 +393,16 @@ export interface ContactsApiInterface {
     systemFindAllContacts(requestParameters: SystemFindAllContactsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ContactsPageDto>;
 
     /**
+     * Creates request options for systemFindByIdContact without sending the request
+     * @param {string} organizationId Identificador da organização.
+     * @param {string} contactId Identificador do contato.
+     * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
+     * @throws {RequiredError}
+     * @memberof ContactsApiInterface
+     */
+    systemFindByIdContactRequestOpts(requestParameters: SystemFindByIdContactRequest): Promise<runtime.RequestOpts>;
+
+    /**
      * 
      * @summary Busca um contato pelo identificador.
      * @param {string} organizationId Identificador da organização.
@@ -312,9 +427,9 @@ export interface ContactsApiInterface {
 export class ContactsApi extends runtime.BaseAPI implements ContactsApiInterface {
 
     /**
-     * Cria um novo contato.
+     * Creates request options for createContact without sending the request
      */
-    async createContactRaw(requestParameters: CreateContactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ContactDto>> {
+    async createContactRequestOpts(requestParameters: CreateContactRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['createContactRequestBodyDto'] == null) {
             throw new runtime.RequiredError(
                 'createContactRequestBodyDto',
@@ -335,13 +450,21 @@ export class ContactsApi extends runtime.BaseAPI implements ContactsApiInterface
 
         let urlPath = `/external/contacts`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
             body: CreateContactRequestBodyDtoToJSON(requestParameters['createContactRequestBodyDto']),
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Cria um novo contato.
+     */
+    async createContactRaw(requestParameters: CreateContactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ContactDto>> {
+        const requestOptions = await this.createContactRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ContactDtoFromJSON(jsonValue));
     }
@@ -355,9 +478,9 @@ export class ContactsApi extends runtime.BaseAPI implements ContactsApiInterface
     }
 
     /**
-     * Busca todas as origens de contato.
+     * Creates request options for findAllContactOrigins without sending the request
      */
-    async findAllContactOriginsRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<ContactOriginItemEntity>>> {
+    async findAllContactOriginsRequestOpts(): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -365,12 +488,20 @@ export class ContactsApi extends runtime.BaseAPI implements ContactsApiInterface
 
         let urlPath = `/external/contacts/origins`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Busca todas as origens de contato.
+     */
+    async findAllContactOriginsRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<ContactOriginItemEntity>>> {
+        const requestOptions = await this.findAllContactOriginsRequestOpts();
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(ContactOriginItemEntityFromJSON));
     }
@@ -384,9 +515,9 @@ export class ContactsApi extends runtime.BaseAPI implements ContactsApiInterface
     }
 
     /**
-     * Busca todos os tipos de contato.
+     * Creates request options for findAllContactTypes without sending the request
      */
-    async findAllContactTypesRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<ContactTypeItemEntity>>> {
+    async findAllContactTypesRequestOpts(): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -394,12 +525,20 @@ export class ContactsApi extends runtime.BaseAPI implements ContactsApiInterface
 
         let urlPath = `/external/contacts/types`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Busca todos os tipos de contato.
+     */
+    async findAllContactTypesRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<ContactTypeItemEntity>>> {
+        const requestOptions = await this.findAllContactTypesRequestOpts();
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(ContactTypeItemEntityFromJSON));
     }
@@ -413,9 +552,9 @@ export class ContactsApi extends runtime.BaseAPI implements ContactsApiInterface
     }
 
     /**
-     * Busca todos os contatos.
+     * Creates request options for findAllContacts without sending the request
      */
-    async findAllContactsRaw(requestParameters: FindAllContactsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ContactsPageDto>> {
+    async findAllContactsRequestOpts(requestParameters: FindAllContactsRequest): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         if (requestParameters['sortOrder'] != null) {
@@ -483,12 +622,20 @@ export class ContactsApi extends runtime.BaseAPI implements ContactsApiInterface
 
         let urlPath = `/external/contacts`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Busca todos os contatos.
+     */
+    async findAllContactsRaw(requestParameters: FindAllContactsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ContactsPageDto>> {
+        const requestOptions = await this.findAllContactsRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ContactsPageDtoFromJSON(jsonValue));
     }
@@ -502,9 +649,9 @@ export class ContactsApi extends runtime.BaseAPI implements ContactsApiInterface
     }
 
     /**
-     * Busca um contato pelo identificador.
+     * Creates request options for findByIdContact without sending the request
      */
-    async findByIdContactRaw(requestParameters: FindByIdContactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ContactDto>> {
+    async findByIdContactRequestOpts(requestParameters: FindByIdContactRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
@@ -524,12 +671,20 @@ export class ContactsApi extends runtime.BaseAPI implements ContactsApiInterface
         let urlPath = `/external/contacts/{id}`;
         urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Busca um contato pelo identificador.
+     */
+    async findByIdContactRaw(requestParameters: FindByIdContactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ContactDto>> {
+        const requestOptions = await this.findByIdContactRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ContactDtoFromJSON(jsonValue));
     }
@@ -543,9 +698,9 @@ export class ContactsApi extends runtime.BaseAPI implements ContactsApiInterface
     }
 
     /**
-     * Busca o contato não identificado.
+     * Creates request options for findNotIdentifiedContact without sending the request
      */
-    async findNotIdentifiedContactRaw(requestParameters: FindNotIdentifiedContactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ContactDto>> {
+    async findNotIdentifiedContactRequestOpts(requestParameters: FindNotIdentifiedContactRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['organizationId'] == null) {
             throw new runtime.RequiredError(
                 'organizationId',
@@ -561,12 +716,20 @@ export class ContactsApi extends runtime.BaseAPI implements ContactsApiInterface
         let urlPath = `/internal/organizations/{organizationId}/contacts/not-identified`;
         urlPath = urlPath.replace(`{${"organizationId"}}`, encodeURIComponent(String(requestParameters['organizationId'])));
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Busca o contato não identificado.
+     */
+    async findNotIdentifiedContactRaw(requestParameters: FindNotIdentifiedContactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ContactDto>> {
+        const requestOptions = await this.findNotIdentifiedContactRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ContactDtoFromJSON(jsonValue));
     }
@@ -580,9 +743,9 @@ export class ContactsApi extends runtime.BaseAPI implements ContactsApiInterface
     }
 
     /**
-     * Atualiza parcialmente um contato.
+     * Creates request options for partialUpdateContact without sending the request
      */
-    async partialUpdateContactRaw(requestParameters: PartialUpdateContactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ContactDto>> {
+    async partialUpdateContactRequestOpts(requestParameters: PartialUpdateContactRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
@@ -611,13 +774,21 @@ export class ContactsApi extends runtime.BaseAPI implements ContactsApiInterface
         let urlPath = `/external/contacts/{id}`;
         urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'PATCH',
             headers: headerParameters,
             query: queryParameters,
             body: PartialUpdateContactRequestBodyDtoToJSON(requestParameters['partialUpdateContactRequestBodyDto']),
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Atualiza parcialmente um contato.
+     */
+    async partialUpdateContactRaw(requestParameters: PartialUpdateContactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ContactDto>> {
+        const requestOptions = await this.partialUpdateContactRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ContactDtoFromJSON(jsonValue));
     }
@@ -631,9 +802,9 @@ export class ContactsApi extends runtime.BaseAPI implements ContactsApiInterface
     }
 
     /**
-     * Remove um contato.
+     * Creates request options for removeContact without sending the request
      */
-    async removeContactRaw(requestParameters: RemoveContactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+    async removeContactRequestOpts(requestParameters: RemoveContactRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
@@ -658,13 +829,21 @@ export class ContactsApi extends runtime.BaseAPI implements ContactsApiInterface
         let urlPath = `/external/contacts/{id}`;
         urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'DELETE',
             headers: headerParameters,
             query: queryParameters,
             body: RemoveContactRequestBodyDtoToJSON(requestParameters['removeContactRequestBodyDto']),
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Remove um contato.
+     */
+    async removeContactRaw(requestParameters: RemoveContactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        const requestOptions = await this.removeContactRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.VoidApiResponse(response);
     }
@@ -677,9 +856,9 @@ export class ContactsApi extends runtime.BaseAPI implements ContactsApiInterface
     }
 
     /**
-     * Busca todos os contatos pelo sistema.
+     * Creates request options for systemFindAllContacts without sending the request
      */
-    async systemFindAllContactsRaw(requestParameters: SystemFindAllContactsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ContactsPageDto>> {
+    async systemFindAllContactsRequestOpts(requestParameters: SystemFindAllContactsRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['ownerOrganizationId'] == null) {
             throw new runtime.RequiredError(
                 'ownerOrganizationId',
@@ -762,12 +941,20 @@ export class ContactsApi extends runtime.BaseAPI implements ContactsApiInterface
 
         let urlPath = `/internal/contacts`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Busca todos os contatos pelo sistema.
+     */
+    async systemFindAllContactsRaw(requestParameters: SystemFindAllContactsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ContactsPageDto>> {
+        const requestOptions = await this.systemFindAllContactsRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ContactsPageDtoFromJSON(jsonValue));
     }
@@ -781,9 +968,9 @@ export class ContactsApi extends runtime.BaseAPI implements ContactsApiInterface
     }
 
     /**
-     * Busca um contato pelo identificador.
+     * Creates request options for systemFindByIdContact without sending the request
      */
-    async systemFindByIdContactRaw(requestParameters: SystemFindByIdContactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ContactDto>> {
+    async systemFindByIdContactRequestOpts(requestParameters: SystemFindByIdContactRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['organizationId'] == null) {
             throw new runtime.RequiredError(
                 'organizationId',
@@ -811,12 +998,20 @@ export class ContactsApi extends runtime.BaseAPI implements ContactsApiInterface
         urlPath = urlPath.replace(`{${"organizationId"}}`, encodeURIComponent(String(requestParameters['organizationId'])));
         urlPath = urlPath.replace(`{${"contactId"}}`, encodeURIComponent(String(requestParameters['contactId'])));
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Busca um contato pelo identificador.
+     */
+    async systemFindByIdContactRaw(requestParameters: SystemFindByIdContactRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ContactDto>> {
+        const requestOptions = await this.systemFindByIdContactRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ContactDtoFromJSON(jsonValue));
     }

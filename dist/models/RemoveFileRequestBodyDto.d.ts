@@ -17,7 +17,7 @@
 export interface RemoveFileRequestBodyDto {
     /**
      * Canal de origem da operação
-     * @type {string}
+     * @type {RemoveFileRequestBodyDtoChannelEnum}
      * @memberof RemoveFileRequestBodyDto
      */
     channel: RemoveFileRequestBodyDtoChannelEnum;

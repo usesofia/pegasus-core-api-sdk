@@ -62,7 +62,7 @@ export interface RecurringFinancialRecordDto {
     ownerOrganization: string;
     /**
      * Direção do lançamento (entrada/saída).
-     * @type {string}
+     * @type {RecurringFinancialRecordDtoDirectionEnum}
      * @memberof RecurringFinancialRecordDto
      */
     direction: RecurringFinancialRecordDtoDirectionEnum;
@@ -110,7 +110,7 @@ export interface RecurringFinancialRecordDto {
     files?: Array<string>;
     /**
      * Frequência de repetição do lançamento.
-     * @type {string}
+     * @type {RecurringFinancialRecordDtoFrequencyEnum}
      * @memberof RecurringFinancialRecordDto
      */
     frequency: RecurringFinancialRecordDtoFrequencyEnum;

@@ -22,13 +22,13 @@ import type { CreateFinancialRecordRequestBodyDtoPopulatedSubcategory } from './
 export interface PartialUpdateInstallmentFinancialRecordRequestBodyDto {
     /**
      * Direção do lançamento (entrada/saída).
-     * @type {string}
+     * @type {PartialUpdateInstallmentFinancialRecordRequestBodyDtoDirectionEnum}
      * @memberof PartialUpdateInstallmentFinancialRecordRequestBodyDto
      */
     direction?: PartialUpdateInstallmentFinancialRecordRequestBodyDtoDirectionEnum;
     /**
      * Frequência do lançamento.
-     * @type {string}
+     * @type {PartialUpdateInstallmentFinancialRecordRequestBodyDtoFrequencyEnum}
      * @memberof PartialUpdateInstallmentFinancialRecordRequestBodyDto
      */
     frequency?: PartialUpdateInstallmentFinancialRecordRequestBodyDtoFrequencyEnum;
@@ -136,7 +136,7 @@ export interface PartialUpdateInstallmentFinancialRecordRequestBodyDto {
     externalId?: string | null;
     /**
      * Canal de origem da operação
-     * @type {string}
+     * @type {PartialUpdateInstallmentFinancialRecordRequestBodyDtoChannelEnum}
      * @memberof PartialUpdateInstallmentFinancialRecordRequestBodyDto
      */
     channel: PartialUpdateInstallmentFinancialRecordRequestBodyDtoChannelEnum;

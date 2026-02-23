@@ -21,7 +21,7 @@ import { mapValues } from '../runtime';
 export interface UpdateOrganizationRequestBodyDto {
     /**
      * Subtipo da organização.
-     * @type {string}
+     * @type {UpdateOrganizationRequestBodyDtoSubtypeEnum}
      * @memberof UpdateOrganizationRequestBodyDto
      */
     subtype?: UpdateOrganizationRequestBodyDtoSubtypeEnum;

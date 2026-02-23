@@ -62,7 +62,7 @@ export interface RecurringFinancialRecordsPageDtoItemsInner {
     ownerOrganization: string;
     /**
      * Direção do lançamento (entrada/saída).
-     * @type {string}
+     * @type {RecurringFinancialRecordsPageDtoItemsInnerDirectionEnum}
      * @memberof RecurringFinancialRecordsPageDtoItemsInner
      */
     direction: RecurringFinancialRecordsPageDtoItemsInnerDirectionEnum;
@@ -110,7 +110,7 @@ export interface RecurringFinancialRecordsPageDtoItemsInner {
     files?: Array<string>;
     /**
      * Frequência de repetição do lançamento.
-     * @type {string}
+     * @type {RecurringFinancialRecordsPageDtoItemsInnerFrequencyEnum}
      * @memberof RecurringFinancialRecordsPageDtoItemsInner
      */
     frequency: RecurringFinancialRecordsPageDtoItemsInnerFrequencyEnum;

@@ -21,7 +21,7 @@ import { mapValues } from '../runtime';
 export interface RemoveSubcategoryRequestBodyDto {
     /**
      * Canal de origem da operação
-     * @type {string}
+     * @type {RemoveSubcategoryRequestBodyDtoChannelEnum}
      * @memberof RemoveSubcategoryRequestBodyDto
      */
     channel: RemoveSubcategoryRequestBodyDtoChannelEnum;

@@ -25,7 +25,7 @@ export interface CreateBankAccountRequestBodyDto {
     name: string;
     /**
      * Tipo da conta bancária.
-     * @type {string}
+     * @type {CreateBankAccountRequestBodyDtoTypeEnum}
      * @memberof CreateBankAccountRequestBodyDto
      */
     type: CreateBankAccountRequestBodyDtoTypeEnum;
@@ -79,7 +79,7 @@ export interface CreateBankAccountRequestBodyDto {
     institutionName?: string | null;
     /**
      * Fornecedor da conta bancária.
-     * @type {string}
+     * @type {CreateBankAccountRequestBodyDtoProviderEnum}
      * @memberof CreateBankAccountRequestBodyDto
      */
     provider?: CreateBankAccountRequestBodyDtoProviderEnum | null;
@@ -133,7 +133,7 @@ export interface CreateBankAccountRequestBodyDto {
     externalId?: string | null;
     /**
      * Canal de origem da operação
-     * @type {string}
+     * @type {CreateBankAccountRequestBodyDtoChannelEnum}
      * @memberof CreateBankAccountRequestBodyDto
      */
     channel: CreateBankAccountRequestBodyDtoChannelEnum;

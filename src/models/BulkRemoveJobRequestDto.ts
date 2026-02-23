@@ -21,7 +21,7 @@ import { mapValues } from '../runtime';
 export interface BulkRemoveJobRequestDto {
     /**
      * 
-     * @type {string}
+     * @type {BulkRemoveJobRequestDtoResourceEnum}
      * @memberof BulkRemoveJobRequestDto
      */
     resource: BulkRemoveJobRequestDtoResourceEnum;
@@ -33,7 +33,7 @@ export interface BulkRemoveJobRequestDto {
     ids: Array<string>;
     /**
      * Canal de origem da operação
-     * @type {string}
+     * @type {BulkRemoveJobRequestDtoChannelEnum}
      * @memberof BulkRemoveJobRequestDto
      */
     channel: BulkRemoveJobRequestDtoChannelEnum;

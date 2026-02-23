@@ -60,6 +60,14 @@ export interface SystemCreateFileUploadRequest {
  */
 export interface FilesUploadApiInterface {
     /**
+     * Creates request options for confirmFileUpload without sending the request
+     * @param {ConfirmFileUploadRequestBodyDto} confirmFileUploadRequestBodyDto 
+     * @throws {RequiredError}
+     * @memberof FilesUploadApiInterface
+     */
+    confirmFileUploadRequestOpts(requestParameters: ConfirmFileUploadRequest): Promise<runtime.RequestOpts>;
+
+    /**
      * 
      * @summary Confirms a file upload
      * @param {ConfirmFileUploadRequestBodyDto} confirmFileUploadRequestBodyDto 
@@ -73,6 +81,14 @@ export interface FilesUploadApiInterface {
      * Confirms a file upload
      */
     confirmFileUpload(requestParameters: ConfirmFileUploadRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FileEntity>;
+
+    /**
+     * Creates request options for createFileUpload without sending the request
+     * @param {CreateFileUploadRequestBodyDto} createFileUploadRequestBodyDto 
+     * @throws {RequiredError}
+     * @memberof FilesUploadApiInterface
+     */
+    createFileUploadRequestOpts(requestParameters: CreateFileUploadRequest): Promise<runtime.RequestOpts>;
 
     /**
      * 
@@ -90,6 +106,15 @@ export interface FilesUploadApiInterface {
     createFileUpload(requestParameters: CreateFileUploadRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CreateFileUpload200Response>;
 
     /**
+     * Creates request options for systemConfirmFileUpload without sending the request
+     * @param {string} organizationId The id of the organization to confirm the file upload
+     * @param {ConfirmFileUploadRequestBodyDto} confirmFileUploadRequestBodyDto 
+     * @throws {RequiredError}
+     * @memberof FilesUploadApiInterface
+     */
+    systemConfirmFileUploadRequestOpts(requestParameters: SystemConfirmFileUploadRequest): Promise<runtime.RequestOpts>;
+
+    /**
      * 
      * @summary Confirms a file upload
      * @param {string} organizationId The id of the organization to confirm the file upload
@@ -104,6 +129,15 @@ export interface FilesUploadApiInterface {
      * Confirms a file upload
      */
     systemConfirmFileUpload(requestParameters: SystemConfirmFileUploadRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FileEntity>;
+
+    /**
+     * Creates request options for systemCreateFileUpload without sending the request
+     * @param {string} organizationId The id of the organization to confirm the file upload
+     * @param {CreateFileUploadRequestBodyDto} createFileUploadRequestBodyDto 
+     * @throws {RequiredError}
+     * @memberof FilesUploadApiInterface
+     */
+    systemCreateFileUploadRequestOpts(requestParameters: SystemCreateFileUploadRequest): Promise<runtime.RequestOpts>;
 
     /**
      * 
@@ -129,9 +163,9 @@ export interface FilesUploadApiInterface {
 export class FilesUploadApi extends runtime.BaseAPI implements FilesUploadApiInterface {
 
     /**
-     * Confirms a file upload
+     * Creates request options for confirmFileUpload without sending the request
      */
-    async confirmFileUploadRaw(requestParameters: ConfirmFileUploadRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FileEntity>> {
+    async confirmFileUploadRequestOpts(requestParameters: ConfirmFileUploadRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['confirmFileUploadRequestBodyDto'] == null) {
             throw new runtime.RequiredError(
                 'confirmFileUploadRequestBodyDto',
@@ -148,13 +182,21 @@ export class FilesUploadApi extends runtime.BaseAPI implements FilesUploadApiInt
 
         let urlPath = `/external/files/upload/confirm`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
             body: ConfirmFileUploadRequestBodyDtoToJSON(requestParameters['confirmFileUploadRequestBodyDto']),
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Confirms a file upload
+     */
+    async confirmFileUploadRaw(requestParameters: ConfirmFileUploadRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FileEntity>> {
+        const requestOptions = await this.confirmFileUploadRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => FileEntityFromJSON(jsonValue));
     }
@@ -168,9 +210,9 @@ export class FilesUploadApi extends runtime.BaseAPI implements FilesUploadApiInt
     }
 
     /**
-     * Cria uma nova solicitação de upload de arquivo
+     * Creates request options for createFileUpload without sending the request
      */
-    async createFileUploadRaw(requestParameters: CreateFileUploadRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CreateFileUpload200Response>> {
+    async createFileUploadRequestOpts(requestParameters: CreateFileUploadRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['createFileUploadRequestBodyDto'] == null) {
             throw new runtime.RequiredError(
                 'createFileUploadRequestBodyDto',
@@ -187,13 +229,21 @@ export class FilesUploadApi extends runtime.BaseAPI implements FilesUploadApiInt
 
         let urlPath = `/external/files/upload`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
             body: CreateFileUploadRequestBodyDtoToJSON(requestParameters['createFileUploadRequestBodyDto']),
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Cria uma nova solicitação de upload de arquivo
+     */
+    async createFileUploadRaw(requestParameters: CreateFileUploadRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CreateFileUpload200Response>> {
+        const requestOptions = await this.createFileUploadRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => CreateFileUpload200ResponseFromJSON(jsonValue));
     }
@@ -207,9 +257,9 @@ export class FilesUploadApi extends runtime.BaseAPI implements FilesUploadApiInt
     }
 
     /**
-     * Confirms a file upload
+     * Creates request options for systemConfirmFileUpload without sending the request
      */
-    async systemConfirmFileUploadRaw(requestParameters: SystemConfirmFileUploadRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FileEntity>> {
+    async systemConfirmFileUploadRequestOpts(requestParameters: SystemConfirmFileUploadRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['organizationId'] == null) {
             throw new runtime.RequiredError(
                 'organizationId',
@@ -234,13 +284,21 @@ export class FilesUploadApi extends runtime.BaseAPI implements FilesUploadApiInt
         let urlPath = `/internal/organizations/{organizationId}/files/upload/confirm`;
         urlPath = urlPath.replace(`{${"organizationId"}}`, encodeURIComponent(String(requestParameters['organizationId'])));
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
             body: ConfirmFileUploadRequestBodyDtoToJSON(requestParameters['confirmFileUploadRequestBodyDto']),
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Confirms a file upload
+     */
+    async systemConfirmFileUploadRaw(requestParameters: SystemConfirmFileUploadRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FileEntity>> {
+        const requestOptions = await this.systemConfirmFileUploadRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => FileEntityFromJSON(jsonValue));
     }
@@ -254,9 +312,9 @@ export class FilesUploadApi extends runtime.BaseAPI implements FilesUploadApiInt
     }
 
     /**
-     * Cria uma nova solicitação de upload de arquivo
+     * Creates request options for systemCreateFileUpload without sending the request
      */
-    async systemCreateFileUploadRaw(requestParameters: SystemCreateFileUploadRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CreateFileUpload200Response>> {
+    async systemCreateFileUploadRequestOpts(requestParameters: SystemCreateFileUploadRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['organizationId'] == null) {
             throw new runtime.RequiredError(
                 'organizationId',
@@ -281,13 +339,21 @@ export class FilesUploadApi extends runtime.BaseAPI implements FilesUploadApiInt
         let urlPath = `/internal/organizations/{organizationId}/files/upload`;
         urlPath = urlPath.replace(`{${"organizationId"}}`, encodeURIComponent(String(requestParameters['organizationId'])));
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
             body: CreateFileUploadRequestBodyDtoToJSON(requestParameters['createFileUploadRequestBodyDto']),
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Cria uma nova solicitação de upload de arquivo
+     */
+    async systemCreateFileUploadRaw(requestParameters: SystemCreateFileUploadRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CreateFileUpload200Response>> {
+        const requestOptions = await this.systemCreateFileUploadRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => CreateFileUpload200ResponseFromJSON(jsonValue));
     }

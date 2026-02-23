@@ -76,6 +76,13 @@ export interface UnlinkFinancialRecordsFromFinancialRecordRadarItemRequest {
  */
 export interface FinancialRecordRadarItemsApiInterface {
     /**
+     * Creates request options for createFinancialRecordRadarItem without sending the request
+     * @param {CreateFinancialRecordRadarItemRequestBodyDto} createFinancialRecordRadarItemRequestBodyDto
+     * @throws {RequiredError}
+     * @memberof FinancialRecordRadarItemsApiInterface
+     */
+    createFinancialRecordRadarItemRequestOpts(requestParameters: CreateFinancialRecordRadarItemRequest): Promise<runtime.RequestOpts>;
+    /**
      *
      * @summary Cria um novo registro de radar
      * @param {CreateFinancialRecordRadarItemRequestBodyDto} createFinancialRecordRadarItemRequestBodyDto
@@ -88,6 +95,23 @@ export interface FinancialRecordRadarItemsApiInterface {
      * Cria um novo registro de radar
      */
     createFinancialRecordRadarItem(requestParameters: CreateFinancialRecordRadarItemRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CreatedFinancialRecordRadarItemResultEntity>;
+    /**
+     * Creates request options for findAllFinancialRecordRadarItems without sending the request
+     * @param {string} [links] Lista de IDs de registros financeiros para filtrar.
+     * @param {string} [sortOrder] Ordem de ordenação.
+     * @param {string} [sortBy] Campo de ordenação.
+     * @param {boolean} [hasAutoExecute] Se possui auto-execute.
+     * @param {string} [populate] População do registro.
+     * @param {'WHATSAPP_MESSAGE' | 'EMAIL_MESSAGE'} [nature] Natureza do registro.
+     * @param {'WHATSAPP_AGENT' | 'EMAIL_FORWARDING_INTEGRATION'} [origin] Origem do registro.
+     * @param {'PENDING' | 'LINKED' | 'ARCHIVED'} [status] Status do registro.
+     * @param {'MAIN' | 'SPAM'} [folder] Pasta do registro.
+     * @param {number} [pageSize] Quantidade de itens por página.
+     * @param {number} [pageIndex] Índice da página.
+     * @throws {RequiredError}
+     * @memberof FinancialRecordRadarItemsApiInterface
+     */
+    findAllFinancialRecordRadarItemsRequestOpts(requestParameters: FindAllFinancialRecordRadarItemsRequest): Promise<runtime.RequestOpts>;
     /**
      *
      * @summary Busca todos os registros do radar.
@@ -112,6 +136,14 @@ export interface FinancialRecordRadarItemsApiInterface {
      */
     findAllFinancialRecordRadarItems(requestParameters: FindAllFinancialRecordRadarItemsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialRecordRadarItemsPageDto>;
     /**
+     * Creates request options for findByIdFinancialRecordRadarItem without sending the request
+     * @param {string} radarItemId Identificador do registro de radar
+     * @param {string} [populate] População do registro.
+     * @throws {RequiredError}
+     * @memberof FinancialRecordRadarItemsApiInterface
+     */
+    findByIdFinancialRecordRadarItemRequestOpts(requestParameters: FindByIdFinancialRecordRadarItemRequest): Promise<runtime.RequestOpts>;
+    /**
      *
      * @summary Busca um registro de radar pelo identificador.
      * @param {string} radarItemId Identificador do registro de radar
@@ -126,6 +158,13 @@ export interface FinancialRecordRadarItemsApiInterface {
      */
     findByIdFinancialRecordRadarItem(requestParameters: FindByIdFinancialRecordRadarItemRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialRecordRadarItemEntity>;
     /**
+     * Creates request options for getTagsForFinancialRecordRadarItem without sending the request
+     * @param {string} radarItemId Identificador do registro de radar
+     * @throws {RequiredError}
+     * @memberof FinancialRecordRadarItemsApiInterface
+     */
+    getTagsForFinancialRecordRadarItemRequestOpts(requestParameters: GetTagsForFinancialRecordRadarItemRequest): Promise<runtime.RequestOpts>;
+    /**
      *
      * @summary Obtém os tags para um registro de radar.
      * @param {string} radarItemId Identificador do registro de radar
@@ -138,6 +177,14 @@ export interface FinancialRecordRadarItemsApiInterface {
      * Obtém os tags para um registro de radar.
      */
     getTagsForFinancialRecordRadarItem(requestParameters: GetTagsForFinancialRecordRadarItemRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<FinancialRecordRadarItemTagEntity>>;
+    /**
+     * Creates request options for linkFinancialRecordsToFinancialRecordRadarItem without sending the request
+     * @param {string} radarItemId Identificador do registro de radar
+     * @param {LinkFinancialRecordsRequestBodyDto} linkFinancialRecordsRequestBodyDto
+     * @throws {RequiredError}
+     * @memberof FinancialRecordRadarItemsApiInterface
+     */
+    linkFinancialRecordsToFinancialRecordRadarItemRequestOpts(requestParameters: LinkFinancialRecordsToFinancialRecordRadarItemRequest): Promise<runtime.RequestOpts>;
     /**
      * Adiciona vínculos entre um registro de radar e múltiplos registros financeiros, atualizando ambos os lados da relação.
      * @summary Vincula registros financeiros a um registro de radar
@@ -154,6 +201,14 @@ export interface FinancialRecordRadarItemsApiInterface {
      */
     linkFinancialRecordsToFinancialRecordRadarItem(requestParameters: LinkFinancialRecordsToFinancialRecordRadarItemRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialRecordRadarItemEntity>;
     /**
+     * Creates request options for partialUpdateFinancialRecordRadarItem without sending the request
+     * @param {string} radarItemId Identificador do registro de radar
+     * @param {PartialUpdateFinancialRecordRadarItemRequestBodyDto} partialUpdateFinancialRecordRadarItemRequestBodyDto
+     * @throws {RequiredError}
+     * @memberof FinancialRecordRadarItemsApiInterface
+     */
+    partialUpdateFinancialRecordRadarItemRequestOpts(requestParameters: PartialUpdateFinancialRecordRadarItemRequest): Promise<runtime.RequestOpts>;
+    /**
      * Atualiza parcialmente um registro de radar existente.
      * @summary Atualiza parcialmente um registro de radar
      * @param {string} radarItemId Identificador do registro de radar
@@ -169,6 +224,14 @@ export interface FinancialRecordRadarItemsApiInterface {
      */
     partialUpdateFinancialRecordRadarItem(requestParameters: PartialUpdateFinancialRecordRadarItemRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialRecordRadarItemEntity>;
     /**
+     * Creates request options for previewBulkCreateFile without sending the request
+     * @param {string} radarItemId Identificador do registro de radar
+     * @param {number} [limit] Limite de registros a serem retornados.
+     * @throws {RequiredError}
+     * @memberof FinancialRecordRadarItemsApiInterface
+     */
+    previewBulkCreateFileRequestOpts(requestParameters: PreviewBulkCreateFileRequest): Promise<runtime.RequestOpts>;
+    /**
      *
      * @summary Obtém o preview de um arquivo .csv para criação em lote.
      * @param {string} radarItemId Identificador do registro de radar
@@ -182,6 +245,23 @@ export interface FinancialRecordRadarItemsApiInterface {
      * Obtém o preview de um arquivo .csv para criação em lote.
      */
     previewBulkCreateFile(requestParameters: PreviewBulkCreateFileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialRecordsBulkCreateFilePreviewEntity>;
+    /**
+     * Creates request options for systemFindAllFinancialRecordRadarItems without sending the request
+     * @param {string} organizationId Identificador da organização
+     * @param {string} [sortOrder] Ordem de ordenação.
+     * @param {string} [sortBy] Campo de ordenação.
+     * @param {boolean} [hasAutoExecute] Se possui auto-execute.
+     * @param {string} [populate] População do registro.
+     * @param {'WHATSAPP_MESSAGE' | 'EMAIL_MESSAGE'} [nature] Natureza do registro.
+     * @param {'WHATSAPP_AGENT' | 'EMAIL_FORWARDING_INTEGRATION'} [origin] Origem do registro.
+     * @param {'PENDING' | 'LINKED' | 'ARCHIVED'} [status] Status do registro.
+     * @param {'MAIN' | 'SPAM'} [folder] Pasta do registro.
+     * @param {number} [pageSize] Quantidade de itens por página.
+     * @param {number} [pageIndex] Índice da página.
+     * @throws {RequiredError}
+     * @memberof FinancialRecordRadarItemsApiInterface
+     */
+    systemFindAllFinancialRecordRadarItemsRequestOpts(requestParameters: SystemFindAllFinancialRecordRadarItemsRequest): Promise<runtime.RequestOpts>;
     /**
      *
      * @summary Busca todos os registros do radar (sistema).
@@ -206,6 +286,15 @@ export interface FinancialRecordRadarItemsApiInterface {
      */
     systemFindAllFinancialRecordRadarItems(requestParameters: SystemFindAllFinancialRecordRadarItemsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialRecordRadarItemsPageDto>;
     /**
+     * Creates request options for systemFindByIdFinancialRecordRadarItem without sending the request
+     * @param {string} organizationId Identificador da organização
+     * @param {string} radarItemId Identificador do registro de radar
+     * @param {string} [populate] População do registro.
+     * @throws {RequiredError}
+     * @memberof FinancialRecordRadarItemsApiInterface
+     */
+    systemFindByIdFinancialRecordRadarItemRequestOpts(requestParameters: SystemFindByIdFinancialRecordRadarItemRequest): Promise<runtime.RequestOpts>;
+    /**
      *
      * @summary Busca um registro de radar pelo identificador.
      * @param {string} organizationId Identificador da organização
@@ -220,6 +309,14 @@ export interface FinancialRecordRadarItemsApiInterface {
      * Busca um registro de radar pelo identificador.
      */
     systemFindByIdFinancialRecordRadarItem(requestParameters: SystemFindByIdFinancialRecordRadarItemRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialRecordRadarItemEntity>;
+    /**
+     * Creates request options for unlinkFinancialRecordsFromFinancialRecordRadarItem without sending the request
+     * @param {string} radarItemId Identificador do registro de radar
+     * @param {UnlinkFinancialRecordsRequestBodyDto} unlinkFinancialRecordsRequestBodyDto
+     * @throws {RequiredError}
+     * @memberof FinancialRecordRadarItemsApiInterface
+     */
+    unlinkFinancialRecordsFromFinancialRecordRadarItemRequestOpts(requestParameters: UnlinkFinancialRecordsFromFinancialRecordRadarItemRequest): Promise<runtime.RequestOpts>;
     /**
      * Remove vínculos entre um registro de radar e registros financeiros, atualizando ambos os lados da relação.
      * @summary Desvincula registros financeiros de um registro de radar
@@ -241,6 +338,10 @@ export interface FinancialRecordRadarItemsApiInterface {
  */
 export declare class FinancialRecordRadarItemsApi extends runtime.BaseAPI implements FinancialRecordRadarItemsApiInterface {
     /**
+     * Creates request options for createFinancialRecordRadarItem without sending the request
+     */
+    createFinancialRecordRadarItemRequestOpts(requestParameters: CreateFinancialRecordRadarItemRequest): Promise<runtime.RequestOpts>;
+    /**
      * Cria um novo registro de radar
      */
     createFinancialRecordRadarItemRaw(requestParameters: CreateFinancialRecordRadarItemRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CreatedFinancialRecordRadarItemResultEntity>>;
@@ -248,6 +349,10 @@ export declare class FinancialRecordRadarItemsApi extends runtime.BaseAPI implem
      * Cria um novo registro de radar
      */
     createFinancialRecordRadarItem(requestParameters: CreateFinancialRecordRadarItemRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CreatedFinancialRecordRadarItemResultEntity>;
+    /**
+     * Creates request options for findAllFinancialRecordRadarItems without sending the request
+     */
+    findAllFinancialRecordRadarItemsRequestOpts(requestParameters: FindAllFinancialRecordRadarItemsRequest): Promise<runtime.RequestOpts>;
     /**
      * Busca todos os registros do radar.
      */
@@ -257,6 +362,10 @@ export declare class FinancialRecordRadarItemsApi extends runtime.BaseAPI implem
      */
     findAllFinancialRecordRadarItems(requestParameters?: FindAllFinancialRecordRadarItemsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialRecordRadarItemsPageDto>;
     /**
+     * Creates request options for findByIdFinancialRecordRadarItem without sending the request
+     */
+    findByIdFinancialRecordRadarItemRequestOpts(requestParameters: FindByIdFinancialRecordRadarItemRequest): Promise<runtime.RequestOpts>;
+    /**
      * Busca um registro de radar pelo identificador.
      */
     findByIdFinancialRecordRadarItemRaw(requestParameters: FindByIdFinancialRecordRadarItemRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FinancialRecordRadarItemEntity>>;
@@ -265,6 +374,10 @@ export declare class FinancialRecordRadarItemsApi extends runtime.BaseAPI implem
      */
     findByIdFinancialRecordRadarItem(requestParameters: FindByIdFinancialRecordRadarItemRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialRecordRadarItemEntity>;
     /**
+     * Creates request options for getTagsForFinancialRecordRadarItem without sending the request
+     */
+    getTagsForFinancialRecordRadarItemRequestOpts(requestParameters: GetTagsForFinancialRecordRadarItemRequest): Promise<runtime.RequestOpts>;
+    /**
      * Obtém os tags para um registro de radar.
      */
     getTagsForFinancialRecordRadarItemRaw(requestParameters: GetTagsForFinancialRecordRadarItemRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<FinancialRecordRadarItemTagEntity>>>;
@@ -272,6 +385,10 @@ export declare class FinancialRecordRadarItemsApi extends runtime.BaseAPI implem
      * Obtém os tags para um registro de radar.
      */
     getTagsForFinancialRecordRadarItem(requestParameters: GetTagsForFinancialRecordRadarItemRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<FinancialRecordRadarItemTagEntity>>;
+    /**
+     * Creates request options for linkFinancialRecordsToFinancialRecordRadarItem without sending the request
+     */
+    linkFinancialRecordsToFinancialRecordRadarItemRequestOpts(requestParameters: LinkFinancialRecordsToFinancialRecordRadarItemRequest): Promise<runtime.RequestOpts>;
     /**
      * Adiciona vínculos entre um registro de radar e múltiplos registros financeiros, atualizando ambos os lados da relação.
      * Vincula registros financeiros a um registro de radar
@@ -283,6 +400,10 @@ export declare class FinancialRecordRadarItemsApi extends runtime.BaseAPI implem
      */
     linkFinancialRecordsToFinancialRecordRadarItem(requestParameters: LinkFinancialRecordsToFinancialRecordRadarItemRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialRecordRadarItemEntity>;
     /**
+     * Creates request options for partialUpdateFinancialRecordRadarItem without sending the request
+     */
+    partialUpdateFinancialRecordRadarItemRequestOpts(requestParameters: PartialUpdateFinancialRecordRadarItemRequest): Promise<runtime.RequestOpts>;
+    /**
      * Atualiza parcialmente um registro de radar existente.
      * Atualiza parcialmente um registro de radar
      */
@@ -293,6 +414,10 @@ export declare class FinancialRecordRadarItemsApi extends runtime.BaseAPI implem
      */
     partialUpdateFinancialRecordRadarItem(requestParameters: PartialUpdateFinancialRecordRadarItemRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialRecordRadarItemEntity>;
     /**
+     * Creates request options for previewBulkCreateFile without sending the request
+     */
+    previewBulkCreateFileRequestOpts(requestParameters: PreviewBulkCreateFileRequest): Promise<runtime.RequestOpts>;
+    /**
      * Obtém o preview de um arquivo .csv para criação em lote.
      */
     previewBulkCreateFileRaw(requestParameters: PreviewBulkCreateFileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FinancialRecordsBulkCreateFilePreviewEntity>>;
@@ -300,6 +425,10 @@ export declare class FinancialRecordRadarItemsApi extends runtime.BaseAPI implem
      * Obtém o preview de um arquivo .csv para criação em lote.
      */
     previewBulkCreateFile(requestParameters: PreviewBulkCreateFileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialRecordsBulkCreateFilePreviewEntity>;
+    /**
+     * Creates request options for systemFindAllFinancialRecordRadarItems without sending the request
+     */
+    systemFindAllFinancialRecordRadarItemsRequestOpts(requestParameters: SystemFindAllFinancialRecordRadarItemsRequest): Promise<runtime.RequestOpts>;
     /**
      * Busca todos os registros do radar (sistema).
      */
@@ -309,6 +438,10 @@ export declare class FinancialRecordRadarItemsApi extends runtime.BaseAPI implem
      */
     systemFindAllFinancialRecordRadarItems(requestParameters: SystemFindAllFinancialRecordRadarItemsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialRecordRadarItemsPageDto>;
     /**
+     * Creates request options for systemFindByIdFinancialRecordRadarItem without sending the request
+     */
+    systemFindByIdFinancialRecordRadarItemRequestOpts(requestParameters: SystemFindByIdFinancialRecordRadarItemRequest): Promise<runtime.RequestOpts>;
+    /**
      * Busca um registro de radar pelo identificador.
      */
     systemFindByIdFinancialRecordRadarItemRaw(requestParameters: SystemFindByIdFinancialRecordRadarItemRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FinancialRecordRadarItemEntity>>;
@@ -316,6 +449,10 @@ export declare class FinancialRecordRadarItemsApi extends runtime.BaseAPI implem
      * Busca um registro de radar pelo identificador.
      */
     systemFindByIdFinancialRecordRadarItem(requestParameters: SystemFindByIdFinancialRecordRadarItemRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialRecordRadarItemEntity>;
+    /**
+     * Creates request options for unlinkFinancialRecordsFromFinancialRecordRadarItem without sending the request
+     */
+    unlinkFinancialRecordsFromFinancialRecordRadarItemRequestOpts(requestParameters: UnlinkFinancialRecordsFromFinancialRecordRadarItemRequest): Promise<runtime.RequestOpts>;
     /**
      * Remove vínculos entre um registro de radar e registros financeiros, atualizando ambos os lados da relação.
      * Desvincula registros financeiros de um registro de radar

@@ -76,7 +76,7 @@ export interface CreatedFinancialRecordRadarItemResultEntityRadarItemAutoExecute
     ownerOrganization: string;
     /**
      * Direção do lançamento (entrada/saída).
-     * @type {string}
+     * @type {CreatedFinancialRecordRadarItemResultEntityRadarItemAutoExecuteLinkedFinancialRecordDirectionEnum}
      * @memberof CreatedFinancialRecordRadarItemResultEntityRadarItemAutoExecuteLinkedFinancialRecord
      */
     direction: CreatedFinancialRecordRadarItemResultEntityRadarItemAutoExecuteLinkedFinancialRecordDirectionEnum;

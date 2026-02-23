@@ -20,13 +20,13 @@ import type { CreatedFinancialRecordRadarItemResultEntityRadarItemSubsequentRada
 export interface CreatedFinancialRecordRadarItemResultEntityRadarItemSubsequentRadarItemsInner {
     /**
      * Origem do registro subsequente.
-     * @type {string}
+     * @type {CreatedFinancialRecordRadarItemResultEntityRadarItemSubsequentRadarItemsInnerOriginEnum}
      * @memberof CreatedFinancialRecordRadarItemResultEntityRadarItemSubsequentRadarItemsInner
      */
     origin: CreatedFinancialRecordRadarItemResultEntityRadarItemSubsequentRadarItemsInnerOriginEnum;
     /**
      * Natureza do registro subsequente.
-     * @type {string}
+     * @type {CreatedFinancialRecordRadarItemResultEntityRadarItemSubsequentRadarItemsInnerNatureEnum}
      * @memberof CreatedFinancialRecordRadarItemResultEntityRadarItemSubsequentRadarItemsInner
      */
     nature: CreatedFinancialRecordRadarItemResultEntityRadarItemSubsequentRadarItemsInnerNatureEnum;

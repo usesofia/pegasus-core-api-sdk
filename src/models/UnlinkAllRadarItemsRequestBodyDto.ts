@@ -21,7 +21,7 @@ import { mapValues } from '../runtime';
 export interface UnlinkAllRadarItemsRequestBodyDto {
     /**
      * Canal de origem da operação
-     * @type {string}
+     * @type {UnlinkAllRadarItemsRequestBodyDtoChannelEnum}
      * @memberof UnlinkAllRadarItemsRequestBodyDto
      */
     channel: UnlinkAllRadarItemsRequestBodyDtoChannelEnum;

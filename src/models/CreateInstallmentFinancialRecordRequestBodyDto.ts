@@ -57,13 +57,13 @@ import {
 export interface CreateInstallmentFinancialRecordRequestBodyDto {
     /**
      * Direção do lançamento (entrada/saída).
-     * @type {string}
+     * @type {CreateInstallmentFinancialRecordRequestBodyDtoDirectionEnum}
      * @memberof CreateInstallmentFinancialRecordRequestBodyDto
      */
     direction: CreateInstallmentFinancialRecordRequestBodyDtoDirectionEnum;
     /**
      * Frequência do lançamento.
-     * @type {string}
+     * @type {CreateInstallmentFinancialRecordRequestBodyDtoFrequencyEnum}
      * @memberof CreateInstallmentFinancialRecordRequestBodyDto
      */
     frequency: CreateInstallmentFinancialRecordRequestBodyDtoFrequencyEnum;
@@ -171,7 +171,7 @@ export interface CreateInstallmentFinancialRecordRequestBodyDto {
     installments?: Array<CreateInstallmentFinancialRecordRequestBodyDtoInstallmentsInner>;
     /**
      * Canal de origem da operação
-     * @type {string}
+     * @type {CreateInstallmentFinancialRecordRequestBodyDtoChannelEnum}
      * @memberof CreateInstallmentFinancialRecordRequestBodyDto
      */
     channel: CreateInstallmentFinancialRecordRequestBodyDtoChannelEnum;

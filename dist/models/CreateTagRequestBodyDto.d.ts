@@ -47,7 +47,7 @@ export interface CreateTagRequestBodyDto {
     externalId?: string | null;
     /**
      * Canal de origem da operação
-     * @type {string}
+     * @type {CreateTagRequestBodyDtoChannelEnum}
      * @memberof CreateTagRequestBodyDto
      */
     channel: CreateTagRequestBodyDtoChannelEnum;

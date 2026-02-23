@@ -65,7 +65,7 @@ export interface PartialUpdateOrganizationRequestBodyDto {
     imageInBase64?: string | null;
     /**
      * Canal de origem da operação
-     * @type {string}
+     * @type {PartialUpdateOrganizationRequestBodyDtoChannelEnum}
      * @memberof PartialUpdateOrganizationRequestBodyDto
      */
     channel: PartialUpdateOrganizationRequestBodyDtoChannelEnum;

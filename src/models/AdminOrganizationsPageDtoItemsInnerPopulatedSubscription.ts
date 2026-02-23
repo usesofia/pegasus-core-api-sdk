@@ -47,13 +47,13 @@ export interface AdminOrganizationsPageDtoItemsInnerPopulatedSubscription {
     description?: string | null;
     /**
      * Provedor da subscription.
-     * @type {string}
+     * @type {AdminOrganizationsPageDtoItemsInnerPopulatedSubscriptionProviderEnum}
      * @memberof AdminOrganizationsPageDtoItemsInnerPopulatedSubscription
      */
     provider: AdminOrganizationsPageDtoItemsInnerPopulatedSubscriptionProviderEnum;
     /**
      * Status da subscription.
-     * @type {string}
+     * @type {AdminOrganizationsPageDtoItemsInnerPopulatedSubscriptionStatusEnum}
      * @memberof AdminOrganizationsPageDtoItemsInnerPopulatedSubscription
      */
     status: AdminOrganizationsPageDtoItemsInnerPopulatedSubscriptionStatusEnum;

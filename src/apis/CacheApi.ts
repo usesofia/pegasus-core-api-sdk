@@ -40,6 +40,13 @@ export interface SetCacheValueRequest {
  */
 export interface CacheApiInterface {
     /**
+     * Creates request options for getCacheValue without sending the request
+     * @throws {RequiredError}
+     * @memberof CacheApiInterface
+     */
+    getCacheValueRequestOpts(): Promise<runtime.RequestOpts>;
+
+    /**
      * 
      * @summary Get string value from cache
      * @param {*} [options] Override http request option.
@@ -52,6 +59,14 @@ export interface CacheApiInterface {
      * Get string value from cache
      */
     getCacheValue(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CacheGetResponseDto>;
+
+    /**
+     * Creates request options for setCacheValue without sending the request
+     * @param {CacheSetDto} cacheSetDto 
+     * @throws {RequiredError}
+     * @memberof CacheApiInterface
+     */
+    setCacheValueRequestOpts(requestParameters: SetCacheValueRequest): Promise<runtime.RequestOpts>;
 
     /**
      * 
@@ -76,9 +91,9 @@ export interface CacheApiInterface {
 export class CacheApi extends runtime.BaseAPI implements CacheApiInterface {
 
     /**
-     * Get string value from cache
+     * Creates request options for getCacheValue without sending the request
      */
-    async getCacheValueRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CacheGetResponseDto>> {
+    async getCacheValueRequestOpts(): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -86,12 +101,20 @@ export class CacheApi extends runtime.BaseAPI implements CacheApiInterface {
 
         let urlPath = `/external/cache`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Get string value from cache
+     */
+    async getCacheValueRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CacheGetResponseDto>> {
+        const requestOptions = await this.getCacheValueRequestOpts();
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => CacheGetResponseDtoFromJSON(jsonValue));
     }
@@ -105,9 +128,9 @@ export class CacheApi extends runtime.BaseAPI implements CacheApiInterface {
     }
 
     /**
-     * Set string value in cache with 10-second TTL
+     * Creates request options for setCacheValue without sending the request
      */
-    async setCacheValueRaw(requestParameters: SetCacheValueRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+    async setCacheValueRequestOpts(requestParameters: SetCacheValueRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['cacheSetDto'] == null) {
             throw new runtime.RequiredError(
                 'cacheSetDto',
@@ -124,13 +147,21 @@ export class CacheApi extends runtime.BaseAPI implements CacheApiInterface {
 
         let urlPath = `/external/cache`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
             body: CacheSetDtoToJSON(requestParameters['cacheSetDto']),
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Set string value in cache with 10-second TTL
+     */
+    async setCacheValueRaw(requestParameters: SetCacheValueRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        const requestOptions = await this.setCacheValueRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.VoidApiResponse(response);
     }

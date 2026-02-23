@@ -34,6 +34,13 @@ export interface RevokeInviteRequest {
  */
 export interface MembershipsApiInterface {
     /**
+     * Creates request options for createInvite without sending the request
+     * @param {CreateInviteRequestBodyDto} createInviteRequestBodyDto
+     * @throws {RequiredError}
+     * @memberof MembershipsApiInterface
+     */
+    createInviteRequestOpts(requestParameters: CreateInviteRequest): Promise<runtime.RequestOpts>;
+    /**
      *
      * @summary Create a new organization invite.
      * @param {CreateInviteRequestBodyDto} createInviteRequestBodyDto
@@ -47,6 +54,12 @@ export interface MembershipsApiInterface {
      */
     createInvite(requestParameters: CreateInviteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<InviteEntity>;
     /**
+     * Creates request options for findAllInvites without sending the request
+     * @throws {RequiredError}
+     * @memberof MembershipsApiInterface
+     */
+    findAllInvitesRequestOpts(): Promise<runtime.RequestOpts>;
+    /**
      *
      * @summary List all organization invites.
      * @param {*} [options] Override http request option.
@@ -59,6 +72,12 @@ export interface MembershipsApiInterface {
      */
     findAllInvites(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<InviteEntity>>;
     /**
+     * Creates request options for findAllMembers without sending the request
+     * @throws {RequiredError}
+     * @memberof MembershipsApiInterface
+     */
+    findAllMembersRequestOpts(): Promise<runtime.RequestOpts>;
+    /**
      *
      * @summary List all organization members.
      * @param {*} [options] Override http request option.
@@ -70,6 +89,14 @@ export interface MembershipsApiInterface {
      * List all organization members.
      */
     findAllMembers(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<MemberEntity>>;
+    /**
+     * Creates request options for partialUpdateMember without sending the request
+     * @param {string} id Id do usuário membro a ser atualizado.
+     * @param {PartialUpdateMemberRequestBodyDto} partialUpdateMemberRequestBodyDto
+     * @throws {RequiredError}
+     * @memberof MembershipsApiInterface
+     */
+    partialUpdateMemberRequestOpts(requestParameters: PartialUpdateMemberRequest): Promise<runtime.RequestOpts>;
     /**
      *
      * @summary Atualiza parcialmente um membro da organização.
@@ -85,6 +112,14 @@ export interface MembershipsApiInterface {
      */
     partialUpdateMember(requestParameters: PartialUpdateMemberRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<MemberEntity>;
     /**
+     * Creates request options for removeMember without sending the request
+     * @param {string} id Id do usuário membro a ser removido.
+     * @param {RemoveMemberRequestBodyDto} removeMemberRequestBodyDto
+     * @throws {RequiredError}
+     * @memberof MembershipsApiInterface
+     */
+    removeMemberRequestOpts(requestParameters: RemoveMemberRequest): Promise<runtime.RequestOpts>;
+    /**
      *
      * @summary Remove um membro da organização.
      * @param {string} id Id do usuário membro a ser removido.
@@ -98,6 +133,14 @@ export interface MembershipsApiInterface {
      * Remove um membro da organização.
      */
     removeMember(requestParameters: RemoveMemberRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+    /**
+     * Creates request options for revokeInvite without sending the request
+     * @param {string} id Invite ID to revoke
+     * @param {RevokeInviteRequestBodyDto} revokeInviteRequestBodyDto
+     * @throws {RequiredError}
+     * @memberof MembershipsApiInterface
+     */
+    revokeInviteRequestOpts(requestParameters: RevokeInviteRequest): Promise<runtime.RequestOpts>;
     /**
      *
      * @summary Revoke an organization invite.
@@ -118,6 +161,10 @@ export interface MembershipsApiInterface {
  */
 export declare class MembershipsApi extends runtime.BaseAPI implements MembershipsApiInterface {
     /**
+     * Creates request options for createInvite without sending the request
+     */
+    createInviteRequestOpts(requestParameters: CreateInviteRequest): Promise<runtime.RequestOpts>;
+    /**
      * Create a new organization invite.
      */
     createInviteRaw(requestParameters: CreateInviteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<InviteEntity>>;
@@ -125,6 +172,10 @@ export declare class MembershipsApi extends runtime.BaseAPI implements Membershi
      * Create a new organization invite.
      */
     createInvite(requestParameters: CreateInviteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<InviteEntity>;
+    /**
+     * Creates request options for findAllInvites without sending the request
+     */
+    findAllInvitesRequestOpts(): Promise<runtime.RequestOpts>;
     /**
      * List all organization invites.
      */
@@ -134,6 +185,10 @@ export declare class MembershipsApi extends runtime.BaseAPI implements Membershi
      */
     findAllInvites(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<InviteEntity>>;
     /**
+     * Creates request options for findAllMembers without sending the request
+     */
+    findAllMembersRequestOpts(): Promise<runtime.RequestOpts>;
+    /**
      * List all organization members.
      */
     findAllMembersRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<MemberEntity>>>;
@@ -141,6 +196,10 @@ export declare class MembershipsApi extends runtime.BaseAPI implements Membershi
      * List all organization members.
      */
     findAllMembers(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<MemberEntity>>;
+    /**
+     * Creates request options for partialUpdateMember without sending the request
+     */
+    partialUpdateMemberRequestOpts(requestParameters: PartialUpdateMemberRequest): Promise<runtime.RequestOpts>;
     /**
      * Atualiza parcialmente um membro da organização.
      */
@@ -150,6 +209,10 @@ export declare class MembershipsApi extends runtime.BaseAPI implements Membershi
      */
     partialUpdateMember(requestParameters: PartialUpdateMemberRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<MemberEntity>;
     /**
+     * Creates request options for removeMember without sending the request
+     */
+    removeMemberRequestOpts(requestParameters: RemoveMemberRequest): Promise<runtime.RequestOpts>;
+    /**
      * Remove um membro da organização.
      */
     removeMemberRaw(requestParameters: RemoveMemberRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
@@ -157,6 +220,10 @@ export declare class MembershipsApi extends runtime.BaseAPI implements Membershi
      * Remove um membro da organização.
      */
     removeMember(requestParameters: RemoveMemberRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+    /**
+     * Creates request options for revokeInvite without sending the request
+     */
+    revokeInviteRequestOpts(requestParameters: RevokeInviteRequest): Promise<runtime.RequestOpts>;
     /**
      * Revoke an organization invite.
      */

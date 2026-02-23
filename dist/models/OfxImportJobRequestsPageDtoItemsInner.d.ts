@@ -110,7 +110,7 @@ export interface OfxImportJobRequestsPageDtoItemsInner {
     user: OfxImportJobRequestsPageDtoItemsInnerUser;
     /**
      * Status da solicitação de importação OFX.
-     * @type {string}
+     * @type {OfxImportJobRequestsPageDtoItemsInnerStatusEnum}
      * @memberof OfxImportJobRequestsPageDtoItemsInner
      */
     status: OfxImportJobRequestsPageDtoItemsInnerStatusEnum;

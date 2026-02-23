@@ -21,7 +21,7 @@ import type { CreateFinancialRecordRequestBodyDtoPopulatedContact } from './Crea
 export interface PartialUpdateRecurringFinancialRecordRequestBodyDto {
     /**
      * Direção do lançamento (entrada/saída).
-     * @type {string}
+     * @type {PartialUpdateRecurringFinancialRecordRequestBodyDtoDirectionEnum}
      * @memberof PartialUpdateRecurringFinancialRecordRequestBodyDto
      */
     direction?: PartialUpdateRecurringFinancialRecordRequestBodyDtoDirectionEnum;
@@ -63,7 +63,7 @@ export interface PartialUpdateRecurringFinancialRecordRequestBodyDto {
     files?: Array<string>;
     /**
      * Frequência de repetição do lançamento.
-     * @type {string}
+     * @type {PartialUpdateRecurringFinancialRecordRequestBodyDtoFrequencyEnum}
      * @memberof PartialUpdateRecurringFinancialRecordRequestBodyDto
      */
     frequency?: PartialUpdateRecurringFinancialRecordRequestBodyDtoFrequencyEnum;
@@ -141,7 +141,7 @@ export interface PartialUpdateRecurringFinancialRecordRequestBodyDto {
     externalId?: string | null;
     /**
      * Canal de origem da operação
-     * @type {string}
+     * @type {PartialUpdateRecurringFinancialRecordRequestBodyDtoChannelEnum}
      * @memberof PartialUpdateRecurringFinancialRecordRequestBodyDto
      */
     channel: PartialUpdateRecurringFinancialRecordRequestBodyDtoChannelEnum;

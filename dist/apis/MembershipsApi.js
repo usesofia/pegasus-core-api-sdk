@@ -76,29 +76,42 @@ var MembershipsApi = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
+     * Creates request options for createInvite without sending the request
+     */
+    MembershipsApi.prototype.createInviteRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                if (requestParameters['createInviteRequestBodyDto'] == null) {
+                    throw new runtime.RequiredError('createInviteRequestBodyDto', 'Required parameter "createInviteRequestBodyDto" was null or undefined when calling createInvite().');
+                }
+                queryParameters = {};
+                headerParameters = {};
+                headerParameters['Content-Type'] = 'application/json';
+                urlPath = "/external/memberships/invites";
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'POST',
+                        headers: headerParameters,
+                        query: queryParameters,
+                        body: (0, index_1.CreateInviteRequestBodyDtoToJSON)(requestParameters['createInviteRequestBodyDto']),
+                    }];
+            });
+        });
+    };
+    /**
      * Create a new organization invite.
      */
     MembershipsApi.prototype.createInviteRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        if (requestParameters['createInviteRequestBodyDto'] == null) {
-                            throw new runtime.RequiredError('createInviteRequestBodyDto', 'Required parameter "createInviteRequestBodyDto" was null or undefined when calling createInvite().');
-                        }
-                        queryParameters = {};
-                        headerParameters = {};
-                        headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/external/memberships/invites";
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'POST',
-                                headers: headerParameters,
-                                query: queryParameters,
-                                body: (0, index_1.CreateInviteRequestBodyDtoToJSON)(requestParameters['createInviteRequestBodyDto']),
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.createInviteRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.InviteEntityFromJSON)(jsonValue); })];
                 }
@@ -123,24 +136,37 @@ var MembershipsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Creates request options for findAllInvites without sending the request
+     */
+    MembershipsApi.prototype.findAllInvitesRequestOpts = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                queryParameters = {};
+                headerParameters = {};
+                urlPath = "/external/memberships/invites";
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'GET',
+                        headers: headerParameters,
+                        query: queryParameters,
+                    }];
+            });
+        });
+    };
+    /**
      * List all organization invites.
      */
     MembershipsApi.prototype.findAllInvitesRaw = function (initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        queryParameters = {};
-                        headerParameters = {};
-                        urlPath = "/external/memberships/invites";
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'GET',
-                                headers: headerParameters,
-                                query: queryParameters,
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.findAllInvitesRequestOpts()];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return jsonValue.map(index_1.InviteEntityFromJSON); })];
                 }
@@ -165,24 +191,37 @@ var MembershipsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Creates request options for findAllMembers without sending the request
+     */
+    MembershipsApi.prototype.findAllMembersRequestOpts = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                queryParameters = {};
+                headerParameters = {};
+                urlPath = "/external/memberships/members";
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'GET',
+                        headers: headerParameters,
+                        query: queryParameters,
+                    }];
+            });
+        });
+    };
+    /**
      * List all organization members.
      */
     MembershipsApi.prototype.findAllMembersRaw = function (initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        queryParameters = {};
-                        headerParameters = {};
-                        urlPath = "/external/memberships/members";
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'GET',
-                                headers: headerParameters,
-                                query: queryParameters,
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.findAllMembersRequestOpts()];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return jsonValue.map(index_1.MemberEntityFromJSON); })];
                 }
@@ -207,33 +246,46 @@ var MembershipsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Creates request options for partialUpdateMember without sending the request
+     */
+    MembershipsApi.prototype.partialUpdateMemberRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                if (requestParameters['id'] == null) {
+                    throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling partialUpdateMember().');
+                }
+                if (requestParameters['partialUpdateMemberRequestBodyDto'] == null) {
+                    throw new runtime.RequiredError('partialUpdateMemberRequestBodyDto', 'Required parameter "partialUpdateMemberRequestBodyDto" was null or undefined when calling partialUpdateMember().');
+                }
+                queryParameters = {};
+                headerParameters = {};
+                headerParameters['Content-Type'] = 'application/json';
+                urlPath = "/external/memberships/members/{id}";
+                urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'PATCH',
+                        headers: headerParameters,
+                        query: queryParameters,
+                        body: (0, index_1.PartialUpdateMemberRequestBodyDtoToJSON)(requestParameters['partialUpdateMemberRequestBodyDto']),
+                    }];
+            });
+        });
+    };
+    /**
      * Atualiza parcialmente um membro da organização.
      */
     MembershipsApi.prototype.partialUpdateMemberRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        if (requestParameters['id'] == null) {
-                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling partialUpdateMember().');
-                        }
-                        if (requestParameters['partialUpdateMemberRequestBodyDto'] == null) {
-                            throw new runtime.RequiredError('partialUpdateMemberRequestBodyDto', 'Required parameter "partialUpdateMemberRequestBodyDto" was null or undefined when calling partialUpdateMember().');
-                        }
-                        queryParameters = {};
-                        headerParameters = {};
-                        headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/external/memberships/members/{id}";
-                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'PATCH',
-                                headers: headerParameters,
-                                query: queryParameters,
-                                body: (0, index_1.PartialUpdateMemberRequestBodyDtoToJSON)(requestParameters['partialUpdateMemberRequestBodyDto']),
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.partialUpdateMemberRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.MemberEntityFromJSON)(jsonValue); })];
                 }
@@ -258,33 +310,46 @@ var MembershipsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Creates request options for removeMember without sending the request
+     */
+    MembershipsApi.prototype.removeMemberRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                if (requestParameters['id'] == null) {
+                    throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling removeMember().');
+                }
+                if (requestParameters['removeMemberRequestBodyDto'] == null) {
+                    throw new runtime.RequiredError('removeMemberRequestBodyDto', 'Required parameter "removeMemberRequestBodyDto" was null or undefined when calling removeMember().');
+                }
+                queryParameters = {};
+                headerParameters = {};
+                headerParameters['Content-Type'] = 'application/json';
+                urlPath = "/external/memberships/members/{id}";
+                urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'DELETE',
+                        headers: headerParameters,
+                        query: queryParameters,
+                        body: (0, index_1.RemoveMemberRequestBodyDtoToJSON)(requestParameters['removeMemberRequestBodyDto']),
+                    }];
+            });
+        });
+    };
+    /**
      * Remove um membro da organização.
      */
     MembershipsApi.prototype.removeMemberRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        if (requestParameters['id'] == null) {
-                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling removeMember().');
-                        }
-                        if (requestParameters['removeMemberRequestBodyDto'] == null) {
-                            throw new runtime.RequiredError('removeMemberRequestBodyDto', 'Required parameter "removeMemberRequestBodyDto" was null or undefined when calling removeMember().');
-                        }
-                        queryParameters = {};
-                        headerParameters = {};
-                        headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/external/memberships/members/{id}";
-                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'DELETE',
-                                headers: headerParameters,
-                                query: queryParameters,
-                                body: (0, index_1.RemoveMemberRequestBodyDtoToJSON)(requestParameters['removeMemberRequestBodyDto']),
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.removeMemberRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.VoidApiResponse(response)];
                 }
@@ -307,33 +372,46 @@ var MembershipsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Creates request options for revokeInvite without sending the request
+     */
+    MembershipsApi.prototype.revokeInviteRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                if (requestParameters['id'] == null) {
+                    throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling revokeInvite().');
+                }
+                if (requestParameters['revokeInviteRequestBodyDto'] == null) {
+                    throw new runtime.RequiredError('revokeInviteRequestBodyDto', 'Required parameter "revokeInviteRequestBodyDto" was null or undefined when calling revokeInvite().');
+                }
+                queryParameters = {};
+                headerParameters = {};
+                headerParameters['Content-Type'] = 'application/json';
+                urlPath = "/external/memberships/invites/{id}/revoke";
+                urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'POST',
+                        headers: headerParameters,
+                        query: queryParameters,
+                        body: (0, index_1.RevokeInviteRequestBodyDtoToJSON)(requestParameters['revokeInviteRequestBodyDto']),
+                    }];
+            });
+        });
+    };
+    /**
      * Revoke an organization invite.
      */
     MembershipsApi.prototype.revokeInviteRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        if (requestParameters['id'] == null) {
-                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling revokeInvite().');
-                        }
-                        if (requestParameters['revokeInviteRequestBodyDto'] == null) {
-                            throw new runtime.RequiredError('revokeInviteRequestBodyDto', 'Required parameter "revokeInviteRequestBodyDto" was null or undefined when calling revokeInvite().');
-                        }
-                        queryParameters = {};
-                        headerParameters = {};
-                        headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/external/memberships/invites/{id}/revoke";
-                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'POST',
-                                headers: headerParameters,
-                                query: queryParameters,
-                                body: (0, index_1.RevokeInviteRequestBodyDtoToJSON)(requestParameters['revokeInviteRequestBodyDto']),
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.revokeInviteRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.InviteEntityFromJSON)(jsonValue); })];
                 }

@@ -64,7 +64,7 @@ import {
 export interface CreatedFinancialRecordRadarItemResultEntityRadarItemExtractedFinancialRecordData {
     /**
      * Direção do lançamento (entrada/saída).
-     * @type {string}
+     * @type {CreatedFinancialRecordRadarItemResultEntityRadarItemExtractedFinancialRecordDataDirectionEnum}
      * @memberof CreatedFinancialRecordRadarItemResultEntityRadarItemExtractedFinancialRecordData
      */
     direction?: CreatedFinancialRecordRadarItemResultEntityRadarItemExtractedFinancialRecordDataDirectionEnum;

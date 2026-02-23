@@ -76,29 +76,42 @@ var BulkRemoveApi = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
+     * Creates request options for processBulkRemove without sending the request
+     */
+    BulkRemoveApi.prototype.processBulkRemoveRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                if (requestParameters['executeBulkRemoveJobRequestBodyDto'] == null) {
+                    throw new runtime.RequiredError('executeBulkRemoveJobRequestBodyDto', 'Required parameter "executeBulkRemoveJobRequestBodyDto" was null or undefined when calling processBulkRemove().');
+                }
+                queryParameters = {};
+                headerParameters = {};
+                headerParameters['Content-Type'] = 'application/json';
+                urlPath = "/internal/queues/bulk-remove";
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'POST',
+                        headers: headerParameters,
+                        query: queryParameters,
+                        body: (0, index_1.ExecuteBulkRemoveJobRequestBodyDtoToJSON)(requestParameters['executeBulkRemoveJobRequestBodyDto']),
+                    }];
+            });
+        });
+    };
+    /**
      * Processes bulk remove tasks
      */
     BulkRemoveApi.prototype.processBulkRemoveRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        if (requestParameters['executeBulkRemoveJobRequestBodyDto'] == null) {
-                            throw new runtime.RequiredError('executeBulkRemoveJobRequestBodyDto', 'Required parameter "executeBulkRemoveJobRequestBodyDto" was null or undefined when calling processBulkRemove().');
-                        }
-                        queryParameters = {};
-                        headerParameters = {};
-                        headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/internal/queues/bulk-remove";
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'POST',
-                                headers: headerParameters,
-                                query: queryParameters,
-                                body: (0, index_1.ExecuteBulkRemoveJobRequestBodyDtoToJSON)(requestParameters['executeBulkRemoveJobRequestBodyDto']),
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.processBulkRemoveRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.VoidApiResponse(response)];
                 }
@@ -121,29 +134,42 @@ var BulkRemoveApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Creates request options for scheduleBulkRemove without sending the request
+     */
+    BulkRemoveApi.prototype.scheduleBulkRemoveRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                if (requestParameters['bulkRemoveJobRequestDto'] == null) {
+                    throw new runtime.RequiredError('bulkRemoveJobRequestDto', 'Required parameter "bulkRemoveJobRequestDto" was null or undefined when calling scheduleBulkRemove().');
+                }
+                queryParameters = {};
+                headerParameters = {};
+                headerParameters['Content-Type'] = 'application/json';
+                urlPath = "/external/bulk/remove";
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'POST',
+                        headers: headerParameters,
+                        query: queryParameters,
+                        body: (0, index_1.BulkRemoveJobRequestDtoToJSON)(requestParameters['bulkRemoveJobRequestDto']),
+                    }];
+            });
+        });
+    };
+    /**
      * Schedules removal of multiple resources
      */
     BulkRemoveApi.prototype.scheduleBulkRemoveRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        if (requestParameters['bulkRemoveJobRequestDto'] == null) {
-                            throw new runtime.RequiredError('bulkRemoveJobRequestDto', 'Required parameter "bulkRemoveJobRequestDto" was null or undefined when calling scheduleBulkRemove().');
-                        }
-                        queryParameters = {};
-                        headerParameters = {};
-                        headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/external/bulk/remove";
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'POST',
-                                headers: headerParameters,
-                                query: queryParameters,
-                                body: (0, index_1.BulkRemoveJobRequestDtoToJSON)(requestParameters['bulkRemoveJobRequestDto']),
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.scheduleBulkRemoveRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.BulkRemoveJobRequestEntityFromJSON)(jsonValue); })];
                 }

@@ -30,6 +30,13 @@ import {
  */
 export interface FibonacciApiInterface {
     /**
+     * Creates request options for generateFibonacciSequence without sending the request
+     * @throws {RequiredError}
+     * @memberof FibonacciApiInterface
+     */
+    generateFibonacciSequenceRequestOpts(): Promise<runtime.RequestOpts>;
+
+    /**
      * 
      * @summary Gera a sequência de Fibonacci a partir de um número n recebido.
      * @param {*} [options] Override http request option.
@@ -44,6 +51,13 @@ export interface FibonacciApiInterface {
     generateFibonacciSequence(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
 
     /**
+     * Creates request options for startFibonacci without sending the request
+     * @throws {RequiredError}
+     * @memberof FibonacciApiInterface
+     */
+    startFibonacciRequestOpts(): Promise<runtime.RequestOpts>;
+
+    /**
      * 
      * @summary Inicia a sequência de Fibonacci gerando 20 números a serem processados.
      * @param {*} [options] Override http request option.
@@ -56,6 +70,13 @@ export interface FibonacciApiInterface {
      * Inicia a sequência de Fibonacci gerando 20 números a serem processados.
      */
     startFibonacci(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+
+    /**
+     * Creates request options for sumFibonacciSequence without sending the request
+     * @throws {RequiredError}
+     * @memberof FibonacciApiInterface
+     */
+    sumFibonacciSequenceRequestOpts(): Promise<runtime.RequestOpts>;
 
     /**
      * 
@@ -79,9 +100,9 @@ export interface FibonacciApiInterface {
 export class FibonacciApi extends runtime.BaseAPI implements FibonacciApiInterface {
 
     /**
-     * Gera a sequência de Fibonacci a partir de um número n recebido.
+     * Creates request options for generateFibonacciSequence without sending the request
      */
-    async generateFibonacciSequenceRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+    async generateFibonacciSequenceRequestOpts(): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -89,12 +110,20 @@ export class FibonacciApi extends runtime.BaseAPI implements FibonacciApiInterfa
 
         let urlPath = `/internal/queues/generate-fibonacci-sequence`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Gera a sequência de Fibonacci a partir de um número n recebido.
+     */
+    async generateFibonacciSequenceRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        const requestOptions = await this.generateFibonacciSequenceRequestOpts();
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.VoidApiResponse(response);
     }
@@ -107,9 +136,9 @@ export class FibonacciApi extends runtime.BaseAPI implements FibonacciApiInterfa
     }
 
     /**
-     * Inicia a sequência de Fibonacci gerando 20 números a serem processados.
+     * Creates request options for startFibonacci without sending the request
      */
-    async startFibonacciRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+    async startFibonacciRequestOpts(): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -117,12 +146,20 @@ export class FibonacciApi extends runtime.BaseAPI implements FibonacciApiInterfa
 
         let urlPath = `/internal/fibonacci/start`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Inicia a sequência de Fibonacci gerando 20 números a serem processados.
+     */
+    async startFibonacciRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        const requestOptions = await this.startFibonacciRequestOpts();
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.VoidApiResponse(response);
     }
@@ -135,9 +172,9 @@ export class FibonacciApi extends runtime.BaseAPI implements FibonacciApiInterfa
     }
 
     /**
-     * Soma a sequência de Fibonacci gerada.
+     * Creates request options for sumFibonacciSequence without sending the request
      */
-    async sumFibonacciSequenceRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+    async sumFibonacciSequenceRequestOpts(): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -145,12 +182,20 @@ export class FibonacciApi extends runtime.BaseAPI implements FibonacciApiInterfa
 
         let urlPath = `/internal/queues/sum-fibonacci-sequence`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Soma a sequência de Fibonacci gerada.
+     */
+    async sumFibonacciSequenceRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        const requestOptions = await this.sumFibonacciSequenceRequestOpts();
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.VoidApiResponse(response);
     }

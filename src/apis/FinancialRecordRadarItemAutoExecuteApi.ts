@@ -37,6 +37,13 @@ export interface UpdateFinancialRecordRadarItemAutoExecuteSettingsRequest {
  */
 export interface FinancialRecordRadarItemAutoExecuteApiInterface {
     /**
+     * Creates request options for getFinancialRecordRadarItemAutoExecuteSettings without sending the request
+     * @throws {RequiredError}
+     * @memberof FinancialRecordRadarItemAutoExecuteApiInterface
+     */
+    getFinancialRecordRadarItemAutoExecuteSettingsRequestOpts(): Promise<runtime.RequestOpts>;
+
+    /**
      * Retorna as configurações de auto-execute do radar para a organização do usuário.
      * @summary Obter configurações de auto-execute
      * @param {*} [options] Override http request option.
@@ -50,6 +57,14 @@ export interface FinancialRecordRadarItemAutoExecuteApiInterface {
      * Obter configurações de auto-execute
      */
     getFinancialRecordRadarItemAutoExecuteSettings(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FinancialRecordRadarItemAutoExecuteSettingEntity>;
+
+    /**
+     * Creates request options for updateFinancialRecordRadarItemAutoExecuteSettings without sending the request
+     * @param {UpdateFinancialRecordRadarItemAutoExecuteSettingsRequestBodyDto} updateFinancialRecordRadarItemAutoExecuteSettingsRequestBodyDto 
+     * @throws {RequiredError}
+     * @memberof FinancialRecordRadarItemAutoExecuteApiInterface
+     */
+    updateFinancialRecordRadarItemAutoExecuteSettingsRequestOpts(requestParameters: UpdateFinancialRecordRadarItemAutoExecuteSettingsRequest): Promise<runtime.RequestOpts>;
 
     /**
      * Atualiza as configurações de auto-execute do radar para a organização do usuário.
@@ -75,10 +90,9 @@ export interface FinancialRecordRadarItemAutoExecuteApiInterface {
 export class FinancialRecordRadarItemAutoExecuteApi extends runtime.BaseAPI implements FinancialRecordRadarItemAutoExecuteApiInterface {
 
     /**
-     * Retorna as configurações de auto-execute do radar para a organização do usuário.
-     * Obter configurações de auto-execute
+     * Creates request options for getFinancialRecordRadarItemAutoExecuteSettings without sending the request
      */
-    async getFinancialRecordRadarItemAutoExecuteSettingsRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FinancialRecordRadarItemAutoExecuteSettingEntity>> {
+    async getFinancialRecordRadarItemAutoExecuteSettingsRequestOpts(): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -86,12 +100,21 @@ export class FinancialRecordRadarItemAutoExecuteApi extends runtime.BaseAPI impl
 
         let urlPath = `/external/financial-records/radar/items/auto-execute/settings`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Retorna as configurações de auto-execute do radar para a organização do usuário.
+     * Obter configurações de auto-execute
+     */
+    async getFinancialRecordRadarItemAutoExecuteSettingsRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FinancialRecordRadarItemAutoExecuteSettingEntity>> {
+        const requestOptions = await this.getFinancialRecordRadarItemAutoExecuteSettingsRequestOpts();
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => FinancialRecordRadarItemAutoExecuteSettingEntityFromJSON(jsonValue));
     }
@@ -106,10 +129,9 @@ export class FinancialRecordRadarItemAutoExecuteApi extends runtime.BaseAPI impl
     }
 
     /**
-     * Atualiza as configurações de auto-execute do radar para a organização do usuário.
-     * Atualizar configurações de auto-execute
+     * Creates request options for updateFinancialRecordRadarItemAutoExecuteSettings without sending the request
      */
-    async updateFinancialRecordRadarItemAutoExecuteSettingsRaw(requestParameters: UpdateFinancialRecordRadarItemAutoExecuteSettingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FinancialRecordRadarItemAutoExecuteSettingEntity>> {
+    async updateFinancialRecordRadarItemAutoExecuteSettingsRequestOpts(requestParameters: UpdateFinancialRecordRadarItemAutoExecuteSettingsRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['updateFinancialRecordRadarItemAutoExecuteSettingsRequestBodyDto'] == null) {
             throw new runtime.RequiredError(
                 'updateFinancialRecordRadarItemAutoExecuteSettingsRequestBodyDto',
@@ -126,13 +148,22 @@ export class FinancialRecordRadarItemAutoExecuteApi extends runtime.BaseAPI impl
 
         let urlPath = `/external/financial-records/radar/items/auto-execute/settings`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
             body: UpdateFinancialRecordRadarItemAutoExecuteSettingsRequestBodyDtoToJSON(requestParameters['updateFinancialRecordRadarItemAutoExecuteSettingsRequestBodyDto']),
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Atualiza as configurações de auto-execute do radar para a organização do usuário.
+     * Atualizar configurações de auto-execute
+     */
+    async updateFinancialRecordRadarItemAutoExecuteSettingsRaw(requestParameters: UpdateFinancialRecordRadarItemAutoExecuteSettingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FinancialRecordRadarItemAutoExecuteSettingEntity>> {
+        const requestOptions = await this.updateFinancialRecordRadarItemAutoExecuteSettingsRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => FinancialRecordRadarItemAutoExecuteSettingEntityFromJSON(jsonValue));
     }

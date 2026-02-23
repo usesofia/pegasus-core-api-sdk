@@ -76,29 +76,42 @@ var FinancialRecordRadarItemsApi = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
+     * Creates request options for createFinancialRecordRadarItem without sending the request
+     */
+    FinancialRecordRadarItemsApi.prototype.createFinancialRecordRadarItemRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                if (requestParameters['createFinancialRecordRadarItemRequestBodyDto'] == null) {
+                    throw new runtime.RequiredError('createFinancialRecordRadarItemRequestBodyDto', 'Required parameter "createFinancialRecordRadarItemRequestBodyDto" was null or undefined when calling createFinancialRecordRadarItem().');
+                }
+                queryParameters = {};
+                headerParameters = {};
+                headerParameters['Content-Type'] = 'application/json';
+                urlPath = "/external/financial-records/radar/items";
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'POST',
+                        headers: headerParameters,
+                        query: queryParameters,
+                        body: (0, index_1.CreateFinancialRecordRadarItemRequestBodyDtoToJSON)(requestParameters['createFinancialRecordRadarItemRequestBodyDto']),
+                    }];
+            });
+        });
+    };
+    /**
      * Cria um novo registro de radar
      */
     FinancialRecordRadarItemsApi.prototype.createFinancialRecordRadarItemRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        if (requestParameters['createFinancialRecordRadarItemRequestBodyDto'] == null) {
-                            throw new runtime.RequiredError('createFinancialRecordRadarItemRequestBodyDto', 'Required parameter "createFinancialRecordRadarItemRequestBodyDto" was null or undefined when calling createFinancialRecordRadarItem().');
-                        }
-                        queryParameters = {};
-                        headerParameters = {};
-                        headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/external/financial-records/radar/items";
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'POST',
-                                headers: headerParameters,
-                                query: queryParameters,
-                                body: (0, index_1.CreateFinancialRecordRadarItemRequestBodyDtoToJSON)(requestParameters['createFinancialRecordRadarItemRequestBodyDto']),
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.createFinancialRecordRadarItemRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.CreatedFinancialRecordRadarItemResultEntityFromJSON)(jsonValue); })];
                 }
@@ -123,57 +136,70 @@ var FinancialRecordRadarItemsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Creates request options for findAllFinancialRecordRadarItems without sending the request
+     */
+    FinancialRecordRadarItemsApi.prototype.findAllFinancialRecordRadarItemsRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                queryParameters = {};
+                if (requestParameters['links'] != null) {
+                    queryParameters['links'] = requestParameters['links'];
+                }
+                if (requestParameters['sortOrder'] != null) {
+                    queryParameters['sortOrder'] = requestParameters['sortOrder'];
+                }
+                if (requestParameters['sortBy'] != null) {
+                    queryParameters['sortBy'] = requestParameters['sortBy'];
+                }
+                if (requestParameters['hasAutoExecute'] != null) {
+                    queryParameters['hasAutoExecute'] = requestParameters['hasAutoExecute'];
+                }
+                if (requestParameters['populate'] != null) {
+                    queryParameters['populate'] = requestParameters['populate'];
+                }
+                if (requestParameters['nature'] != null) {
+                    queryParameters['nature'] = requestParameters['nature'];
+                }
+                if (requestParameters['origin'] != null) {
+                    queryParameters['origin'] = requestParameters['origin'];
+                }
+                if (requestParameters['status'] != null) {
+                    queryParameters['status'] = requestParameters['status'];
+                }
+                if (requestParameters['folder'] != null) {
+                    queryParameters['folder'] = requestParameters['folder'];
+                }
+                if (requestParameters['pageSize'] != null) {
+                    queryParameters['pageSize'] = requestParameters['pageSize'];
+                }
+                if (requestParameters['pageIndex'] != null) {
+                    queryParameters['pageIndex'] = requestParameters['pageIndex'];
+                }
+                headerParameters = {};
+                urlPath = "/external/financial-records/radar/items";
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'GET',
+                        headers: headerParameters,
+                        query: queryParameters,
+                    }];
+            });
+        });
+    };
+    /**
      * Busca todos os registros do radar.
      */
     FinancialRecordRadarItemsApi.prototype.findAllFinancialRecordRadarItemsRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        queryParameters = {};
-                        if (requestParameters['links'] != null) {
-                            queryParameters['links'] = requestParameters['links'];
-                        }
-                        if (requestParameters['sortOrder'] != null) {
-                            queryParameters['sortOrder'] = requestParameters['sortOrder'];
-                        }
-                        if (requestParameters['sortBy'] != null) {
-                            queryParameters['sortBy'] = requestParameters['sortBy'];
-                        }
-                        if (requestParameters['hasAutoExecute'] != null) {
-                            queryParameters['hasAutoExecute'] = requestParameters['hasAutoExecute'];
-                        }
-                        if (requestParameters['populate'] != null) {
-                            queryParameters['populate'] = requestParameters['populate'];
-                        }
-                        if (requestParameters['nature'] != null) {
-                            queryParameters['nature'] = requestParameters['nature'];
-                        }
-                        if (requestParameters['origin'] != null) {
-                            queryParameters['origin'] = requestParameters['origin'];
-                        }
-                        if (requestParameters['status'] != null) {
-                            queryParameters['status'] = requestParameters['status'];
-                        }
-                        if (requestParameters['folder'] != null) {
-                            queryParameters['folder'] = requestParameters['folder'];
-                        }
-                        if (requestParameters['pageSize'] != null) {
-                            queryParameters['pageSize'] = requestParameters['pageSize'];
-                        }
-                        if (requestParameters['pageIndex'] != null) {
-                            queryParameters['pageIndex'] = requestParameters['pageIndex'];
-                        }
-                        headerParameters = {};
-                        urlPath = "/external/financial-records/radar/items";
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'GET',
-                                headers: headerParameters,
-                                query: queryParameters,
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.findAllFinancialRecordRadarItemsRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.FinancialRecordRadarItemsPageDtoFromJSON)(jsonValue); })];
                 }
@@ -199,31 +225,44 @@ var FinancialRecordRadarItemsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Creates request options for findByIdFinancialRecordRadarItem without sending the request
+     */
+    FinancialRecordRadarItemsApi.prototype.findByIdFinancialRecordRadarItemRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                if (requestParameters['radarItemId'] == null) {
+                    throw new runtime.RequiredError('radarItemId', 'Required parameter "radarItemId" was null or undefined when calling findByIdFinancialRecordRadarItem().');
+                }
+                queryParameters = {};
+                if (requestParameters['populate'] != null) {
+                    queryParameters['populate'] = requestParameters['populate'];
+                }
+                headerParameters = {};
+                urlPath = "/external/financial-records/radar/items/{radarItemId}";
+                urlPath = urlPath.replace("{".concat("radarItemId", "}"), encodeURIComponent(String(requestParameters['radarItemId'])));
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'GET',
+                        headers: headerParameters,
+                        query: queryParameters,
+                    }];
+            });
+        });
+    };
+    /**
      * Busca um registro de radar pelo identificador.
      */
     FinancialRecordRadarItemsApi.prototype.findByIdFinancialRecordRadarItemRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        if (requestParameters['radarItemId'] == null) {
-                            throw new runtime.RequiredError('radarItemId', 'Required parameter "radarItemId" was null or undefined when calling findByIdFinancialRecordRadarItem().');
-                        }
-                        queryParameters = {};
-                        if (requestParameters['populate'] != null) {
-                            queryParameters['populate'] = requestParameters['populate'];
-                        }
-                        headerParameters = {};
-                        urlPath = "/external/financial-records/radar/items/{radarItemId}";
-                        urlPath = urlPath.replace("{".concat("radarItemId", "}"), encodeURIComponent(String(requestParameters['radarItemId'])));
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'GET',
-                                headers: headerParameters,
-                                query: queryParameters,
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.findByIdFinancialRecordRadarItemRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.FinancialRecordRadarItemEntityFromJSON)(jsonValue); })];
                 }
@@ -248,28 +287,41 @@ var FinancialRecordRadarItemsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Creates request options for getTagsForFinancialRecordRadarItem without sending the request
+     */
+    FinancialRecordRadarItemsApi.prototype.getTagsForFinancialRecordRadarItemRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                if (requestParameters['radarItemId'] == null) {
+                    throw new runtime.RequiredError('radarItemId', 'Required parameter "radarItemId" was null or undefined when calling getTagsForFinancialRecordRadarItem().');
+                }
+                queryParameters = {};
+                headerParameters = {};
+                urlPath = "/external/financial-records/radar/items/{radarItemId}/tags";
+                urlPath = urlPath.replace("{".concat("radarItemId", "}"), encodeURIComponent(String(requestParameters['radarItemId'])));
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'GET',
+                        headers: headerParameters,
+                        query: queryParameters,
+                    }];
+            });
+        });
+    };
+    /**
      * Obtém os tags para um registro de radar.
      */
     FinancialRecordRadarItemsApi.prototype.getTagsForFinancialRecordRadarItemRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        if (requestParameters['radarItemId'] == null) {
-                            throw new runtime.RequiredError('radarItemId', 'Required parameter "radarItemId" was null or undefined when calling getTagsForFinancialRecordRadarItem().');
-                        }
-                        queryParameters = {};
-                        headerParameters = {};
-                        urlPath = "/external/financial-records/radar/items/{radarItemId}/tags";
-                        urlPath = urlPath.replace("{".concat("radarItemId", "}"), encodeURIComponent(String(requestParameters['radarItemId'])));
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'GET',
-                                headers: headerParameters,
-                                query: queryParameters,
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.getTagsForFinancialRecordRadarItemRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return jsonValue.map(index_1.FinancialRecordRadarItemTagEntityFromJSON); })];
                 }
@@ -294,34 +346,47 @@ var FinancialRecordRadarItemsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Creates request options for linkFinancialRecordsToFinancialRecordRadarItem without sending the request
+     */
+    FinancialRecordRadarItemsApi.prototype.linkFinancialRecordsToFinancialRecordRadarItemRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                if (requestParameters['radarItemId'] == null) {
+                    throw new runtime.RequiredError('radarItemId', 'Required parameter "radarItemId" was null or undefined when calling linkFinancialRecordsToFinancialRecordRadarItem().');
+                }
+                if (requestParameters['linkFinancialRecordsRequestBodyDto'] == null) {
+                    throw new runtime.RequiredError('linkFinancialRecordsRequestBodyDto', 'Required parameter "linkFinancialRecordsRequestBodyDto" was null or undefined when calling linkFinancialRecordsToFinancialRecordRadarItem().');
+                }
+                queryParameters = {};
+                headerParameters = {};
+                headerParameters['Content-Type'] = 'application/json';
+                urlPath = "/external/financial-records/radar/items/{radarItemId}/links";
+                urlPath = urlPath.replace("{".concat("radarItemId", "}"), encodeURIComponent(String(requestParameters['radarItemId'])));
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'POST',
+                        headers: headerParameters,
+                        query: queryParameters,
+                        body: (0, index_1.LinkFinancialRecordsRequestBodyDtoToJSON)(requestParameters['linkFinancialRecordsRequestBodyDto']),
+                    }];
+            });
+        });
+    };
+    /**
      * Adiciona vínculos entre um registro de radar e múltiplos registros financeiros, atualizando ambos os lados da relação.
      * Vincula registros financeiros a um registro de radar
      */
     FinancialRecordRadarItemsApi.prototype.linkFinancialRecordsToFinancialRecordRadarItemRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        if (requestParameters['radarItemId'] == null) {
-                            throw new runtime.RequiredError('radarItemId', 'Required parameter "radarItemId" was null or undefined when calling linkFinancialRecordsToFinancialRecordRadarItem().');
-                        }
-                        if (requestParameters['linkFinancialRecordsRequestBodyDto'] == null) {
-                            throw new runtime.RequiredError('linkFinancialRecordsRequestBodyDto', 'Required parameter "linkFinancialRecordsRequestBodyDto" was null or undefined when calling linkFinancialRecordsToFinancialRecordRadarItem().');
-                        }
-                        queryParameters = {};
-                        headerParameters = {};
-                        headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/external/financial-records/radar/items/{radarItemId}/links";
-                        urlPath = urlPath.replace("{".concat("radarItemId", "}"), encodeURIComponent(String(requestParameters['radarItemId'])));
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'POST',
-                                headers: headerParameters,
-                                query: queryParameters,
-                                body: (0, index_1.LinkFinancialRecordsRequestBodyDtoToJSON)(requestParameters['linkFinancialRecordsRequestBodyDto']),
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.linkFinancialRecordsToFinancialRecordRadarItemRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.FinancialRecordRadarItemEntityFromJSON)(jsonValue); })];
                 }
@@ -347,34 +412,47 @@ var FinancialRecordRadarItemsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Creates request options for partialUpdateFinancialRecordRadarItem without sending the request
+     */
+    FinancialRecordRadarItemsApi.prototype.partialUpdateFinancialRecordRadarItemRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                if (requestParameters['radarItemId'] == null) {
+                    throw new runtime.RequiredError('radarItemId', 'Required parameter "radarItemId" was null or undefined when calling partialUpdateFinancialRecordRadarItem().');
+                }
+                if (requestParameters['partialUpdateFinancialRecordRadarItemRequestBodyDto'] == null) {
+                    throw new runtime.RequiredError('partialUpdateFinancialRecordRadarItemRequestBodyDto', 'Required parameter "partialUpdateFinancialRecordRadarItemRequestBodyDto" was null or undefined when calling partialUpdateFinancialRecordRadarItem().');
+                }
+                queryParameters = {};
+                headerParameters = {};
+                headerParameters['Content-Type'] = 'application/json';
+                urlPath = "/external/financial-records/radar/items/{radarItemId}";
+                urlPath = urlPath.replace("{".concat("radarItemId", "}"), encodeURIComponent(String(requestParameters['radarItemId'])));
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'PATCH',
+                        headers: headerParameters,
+                        query: queryParameters,
+                        body: (0, index_1.PartialUpdateFinancialRecordRadarItemRequestBodyDtoToJSON)(requestParameters['partialUpdateFinancialRecordRadarItemRequestBodyDto']),
+                    }];
+            });
+        });
+    };
+    /**
      * Atualiza parcialmente um registro de radar existente.
      * Atualiza parcialmente um registro de radar
      */
     FinancialRecordRadarItemsApi.prototype.partialUpdateFinancialRecordRadarItemRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        if (requestParameters['radarItemId'] == null) {
-                            throw new runtime.RequiredError('radarItemId', 'Required parameter "radarItemId" was null or undefined when calling partialUpdateFinancialRecordRadarItem().');
-                        }
-                        if (requestParameters['partialUpdateFinancialRecordRadarItemRequestBodyDto'] == null) {
-                            throw new runtime.RequiredError('partialUpdateFinancialRecordRadarItemRequestBodyDto', 'Required parameter "partialUpdateFinancialRecordRadarItemRequestBodyDto" was null or undefined when calling partialUpdateFinancialRecordRadarItem().');
-                        }
-                        queryParameters = {};
-                        headerParameters = {};
-                        headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/external/financial-records/radar/items/{radarItemId}";
-                        urlPath = urlPath.replace("{".concat("radarItemId", "}"), encodeURIComponent(String(requestParameters['radarItemId'])));
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'PATCH',
-                                headers: headerParameters,
-                                query: queryParameters,
-                                body: (0, index_1.PartialUpdateFinancialRecordRadarItemRequestBodyDtoToJSON)(requestParameters['partialUpdateFinancialRecordRadarItemRequestBodyDto']),
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.partialUpdateFinancialRecordRadarItemRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.FinancialRecordRadarItemEntityFromJSON)(jsonValue); })];
                 }
@@ -400,31 +478,44 @@ var FinancialRecordRadarItemsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Creates request options for previewBulkCreateFile without sending the request
+     */
+    FinancialRecordRadarItemsApi.prototype.previewBulkCreateFileRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                if (requestParameters['radarItemId'] == null) {
+                    throw new runtime.RequiredError('radarItemId', 'Required parameter "radarItemId" was null or undefined when calling previewBulkCreateFile().');
+                }
+                queryParameters = {};
+                if (requestParameters['limit'] != null) {
+                    queryParameters['limit'] = requestParameters['limit'];
+                }
+                headerParameters = {};
+                urlPath = "/external/financial-records/radar/items/{radarItemId}/preview-bulk-create-file";
+                urlPath = urlPath.replace("{".concat("radarItemId", "}"), encodeURIComponent(String(requestParameters['radarItemId'])));
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'GET',
+                        headers: headerParameters,
+                        query: queryParameters,
+                    }];
+            });
+        });
+    };
+    /**
      * Obtém o preview de um arquivo .csv para criação em lote.
      */
     FinancialRecordRadarItemsApi.prototype.previewBulkCreateFileRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        if (requestParameters['radarItemId'] == null) {
-                            throw new runtime.RequiredError('radarItemId', 'Required parameter "radarItemId" was null or undefined when calling previewBulkCreateFile().');
-                        }
-                        queryParameters = {};
-                        if (requestParameters['limit'] != null) {
-                            queryParameters['limit'] = requestParameters['limit'];
-                        }
-                        headerParameters = {};
-                        urlPath = "/external/financial-records/radar/items/{radarItemId}/preview-bulk-create-file";
-                        urlPath = urlPath.replace("{".concat("radarItemId", "}"), encodeURIComponent(String(requestParameters['radarItemId'])));
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'GET',
-                                headers: headerParameters,
-                                query: queryParameters,
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.previewBulkCreateFileRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.FinancialRecordsBulkCreateFilePreviewEntityFromJSON)(jsonValue); })];
                 }
@@ -449,58 +540,71 @@ var FinancialRecordRadarItemsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Creates request options for systemFindAllFinancialRecordRadarItems without sending the request
+     */
+    FinancialRecordRadarItemsApi.prototype.systemFindAllFinancialRecordRadarItemsRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                if (requestParameters['organizationId'] == null) {
+                    throw new runtime.RequiredError('organizationId', 'Required parameter "organizationId" was null or undefined when calling systemFindAllFinancialRecordRadarItems().');
+                }
+                queryParameters = {};
+                if (requestParameters['sortOrder'] != null) {
+                    queryParameters['sortOrder'] = requestParameters['sortOrder'];
+                }
+                if (requestParameters['sortBy'] != null) {
+                    queryParameters['sortBy'] = requestParameters['sortBy'];
+                }
+                if (requestParameters['hasAutoExecute'] != null) {
+                    queryParameters['hasAutoExecute'] = requestParameters['hasAutoExecute'];
+                }
+                if (requestParameters['populate'] != null) {
+                    queryParameters['populate'] = requestParameters['populate'];
+                }
+                if (requestParameters['nature'] != null) {
+                    queryParameters['nature'] = requestParameters['nature'];
+                }
+                if (requestParameters['origin'] != null) {
+                    queryParameters['origin'] = requestParameters['origin'];
+                }
+                if (requestParameters['status'] != null) {
+                    queryParameters['status'] = requestParameters['status'];
+                }
+                if (requestParameters['folder'] != null) {
+                    queryParameters['folder'] = requestParameters['folder'];
+                }
+                if (requestParameters['pageSize'] != null) {
+                    queryParameters['pageSize'] = requestParameters['pageSize'];
+                }
+                if (requestParameters['pageIndex'] != null) {
+                    queryParameters['pageIndex'] = requestParameters['pageIndex'];
+                }
+                headerParameters = {};
+                urlPath = "/internal/organizations/{organizationId}/financial-records/radar/items";
+                urlPath = urlPath.replace("{".concat("organizationId", "}"), encodeURIComponent(String(requestParameters['organizationId'])));
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'GET',
+                        headers: headerParameters,
+                        query: queryParameters,
+                    }];
+            });
+        });
+    };
+    /**
      * Busca todos os registros do radar (sistema).
      */
     FinancialRecordRadarItemsApi.prototype.systemFindAllFinancialRecordRadarItemsRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        if (requestParameters['organizationId'] == null) {
-                            throw new runtime.RequiredError('organizationId', 'Required parameter "organizationId" was null or undefined when calling systemFindAllFinancialRecordRadarItems().');
-                        }
-                        queryParameters = {};
-                        if (requestParameters['sortOrder'] != null) {
-                            queryParameters['sortOrder'] = requestParameters['sortOrder'];
-                        }
-                        if (requestParameters['sortBy'] != null) {
-                            queryParameters['sortBy'] = requestParameters['sortBy'];
-                        }
-                        if (requestParameters['hasAutoExecute'] != null) {
-                            queryParameters['hasAutoExecute'] = requestParameters['hasAutoExecute'];
-                        }
-                        if (requestParameters['populate'] != null) {
-                            queryParameters['populate'] = requestParameters['populate'];
-                        }
-                        if (requestParameters['nature'] != null) {
-                            queryParameters['nature'] = requestParameters['nature'];
-                        }
-                        if (requestParameters['origin'] != null) {
-                            queryParameters['origin'] = requestParameters['origin'];
-                        }
-                        if (requestParameters['status'] != null) {
-                            queryParameters['status'] = requestParameters['status'];
-                        }
-                        if (requestParameters['folder'] != null) {
-                            queryParameters['folder'] = requestParameters['folder'];
-                        }
-                        if (requestParameters['pageSize'] != null) {
-                            queryParameters['pageSize'] = requestParameters['pageSize'];
-                        }
-                        if (requestParameters['pageIndex'] != null) {
-                            queryParameters['pageIndex'] = requestParameters['pageIndex'];
-                        }
-                        headerParameters = {};
-                        urlPath = "/internal/organizations/{organizationId}/financial-records/radar/items";
-                        urlPath = urlPath.replace("{".concat("organizationId", "}"), encodeURIComponent(String(requestParameters['organizationId'])));
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'GET',
-                                headers: headerParameters,
-                                query: queryParameters,
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.systemFindAllFinancialRecordRadarItemsRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.FinancialRecordRadarItemsPageDtoFromJSON)(jsonValue); })];
                 }
@@ -525,35 +629,48 @@ var FinancialRecordRadarItemsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Creates request options for systemFindByIdFinancialRecordRadarItem without sending the request
+     */
+    FinancialRecordRadarItemsApi.prototype.systemFindByIdFinancialRecordRadarItemRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                if (requestParameters['organizationId'] == null) {
+                    throw new runtime.RequiredError('organizationId', 'Required parameter "organizationId" was null or undefined when calling systemFindByIdFinancialRecordRadarItem().');
+                }
+                if (requestParameters['radarItemId'] == null) {
+                    throw new runtime.RequiredError('radarItemId', 'Required parameter "radarItemId" was null or undefined when calling systemFindByIdFinancialRecordRadarItem().');
+                }
+                queryParameters = {};
+                if (requestParameters['populate'] != null) {
+                    queryParameters['populate'] = requestParameters['populate'];
+                }
+                headerParameters = {};
+                urlPath = "/internal/organizations/{organizationId}/financial-records/radar/items/{radarItemId}";
+                urlPath = urlPath.replace("{".concat("organizationId", "}"), encodeURIComponent(String(requestParameters['organizationId'])));
+                urlPath = urlPath.replace("{".concat("radarItemId", "}"), encodeURIComponent(String(requestParameters['radarItemId'])));
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'GET',
+                        headers: headerParameters,
+                        query: queryParameters,
+                    }];
+            });
+        });
+    };
+    /**
      * Busca um registro de radar pelo identificador.
      */
     FinancialRecordRadarItemsApi.prototype.systemFindByIdFinancialRecordRadarItemRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        if (requestParameters['organizationId'] == null) {
-                            throw new runtime.RequiredError('organizationId', 'Required parameter "organizationId" was null or undefined when calling systemFindByIdFinancialRecordRadarItem().');
-                        }
-                        if (requestParameters['radarItemId'] == null) {
-                            throw new runtime.RequiredError('radarItemId', 'Required parameter "radarItemId" was null or undefined when calling systemFindByIdFinancialRecordRadarItem().');
-                        }
-                        queryParameters = {};
-                        if (requestParameters['populate'] != null) {
-                            queryParameters['populate'] = requestParameters['populate'];
-                        }
-                        headerParameters = {};
-                        urlPath = "/internal/organizations/{organizationId}/financial-records/radar/items/{radarItemId}";
-                        urlPath = urlPath.replace("{".concat("organizationId", "}"), encodeURIComponent(String(requestParameters['organizationId'])));
-                        urlPath = urlPath.replace("{".concat("radarItemId", "}"), encodeURIComponent(String(requestParameters['radarItemId'])));
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'GET',
-                                headers: headerParameters,
-                                query: queryParameters,
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.systemFindByIdFinancialRecordRadarItemRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.FinancialRecordRadarItemEntityFromJSON)(jsonValue); })];
                 }
@@ -578,34 +695,47 @@ var FinancialRecordRadarItemsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Creates request options for unlinkFinancialRecordsFromFinancialRecordRadarItem without sending the request
+     */
+    FinancialRecordRadarItemsApi.prototype.unlinkFinancialRecordsFromFinancialRecordRadarItemRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                if (requestParameters['radarItemId'] == null) {
+                    throw new runtime.RequiredError('radarItemId', 'Required parameter "radarItemId" was null or undefined when calling unlinkFinancialRecordsFromFinancialRecordRadarItem().');
+                }
+                if (requestParameters['unlinkFinancialRecordsRequestBodyDto'] == null) {
+                    throw new runtime.RequiredError('unlinkFinancialRecordsRequestBodyDto', 'Required parameter "unlinkFinancialRecordsRequestBodyDto" was null or undefined when calling unlinkFinancialRecordsFromFinancialRecordRadarItem().');
+                }
+                queryParameters = {};
+                headerParameters = {};
+                headerParameters['Content-Type'] = 'application/json';
+                urlPath = "/external/financial-records/radar/items/{radarItemId}/unlink";
+                urlPath = urlPath.replace("{".concat("radarItemId", "}"), encodeURIComponent(String(requestParameters['radarItemId'])));
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'POST',
+                        headers: headerParameters,
+                        query: queryParameters,
+                        body: (0, index_1.UnlinkFinancialRecordsRequestBodyDtoToJSON)(requestParameters['unlinkFinancialRecordsRequestBodyDto']),
+                    }];
+            });
+        });
+    };
+    /**
      * Remove vínculos entre um registro de radar e registros financeiros, atualizando ambos os lados da relação.
      * Desvincula registros financeiros de um registro de radar
      */
     FinancialRecordRadarItemsApi.prototype.unlinkFinancialRecordsFromFinancialRecordRadarItemRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        if (requestParameters['radarItemId'] == null) {
-                            throw new runtime.RequiredError('radarItemId', 'Required parameter "radarItemId" was null or undefined when calling unlinkFinancialRecordsFromFinancialRecordRadarItem().');
-                        }
-                        if (requestParameters['unlinkFinancialRecordsRequestBodyDto'] == null) {
-                            throw new runtime.RequiredError('unlinkFinancialRecordsRequestBodyDto', 'Required parameter "unlinkFinancialRecordsRequestBodyDto" was null or undefined when calling unlinkFinancialRecordsFromFinancialRecordRadarItem().');
-                        }
-                        queryParameters = {};
-                        headerParameters = {};
-                        headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/external/financial-records/radar/items/{radarItemId}/unlink";
-                        urlPath = urlPath.replace("{".concat("radarItemId", "}"), encodeURIComponent(String(requestParameters['radarItemId'])));
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'POST',
-                                headers: headerParameters,
-                                query: queryParameters,
-                                body: (0, index_1.UnlinkFinancialRecordsRequestBodyDtoToJSON)(requestParameters['unlinkFinancialRecordsRequestBodyDto']),
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.unlinkFinancialRecordsFromFinancialRecordRadarItemRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.FinancialRecordRadarItemEntityFromJSON)(jsonValue); })];
                 }

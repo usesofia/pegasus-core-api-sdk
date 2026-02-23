@@ -54,7 +54,7 @@ export interface CreateFinancialRecordRequestBodyDtoPopulatedAccount {
     name: string;
     /**
      * Tipo da conta bancária.
-     * @type {string}
+     * @type {CreateFinancialRecordRequestBodyDtoPopulatedAccountTypeEnum}
      * @memberof CreateFinancialRecordRequestBodyDtoPopulatedAccount
      */
     type: CreateFinancialRecordRequestBodyDtoPopulatedAccountTypeEnum;
@@ -114,7 +114,7 @@ export interface CreateFinancialRecordRequestBodyDtoPopulatedAccount {
     active: boolean;
     /**
      * Fornecedor da conta bancária.
-     * @type {string}
+     * @type {CreateFinancialRecordRequestBodyDtoPopulatedAccountProviderEnum}
      * @memberof CreateFinancialRecordRequestBodyDtoPopulatedAccount
      */
     provider?: CreateFinancialRecordRequestBodyDtoPopulatedAccountProviderEnum | null;

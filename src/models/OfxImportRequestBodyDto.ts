@@ -39,7 +39,7 @@ export interface OfxImportRequestBodyDto {
     bankAccount: string;
     /**
      * Canal de origem da operação
-     * @type {string}
+     * @type {OfxImportRequestBodyDtoChannelEnum}
      * @memberof OfxImportRequestBodyDto
      */
     channel: OfxImportRequestBodyDtoChannelEnum;

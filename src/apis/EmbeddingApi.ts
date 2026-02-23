@@ -37,6 +37,14 @@ export interface CalculateAndUpdateEmbeddingRequest {
  */
 export interface EmbeddingApiInterface {
     /**
+     * Creates request options for calculateAndUpdateEmbedding without sending the request
+     * @param {CalculateAndUpdateEmbeddingBodyRequestDto} calculateAndUpdateEmbeddingBodyRequestDto 
+     * @throws {RequiredError}
+     * @memberof EmbeddingApiInterface
+     */
+    calculateAndUpdateEmbeddingRequestOpts(requestParameters: CalculateAndUpdateEmbeddingRequest): Promise<runtime.RequestOpts>;
+
+    /**
      * 
      * @summary Calcula e atualiza o embedding de um recurso.
      * @param {CalculateAndUpdateEmbeddingBodyRequestDto} calculateAndUpdateEmbeddingBodyRequestDto 
@@ -50,6 +58,13 @@ export interface EmbeddingApiInterface {
      * Calcula e atualiza o embedding de um recurso.
      */
     calculateAndUpdateEmbedding(requestParameters: CalculateAndUpdateEmbeddingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+
+    /**
+     * Creates request options for catchProblematicEmbeddingCalculations without sending the request
+     * @throws {RequiredError}
+     * @memberof EmbeddingApiInterface
+     */
+    catchProblematicEmbeddingCalculationsRequestOpts(): Promise<runtime.RequestOpts>;
 
     /**
      * 
@@ -73,9 +88,9 @@ export interface EmbeddingApiInterface {
 export class EmbeddingApi extends runtime.BaseAPI implements EmbeddingApiInterface {
 
     /**
-     * Calcula e atualiza o embedding de um recurso.
+     * Creates request options for calculateAndUpdateEmbedding without sending the request
      */
-    async calculateAndUpdateEmbeddingRaw(requestParameters: CalculateAndUpdateEmbeddingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+    async calculateAndUpdateEmbeddingRequestOpts(requestParameters: CalculateAndUpdateEmbeddingRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['calculateAndUpdateEmbeddingBodyRequestDto'] == null) {
             throw new runtime.RequiredError(
                 'calculateAndUpdateEmbeddingBodyRequestDto',
@@ -92,13 +107,21 @@ export class EmbeddingApi extends runtime.BaseAPI implements EmbeddingApiInterfa
 
         let urlPath = `/internal/queues/calculate-embedding`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
             body: CalculateAndUpdateEmbeddingBodyRequestDtoToJSON(requestParameters['calculateAndUpdateEmbeddingBodyRequestDto']),
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Calcula e atualiza o embedding de um recurso.
+     */
+    async calculateAndUpdateEmbeddingRaw(requestParameters: CalculateAndUpdateEmbeddingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        const requestOptions = await this.calculateAndUpdateEmbeddingRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.VoidApiResponse(response);
     }
@@ -111,9 +134,9 @@ export class EmbeddingApi extends runtime.BaseAPI implements EmbeddingApiInterfa
     }
 
     /**
-     * Checa se existem recursos que precisam do cálculo do embedding e os adiciona na fila.
+     * Creates request options for catchProblematicEmbeddingCalculations without sending the request
      */
-    async catchProblematicEmbeddingCalculationsRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+    async catchProblematicEmbeddingCalculationsRequestOpts(): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -121,12 +144,20 @@ export class EmbeddingApi extends runtime.BaseAPI implements EmbeddingApiInterfa
 
         let urlPath = `/internal/embedding/catch`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Checa se existem recursos que precisam do cálculo do embedding e os adiciona na fila.
+     */
+    async catchProblematicEmbeddingCalculationsRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        const requestOptions = await this.catchProblematicEmbeddingCalculationsRequestOpts();
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.VoidApiResponse(response);
     }

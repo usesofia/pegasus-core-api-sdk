@@ -76,54 +76,67 @@ var BankTransactionsExportApi = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
+     * Creates request options for exportBankTransactions without sending the request
+     */
+    BankTransactionsExportApi.prototype.exportBankTransactionsRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                queryParameters = {};
+                if (requestParameters['sortOrder'] != null) {
+                    queryParameters['sortOrder'] = requestParameters['sortOrder'];
+                }
+                if (requestParameters['sortBy'] != null) {
+                    queryParameters['sortBy'] = requestParameters['sortBy'];
+                }
+                if (requestParameters['ignored'] != null) {
+                    queryParameters['ignored'] = requestParameters['ignored'];
+                }
+                if (requestParameters['origin'] != null) {
+                    queryParameters['origin'] = requestParameters['origin'];
+                }
+                if (requestParameters['reconciled'] != null) {
+                    queryParameters['reconciled'] = requestParameters['reconciled'];
+                }
+                if (requestParameters['type'] != null) {
+                    queryParameters['type'] = requestParameters['type'];
+                }
+                if (requestParameters['dateTo'] != null) {
+                    queryParameters['dateTo'] = requestParameters['dateTo'];
+                }
+                if (requestParameters['dateFrom'] != null) {
+                    queryParameters['dateFrom'] = requestParameters['dateFrom'];
+                }
+                if (requestParameters['bankAccount'] != null) {
+                    queryParameters['bankAccount'] = requestParameters['bankAccount'];
+                }
+                if (requestParameters['format'] != null) {
+                    queryParameters['format'] = requestParameters['format'];
+                }
+                headerParameters = {};
+                urlPath = "/external/bank-transactions/export";
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'POST',
+                        headers: headerParameters,
+                        query: queryParameters,
+                    }];
+            });
+        });
+    };
+    /**
      * Solicita a exportação das transações bancárias.
      */
     BankTransactionsExportApi.prototype.exportBankTransactionsRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        queryParameters = {};
-                        if (requestParameters['sortOrder'] != null) {
-                            queryParameters['sortOrder'] = requestParameters['sortOrder'];
-                        }
-                        if (requestParameters['sortBy'] != null) {
-                            queryParameters['sortBy'] = requestParameters['sortBy'];
-                        }
-                        if (requestParameters['ignored'] != null) {
-                            queryParameters['ignored'] = requestParameters['ignored'];
-                        }
-                        if (requestParameters['origin'] != null) {
-                            queryParameters['origin'] = requestParameters['origin'];
-                        }
-                        if (requestParameters['reconciled'] != null) {
-                            queryParameters['reconciled'] = requestParameters['reconciled'];
-                        }
-                        if (requestParameters['type'] != null) {
-                            queryParameters['type'] = requestParameters['type'];
-                        }
-                        if (requestParameters['dateTo'] != null) {
-                            queryParameters['dateTo'] = requestParameters['dateTo'];
-                        }
-                        if (requestParameters['dateFrom'] != null) {
-                            queryParameters['dateFrom'] = requestParameters['dateFrom'];
-                        }
-                        if (requestParameters['bankAccount'] != null) {
-                            queryParameters['bankAccount'] = requestParameters['bankAccount'];
-                        }
-                        if (requestParameters['format'] != null) {
-                            queryParameters['format'] = requestParameters['format'];
-                        }
-                        headerParameters = {};
-                        urlPath = "/external/bank-transactions/export";
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'POST',
-                                headers: headerParameters,
-                                query: queryParameters,
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.exportBankTransactionsRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.ExportBankTransactionsDtoFromJSON)(jsonValue); })];
                 }

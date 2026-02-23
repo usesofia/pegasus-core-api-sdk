@@ -50,7 +50,7 @@ import {
 export interface CreateFinancialRecordRadarItemRequestBodyDtoBestSuggestedAction {
     /**
      * Operação sugerida.
-     * @type {string}
+     * @type {CreateFinancialRecordRadarItemRequestBodyDtoBestSuggestedActionOperationEnum}
      * @memberof CreateFinancialRecordRadarItemRequestBodyDtoBestSuggestedAction
      */
     operation: CreateFinancialRecordRadarItemRequestBodyDtoBestSuggestedActionOperationEnum;

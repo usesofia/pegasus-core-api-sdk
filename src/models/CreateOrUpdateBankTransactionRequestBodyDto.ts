@@ -63,7 +63,7 @@ export interface CreateOrUpdateBankTransactionRequestBodyDto {
     bankAccount: string;
     /**
      * Provedor da movimentação financeira.
-     * @type {string}
+     * @type {CreateOrUpdateBankTransactionRequestBodyDtoProviderEnum}
      * @memberof CreateOrUpdateBankTransactionRequestBodyDto
      */
     provider: CreateOrUpdateBankTransactionRequestBodyDtoProviderEnum;
@@ -87,7 +87,7 @@ export interface CreateOrUpdateBankTransactionRequestBodyDto {
     date: any | null;
     /**
      * Tipo da movimentação financeira (entrada ou saída).
-     * @type {string}
+     * @type {CreateOrUpdateBankTransactionRequestBodyDtoTypeEnum}
      * @memberof CreateOrUpdateBankTransactionRequestBodyDto
      */
     type: CreateOrUpdateBankTransactionRequestBodyDtoTypeEnum;
@@ -99,7 +99,7 @@ export interface CreateOrUpdateBankTransactionRequestBodyDto {
     description?: string | null;
     /**
      * Status da movimentação financeira.
-     * @type {string}
+     * @type {CreateOrUpdateBankTransactionRequestBodyDtoStatusEnum}
      * @memberof CreateOrUpdateBankTransactionRequestBodyDto
      */
     status: CreateOrUpdateBankTransactionRequestBodyDtoStatusEnum;

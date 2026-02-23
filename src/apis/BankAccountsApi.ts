@@ -115,6 +115,15 @@ export interface SystemFindByIdBankAccountRequest {
  */
 export interface BankAccountsApiInterface {
     /**
+     * Creates request options for createBankAccount without sending the request
+     * @param {CreateBankAccountRequestBodyDto} createBankAccountRequestBodyDto 
+     * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
+     * @throws {RequiredError}
+     * @memberof BankAccountsApiInterface
+     */
+    createBankAccountRequestOpts(requestParameters: CreateBankAccountRequest): Promise<runtime.RequestOpts>;
+
+    /**
      * 
      * @summary Cria uma nova conta bancária.
      * @param {CreateBankAccountRequestBodyDto} createBankAccountRequestBodyDto 
@@ -131,6 +140,13 @@ export interface BankAccountsApiInterface {
     createBankAccount(requestParameters: CreateBankAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankAccountDto>;
 
     /**
+     * Creates request options for findAllBankAccountTypes without sending the request
+     * @throws {RequiredError}
+     * @memberof BankAccountsApiInterface
+     */
+    findAllBankAccountTypesRequestOpts(): Promise<runtime.RequestOpts>;
+
+    /**
      * 
      * @summary Busca todos os tipos de conta bancária.
      * @param {*} [options] Override http request option.
@@ -143,6 +159,27 @@ export interface BankAccountsApiInterface {
      * Busca todos os tipos de conta bancária.
      */
     findAllBankAccountTypes(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<BankAccountTypeEntity>>;
+
+    /**
+     * Creates request options for findAllBankAccounts without sending the request
+     * @param {'asc' | 'desc'} [sortOrder] Ordem de ordenação das contas bancárias.
+     * @param {'name' | 'type' | 'institution' | 'createdAt' | 'updatedAt'} [sortBy] Campo para ordenação das contas bancárias.
+     * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
+     * @param {string} [providerAccountId] Identificador da conta bancária no fornecedor.
+     * @param {string} [provider] Fornecedor da conta bancária.
+     * @param {boolean} [active] Indica se a conta está ativa.
+     * @param {Array<string>} [ids] Identificadores das contas bancárias a serem buscadas.
+     * @param {boolean} [isDefault] Indica se a conta é a padrão.
+     * @param {boolean} [isAutomatic] Indica se a conta é automática ou manual.
+     * @param {string} [type] Tipo de conta bancária a ser buscada.
+     * @param {string} [semanticSearchTermInBase64] Termo para busca semântica da conta bancária em base64.
+     * @param {string} [textSearchTerm] Termo para busca textual da conta bancária.
+     * @param {number} [pageSize] Quantidade de itens por página.
+     * @param {number} [pageIndex] Índice da página.
+     * @throws {RequiredError}
+     * @memberof BankAccountsApiInterface
+     */
+    findAllBankAccountsRequestOpts(requestParameters: FindAllBankAccountsRequest): Promise<runtime.RequestOpts>;
 
     /**
      * 
@@ -173,6 +210,15 @@ export interface BankAccountsApiInterface {
     findAllBankAccounts(requestParameters: FindAllBankAccountsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankAccountsPageDto>;
 
     /**
+     * Creates request options for findAllByPluggyItem without sending the request
+     * @param {string} itemId Identificador do item de conexão do Pluggy.
+     * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
+     * @throws {RequiredError}
+     * @memberof BankAccountsApiInterface
+     */
+    findAllByPluggyItemRequestOpts(requestParameters: FindAllByPluggyItemRequest): Promise<runtime.RequestOpts>;
+
+    /**
      * 
      * @summary Busca contas bancárias pelo identificador do item do Pluggy.
      * @param {string} itemId Identificador do item de conexão do Pluggy.
@@ -189,6 +235,15 @@ export interface BankAccountsApiInterface {
     findAllByPluggyItem(requestParameters: FindAllByPluggyItemRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<BankAccountDto>>;
 
     /**
+     * Creates request options for findByIdBankAccount without sending the request
+     * @param {string} id Identificador da conta bancária.
+     * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
+     * @throws {RequiredError}
+     * @memberof BankAccountsApiInterface
+     */
+    findByIdBankAccountRequestOpts(requestParameters: FindByIdBankAccountRequest): Promise<runtime.RequestOpts>;
+
+    /**
      * 
      * @summary Busca uma conta bancária pelo identificador.
      * @param {string} id Identificador da conta bancária.
@@ -203,6 +258,16 @@ export interface BankAccountsApiInterface {
      * Busca uma conta bancária pelo identificador.
      */
     findByIdBankAccount(requestParameters: FindByIdBankAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankAccountDto>;
+
+    /**
+     * Creates request options for partialUpdateBankAccount without sending the request
+     * @param {string} id Identificador da conta bancária.
+     * @param {PartialUpdateBankAccountRequestBodyDto} partialUpdateBankAccountRequestBodyDto 
+     * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
+     * @throws {RequiredError}
+     * @memberof BankAccountsApiInterface
+     */
+    partialUpdateBankAccountRequestOpts(requestParameters: PartialUpdateBankAccountRequest): Promise<runtime.RequestOpts>;
 
     /**
      * 
@@ -222,6 +287,15 @@ export interface BankAccountsApiInterface {
     partialUpdateBankAccount(requestParameters: PartialUpdateBankAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankAccountDto>;
 
     /**
+     * Creates request options for removeBankAccount without sending the request
+     * @param {string} id Identificador da conta bancária.
+     * @param {RemoveBankAccountRequestBodyDto} removeBankAccountRequestBodyDto 
+     * @throws {RequiredError}
+     * @memberof BankAccountsApiInterface
+     */
+    removeBankAccountRequestOpts(requestParameters: RemoveBankAccountRequest): Promise<runtime.RequestOpts>;
+
+    /**
      * 
      * @summary Remove uma conta bancária.
      * @param {string} id Identificador da conta bancária.
@@ -236,6 +310,29 @@ export interface BankAccountsApiInterface {
      * Remove uma conta bancária.
      */
     removeBankAccount(requestParameters: RemoveBankAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+
+    /**
+     * Creates request options for systemFindAllBankAccounts without sending the request
+     * @param {string} ownerOrganizationId Identificador da organização proprietária das contas bancárias.
+     * @param {'primary' | 'primaryPreferred' | 'secondary' | 'secondaryPreferred' | 'nearest'} [readPreference] Preferência de leitura das contas bancárias.
+     * @param {'asc' | 'desc'} [sortOrder] Ordem de ordenação das contas bancárias.
+     * @param {'name' | 'type' | 'institution' | 'createdAt' | 'updatedAt'} [sortBy] Campo para ordenação das contas bancárias.
+     * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
+     * @param {string} [providerAccountId] Identificador da conta bancária no fornecedor.
+     * @param {string} [provider] Fornecedor da conta bancária.
+     * @param {boolean} [active] Indica se a conta está ativa.
+     * @param {string} [ids] Lista de IDs de contas bancárias para filtrar separados por vírgula.
+     * @param {boolean} [isDefault] Indica se a conta é a padrão.
+     * @param {boolean} [isAutomatic] Indica se a conta é automática ou manual.
+     * @param {string} [type] Tipo de conta bancária a ser buscada.
+     * @param {string} [semanticSearchTermInBase64] Termo para busca semântica da conta bancária em base64.
+     * @param {string} [textSearchTerm] Termo para busca textual da conta bancária.
+     * @param {number} [pageSize] Quantidade de itens por página.
+     * @param {number} [pageIndex] Índice da página.
+     * @throws {RequiredError}
+     * @memberof BankAccountsApiInterface
+     */
+    systemFindAllBankAccountsRequestOpts(requestParameters: SystemFindAllBankAccountsRequest): Promise<runtime.RequestOpts>;
 
     /**
      * 
@@ -268,6 +365,15 @@ export interface BankAccountsApiInterface {
     systemFindAllBankAccounts(requestParameters: SystemFindAllBankAccountsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankAccountsPageDto>;
 
     /**
+     * Creates request options for systemFindByIdBankAccount without sending the request
+     * @param {string} id Identificador da conta bancária.
+     * @param {string} [populate] Campos relacionados a serem populados separados por vírgula.
+     * @throws {RequiredError}
+     * @memberof BankAccountsApiInterface
+     */
+    systemFindByIdBankAccountRequestOpts(requestParameters: SystemFindByIdBankAccountRequest): Promise<runtime.RequestOpts>;
+
+    /**
      * 
      * @summary Busca uma conta bancária pelo identificador.
      * @param {string} id Identificador da conta bancária.
@@ -291,9 +397,9 @@ export interface BankAccountsApiInterface {
 export class BankAccountsApi extends runtime.BaseAPI implements BankAccountsApiInterface {
 
     /**
-     * Cria uma nova conta bancária.
+     * Creates request options for createBankAccount without sending the request
      */
-    async createBankAccountRaw(requestParameters: CreateBankAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankAccountDto>> {
+    async createBankAccountRequestOpts(requestParameters: CreateBankAccountRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['createBankAccountRequestBodyDto'] == null) {
             throw new runtime.RequiredError(
                 'createBankAccountRequestBodyDto',
@@ -314,13 +420,21 @@ export class BankAccountsApi extends runtime.BaseAPI implements BankAccountsApiI
 
         let urlPath = `/external/bank-accounts`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
             body: CreateBankAccountRequestBodyDtoToJSON(requestParameters['createBankAccountRequestBodyDto']),
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Cria uma nova conta bancária.
+     */
+    async createBankAccountRaw(requestParameters: CreateBankAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankAccountDto>> {
+        const requestOptions = await this.createBankAccountRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => BankAccountDtoFromJSON(jsonValue));
     }
@@ -334,9 +448,9 @@ export class BankAccountsApi extends runtime.BaseAPI implements BankAccountsApiI
     }
 
     /**
-     * Busca todos os tipos de conta bancária.
+     * Creates request options for findAllBankAccountTypes without sending the request
      */
-    async findAllBankAccountTypesRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<BankAccountTypeEntity>>> {
+    async findAllBankAccountTypesRequestOpts(): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -344,12 +458,20 @@ export class BankAccountsApi extends runtime.BaseAPI implements BankAccountsApiI
 
         let urlPath = `/external/bank-accounts/types`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Busca todos os tipos de conta bancária.
+     */
+    async findAllBankAccountTypesRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<BankAccountTypeEntity>>> {
+        const requestOptions = await this.findAllBankAccountTypesRequestOpts();
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(BankAccountTypeEntityFromJSON));
     }
@@ -363,9 +485,9 @@ export class BankAccountsApi extends runtime.BaseAPI implements BankAccountsApiI
     }
 
     /**
-     * Busca todas as contas bancárias.
+     * Creates request options for findAllBankAccounts without sending the request
      */
-    async findAllBankAccountsRaw(requestParameters: FindAllBankAccountsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankAccountsPageDto>> {
+    async findAllBankAccountsRequestOpts(requestParameters: FindAllBankAccountsRequest): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         if (requestParameters['sortOrder'] != null) {
@@ -429,12 +551,20 @@ export class BankAccountsApi extends runtime.BaseAPI implements BankAccountsApiI
 
         let urlPath = `/external/bank-accounts`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Busca todas as contas bancárias.
+     */
+    async findAllBankAccountsRaw(requestParameters: FindAllBankAccountsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankAccountsPageDto>> {
+        const requestOptions = await this.findAllBankAccountsRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => BankAccountsPageDtoFromJSON(jsonValue));
     }
@@ -448,9 +578,9 @@ export class BankAccountsApi extends runtime.BaseAPI implements BankAccountsApiI
     }
 
     /**
-     * Busca contas bancárias pelo identificador do item do Pluggy.
+     * Creates request options for findAllByPluggyItem without sending the request
      */
-    async findAllByPluggyItemRaw(requestParameters: FindAllByPluggyItemRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<BankAccountDto>>> {
+    async findAllByPluggyItemRequestOpts(requestParameters: FindAllByPluggyItemRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['itemId'] == null) {
             throw new runtime.RequiredError(
                 'itemId',
@@ -470,12 +600,20 @@ export class BankAccountsApi extends runtime.BaseAPI implements BankAccountsApiI
         let urlPath = `/internal/bank-accounts/pluggy/{itemId}`;
         urlPath = urlPath.replace(`{${"itemId"}}`, encodeURIComponent(String(requestParameters['itemId'])));
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Busca contas bancárias pelo identificador do item do Pluggy.
+     */
+    async findAllByPluggyItemRaw(requestParameters: FindAllByPluggyItemRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<BankAccountDto>>> {
+        const requestOptions = await this.findAllByPluggyItemRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(BankAccountDtoFromJSON));
     }
@@ -489,9 +627,9 @@ export class BankAccountsApi extends runtime.BaseAPI implements BankAccountsApiI
     }
 
     /**
-     * Busca uma conta bancária pelo identificador.
+     * Creates request options for findByIdBankAccount without sending the request
      */
-    async findByIdBankAccountRaw(requestParameters: FindByIdBankAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankAccountDto>> {
+    async findByIdBankAccountRequestOpts(requestParameters: FindByIdBankAccountRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
@@ -511,12 +649,20 @@ export class BankAccountsApi extends runtime.BaseAPI implements BankAccountsApiI
         let urlPath = `/external/bank-accounts/{id}`;
         urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Busca uma conta bancária pelo identificador.
+     */
+    async findByIdBankAccountRaw(requestParameters: FindByIdBankAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankAccountDto>> {
+        const requestOptions = await this.findByIdBankAccountRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => BankAccountDtoFromJSON(jsonValue));
     }
@@ -530,9 +676,9 @@ export class BankAccountsApi extends runtime.BaseAPI implements BankAccountsApiI
     }
 
     /**
-     * Atualiza parcialmente uma conta bancária.
+     * Creates request options for partialUpdateBankAccount without sending the request
      */
-    async partialUpdateBankAccountRaw(requestParameters: PartialUpdateBankAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankAccountDto>> {
+    async partialUpdateBankAccountRequestOpts(requestParameters: PartialUpdateBankAccountRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
@@ -561,13 +707,21 @@ export class BankAccountsApi extends runtime.BaseAPI implements BankAccountsApiI
         let urlPath = `/external/bank-accounts/{id}`;
         urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'PATCH',
             headers: headerParameters,
             query: queryParameters,
             body: PartialUpdateBankAccountRequestBodyDtoToJSON(requestParameters['partialUpdateBankAccountRequestBodyDto']),
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Atualiza parcialmente uma conta bancária.
+     */
+    async partialUpdateBankAccountRaw(requestParameters: PartialUpdateBankAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankAccountDto>> {
+        const requestOptions = await this.partialUpdateBankAccountRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => BankAccountDtoFromJSON(jsonValue));
     }
@@ -581,9 +735,9 @@ export class BankAccountsApi extends runtime.BaseAPI implements BankAccountsApiI
     }
 
     /**
-     * Remove uma conta bancária.
+     * Creates request options for removeBankAccount without sending the request
      */
-    async removeBankAccountRaw(requestParameters: RemoveBankAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+    async removeBankAccountRequestOpts(requestParameters: RemoveBankAccountRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
@@ -608,13 +762,21 @@ export class BankAccountsApi extends runtime.BaseAPI implements BankAccountsApiI
         let urlPath = `/external/bank-accounts/{id}`;
         urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'DELETE',
             headers: headerParameters,
             query: queryParameters,
             body: RemoveBankAccountRequestBodyDtoToJSON(requestParameters['removeBankAccountRequestBodyDto']),
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Remove uma conta bancária.
+     */
+    async removeBankAccountRaw(requestParameters: RemoveBankAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        const requestOptions = await this.removeBankAccountRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.VoidApiResponse(response);
     }
@@ -627,9 +789,9 @@ export class BankAccountsApi extends runtime.BaseAPI implements BankAccountsApiI
     }
 
     /**
-     * Busca todas as contas bancárias.
+     * Creates request options for systemFindAllBankAccounts without sending the request
      */
-    async systemFindAllBankAccountsRaw(requestParameters: SystemFindAllBankAccountsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankAccountsPageDto>> {
+    async systemFindAllBankAccountsRequestOpts(requestParameters: SystemFindAllBankAccountsRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['ownerOrganizationId'] == null) {
             throw new runtime.RequiredError(
                 'ownerOrganizationId',
@@ -708,12 +870,20 @@ export class BankAccountsApi extends runtime.BaseAPI implements BankAccountsApiI
 
         let urlPath = `/internal/bank-accounts`;
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Busca todas as contas bancárias.
+     */
+    async systemFindAllBankAccountsRaw(requestParameters: SystemFindAllBankAccountsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankAccountsPageDto>> {
+        const requestOptions = await this.systemFindAllBankAccountsRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => BankAccountsPageDtoFromJSON(jsonValue));
     }
@@ -727,9 +897,9 @@ export class BankAccountsApi extends runtime.BaseAPI implements BankAccountsApiI
     }
 
     /**
-     * Busca uma conta bancária pelo identificador.
+     * Creates request options for systemFindByIdBankAccount without sending the request
      */
-    async systemFindByIdBankAccountRaw(requestParameters: SystemFindByIdBankAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankAccountDto>> {
+    async systemFindByIdBankAccountRequestOpts(requestParameters: SystemFindByIdBankAccountRequest): Promise<runtime.RequestOpts> {
         if (requestParameters['id'] == null) {
             throw new runtime.RequiredError(
                 'id',
@@ -749,12 +919,20 @@ export class BankAccountsApi extends runtime.BaseAPI implements BankAccountsApiI
         let urlPath = `/internal/bank-accounts/{id}`;
         urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
 
-        const response = await this.request({
+        return {
             path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Busca uma conta bancária pelo identificador.
+     */
+    async systemFindByIdBankAccountRaw(requestParameters: SystemFindByIdBankAccountRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BankAccountDto>> {
+        const requestOptions = await this.systemFindByIdBankAccountRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => BankAccountDtoFromJSON(jsonValue));
     }

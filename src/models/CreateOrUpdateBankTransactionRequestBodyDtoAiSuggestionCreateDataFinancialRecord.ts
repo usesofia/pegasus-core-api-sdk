@@ -21,7 +21,7 @@ import { mapValues } from '../runtime';
 export interface CreateOrUpdateBankTransactionRequestBodyDtoAiSuggestionCreateDataFinancialRecord {
     /**
      * 
-     * @type {string}
+     * @type {CreateOrUpdateBankTransactionRequestBodyDtoAiSuggestionCreateDataFinancialRecordDirectionEnum}
      * @memberof CreateOrUpdateBankTransactionRequestBodyDtoAiSuggestionCreateDataFinancialRecord
      */
     direction: CreateOrUpdateBankTransactionRequestBodyDtoAiSuggestionCreateDataFinancialRecordDirectionEnum;

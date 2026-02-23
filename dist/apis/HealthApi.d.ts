@@ -19,6 +19,12 @@ import type { HealthResponseDto } from '../models/index';
  */
 export interface HealthApiInterface {
     /**
+     * Creates request options for error without sending the request
+     * @throws {RequiredError}
+     * @memberof HealthApiInterface
+     */
+    errorRequestOpts(): Promise<runtime.RequestOpts>;
+    /**
      *
      * @summary Gera um erro de teste.
      * @param {*} [options] Override http request option.
@@ -31,6 +37,12 @@ export interface HealthApiInterface {
      */
     error(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
     /**
+     * Creates request options for health without sending the request
+     * @throws {RequiredError}
+     * @memberof HealthApiInterface
+     */
+    healthRequestOpts(): Promise<runtime.RequestOpts>;
+    /**
      *
      * @summary Verifica o status do serviço.
      * @param {*} [options] Override http request option.
@@ -42,6 +54,12 @@ export interface HealthApiInterface {
      * Verifica o status do serviço.
      */
     health(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<HealthResponseDto>;
+    /**
+     * Creates request options for healthPost without sending the request
+     * @throws {RequiredError}
+     * @memberof HealthApiInterface
+     */
+    healthPostRequestOpts(): Promise<runtime.RequestOpts>;
     /**
      *
      * @summary Verifica o status do serviço.
@@ -60,6 +78,10 @@ export interface HealthApiInterface {
  */
 export declare class HealthApi extends runtime.BaseAPI implements HealthApiInterface {
     /**
+     * Creates request options for error without sending the request
+     */
+    errorRequestOpts(): Promise<runtime.RequestOpts>;
+    /**
      * Gera um erro de teste.
      */
     errorRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
@@ -68,6 +90,10 @@ export declare class HealthApi extends runtime.BaseAPI implements HealthApiInter
      */
     error(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
     /**
+     * Creates request options for health without sending the request
+     */
+    healthRequestOpts(): Promise<runtime.RequestOpts>;
+    /**
      * Verifica o status do serviço.
      */
     healthRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<HealthResponseDto>>;
@@ -75,6 +101,10 @@ export declare class HealthApi extends runtime.BaseAPI implements HealthApiInter
      * Verifica o status do serviço.
      */
     health(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<HealthResponseDto>;
+    /**
+     * Creates request options for healthPost without sending the request
+     */
+    healthPostRequestOpts(): Promise<runtime.RequestOpts>;
     /**
      * Verifica o status do serviço.
      */

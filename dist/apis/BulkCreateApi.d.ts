@@ -25,6 +25,13 @@ export interface ScheduleBulkCreateRequest {
  */
 export interface BulkCreateApiInterface {
     /**
+     * Creates request options for processBulkCreate without sending the request
+     * @param {ExecuteBulkCreateJobRequestBodyDto} executeBulkCreateJobRequestBodyDto
+     * @throws {RequiredError}
+     * @memberof BulkCreateApiInterface
+     */
+    processBulkCreateRequestOpts(requestParameters: ProcessBulkCreateRequest): Promise<runtime.RequestOpts>;
+    /**
      *
      * @summary Processes bulk create tasks
      * @param {ExecuteBulkCreateJobRequestBodyDto} executeBulkCreateJobRequestBodyDto
@@ -37,6 +44,13 @@ export interface BulkCreateApiInterface {
      * Processes bulk create tasks
      */
     processBulkCreate(requestParameters: ProcessBulkCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+    /**
+     * Creates request options for scheduleBulkCreate without sending the request
+     * @param {BulkCreateJobRequestDto} bulkCreateJobRequestDto
+     * @throws {RequiredError}
+     * @memberof BulkCreateApiInterface
+     */
+    scheduleBulkCreateRequestOpts(requestParameters: ScheduleBulkCreateRequest): Promise<runtime.RequestOpts>;
     /**
      *
      * @summary Schedules creation of multiple resources from a file
@@ -56,6 +70,10 @@ export interface BulkCreateApiInterface {
  */
 export declare class BulkCreateApi extends runtime.BaseAPI implements BulkCreateApiInterface {
     /**
+     * Creates request options for processBulkCreate without sending the request
+     */
+    processBulkCreateRequestOpts(requestParameters: ProcessBulkCreateRequest): Promise<runtime.RequestOpts>;
+    /**
      * Processes bulk create tasks
      */
     processBulkCreateRaw(requestParameters: ProcessBulkCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
@@ -63,6 +81,10 @@ export declare class BulkCreateApi extends runtime.BaseAPI implements BulkCreate
      * Processes bulk create tasks
      */
     processBulkCreate(requestParameters: ProcessBulkCreateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+    /**
+     * Creates request options for scheduleBulkCreate without sending the request
+     */
+    scheduleBulkCreateRequestOpts(requestParameters: ScheduleBulkCreateRequest): Promise<runtime.RequestOpts>;
     /**
      * Schedules creation of multiple resources from a file
      */

@@ -76,29 +76,42 @@ var QueriesApi = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
+     * Creates request options for createQuery without sending the request
+     */
+    QueriesApi.prototype.createQueryRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                if (requestParameters['createQueryRequestDto'] == null) {
+                    throw new runtime.RequiredError('createQueryRequestDto', 'Required parameter "createQueryRequestDto" was null or undefined when calling createQuery().');
+                }
+                queryParameters = {};
+                headerParameters = {};
+                headerParameters['Content-Type'] = 'application/json';
+                urlPath = "/external/queries";
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'POST',
+                        headers: headerParameters,
+                        query: queryParameters,
+                        body: (0, index_1.CreateQueryRequestDtoToJSON)(requestParameters['createQueryRequestDto']),
+                    }];
+            });
+        });
+    };
+    /**
      * Cria uma nova consulta.
      */
     QueriesApi.prototype.createQueryRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        if (requestParameters['createQueryRequestDto'] == null) {
-                            throw new runtime.RequiredError('createQueryRequestDto', 'Required parameter "createQueryRequestDto" was null or undefined when calling createQuery().');
-                        }
-                        queryParameters = {};
-                        headerParameters = {};
-                        headerParameters['Content-Type'] = 'application/json';
-                        urlPath = "/external/queries";
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'POST',
-                                headers: headerParameters,
-                                query: queryParameters,
-                                body: (0, index_1.CreateQueryRequestDtoToJSON)(requestParameters['createQueryRequestDto']),
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.createQueryRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.QueryResponseDtoFromJSON)(jsonValue); })];
                 }
@@ -123,28 +136,41 @@ var QueriesApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Creates request options for findByIdQuery without sending the request
+     */
+    QueriesApi.prototype.findByIdQueryRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                if (requestParameters['id'] == null) {
+                    throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling findByIdQuery().');
+                }
+                queryParameters = {};
+                headerParameters = {};
+                urlPath = "/external/queries/{id}";
+                urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'GET',
+                        headers: headerParameters,
+                        query: queryParameters,
+                    }];
+            });
+        });
+    };
+    /**
      * Busca uma consulta pelo identificador.
      */
     QueriesApi.prototype.findByIdQueryRaw = function (requestParameters, initOverrides) {
         return __awaiter(this, void 0, void 0, function () {
-            var queryParameters, headerParameters, urlPath, response;
+            var requestOptions, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        if (requestParameters['id'] == null) {
-                            throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling findByIdQuery().');
-                        }
-                        queryParameters = {};
-                        headerParameters = {};
-                        urlPath = "/external/queries/{id}";
-                        urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
-                        return [4 /*yield*/, this.request({
-                                path: urlPath,
-                                method: 'GET',
-                                headers: headerParameters,
-                                query: queryParameters,
-                            }, initOverrides)];
+                    case 0: return [4 /*yield*/, this.findByIdQueryRequestOpts(requestParameters)];
                     case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
                         response = _a.sent();
                         return [2 /*return*/, new runtime.JSONApiResponse(response, function (jsonValue) { return (0, index_1.QueryResponseDtoFromJSON)(jsonValue); })];
                 }

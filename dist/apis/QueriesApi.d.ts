@@ -25,6 +25,13 @@ export interface FindByIdQueryRequest {
  */
 export interface QueriesApiInterface {
     /**
+     * Creates request options for createQuery without sending the request
+     * @param {CreateQueryRequestDto} createQueryRequestDto
+     * @throws {RequiredError}
+     * @memberof QueriesApiInterface
+     */
+    createQueryRequestOpts(requestParameters: CreateQueryRequest): Promise<runtime.RequestOpts>;
+    /**
      *
      * @summary Cria uma nova consulta.
      * @param {CreateQueryRequestDto} createQueryRequestDto
@@ -37,6 +44,13 @@ export interface QueriesApiInterface {
      * Cria uma nova consulta.
      */
     createQuery(requestParameters: CreateQueryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<QueryResponseDto>;
+    /**
+     * Creates request options for findByIdQuery without sending the request
+     * @param {string} id Identificador da consulta.
+     * @throws {RequiredError}
+     * @memberof QueriesApiInterface
+     */
+    findByIdQueryRequestOpts(requestParameters: FindByIdQueryRequest): Promise<runtime.RequestOpts>;
     /**
      *
      * @summary Busca uma consulta pelo identificador.
@@ -56,6 +70,10 @@ export interface QueriesApiInterface {
  */
 export declare class QueriesApi extends runtime.BaseAPI implements QueriesApiInterface {
     /**
+     * Creates request options for createQuery without sending the request
+     */
+    createQueryRequestOpts(requestParameters: CreateQueryRequest): Promise<runtime.RequestOpts>;
+    /**
      * Cria uma nova consulta.
      */
     createQueryRaw(requestParameters: CreateQueryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<QueryResponseDto>>;
@@ -63,6 +81,10 @@ export declare class QueriesApi extends runtime.BaseAPI implements QueriesApiInt
      * Cria uma nova consulta.
      */
     createQuery(requestParameters: CreateQueryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<QueryResponseDto>;
+    /**
+     * Creates request options for findByIdQuery without sending the request
+     */
+    findByIdQueryRequestOpts(requestParameters: FindByIdQueryRequest): Promise<runtime.RequestOpts>;
     /**
      * Busca uma consulta pelo identificador.
      */
