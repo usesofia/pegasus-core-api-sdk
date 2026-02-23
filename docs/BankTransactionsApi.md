@@ -7,6 +7,7 @@ All URIs are relative to *http://localhost*
 | [**createOrUpdateBankTransaction**](BankTransactionsApi.md#createorupdatebanktransaction) | **PUT** /internal/bank-transactions | Cria ou atualiza uma movimentação financeira. |
 | [**createOrUpdateBankTransactionBestSuggestedAction**](BankTransactionsApi.md#createorupdatebanktransactionbestsuggestedaction) | **PUT** /external/bank-transactions/{bankTransactionId}/best-suggested-action | Cria ou atualiza uma sugestão de melhor ação para uma transação bancária. |
 | [**dispatchOfxImport**](BankTransactionsApi.md#dispatchofximport) | **POST** /external/bank-transactions/ofx | Dispara a importação assíncrona de um arquivo OFX. |
+| [**downloadOfxImportFailures**](BankTransactionsApi.md#downloadofximportfailures) | **GET** /external/bank-transactions/ofx/job-executions/{id}/failures/download | Baixa as falhas de uma execução de importação OFX em Excel. |
 | [**findAiSuggestionsByFinancialRecordId**](BankTransactionsApi.md#findaisuggestionsbyfinancialrecordid) | **GET** /external/financial-records/{financialRecordId}/ai-suggestions | Busca sugestões de AI por ID do lançamento financeiro. |
 | [**findAllBankTransactions**](BankTransactionsApi.md#findallbanktransactions) | **GET** /external/bank-transactions | Busca todas as movimentações financeiras. |
 | [**findAllOfxImportJobRequests**](BankTransactionsApi.md#findallofximportjobrequests) | **GET** /external/bank-transactions/ofx/job-requests | Lista todas as solicitações de importação de arquivos OFX com suas execuções. |
@@ -16,6 +17,7 @@ All URIs are relative to *http://localhost*
 | [**processBulkBankTransactionsOperation**](BankTransactionsApi.md#processbulkbanktransactionsoperation) | **POST** /internal/queues/bulk-bank-transactions | Processa uma operação em lote para transações bancárias. |
 | [**processOfxImport**](BankTransactionsApi.md#processofximport) | **POST** /internal/queues/ofx-import | Processa a importação assíncrona de um arquivo OFX. |
 | [**reconcileBankTransaction**](BankTransactionsApi.md#reconcilebanktransaction) | **POST** /external/bank-transactions/{bankTransactionId}/reconcile | Reconcilia uma transação bancária com múltiplos lançamentos financeiros. |
+| [**retryOfxImport**](BankTransactionsApi.md#retryofximport) | **POST** /external/bank-transactions/ofx/job-requests/{id}/retry | Reexecuta a importação de um job request de OFX. |
 | [**scheduleBulkBankTransactionsOperation**](BankTransactionsApi.md#schedulebulkbanktransactionsoperation) | **POST** /external/bank-transactions/bulk-operations | Agenda uma operação em lote para transações bancárias. |
 | [**shouldAiSuggestAction**](BankTransactionsApi.md#shouldaisuggestaction) | **POST** /internal/bank-transactions/should-ai-suggest-action | Verifica se a AI deve sugerir uma ação para uma transação bancária. |
 | [**systemFindAllBankTransactions**](BankTransactionsApi.md#systemfindallbanktransactions) | **GET** /internal/bank-transactions | Busca todas as movimentações financeiras pelo sistema. |
@@ -221,6 +223,72 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **201** |  |  -  |
+| **0** |  |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## downloadOfxImportFailures
+
+> downloadOfxImportFailures(id)
+
+Baixa as falhas de uma execução de importação OFX em Excel.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  BankTransactionsApi,
+} from '@usesofia/pegasus-core-api-sdk';
+import type { DownloadOfxImportFailuresRequest } from '@usesofia/pegasus-core-api-sdk';
+
+async function example() {
+  console.log("🚀 Testing @usesofia/pegasus-core-api-sdk SDK...");
+  const api = new BankTransactionsApi();
+
+  const body = {
+    // string | ID da execução do job de importação OFX.
+    id: id_example,
+  } satisfies DownloadOfxImportFailuresRequest;
+
+  try {
+    const data = await api.downloadOfxImportFailures(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | `string` | ID da execução do job de importação OFX. | [Defaults to `undefined`] |
+
+### Return type
+
+`void` (Empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** |  |  -  |
 | **0** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
@@ -890,6 +958,72 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **201** | A transação bancária reconciliada. |  -  |
+| **0** |  |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## retryOfxImport
+
+> retryOfxImport(id)
+
+Reexecuta a importação de um job request de OFX.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  BankTransactionsApi,
+} from '@usesofia/pegasus-core-api-sdk';
+import type { RetryOfxImportRequest } from '@usesofia/pegasus-core-api-sdk';
+
+async function example() {
+  console.log("🚀 Testing @usesofia/pegasus-core-api-sdk SDK...");
+  const api = new BankTransactionsApi();
+
+  const body = {
+    // string | ID do job request de importação OFX.
+    id: id_example,
+  } satisfies RetryOfxImportRequest;
+
+  try {
+    const data = await api.retryOfxImport(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | `string` | ID do job request de importação OFX. | [Defaults to `undefined`] |
+
+### Return type
+
+`void` (Empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** |  |  -  |
 | **0** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)

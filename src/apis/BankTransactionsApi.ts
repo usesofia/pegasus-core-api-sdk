@@ -80,6 +80,10 @@ export interface DispatchOfxImportRequest {
     ofxImportRequestBodyDto: OfxImportRequestBodyDto;
 }
 
+export interface DownloadOfxImportFailuresRequest {
+    id: string;
+}
+
 export interface FindAiSuggestionsByFinancialRecordIdRequest {
     financialRecordId: string;
 }
@@ -139,6 +143,10 @@ export interface ProcessOfxImportRequest {
 export interface ReconcileBankTransactionRequest {
     bankTransactionId: string;
     reconcileBankTransactionRequestBodyDto: ReconcileBankTransactionRequestBodyDto;
+}
+
+export interface RetryOfxImportRequest {
+    id: string;
 }
 
 export interface ScheduleBulkBankTransactionsOperationRequest {
@@ -273,6 +281,29 @@ export interface BankTransactionsApiInterface {
      * Dispara a importação assíncrona de um arquivo OFX.
      */
     dispatchOfxImport(requestParameters: DispatchOfxImportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<OfxImportJobRequestEntity>;
+
+    /**
+     * Creates request options for downloadOfxImportFailures without sending the request
+     * @param {string} id ID da execução do job de importação OFX.
+     * @throws {RequiredError}
+     * @memberof BankTransactionsApiInterface
+     */
+    downloadOfxImportFailuresRequestOpts(requestParameters: DownloadOfxImportFailuresRequest): Promise<runtime.RequestOpts>;
+
+    /**
+     * 
+     * @summary Baixa as falhas de uma execução de importação OFX em Excel.
+     * @param {string} id ID da execução do job de importação OFX.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof BankTransactionsApiInterface
+     */
+    downloadOfxImportFailuresRaw(requestParameters: DownloadOfxImportFailuresRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
+
+    /**
+     * Baixa as falhas de uma execução de importação OFX em Excel.
+     */
+    downloadOfxImportFailures(requestParameters: DownloadOfxImportFailuresRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
 
     /**
      * Creates request options for findAiSuggestionsByFinancialRecordId without sending the request
@@ -530,6 +561,29 @@ export interface BankTransactionsApiInterface {
      * Reconcilia uma transação bancária com múltiplos lançamentos financeiros.
      */
     reconcileBankTransaction(requestParameters: ReconcileBankTransactionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankTransactionEntity>;
+
+    /**
+     * Creates request options for retryOfxImport without sending the request
+     * @param {string} id ID do job request de importação OFX.
+     * @throws {RequiredError}
+     * @memberof BankTransactionsApiInterface
+     */
+    retryOfxImportRequestOpts(requestParameters: RetryOfxImportRequest): Promise<runtime.RequestOpts>;
+
+    /**
+     * 
+     * @summary Reexecuta a importação de um job request de OFX.
+     * @param {string} id ID do job request de importação OFX.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof BankTransactionsApiInterface
+     */
+    retryOfxImportRaw(requestParameters: RetryOfxImportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
+
+    /**
+     * Reexecuta a importação de um job request de OFX.
+     */
+    retryOfxImport(requestParameters: RetryOfxImportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
 
     /**
      * Creates request options for scheduleBulkBankTransactionsOperation without sending the request
@@ -879,6 +933,50 @@ export class BankTransactionsApi extends runtime.BaseAPI implements BankTransact
     async dispatchOfxImport(requestParameters: DispatchOfxImportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<OfxImportJobRequestEntity> {
         const response = await this.dispatchOfxImportRaw(requestParameters, initOverrides);
         return await response.value();
+    }
+
+    /**
+     * Creates request options for downloadOfxImportFailures without sending the request
+     */
+    async downloadOfxImportFailuresRequestOpts(requestParameters: DownloadOfxImportFailuresRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['id'] == null) {
+            throw new runtime.RequiredError(
+                'id',
+                'Required parameter "id" was null or undefined when calling downloadOfxImportFailures().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+
+        let urlPath = `/external/bank-transactions/ofx/job-executions/{id}/failures/download`;
+        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+
+        return {
+            path: urlPath,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        };
+    }
+
+    /**
+     * Baixa as falhas de uma execução de importação OFX em Excel.
+     */
+    async downloadOfxImportFailuresRaw(requestParameters: DownloadOfxImportFailuresRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        const requestOptions = await this.downloadOfxImportFailuresRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.VoidApiResponse(response);
+    }
+
+    /**
+     * Baixa as falhas de uma execução de importação OFX em Excel.
+     */
+    async downloadOfxImportFailures(requestParameters: DownloadOfxImportFailuresRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+        await this.downloadOfxImportFailuresRaw(requestParameters, initOverrides);
     }
 
     /**
@@ -1391,6 +1489,50 @@ export class BankTransactionsApi extends runtime.BaseAPI implements BankTransact
     async reconcileBankTransaction(requestParameters: ReconcileBankTransactionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankTransactionEntity> {
         const response = await this.reconcileBankTransactionRaw(requestParameters, initOverrides);
         return await response.value();
+    }
+
+    /**
+     * Creates request options for retryOfxImport without sending the request
+     */
+    async retryOfxImportRequestOpts(requestParameters: RetryOfxImportRequest): Promise<runtime.RequestOpts> {
+        if (requestParameters['id'] == null) {
+            throw new runtime.RequiredError(
+                'id',
+                'Required parameter "id" was null or undefined when calling retryOfxImport().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+
+        let urlPath = `/external/bank-transactions/ofx/job-requests/{id}/retry`;
+        urlPath = urlPath.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id'])));
+
+        return {
+            path: urlPath,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+        };
+    }
+
+    /**
+     * Reexecuta a importação de um job request de OFX.
+     */
+    async retryOfxImportRaw(requestParameters: RetryOfxImportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        const requestOptions = await this.retryOfxImportRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
+
+        return new runtime.VoidApiResponse(response);
+    }
+
+    /**
+     * Reexecuta a importação de um job request de OFX.
+     */
+    async retryOfxImport(requestParameters: RetryOfxImportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+        await this.retryOfxImportRaw(requestParameters, initOverrides);
     }
 
     /**

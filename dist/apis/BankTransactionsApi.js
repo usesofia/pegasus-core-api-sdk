@@ -258,6 +258,63 @@ var BankTransactionsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Creates request options for downloadOfxImportFailures without sending the request
+     */
+    BankTransactionsApi.prototype.downloadOfxImportFailuresRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                if (requestParameters['id'] == null) {
+                    throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling downloadOfxImportFailures().');
+                }
+                queryParameters = {};
+                headerParameters = {};
+                urlPath = "/external/bank-transactions/ofx/job-executions/{id}/failures/download";
+                urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'GET',
+                        headers: headerParameters,
+                        query: queryParameters,
+                    }];
+            });
+        });
+    };
+    /**
+     * Baixa as falhas de uma execução de importação OFX em Excel.
+     */
+    BankTransactionsApi.prototype.downloadOfxImportFailuresRaw = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var requestOptions, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.downloadOfxImportFailuresRequestOpts(requestParameters)];
+                    case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
+                        response = _a.sent();
+                        return [2 /*return*/, new runtime.VoidApiResponse(response)];
+                }
+            });
+        });
+    };
+    /**
+     * Baixa as falhas de uma execução de importação OFX em Excel.
+     */
+    BankTransactionsApi.prototype.downloadOfxImportFailures = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.downloadOfxImportFailuresRaw(requestParameters, initOverrides)];
+                    case 1:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    /**
      * Creates request options for findAiSuggestionsByFinancialRecordId without sending the request
      */
     BankTransactionsApi.prototype.findAiSuggestionsByFinancialRecordIdRequestOpts = function (requestParameters) {
@@ -860,6 +917,63 @@ var BankTransactionsApi = /** @class */ (function (_super) {
                         response = _a.sent();
                         return [4 /*yield*/, response.value()];
                     case 2: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
+    /**
+     * Creates request options for retryOfxImport without sending the request
+     */
+    BankTransactionsApi.prototype.retryOfxImportRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                if (requestParameters['id'] == null) {
+                    throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling retryOfxImport().');
+                }
+                queryParameters = {};
+                headerParameters = {};
+                urlPath = "/external/bank-transactions/ofx/job-requests/{id}/retry";
+                urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'POST',
+                        headers: headerParameters,
+                        query: queryParameters,
+                    }];
+            });
+        });
+    };
+    /**
+     * Reexecuta a importação de um job request de OFX.
+     */
+    BankTransactionsApi.prototype.retryOfxImportRaw = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var requestOptions, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.retryOfxImportRequestOpts(requestParameters)];
+                    case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
+                        response = _a.sent();
+                        return [2 /*return*/, new runtime.VoidApiResponse(response)];
+                }
+            });
+        });
+    };
+    /**
+     * Reexecuta a importação de um job request de OFX.
+     */
+    BankTransactionsApi.prototype.retryOfxImport = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.retryOfxImportRaw(requestParameters, initOverrides)];
+                    case 1:
+                        _a.sent();
+                        return [2 /*return*/];
                 }
             });
         });

@@ -21,6 +21,9 @@ export interface CreateOrUpdateBankTransactionBestSuggestedActionRequest {
 export interface DispatchOfxImportRequest {
     ofxImportRequestBodyDto: OfxImportRequestBodyDto;
 }
+export interface DownloadOfxImportFailuresRequest {
+    id: string;
+}
 export interface FindAiSuggestionsByFinancialRecordIdRequest {
     financialRecordId: string;
 }
@@ -72,6 +75,9 @@ export interface ProcessOfxImportRequest {
 export interface ReconcileBankTransactionRequest {
     bankTransactionId: string;
     reconcileBankTransactionRequestBodyDto: ReconcileBankTransactionRequestBodyDto;
+}
+export interface RetryOfxImportRequest {
+    id: string;
 }
 export interface ScheduleBulkBankTransactionsOperationRequest {
     bulkBankTransactionsJobRequestDto: BulkBankTransactionsJobRequestDto;
@@ -191,6 +197,26 @@ export interface BankTransactionsApiInterface {
      * Dispara a importação assíncrona de um arquivo OFX.
      */
     dispatchOfxImport(requestParameters: DispatchOfxImportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<OfxImportJobRequestEntity>;
+    /**
+     * Creates request options for downloadOfxImportFailures without sending the request
+     * @param {string} id ID da execução do job de importação OFX.
+     * @throws {RequiredError}
+     * @memberof BankTransactionsApiInterface
+     */
+    downloadOfxImportFailuresRequestOpts(requestParameters: DownloadOfxImportFailuresRequest): Promise<runtime.RequestOpts>;
+    /**
+     *
+     * @summary Baixa as falhas de uma execução de importação OFX em Excel.
+     * @param {string} id ID da execução do job de importação OFX.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof BankTransactionsApiInterface
+     */
+    downloadOfxImportFailuresRaw(requestParameters: DownloadOfxImportFailuresRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
+    /**
+     * Baixa as falhas de uma execução de importação OFX em Excel.
+     */
+    downloadOfxImportFailures(requestParameters: DownloadOfxImportFailuresRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
     /**
      * Creates request options for findAiSuggestionsByFinancialRecordId without sending the request
      * @param {string} financialRecordId ID do lançamento financeiro.
@@ -422,6 +448,26 @@ export interface BankTransactionsApiInterface {
      */
     reconcileBankTransaction(requestParameters: ReconcileBankTransactionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankTransactionEntity>;
     /**
+     * Creates request options for retryOfxImport without sending the request
+     * @param {string} id ID do job request de importação OFX.
+     * @throws {RequiredError}
+     * @memberof BankTransactionsApiInterface
+     */
+    retryOfxImportRequestOpts(requestParameters: RetryOfxImportRequest): Promise<runtime.RequestOpts>;
+    /**
+     *
+     * @summary Reexecuta a importação de um job request de OFX.
+     * @param {string} id ID do job request de importação OFX.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof BankTransactionsApiInterface
+     */
+    retryOfxImportRaw(requestParameters: RetryOfxImportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
+    /**
+     * Reexecuta a importação de um job request de OFX.
+     */
+    retryOfxImport(requestParameters: RetryOfxImportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+    /**
      * Creates request options for scheduleBulkBankTransactionsOperation without sending the request
      * @param {BulkBankTransactionsJobRequestDto} bulkBankTransactionsJobRequestDto
      * @throws {RequiredError}
@@ -645,6 +691,18 @@ export declare class BankTransactionsApi extends runtime.BaseAPI implements Bank
      */
     dispatchOfxImport(requestParameters: DispatchOfxImportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<OfxImportJobRequestEntity>;
     /**
+     * Creates request options for downloadOfxImportFailures without sending the request
+     */
+    downloadOfxImportFailuresRequestOpts(requestParameters: DownloadOfxImportFailuresRequest): Promise<runtime.RequestOpts>;
+    /**
+     * Baixa as falhas de uma execução de importação OFX em Excel.
+     */
+    downloadOfxImportFailuresRaw(requestParameters: DownloadOfxImportFailuresRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
+    /**
+     * Baixa as falhas de uma execução de importação OFX em Excel.
+     */
+    downloadOfxImportFailures(requestParameters: DownloadOfxImportFailuresRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+    /**
      * Creates request options for findAiSuggestionsByFinancialRecordId without sending the request
      */
     findAiSuggestionsByFinancialRecordIdRequestOpts(requestParameters: FindAiSuggestionsByFinancialRecordIdRequest): Promise<runtime.RequestOpts>;
@@ -752,6 +810,18 @@ export declare class BankTransactionsApi extends runtime.BaseAPI implements Bank
      * Reconcilia uma transação bancária com múltiplos lançamentos financeiros.
      */
     reconcileBankTransaction(requestParameters: ReconcileBankTransactionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankTransactionEntity>;
+    /**
+     * Creates request options for retryOfxImport without sending the request
+     */
+    retryOfxImportRequestOpts(requestParameters: RetryOfxImportRequest): Promise<runtime.RequestOpts>;
+    /**
+     * Reexecuta a importação de um job request de OFX.
+     */
+    retryOfxImportRaw(requestParameters: RetryOfxImportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
+    /**
+     * Reexecuta a importação de um job request de OFX.
+     */
+    retryOfxImport(requestParameters: RetryOfxImportRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
     /**
      * Creates request options for scheduleBulkBankTransactionsOperation without sending the request
      */
