@@ -125,6 +125,10 @@ export interface SystemOrganizationFindAllBankTransactionsRequest {
     pageSize?: number;
     pageIndex?: number;
 }
+export interface SystemRemoveBankTransactionRequest {
+    id: string;
+    ownerOrganizationId: string;
+}
 export interface UnreconcileBankTransactionRequest {
     bankTransactionId: string;
 }
@@ -630,6 +634,28 @@ export interface BankTransactionsApiInterface {
      */
     systemOrganizationFindAllBankTransactions(requestParameters: SystemOrganizationFindAllBankTransactionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankTransactionsPageDto>;
     /**
+     * Creates request options for systemRemoveBankTransaction without sending the request
+     * @param {string} id ID da movimentação financeira.
+     * @param {string} ownerOrganizationId Identificador da organização proprietária da movimentação financeira.
+     * @throws {RequiredError}
+     * @memberof BankTransactionsApiInterface
+     */
+    systemRemoveBankTransactionRequestOpts(requestParameters: SystemRemoveBankTransactionRequest): Promise<runtime.RequestOpts>;
+    /**
+     *
+     * @summary Remove uma movimentação financeira por ID. Se estiver conciliada, desfaz a conciliação antes e notifica o usuário por e-mail.
+     * @param {string} id ID da movimentação financeira.
+     * @param {string} ownerOrganizationId Identificador da organização proprietária da movimentação financeira.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof BankTransactionsApiInterface
+     */
+    systemRemoveBankTransactionRaw(requestParameters: SystemRemoveBankTransactionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
+    /**
+     * Remove uma movimentação financeira por ID. Se estiver conciliada, desfaz a conciliação antes e notifica o usuário por e-mail.
+     */
+    systemRemoveBankTransaction(requestParameters: SystemRemoveBankTransactionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+    /**
      * Creates request options for unreconcileBankTransaction without sending the request
      * @param {string} bankTransactionId ID da transação bancária para desfazer a reconciliação.
      * @throws {RequiredError}
@@ -882,6 +908,18 @@ export declare class BankTransactionsApi extends runtime.BaseAPI implements Bank
      * Busca todas as movimentações financeiras pelo sistema (por organização).
      */
     systemOrganizationFindAllBankTransactions(requestParameters: SystemOrganizationFindAllBankTransactionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BankTransactionsPageDto>;
+    /**
+     * Creates request options for systemRemoveBankTransaction without sending the request
+     */
+    systemRemoveBankTransactionRequestOpts(requestParameters: SystemRemoveBankTransactionRequest): Promise<runtime.RequestOpts>;
+    /**
+     * Remove uma movimentação financeira por ID. Se estiver conciliada, desfaz a conciliação antes e notifica o usuário por e-mail.
+     */
+    systemRemoveBankTransactionRaw(requestParameters: SystemRemoveBankTransactionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
+    /**
+     * Remove uma movimentação financeira por ID. Se estiver conciliada, desfaz a conciliação antes e notifica o usuário por e-mail.
+     */
+    systemRemoveBankTransaction(requestParameters: SystemRemoveBankTransactionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
     /**
      * Creates request options for unreconcileBankTransaction without sending the request
      */

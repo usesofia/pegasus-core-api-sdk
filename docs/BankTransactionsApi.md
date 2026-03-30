@@ -23,6 +23,7 @@ All URIs are relative to *http://localhost*
 | [**systemFindAllBankTransactions**](BankTransactionsApi.md#systemfindallbanktransactions) | **GET** /internal/bank-transactions | Busca todas as movimentações financeiras pelo sistema. |
 | [**systemFindBankTransactionById**](BankTransactionsApi.md#systemfindbanktransactionbyid) | **GET** /internal/bank-transactions/{id} | Busca uma movimentação financeira por ID. |
 | [**systemOrganizationFindAllBankTransactions**](BankTransactionsApi.md#systemorganizationfindallbanktransactions) | **GET** /internal/organizations/{organizationId}/bank-transactions | Busca todas as movimentações financeiras pelo sistema (por organização). |
+| [**systemRemoveBankTransaction**](BankTransactionsApi.md#systemremovebanktransaction) | **DELETE** /internal/bank-transactions/{id} | Remove uma movimentação financeira por ID. Se estiver conciliada, desfaz a conciliação antes e notifica o usuário por e-mail. |
 | [**unreconcileBankTransaction**](BankTransactionsApi.md#unreconcilebanktransaction) | **POST** /external/bank-transactions/{bankTransactionId}/unreconcile | Desfaz a reconciliação de uma transação bancária. |
 
 
@@ -1447,6 +1448,75 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** |  |  -  |
+| **0** |  |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## systemRemoveBankTransaction
+
+> systemRemoveBankTransaction(id, ownerOrganizationId)
+
+Remove uma movimentação financeira por ID. Se estiver conciliada, desfaz a conciliação antes e notifica o usuário por e-mail.
+
+### Example
+
+```ts
+import {
+  Configuration,
+  BankTransactionsApi,
+} from '@usesofia/pegasus-core-api-sdk';
+import type { SystemRemoveBankTransactionRequest } from '@usesofia/pegasus-core-api-sdk';
+
+async function example() {
+  console.log("🚀 Testing @usesofia/pegasus-core-api-sdk SDK...");
+  const api = new BankTransactionsApi();
+
+  const body = {
+    // string | ID da movimentação financeira.
+    id: id_example,
+    // string | Identificador da organização proprietária da movimentação financeira.
+    ownerOrganizationId: ownerOrganizationId_example,
+  } satisfies SystemRemoveBankTransactionRequest;
+
+  try {
+    const data = await api.systemRemoveBankTransaction(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | `string` | ID da movimentação financeira. | [Defaults to `undefined`] |
+| **ownerOrganizationId** | `string` | Identificador da organização proprietária da movimentação financeira. | [Defaults to `undefined`] |
+
+### Return type
+
+`void` (Empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Transação removida com sucesso. |  -  |
 | **0** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)

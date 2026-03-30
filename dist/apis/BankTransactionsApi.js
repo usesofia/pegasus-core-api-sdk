@@ -1371,6 +1371,69 @@ var BankTransactionsApi = /** @class */ (function (_super) {
         });
     };
     /**
+     * Creates request options for systemRemoveBankTransaction without sending the request
+     */
+    BankTransactionsApi.prototype.systemRemoveBankTransactionRequestOpts = function (requestParameters) {
+        return __awaiter(this, void 0, void 0, function () {
+            var queryParameters, headerParameters, urlPath;
+            return __generator(this, function (_a) {
+                if (requestParameters['id'] == null) {
+                    throw new runtime.RequiredError('id', 'Required parameter "id" was null or undefined when calling systemRemoveBankTransaction().');
+                }
+                if (requestParameters['ownerOrganizationId'] == null) {
+                    throw new runtime.RequiredError('ownerOrganizationId', 'Required parameter "ownerOrganizationId" was null or undefined when calling systemRemoveBankTransaction().');
+                }
+                queryParameters = {};
+                if (requestParameters['ownerOrganizationId'] != null) {
+                    queryParameters['ownerOrganizationId'] = requestParameters['ownerOrganizationId'];
+                }
+                headerParameters = {};
+                urlPath = "/internal/bank-transactions/{id}";
+                urlPath = urlPath.replace("{".concat("id", "}"), encodeURIComponent(String(requestParameters['id'])));
+                return [2 /*return*/, {
+                        path: urlPath,
+                        method: 'DELETE',
+                        headers: headerParameters,
+                        query: queryParameters,
+                    }];
+            });
+        });
+    };
+    /**
+     * Remove uma movimentação financeira por ID. Se estiver conciliada, desfaz a conciliação antes e notifica o usuário por e-mail.
+     */
+    BankTransactionsApi.prototype.systemRemoveBankTransactionRaw = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            var requestOptions, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.systemRemoveBankTransactionRequestOpts(requestParameters)];
+                    case 1:
+                        requestOptions = _a.sent();
+                        return [4 /*yield*/, this.request(requestOptions, initOverrides)];
+                    case 2:
+                        response = _a.sent();
+                        return [2 /*return*/, new runtime.VoidApiResponse(response)];
+                }
+            });
+        });
+    };
+    /**
+     * Remove uma movimentação financeira por ID. Se estiver conciliada, desfaz a conciliação antes e notifica o usuário por e-mail.
+     */
+    BankTransactionsApi.prototype.systemRemoveBankTransaction = function (requestParameters, initOverrides) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.systemRemoveBankTransactionRaw(requestParameters, initOverrides)];
+                    case 1:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    /**
      * Creates request options for unreconcileBankTransaction without sending the request
      */
     BankTransactionsApi.prototype.unreconcileBankTransactionRequestOpts = function (requestParameters) {
