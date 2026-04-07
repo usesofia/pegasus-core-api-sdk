@@ -23,7 +23,7 @@ All URIs are relative to *http://localhost*
 | [**systemFindAllBankTransactions**](BankTransactionsApi.md#systemfindallbanktransactions) | **GET** /internal/bank-transactions | Busca todas as movimentações financeiras pelo sistema. |
 | [**systemFindBankTransactionById**](BankTransactionsApi.md#systemfindbanktransactionbyid) | **GET** /internal/bank-transactions/{id} | Busca uma movimentação financeira por ID. |
 | [**systemOrganizationFindAllBankTransactions**](BankTransactionsApi.md#systemorganizationfindallbanktransactions) | **GET** /internal/organizations/{organizationId}/bank-transactions | Busca todas as movimentações financeiras pelo sistema (por organização). |
-| [**systemRemoveBankTransaction**](BankTransactionsApi.md#systemremovebanktransaction) | **DELETE** /internal/bank-transactions/{id} | Remove uma movimentação financeira por ID. Se estiver conciliada, desfaz a conciliação antes e notifica o usuário por e-mail. |
+| [**systemRemoveBankTransaction**](BankTransactionsApi.md#systemremovebanktransaction) | **DELETE** /internal/bank-transactions/{providerTransactionId} | Remove uma movimentação financeira pelo identificador no provedor (providerTransactionId). Se estiver conciliada, desfaz a conciliação antes e notifica o usuário por e-mail. |
 | [**unreconcileBankTransaction**](BankTransactionsApi.md#unreconcilebanktransaction) | **POST** /external/bank-transactions/{bankTransactionId}/unreconcile | Desfaz a reconciliação de uma transação bancária. |
 
 
@@ -1455,9 +1455,9 @@ No authorization required
 
 ## systemRemoveBankTransaction
 
-> systemRemoveBankTransaction(id, ownerOrganizationId)
+> systemRemoveBankTransaction(providerTransactionId, ownerOrganizationId)
 
-Remove uma movimentação financeira por ID. Se estiver conciliada, desfaz a conciliação antes e notifica o usuário por e-mail.
+Remove uma movimentação financeira pelo identificador no provedor (providerTransactionId). Se estiver conciliada, desfaz a conciliação antes e notifica o usuário por e-mail.
 
 ### Example
 
@@ -1473,8 +1473,8 @@ async function example() {
   const api = new BankTransactionsApi();
 
   const body = {
-    // string | ID da movimentação financeira.
-    id: id_example,
+    // string | Identificador da movimentação financeira no provedor (providerTransactionId), não o _id do documento.
+    providerTransactionId: providerTransactionId_example,
     // string | Identificador da organização proprietária da movimentação financeira.
     ownerOrganizationId: ownerOrganizationId_example,
   } satisfies SystemRemoveBankTransactionRequest;
@@ -1496,7 +1496,7 @@ example().catch(console.error);
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | `string` | ID da movimentação financeira. | [Defaults to `undefined`] |
+| **providerTransactionId** | `string` | Identificador da movimentação financeira no provedor (providerTransactionId), não o _id do documento. | [Defaults to `undefined`] |
 | **ownerOrganizationId** | `string` | Identificador da organização proprietária da movimentação financeira. | [Defaults to `undefined`] |
 
 ### Return type
