@@ -10,6 +10,7 @@ Name | Type
 `name` | string
 `type` | string
 `role` | string
+`onFinSystem` | boolean
 `parent` | [ProcessExportResourceJobRequestBodyDtoRequesterOrganizationParent](ProcessExportResourceJobRequestBodyDtoRequesterOrganizationParent.md)
 `children` | [Array&lt;ProcessExportResourceJobRequestBodyDtoRequesterOrganizationChildrenInner&gt;](ProcessExportResourceJobRequestBodyDtoRequesterOrganizationChildrenInner.md)
 
@@ -24,6 +25,7 @@ const example = {
   "name": null,
   "type": null,
   "role": null,
+  "onFinSystem": null,
   "parent": null,
   "children": null,
 } satisfies ProcessExportResourceJobRequestBodyDtoRequesterOrganization
